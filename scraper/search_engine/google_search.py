@@ -1,5 +1,6 @@
 import requests
 import os
+from dotenv import load_dotenv
 
 class GoogleNewsSearch:
     def __init__(self, api_key, cx, news_sites=None):
@@ -80,6 +81,7 @@ class GoogleNewsSearch:
 
 # Example Usage:
 if __name__ == "__main__":
+    load_dotenv()
     # Replace with your actual API_KEY and CX
     API_KEY = os.environ.get("GOOGLE_API_KEY")
     CX = os.environ.get("CX")
