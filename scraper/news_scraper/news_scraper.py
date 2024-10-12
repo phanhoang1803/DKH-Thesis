@@ -1,35 +1,19 @@
+# news_scraper/news_scraper.py
+
 from newsplease import NewsPlease
 
 class NewsPleaseScraper:
     def __init__(self, user_agent=None):
-        """
-        Initialize the NewsPleaseScraper with an optional User-Agent.
-
-        Parameters:
-        user_agent (str): Custom User-Agent to be used while scraping.
-        """
         self.user_agent = user_agent or 'NewsPleaseBot/0.1 (+https://github.com/fhamborg/news-please)'
     
     def scrape(self, urls):
-        """
-        Scrape news articles using news-please. Handles both single URL and multiple URLs.
-
-        Parameters:
-        urls (str or list): A single URL (str) or a list of URLs (list) to scrape.
-
-        Returns:
-        list: A list of dictionaries containing article metadata for each scraped article.
-        """
         # Ensure urls is a list for uniform processing
         if isinstance(urls, str):
             urls = [urls]
         
         try:
             # Scrape multiple URLs
-            if len(urls) > 1:
-                articles = NewsPlease.from_urls(urls, user_agent=self.user_agent)
-            else:
-                articles = {urls[0]: NewsPlease.from_url(urls[0], user_agent=self.user_agent)}
+            articles = NewsPlease.from_urls(urls, user_agent=self.user_agent)
             
             # Collect article data for each URL
             scraped_articles = []
@@ -59,12 +43,11 @@ if __name__ == "__main__":
     # Instantiate the scraper
     scraper = NewsPleaseScraper()
 
-    # Example filtered URLs from the GoogleNewsSearch results
-    filtered_news = [
+    news_urls = [
         "https://edition.cnn.com/2024/10/07/politics/debt-harris-trump-proposals/index.html",
     ]
 
-    scraped_articles = scraper.scrape(filtered_news)
+    scraped_articles = scraper.scrape(news_urls)
 
     # Scrape each article and print the results
     if scraped_articles:
