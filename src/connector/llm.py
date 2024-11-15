@@ -5,8 +5,11 @@ from typing import Optional
 import torch
 import time
 
+
 class LLMConnector:
-    def __init__(self, model_name: str, device: str = 'cpu', torch_dtype: str= "bfloat16"):
+    def __init__(
+        self, model_name: str, device: str = "cpu", torch_dtype: str = "bfloat16"
+    ):
         """
         Initialize the Hugging Face LLM connector.
 
@@ -29,7 +32,9 @@ class LLMConnector:
                 "text-generation",
                 model=self.model_name,
                 device_map="auto" if self.device == "cuda" else None,
-                torch_dtype=torch.bfloat16 if self.torch_dtype == "bfloat16" else torch.float32,
+                torch_dtype=(
+                    torch.bfloat16 if self.torch_dtype == "bfloat16" else torch.float32
+                ),
             )
             self.logger.info(f"Successfully connected to model '{self.model_name}'")
         except Exception as e:
@@ -41,7 +46,7 @@ class LLMConnector:
         Generate a conversational response based on structured input.
 
         Args:
-            messages (list): List of dictionaries representing the conversation, 
+            messages (list): List of dictionaries representing the conversation,
                              with keys 'role' and 'content'.
             max_new_tokens (int): Maximum number of tokens for the response.
 
@@ -72,7 +77,7 @@ class LLMConnector:
 
             # Extract the generated response
             generated_text = outputs[0]["generated_text"]
-            completion_text = generated_text[len(formatted_prompt):].strip()
+            completion_text = generated_text[len(formatted_prompt) :].strip()
 
             self.logger.info(f"Generated text: {completion_text}")
 
@@ -85,7 +90,11 @@ class LLMConnector:
                 "choices": [
                     {
                         "text": completion_text,
-                        "finish_reason": "length" if len(completion_text) >= max_new_tokens else "stop"
+                        "finish_reason": (
+                            "length"
+                            if len(completion_text) >= max_new_tokens
+                            else "stop"
+                        ),
                     }
                 ],
             }

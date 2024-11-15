@@ -1,6 +1,7 @@
 import logging
 from datetime import datetime
 
+
 class Logger:
     def __init__(self, name: str, log_file: str = None, level=logging.INFO):
         """
@@ -13,11 +14,13 @@ class Logger:
         """
         self.logger = logging.getLogger(name)
         self.logger.setLevel(level)
-        
+
         # Set up console handler
         console_handler = logging.StreamHandler()
         console_handler.setLevel(level)
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        formatter = logging.Formatter(
+            "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        )
         console_handler.setFormatter(formatter)
         self.logger.addHandler(console_handler)
 
@@ -35,9 +38,11 @@ class Logger:
     def error(self, message: str):
         """Log an error-level message."""
         self.logger.error(message)
+
     def warn(self, message: str):
         """Log a warning-level message."""
         self.logger.warning(message)
+
     def debug(self, message: str):
         """Log a debug-level message."""
         self.logger.debug(message)
