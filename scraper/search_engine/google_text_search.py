@@ -6,6 +6,14 @@ from dotenv import load_dotenv
 
 class GoogleTextSearch:
     def __init__(self, api_key, cx, news_sites=None):
+        """
+        Initialize the GoogleTextSearch class.
+        
+        Args:
+            api_key (str): Google API key
+            cx (str): Custom search engine ID
+            news_sites (List[str]): List of news sites to filter results by. If None, all news sites are included.
+        """
         self.api_key = api_key
         self.cx = cx
 
@@ -13,11 +21,23 @@ class GoogleTextSearch:
         self.news_sites = news_sites
         self.search_url = "https://www.googleapis.com/customsearch/v1"
     
-    def search(self, query, num_results=10):
+    def search(self, query: str, num_results: int = 10):
         results = self._search(query, num_results)
         return self._filter_news_sites(results)
 
-    def _search(self, query, num_results=10):
+    def _search(self, query: str, num_results: int = 10):
+        """
+        Search for news articles on Google using the Custom Search JSON API.
+        
+        Args:
+            query (str): The search query.
+            num_results (int): The number of results to return. By default, 10, with settings max at 20.
+            
+        Returns:
+            dict: A dictionary containing the search results.
+        """
+        assert num_results <= 10, "Google Custom Search API allows a maximum of 20 results per query."
+        
         params = {
             'key': self.api_key,
             'cx': self.cx,
@@ -33,6 +53,9 @@ class GoogleTextSearch:
         return response.json()
     
     def _filter_news_sites(self, search_results):
+        if self.news_sites is None or len(self.news_sites) == 0:
+            return search_results.get('items', [])
+        
         filtered_items = []
         
         for item in search_results.get('items', []):

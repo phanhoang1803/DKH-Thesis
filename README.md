@@ -20,6 +20,12 @@ python -m venv venv
 ```
 
 4. Install the required dependencies. Run the following command to install all necessary Python libraries:
+- Install news-please
+```bash
+pip install -e news-please
+```
+
+- Install the rest of the dependencies
 ```bash
 pip install -r requirements.txt
 ```
