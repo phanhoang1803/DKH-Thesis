@@ -1,4 +1,4 @@
-from scraper import Scraper, Article
+from ..scraper.scraper import Scraper, Article
 from transformers import AutoTokenizer, AutoModel
 import torch
 import torch.nn.functional as F

@@ -3,9 +3,9 @@ import os
 from dataclasses import dataclass, field
 from datetime import datetime
 from dotenv import load_dotenv
-from news_scraper.news_scraper import NewsPleaseScraper
-from search_engine.google_image_search import GoogleImageSearch
-from search_engine.google_text_search import GoogleTextSearch
+from .news_scraper.news_scraper import NewsPleaseScraper
+from .search_engine.google_image_search import GoogleImageSearch
+from .search_engine.google_text_search import GoogleTextSearch
 
 @dataclass
 class Article:

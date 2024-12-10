@@ -2,8 +2,14 @@
 
 from torch.utils.data import DataLoader
 from datasets.visualnews_datasets import VisualNewsDataset
-from typing import Optional, Any
+from typing import Optional, Any, List
 from torchvision import transforms
+
+def identity_collate(batch: List[Any]) -> List[Any]:
+    """
+    Simple collate function that returns the batch as-is
+    """
+    return batch
 
 def get_visualnews_dataloader(
     data_path: str,
@@ -13,7 +19,7 @@ def get_visualnews_dataloader(
     transform: Optional[Any] = None
 ):
     dataset = VisualNewsDataset(data_path=data_path, transform=transform)
-    return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=num_workers)
+    return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=num_workers, collate_fn=identity_collate)
 
 default_transform = transforms.Compose([
     transforms.Resize((256, 256)),
