@@ -1,8 +1,9 @@
-from utils.logger import Logger
+# src/modules/reasoning_module/connector/blip2.py
+
 from transformers import Blip2Processor, Blip2ForConditionalGeneration
 import torch
 import time
-
+from src.utils.logger import Logger
 
 class BLIP2Connector:
     def __init__(
@@ -63,7 +64,7 @@ class BLIP2Connector:
 
         try:
             # Preprocess the image
-            inputs = self.processor(images=image, return_tensors="pt").to(self.device)
+            inputs = self.processor(images=image, text="", return_tensors="pt").to(self.device)
 
             # Generate caption
             self.logger.info("Generating caption for the image.")

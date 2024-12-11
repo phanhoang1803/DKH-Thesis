@@ -1,8 +1,8 @@
-from utils.logger import Logger
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 from typing import Optional
 from transformers import AutoTokenizer, AutoModelForTokenClassification
 from transformers import pipeline
+from src.utils.logger import Logger
 
 import torch
 import time

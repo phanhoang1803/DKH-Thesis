@@ -1,6 +1,6 @@
 from PIL import Image
 from dotenv import load_dotenv
-from connector.blip2 import BLIP2Connector
+from src.modules.reasoning_module.connector.blip2 import BLIP2Connector
 from huggingface_hub import login
 from io import BytesIO
 
