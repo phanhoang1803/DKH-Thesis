@@ -10,9 +10,8 @@ class GoogleImageSearch:
         self.api_key = api_key
         self.cx = cx
         
-        # os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "credentials.json"
-        # self.client = vision.ImageAnnotatorClient()
-        self.client = None
+        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "credentials.json"
+        self.client = vision.ImageAnnotatorClient()
         
     def search(self, query, num_results=10):
         if os.path.exists(query):

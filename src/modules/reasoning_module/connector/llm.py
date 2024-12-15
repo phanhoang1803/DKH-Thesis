@@ -1,6 +1,6 @@
 from src.utils.logger import Logger
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
-from typing import Optional
+from typing import Optional, List
 
 import torch
 import time
@@ -41,7 +41,7 @@ class LLMConnector:
             self.logger.error(f"Failed to connect to model '{self.model_name}': {e}")
             raise
 
-    def answer(self, messages, max_new_tokens: int = 256):
+    def answer(self, messages: List[dict], max_new_tokens: int = 256):
         """
         Generate a conversational response based on structured input.
 

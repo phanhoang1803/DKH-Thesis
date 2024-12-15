@@ -10,7 +10,6 @@ from torchvision import transforms
 import torch
 import json
 import time
-import PIL
 
 def arg_parser():
     parser = argparse.ArgumentParser()
@@ -45,18 +44,18 @@ def inference(ner_connector: NERConnector,
     image = data["image"]
     # response = blip2_connector.caption(image)
     # image_caption = response["choices"][0]["text"]
-    image_caption = "a photo of a cat"
-    
+    image_caption = "ABC"
     # Get external evidence
-    candidates = external_retrieval_module.retrieve(data["caption"], num_results=100)
-    print(candidates)
-    
+    candidates = external_retrieval_module.retrieve(data["caption"], num_results=50)
+    # # print(candidates)
+
     # # 1: Internal Checking
     internal_prompt = get_internal_prompt(
         caption=data["caption"],
         textual_entities=textual_entities
     )
-    internal_result = llm_connector.answer(internal_prompt)
+    # # print(internal_prompt)
+    internal_result = llm_connector.answer(messages=internal_prompt)
     
     # # 2: External Checking
     external_prompt = get_external_prompt(
@@ -68,9 +67,11 @@ def inference(ner_connector: NERConnector,
     # # 3: Final Checking
     final_prompt = get_final_prompt(
         internal_result=internal_result,
-        external_result=external_result
+        external_result=external_result,
+        image_caption=image_caption
     )
     final_result = llm_connector.answer(final_prompt)
+    # json_output = json.loads(final_result.choices[0].text)
     
     inference_time = time.time() - start_time
     
@@ -144,7 +145,7 @@ def main():
     )
     
     # Initialize models
-    print("Connecting to NER model...")
+    # print("Connecting to NER model...")
     ner_connector = NERConnector(
         model_name=args.ner_model,
         tokenizer_name=args.ner_model,
@@ -152,22 +153,23 @@ def main():
     )
     ner_connector.connect()
     
-    print("Connecting to BLIP2 model...")
-    blip2_connector = BLIP2Connector(
-        model_name=args.blip_model,
-        device=args.device,
-        torch_dtype=torch.bfloat16 if args.device == "cuda" else torch.float32
-    )
-    blip2_connector.connect()
+    # print("Connecting to BLIP2 model...")
+    # blip2_connector = BLIP2Connector(
+    #     model_name=args.blip_model,
+    #     device=args.device,
+    #     torch_dtype=torch.bfloat16 if args.device == "cuda" else torch.float32
+    # )
+    blip2_connector = None
+    # blip2_connector.connect()
     
-    print("Connecting to LLM model...")
+    # print("Connecting to LLM model...")
     llm_connector = LLMConnector(
         model_name=args.llm_model,
         device=args.device
     )
     llm_connector.connect()
     
-    print("Connecting to External Retrieval Module...")
+    # print("Connecting to External Retrieval Module...")
     external_retrieval_module = ExternalRetrievalModule(
         text_api_key=os.environ["GOOGLE_API_KEY"],
         cx=os.environ["CX"],
@@ -189,8 +191,8 @@ def main():
             )
             results.append(result)
             
-            # Print progress and current inference time
-            print(f"Processed item {len(results)}, inference time: {result['inference_time']:.2f}s")
+            # # print progress and current inference time
+            # print(f"Processed item {len(results)}, inference time: {result['inference_time']:.2f}s")
             break
         break
     
@@ -207,8 +209,8 @@ def main():
     with open(args.output_path, 'w') as f:
         json.dump(final_results, f, indent=2)
         
-    print(f"\nTotal processing time: {total_time:.2f}s")
-    print(f"Average inference time per item: {total_time/len(results):.2f}s")
+    # print(f"\nTotal processing time: {total_time:.2f}s")
+    # print(f"Average inference time per item: {total_time/len(results):.2f}s")
 
 if __name__ == "__main__":
     main()

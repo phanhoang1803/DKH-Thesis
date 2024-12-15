@@ -2,6 +2,9 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 from typing import Optional
 from transformers import AutoTokenizer, AutoModelForTokenClassification
 from transformers import pipeline
+import sys
+import os
+sys.path.append('/home/twel/projects/DKH-Thesis')
 from src.utils.logger import Logger
 
 import torch
@@ -33,9 +36,11 @@ class NERConnector:
         try:
             self.tokenizer = AutoTokenizer.from_pretrained(self.tokenizer_name)
             self.model =  AutoModelForTokenClassification.from_pretrained(self.model_name)
-            self.pipeline = pipeline("ner",
-                                      model=self.model, 
-                                    tokenizer=self.tokenizer
+            self.pipeline = pipeline(
+                "ner",
+                model=self.model, 
+                tokenizer=self.tokenizer,
+                device=os.environ["DEVICE"]
             )
             self.logger.info(f"Successfully connected to model '{self.model_name}'")
         except Exception as e:
