@@ -4,7 +4,7 @@ from newsplease import NewsPlease
 
 class NewsPleaseScraper:
     def __init__(self, user_agent=None):
-        self.user_agent = user_agent or 'NewsPleaseBot/0.1 (+https://github.com/fhamborg/news-please)'
+        self.user_agent = user_agent or 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
     
     def scrape(self, urls):
         # Ensure urls is a list for uniform processing
@@ -13,7 +13,7 @@ class NewsPleaseScraper:
         
         try:
             # Scrape multiple URLs
-            articles = NewsPlease.from_urls(urls, user_agent=self.user_agent, timeout=6)
+            articles = NewsPlease.from_urls(urls, user_agent=self.user_agent, timeout=10)
             
             # Collect article data for each URL
             scraped_articles = []

@@ -33,41 +33,54 @@ class GoogleTextSearch:
             **kwargs: Additional parameters to pass to the API
             
         Returns:
-            List[Dict]: List of search result items
+            List[Dict]: List of search result items. Returns empty list if search fails or no results found.
         """
-        if num_results > 100:
-            raise ValueError('Google Custom Search API supports max of 100 results')
+        # Validate query
+        if not query or not isinstance(query, str):
+            return []
+            
+        # Validate num_results
+        if not isinstance(num_results, int) or num_results < 1 or num_results > 100:
+            return []
             
         calls_needed = math.ceil(num_results / 10)
         all_results = []
         start_index = 1
         
-        for call in range(calls_needed):
-            # Calculate items for this call
-            items_this_call = min(10, num_results - len(all_results))
-            
-            params = {
-                'key': self.api_key,
-                'cx': self.cx,
-                'q': query,
-                'num': items_this_call,
-                'start': start_index,
-                **kwargs
-            }
-            
-            response = requests.get(self.search_url, params=params)
-            
-            if response.status_code != 200:
-                raise Exception(f"API call failed: {response.status_code}, {response.text}")
-            
-            data = response.json()
-            if 'items' in data:
+        try:
+            for call in range(calls_needed):
+                items_this_call = min(10, num_results - len(all_results))
+                
+                params = {
+                    'key': self.api_key,
+                    'cx': self.cx,
+                    'q': query,
+                    'num': items_this_call,
+                    'start': start_index,
+                    **kwargs
+                }
+                
+                response = requests.get(self.search_url, params=params)
+                
+                # Handle various error cases by returning empty list
+                if response.status_code != 200:
+                    return []
+                
+                data = response.json()
+                
+                # Check if we have search results
+                if 'items' not in data:
+                    return all_results  # Return whatever we've collected so far
+                
                 all_results.extend(data['items'])
+                
+                start_index += items_this_call
+                
+            return all_results[:num_results]
             
-            start_index += items_this_call
-            
-        return all_results
-    
+        except requests.RequestException:
+            return []
+        
     def _filter_news_sites(self, search_results):
         if self.news_sites is None or len(self.news_sites) == 0:
             return search_results.get('items', [])
@@ -94,16 +107,17 @@ if __name__ == "__main__":
 
     # Instantiate the GoogleTextSearch class
     google_news = GoogleTextSearch(api_key=API_KEY, 
-                                   cx=CX, 
-                                   news_sites= ["nytimes.com", "cnn.com", "washingtonpost.com", "foxnews.com", "usatoday.com", "wsj.com"])
+                                   cx=CX)
 
     # Search for a query
     query = "latest US election news"
     
     # Get filtered news URLs
-    filtered_news = google_news.search(query, num_results=10)
+    filtered_news = google_news.search(query, num_results=100)
     
     # Output the results
     print("Filtered News:")
     for news in filtered_news:
         print(news)
+
+    print(f"{len(filtered_news)}")

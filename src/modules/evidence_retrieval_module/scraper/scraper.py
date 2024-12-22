@@ -3,9 +3,9 @@ import os
 from dataclasses import dataclass, field
 from datetime import datetime
 from dotenv import load_dotenv
-from .news_scraper.news_scraper import NewsPleaseScraper
-from .search_engine.google_image_search import GoogleImageSearch
-from .search_engine.google_text_search import GoogleTextSearch
+from src.modules.evidence_retrieval_module.scraper.news_scraper.news_scraper import NewsPleaseScraper
+from src.modules.evidence_retrieval_module.scraper.search_engine.google_image_search import GoogleImageSearch
+from src.modules.evidence_retrieval_module.scraper.search_engine.google_text_search import GoogleTextSearch
 from src.utils.logger import Logger
 
 @dataclass
@@ -57,7 +57,7 @@ class Scraper:
         all_urls = []
 
         if text_query:
-            text_results = self.google_text_search.search(text_query, num_results)
+            text_results = self.google_text_search.search(query=text_query, num_results=num_results)
             text_urls = [item['link'] for item in text_results]
             all_urls.extend(text_urls)
 
@@ -87,7 +87,7 @@ if __name__ == "__main__":
     scraper = Scraper(text_api_key=API_KEY, cx=CX, news_sites=news_sites)
 
     text_query = "latest US election news"
-    scraped_articles = scraper.search_and_scrape(text_query=text_query, image_query=None, num_results=10)
+    scraped_articles = scraper.search_and_scrape(text_query=text_query, image_query=None, num_results=100)
     print("Scraped articles from text query:")
     for article in scraped_articles:
         print(article)
