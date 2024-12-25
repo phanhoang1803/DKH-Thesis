@@ -73,6 +73,8 @@ class ExternalRetrievalModule:
                 self.logger.info(f"Article {article.title} does NOT have an image")
                 
         self.logger.info(f"[INFO] Filtered to {len(filtered_articles)} articles")
+        if not filtered_articles:
+            return None
         return filtered_articles
     
     def exist_image(self, article: Article):

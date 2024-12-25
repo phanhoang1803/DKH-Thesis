@@ -215,7 +215,8 @@ def main():
                     item
                 )
                 with open(os.path.join(args.output_dir_path, f"result_{count}.json"), "w") as f:
-                    json.dump(result, f, cls=NumpyJSONEncoder, indent=2)
+                    json.dump(result, f, indent=2, ensure_ascii=False)
+                count += 1
                 results.append(result)
             except Exception as e:
                 with open(os.path.join(args.errors_dir_path, f"error_{count}.json"), "w") as f:
@@ -223,12 +224,10 @@ def main():
                         "error": str(e),
                         "caption": item["caption"],
                     }
-                    json.dump(error_item, f, indent=2)
+                    json.dump(error_item, f, indent=2, ensure_ascii=False)
                 error_items.append(error_item)
+                count += 1
                 print(f"Error processing item {count}: {e}")
-            count += 1
-            if count == 3:
-                break
     
     total_time = time.time() - total_start_time
     
@@ -241,9 +240,9 @@ def main():
     
     # Save results
     with open(os.path.join(args.output_dir_path, "final_results.json"), "w") as f:
-        json.dump(final_results, f, indent=2)
+        json.dump(final_results, f, indent=2, cls=NumpyJSONEncoder, ensure_ascii=False)
     with open(os.path.join(args.errors_dir_path, "error_items.json"), "w") as f:
-        json.dump(error_items, f, indent=2)
+        json.dump(error_items, f, indent=2, cls=NumpyJSONEncoder, ensure_ascii=False)
 
 if __name__ == "__main__":
     main()
