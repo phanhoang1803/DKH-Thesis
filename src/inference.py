@@ -34,7 +34,8 @@ def arg_parser():
     parser.add_argument("--data_path", type=str, default="data/public_test_acm.json", 
                        help="Path to the json file. The json file should in the same directory as dataset")
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
-    parser.add_argument("--output_path", type=str, default="results.json")
+    parser.add_argument("--output_dir_path", type=str, default="./result/")
+    parser.add_argument("--errors_dir_path", type=str, default="./errors/")
     
     # Dataloader
     parser.add_argument("--batch_size", type=int, default=8)
@@ -56,19 +57,18 @@ def inference(ner_connector: NERConnector,
     start_time = time.time()
     # Extract text entities
     textual_entities = ner_connector.extract_text_entities(data["content"])
-    
+    textual_entities = [{"entity": item["entity"], "word": item["word"]} for item in textual_entities]
+
     image_base64 = data["image_base64"]
 
     # Get external evidence
     candidates = external_retrieval_module.retrieve(data["caption"], num_results=10)
-    # # print(candidates)
 
     # # 1: Internal Checking
     internal_prompt = get_internal_prompt(
         caption=data["caption"],
         textual_entities=textual_entities
     )
-    # # print(internal_prompt)
     internal_result = llm_connector.call_with_structured_output(
         prompt=internal_prompt,
         schema=InternalResponse
@@ -105,6 +105,7 @@ def inference(ner_connector: NERConnector,
     
     result = {
         "caption": data["caption"],
+        "ground_truth": data["label"],
         "internal_check": {
             "textual_entities": textual_entities,
             "result": internal_result
@@ -163,6 +164,12 @@ def main():
     load_dotenv()
     login(token=os.environ["HF_TOKEN"])
     
+    # Make res folder
+    if not os.path.exists(args.output_dir_path):
+        os.makedirs(args.output_dir_path)
+    if not os.path.exists(args.errors_dir_path):
+        os.makedirs(args.errors_dir_path)
+
     # Initialize dataloader
     dataloader = cosmos_dataloader.get_cosmos_dataloader(
         args.data_path, 
@@ -173,7 +180,6 @@ def main():
     )
     
     # Initialize models
-    # print("Connecting to NER model...")
     ner_connector = NERConnector(
         model_name=args.ner_model,
         tokenizer_name=args.ner_model,
@@ -181,12 +187,10 @@ def main():
     )
     ner_connector.connect()
     
-    # print("Connecting to LLM model...")
     llm_connector = GeminiConnector(
         api_key=os.environ["GEMINI_API_KEY"],
     )
     
-    # print("Connecting to External Retrieval Module...")
     external_retrieval_module = ExternalRetrievalModule(
         text_api_key=os.environ["GOOGLE_API_KEY"],
         cx=os.environ["CX"],
@@ -195,23 +199,36 @@ def main():
     
     # Process data and save results
     results = []
+    error_items = []
     total_start_time = time.time()
     
+    count = 1
+
     for batch_idx, batch in enumerate(dataloader):
         for item in batch:
-            result = inference(
-                ner_connector,
-                None,
-                llm_connector,
-                external_retrieval_module,
-                item
-            )
-            results.append(result)
-            
-            # # print progress and current inference time
-            # print(f"Processed item {len(results)}, inference time: {result['inference_time']:.2f}s")
-            break
-        break
+            try:
+                result = inference(
+                    ner_connector,
+                    None,
+                    llm_connector,
+                    external_retrieval_module,
+                    item
+                )
+                with open(os.path.join(args.output_dir_path, f"result_{count}.json"), "w") as f:
+                    json.dump(result, f, cls=NumpyJSONEncoder, indent=2)
+                results.append(result)
+            except Exception as e:
+                with open(os.path.join(args.errors_dir_path, f"error_{count}.json"), "w") as f:
+                    error_item = {
+                        "error": str(e),
+                        "caption": item["caption"],
+                    }
+                    json.dump(error_item, f, indent=2)
+                error_items.append(error_item)
+                print(f"Error processing item {count}: {e}")
+            count += 1
+            if count == 3:
+                break
     
     total_time = time.time() - total_start_time
     
@@ -223,11 +240,10 @@ def main():
     }
     
     # Save results
-    with open(args.output_path, 'w') as f:
+    with open(os.path.join(args.output_dir_path, "final_results.json"), "w") as f:
         json.dump(final_results, f, indent=2)
-        
-    # print(f"\nTotal processing time: {total_time:.2f}s")
-    # print(f"Average inference time per item: {total_time/len(results):.2f}s")
+    with open(os.path.join(args.errors_dir_path, "error_items.json"), "w") as f:
+        json.dump(error_items, f, indent=2)
 
 if __name__ == "__main__":
     main()

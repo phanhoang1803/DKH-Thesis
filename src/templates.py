@@ -20,12 +20,12 @@ NOTE: If unsure about the accuracy of any entity's usage, please indicate that y
 INTERNAL_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
 - "verdict": True/False,
 - "confidence_score": 0-10,
-- "explanation": "Short, clear explanation of the decision",
+- "explanation": "Short explanation of the decision",
 
 Where:
 - verdict: "True" if the caption aligns with the external evidence, "False" otherwise.
 - confidence_score: A confidence assessment, from 0 to 10, indicating the level of certainty in the final answer.
-- explanation: A short, comprehensive explanation that integrates the caption, external evidence, and the alignment between them. Avoid speculation or unsupported conclusions.
+- explanation: A short, explanation to your decision. Avoid speculation or unsupported conclusions.
 """
 
 ### External Checking Prompt
@@ -47,12 +47,12 @@ NOTE: If there is any ambiguity or missing information in the external evidence,
 EXTERNAL_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
 - "verdict": True/False,
 - "confidence_score": 0-10,
-- "explanation": "Short, detailed analysis of the alignment between the caption and the external evidence, with references to specific pieces of evidence."
+- "explanation": "Short explanation of your decision based on the caption and the external evidences."
 
 Where:
 - verdict: "True" if the caption aligns with the external evidence, "False" otherwise.
 - confidence_score: A confidence assessment, from 0 to 10, indicating the level of certainty in the final answer.
-- explanation: A short, detailed analysis of the alignment between the caption and external evidence, including any gaps or ambiguities.
+- explanation: A short explanation of your decision based on the caption and external evidence, including any gaps or ambiguities.
 """
 
 FINAL_CHECKING_PROMPT = """TASK: Synthesize the results from internal and external validation to assess the final accuracy of the caption.
@@ -75,13 +75,13 @@ FINAL_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
 - "OOC": True/False
 - "confidence_score": 0-10
 - "validation_summary": A concise summary of the validation results from both the internal and external checks, including any unresolved discrepancies or uncertainties.
-- "explanation": A short, clear, concise rationale for the final result, summarizing the synthesis of internal and external checks, and how they align or diverge.
+- "explanation": A short, clear, explanation (about 1000 words) for the final result, summarizing the synthesis of internal and external checks.
 
 Where:
 - OOC: "True" if the caption is out of context based on both internal and external checks, "False" otherwise.
 - confidence_score: A confidence assessment, from 0 to 10, indicating the level of certainty in the final answer.
 - validation_summary: A concise summary of the internal and external validation results, highlighting key points of agreement or disagreement.
-- explanation: A short but clear explanation that combines both internal and external validation results, highlighting any gaps, uncertainties, or contradictions. Avoid speculative statements.
+- explanation: A short explanation (about 1000 words) for your final decisions based on the input. Avoid speculative statements.
 """
 
 def get_internal_prompt(caption: str, textual_entities: str) -> str:

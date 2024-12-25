@@ -46,7 +46,7 @@ class GeminiConnector:
             )
         )
         print(res)
-        return res.candidates[0].content.parts[0].text
+        return json.loads(res.candidates[0].content.parts[0].text)
     
 if __name__ == "__main__":
     import os
