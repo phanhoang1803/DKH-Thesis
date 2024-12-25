@@ -1,5 +1,5 @@
 import numpy as np
-from modules import NERConnector, BLIP2Connector, LLMConnector, ExternalRetrievalModule
+from modules import NERConnector, BLIP2Connector, GeminiConnector, ExternalRetrievalModule
 from dataloaders import cosmos_dataloader
 from templates import get_internal_prompt, get_external_prompt, get_final_prompt
 import os
@@ -7,9 +7,27 @@ from dotenv import load_dotenv
 import argparse
 from huggingface_hub import login
 from torchvision import transforms
+from typing_extensions import TypedDict
 import torch
 import json
 import time
+
+
+class FinalResponse(TypedDict):
+    OOC: bool
+    confidence_score: int
+    validation_summary: str
+    explanation: str
+
+class InternalResponse(TypedDict):
+    verdict: bool
+    confidence_score: int
+    explanation: str
+
+class ExternalResponse(TypedDict):
+    verdict: bool
+    confidence_score: int
+    explanation: str
 
 def arg_parser():
     parser = argparse.ArgumentParser()
@@ -32,21 +50,17 @@ def arg_parser():
 
 def inference(ner_connector: NERConnector, 
              blip2_connector: BLIP2Connector, 
-             llm_connector: LLMConnector, 
+             llm_connector: GeminiConnector, 
              external_retrieval_module: ExternalRetrievalModule, 
              data: dict):
     start_time = time.time()
-    
     # Extract text entities
     textual_entities = ner_connector.extract_text_entities(data["content"])
     
-    # Get image caption and visual entities
-    image = data["image"]
-    # response = blip2_connector.caption(image)
-    # image_caption = response["choices"][0]["text"]
-    image_caption = "ABC"
+    image_base64 = data["image_base64"]
+
     # Get external evidence
-    candidates = external_retrieval_module.retrieve(data["caption"], num_results=50)
+    candidates = external_retrieval_module.retrieve(data["caption"], num_results=10)
     # # print(candidates)
 
     # # 1: Internal Checking
@@ -55,22 +69,36 @@ def inference(ner_connector: NERConnector,
         textual_entities=textual_entities
     )
     # # print(internal_prompt)
-    internal_result = llm_connector.answer(messages=internal_prompt)
+    internal_result = llm_connector.call_with_structured_output(
+        prompt=internal_prompt,
+        schema=InternalResponse
+    )
     
     # # 2: External Checking
     external_prompt = get_external_prompt(
         caption=data["caption"],
         candidates=candidates
     )
-    external_result = llm_connector.answer(external_prompt)
-    
-    # # 3: Final Checking
+
+    external_result = llm_connector.call_with_structured_output(
+        prompt=external_prompt,
+        schema=ExternalResponse
+    )
+
+    # 3: Final Checking
     final_prompt = get_final_prompt(
+        caption=data["caption"],
+        textual_entities=textual_entities,
+        candidates=candidates,
         internal_result=internal_result,
         external_result=external_result,
-        image_caption=image_caption
     )
-    final_result = llm_connector.answer(final_prompt)
+    final_result = llm_connector.call_with_structured_output(
+        prompt=final_prompt,
+        schema=FinalResponse,
+        image_base64=image_base64
+    )
+
     # json_output = json.loads(final_result.choices[0].text)
     
     inference_time = time.time() - start_time
@@ -153,21 +181,10 @@ def main():
     )
     ner_connector.connect()
     
-    # print("Connecting to BLIP2 model...")
-    # blip2_connector = BLIP2Connector(
-    #     model_name=args.blip_model,
-    #     device=args.device,
-    #     torch_dtype=torch.bfloat16 if args.device == "cuda" else torch.float32
-    # )
-    blip2_connector = None
-    # blip2_connector.connect()
-    
     # print("Connecting to LLM model...")
-    llm_connector = LLMConnector(
-        model_name=args.llm_model,
-        device=args.device
+    llm_connector = GeminiConnector(
+        api_key=os.environ["GEMINI_API_KEY"],
     )
-    llm_connector.connect()
     
     # print("Connecting to External Retrieval Module...")
     external_retrieval_module = ExternalRetrievalModule(
@@ -184,7 +201,7 @@ def main():
         for item in batch:
             result = inference(
                 ner_connector,
-                blip2_connector,
+                None,
                 llm_connector,
                 external_retrieval_module,
                 item
