@@ -10,6 +10,7 @@ from torchvision import transforms
 import torch
 import json
 import time
+from src.config import NEWS_SITES, FACT_CHECKING_SITES
 
 def arg_parser():
     parser = argparse.ArgumentParser()
@@ -46,7 +47,7 @@ def inference(ner_connector: NERConnector,
     # image_caption = response["choices"][0]["text"]
     image_caption = "ABC"
     # Get external evidence
-    candidates = external_retrieval_module.retrieve(data["caption"], num_results=50)
+    candidates = external_retrieval_module.retrieve(data["caption"], num_results=10, news_factcheck_ratio=0.7)
     # # print(candidates)
 
     # # 1: Internal Checking
@@ -173,7 +174,8 @@ def main():
     external_retrieval_module = ExternalRetrievalModule(
         text_api_key=os.environ["GOOGLE_API_KEY"],
         cx=os.environ["CX"],
-        news_sites=None
+        news_sites=NEWS_SITES,
+        fact_checking_sites=FACT_CHECKING_SITES
     )
     
     # Process data and save results

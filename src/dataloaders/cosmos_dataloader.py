@@ -1,7 +1,7 @@
 # dataloaders/cosmos_dataloader.py
 
 from torch.utils.data import DataLoader
-from datasets.cosmos_datasets import CosmosDataset
+from src.datasets.cosmos_datasets import CosmosDataset
 from typing import Optional, Any
 from torchvision import transforms
 from typing import List

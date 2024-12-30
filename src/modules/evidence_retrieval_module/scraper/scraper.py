@@ -7,7 +7,7 @@ from src.modules.evidence_retrieval_module.scraper.news_scraper.news_scraper imp
 from src.modules.evidence_retrieval_module.scraper.search_engine.google_image_search import GoogleImageSearch
 from src.modules.evidence_retrieval_module.scraper.search_engine.google_text_search import GoogleTextSearch
 from src.utils.logger import Logger
-
+from src.config import is_valid_url
 @dataclass
 class Article:
     """Represents a scraped news article."""
@@ -24,13 +24,13 @@ class Article:
     source_domain: str = ""
 
 class Scraper:
-    def __init__(self, text_api_key, cx, news_sites=None):
-        self.google_text_search = GoogleTextSearch(api_key=text_api_key, cx=cx, news_sites=news_sites)
+    def __init__(self, text_api_key, cx, news_sites=None, fact_checking_sites=None):
+        self.google_text_search = GoogleTextSearch(api_key=text_api_key, cx=cx, news_sites=news_sites, fact_checking_sites=fact_checking_sites)
         self.google_image_search = GoogleImageSearch(news_sites=news_sites)
         self.news_scraper = NewsPleaseScraper()
         self.logger = Logger(name="Scraper")
         
-    def search_and_scrape(self, text_query=None, image_query=None, num_results=10):
+    def search_and_scrape(self, text_query=None, image_query=None, num_results=10, news_factcheck_ratio=0.7):
         """
         Searches for news articles using a text query and/or an image query
         and scrapes the content of the articles using the NewsPleaseScraper.
@@ -45,6 +45,9 @@ class Scraper:
             performed.
         num_results : int, optional
             The number of search results to retrieve. Defaults to 10.
+        news_factcheck_ratio : float, optional
+            The ratio of news sites to fact-checking sites. Defaults to 0.7. 
+            If 1, only news sites are searched. If 0, only fact-checking sites are searched.
 
         Returns
         -------
@@ -57,7 +60,7 @@ class Scraper:
         all_urls = []
 
         if text_query:
-            text_results = self.google_text_search.search(query=text_query, num_results=num_results)
+            text_results = self.google_text_search.search(query=text_query, num_results=num_results, news_factcheck_ratio=news_factcheck_ratio)
             text_urls = [item['link'] for item in text_results]
             all_urls.extend(text_urls)
 
@@ -68,6 +71,11 @@ class Scraper:
 
         self.logger.info(f"[INFO] Retrieved {len(all_urls)} URLs from search engine to scrape")
         all_urls = list(set(all_urls))
+        
+        # Filter out URLs including video, or pdf.
+        all_urls = [url for url in all_urls if is_valid_url(url)]
+        self.logger.info(f"[INFO] Retrieved {all_urls} URLs from search engine to scrape")
+        self.logger.info(f"[INFO] Filtered {len(all_urls)} URLs to scrape")
         
         scraped_articles = self.news_scraper.scrape(all_urls)
         self.logger.info(f"[INFO] Scraped {len(scraped_articles)} articles")
@@ -80,14 +88,15 @@ if __name__ == "__main__":
     API_KEY = os.environ.get("GOOGLE_API_KEY")
     CX = os.environ.get("CX")
 
+    from src.config import NEWS_SITES, FACT_CHECKING_SITES
+    
     if not API_KEY or not CX:
         raise ValueError("API_KEY or CX is not set in the environment variables")
-
-    news_sites = ["nytimes.com", "cnn.com", "washingtonpost.com", "foxnews.com", "usatoday.com", "wsj.com"]
-    scraper = Scraper(text_api_key=API_KEY, cx=CX, news_sites=news_sites)
+    
+    scraper = Scraper(text_api_key=API_KEY, cx=CX, news_sites=NEWS_SITES, fact_checking_sites=FACT_CHECKING_SITES)
 
     text_query = "latest US election news"
-    scraped_articles = scraper.search_and_scrape(text_query=text_query, image_query=None, num_results=100)
+    scraped_articles = scraper.search_and_scrape(text_query=text_query, image_query=None, num_results=100, news_factcheck_ratio=0.7)
     print("Scraped articles from text query:")
     for article in scraped_articles:
         print(article)
