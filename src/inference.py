@@ -1,7 +1,7 @@
 import numpy as np
 from modules import NERConnector, BLIP2Connector, GeminiConnector, ExternalRetrievalModule
 from dataloaders import cosmos_dataloader
-from templates import get_internal_prompt, get_external_prompt, get_final_prompt
+from templates_internal import get_internal_prompt, get_final_prompt
 import os
 from dotenv import load_dotenv
 import argparse
@@ -13,21 +13,10 @@ import json
 import time
 
 
-class FinalResponse(TypedDict):
-    OOC: bool
-    confidence_score: int
-    validation_summary: str
-    explanation: str
-
-class InternalResponse(TypedDict):
-    verdict: bool
-    confidence_score: int
-    explanation: str
-
-class ExternalResponse(TypedDict):
-    verdict: bool
-    confidence_score: int
-    explanation: str
+# class ExternalResponse(TypedDict):
+#     verdict: bool
+#     confidence_score: int
+#     explanation: str
 
 def arg_parser():
     parser = argparse.ArgumentParser()
@@ -54,6 +43,18 @@ def inference(ner_connector: NERConnector,
              llm_connector: GeminiConnector, 
              external_retrieval_module: ExternalRetrievalModule, 
              data: dict):
+    
+    class InternalResponse(TypedDict):
+        verdict: bool
+        explanation: str
+        confidence_score: int
+
+    class FinalResponse(TypedDict):
+        OOC: bool
+        validation_summary: str
+        explanation: str
+        confidence_score: int
+
     start_time = time.time()
     # Extract text entities
     textual_entities = ner_connector.extract_text_entities(data["content"])
@@ -62,7 +63,7 @@ def inference(ner_connector: NERConnector,
     image_base64 = data["image_base64"]
 
     # Get external evidence
-    candidates = external_retrieval_module.retrieve(data["caption"], num_results=10)
+    # candidates = external_retrieval_module.retrieve(data["caption"], num_results=10)
 
     # # 1: Internal Checking
     internal_prompt = get_internal_prompt(
@@ -75,15 +76,18 @@ def inference(ner_connector: NERConnector,
     )
     
     # # 2: External Checking
-    external_prompt = get_external_prompt(
-        caption=data["caption"],
-        candidates=candidates
-    )
+    # external_prompt = get_external_prompt(
+    #     caption=data["caption"],
+    #     candidates=candidates
+    # )
 
-    external_result = llm_connector.call_with_structured_output(
-        prompt=external_prompt,
-        schema=ExternalResponse
-    )
+    # external_result = llm_connector.call_with_structured_output(
+    #     prompt=external_prompt,
+    #     schema=ExternalResponse
+    # )
+
+    candidates = None
+    external_result = None
 
     # 3: Final Checking
     final_prompt = get_final_prompt(
@@ -109,10 +113,6 @@ def inference(ner_connector: NERConnector,
         "internal_check": {
             "textual_entities": textual_entities,
             "result": internal_result
-        },
-        "external_check": {
-            "candidates": candidates,
-            "result": external_result
         },
         "final_result": final_result,
         "inference_time": float(inference_time)  # Explicitly convert to Python float
@@ -191,11 +191,12 @@ def main():
         api_key=os.environ["GEMINI_API_KEY"],
     )
     
-    external_retrieval_module = ExternalRetrievalModule(
-        text_api_key=os.environ["GOOGLE_API_KEY"],
-        cx=os.environ["CX"],
-        news_sites=None
-    )
+    # external_retrieval_module = ExternalRetrievalModule(
+    #     text_api_key=os.environ["GOOGLE_API_KEY"],
+    #     cx=os.environ["CX"],
+    #     news_sites=None
+    # )
+    external_retrieval_module = None
     
     # Process data and save results
     results = []

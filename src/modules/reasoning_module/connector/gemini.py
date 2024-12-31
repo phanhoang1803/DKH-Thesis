@@ -45,27 +45,5 @@ class GeminiConnector:
                 response_mime_type="application/json", response_schema=schema
             )
         )
-        print(res)
+
         return json.loads(res.candidates[0].content.parts[0].text)
-    
-if __name__ == "__main__":
-    import os
-
-    llm_connector = GeminiConnector(
-        api_key="AIzaSyChksaZVvkP4dZlN579I3RA-LzzhiJVY3g",
-        model_name="gemini-1.5-flash"
-    )
-
-    prompt = """INTERNAL CHECKING: Judge whether the given entities is wrongly used in the given text.
-News caption: Julian Castro at his announcement in San Antonio, Tex., on Saturday. Mr. Castro, the former secretary of housing and urban development, would be one of the youngest presidents if elected.
-Possible textual entities: Mr.Castro, Julian Castro, San Antonio
-
-Answer:
-- State whether the given entities is supported by the news caption (Yes/No).  
-- Provide reasoning for your judgment. """
-
-    res = llm_connector.call_with_structured_output(
-        prompt=prompt,
-        schema=InExtResponse
-    )
-    print(res)
