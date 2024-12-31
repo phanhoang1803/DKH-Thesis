@@ -5,6 +5,7 @@ from torch.utils.data import Dataset
 from argparse import ArgumentParser
 from torchvision import transforms
 import os
+import base64
 
 class CosmosDataset(Dataset):
     def __init__(self, data_path: str, transform: Optional[Any] = None):
@@ -85,6 +86,9 @@ class CosmosDataset(Dataset):
         # Load and validate image
         try:
             image = Image.open(os.path.join(self.image_dir, item["img_local_path"])).convert('RGB').resize((224, 224))
+            with open(os.path.join(self.image_dir, item["img_local_path"]), "rb") as image_file:
+                # Read the file and encode it to Base64
+                image_base64 = base64.b64encode(image_file.read()).decode('utf-8')
         except FileNotFoundError:
             raise FileNotFoundError(f"Image file not found at: {item['img_local_path']}")
         
@@ -94,6 +98,7 @@ class CosmosDataset(Dataset):
             
         return {
             "image": image,
+            "image_base64": image_base64,
             "caption": item["caption1"],
             "content": item["caption2"],
             "label": item["context_label"]

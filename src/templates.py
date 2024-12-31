@@ -1,93 +1,119 @@
 # templates.py
+### Internal Checking Prompt
+INTERNAL_CHECKING_PROMPT = """TASK: Judge whether the given entities are used correctly in the given text.
 
-INTERNAL_CHECKING_PROMPT = """INTERNAL CHECKING: Judge whether the given image is wrongly used in the given text.
-News caption: {caption}
-Possible textual entities: {textual_entities}
-
-Answer: 
-"""
-
-EXTERNAL_CHECKING_PROMPT = """EXTERNAL CHECKING: 
-Judge whether the given news caption is supported by the retrieved candidates.
-
+INPUT:
 News Caption: {caption}
-Candidates (Caption/Image/Evidence): {candidates}
+Retrieved Entities from Content: {textual_entities}
 
-Answer:  
-- State whether the given caption is supported by the evidence (Yes/No).  
-- Provide reasoning for your judgment by comparing the caption with the candidates.
+INSTRUCTIONS:
+1. Compare each entity with its usage in the caption.
+2. Check for name/title accuracy.
+3. Verify contextual correctness.
+4. Ensure temporal consistency.
+5. Only make a judgment based on the entities and their alignment with the caption. Do not speculate or assume information not supported by the provided content.
+
+NOTE: If unsure about the accuracy of any entity's usage, please indicate that you are uncertain rather than providing a definitive answer.
+
 """
 
-FINAL_CHECKING_PROMPT = """FINAL CHECKING: Combine the results of internal and external checks to produce the final answer regarding the factuality of the news triplet (image, caption, evidence). You **must return the output in JSON format** with the following keys and corresponding values:
+INTERNAL_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
+- "verdict": True/False,
+- "confidence_score": 0-10,
+- "explanation": "Short explanation of the decision",
 
-Image Caption:  
-{image_caption}
+Where:
+- verdict: "True" if the caption aligns with the external evidence, "False" otherwise.
+- confidence_score: A confidence assessment, from 0 to 10, indicating the level of certainty in the final answer.
+- explanation: A short, explanation to your decision. Avoid speculation or unsupported conclusions.
+"""
 
-Internal Check Result:  
-{internal_result}
+### External Checking Prompt
+EXTERNAL_CHECKING_PROMPT = """TASK: Verify the accuracy of the caption against external evidence gathered from the internet.
 
-External Check Result:  
-{external_result}
+INPUT:
+Caption: {caption}
+Evidence: {candidates}
+
+VALIDATION CRITERIA:
+1. Key facts should match exactly.
+2. No contradictions between the caption and the external evidence.
+3. Ensure temporal consistency (e.g., dates, events).
+4. Verify contextual alignment (i.e., the information in the caption should match the context of the evidence).
+
+NOTE: If there is any ambiguity or missing information in the external evidence, acknowledge it rather than making unsupported claims.
+"""
+
+EXTERNAL_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
+- "verdict": True/False,
+- "confidence_score": 0-10,
+- "explanation": "Short explanation of your decision based on the caption and the external evidences."
+
+Where:
+- verdict: "True" if the caption aligns with the external evidence, "False" otherwise.
+- confidence_score: A confidence assessment, from 0 to 10, indicating the level of certainty in the final answer.
+- explanation: A short explanation of your decision based on the caption and external evidence, including any gaps or ambiguities.
+"""
+
+FINAL_CHECKING_PROMPT = """TASK: Synthesize the results from internal and external validation to assess the final accuracy of the caption.
+
+INPUT:
+Original News Caption: {original_news_caption}
+Textual Entities (extracted from news content): {textual_entities}
+External Evidence (Searched from the internet): {candidates}
+Internal Check: {internal_result}
+External Check: {external_result}
+
+VALIDATION CRITERIA:
+1. Confirm the final verdict based on internal and external consistency.
+2. If any discrepancies or uncertainties are found in either check, state them clearly. Avoid making unsupported claims or assumptions.
+3. If there is a lack of clarity or evidence, indicate uncertainty in the final result.
+4. If External Evidence is a None list, the external check factor will not be included in the final answer.
+"""
+
+FINAL_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
+- "OOC": True/False
+- "confidence_score": 0-10
+- "validation_summary": A concise summary of the validation results from both the internal and external checks, including any unresolved discrepancies or uncertainties.
+- "explanation": A short, clear, explanation (about 1000 words) for the final result, summarizing the synthesis of internal and external checks.
+
+Where:
+- OOC: "True" if the caption is out of context based on both internal and external checks, "False" otherwise.
+- confidence_score: A confidence assessment, from 0 to 10, indicating the level of certainty in the final answer.
+- validation_summary: A concise summary of the internal and external validation results, highlighting key points of agreement or disagreement.
+- explanation: A short explanation (about 1000 words) for your final decisions based on the input. Avoid speculative statements.
 """
 
 def get_internal_prompt(caption: str, textual_entities: str) -> str:
-    user_internal =  INTERNAL_CHECKING_PROMPT.format(
+    internal_prompt = INTERNAL_CHECKING_PROMPT.format(
         caption=caption,
         textual_entities=textual_entities
     )
-    messages = [
-        {
-            "role": "system",
-            "content": "You are an intelligent assistant designed to analyze and assess the factuality of a news.",
-        },
-        {"role": "user", "content": user_internal},
-    ]
-    return messages
+    internal_prompt += INTERNAL_CHECKING_OUTPUT
+    return internal_prompt
 
 def get_external_prompt(caption: str, candidates: str) -> str:
-    user_external = EXTERNAL_CHECKING_PROMPT.format(
+    external_prompt = EXTERNAL_CHECKING_PROMPT.format(
         caption=caption,
         candidates=candidates
     )
-    messages = [
-        {
-            "role": "system",
-            "content": "You are an intelligent assistant designed to analyze and assess the factuality of a news.",
-        },
-        {"role": "user", "content": user_external},
-    ]
-    return messages
+    external_prompt += EXTERNAL_CHECKING_OUTPUT
+    return external_prompt
 
-def get_final_prompt(internal_result: str, external_result: str, image_caption: str) -> str:
-    final_prompt =  FINAL_CHECKING_PROMPT.format(
+def get_final_prompt(
+    caption: str,
+    textual_entities: str,
+    candidates: str,
+    internal_result: str, 
+    external_result: str
+) -> str:
+    final_prompt = FINAL_CHECKING_PROMPT.format(
+        original_news_caption=caption,
+        textual_entities=textual_entities,
+        candidates=candidates,
         internal_result=internal_result,
         external_result=external_result,
-        image_caption=image_caption
     )
-    final_prompt += """\nThe output **MUST** be formatted as a JSON object with the following structure:  
-{
-  "final_answer": "string",
-  "OOC_NOOC": "string",
-  "confidence_level": "string",
-  "explanation": "string",
-  "additional_notes": "string"
-}
-
-Where:  
-1. **final_answer**: A concise conclusion about the alignment of the image, caption, and evidence. Example: "The image is wrongly used and does not align with the caption or evidence."  
-2. **OOC_NOOC**:  
-   - "OOC" (Out of Context) if there is any misinformation or misalignment between the image, caption, and evidence.  
-   - "NOOC" (Not Out of Context) if the image, caption, and evidence align correctly.  
-3. **confidence_level**: A confidence assessment, such as "High confidence," "Moderate confidence," or "Low confidence."  
-4. **explanation**: Provide a clear and comprehensive explanation that integrates the internal check, external check, and the image caption. Highlight any detected inconsistencies or alignment between the triplet (image, caption, evidence) to justify the final decision.
-5. **additional_notes**: Include any edge cases, ambiguities, or relevant observations that may affect the assessment.
-"""
-
-    messages = [
-        {
-            "role": "system",
-            "content": "You are an intelligent assistant designed to analyze and assess the factuality of a news.",
-        },
-        {"role": "user", "content": final_prompt},
-    ]
-    return messages
+    final_prompt += FINAL_CHECKING_OUTPUT
+    
+    return final_prompt

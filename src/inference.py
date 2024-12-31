@@ -1,12 +1,13 @@
 import numpy as np
-from modules import NERConnector, BLIP2Connector, LLMConnector, ExternalRetrievalModule
+from modules import NERConnector, BLIP2Connector, GeminiConnector, ExternalRetrievalModule
 from dataloaders import cosmos_dataloader
-from templates import get_internal_prompt, get_external_prompt, get_final_prompt
+from templates_internal import get_internal_prompt, get_final_prompt
 import os
 from dotenv import load_dotenv
 import argparse
 from huggingface_hub import login
 from torchvision import transforms
+from typing_extensions import TypedDict
 import torch
 import json
 import time
@@ -17,7 +18,8 @@ def arg_parser():
     parser.add_argument("--data_path", type=str, default="data/public_test_acm.json", 
                        help="Path to the json file. The json file should in the same directory as dataset")
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
-    parser.add_argument("--output_path", type=str, default="results.json")
+    parser.add_argument("--output_dir_path", type=str, default="./result/")
+    parser.add_argument("--errors_dir_path", type=str, default="./errors/")
     
     # Dataloader
     parser.add_argument("--batch_size", type=int, default=8)
@@ -33,58 +35,79 @@ def arg_parser():
 
 def inference(ner_connector: NERConnector, 
              blip2_connector: BLIP2Connector, 
-             llm_connector: LLMConnector, 
+             llm_connector: GeminiConnector, 
              external_retrieval_module: ExternalRetrievalModule, 
              data: dict):
-    start_time = time.time()
     
+    class InternalResponse(TypedDict):
+        verdict: bool
+        explanation: str
+        confidence_score: int
+
+    class FinalResponse(TypedDict):
+        OOC: bool
+        validation_summary: str
+        explanation: str
+        confidence_score: int
+
+    start_time = time.time()
     # Extract text entities
     textual_entities = ner_connector.extract_text_entities(data["content"])
-    
-    # Get image caption and visual entities
-    image = data["image"]
-    # response = blip2_connector.caption(image)
-    # image_caption = response["choices"][0]["text"]
-    image_caption = "ABC"
+    textual_entities = [{"entity": item["entity"], "word": item["word"]} for item in textual_entities]
+
+    image_base64 = data["image_base64"]
+
     # Get external evidence
-    candidates = external_retrieval_module.retrieve(data["caption"], num_results=10, news_factcheck_ratio=0.7)
-    # # print(candidates)
+    candidates = external_retrieval_module.retrieve(data["caption"], num_results=10, threshold=0.7, news_factcheck_ratio=0.7)
 
     # # 1: Internal Checking
     internal_prompt = get_internal_prompt(
         caption=data["caption"],
         textual_entities=textual_entities
     )
-    # # print(internal_prompt)
-    internal_result = llm_connector.answer(messages=internal_prompt)
+    internal_result = llm_connector.call_with_structured_output(
+        prompt=internal_prompt,
+        schema=InternalResponse
+    )
     
     # # 2: External Checking
-    external_prompt = get_external_prompt(
-        caption=data["caption"],
-        candidates=candidates
-    )
-    external_result = llm_connector.answer(external_prompt)
-    
-    # # 3: Final Checking
+    # external_prompt = get_external_prompt(
+    #     caption=data["caption"],
+    #     candidates=candidates
+    # )
+
+    # external_result = llm_connector.call_with_structured_output(
+    #     prompt=external_prompt,
+    #     schema=ExternalResponse
+    # )
+
+    candidates = None
+    external_result = None
+
+    # 3: Final Checking
     final_prompt = get_final_prompt(
+        caption=data["caption"],
+        textual_entities=textual_entities,
+        candidates=candidates,
         internal_result=internal_result,
         external_result=external_result,
-        image_caption=image_caption
     )
-    final_result = llm_connector.answer(final_prompt)
+    final_result = llm_connector.call_with_structured_output(
+        prompt=final_prompt,
+        schema=FinalResponse,
+        image_base64=image_base64
+    )
+
     # json_output = json.loads(final_result.choices[0].text)
     
     inference_time = time.time() - start_time
     
     result = {
         "caption": data["caption"],
+        "ground_truth": data["label"],
         "internal_check": {
             "textual_entities": textual_entities,
             "result": internal_result
-        },
-        "external_check": {
-            "candidates": candidates,
-            "result": external_result
         },
         "final_result": final_result,
         "inference_time": float(inference_time)  # Explicitly convert to Python float
@@ -136,6 +159,12 @@ def main():
     load_dotenv()
     login(token=os.environ["HF_TOKEN"])
     
+    # Make res folder
+    if not os.path.exists(args.output_dir_path):
+        os.makedirs(args.output_dir_path)
+    if not os.path.exists(args.errors_dir_path):
+        os.makedirs(args.errors_dir_path)
+
     # Initialize dataloader
     dataloader = cosmos_dataloader.get_cosmos_dataloader(
         args.data_path, 
@@ -146,7 +175,6 @@ def main():
     )
     
     # Initialize models
-    # print("Connecting to NER model...")
     ner_connector = NERConnector(
         model_name=args.ner_model,
         tokenizer_name=args.ner_model,
@@ -154,21 +182,9 @@ def main():
     )
     ner_connector.connect()
     
-    # print("Connecting to BLIP2 model...")
-    # blip2_connector = BLIP2Connector(
-    #     model_name=args.blip_model,
-    #     device=args.device,
-    #     torch_dtype=torch.bfloat16 if args.device == "cuda" else torch.float32
-    # )
-    blip2_connector = None
-    # blip2_connector.connect()
-    
-    # print("Connecting to LLM model...")
-    llm_connector = LLMConnector(
-        model_name=args.llm_model,
-        device=args.device
+    llm_connector = GeminiConnector(
+        api_key=os.environ["GEMINI_API_KEY"],
     )
-    llm_connector.connect()
     
     # print("Connecting to External Retrieval Module...")
     external_retrieval_module = ExternalRetrievalModule(
@@ -180,23 +196,35 @@ def main():
     
     # Process data and save results
     results = []
+    error_items = []
     total_start_time = time.time()
     
+    count = 1
+
     for batch_idx, batch in enumerate(dataloader):
         for item in batch:
-            result = inference(
-                ner_connector,
-                blip2_connector,
-                llm_connector,
-                external_retrieval_module,
-                item
-            )
-            results.append(result)
-            
-            # # print progress and current inference time
-            # print(f"Processed item {len(results)}, inference time: {result['inference_time']:.2f}s")
-            break
-        break
+            try:
+                result = inference(
+                    ner_connector,
+                    None,
+                    llm_connector,
+                    external_retrieval_module,
+                    item
+                )
+                with open(os.path.join(args.output_dir_path, f"result_{count}.json"), "w") as f:
+                    json.dump(result, f, indent=2, ensure_ascii=False)
+                count += 1
+                results.append(result)
+            except Exception as e:
+                with open(os.path.join(args.errors_dir_path, f"error_{count}.json"), "w") as f:
+                    error_item = {
+                        "error": str(e),
+                        "caption": item["caption"],
+                    }
+                    json.dump(error_item, f, indent=2, ensure_ascii=False)
+                error_items.append(error_item)
+                count += 1
+                print(f"Error processing item {count}: {e}")
     
     total_time = time.time() - total_start_time
     
@@ -208,11 +236,10 @@ def main():
     }
     
     # Save results
-    with open(args.output_path, 'w') as f:
-        json.dump(final_results, f, indent=2)
-        
-    # print(f"\nTotal processing time: {total_time:.2f}s")
-    # print(f"Average inference time per item: {total_time/len(results):.2f}s")
+    with open(os.path.join(args.output_dir_path, "final_results.json"), "w") as f:
+        json.dump(final_results, f, indent=2, cls=NumpyJSONEncoder, ensure_ascii=False)
+    with open(os.path.join(args.errors_dir_path, "error_items.json"), "w") as f:
+        json.dump(error_items, f, indent=2, cls=NumpyJSONEncoder, ensure_ascii=False)
 
 if __name__ == "__main__":
     main()

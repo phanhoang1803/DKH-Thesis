@@ -4,7 +4,7 @@ from transformers import AutoTokenizer, AutoModelForTokenClassification
 from transformers import pipeline
 import sys
 import os
-sys.path.append('/home/twel/projects/DKH-Thesis')
+sys.path.append('/Users/twel/projects/DKH-Thesis/')
 from src.utils.logger import Logger
 
 import torch
