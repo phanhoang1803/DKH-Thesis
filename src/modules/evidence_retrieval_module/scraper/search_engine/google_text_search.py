@@ -92,10 +92,8 @@ class GoogleTextSearch:
         calls_needed = math.ceil(num_results / 10)
         results = []
         start_index = 1
-        print(f"Query: {query}")
         try:
             for call in range(calls_needed):
-                print(f"Call: {call}")
                 items_this_call = min(10, num_results - len(results))
                 
                 params = {
@@ -111,7 +109,6 @@ class GoogleTextSearch:
                     params['dateRestrict'] = date_restrict
                 
                 response = requests.get(self.search_url, params=params)
-                print(f"Response: {response.json()}")
                 
                 if response.status_code != 200:
                     return []
@@ -124,7 +121,6 @@ class GoogleTextSearch:
                 results.extend(data['items'])
                 start_index += items_this_call
             
-            print(f"Results: {results}")
             return results[:num_results]
             
         except requests.RequestException as e:

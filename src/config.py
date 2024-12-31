@@ -9,8 +9,10 @@ NEWS_SITES = [
     'nytimes.com',
     'economist.com',
     'bloomberg.com',
-    'washingtonpost.com',
+    # 'washingtonpost.com',
     'ft.com'  # Financial Times
+    'nbcnews.com',
+    'cnn.com'
 ]
 
 # Fact Checking Sources

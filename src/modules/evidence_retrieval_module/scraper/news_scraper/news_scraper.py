@@ -67,10 +67,11 @@ class NewsPleaseScraper:
                 print(f"Failed to scrape URLs: {e}")
             finally:
                 # Cancel the future if it's still running
-                if future.cancel():
-                    print("Cancelled future")
-                else:
-                    print("Future not cancelled")
+                # if future.cancel():
+                #     print("Cancelled future")
+                # else:
+                #     print("Future not cancelled")
+                future.cancel()
                 
         return scraped_articles
 
