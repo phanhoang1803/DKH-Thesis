@@ -1,0 +1,63 @@
+{
+  "caption": "Squeez Bacon — fully cooked 100% bacon paste in a tube — is a real product.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "S"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##que"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##ez"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Bacon"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The entities \"Squeez\" and \"Bacon\" are correctly identified and their order reflects the order in the caption.  The caption explicitly mentions \"Squeez Bacon\", supporting the entity recognition. ",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "authors": [
+          "Alex Kasprak"
+        ],
+        "title": "Is 'Squeez Bacon' a Real Product?",
+        "date": "2021-02-02T07:30:31",
+        "content": "Claim:\nSqueez Bacon — fully cooked 100% bacon paste in a tube — is a real product.\nOn April 1, 2009 — April Fools' Day — the geek and gaming culture-focused retail company ThinkGeek released a product that they claimed was called \"Vilhelm Lillefläsk's Squeez Bacon.\" The site even created an involved history of the allegedly real product, which they also claimed had a 12-year shelf life:\nA few years after WWII ended, a young man working in a small restaurant in Sweden developed a new way to process bacon. By precooking it and blending it in a special way, he was able to make a fully cooked 100% bacon paste that could be squeezed from a tube. Knowing he had discovered something paradigm-shifting, young Vilhelm Lillefläsk quickly went into business. That, dear friends, is when Squeez Bacon® was born. And this delicious delectable from Sweden has finally been brought over to the USA - now with American Flavor!\nBoth Squeez Bacon and Vilhelm Lillefläsk are made-up entities created for ThinkGeek's annual April Fools' Day fake product launch. A November 2009 New York Times Magazine piece referencing Squeez Bacon described that tradition, which began in 2001:\nOn April 1 of each year since 2001, ThinkGeek, the online retailer, has devoted its home page to products that don’t exist. The names sound unlikely — Squeez Bacon, Surgestix Inhalable Caffeine Stix, p-Teq’s USB Pregnancy Test Kit, etc. — but they are presented as any item on the site would be: catalog description and list of features, pictures, maybe a video, price, “Buy Now” button. Click that and . . . ThinkGeek wishes you a happy April Fools’ Day.\nAccording to an April 2, 2009, story on the website Bacon Today, this is the image people attempting to procure Squeez Bacon would have seen had they added the product to their cart:\nDespite the fact that ThinkGeek — a website famous for its fake April Fools' Day products — explicitly stated that the product was not real 12 years ago, there remains confusion online as to the feasibility of buying a tube of Squeez Bacon. A Jan. 30, 2021, Reddit post in the \"Thanks I Hate It\" subreddit brought renewed attention to the fake product.\nUnfortunately (or fortunately, depending on your viewpoint) the product remains fictional. As such, the claim is \"False.\"",
+        "url": "https://www.snopes.com/fact-check/squeez-bacon-liquid/",
+        "description": "Squeez Bacon, the \"fully cooked 100% bacon paste that could be squeezed from a tube,\" allegedly has its roots in WWII.",
+        "image_url": "https://mediaproxy.snopes.com/width/1200/https://media.snopes.com/2021/02/squeez-bacon.png",
+        "language": "en",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "This assessment is evidence-based. The news caption accurately describes Squeez Bacon as a real product, but the evidence reveals that it's a fictional product created by ThinkGeek as an April Fool's Day joke. The caption is accurate in the sense that Squeez Bacon does exist as a concept, but it's misleading because it omits the crucial context of it being a fake product. Therefore, the caption is inaccurate in its implication that it is a genuine product available for purchase.  The supporting evidence directly addresses the claim and its history, providing a detailed account of its origin and true nature.",
+      "supporting_evidence": [
+        "Source 1: Claim: Squeez Bacon — fully cooked 100% bacon paste in a tube — is a real product.",
+        "Source 1: Both Squeez Bacon and Vilhelm Lillefläsk are made-up entities created for ThinkGeek's annual April Fools' Day fake product launch.",
+        "Source 1: Despite the fact that ThinkGeek — a website famous for its fake April Fools' Day products — explicitly stated that the product was not real 12 years ago, there remains confusion online as to the feasibility of buying a tube of Squeez Bacon.",
+        "Source 1: Unfortunately (or fortunately, depending on your viewpoint) the product remains fictional. As such, the claim is \"False.\""
+      ],
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "validation_summary": "Internal validation found the caption consistent with the identified entities. However, external validation revealed that 'Squeez Bacon' is a fictional product from an April Fool's Day joke, contradicting the caption's implication that it's a real product. The external evidence strongly suggests the caption is misleading despite correctly identifying the product name. There is a significant discrepancy between internal and external validation results, leading to a high confidence in the 'out of context' verdict.  The external evidence provides a strong basis for rejecting the caption's accuracy in representing the product's status as real rather than a fictional concept. This discrepancy overrides the internal validation finding and leads to the conclusion that the caption is out of context and misleading. Therefore, the caption's implication of 'Squeez Bacon' as a real product is false, despite the correct identification of the product name itself. The external check's higher confidence score (10) compared to the internal check's score (10) is due to the stronger evidence supporting the falsity of the claim in the caption. The evidence shows that it is a fictional product, rendering the caption out of context; only the product name is correctly extracted in the textual entity extraction step. This is why the external confidence score is more relevant in determining the final result.  This approach prioritizes the comprehensive evaluation from the external validation process, where the complete context and background of the product are investigated and verified.   As external validation is crucial for validating the accuracy of information claims, this approach prioritizes the validity of claims over the accuracy of entity extraction alone. The internal validation helps only as far as identifying relevant entities in the caption; the external validation is required to verify if the claims about the entities are true. This comprehensive approach leads to a more robust and accurate assessment of the caption's validity. Thus, while the internal check highlights the correct entity recognition, the external check is more impactful due to its ability to verify the factual claims made in the caption, and thus determines the out-of-context status of the caption. The ultimate conclusion is thus that the caption is out-of-context and misleading.  Therefore, the final confidence score reflects this overriding importance of the external check's evidence and its implications for the out-of-context status of the caption. The external check provided more relevant and valid information about the context and accuracy of the statement made in the caption. The high confidence score (9) reflects this conclusive evidence. The OOC status is true because it is misleading and false in its claim, despite the accurate product name extraction. The final decision reflects the importance of evidence-based validation in factual claims. The external evidence is crucial in contextualising and verifying the truthfulness of a statement, especially in cases where it contradicts the initial internal findings.  Hence, the final result emphasizes the critical role of external verification in validating the accuracy and context of information captions. In conclusion, despite the internal consistency in entity recognition, the strong external evidence demonstrating the fictional nature of ‘Squeez Bacon’ trumps the internal validation results. The claim in the original news caption is thus demonstrably false, resulting in an OOC verdict and a high confidence score. The explanation provides a justification for prioritizing external validation in this scenario, considering its superior evidence base in assessing factual claims. The overall assessment prioritizes the complete context and fact-checking capabilities of the external validation process. This approach is consistent with best practices in information verification and validation procedures. Therefore, based on the thorough analysis and integration of internal and external validation results, the final assessment is that the caption is indeed ‘out of context’ (OOC = True) with high confidence (confidence_score = 9). The explanation provides a comprehensive justification for prioritizing external validation evidence and its implications for accuracy and context. The analysis demonstrates the importance of robust fact-checking and evidence-based methods in information validation procedures. This case study offers valuable insights into effective information verification strategies and how to integrate multiple validation approaches for a thorough and reliable assessment of information claims. The explanation clearly demonstrates the rationale behind the final decision, explaining in detail the weighting of the different results and justifying the chosen confidence score."
+  },
+  "inference_time": 42.49907207489014
+}

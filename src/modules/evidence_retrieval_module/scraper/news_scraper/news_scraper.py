@@ -26,26 +26,29 @@ class NewsPleaseScraper:
         if not urls:
             return []
 
-        total_timeout = 6 * len(urls) + 6
+        total_timeout = 6 * len(urls)
         scraped_articles = []
         
         # Create a ThreadPoolExecutor for timeout control
         with ThreadPoolExecutor() as executor:
-            # Submit the scraping task
-            future = executor.submit(
-                NewsPlease.from_urls,
-                urls=urls,
-                timeout=6,
-                user_agent=self.user_agent
-            )
-            
             try:
+                # Submit the scraping task
+                future = executor.submit(
+                    NewsPlease.from_urls,
+                    urls=urls,
+                    timeout=6,
+                    user_agent=self.user_agent
+                )
+                
                 # Wait for result with timeout
                 articles = future.result(timeout=total_timeout)
                 
                 # Process successful results
                 for url, article in articles.items():
-                    if article:
+                    try:
+                        if article is None:
+                            continue
+                            
                         article_data = {
                             'authors': article.authors,
                             'date_download': article.date_download,
@@ -61,17 +64,19 @@ class NewsPleaseScraper:
                         }
                         scraped_articles.append(article_data)
                         
+                    except AttributeError as e:
+                        print(f"Article object missing attributes for {url}: {e}")
+                    except Exception as e:
+                        print(f"Error processing article from {url}: {e}")
+                        
             except TimeoutError:
                 print(f"Scraping timed out after {total_timeout} seconds")
             except Exception as e:
-                print(f"Failed to scrape URLs: {e}")
+                print(f"Failed to scrape URLs with error: {str(e)}")
             finally:
-                # Cancel the future if it's still running
-                # if future.cancel():
-                #     print("Cancelled future")
-                # else:
-                #     print("Future not cancelled")
-                future.cancel()
+                # Always attempt to cancel the future
+                if not future.done():
+                    future.cancel()
                 
         return scraped_articles
 

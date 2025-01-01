@@ -2,12 +2,14 @@
 import os
 from dataclasses import dataclass, field
 from datetime import datetime
+import re
 from dotenv import load_dotenv
 from src.modules.evidence_retrieval_module.scraper.news_scraper.news_scraper import NewsPleaseScraper
 from src.modules.evidence_retrieval_module.scraper.search_engine.google_image_search import GoogleImageSearch
 from src.modules.evidence_retrieval_module.scraper.search_engine.google_text_search import GoogleTextSearch
 from src.utils.logger import Logger
 from src.config import is_valid_url
+
 @dataclass
 class Article:
     """Represents a scraped news article."""
@@ -22,6 +24,54 @@ class Article:
     image_url: str = ""
     language: str = ""
     source_domain: str = ""
+    
+    def _clean_text(self, text: str) -> str:
+        """Clean text by removing/replacing problematic characters."""
+        if not text:
+            return ""
+            
+        # List of problematic Unicode characters to remove
+        chars_to_remove = [
+            '\u200b',  # Zero-width space
+            '\u200c',  # Zero-width non-joiner
+            '\u200d',  # Zero-width joiner
+            '\u202a',  # Left-to-right embedding
+            '\ufeff',  # Zero-width no-break space
+            '\u2011',  # Non-breaking hyphen
+            '\u2033',  # Double prime
+            '\u0107',  # Latin small letter c with acute
+            '\u0219',  # Latin small letter s with comma below
+            '\u010d',  # Latin small letter c with caron
+            '\u0101',  # Latin small letter a with macron
+            '\u014d',  # Latin small letter o with macron
+            '\u2665',  # Black heart suit
+            '\U0001f61b'  # Face with stuck-out tongue
+        ]
+        
+        # Remove problematic characters
+        for char in chars_to_remove:
+            text = text.replace(char, '')
+        
+        # Remove or fix other special characters
+        text = text.encode('ascii', 'ignore').decode('ascii')
+        
+        return text
+    
+    def to_dict(self):
+        try:
+            return {
+                "title": self._clean_text(self.title),
+                "date": self.date.isoformat() if self.date else None,
+                "content": self._clean_text(self.content),
+                "description": self._clean_text(self.description),
+                "source_domain": self._clean_text(self.source_domain)
+            }
+        except Exception as e:
+            return {
+                "error": f"Serialization failed: {str(e)}",
+                "url": self._clean_text(self.url),
+                "title": self._clean_text(self.title)
+            }
 
 class Scraper:
     def __init__(self, text_api_key, cx, news_sites=None, fact_checking_sites=None):
@@ -74,7 +124,6 @@ class Scraper:
         
         # Filter out URLs including video, or pdf.
         all_urls = [url for url in all_urls if is_valid_url(url)]
-        self.logger.info(f"[INFO] Retrieved {all_urls} URLs from search engine to scrape")
         self.logger.info(f"[INFO] Filtered {len(all_urls)} URLs to scrape")
         
         scraped_articles = self.news_scraper.scrape(all_urls)

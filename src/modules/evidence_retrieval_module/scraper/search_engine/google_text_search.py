@@ -25,7 +25,7 @@ class GoogleTextSearch:
         self, 
         query: str, 
         num_results: int = 10,
-        filter: str = '1',
+        filter: str = '0',
         date_restrict: Optional[str] = None,
         news_factcheck_ratio: float = 0.7  # 70% news sites, 30% fact-checking by default
     ) -> List[Dict[Any, Any]]:
@@ -76,7 +76,15 @@ class GoogleTextSearch:
                 filter,
                 date_restrict
             ))
-            
+        
+        if len(all_results) == 0:
+            all_results.extend(self._execute_search(
+                query,
+                num_results,
+                filter,
+                date_restrict
+            ))
+        
         return all_results
     
     def _execute_search(

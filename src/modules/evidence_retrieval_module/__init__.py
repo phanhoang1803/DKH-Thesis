@@ -92,8 +92,12 @@ class ExternalRetrievalModule:
             return False, None
             
         if text_query:
-            similarity = cosine_similarity_func(text1=text_query, text2=article.title)
-            return similarity >= threshold, similarity
+            # similarity = cosine_similarity_func(text1=text_query, text2=article.title)
+            # return similarity >= threshold, similarity
+            sim1 = cosine_similarity_func(text1=text_query, text2=article.title)
+            sim2 = cosine_similarity_func(text1=text_query, text2=article.description)
+            sim = max(sim1, sim2)
+            return sim >= threshold, sim
         
         return True, None
 
@@ -103,9 +107,11 @@ class ExternalRetrievalModule:
                 num_results: int = 10, 
                 threshold: float = 0.7,
                 news_factcheck_ratio: float = 0.7,
+                min_result_number: int = 1,
                 max_workers: Optional[int] = None):
         """
         Retrieve and filter articles based on text and image queries using parallel processing.
+        If no articles meet the threshold criteria, returns the top articles by similarity score.
         
         Args:
             text_query (str, optional): Text query for article search
@@ -116,7 +122,7 @@ class ExternalRetrievalModule:
             max_workers (int, optional): Maximum number of worker processes. Defaults to CPU count - 1.
 
         Returns:
-            List[Article]: List of filtered articles
+            List[Article]: List of filtered articles, or top scoring articles if none meet threshold
         """
         assert text_query is not None or image_query is not None, "Either text_query or image_query must be provided"
         
@@ -145,26 +151,41 @@ class ExternalRetrievalModule:
             cosine_similarity_func=self.cosine_similarity
         )
         
-        filtered_articles = []
-        filtered_scores = []
+        # Store all articles and their similarity scores
+        article_scores = []
         
         # Process articles in parallel
         with Pool(processes=max_workers) as pool:
             results = pool.map(process_func, raw_articles)
             
-            # Filter articles based on results
+            # Collect all articles and their similarity scores
             for article, (should_include, similarity) in zip(raw_articles, results):
-                if should_include:
-                    filtered_articles.append(article)
-                    filtered_scores.append(similarity)
+                if similarity is not None:  # Only include articles with valid similarity scores
+                    article_scores.append((article, similarity))
                     
-                    # if similarity is not None:
-                    #     self.logger.debug(
-                    #         f"Article '{article.title[:50]}...' MATCHES text query with "
-                    #         f"cosine similarity = {similarity:.3f}"
-                    #     )
+                    # self.logger.debug(
+                    #     f"Article '{article.title[:50]}...' processed with "
+                    #     f"similarity score = {similarity:.3f}"
+                    # )
         
-        self.logger.info(f"[INFO] Filtered to {len(filtered_articles)} articles from {len(raw_articles)} total")
+        # Sort articles by similarity score in descending order
+        article_scores.sort(key=lambda x: x[1], reverse=True)
+        
+        # First try to get articles that meet the threshold
+        filtered_articles = [article for article, score in article_scores if score >= threshold]
+        
+        # If no articles meet the threshold, take the top scoring articles
+        if not filtered_articles and article_scores:
+            top_articles = article_scores[:min_result_number]
+            filtered_articles = [article for article, _ in top_articles]
+            self.logger.info(
+                f"[INFO] No articles met threshold {threshold}. "
+                f"Returning top {len(filtered_articles)} articles by similarity score"
+            )
+        
+        self.logger.info(
+            f"[INFO] Retrieved {len(filtered_articles)} articles from {len(raw_articles)} total"
+        )
         return filtered_articles
     
     def exist_image(self, article: Article):

@@ -1,7 +1,9 @@
+from datetime import datetime
 import numpy as np
 from modules import NERConnector, BLIP2Connector, GeminiConnector, ExternalRetrievalModule
 from dataloaders import cosmos_dataloader
-from templates_internal import get_internal_prompt, get_final_prompt
+from src.modules.evidence_retrieval_module.scraper.scraper import Article
+from templates_internal import get_internal_prompt, get_final_prompt, get_external_prompt
 import os
 from dotenv import load_dotenv
 import argparse
@@ -39,12 +41,18 @@ def inference(ner_connector: NERConnector,
              external_retrieval_module: ExternalRetrievalModule, 
              data: dict):
     
-    class InternalResponse(TypedDict):
+    class InternalResponse(TypedDict, total=True):
         verdict: bool
         explanation: str
         confidence_score: int
 
-    class FinalResponse(TypedDict):
+    class ExternalResponse(TypedDict, total=True):
+        verdict: bool
+        explanation: str
+        confidence_score: int
+        supporting_points: str
+
+    class FinalResponse(TypedDict, total=True):
         OOC: bool
         validation_summary: str
         explanation: str
@@ -58,9 +66,9 @@ def inference(ner_connector: NERConnector,
     image_base64 = data["image_base64"]
 
     # Get external evidence
-    candidates = external_retrieval_module.retrieve(data["caption"], num_results=10, threshold=0.7, news_factcheck_ratio=0.7)
-
-    # # 1: Internal Checking
+    candidates = external_retrieval_module.retrieve(data["caption"], num_results=10, threshold=0.5, news_factcheck_ratio=0.5)
+    
+    # 1: Internal Checking
     internal_prompt = get_internal_prompt(
         caption=data["caption"],
         textual_entities=textual_entities
@@ -70,19 +78,16 @@ def inference(ner_connector: NERConnector,
         schema=InternalResponse
     )
     
-    # # 2: External Checking
-    # external_prompt = get_external_prompt(
-    #     caption=data["caption"],
-    #     candidates=candidates
-    # )
+    # 2: External Checking
+    external_prompt = get_external_prompt(
+        caption=data["caption"],
+        candidates=candidates
+    )
 
-    # external_result = llm_connector.call_with_structured_output(
-    #     prompt=external_prompt,
-    #     schema=ExternalResponse
-    # )
-
-    candidates = None
-    external_result = None
+    external_result = llm_connector.call_with_structured_output(
+        prompt=external_prompt,
+        schema=ExternalResponse
+    )
 
     # 3: Final Checking
     final_prompt = get_final_prompt(
@@ -97,8 +102,6 @@ def inference(ner_connector: NERConnector,
         schema=FinalResponse,
         image_base64=image_base64
     )
-
-    # json_output = json.loads(final_result.choices[0].text)
     
     inference_time = time.time() - start_time
     
@@ -109,18 +112,20 @@ def inference(ner_connector: NERConnector,
             "textual_entities": textual_entities,
             "result": internal_result
         },
+        "external_check": {
+            "candidates": [candidate.to_dict() for candidate in candidates],
+            "result": external_result
+        },
         "final_result": final_result,
-        "inference_time": float(inference_time)  # Explicitly convert to Python float
+        "inference_time": float(inference_time)
     }
     
-    # Process the result to ensure JSON serialization compatibility
     return process_results(result)
 
 def get_transform():
     return None
 
 class NumpyJSONEncoder(json.JSONEncoder):
-    """Custom JSON encoder to handle NumPy data types."""
     def default(self, obj):
         if isinstance(obj, np.integer):
             return int(obj)
@@ -128,11 +133,15 @@ class NumpyJSONEncoder(json.JSONEncoder):
             return float(obj)
         elif isinstance(obj, np.ndarray):
             return obj.tolist()
+        elif isinstance(obj, Article):
+            return obj.to_dict()
+        elif isinstance(obj, datetime):
+            return obj.isoformat()
         return super().default(obj)
 
 def process_results(results_dict):
     """
-    Recursively process dictionary to convert all NumPy types to Python native types.
+    Recursively process dictionary to convert all NumPy types and Article objects to JSON-serializable types.
     
     Args:
         results_dict (dict): Dictionary containing results
@@ -140,17 +149,25 @@ def process_results(results_dict):
     Returns:
         dict: Processed dictionary with all values converted to JSON-serializable types
     """
-    if isinstance(results_dict, dict):
-        return {key: process_results(value) for key, value in results_dict.items()}
-    elif isinstance(results_dict, list):
-        return [process_results(item) for item in results_dict]
-    elif isinstance(results_dict, np.integer):
-        return int(results_dict)
-    elif isinstance(results_dict, np.floating):
-        return float(results_dict)
-    elif isinstance(results_dict, np.ndarray):
-        return results_dict.tolist()
-    return results_dict
+    try:
+        if isinstance(results_dict, dict):
+            return {key: process_results(value) for key, value in results_dict.items()}
+        elif isinstance(results_dict, (list, tuple)):
+            return [process_results(item) for item in results_dict]
+        elif isinstance(results_dict, np.integer):
+            return int(results_dict)
+        elif isinstance(results_dict, np.floating):
+            return float(results_dict)
+        elif isinstance(results_dict, np.ndarray):
+            return results_dict.tolist()
+        elif isinstance(results_dict, Article):
+            return results_dict.to_dict()
+        elif isinstance(results_dict, datetime):
+            return results_dict.isoformat()
+        return results_dict
+    except Exception as e:
+        print(f"Error processing value {type(results_dict)}: {str(e)}")
+        return str(results_dict)
 
 def main():
     args = arg_parser()
@@ -198,7 +215,6 @@ def main():
     results = []
     error_items = []
     total_start_time = time.time()
-    
     count = 1
 
     for batch_idx, batch in enumerate(dataloader):
@@ -211,20 +227,22 @@ def main():
                     external_retrieval_module,
                     item
                 )
-                with open(os.path.join(args.output_dir_path, f"result_{count}.json"), "w") as f:
+                
+                with open(os.path.join(args.output_dir_path, f"result_{count}.json"), "w", encoding='utf-8') as f:
                     json.dump(result, f, indent=2, ensure_ascii=False)
                 count += 1
                 results.append(result)
             except Exception as e:
-                with open(os.path.join(args.errors_dir_path, f"error_{count}.json"), "w") as f:
-                    error_item = {
-                        "error": str(e),
-                        "caption": item["caption"],
-                    }
-                    json.dump(error_item, f, indent=2, ensure_ascii=False)
-                error_items.append(error_item)
-                count += 1
-                print(f"Error processing item {count}: {e}")
+                # with open(os.path.join(args.errors_dir_path, f"error_{count}.json"), "w") as f:
+                #     error_item = {
+                #         "error": str(e),
+                #         "caption": item["caption"],
+                #     }
+                #     json.dump(error_item, f, indent=2, ensure_ascii=False)
+                # error_items.append(error_item)
+                # count += 1
+                # print(f"Error processing item {count}: {e}")
+                raise Exception(e)
     
     total_time = time.time() - total_start_time
     
