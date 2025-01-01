@@ -77,14 +77,6 @@ class GoogleTextSearch:
                 date_restrict
             ))
         
-        if len(all_results) == 0:
-            all_results.extend(self._execute_search(
-                query,
-                num_results,
-                filter,
-                date_restrict
-            ))
-        
         return all_results
     
     def _execute_search(

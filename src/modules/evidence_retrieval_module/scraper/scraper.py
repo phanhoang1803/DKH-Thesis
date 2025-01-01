@@ -24,7 +24,7 @@ class Article:
     image_url: str = ""
     language: str = ""
     source_domain: str = ""
-    
+
     def _clean_text(self, text: str) -> str:
         """Clean text by removing/replacing problematic characters."""
         if not text:

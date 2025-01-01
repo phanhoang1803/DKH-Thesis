@@ -50,22 +50,23 @@ class NewsPleaseScraper:
                             continue
                             
                         article_data = {
-                            'authors': article.authors,
-                            'date_download': article.date_download,
-                            'date_modify': article.date_modify,
-                            'title': article.title,
-                            'date': article.date_publish,
-                            'content': article.maintext,
+                            'authors': article.authors if hasattr(article, 'authors') else [],
+                            'date_download': article.date_download if hasattr(article, 'date_download') else None,
+                            'date_modify': article.date_modify if hasattr(article, 'date_modify') else None,
+                            'title': article.title if hasattr(article, 'title') else '',
+                            'date': article.date_publish if hasattr(article, 'date_publish') else None,
+                            'content': article.maintext if hasattr(article, 'maintext') else '',
                             'url': url,
-                            'description': article.description,
-                            'image_url': article.image_url,
-                            'language': article.language,
-                            'source_domain': article.source_domain
+                            'description': article.description if hasattr(article, 'description') else '',
+                            'image_url': article.image_url if hasattr(article, 'image_url') else '',
+                            'language': article.language if hasattr(article, 'language') else '',
+                            'source_domain': article.source_domain if hasattr(article, 'source_domain') else ''
                         }
                         scraped_articles.append(article_data)
                         
                     except AttributeError as e:
                         print(f"Article object missing attributes for {url}: {e}")
+                        print(article)
                     except Exception as e:
                         print(f"Error processing article from {url}: {e}")
                         

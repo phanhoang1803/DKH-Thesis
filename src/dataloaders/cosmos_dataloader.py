@@ -19,6 +19,8 @@ def get_cosmos_dataloader(
     num_workers: int = 2,
     transform: Optional[Any] = None
 ):
+    print(shuffle)
+    
     dataset = CosmosDataset(data_path=data_path, transform=transform)
     return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=num_workers, collate_fn=identity_collate)
 
