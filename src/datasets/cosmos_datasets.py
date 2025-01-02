@@ -44,7 +44,7 @@ class CosmosDataset(Dataset):
             json.JSONDecodeError: If the JSON format is invalid.
         """
         try:
-            with open(data_path, 'r') as f:
+            with open(data_path, 'r', encoding='utf-8' ) as f:
                 data = json.load(f)
             
             # Validate required fields

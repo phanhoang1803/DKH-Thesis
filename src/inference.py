@@ -233,16 +233,16 @@ def main():
                 count += 1
                 results.append(result)
             except Exception as e:
-                # with open(os.path.join(args.errors_dir_path, f"error_{count}.json"), "w") as f:
-                #     error_item = {
-                #         "error": str(e),
-                #         "caption": item["caption"],
-                #     }
-                #     json.dump(error_item, f, indent=2, ensure_ascii=False)
-                # error_items.append(error_item)
-                # count += 1
-                # print(f"Error processing item {count}: {e}")
-                raise Exception(e)
+                with open(os.path.join(args.errors_dir_path, f"error_{count}.json"), "w") as f:
+                    error_item = {
+                        "error": str(e),
+                        "caption": item["caption"],
+                    }
+                    json.dump(error_item, f, indent=2, ensure_ascii=False)
+                error_items.append(error_item)
+                count += 1
+                print(f"Error processing item {count}: {e}")
+                # raise Exception(e)
     
     total_time = time.time() - total_start_time
     

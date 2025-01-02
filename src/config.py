@@ -51,8 +51,7 @@ EXCLUDED_FILE_TYPES = [
     '.pptx',
     '.xls',
     '.xlsx',
-    '.txt',
-    '.xml'
+    '.txt'
 ]
 
 EXCLUDED_URL_KEYWORDS = [
@@ -63,10 +62,6 @@ EXCLUDED_URL_KEYWORDS = [
     'podcast',
     'podcasts',
     'audio',
-    'live',
-    'interactive',
-    'premium',
-    'subscribe'
 ]
 
 def is_valid_url(url: str) -> bool:

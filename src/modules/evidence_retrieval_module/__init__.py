@@ -1,34 +1,364 @@
-# evidence_retrieval_module/__init__.py
+# # evidence_retrieval_module/__init__.py
+
+# from multiprocessing import Pool
+# from .scraper import Scraper, Article
+# from transformers import AutoTokenizer, AutoModel
+# import torch
+# import torch.nn.functional as F
+# from typing import List, Optional, Tuple
+# import numpy as np
+# from dotenv import load_dotenv
+# import os
+# from functools import lru_cache, partial
+# from src.utils.logger import Logger
+
+# class ExternalRetrievalModule:
+#     def __init__(self, text_api_key: str, cx: str, news_sites: List[str] = None, fact_checking_sites: List[str] = None, model_name: str = "sentence-transformers/all-MiniLM-L6-v2"):
+#         """
+#         Initialize the External Retrieval Module.
+        
+#         Args:
+#             text_api_key (str): API key for text search
+#             cx (str): Custom search engine ID
+#             news_sites (List[str]): List of news sites to scrape from
+#             model_name (str): Name of the pre-trained model to use for text embeddings
+            
+            
+#         Example usage:
+#         ```python
+#         retriever = ExternalRetrievalModule(API_KEY, CX)
+#         articles = retriever.retrieve(text_query="Trump Names Karoline Leavitt as His White House Press Secretary", num_results=10, threshold=0.8)
+#         ```
+#         """
+#         self.scraper = Scraper(text_api_key, cx, news_sites, fact_checking_sites)
+#         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+#         self.model = AutoModel.from_pretrained(model_name)
+#         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+#         self.logger = Logger(name="ExternalRetrievalModule")
+#         self.model.to(self.device)
+        
+#     # def retrieve(self, 
+#     #             text_query: Optional[str] = None, 
+#     #             image_query: Optional[str] = None, 
+#     #             num_results: int = 10, 
+#     #             threshold: float = 0.7,
+#     #             news_factcheck_ratio: float = 0.7):
+#     #     """
+#     #     Retrieve and filter articles based on text and image queries.
+        
+#     #     Args:
+#     #         text_query (str, optional): Text query for article search
+#     #         image_query (str, optional): Image query for article search
+#     #         num_results (int): Number of results to retrieve. By default, 10, with settings max at 20.
+#     #         threshold (float): Similarity threshold for filtering articles
+#     #         news_factcheck_ratio (float): Ratio of news sites to fact-checking sites. Defaults to 0.7.
+
+#     #     Returns:
+#     #         List[Article]: List of filtered articles
+#     #     """
+#     #     assert text_query is not None or image_query is not None, "Either text_query or image_query must be provided"
+        
+#     #     self.logger.info(f"[INFO] Retrieving articles with text query: {text_query}")
+#     #     raw_articles = self.scraper.search_and_scrape(text_query=text_query, 
+#     #                                                   image_query=image_query, 
+#     #                                                   num_results=num_results,
+#     #                                                   news_factcheck_ratio=news_factcheck_ratio)
+#     #     filtered_articles = []
+#     #     for article in raw_articles:
+#     #         if self.exist_image(article):
+#     #             if text_query:
+#     #                 cosine_similarity = self.cosine_similarity(text1=text_query, text2=article.title)
+#     #                 if cosine_similarity >= threshold:
+#     #                     filtered_articles.append(article)
+#     #                     # self.logger.info(f"Article {article.title} MATCHES text query with cosine similarity = {cosine_similarity}")
+#     #                 # else:
+#     #                     # self.logger.info(f"Article {article.title} does NOT match text query with cosine similarity = {cosine_similarity}")
+#     #             else:
+#     #                 filtered_articles.append(article)
+#     #         # else:
+#     #             # self.logger.info(f"Article {article.title} does NOT have an image")
+                
+#     #     self.logger.info(f"[INFO] Filtered to {len(filtered_articles)} articles")
+#     #     return filtered_articles
+    
+#     def process_article(self, article, text_query: Optional[str], threshold: float, exist_image_func, cosine_similarity_func) -> Tuple[bool, Optional[float]]:
+#         """
+#         Process a single article in parallel.
+        
+#         Returns:
+#             Tuple[bool, Optional[float]]: (should_include, similarity_score)
+#         """
+#         if not exist_image_func(article):
+#             return False, None
+            
+#         if text_query:
+#             # similarity = cosine_similarity_func(text1=text_query, text2=article.title)
+#             # return similarity >= threshold, similarity
+#             sim1 = cosine_similarity_func(text1=text_query, text2=article.title)
+#             sim2 = cosine_similarity_func(text1=text_query, text2=article.description)
+#             sim = max(sim1, sim2)
+#             return sim >= threshold, sim
+        
+#         return True, None
+
+#     def retrieve(self, 
+#                 text_query: Optional[str] = None, 
+#                 image_query: Optional[str] = None, 
+#                 num_results: int = 10, 
+#                 threshold: float = 0.7,
+#                 news_factcheck_ratio: float = 0.7,
+#                 min_result_number: int = 1,
+#                 max_workers: Optional[int] = None):
+#         """
+#         Retrieve and filter articles based on text and image queries using parallel processing.
+#         If no articles meet the threshold criteria, returns the top articles by similarity score.
+        
+#         Args:
+#             text_query (str, optional): Text query for article search
+#             image_query (str, optional): Image query for article search
+#             num_results (int): Number of results to retrieve. By default, 10, with settings max at 20.
+#             threshold (float): Similarity threshold for filtering articles
+#             news_factcheck_ratio (float): Ratio of news sites to fact-checking sites. Defaults to 0.7.
+#             max_workers (int, optional): Maximum number of worker processes. Defaults to CPU count - 1.
+
+#         Returns:
+#             List[Article]: List of filtered articles, or top scoring articles if none meet threshold
+#         """
+#         assert text_query is not None or image_query is not None, "Either text_query or image_query must be provided"
+        
+#         self.logger.info(f"[INFO] Retrieving articles with text query: {text_query}")
+#         raw_articles = self.scraper.search_and_scrape(
+#             text_query=text_query, 
+#             image_query=image_query, 
+#             num_results=num_results,
+#             news_factcheck_ratio=news_factcheck_ratio
+#         )
+        
+#         if not raw_articles:
+#             self.logger.info("[INFO] No articles found")
+#             return []
+            
+#         # Determine number of workers
+#         if max_workers is None:
+#             max_workers = max(1, os.cpu_count() - 1)  # Leave one CPU for system tasks
+        
+#         # Create partial function with fixed arguments
+#         process_func = partial(
+#             self.process_article,
+#             text_query=text_query,
+#             threshold=threshold,
+#             exist_image_func=self.exist_image,
+#             cosine_similarity_func=self.cosine_similarity
+#         )
+        
+#         # Store all articles and their similarity scores
+#         article_scores = []
+        
+#         # Process articles in parallel
+#         with Pool(processes=max_workers) as pool:
+#             results = pool.map(process_func, raw_articles)
+            
+#             # Collect all articles and their similarity scores
+#             for article, (should_include, similarity) in zip(raw_articles, results):
+#                 if similarity is not None:  # Only include articles with valid similarity scores
+#                     article_scores.append((article, similarity))
+                    
+#                     # self.logger.debug(
+#                     #     f"Article '{article.title[:50]}...' processed with "
+#                     #     f"similarity score = {similarity:.3f}"
+#                     # )
+        
+#         # Sort articles by similarity score in descending order
+#         article_scores.sort(key=lambda x: x[1], reverse=True)
+        
+#         # First try to get articles that meet the threshold
+#         filtered_articles = [article for article, score in article_scores if score >= threshold]
+        
+#         # If no articles meet the threshold, take the top scoring articles
+#         if not filtered_articles and article_scores:
+#             top_articles = article_scores[:min_result_number]
+#             filtered_articles = [article for article, _ in top_articles]
+#             self.logger.info(
+#                 f"[INFO] No articles met threshold {threshold}. "
+#                 f"Returning top {len(filtered_articles)} articles by similarity score"
+#             )
+        
+#         self.logger.info(
+#             f"[INFO] Retrieved {len(filtered_articles)} articles from {len(raw_articles)} total"
+#         )
+#         return filtered_articles
+    
+#     def exist_image(self, article: Article):
+#         """
+#         Check if an article has an associated image.
+#         """
+#         return article.image_url != ""
+    
+#     def mean_pooling(self, model_output, attention_mask):
+#         """
+#         Source: https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
+#         """
+#         token_embeddings = model_output[0] #First element of model_output contains all token embeddings
+#         input_mask_expanded = attention_mask.unsqueeze(-1).expand(token_embeddings.size()).float()
+#         return torch.sum(token_embeddings * input_mask_expanded, 1) / torch.clamp(input_mask_expanded.sum(1), min=1e-9)
+    
+#     @lru_cache(maxsize=1000)
+#     def get_embedding(self, text: str):
+#         """
+#         Source: https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
+#         Get embedding for a piece of text using the transformer model.
+        
+#         Args:
+#             text (str): Input text
+            
+#         Returns:
+#             torch.Tensor: Text embedding
+#         """
+#         # Tokenize and prepare input
+#         inputs = self.tokenizer(text=text, 
+#                               padding=True, 
+#                               truncation=True, 
+#                               max_length=512, 
+#                               return_tensors="pt")
+        
+#         # Move inputs to device
+#         inputs = {k: v.to(self.device) for k, v in inputs.items()}
+        
+#         # Get model output
+#         with torch.no_grad():
+#             outputs = self.model(**inputs)
+
+
+#         # Use mean pooling to get text embedding
+#         embedding = self.mean_pooling(outputs, inputs['attention_mask'])
+#         embedding = torch.nn.functional.normalize(embedding, p=2, dim=1)
+        
+#         return embedding
+    
+#     def cosine_similarity(self, text1: str, text2: str):
+#         """
+#         Calculate cosine similarity between two texts.
+        
+#         Args:
+#             text1 (str): First text
+#             text2 (str): Second text
+            
+#         Returns:
+#             float: Cosine similarity score
+#         """
+#         if text1 is None or text2 is None:
+#             return 0
+        
+#         # Get embeddings for both texts
+#         embedding1 = self.get_embedding(text1)
+#         embedding2 = self.get_embedding(text2)
+        
+#         # Normalize embeddings
+#         embedding1 = torch.nn.functional.normalize(embedding1, p=2, dim=1)
+#         embedding2 = torch.nn.functional.normalize(embedding2, p=2, dim=1)
+        
+#         # Calculate cosine similarity
+#         similarity = torch.mm(embedding1, embedding2.transpose(0, 1))
+        
+#         return float(similarity[0][0].cpu().numpy())
+
+# # Example usage
+# if __name__ == "__main__":
+#     load_dotenv()
+
+#     API_KEY = os.environ.get("GOOGLE_API_KEY")
+#     CX = os.environ.get("CX")
+
+#     if not API_KEY or not CX:
+#         raise ValueError("API_KEY or CX is not set in the environment variables")
+
+#     from src.config import NEWS_SITES, FACT_CHECKING_SITES
+
+#     # Initialize the module
+#     retriever = ExternalRetrievalModule(API_KEY, CX, news_sites=NEWS_SITES, fact_checking_sites=FACT_CHECKING_SITES)
+    
+#     # Example search
+#     articles = retriever.retrieve(
+#         text_query="Trump Names Karoline Leavitt as His White House Press Secretary",
+#         num_results=10,
+#         threshold=0.8,
+#         news_factcheck_ratio=0.7
+#     )
+    
+#     # Print results
+#     for article in articles:
+#         print(f"Title: {article.title}")
+#         print(f"URL: {article.url}")
+#         print(f"Image URL: {article.image_url}")
+#         print("---")
+
 
 from multiprocessing import Pool
 from .scraper import Scraper, Article
 from transformers import AutoTokenizer, AutoModel
 import torch
 import torch.nn.functional as F
-from typing import List, Optional, Tuple
+from typing import List, Optional, Tuple, Dict
 import numpy as np
 from dotenv import load_dotenv
 import os
-from functools import lru_cache, partial
+from functools import lru_cache, partial, wraps
 from src.utils.logger import Logger
+import json
+from datetime import datetime
+from hashlib import sha256
+
+def cache_results(func):
+    """Decorator to handle caching of search results"""
+    @wraps(func)
+    def wrapper(self, text_query: Optional[str] = None, 
+                     image_query: Optional[str] = None, 
+                     num_results: int = 10, 
+                     threshold: float = 0.7,
+                     news_factcheck_ratio: float = 0.7,
+                     min_result_number: int = 1,
+                     max_workers: Optional[int] = None,
+                     max_cache_age_hours: int = 24):
+                     
+        # Generate cache key
+        cache_key = self._generate_cache_key(
+            text_query, image_query, num_results, threshold, news_factcheck_ratio
+        )
+        
+        # Try to get cached results
+        cached_results = self._get_cached_results(
+            cache_key, max_cache_hours=max_cache_age_hours
+        )
+        
+        if cached_results is not None:
+            return cached_results
+            
+        # If no cache hit, call the original function
+        results = func(self, text_query, image_query, num_results, threshold,
+                      news_factcheck_ratio, min_result_number, max_workers)
+                      
+        # Save results to cache
+        self._save_results(cache_key, results)
+        
+        return results
+        
+    return wrapper
 
 class ExternalRetrievalModule:
-    def __init__(self, text_api_key: str, cx: str, news_sites: List[str] = None, fact_checking_sites: List[str] = None, model_name: str = "sentence-transformers/all-MiniLM-L6-v2"):
+    def __init__(self, text_api_key: str, cx: str, news_sites: List[str] = None, 
+                 fact_checking_sites: List[str] = None, 
+                 model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+                 cache_dir: str = "./cache/search_results"):
         """
-        Initialize the External Retrieval Module.
+        Initialize the External Retrieval Module with caching capability.
         
         Args:
             text_api_key (str): API key for text search
             cx (str): Custom search engine ID
             news_sites (List[str]): List of news sites to scrape from
-            model_name (str): Name of the pre-trained model to use for text embeddings
-            
-            
-        Example usage:
-        ```python
-        retriever = ExternalRetrievalModule(API_KEY, CX)
-        articles = retriever.retrieve(text_query="Trump Names Karoline Leavitt as His White House Press Secretary", num_results=10, threshold=0.8)
-        ```
+            fact_checking_sites (List[str]): List of fact-checking sites
+            model_name (str): Name of the pre-trained model for embeddings
+            cache_dir (str): Directory to store search result cache
         """
         self.scraper = Scraper(text_api_key, cx, news_sites, fact_checking_sites)
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
@@ -37,63 +367,128 @@ class ExternalRetrievalModule:
         self.logger = Logger(name="ExternalRetrievalModule")
         self.model.to(self.device)
         
-    # def retrieve(self, 
-    #             text_query: Optional[str] = None, 
-    #             image_query: Optional[str] = None, 
-    #             num_results: int = 10, 
-    #             threshold: float = 0.7,
-    #             news_factcheck_ratio: float = 0.7):
-    #     """
-    #     Retrieve and filter articles based on text and image queries.
-        
-    #     Args:
-    #         text_query (str, optional): Text query for article search
-    #         image_query (str, optional): Image query for article search
-    #         num_results (int): Number of results to retrieve. By default, 10, with settings max at 20.
-    #         threshold (float): Similarity threshold for filtering articles
-    #         news_factcheck_ratio (float): Ratio of news sites to fact-checking sites. Defaults to 0.7.
+        # Cache setup
+        self.cache_dir = cache_dir
+        os.makedirs(cache_dir, exist_ok=True)
 
-    #     Returns:
-    #         List[Article]: List of filtered articles
-    #     """
-    #     assert text_query is not None or image_query is not None, "Either text_query or image_query must be provided"
-        
-    #     self.logger.info(f"[INFO] Retrieving articles with text query: {text_query}")
-    #     raw_articles = self.scraper.search_and_scrape(text_query=text_query, 
-    #                                                   image_query=image_query, 
-    #                                                   num_results=num_results,
-    #                                                   news_factcheck_ratio=news_factcheck_ratio)
-    #     filtered_articles = []
-    #     for article in raw_articles:
-    #         if self.exist_image(article):
-    #             if text_query:
-    #                 cosine_similarity = self.cosine_similarity(text1=text_query, text2=article.title)
-    #                 if cosine_similarity >= threshold:
-    #                     filtered_articles.append(article)
-    #                     # self.logger.info(f"Article {article.title} MATCHES text query with cosine similarity = {cosine_similarity}")
-    #                 # else:
-    #                     # self.logger.info(f"Article {article.title} does NOT match text query with cosine similarity = {cosine_similarity}")
-    #             else:
-    #                 filtered_articles.append(article)
-    #         # else:
-    #             # self.logger.info(f"Article {article.title} does NOT have an image")
-                
-    #     self.logger.info(f"[INFO] Filtered to {len(filtered_articles)} articles")
-    #     return filtered_articles
+    def _generate_cache_key(self, text_query: Optional[str], image_query: Optional[str], 
+                           num_results: int, threshold: float, news_factcheck_ratio: float) -> str:
+        """Generate a unique cache key based on search parameters"""
+        params = f"{text_query}|{image_query}|{num_results}|{threshold}|{news_factcheck_ratio}"
+        return sha256(params.encode()).hexdigest()
     
-    def process_article(self, article, text_query: Optional[str], threshold: float, exist_image_func, cosine_similarity_func) -> Tuple[bool, Optional[float]]:
-        """
-        Process a single article in parallel.
+    def _get_cache_path(self, cache_key: str) -> str:
+        """Get the full path for a cache file"""
+        return os.path.join(self.cache_dir, f"{cache_key}.json")
+    
+    def _get_cached_results(self, cache_key: str, max_cache_hours: int = 24) -> Optional[List[Article]]:
+        """Retrieve cached results if they exist and aren't expired"""
+        cache_path = self._get_cache_path(cache_key)
         
-        Returns:
-            Tuple[bool, Optional[float]]: (should_include, similarity_score)
-        """
+        if not os.path.exists(cache_path):
+            return None
+            
+        try:
+            with open(cache_path, 'r', encoding='utf-8') as f:
+                cache_data = json.load(f)
+                
+            # Check if cache is expired
+            cache_time = datetime.fromisoformat(cache_data['timestamp'])
+            age_hours = (datetime.now() - cache_time).total_seconds() / 3600
+            
+            if age_hours > max_cache_hours:
+                self.logger.info(f"Cache expired for key {cache_key}")
+                return None
+                
+            # Convert cached dictionaries back to Article objects
+            articles = []
+            for article_dict in cache_data['articles']:
+                article = Article()
+                for key, value in article_dict.items():
+                    if key == 'date' and value:
+                        value = datetime.fromisoformat(value)
+                    setattr(article, key, value)
+                articles.append(article)
+                
+            self.logger.info(f"Cache hit for key {cache_key}")
+            return articles
+            
+        except Exception as e:
+            self.logger.error(f"Error reading cache: {str(e)}")
+            return None
+    
+    def _save_results(self, cache_key: str, articles: List[Article]):
+        """Save results to cache"""
+        cache_path = self._get_cache_path(cache_key)
+        
+        try:
+            cache_data = {
+                'timestamp': datetime.now().isoformat(),
+                'articles': [article.to_dict() for article in articles]
+            }
+            
+            with open(cache_path, 'w', encoding='utf-8') as f:
+                json.dump(cache_data, f, indent=2, ensure_ascii=False)
+            self.logger.info(f"Saved results to cache for key {cache_key}")
+        except Exception as e:
+            self.logger.error(f"Error saving to cache: {str(e)}")
+    
+    def clear_cache(self, max_age_hours: Optional[int] = None):
+        """Clear all or expired cache entries"""
+        if max_age_hours is not None:
+            self._clear_expired_cache(max_age_hours)
+        else:
+            self._clear_all_cache()
+    
+    def _clear_expired_cache(self, max_age_hours: int = 24*7):
+        """Remove expired cache files"""
+        now = datetime.now()
+        count = 0
+        
+        for filename in os.listdir(self.cache_dir):
+            if not filename.endswith('.json'):
+                continue
+                
+            filepath = os.path.join(self.cache_dir, filename)
+            try:
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    cache_data = json.load(f)
+                cache_time = datetime.fromisoformat(cache_data['timestamp'])
+                age_hours = (now - cache_time).total_seconds() / 3600
+                
+                if age_hours > max_age_hours:
+                    os.remove(filepath)
+                    count += 1
+                    
+            except (json.JSONDecodeError, KeyError, ValueError, OSError):
+                # Remove invalid cache files
+                try:
+                    os.remove(filepath)
+                    count += 1
+                except OSError:
+                    pass
+                    
+        self.logger.info(f"Removed {count} expired cache files")
+    
+    def _clear_all_cache(self):
+        """Remove all cache files"""
+        count = 0
+        for filename in os.listdir(self.cache_dir):
+            if filename.endswith('.json'):
+                try:
+                    os.remove(os.path.join(self.cache_dir, filename))
+                    count += 1
+                except OSError:
+                    pass
+        self.logger.info(f"Removed {count} cache files")
+
+    def process_article(self, article, text_query: Optional[str], threshold: float, 
+                       exist_image_func, cosine_similarity_func) -> Tuple[bool, Optional[float]]:
+        """Process a single article in parallel"""
         if not exist_image_func(article):
             return False, None
             
         if text_query:
-            # similarity = cosine_similarity_func(text1=text_query, text2=article.title)
-            # return similarity >= threshold, similarity
             sim1 = cosine_similarity_func(text1=text_query, text2=article.title)
             sim2 = cosine_similarity_func(text1=text_query, text2=article.description)
             sim = max(sim1, sim2)
@@ -101,6 +496,7 @@ class ExternalRetrievalModule:
         
         return True, None
 
+    @cache_results
     def retrieve(self, 
                 text_query: Optional[str] = None, 
                 image_query: Optional[str] = None, 
@@ -111,18 +507,19 @@ class ExternalRetrievalModule:
                 max_workers: Optional[int] = None):
         """
         Retrieve and filter articles based on text and image queries using parallel processing.
-        If no articles meet the threshold criteria, returns the top articles by similarity score.
+        Results are cached to improve performance on repeated queries.
         
         Args:
             text_query (str, optional): Text query for article search
             image_query (str, optional): Image query for article search
-            num_results (int): Number of results to retrieve. By default, 10, with settings max at 20.
+            num_results (int): Number of results to retrieve
             threshold (float): Similarity threshold for filtering articles
-            news_factcheck_ratio (float): Ratio of news sites to fact-checking sites. Defaults to 0.7.
-            max_workers (int, optional): Maximum number of worker processes. Defaults to CPU count - 1.
-
+            news_factcheck_ratio (float): Ratio of news to fact-checking sites
+            min_result_number (int): Minimum number of results to return
+            max_workers (int, optional): Maximum number of worker processes
+            
         Returns:
-            List[Article]: List of filtered articles, or top scoring articles if none meet threshold
+            List[Article]: List of filtered articles
         """
         assert text_query is not None or image_query is not None, "Either text_query or image_query must be provided"
         
@@ -138,11 +535,9 @@ class ExternalRetrievalModule:
             self.logger.info("[INFO] No articles found")
             return []
             
-        # Determine number of workers
         if max_workers is None:
-            max_workers = max(1, os.cpu_count() - 1)  # Leave one CPU for system tasks
+            max_workers = max(1, os.cpu_count() - 1)
         
-        # Create partial function with fixed arguments
         process_func = partial(
             self.process_article,
             text_query=text_query,
@@ -151,30 +546,19 @@ class ExternalRetrievalModule:
             cosine_similarity_func=self.cosine_similarity
         )
         
-        # Store all articles and their similarity scores
         article_scores = []
         
-        # Process articles in parallel
         with Pool(processes=max_workers) as pool:
             results = pool.map(process_func, raw_articles)
             
-            # Collect all articles and their similarity scores
             for article, (should_include, similarity) in zip(raw_articles, results):
-                if similarity is not None:  # Only include articles with valid similarity scores
+                if similarity is not None:
                     article_scores.append((article, similarity))
-                    
-                    # self.logger.debug(
-                    #     f"Article '{article.title[:50]}...' processed with "
-                    #     f"similarity score = {similarity:.3f}"
-                    # )
         
-        # Sort articles by similarity score in descending order
         article_scores.sort(key=lambda x: x[1], reverse=True)
         
-        # First try to get articles that meet the threshold
         filtered_articles = [article for article, score in article_scores if score >= threshold]
         
-        # If no articles meet the threshold, take the top scoring articles
         if not filtered_articles and article_scores:
             top_articles = article_scores[:min_result_number]
             filtered_articles = [article for article, _ in top_articles]
@@ -193,7 +577,7 @@ class ExternalRetrievalModule:
         Check if an article has an associated image.
         """
         return article.image_url != ""
-    
+
     def mean_pooling(self, model_output, attention_mask):
         """
         Source: https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
@@ -216,10 +600,10 @@ class ExternalRetrievalModule:
         """
         # Tokenize and prepare input
         inputs = self.tokenizer(text=text, 
-                              padding=True, 
-                              truncation=True, 
-                              max_length=512, 
-                              return_tensors="pt")
+                            padding=True, 
+                            truncation=True, 
+                            max_length=512, 
+                            return_tensors="pt")
         
         # Move inputs to device
         inputs = {k: v.to(self.device) for k, v in inputs.items()}
@@ -261,33 +645,3 @@ class ExternalRetrievalModule:
         similarity = torch.mm(embedding1, embedding2.transpose(0, 1))
         
         return float(similarity[0][0].cpu().numpy())
-
-# Example usage
-if __name__ == "__main__":
-    load_dotenv()
-
-    API_KEY = os.environ.get("GOOGLE_API_KEY")
-    CX = os.environ.get("CX")
-
-    if not API_KEY or not CX:
-        raise ValueError("API_KEY or CX is not set in the environment variables")
-
-    from src.config import NEWS_SITES, FACT_CHECKING_SITES
-
-    # Initialize the module
-    retriever = ExternalRetrievalModule(API_KEY, CX, news_sites=NEWS_SITES, fact_checking_sites=FACT_CHECKING_SITES)
-    
-    # Example search
-    articles = retriever.retrieve(
-        text_query="Trump Names Karoline Leavitt as His White House Press Secretary",
-        num_results=10,
-        threshold=0.8,
-        news_factcheck_ratio=0.7
-    )
-    
-    # Print results
-    for article in articles:
-        print(f"Title: {article.title}")
-        print(f"URL: {article.url}")
-        print(f"Image URL: {article.image_url}")
-        print("---")
