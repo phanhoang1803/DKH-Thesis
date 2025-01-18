@@ -14,6 +14,7 @@ import torch
 import json
 import time
 from src.config import NEWS_SITES, FACT_CHECKING_SITES
+from src.utils.utils import process_results, NumpyJSONEncoder
 
 def arg_parser():
     parser = argparse.ArgumentParser()
@@ -123,50 +124,6 @@ def inference(ner_connector: NERConnector,
 
 def get_transform():
     return None
-
-class NumpyJSONEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, np.integer):
-            return int(obj)
-        elif isinstance(obj, np.floating):
-            return float(obj)
-        elif isinstance(obj, np.ndarray):
-            return obj.tolist()
-        elif isinstance(obj, Article):
-            return obj.to_dict()
-        elif isinstance(obj, datetime):
-            return obj.isoformat()
-        return super().default(obj)
-
-def process_results(results_dict):
-    """
-    Recursively process dictionary to convert all NumPy types and Article objects to JSON-serializable types.
-    
-    Args:
-        results_dict (dict): Dictionary containing results
-        
-    Returns:
-        dict: Processed dictionary with all values converted to JSON-serializable types
-    """
-    try:
-        if isinstance(results_dict, dict):
-            return {key: process_results(value) for key, value in results_dict.items()}
-        elif isinstance(results_dict, (list, tuple)):
-            return [process_results(item) for item in results_dict]
-        elif isinstance(results_dict, np.integer):
-            return int(results_dict)
-        elif isinstance(results_dict, np.floating):
-            return float(results_dict)
-        elif isinstance(results_dict, np.ndarray):
-            return results_dict.tolist()
-        elif isinstance(results_dict, Article):
-            return results_dict.to_dict()
-        elif isinstance(results_dict, datetime):
-            return results_dict.isoformat()
-        return results_dict
-    except Exception as e:
-        print(f"Error processing value {type(results_dict)}: {str(e)}")
-        return str(results_dict)
 
 def main():
     args = arg_parser()
