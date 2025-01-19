@@ -1,6 +1,6 @@
 from datetime import datetime
 import numpy as np
-from modules import NERConnector, BLIP2Connector, GeminiConnector, ExternalRetrievalModule
+from modules import NERConnector, BLIP2Connector, GPTConnector, ExternalRetrievalModule
 from dataloaders import cosmos_dataloader
 from src.modules.evidence_retrieval_module.scraper.scraper import Article
 from templates_2 import get_internal_prompt, get_final_prompt, get_external_prompt
@@ -39,7 +39,7 @@ def arg_parser():
 
 def inference(ner_connector: NERConnector, 
              blip2_connector: BLIP2Connector, 
-             llm_connector: GeminiConnector, 
+             llm_connector: GPTConnector, 
              external_retrieval_module: ExternalRetrievalModule, 
              data: dict):
     
@@ -155,8 +155,9 @@ def main():
     )
     ner_connector.connect()
     
-    llm_connector = GeminiConnector(
-        api_key=os.environ["GEMINI_API_KEY"],
+    llm_connector = GPTConnector(
+        api_key=os.environ["OPENAI_API_KEY"],
+        model_name="gpt-4o-mini-2024-07-18"
     )
     
     # print("Connecting to External Retrieval Module...")
