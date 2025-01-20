@@ -25,12 +25,12 @@ NOTE: If unsure about the accuracy of any entity's usage, please indicate that y
 INTERNAL_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
 - "verdict": True/False,
 - "confidence_score": 0-10,
-- "explanation": The explanation of your decision,
+- "explanation": The explanation of your decision (up to 1000 words),
 
 Where:
 - verdict: "True" if the caption aligns with the entities, "False" otherwise.
 - confidence_score: A confidence assessment, from 0 to 10, indicating the level of certainty in the final answer.
-- explanation: An explanation to your decision. Avoid speculative statements.
+- explanation: An explanation to your decision (up to 1000 words). Avoid speculative statements.
 """
 
 # Separate External Checking Templates
@@ -109,20 +109,20 @@ INSTRUCTIONS:
 EXTERNAL_CHECKING_WITH_EVIDENCE_OUTPUT = """\nOUTPUT REQUIRED:
 - "verdict": True/False,
 - "confidence_score": 0-10,
-- "explanation": The explanation of your decision,
+- "explanation": The explanation of your decision (up to 1000 words),
 - "supporting_points": List of relevant evidence that supports your decision
 
 Where:
 - verdict: "True" if the caption appears accurate and properly used in context, "False" otherwise
 - confidence_score: 8-10 (strong direct evidence), 4-7 (partial/indirect evidence), 0-3 (unrelated/impossible to assess)
-- explanation: A detailed explanation including specific points from evidence supporting your verdict. Avoid speculative statements.
+- explanation: A detailed explanation (up to 1000 words) including specific points from evidence supporting your verdict. Avoid speculative statements.
 - supporting_points: List relevant quotes/references from the provided evidence
 """
 
 EXTERNAL_ARTICLE_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
 - "verdict": True/False/CANNOT_VERIFY,
 - "confidence_score": 0-10,
-- "explanation": Detailed analysis of the comparison,
+- "explanation": Detailed analysis of the comparison (up to 1000 words)..
 - "supporting_points": List of relevant quotes/details from articles that supports your decision
 
 Where:
@@ -138,6 +138,7 @@ Where:
     * Any significant discrepancies
     * Context relevance
     * Source credibility considerations
+    * Up to 1000 words
 
 - supporting_points: 
     * Direct quotes from articles that support your analysis
@@ -148,13 +149,13 @@ Where:
 EXTERNAL_CHECKING_WITHOUT_EVIDENCE_OUTPUT = """\nOUTPUT REQUIRED:
 - "verdict": True/False,
 - "confidence_score": 0-10,
-- "explanation": The explanation of your decision,
+- "explanation": The explanation of your decision (up to 1000 words).
 - "supporting_points": List of relevant knowledge points used in assessment
 
 Where:
 - verdict: "True" if the caption appears plausible based on general knowledge, "False" otherwise
 - confidence_score: 8-10 (aligns with established facts), 4-7 (plausible but uncertain), 0-3 (unrelated/impossible to assess)
-- explanation: A detailed explanation of your reasoning and any potential concerns. Avoid speculative statements.
+- explanation: A short explanation (up to 1000 words) of your reasoning and any potential concerns. Avoid speculative statements.
 - supporting_points: List relevant knowledge points used in your assessment
 """
 
@@ -184,7 +185,7 @@ FINAL_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
 - "OOC": True/False
 - "confidence_score": 0-10
 - "validation_summary": A concise summary of the validation results
-- "explanation": A detailed explanation for the final result
+- "explanation": A short explanation for the final result (up to 1000 words)
 
 Where:
 - OOC: "True" if the caption is out of context based on both internal and external checks, "False" otherwise

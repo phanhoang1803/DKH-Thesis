@@ -29,7 +29,7 @@ FINAL_RESPONSE_SCHEMA = {
         },
         "explanation": {
             "type": "string",
-            "description": "A clear and detailed explanation (up to 1000 words) of the final verdict, integrating internal and external validation results."
+            "description": "A short, clear explanation (up to 1000 words) of the final verdict, integrating internal and external validation results."
         },
         "additional_notes": {
             "type": "string",
@@ -58,13 +58,13 @@ INTERNAL_RESPONSE_SCHEMA = {
             "type": "string",
             "description": "A list of entities extracted from the content that need to be validated against the caption."
         },
+        "explanation": {
+            "type": "string",
+            "description": "A short explanation (about 1000 words) of the decision, detailing the alignment or discrepancies between the caption and entities."
+        },
         "supported": {
             "type": "boolean",
             "description": "Indicates whether the entities in the caption are correctly used and supported by the content (True or False)."
-        },
-        "explanation": {
-            "type": "string",
-            "description": "A short explanation of the decision, detailing the alignment or discrepancies between the caption and entities."
         }
     }
 }
@@ -79,7 +79,7 @@ EXTERNAL_RESPONSE_SCHEMA = {
         },
         "explanation": {
             "type": "string",
-            "description": "A concise explanation of the decision, based on the comparison between the caption and external evidence."
+            "description": "A short, concise explanation (about 1000 words) of the decision, based on the comparison between the caption and external evidence."
         },
         "confidence_score": {
             "type": "integer",
