@@ -13,15 +13,31 @@ from dataclasses import asdict, dataclass
 from dotenv import load_dotenv
 from src.modules.evidence_retrieval_module import ExternalRetrievalModule
 from src.config import NEWS_SITES, FACT_CHECKING_SITES
-from src.modules.evidence_retrieval_module.scraper.scraper import Article
 from src.dataloaders.newsclipping_dataloader import get_newsclipping_dataloader
+from src.dataloaders.cosmos_dataloader import get_cosmos_dataloader
 from src.utils.utils import NumpyJSONEncoder, process_results, EvidenceCache, ExternalEvidence
 from multiprocessing import cpu_count
+
+import signal
+import sys
+
+def signal_handler(sig, frame):
+    print('\nSaving cache and shutting down gracefully...')
+    # Force save the cache if it exists
+    if 'evidence_cache' in globals():
+        evidence_cache.save_if_needed(force=True)
+    print('Cache saved. Exiting.')
+    sys.exit(0)
+
+# Register the signal handler
+signal.signal(signal.SIGINT, signal_handler)
 
 def arg_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_path", type=str, default="data/short_newsclipping_test.json",
                        help="Path to the json file containing captions")
+    parser.add_argument("--dataset", type=str, default="newsclipping", choices=["newsclipping", "cosmos"],
+                       help="Dataset name")
     parser.add_argument("--output_path", type=str, default="./cache/external_evidence_cache_newsclippingtest.json",
                        help="Path to save the external evidence results")
     parser.add_argument("--batch_size", type=int, default=8)
@@ -35,76 +51,97 @@ def main():
     load_dotenv()
 
     # Initialize cache with saving every 50 items
+    global evidence_cache
     evidence_cache = EvidenceCache(args.output_path, save_frequency=1)
     
-    # Initialize External Retrieval Module
-    external_retrieval_module = ExternalRetrievalModule(
-        text_api_key=os.environ["GOOGLE_API_KEY"],
-        cx=os.environ["CX"],
-        news_sites=NEWS_SITES,
-        fact_checking_sites=FACT_CHECKING_SITES
-    )
+    try:
+        # Initialize External Retrieval Module
+        external_retrieval_module = ExternalRetrievalModule(
+            text_api_key=os.environ["GOOGLE_API_KEY"],
+            cx=os.environ["CX"],
+            news_sites=NEWS_SITES,
+            fact_checking_sites=FACT_CHECKING_SITES
+        )
+        print("[INFO] External Retrieval Module initialized")
+        
+        # Initialize dataloader
+        if args.dataset == "newsclipping":
+            dataloader = get_newsclipping_dataloader(
+                data_path=args.data_path,
+                batch_size=args.batch_size,
+                shuffle=False,
+                num_workers=args.num_workers,
+                transform=None
+            )
+        elif args.dataset == "cosmos":
+            dataloader = get_cosmos_dataloader(
+                data_path=args.data_path,
+                batch_size=args.batch_size,
+                shuffle=False,
+                num_workers=args.num_workers,
+                transform=None
+            )
+        print("[INFO] DataLoader initialized")
 
-    # Initialize dataloader
-    dataloader = get_newsclipping_dataloader(
-        data_path=args.data_path,
-        batch_size=args.batch_size,
-        shuffle=False,
-        num_workers=args.num_workers,
-        transform=None
-    )
 
-    count = 0
-    for batch_idx, batch in enumerate(dataloader):
-        for item in batch:
-            count += 1
-            
-            if count <= args.start_idx:
-                continue
+        count = 0
+        for batch_idx, batch in enumerate(dataloader):
+            print(f"Processing batch {batch_idx}")
+            for item in batch:
+                count += 1
+                
+                if count <= args.start_idx:
+                    continue
 
-            caption = item["caption"]
-            
-            # Check cache using the new cache class
-            if evidence_cache.get(caption):
-                print(f"Skipping caption {count} (already in cache)")
-                continue
+                caption = item["caption"]
+                
+                # Check cache using the new cache class
+                if evidence_cache.get(caption):
+                    print(f"Skipping caption {count} (already in cache)")
+                    continue
 
-            try:
-                print(f"Processing caption {count}: {caption[:100]}...")
-                start_time = time.time()
-                
-                # Get external evidence
-                candidates = external_retrieval_module.retrieve(
-                    caption,
-                    num_results=10,
-                    threshold=0.7,
-                    news_factcheck_ratio=0.5,
-                    min_result_number=0
-                )
-                
-                inference_time = time.time() - start_time
-                
-                # Create evidence object with hash
-                evidence = ExternalEvidence(
-                    query=caption,
-                    query_hash=evidence_cache._generate_hash(caption),
-                    evidences=[candidate.to_dict() for candidate in candidates],
-                    inference_time=inference_time,
-                    timestamp=datetime.now().isoformat()
-                )
-                
-                # Add to cache (saving handled by cache class)
-                evidence_cache.add(evidence)
-                
-                print(f"Successfully processed caption {count}")
-                
-            except Exception as e:
-                print(f"Error processing caption {count}: {str(e)}")
-                continue
+                try:
+                    print(f"Processing caption {count}: {caption[:100]}...")
+                    start_time = time.time()
+                    
+                    # Get external evidence
+                    candidates = external_retrieval_module.retrieve(
+                        caption,
+                        num_results=10,
+                        threshold=0.7,
+                        news_factcheck_ratio=0.5,
+                        min_result_number=0
+                    )
+                    
+                    inference_time = time.time() - start_time
+                    
+                    # Create evidence object with hash
+                    evidence = ExternalEvidence(
+                        query=caption,
+                        query_hash=evidence_cache._generate_hash(caption),
+                        evidences=[candidate.to_dict() for candidate in candidates],
+                        inference_time=inference_time,
+                        timestamp=datetime.now().isoformat()
+                    )
+                    
+                    # Add to cache (saving handled by cache class)
+                    evidence_cache.add(evidence)
+                    
+                    print(f"Successfully processed caption {count}")
+                    
+                except Exception as e:
+                    print(f"Error processing caption {count}: {str(e)}")
+                    continue
 
-    # Force final save
-    evidence_cache.save_if_needed(force=True)
-    print(f"Completed processing {len(evidence_cache.cache)} captions")
+        # Force final save
+        evidence_cache.save_if_needed(force=True)
+        print(f"Completed processing {len(evidence_cache.cache)} captions")
+    
+    except KeyboardInterrupt:
+        print('\nKeyboard interrupt detected')
+        evidence_cache.save_if_needed(force=True)
+        print('Cache saved. Exiting.')
+        raise SystemExit(0)
 
 if __name__ == "__main__":
     main()

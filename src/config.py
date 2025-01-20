@@ -7,8 +7,8 @@ NEWS_SITES = [
     
     # Major Global News Organizations
     'bbc.com',         # Strong editorial standards and fact-checking
-    'economist.com',   # In-depth analysis and fact-based reporting
-    'ft.com',          # Financial Times - rigorous business/economic coverage
+    # 'economist.com',   # In-depth analysis and fact-based reporting
+    # 'ft.com',          # Financial Times - rigorous business/economic coverage
     
     # US Elite News Organizations
     'nytimes.com',     # Extensive fact-checking department
@@ -17,6 +17,11 @@ NEWS_SITES = [
     
     # US Public Media
     'npr.org',         # National Public Radio - high journalistic standards
+    
+    'bloomberg.com',
+    'theguardian.com',
+    'nbcnews.com',
+    'edition.cnn.com'
 ]
 
 # Fact Checking Sources

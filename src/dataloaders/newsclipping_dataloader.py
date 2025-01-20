@@ -42,8 +42,8 @@ def get_newsclipping_dataloader(
         shuffle=shuffle,
         num_workers=num_workers,
         collate_fn=identity_collate,
-        pin_memory=True,
-        prefetch_factor=2
+        # pin_memory=True,
+        # prefetch_factor=2
     )
 
 

@@ -63,13 +63,9 @@ class NewsClippingDataset(Dataset):
             content = None
 
         return {
-            "id": int(item_id),
             "title": item["title"],
             "caption": item["caption"],
             "content": content,
-            "topic": item["topic"],
-            "source": item["source"],
-            "timestamp": timestamp,
             "image_path": item["image_path"],
             "image": image
         }
