@@ -130,5 +130,5 @@ class GPTConnector:
         )
 
         # Extract the function call arguments
-        function_response = response["choices"][0]["message"]["function_call"]["arguments"]
+        function_response = response.choices[0].message.function_call.arguments
         return json.loads(function_response)

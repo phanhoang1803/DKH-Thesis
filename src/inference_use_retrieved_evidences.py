@@ -1,8 +1,8 @@
-# inference_2.py
+# inference_use_retrieved_evidences.py
 
 from datetime import datetime
 import numpy as np
-from modules import NERConnector, BLIP2Connector, GPTConnector, ExternalRetrievalModule
+from modules import NERConnector, BLIP2Connector, GPTConnector, GeminiConnector, ExternalRetrievalModule
 from dataloaders import cosmos_dataloader
 from src.modules.evidence_retrieval_module.scraper.scraper import Article
 from templates_2 import get_internal_prompt, get_final_prompt, get_external_prompt
@@ -17,11 +17,16 @@ import json
 import time
 from src.config import NEWS_SITES, FACT_CHECKING_SITES
 from src.utils.utils import process_results, NumpyJSONEncoder, EvidenceCache
+from src.modules.reasoning_module.connector.gpt import INTERNAL_RESPONSE_SCHEMA, EXTERNAL_RESPONSE_SCHEMA, FINAL_RESPONSE_SCHEMA
 
 def arg_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_path", type=str, default="data/public_test_acm.json", 
                        help="Path to the json file. The json file should in the same directory as dataset")
+    parser.add_argument("--external_cache_path", type=str, default="cache/external_cache.json", 
+                        help="Path to the external cache file")
+    parser.add_argument("--llm_model", type=str, default="gpt", choices=["gpt", "gemini"])
+    
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--start_idx", type=int, default=0)
     parser.add_argument("--output_dir_path", type=str, default="./result/")
@@ -30,19 +35,20 @@ def arg_parser():
     # Dataloader
     parser.add_argument("--batch_size", type=int, default=8)
     parser.add_argument("--no_shuffle", action='store_false')
-    parser.add_argument("--num_workers", type=int, default=2)
+    parser.add_argument("--num_workers", type=int, default=os.cpu_count())
     
     # Model configs
     parser.add_argument("--ner_model", type=str, default="dslim/bert-large-NER")
     parser.add_argument("--blip_model", type=str, default="Salesforce/blip2-opt-2.7b")
-    parser.add_argument("--llm_model", type=str, default="meta-llama/Llama-3.2-1B-Instruct")
+    # parser.add_argument("--llm_model", type=str, default="meta-llama/Llama-3.2-1B-Instruct")
     
     return parser.parse_args()
 
 def inference(ner_connector: NERConnector, 
              blip2_connector: BLIP2Connector, 
              llm_connector: GPTConnector, 
-             external_retrieval_module: ExternalRetrievalModule, 
+             external_retrieval_module: ExternalRetrievalModule,
+             evidence_cache: EvidenceCache,
              data: dict):
     
     class InternalResponse(TypedDict, total=True):
@@ -70,7 +76,10 @@ def inference(ner_connector: NERConnector,
     image_base64 = data["image_base64"]
 
     # Get external evidence
-    candidates = external_retrieval_module.retrieve(data["caption"], num_results=10, threshold=0.7, news_factcheck_ratio=0.5, min_result_number=0)
+    if evidence_cache.get(data["caption"]):
+        candidates = evidence_cache.get(data["caption"]).evidences
+    else:
+        candidates = external_retrieval_module.retrieve(data["caption"], num_results=10, threshold=0.7, news_factcheck_ratio=0.5, min_result_number=0)
     
     # 1: Internal Checking
     internal_prompt = get_internal_prompt(
@@ -79,7 +88,7 @@ def inference(ner_connector: NERConnector,
     )
     internal_result = llm_connector.call_with_structured_output(
         prompt=internal_prompt,
-        schema=InternalResponse,
+        schema=InternalResponse if isinstance(llm_connector, GeminiConnector) else INTERNAL_RESPONSE_SCHEMA,
         image_base64=image_base64
     )
     
@@ -90,7 +99,7 @@ def inference(ner_connector: NERConnector,
     )
     external_result = llm_connector.call_with_structured_output(
         prompt=external_prompt,
-        schema=ExternalResponse
+        schema=ExternalResponse if isinstance(llm_connector, GeminiConnector) else EXTERNAL_RESPONSE_SCHEMA
     )
 
     # 3: Final Checking
@@ -101,7 +110,7 @@ def inference(ner_connector: NERConnector,
     )
     final_result = llm_connector.call_with_structured_output(
         prompt=final_prompt,
-        schema=FinalResponse,
+        schema=FinalResponse if isinstance(llm_connector, GeminiConnector) else FINAL_RESPONSE_SCHEMA, 
         image_base64=image_base64
     )
     
@@ -115,7 +124,7 @@ def inference(ner_connector: NERConnector,
             "result": internal_result
         },
         "external_check": {
-            "candidates": [candidate.to_dict() for candidate in candidates],
+            "candidates": [candidate.to_dict() if isinstance(candidate, Article) else candidate for candidate in candidates],
             "result": external_result
         },
         "final_result": final_result,
@@ -139,6 +148,9 @@ def main():
         os.makedirs(args.output_dir_path)
     if not os.path.exists(args.errors_dir_path):
         os.makedirs(args.errors_dir_path)
+    
+    # Initialize evidence cache
+    evidence_cache = EvidenceCache(args.external_cache_path)
 
     # Initialize dataloader
     dataloader = cosmos_dataloader.get_cosmos_dataloader(
@@ -157,11 +169,22 @@ def main():
     )
     ner_connector.connect()
     
-    llm_connector = GPTConnector(
-        api_key=os.environ["OPENAI_API_KEY"],
-        model_name="gpt-4o-mini-2024-07-18"
-    )
+    print("Connecting to LLM Model...")
+    if args.llm_model == "gpt":
+        llm_connector = GPTConnector(
+            api_key=os.environ["OPENAI_API_KEY"],
+            model_name="gpt-4o-mini-2024-07-18"
+        )
+    elif args.llm_model == "gemini":
+        llm_connector = GeminiConnector(
+            api_key=os.environ["GEMINI_API_KEY"],
+            model_name="gemini-1.5-flash-latest"
+        )
+    else:
+        raise ValueError(f"Invalid LLM model: {args.llm_model}")
+    print("LLM Model Connected")
     
+    # Initialize external retrieval module
     # print("Connecting to External Retrieval Module...")
     external_retrieval_module = ExternalRetrievalModule(
         text_api_key=os.environ["GOOGLE_API_KEY"],
@@ -176,7 +199,7 @@ def main():
     total_start_time = time.time()
     count = 0
 
-    for batch_idx, batch in enumerate(dataloader):
+    for batch in dataloader:
         for item in batch:
             count += 1
             
@@ -189,6 +212,7 @@ def main():
                     None,
                     llm_connector,
                     external_retrieval_module,
+                    evidence_cache,
                     item
                 )
                 

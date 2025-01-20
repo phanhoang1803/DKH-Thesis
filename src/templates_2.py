@@ -1,6 +1,9 @@
 # templates_2.py
 
 ### Internal Checking Prompt remains the same
+from src.modules.evidence_retrieval_module.scraper.scraper import Article
+
+
 INTERNAL_CHECKING_PROMPT = """TASK: Judge whether the given entities of the caption are used correctly in the given image.
 
 INPUT:
@@ -51,6 +54,44 @@ INSTRUCTIONS:
 8. Analyze the full context of quoted claims to determine if they're presented as verified facts or examples of misinformation
 """
 
+EXTERNAL_ARTICLE_CHECKING_PROMPT = """TASK: Judge whether the given news caption is supported by the retrieved related articles.
+
+INPUT:
+News Caption: {caption}
+Retrieved Related Articles:
+{articles}
+
+INSTRUCTIONS:
+1. FIRST, check article sources:
+   * NEWS DOMAINS (reuters.com, apnews.com, theguardian.com, nytimes.com, etc):
+     - Generally report verified information
+     - Default assumption: caption likely true if from news reporting
+   * FACT-CHECKING DOMAINS (snopes.com, factcheck.org, etc):
+     - Usually investigate disputed claims
+     - Pay attention if caption appears as debunked claim
+
+2. THEN, assess article relevance:
+   * Are articles from the same timeframe as the caption event?
+   * Do articles discuss the specific event/claims in the caption?
+   * Mark articles as RELEVANT or NOT_RELEVANT based on timing and topic match
+   * If all articles irrelevant: lean True for news domain captions, unless strong evidence suggests otherwise
+
+3. FOR RELEVANT ARTICLES:
+   * Compare specific claims in caption against article content
+   * Look for direct quotes or substantively similar reporting
+   * Check factual consistency and corroboration
+   * Note any direct contradictions
+
+4. Making the verdict:
+   * True if:
+     - No relevant articles contradict the caption
+     - Caption matches news domain reporting style/format
+     - Articles are irrelevant but from reputable news sources
+   * False ONLY if:
+     - Relevant articles directly contradict the caption
+     - Fact-checking articles specifically debunk the claim
+"""
+
 EXTERNAL_CHECKING_WITHOUT_EVIDENCE_PROMPT = """TASK: Judge whether the given news caption is correctly used by your knowledge.
 
 INPUT:
@@ -76,6 +117,32 @@ Where:
 - confidence_score: 8-10 (strong direct evidence), 4-7 (partial/indirect evidence), 0-3 (unrelated/impossible to assess)
 - explanation: A detailed explanation including specific points from evidence supporting your verdict. Avoid speculative statements.
 - supporting_points: List relevant quotes/references from the provided evidence
+"""
+
+EXTERNAL_ARTICLE_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
+- "verdict": True/False/CANNOT_VERIFY,
+- "confidence_score": 0-10,
+- "explanation": Detailed analysis of the comparison,
+- "supporting_points": List of relevant quotes/details from articles that supports your decision
+
+Where:
+- verdict: True if caption is substantiated by related articles, False if contradicted or unsupported, CANNOT_VERIFY if no relevant articles found
+- confidence_score:
+    8-10: Strong corroboration across multiple reliable sources
+    4-7:  Partial support or mixed reporting
+    0-3:  Insufficient/contradictory coverage
+
+- explanation: Analyze how well the caption aligns with available reporting:
+    * Match between caption claims and article content
+    * Consistency across sources
+    * Any significant discrepancies
+    * Context relevance
+    * Source credibility considerations
+
+- supporting_points: 
+    * Direct quotes from articles that support your analysis
+    * Specific details that corroborate or contradict
+    * Note source and context for each point
 """
 
 EXTERNAL_CHECKING_WITHOUT_EVIDENCE_OUTPUT = """\nOUTPUT REQUIRED:
@@ -143,20 +210,36 @@ def get_external_prompt(caption: str, candidates: list) -> str:
         external_prompt += EXTERNAL_CHECKING_WITHOUT_EVIDENCE_OUTPUT
     else:
         # Format Article dataclass objects into a readable string
-        candidates_str = "\n".join([
-            f"Source {i+1}:\nTitle: {candidate.title}\n"
-            f"Description: {candidate.description}\n"
-            f"Content: {candidate.content}\n"
-            f"Source: {candidate.source_domain}\n"
-            f"URL: {candidate.url}\n"
-            for i, candidate in enumerate(candidates)
-        ])
         
-        external_prompt = EXTERNAL_CHECKING_WITH_EVIDENCE_PROMPT.format(
+        # candidates_str = "\n".join([
+        #     f"Source {i+1}:\nTitle: {candidate.title}\n"
+        #     f"Description: {candidate.description}\n"
+        #     f"Content: {candidate.content}\n"
+        #     f"Source: {candidate.source_domain}\n"
+        #     f"URL: {candidate.url}\n"
+        #     for i, candidate in enumerate(candidates)
+        # ])
+        candidates_str = ""
+        for i, candidate in enumerate(candidates):
+            if isinstance(candidate, Article):
+                candidate = candidate.to_dict()
+                
+            candidates_str += f"Source {i+1}:\nTitle: {candidate['title']}\n"
+            candidates_str += f"Description: {candidate['description']}\n"
+            candidates_str += f"Content: {candidate['content']}\n"
+            candidates_str += f"Source: {candidate['source_domain']}\n"
+        
+        # external_prompt = EXTERNAL_CHECKING_WITH_EVIDENCE_PROMPT.format(
+        #     caption=caption,
+        #     candidates=candidates_str
+        # )
+        # external_prompt += EXTERNAL_CHECKING_WITH_EVIDENCE_OUTPUT
+        
+        external_prompt = EXTERNAL_ARTICLE_CHECKING_PROMPT.format(
             caption=caption,
-            candidates=candidates_str
+            articles=candidates_str
         )
-        external_prompt += EXTERNAL_CHECKING_WITH_EVIDENCE_OUTPUT
+        external_prompt += EXTERNAL_ARTICLE_CHECKING_OUTPUT
     
     return external_prompt
 

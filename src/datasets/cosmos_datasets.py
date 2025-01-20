@@ -46,24 +46,12 @@ class CosmosDataset(Dataset):
         try:
             with open(data_path, 'r', encoding='utf-8' ) as f:
                 data = json.load(f)
-            
-            # Validate required fields
-            required_fields = {'img_local_path', 'caption1', 'article_url'}
-            
-            for idx, item in enumerate(data):
-                missing_fields = required_fields - set(item.keys())
-                if missing_fields:
-                    raise ValueError(
-                        f"Missing required fields {missing_fields} in data item at index {idx}"
-                    )
-            
-            return data
-            
         except FileNotFoundError:
             raise FileNotFoundError(f"Dataset file not found at: {data_path}")
         except json.JSONDecodeError:
             raise ValueError(f"Invalid JSON format in file: {data_path}")
-
+        return data
+    
     def __len__(self):
         """Returns the size of the dataset."""
         return len(self.data)
