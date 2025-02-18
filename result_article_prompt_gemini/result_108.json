@@ -1,0 +1,53 @@
+{
+  "caption": "While community leader Janet Sharty hands out popcorn, lollipops and biscuits for children as New Year's gifts.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Janet"
+      },
+      {
+        "entity": "I-PER",
+        "word": "S"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##hart"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##y"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image shows children receiving food items, but there is no evidence to confirm that the person handing out the food is Janet Sharty, nor that the items are popcorn, lollipops, and biscuits.  The caption mentions New Year's gifts; however, the image's temporal context is not explicitly indicated, so it could be a different holiday.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Africa's year in pictures 2021: Giggles and coronations",
+        "date": "2021-12-31T00:58:02",
+        "content": "A selection of the best photos from across the African continent this year:\nImages from AFP, Getty Images, Reuters and BBC",
+        "description": "A selection of the best photos from across the African continent this year.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided news caption is not supported by the retrieved related articles. The articles focus on a selection of photographs from Africa in 2021, not on any community leader distributing New Year gifts.  There is no mention of Janet Sharty or any similar event.",
+      "supporting_points": "The article 'Africa's year in pictures 2021: Giggles and coronations' focuses on a collection of photographs, not on events like New Year's gift distributions by community leaders.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "Both internal and external validation checks strongly suggest that the original caption is out of context. The internal check identifies a mismatch between the caption's description of the event (community leader Janet Sharty distributing popcorn, lollipops, and biscuits as New Year's gifts) and the image's content, which shows children receiving food items but lacks confirmation of the identity of the distributor or the specifics of the items. The confidence score of 0 reflects the lack of evidence supporting the caption's details. The external check further reinforces this conclusion.  It finds no supporting evidence in related news articles, which focus on a broader collection of African photographs from 2021 and make no mention of Janet Sharty or a New Year's gift distribution event. This external check also has a confidence score of 0, reflecting the absence of corroborating information.  Since both internal and external validation processes independently arrive at the same conclusion with low confidence scores due to the lack of supporting evidence, there's no conflict to resolve.  The absence of corroborating evidence from both internal image analysis and external news articles leads to high confidence in the conclusion that the caption is out of context.  There is no ambiguity in the lack of evidence.",
+    "validation_summary": "Both internal and external validation processes independently confirm that the caption is inaccurate and out of context.  There is no evidence to support the claim of Janet Sharty distributing specific items as New Year's gifts. The image shows a distribution of food items, but the details provided in the caption are not verifiable."
+  },
+  "inference_time": 6.772071838378906
+}

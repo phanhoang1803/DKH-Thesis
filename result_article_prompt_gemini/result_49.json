@@ -1,0 +1,85 @@
+{
+  "caption": "The Cow and the Tailor Shop, Rajasthan, by Elizabeth Brooks, from the US",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "The"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Co"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##w"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "and"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "the"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Tai"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##lor"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Shop"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Rajasthan"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Elizabeth"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Brooks"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "US"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows a cow near what appears to be a tailor shop in Rajasthan.  Elizabeth Brooks is not shown in the image and is therefore unverified. The US is also not explicitly shown, but is mentioned in the context, so the confidence is slightly lower. The other entities seem accurately represented in the picture.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Portland's 'Avenue of Roses' wins LensCulture Street Photography Awards",
+        "date": "2020-07-01T10:33:37",
+        "content": "A series showing the \"rampant urban growth\" of Portland, in the US state of Oregon, has won the LensCulture Street Photography Awards 2020.\nKevin Fletcher's photos were taken along a single street known as the Avenue of Roses, less than a mile from where he lives.\n\"I am drawn to the sublime beauty and stories that exist in places like this, places so normal, so daily, and so banal that we tend to overlook them,\" Fletcher said.\n\"The Avenue of Roses used to be the rural outer edge of the city.\n\"However, consistent urban growth has tsunamied right up to and over it, creating a taught rope of pavement compressed on both sides by gentrification and increased housing prices.\n\"It has also become a socio-political line that divides the inner portions of the city, epitomised by 'green' modernisation and increasing wealth, from the perimeter neighbourhoods that don't benefit in the same way.\"\nOther winning images show the liveliness of society before lockdowns began in many parts of the world.\nJim Casper, editor-in-chief of LensCulture, an online publication dedicated to contemporary photography, said: \"Great photographs and series from 'normal life', just a few months ago now, seem charged with new poignancy as they reflect the liveliness and excitement of human interactions before street life stopped for a while.\"\nHere is a selection of pictures from the 39 other winning photographers, chosen from hundreds of entries from 19 countries.\nSecond-place series: Wee Muckers - Youth of Belfast, by Toby Rinder, from Germany\nToby Binder has been documenting the daily life of teenagers in British working-class communities for more than a decade.\nAfter the Brexit referendum, he focused his work on Belfast.\nThird-place series: Subordinate, by Michael McIlvaney from the UK\n\"These images aim to demonstrate, whether actually or conceptually, the daily collisions between one's inner private self and the everyday reality of urban city living,\" photographer Michael McIlvaney said.\n\"They form part of a project intended to explore the metaphors associated with this tension: vulnerability, alienation, subordination, fear, threat, isolation, infringement and intrusion.\"\nFirst-place single: Untitled, by Gabi Ben Avraham, from Israel\nSecond-place single: Anonymous, by Stuart Paton, from Italy\nFinalists",
+        "description": "Life before and during lockdown is captured by 39 winning photographers.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The provided news caption mentions \"The Cow and the Tailor Shop, Rajasthan, by Elizabeth Brooks\", which is not present in any of the retrieved articles. The articles discuss photography awards and winning entries, unrelated to the given caption. Therefore, there is no support for the caption's claims in the related articles.",
+      "supporting_points": "No information related to \"The Cow and the Tailor Shop, Rajasthan, by Elizabeth Brooks\" was found in the provided articles.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal check shows a moderate confidence (8) in the caption's accuracy, primarily because the image depicts a cow near a shop in Rajasthan. However, the photographer's name and country of origin (Elizabeth Brooks, US) are not verifiable from the image itself, leading to a reduction in the confidence score. The external check reveals a low confidence (1) because no external source supports the caption's claim.  The significant discrepancy between the internal and external checks necessitates a low overall confidence score. The lack of corroborating evidence from external sources strongly suggests that the caption's details about the photographer and their location are likely inaccurate. While the image does depict a cow near a building that could be a tailor shop, this alone is insufficient to verify the caption's claim.  To improve the caption's accuracy, more information about the context of the photograph is needed, such as verifiable details about the photographer and the location, along with evidence confirming the building is a tailor shop. In conclusion, the absence of external validation and the uncertainty surrounding the photographer's information lead to a low confidence that the caption aligns with reality, hence classifying it as out of context.  Without further evidence, asserting the caption's accuracy is unreliable.  The conflict between internal and external checks necessitates this assessment, emphasizing the importance of cross-referencing information across multiple sources before concluding accuracy. The image's content only partially supports the caption; therefore, based on all available evidence, the caption is considered out of context.",
+    "validation_summary": "Internal check shows moderate confidence in the image's depiction of a cow near a shop in Rajasthan, but cannot verify photographer details.  External check finds no supporting evidence, resulting in low confidence and OOC classification."
+  },
+  "inference_time": 6.902043342590332
+}

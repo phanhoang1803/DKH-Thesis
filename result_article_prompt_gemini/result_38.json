@@ -1,0 +1,65 @@
+{
+  "caption": "Are These Towering Snow Walls in Massachusetts",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "Are"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "These"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Tower"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##ing"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Snow"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Walls"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Massachusetts"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image depicts towering snow walls, but they are not located in Massachusetts.  The caption's entities are incorrect with regard to location. Therefore, the caption is misleading.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Are These Towering Snow Walls in Massachusetts?",
+        "date": "2015-02-10T01:21:32",
+        "content": "Claim:\nA photograph shows snow walls lining a highway in Massachusetts.\nRating:\nMiscaptioned\nAbout this rating\nA photograph showing high walls of snow lining the edges of a highway has been circulating on the Internet since at least 2007. Popular memes have claimed (for humorous effect) that the picture was taken in Massachusetts, or (less homorously) in Canada:\nThe image actually captures a stretch of road near the Japanese city of Towada in Aomori prefecture.\nThe photograph was taken by Mihai Apostu and posted to his blog, \"A Romanian in Japan,\" in April 2007:\nBefore heading down town we decided to take a walk up to Towada. On the way to Towada starting from April thh Gold Line Route is opened. This year's amount of snow was smaller than last year but the Hakkoda Walls are still big. Last year the walls of snow on both sides of the road were 9( nine) metres tall. This year there were only 6 metres of snow that guided us to Tsuta Onsen.\nAccording to a sightseeing guide for the Aomori region of Japan, the Hakkoda Walls are quite a tourist attraction. Heavy snowfalls frequently close the corridor during the winter, but when the spring season approaches the Hakkoda Snowplow Squad gets to work and clears the road:\nNational Highway 103, commonly known as the Hakkoda-Towada Gold Line, is a popular sightseeing route in Aomori.8 km of this Hakkoda-Towada Gold Line stretching from Sukayu to Yachi Hot Springs is closed off in winter, but thanks to the efforts of the Hakkoda Snowplow Squad, they plow through the snow from both ends to meet at Kasamatsu Pass in late March, creating a stunning snow corridor.\nIn some places the walls of snow reach a height of 9 m, allowing visitors to enjoy magnificent views of the vivid blue of the sky contrasted against the white of the snow in perfect harmony.\nThe road opens to general traffic on April 1, but before this, a Hakkoda walk is held every year to walk through this snow corridor, and many people take part in the event.",
+        "description": "The walls are formed with specially-designed snow plows.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption mentions towering snow walls in Massachusetts.  The article from Snopes.com investigates a viral image of snow walls, initially claimed to be in Massachusetts.  However, the article conclusively shows the image is from Japan. While the caption's claim about the existence of towering snow walls is not entirely false (they exist in Japan), the location claim is incorrect.  Therefore, the caption is partially supported in that towering snow walls exist, but the specified location is false. ",
+      "supporting_points": "Source 1 (Snopes): \"A photograph showing high walls of snow lining the edges of a highway has been circulating on the Internet...The image actually captures a stretch of road near the Japanese city of Towada in Aomori prefecture.\"",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The internal check identifies a significant discrepancy: while the image shows towering snow walls, their location is incorrectly stated as Massachusetts.  The external check corroborates this by citing a Snopes article.  The article confirms the existence of the snow walls but pinpoints their actual location as near Towada, Japan. Both the internal and external checks agree that the caption is misleading regarding the location of the snow walls. The high confidence score reflects the strong agreement between the internal and external validation methods. The internal check provides a direct assessment of the image and caption, finding the location claim false. The external check reinforces this by providing supporting evidence from a reputable source (Snopes), which independently verifies the image's origin and corrects the location.  There is no conflict between the internal and external checks; they are aligned in concluding that the caption is out of context due to the erroneous location claim.  The analysis of entities (snow walls, location) supports the overall conclusion.  The confidence score is high because both checks are reliable and point toward the same conclusion. The evidence strongly suggests that the image depicts a scene in Japan, not Massachusetts, therefore rendering the original caption inaccurate.",
+    "validation_summary": "Both internal and external checks agree that the caption is out of context. The internal check flags the incorrect location, and the external check confirms this using a Snopes article, which identifies the image's origin as Japan."
+  },
+  "inference_time": 6.201458930969238
+}

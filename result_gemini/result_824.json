@@ -1,0 +1,57 @@
+{
+  "caption": "A photograph captures mounds of refuse and other trash left behind by protesters in Seattle's \"Capitol Hill Autonomous Zone.\"",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Seattle"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Capitol"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Hill"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Autonomous"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Zone"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a large pile of burned trash and debris.  While the location is not explicitly identifiable as Seattle's \"Capitol Hill Autonomous Zone,\" the description aligns with the visual content showing a significant amount of refuse.  There is no information in the image to confirm or deny the location or the cause of the debris shown.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Does This Photo Show Trash Left by Protesters in Seattle's 'Autonomous Zone'?",
+        "date": "2020-08-19T06:26:39",
+        "content": "Claim:\nA photograph captures mounds of refuse and other trash left behind by protesters in Seattle's \"Capitol Hill Autonomous Zone.\"\nFollowing the May 2020 police custody death of George Floyd in Minneapolis, demonstrators in Washington state engaged in a prolonged occupation protest in the Capitol Hill section of Seattle, establishing a self-declared autonomous zone known by various names that include the Capitol Hill Autonomous Zone (CHAZ), Capitol Hill Occupied Protest (CHOP), Capitol Hill Organized Protest, and Free Capitol Hill.\nAfter that area was largely cleared of protesters at the beginning of July, a photograph was circulated via various social media posts that supposedly captured mounds of refuse and other trash left behind by protesters:\nHowever, this image had nothing to do with either Seattle or protests. In fact, it depicted an area completely on the opposite side of the U.S. from Seattle.\nAs noted on the Greenpointers neighborhood blog, this picture was taken in Greenpoint, a neighborhood in northern Brooklyn, New York, and it recorded the aftermath of a trash fire:\n[M]any social media posts have repackaged the likely aftermath of a trash fire on the corner of West and Huron Streets in Greenpoint as a scene from Seattles protests.\nManny Lorras, a tenant in the building complex near the corner of West and Huron Streets, confirmed that the image is 1000% of the building on that corner. He also thinks it has to be the trash fire that occurred on that street on June 2 of this year.\nWhen the fire department came ... the hose pressure blew out the window, he explained, having received much of his information about the fire from one of the doorman in his building complex.\nBuilding management boarded up the broken window that day, Lorras says. Whoever took the photograph must have snapped it soon after the fire department came, according to Lorrass version of events. (A window in the image is shattered.)\nA short video of the scene viewable on Instagram notes that the appearance of the area \"was caused by a lit cigarette tossed from an apartment, erupting the pile of trash bags in flames,\" and was \"not related to demonstrations\":",
+        "description": "Mislabeled photographs are common currency in the world of online disinformation.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided text explicitly states that the claim is false.  The image used to support the claim of trash left by protesters in Seattle's CHAZ was actually from a trash fire in Greenpoint, Brooklyn.  Multiple sources, including a resident near the fire, confirm this.",
+      "supporting_points": "Claim: A photograph captures mounds of refuse and other trash left behind by protesters in Seattle's \"Capitol Hill Autonomous Zone.\" ... However, this image had nothing to do with either Seattle or protests. In fact, it depicted an area completely on the opposite side of the U.S. from Seattle. ... [M]any social media posts have repackaged the likely aftermath of a trash fire on the corner of West and Huron Streets in Greenpoint as a scene from Seattle’s protests. Manny Lorras, a tenant in the building complex near the corner of West and Huron Streets, confirmed that the image is “1000%” of the building on that corner.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The internal check shows some alignment between the caption and the image, acknowledging the presence of a large pile of refuse but noting the lack of information to confirm the location or the event's cause. However, the external check definitively refutes the caption's claim.  High confidence (10) is given to the external check because it provides strong evidence contradicting the caption. Multiple sources, including a local resident, confirm that the image depicts the aftermath of a trash fire in Greenpoint, Brooklyn, not Seattle's Capitol Hill Autonomous Zone (CHAZ) as the caption suggests. This evidence significantly outweighs the tentative agreement from the internal check. The discrepancy arises from the visual similarity of a large trash pile; however, the external evidence precisely pinpoints the image's origin and the cause of the debris.  Given the strong, verifiable external evidence and the internal check's low level of certainty regarding the location and context, the overall assessment concludes that the caption is out of context.  The fact that the external check identified the actual location and event, along with corroborating testimony, makes its confidence score considerably higher than that of the internal check.   Therefore, the final assessment strongly supports classifying the caption as out of context.",
+    "validation_summary": "Internal check showed tentative alignment with the image, but the external check strongly refuted the caption with verifiable evidence placing the image in Greenpoint, Brooklyn, and identifying the event as a trash fire, not the CHAZ protest. External evidence decisively outweighs the internal assessment."
+  },
+  "inference_time": 27.29396653175354
+}

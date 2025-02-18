@@ -1,0 +1,49 @@
+{
+  "caption": "A photograph shows buses purchased by Black Lives Matter to \"transport members to riots.\"",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "Black"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Lives"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Matter"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows two buses with the words \"Black Lives Matter\" prominently displayed.  The caption's claim about the purpose of the buses (transporting members to riots) is not directly verifiable from the image alone. However, the presence and accurate representation of the organization's name is confirmed.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Does This Photo Show Buses Purchased by BLM?",
+        "date": "2020-07-27T05:24:41",
+        "content": "Claim:\nA photograph shows buses purchased by Black Lives Matter to \"transport members to riots.\"\nRating:\nMiscaptioned\nAbout this rating\nAmidst the political turmoil in the U.S. following the May 2020 police custody death of George Floyd in Minneapolis, a meme shared on social media sought to denigrate the Black Lives Matter (BLM) movement. That meme claimed BLM had raised \"over a billion dollars\" but had not used that money to provide necessities such as food, housing, or schooling; instead, they had expended it on buying \"huge charter busses to transport members to riots\":\nAs for the first part of the meme, BLM is a \"decentralized movement advocating for non-violent civil disobedience in protest against incidents of police brutality and all racially motivated violence against African-American people\"; it isn't a centrally organized group that was founded for the purpose of feeding the hungry, providing housing, or funding schooling, nor does it raise money on that basis.\nMoreover, the photograph accompanying this meme does not show any buses purchased by BLM \"to transport members to riots,\" or for any other purpose. The vehicles pictured here belong to the Toronto Raptors professional basketball team, who wrapped their buses with the Black Lives Matter name as a show of support for the movement, as documented on the Raptors' Twitter account:",
+        "description": "The BLM movement began with the use of the hashtag #BlackLivesMatter on social media after the acquittal of George Zimmerman in the shooting death of Trayvon Martin.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The claim that a photograph shows buses purchased by Black Lives Matter to transport members to riots is rated as \"Miscaptioned\" by Snopes.  Snopes provides evidence that the photo shows buses belonging to the Toronto Raptors, not BLM, and that they were wrapped with Black Lives Matter branding to show support. The meme's claim is therefore false.",
+      "supporting_points": "Source 1 from Snopes explicitly states that the photograph does not show buses purchased by BLM \"to transport members to riots,\" and identifies the buses as belonging to the Toronto Raptors, who used them as a show of support.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The internal check correctly identifies that the image shows buses with \"Black Lives Matter\" branding. However, it fails to determine the true ownership and purpose of the buses. The external check, with a high confidence score of 10, contradicts the caption's claim, providing strong evidence from Snopes that the buses belonged to the Toronto Raptors and were not purchased by BLM to transport members to riots.  The external source's factual accuracy and detailed explanation outweigh the internal check's limited analysis. The internal check acknowledges its limitation in verifying the purpose of the buses, which is crucial for evaluating the caption's accuracy. The visual evidence alone only confirms the presence of the \"Black Lives Matter\" text; it doesn't provide information about the buses' ownership or intended use. Therefore, the caption is out of context because it misrepresents the ownership and purpose of the buses shown in the image. The high confidence score reflects the strong evidence from the reliable external source, Snopes, which directly refutes the caption's claim. The discrepancy between the internal and external checks highlights the importance of corroborating information from multiple and reliable sources before making conclusions. In this case, the external validation from Snopes provides conclusive evidence that outweighs the visual information and the limited scope of the internal analysis. While the image itself is not inherently misleading, it is misused to support a false narrative.  The detailed explanation from Snopes on the actual origin and purpose of the buses further strengthens the conclusion that the original caption is significantly out of context.",
+    "validation_summary": "Internal check confirms the presence of \"Black Lives Matter\" branding on the buses but cannot verify their purpose. External check (Snopes) strongly refutes the caption's claim, identifying the buses as belonging to the Toronto Raptors and used as a show of support, not for transporting rioters. The external evidence significantly outweighs the limited internal analysis, leading to the conclusion that the caption is out of context."
+  },
+  "inference_time": 37.23590660095215
+}

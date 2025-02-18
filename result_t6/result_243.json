@@ -1,0 +1,53 @@
+{
+  "caption": "President Coolidge and the first lady also had a pet dog, seen here outside the White House in 1927.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Cool"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##idge"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "White"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "House"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows President Calvin Coolidge and Grace Coolidge, the First Lady, posing outside the White House with their dog.  The entities \"Cool\" and \"##idge\" together correctly identify President Coolidge. \"White House\" is also clearly visible in the background. The year 1927 aligns with the time period of the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "White House pets: Cats, dogs and raccoons through the years",
+        "date": "2021-01-26T19:20:26",
+        "content": "It hasn't always been dogs and cats in the White House - here are a few photos going back decades of first families with their pets.",
+        "description": "Presidents and first ladies have been photographed with their cats, dogs, and even a raccoon, for decades.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "Source 1 mentions that presidents and first ladies have had various pets, including dogs, throughout the years.  While it supports the general idea of White House pets, it doesn't specifically confirm the presence of a dog belonging to President Coolidge in 1927. The source is a general overview of White House pets and does not provide specific details to support the claim about President Coolidge and his dog.",
+      "supporting_points": "Source 1: Mentions presidents and first ladies having dogs as pets in the White House, but doesn't provide specific information about Coolidge's dog in 1927.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal validation strongly supports the caption's accuracy. The image clearly shows President Calvin Coolidge and First Lady Grace Coolidge with a dog outside the White House.  The internal check achieves a high confidence score of 10 because all elements in the caption are visually present and consistent with historical knowledge. However, the external validation yields a low confidence score of 4 because the supporting evidence is weak. The external source mentions White House pets in general terms but lacks specific confirmation regarding President Coolidge's dog in 1927. This discrepancy between the strong internal validation and weak external validation leads to uncertainty. While the image strongly suggests the caption's accuracy, the lack of robust external corroboration prevents a definitive conclusion. To improve confidence, additional historical sources specifically mentioning President Coolidge's dog in 1927 would be needed. Given the limited external evidence, and to maintain a conservative assessment, we conclude that the caption is out of context, despite the compelling internal evidence.  The image and caption are consistent internally, but the lack of strong external verification introduces uncertainty. We must rely on a lower confidence score to reflect the uncertainty stemming from the limitations of external validation in this specific case.",
+    "validation_summary": "Internal validation strongly supports the caption, identifying all entities correctly and aligning with historical context (confidence score 10). External validation is weak, lacking specific confirmation of the Cooldige's dog in 1927 (confidence score 4).  The discrepancy between strong internal and weak external evidence creates uncertainty, resulting in a final OOC judgment of true due to the lack of robust external corroboration."
+  },
+  "inference_time": 43.95996427536011
+}

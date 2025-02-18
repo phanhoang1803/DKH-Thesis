@@ -1,0 +1,61 @@
+{
+  "caption": "A metro train in the city of Spijkenisse, in the Netherlands, rests precariously on an art installation of a whale after crashing through a barrier at the end of the tracks.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "S"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "##pi"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##jk"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##eni"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##sse"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Netherlands"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows a metro train in Spijkenisse, Netherlands, that has crashed through a barrier and is resting on a whale-shaped art installation. All entities are correctly identified and their representation in the image is accurate.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Striking news photos from around the world in 2020",
+        "date": "2020-12-30T00:15:20",
+        "content": "A selection of some of the best photographs taken by news agency photographers around the world this year.\nAll photographs subject to copyright.",
+        "description": "A selection of some of the best images taken by agency photographers during the past year.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided evidence does not contain any information about a metro train crash in Spijkenisse, Netherlands.  Source 1 is a collection of news photos from 2020, and its description and content do not mention the event described in the news caption.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 1,
+    "explanation": "The internal consistency check gives a high confidence score (10) because the image strongly supports the caption's description.  The image shows a metro train on a whale-shaped art installation, seemingly after a crash. The location details (Spijkenisse, Netherlands) are not explicitly stated in the image itself, but the overall scene aligns with the caption's description. However, the external check yields a low confidence score (0) because it couldn't find any corroborating evidence from external sources to verify the event described in the caption. The discrepancy between the high internal confidence and zero external confidence suggests a significant issue. The lack of external verification, along with no other information, raises serious doubts about the accuracy of the caption. The absence of credible news reports or other evidence suggests either misrepresentation or a hallucination of the event.  Therefore, without external evidence, the claim that this picture depicts a metro train crash in Spijkenisse, Netherlands cannot be substantiated. The high internal confidence is based solely on visual interpretation, which is insufficient on its own for a conclusive validation. Therefore, the caption is highly likely to be out of context. Visual inspection reveals no signs of tampering; however, the absence of reliable external corroboration is a critical flaw. There is a strong indication that the caption does not accurately represent the image's true context.",
+    "validation_summary": "Internal validation strongly supports the caption, while external validation fails to find any evidence of the described event. This significant discrepancy leads to the conclusion that the caption is likely out of context."
+  },
+  "inference_time": 32.48318672180176
+}

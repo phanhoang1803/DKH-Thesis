@@ -1,0 +1,41 @@
+{
+  "caption": "An experimental Nazi missile launched in 1944 was likely to land “in the American Midwest” in late December 2016",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Nazi"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "American"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Midwest"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image contains missiles, but there is no information about them being Nazi or launched in 1944 or predicted to land in the American Midwest in late December 2016.  The caption is completely unrelated to the image.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The news caption is factually implausible.  A missile launched in 1944 could not possibly land in the American Midwest in late December 2016. The time difference is too vast.  The claim is internally inconsistent.",
+      "supporting_points": "Temporal impossibility: A missile launched in 1944 could not remain aloft or in a state of suspended animation for more than 70 years.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "Both the internal and external validation checks strongly indicate that the original caption is entirely out of context with respect to the provided image. The internal check finds no alignment between the image's content (missiles) and the caption's description (an experimental Nazi missile launched in 1944, predicted to land in the American Midwest in 2016).  The internal check assigns a confidence score of 0, reflecting a complete lack of connection. The external check reinforces this assessment.  It highlights the factual implausibility of a missile launched in 1944 landing in 2016, identifying a major temporal inconsistency that renders the caption's claim nonsensical.  The external check's confidence score of 1 signifies its high certainty in the caption's inaccuracy. There is no conflict between the internal and external checks; they are completely in agreement.  The image shows generic missiles against a sunset; the caption describes a specific historical event that is impossible. No amount of interpretation could bridge this gap. Entity analysis further supports this conclusion:  The entities mentioned in the caption (Nazi missile, 1944 launch date, American Midwest landing location, 2016) are absent from the image's visual data. The image contains only the silhouettes of several missiles, lacking any identifying information that could possibly align with the details provided in the caption.  Therefore, there is no ambiguity: the caption is completely unrelated to the image, and the evidence overwhelmingly supports an \"out of context\" determination.",
+    "validation_summary": "Both internal and external validation checks decisively confirm that the caption is entirely out of context with the image.  The caption describes a historically impossible event, while the image shows generic missiles.  There is no overlap between the two."
+  },
+  "inference_time": 6.160113573074341
+}

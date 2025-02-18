@@ -1,0 +1,41 @@
+{
+  "caption": "California's governor is under investigation for possible corruption.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "California"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a man who visually appears to be in his 60s or 70s, with thinning, light-colored hair, fair skin, and he is speaking into a microphone.  He appears to be wearing a dark-colored suit and a blue tie.  The background shows a portion of the American flag, suggesting he could be an American official.  While the caption mentions an investigation and possible corruption, there is nothing in the image itself to confirm or deny that information.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is California Governor Jerry Brown 'Caught in the Middle' of a Corruption Investigation?",
+        "date": "2017-05-09T10:02:19",
+        "content": "Claim:\nCalifornia's governor is under investigation for possible corruption.\nOn 17 April 2017, the web site consjournal.com published a story purporting to link California Governor Jerry Brown to a corruption investigation.\nHowever, the story didn't stand up to the barest of scrutiny. The headline said that Brown was \"caught in the middle of a $60 billion corruption investigation,\" a premise that is undermined by the sources it cites, each of which states that Brown ordered the probe into the state Board of Equalization  but he was not the subject of the investigation.\nOne of those sources, a March 2017 Sacramento Bee story, identifies the focus of the identification, which was spurred in part by an audit of the department:\nThe reports authors say they found well-paid tax auditors on parking lot duty at a promotional event, a steep rise in spending on activities that do not appear connected to taxes, and misleading information provided to lawmakers.\nThe audit takes particular aim at board member Jerome Horton, finding that he has reassigned public employees to work for him, arranged events that strayed from the agencys mission and opened a call center in his district without securing the consent of his fellow elected leaders. Horton has defended his outreach events as a way to reach large numbers of taxpayers.\nThe following month, Brown asked the state Justice Department to investigate the department, which collects an estimated $60 billion a year from more than 30 types of taxes, including fuel for motor vehicles and jets; alcoholic beverage taxes; and taxes on cigarettes and tobacco products, among others. It functions independently of the state Franchise Tax Board, which collects personal income taxes, and the Employment Development Department, which focuses on payroll taxes.\nA separate audit conducted in November 2015 found that board staffers incorrectly sent nearly $47.8 million in taxes to the state general fund. California State Controller Betty Yee undertook the review after noticing \"irregularities\" in the fund.\nBesides ordering an investigation into the board, Brown said in a letter to its members that he had barred it from hiring \"key personnel\", and restricted its ability to issue contracts without outside approval.",
+        "description": "A conservative-leaning web site strained to connect Brown to a probe he personally ordered.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The provided text discusses an investigation into the California State Board of Equalization, ordered by then-Governor Jerry Brown.  However, the investigation was into the Board itself, not Governor Brown. The claim that the Governor is under investigation for corruption is therefore inaccurate based on the evidence provided.",
+      "supporting_points": "Source 1 explicitly states that the investigation was into the state Board of Equalization, not Governor Jerry Brown.  While Brown ordered the investigation, he was not himself under investigation.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 3,
+    "explanation": "The internal consistency check assesses the image's visual content, noting the man's appearance and the American flag in the background, suggesting a potential American official. However, it acknowledges the absence of information confirming the caption's claim of an investigation and possible corruption. The confidence score is low (10) due to this lack of visual evidence supporting the caption's assertions.\n\nThe external check utilizes additional information, revealing an investigation into the California State Board of Equalization, ordered by then-Governor Jerry Brown, but not targeting Governor Brown himself. This directly contradicts the caption's statement that the governor is under investigation. The external check's low confidence score (3) reflects the limited available data, though it strongly suggests the caption is inaccurate.\n\nBoth the internal and external checks reveal inconsistencies. The internal check finds no visual confirmation for the caption's claim, while the external check provides evidence refuting the claim.  The internal check's high confidence score (10) is based on the strong visual evidence against the caption, while the external check's low confidence score (3) is due to the limited source material, even though it provides compelling evidence against the caption. This is a case where the external evidence carries greater weight, since it directly addresses the factual accuracy of the caption. Therefore, the OOC flag is set to True and the final confidence score is set to 3. The low confidence score reflects the limited external evidence.",
+    "validation_summary": "Internal check finds no visual confirmation of corruption investigation. External check finds evidence refuting the claim that the governor is under investigation.  Both checks point to the caption being out of context."
+  },
+  "inference_time": 59.99999928474426
+}

@@ -1,0 +1,41 @@
+{
+  "caption": "15 June 2015 - Martin Bond was keen to show the difference between the town (below the bridge) and gown (above) of Cambridge",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Martin"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Bond"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Cambridge"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a bridge with people on it and in boats below.  The caption mentions a contrast between \"town\" and \"gown\" in Cambridge, which is visually represented by the people on the bridge (gown, presumably students) and the people in the boats below (town, presumably residents).  Martin Bond is not visually present in the image.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The statement is plausible. The historical and ongoing distinction between the town and gown in Cambridge, UK, is well-established.  The reference to a specific date and individual adds a layer of detail that, while not easily verifiable without further context, doesn't inherently contradict known facts.  The imagery of showing the difference 'below' and 'above' the bridge is consistent with the geographical layout of Cambridge.",
+      "supporting_points": "- The town and gown distinction in Cambridge is a well-known historical and ongoing social phenomenon.\n- Cambridge has a river (the River Cam) and bridges which divide the city geographically and socially.\n- The use of 'town' and 'gown' to represent the difference between the residents and students/faculty is common parlance.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The internal validation check flags a low confidence score (10) because while the image depicts a scene consistent with the town-gown divide in Cambridge (people on a bridge versus people in boats below), it does not show Martin Bond. The external validation, however, provides a higher confidence score (8) because it confirms the historical and social context of the town-gown distinction in Cambridge.  The external check acknowledges that while the date and person's name are not independently verifiable, they do not contradict established knowledge about Cambridge. The visual evidence of people on a bridge (suggestive of 'gown') and in boats (suggestive of 'town') supports the caption's central theme.  The discrepancy arises from the internal check's focus on the lack of visual evidence for Martin Bond, while the external check assesses the overall plausibility of the caption within its broader context. Since the core idea of the town-gown divide is visually represented and externally verified, the discrepancy leans towards considering the caption as plausible, despite the absence of the specific individual. However, the absence of Martin Bond reduces the confidence, hence the OOC flag is set to true.",
+    "validation_summary": "Internal validation highlights the absence of Martin Bond, while external validation confirms the plausibility of the town-gown context in Cambridge. The visual evidence partially supports the caption's theme, but the missing individual lowers the overall confidence."
+  },
+  "inference_time": 28.71985411643982
+}

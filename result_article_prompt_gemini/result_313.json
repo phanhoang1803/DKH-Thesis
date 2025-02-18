@@ -1,0 +1,61 @@
+{
+  "caption": "Office worker Hideyuki Togashi, 48, shows his tattoos as he poses for a photograph at a park near his house in Tokyo, Japan, September 7, 2020",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Hi"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##de"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##yuki"
+      },
+      {
+        "entity": "I-PER",
+        "word": "To"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##gas"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##hi"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Tokyo"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Japan"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image does not contain the entities mentioned in the caption.  The image shows a person with tattoos and a prosthetic leg, but there is no information to confirm their name, age, or location. The image does not provide evidence of this being an office worker.  Therefore, there's no basis for judging if the caption accurately describes the image.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The caption is plausible.  It describes a relatively common scenario: a person being photographed. The details (age, profession, location, date) are all internally consistent and individually plausible. However, without further information or verification from the original source, I cannot definitively confirm the accuracy of the statement. The possibility of the photograph being staged or the details slightly altered cannot be ruled out.",
+      "supporting_points": "- It is possible for a 48-year-old office worker to live in Tokyo and have tattoos.\n- People are often photographed in parks.\n- September 7, 2020, is a valid date.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal check reveals a significant mismatch between the image content and the caption's details. The image shows a person with tattoos and a prosthetic leg, lacking any information to verify their identity (name, age), profession, or location as described in the caption.  The external check, while acknowledging the plausibility of the caption's individual elements, highlights the lack of definitive evidence to confirm them. The external check's confidence score is considerably higher than the internal check, but this is mainly due to the general plausibility of the caption's components rather than direct corroboration with the image.  The discrepancies between the internal and external checks primarily stem from the absence of verifiable information within the image itself. The caption provides details (age, profession, location, date) that are not visually supported by the image. Even though the external check deems the individual elements individually plausible, the lack of visual confirmation in the image leads to a low overall confidence score.  There's a fundamental conflict: the internal check demonstrates a clear absence of the entities mentioned in the caption, while the external check rests on the independent plausibility of each detail rather than a holistic alignment with the image. The weight is given to the internal check's conclusive finding of a mismatch between the image and the provided details.  Therefore, the conclusion is that the caption is out of context because there's no visual evidence within the image to support the caption's claims.",
+    "validation_summary": "Internal check finds a strong mismatch between image and caption details. External check acknowledges plausibility of individual elements but lacks definitive confirmation.  The lack of corroborating visual evidence in the image outweighs the external check's weak plausibility assessment resulting in a low confidence score and a conclusion that the caption is out of context."
+  },
+  "inference_time": 7.144209623336792
+}

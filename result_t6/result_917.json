@@ -1,0 +1,69 @@
+{
+  "caption": "Donald Trump said that he would revoke U.S. citizenship from all Puerto Ricans if elected president.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Donald"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Trump"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "U"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "."
+      },
+      {
+        "entity": "I-LOC",
+        "word": "S"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "."
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Puerto"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Rican"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Donald Trump, and the caption mentions him.  The caption mentions Puerto Ricans and the U.S., which are relevant to his political career but not explicitly shown in the image.  Therefore, while the image shows one entity correctly, the caption includes other entities that are not directly present.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Did Trump Say He'll Revoke U.S. Citizenship of All Puerto Ricans?",
+        "date": "2016-02-26T06:28:19",
+        "content": "Claim:\nDonald Trump said that he would revoke U.S. citizenship from all Puerto Ricans if elected president.\nOn 3 September 2015, the Adobo Chronicles web site published an article reporting that Republican presidential candidate Donald Trump had promised to revoke the U.S. citizenship of all Puerto Ricans if he won the presidency:\nRepublican presidential candidate Donald Trump, while speaking to a group of investment bankers and hedge fund owners in New York City, allegedly declared that if elected, he will revoke the U.S. citizenship of all Puerto Ricans because they are not part of the American race.\nWhile Trump mentioned only Puerto Rico, his campaign told reporters that he meant to say all citizens from the territories of the U.S., including Guam, American Samoa, U.S. Virgin Islands and Northern Mariana Islands.\nWe dont really need these non-Americans and I dont need their votes to win the presidency, Trump said.\nThere was no truth to this story, which originated with Adobo Chronicles, a fake news website. The article didn't garner much attention when it was originally published, but the story was eventually picked up by several Spanish-language websites, which then reported it as if it were real news.\nWhile these web sites cited a \"South American newspaper,\" all of the information they reported originated on The Adobo Chronicles, a site whose disclaimer notes that its content is not meant to be taken seriously: \"THE ADOBO CHRONICLES is your source of up-to-date, unbelievable news. Everything you read on this site is based on fact, except for the lies.\"",
+        "description": "A report about Puerto Ricans being stripped of U.S. citizenship originated with a satirical web site.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The claim that Donald Trump said he would revoke U.S. citizenship from all Puerto Ricans if elected president is FALSE.  Snopes.com directly addresses this claim, stating it originated from a satirical website, the Adobo Chronicles.  The article from Adobo Chronicles is cited as the source of the claim but identified as fake news.  The Snopes article debunks the claim.",
+      "supporting_points": "Source 1 directly refutes the news caption. The Adobo Chronicles article, cited as the origin of the claim, is explicitly labeled as a source of fake news by Snopes.com.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The internal check identified a discrepancy: while the image correctly shows Donald Trump, the caption's claim about revoking U.S. citizenship from Puerto Ricans is not visually represented. The external check decisively refutes the caption's claim, citing Snopes.com's debunking of this statement as originating from a satirical website.  The external check provides strong evidence that the claim is false.  The high confidence score from both internal (10) and external (10) checks reinforces the conclusion.  The internal check's verdict (True) was based solely on the presence of Trump in the image and the relevance of Puerto Ricans to his political career.  It did not assess the factual accuracy of the claim. The disagreement between the internal and external checks is resolved by prioritizing the external check's definitive evidence.  The image itself is not tampered with or miscontextualized; the issue lies entirely in the caption's inaccuracy. Therefore, the caption is out of context because the statement it attributes to Donald Trump is false. There is no visual evidence in the image to support the false claim in the caption.",
+    "validation_summary": "Internal check flags a discrepancy between the image and the caption's claim. External check definitively proves the caption's claim is false, leading to a high confidence score that the caption is out of context."
+  },
+  "inference_time": 43.10763764381409
+}

@@ -1,0 +1,69 @@
+{
+  "caption": "A video shows \"CNN reporter\" Jade Sacker filming a pro-Trump mob storm the U.S. Capitol.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "CNN"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Jade"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Sa"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##cker"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "pro"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Trump"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "U"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "S"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "."
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Capitol"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image shows a person wearing a mask and a cap inside a building that looks like the US Capitol.  There is no CNN reporter, Jade Sacker, or pro-Trump mob visible. Therefore, the caption does not align with the image.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The claim that a CNN reporter filmed a pro-Trump mob storming the Capitol on January 6, 2021 is plausible.  CNN reporters were present at the Capitol that day, and many videos from various sources exist showing the events.  However, without a specific link to the video or confirmation from CNN about the reporter's presence at that exact location and time, I can't definitively confirm the accuracy of this caption. The plausibility stems from the documented presence of journalists and the widely available footage of the event.  Verification of this specific claim would require locating the video and confirming its authenticity and the reporter's presence.",
+      "supporting_points": "Many news organizations including CNN had reporters at the Capitol on January 6, 2021.  Extensive video footage from various sources documenting the attack exists.  Verification of the claim requires reviewing the specific video referenced.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal check has a confidence score of 0 and correctly identifies that the image does not depict a CNN reporter, Jade Sacker, or a pro-Trump mob storming the Capitol.  The image shows an individual wearing a mask and a cap inside what appears to be the US Capitol building. There is no evidence of a mob or any clear indication of a news reporter filming events. The external check, while acknowledging the plausibility of CNN reporters being present during the Capitol riot, highlights the lack of specific evidence linking the provided image to the described event. The external check's high confidence score of 8 is based on the general knowledge of that day's events, not a verification of this specific image. Since the image itself does not corroborate the claim, and the external check relies on broader context rather than specific verification of this image, the overall confidence score is low. The significant discrepancy between the internal and external checks stems from the different levels of evidence considered. The internal check directly analyzes the image, finding no evidence to support the caption. The external check considers the general historical context of the event, which is not directly reflected in the provided image.",
+    "validation_summary": "Internal check strongly rejects the caption due to a lack of evidence within the image; external check acknowledges the plausibility of the event's occurrence but lacks specific evidence confirming the caption's accuracy concerning this particular image."
+  },
+  "inference_time": 26.73413324356079
+}

@@ -1,0 +1,57 @@
+{
+  "caption": "Ted Nugent was killed in a Montana hunting accident.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Ted"
+      },
+      {
+        "entity": "I-PER",
+        "word": "N"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##ugen"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##t"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Montana"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image contains Ted Nugent, but the caption claims he was killed in a hunting accident.  There is nothing in the image to support this claim.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Ted Nugent Death Hoax",
+        "date": "2017-04-28T10:07:43",
+        "content": "Claim:\nTed Nugent was killed in a Montana hunting accident.\nOn 28 April 2017, a number of unreliable web sites began publishing stories reporting that rock musician and conservative icon Ted Nugent had been killed in a hunting accident in Montana:\nTed Nugent, 70s rocker turned hunting guide and conservative icon, was shot and killed early this morning in a tragic hunting accident. While setting up his tree stand just outside a wildlife reserve in Montana, Nugent was fired on and hit in the chest by a hunter with a scope nearly a quarter of a mile away who believed he was a brown bear.\nThere are no legitimate news reports of any ill fate befalling Nugent  in fact, he made a Facebook Live video with his wife Shermane on the same afternoon the death hoax starting circulating, in which they confirmed he is indeed alive and well:\nShe posted another live video a few minutes later in which her husband's voice could be heard while she played with the couple's dogs:\nNugent's spokeswoman Linda Peterson also confirmed in an e-mail that reports of Nugent's untimely death were \"fake news.\"\nNugent is famous for his rock career, but has also become an outspoken supporter of conservative political figures, such as former Alaska Governor Sarah Palin and President Donald Trump. He most recently made news when he was pictured alongside Palin and fellow rock singer Kid Rock at the White House, where they all dined with President Trump. Nugent is also a divisive figure due to comments he has made about former President Barack Obama and Secretary of State Hillary Clinton that have been characterized as racist, sexist and potentially inciting violence.",
+        "description": "Despite rumors that the rocker was killed in a hunting accident in Montana, he remains alive and well.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The claim that Ted Nugent was killed in a Montana hunting accident is explicitly debunked by a fact-checking article from Snopes.com.  The article details how multiple unreliable websites spread false reports of his death, while providing evidence that Nugent was, in fact, alive and well at the time. This directly contradicts the news caption.",
+      "supporting_points": "Snopes.com article: \"Despite rumors that the rocker was killed in a hunting accident in Montana, he remains alive and well.\"  Snopes also cites Nugent's Facebook Live video with his wife as evidence of his well-being, as well as a statement from his spokeswoman confirming that the death reports were \"fake news\".",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The original caption, \"Ted Nugent was killed in a Montana hunting accident,\" is demonstrably false based on both internal and external validation.  The internal check correctly identifies a mismatch between the image (showing a live Ted Nugent) and the caption's claim of his death. The confidence score of 0 reflects the lack of supporting evidence within the image itself for the caption's assertion.  The external check provides strong evidence from a reputable source (Snopes.com) that explicitly refutes the death claim. Snopes cites multiple sources, including Nugent's own Facebook Live appearance and a statement from his spokeswoman, to confirm he was alive and well at the time of the false reports.  The high confidence score of 10 from the external check is justified by the strong and reliable evidence presented by Snopes to debunk the misinformation. There is no conflict between the internal and external checks; both independently conclude that the caption is inaccurate. The combination of a strong internal assessment aligning with a definitive external fact-check yields a high overall confidence score of 10 for the final judgment that the caption is out of context.  In summary, the image shows Ted Nugent alive, and multiple credible sources corroborate his survival, conclusively proving that the caption's statement is false.",
+    "validation_summary": "Both internal and external validation definitively refute the caption. The image shows Nugent alive, and external fact-checking confirms his survival, contradicting the caption's claim of his death."
+  },
+  "inference_time": 6.340463161468506
+}

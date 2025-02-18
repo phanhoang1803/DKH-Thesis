@@ -1,0 +1,57 @@
+{
+  "caption": "Gonzaga Yiga, a 49-year-old community chairperson, appeals to residents - Tuesday 24 March 2021",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Go"
+      },
+      {
+        "entity": "B-PER",
+        "word": "##nza"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##ga"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Yi"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##ga"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a man using a megaphone, seemingly addressing people in a community setting.  The caption mentions Gonzaga Yiga, a community chairperson, which aligns with the visual of a man in a leadership-type role communicating to a group. While the image doesn't explicitly confirm the man's name or age, the context is consistent with the caption's description.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Tazama baadhi ya picha bora Afrika 2020",
+        "date": "2021-01-02T00:00:00",
+        "content": "Kwanini unaweza kuiamini BBC News\nSheria ya matumizi\nKuhusu BBC\nSera ya faragha\nCookies\nWasiliana na BBC\nOther Languages\n 2025 BBC. BBC haihusiki na taarifa za kutoka mitandao ya nje. Soma kuhusu mtazamo wetu wa viambatanishi vya nje.",
+        "description": "Tazama baadhi ya picha bora za mwaka 2020 barani Afrika.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The provided news caption mentions Gonzaga Yiga, a community chairperson, making an appeal on March 24, 2021.  However, none of the provided evidence sources contain any information about Gonzaga Yiga, a community chairperson, or an appeal made on that date. Source 1 is about photos of Africa in 2020 and is completely irrelevant. Therefore, there's no support for the caption in the evidence.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 5,
+    "explanation": "The internal validation check shows high confidence (confidence_score: 10) in the caption's alignment with the image. The image depicts a man using a megaphone in what appears to be a community setting, consistent with the caption's description of a community chairperson addressing residents. However, the external validation check reveals a significant discrepancy (confidence_score: 5).  It states that there is no external evidence supporting the caption's claim about Gonzaga Yiga, the date, or the specific appeal.  The external check's lack of corroborating evidence significantly weakens the overall confidence in the caption's accuracy. Therefore, while the image itself seems consistent with the general description in the caption, the absence of external verification of the specific details makes it highly likely that the caption is out of context.  The discrepancy between the strong internal consistency and the lack of external verification creates uncertainty.  Following the principle of defaulting to conservative assessment when uncertain, the final verdict leans towards the assessment of the external validation check. The external validation check's low confidence score directly impacts the final confidence score, resulting in a low confidence score for the overall validation. A thorough investigation into the source of the image and caption would be needed to confidently assess the situation.  Without external validation, we cannot confirm the name, age, or the specifics of the appeal mentioned in the caption, despite the visual evidence suggesting a community leader addressing residents. The image shows a man in a setting that aligns with the context of the caption, but the lack of corroborating external evidence is a substantial problem.",
+    "validation_summary": "Internal validation shows strong consistency between the image and caption, while external validation fails to corroborate the specific details. The lack of external evidence leads to a conclusion that the caption is likely out of context."
+  },
+  "inference_time": 41.38269305229187
+}

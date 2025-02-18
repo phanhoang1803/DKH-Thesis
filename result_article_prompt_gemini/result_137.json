@@ -1,0 +1,57 @@
+{
+  "caption": "Bo the dog waits to board Air Force One in Massachusetts in 2009.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Bo"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Air"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Force"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "One"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Massachusetts"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Bo, the Portuguese Water Dog, on a leash in front of Air Force One.  The plane's tail is clearly visible, showing the American flag and number. Although the exact location isn't explicitly stated in the image, the context strongly suggests an airport, aligning with the caption's implication of boarding Air Force One. Therefore, all entities are correctly used.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "White House pets: Cats, dogs and raccoons through the years",
+        "date": "2021-01-26T19:20:26",
+        "content": "It hasn't always been dogs and cats in the White House - here are a few photos going back decades of first families with their pets.",
+        "description": "Presidents and first ladies have been photographed with their cats, dogs, and even a raccoon, for decades.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The provided text mentions White House pets through the years, including cats and dogs.  However, there is no specific mention of Bo, Air Force One, Massachusetts, or the year 2009. While the article supports the general idea of dogs as White House pets, it doesn't corroborate the specific details in the caption. More information is needed to verify the caption's claim.",
+      "supporting_points": "Source 1 mentions White House pets, including cats and dogs, but lacks specific details about Bo, Air Force One, Massachusetts, or 2009.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "Internal validation shows high confidence (score 10) in the caption's accuracy based on the image content. The image clearly depicts Bo, the Portuguese Water Dog, near Air Force One. However, external validation reveals low confidence (score 4), as there's insufficient evidence to corroborate the specific details in the caption. The external source mentions White House pets but lacks specific details about Bo's travel to Massachusetts in 2009. The discrepancy stems from the limited information in the external source, which cannot confirm or deny the specific event depicted in the image.  To resolve the conflict, we prioritize the lower confidence score (4) reflecting the lack of external corroboration. While the image strongly suggests the caption's accuracy, the absence of independent verification warrants caution.  Therefore, although the image internally aligns well with the caption, the insufficient external evidence leads to a final verdict of 'out of context'.  Further investigation with reliable sources, such as news archives or official White House records from 2009, is necessary to conclusively confirm or refute the caption.",
+    "validation_summary": "Internal validation strongly supports the caption (score 10), while external validation lacks sufficient evidence (score 4) to confirm the specific details.  The conflict is resolved by prioritizing the lower confidence score, resulting in an 'out of context' conclusion."
+  },
+  "inference_time": 6.69531512260437
+}

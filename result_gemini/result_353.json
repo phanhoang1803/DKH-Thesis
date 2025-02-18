@@ -1,0 +1,53 @@
+{
+  "caption": "Hillary Clinton “got her wish” that someone like Donald Trump would run for office",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Hillary"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Clinton"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Donald"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Trump"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows Hillary Clinton and Donald Trump together.  The caption's assertion that Clinton \"got her wish\" is not verifiable from the image alone, but the entities themselves are accurately represented.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Did Hillary Clinton Get 'Her Wish' That Trump Would Run for Office?",
+        "date": "2019-10-24T06:42:37",
+        "content": "Claim:\nA photograph proves Hillary Clinton wanted someone like Donald Trump to run for office.\nRating:\nMiscaptioned\nAbout this rating\nIn October 2019, a meme circulated on Facebook and Instagram suggesting Hillary Clinton got her wish that someone like Donald Trump would run for office.\nIn the meme, a photograph of Hillary Clinton and Donald Trump is shown above a caption that quotes Clinton as saying, \"I would like to see people like Donald Trump run for office; Theyre honest and cant be bought.\nThis was a variation of a familiar claim, which we identified as \"False\" back in 2016 when Clinton was running for president against Donald Trump.\nThe quote is a fabrication inspired by remarks Clinton delivered to Goldman Sachs in 2013. Purported transcripts of those remarks were published by WikiLeaks weeks before the 2016 election.\nThe image in the meme, while it appears clipped straight from an old newspaper, is more than likely a cropped detail of a photograph taken at the wedding of Donald and Melania Trump in 2005. Un-cropped versions of the photograph, easily surfaced in a quick Google Image search, show Bill Clinton and Melania Trump standing to Hillarys left.\nSeveral different media outlets, including CNN, NBC, ABC, The New York Times, and The Hollywood Reporter, have published similar images from that photo op and also confirmed that, yes, Bill and Hillary Clinton did attend the Trumps' wedding.\nWe rate the new variation of this claim as \"Miscaptioned\" because it applies a previously debunked, false back story to a real, though doctored, photograph. In other words, its an old lie dressed up in new (black tie) clothing.",
+        "description": "An old claim resurfaced in newer, fancier clothing.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The Snopes article directly addresses the claim that Hillary Clinton \"got her wish\" that someone like Donald Trump would run for office.  It debunks this claim, stating that the quote attributed to Clinton is fabricated.  Therefore, the news caption is inaccurate.",
+      "supporting_points": "Claim: A photograph proves Hillary Clinton wanted someone like Donald Trump to run for office.\nRating: Miscaptioned\nIn October 2019, a meme circulated on Facebook and Instagram suggesting Hillary Clinton got her wish that someone like Donald Trump would run for office.\nThe quote is a fabrication inspired by remarks Clinton delivered to Goldman Sachs in 2013. ",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The internal check focuses on the presence of Hillary Clinton and Donald Trump in the image, verifying the entities are correctly identified.  It acknowledges the caption's claim ('Hillary Clinton \"got her wish\" that someone like Donald Trump would run for office') is not directly verifiable from the image itself, but gives it a high confidence score (10) because the entities are accurately depicted. This internal assessment is primarily about entity alignment and not the truthfulness of the caption. The external check uses Snopes to verify the claim made in the caption. Snopes directly addresses this specific claim and rates it as \"Miscaptioned,\" providing evidence that the quote is fabricated.  The external check therefore gives a lower confidence score (8) and a verdict of False. The conflict arises between the internal check, focused solely on entity verification, and the external check that assesses the truthfulness of the caption.  The high confidence scores from both checks (10 and 8) highlight the discrepancy. To resolve this conflict, we need to prioritize the external check's conclusion. The external check thoroughly investigates the claim using reliable sources (Snopes) that specialize in fact-checking.  The image itself only provides visual confirmation of the presence of the two individuals; it offers no evidence to support or refute the claim in the caption.  Therefore, the caption is considered out of context because the claim that Hillary Clinton “got her wish” regarding Donald Trump's candidacy is not supported by reliable external evidence and is considered a fabrication. Entity analysis from the image is not sufficient to validate the claim.  The high confidence score of 9 reflects the strong evidence from the external check combined with the certainty that the internal check correctly identified the entities in the image. In conclusion, the caption is out of context and is not supported by reliable verification.",
+    "validation_summary": "Internal check confirms entity alignment but cannot verify the caption's claim. External check (Snopes) debunks the claim, rating it as 'Miscaptioned'.  The external evidence outweighs the internal assessment, leading to a conclusion that the caption is out of context."
+  },
+  "inference_time": 8.255393505096436
+}

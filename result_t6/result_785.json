@@ -1,0 +1,49 @@
+{
+  "caption": "In Egypt's capital Cairo on Sunday an ancient Egyptian coffin is displayed as an announcement is made about the discovery of a huge trove of archaeological treasures.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Egypt"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Cairo"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Egyptian"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows an ancient Egyptian coffin.  The location appears to be indoors, consistent with the description of a display in Cairo, Egypt. The entities are accurately represented in the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Egypt unveils tombs and a sarcophagus in a new excavation",
+        "date": "2023-01-27T04:15:04",
+        "content": "SAQQARA, Egypt  Egypt on Thursday unveiled dozens of new archaeological discoveries, including two ancient tombs, at a Pharaonic necropolis just outside of the capital Cairo.\nThe artifacts, unearthed during a year-long excavation, were found beneath an ancient stone enclosure near the Saqqara pyramids and date back to the fifth and sixth dynasties of the Old Kingdom, spanning from roughly 2500 B.C to 2100 B.C., the excavation team said.\nOne of the uncovered tombs belonged to a priest from the fifth dynasty known as Khnumdjedef, while the other tomb belonged to an official named Meri, a palace official who held the title of \"the keeper of the secrets,\" the team said. Other major findings from the excavation include statues, amulets, and a well-preserved sarcophagus.\nEgypt's most renowned archaeologist and director of the excavation, Zahi Hawass, personally unveiled the new discoveries from the stone enclosure, known as Gisr al-Mudir.\n''I put my head inside to see what was inside the sarcophagus: A beautiful mummy of a man completely covered in layers of gold,'' Hawass said.\nThe Saqqara site is part of a sprawling necropolis at Egypt's ancient capital of Memphis that includes the famed Giza Pyramids as well as smaller pyramids at Abu Sir, Dahshur and Abu Ruwaysh. The ruins of Memphis were designated a UNESCO World Heritage site in the 1970s.\nThursday's unveiling comes amid a flurry of new discoveries announced by Egyptian authorities over the past week. Near the southern city of Luxor, authorities said they found dozens of burial sites from the New Kingdom era, dating from 1800 B.C. to 1600 B.C. Discovered nearby were the ruins of an ancient Roman city, it said.\nIn a separate announcement Tuesday, a group of scientists from Cairo University revealed previously unknown details about a mummified teenage boy dating to about 300 B.C. By using CT scans, the team of scientists were able to shed new light on the boy's high social status by affirming the intricate details of the amulets inserted within his mummified body and the type of burial he received.\nEgypt often publicly touts its ancient discoveries to attract more tourists, a significant source of foreign currency for the cash-strapped North African country. The sector suffered a long downturn after the political turmoil and violence that followed a 2011 uprising.\nEgypt's tourist industry was also hit hard by the coronavirus pandemic and is currently suffering from the fallout from the war in Ukraine. Both Russia and Ukraine formerly comprised a large source of tourists visiting Egypt.",
+        "description": "The artifacts were found beneath an ancient stone enclosure near the Saqqara pyramids and date back to the fifth and sixth dynasties of the Old Kingdom, spanning from roughly 2500 B.C to 2100 B.C.",
+        "source_domain": "www.npr.org"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption mentions the display of an ancient Egyptian coffin in Cairo on Sunday, and an announcement about a discovery of archaeological treasures. Source 1 reports the unveiling of archaeological discoveries, including a sarcophagus (which can be considered a coffin), in Saqqara, near Cairo, on Thursday. While the days don't match, the core information about the display of an ancient coffin and the announcement of archaeological discoveries is consistent between the caption and the evidence.",
+      "supporting_points": "Source 1: mentions the unveiling of \"dozens of new archaeological discoveries, including two ancient tombs, at a Pharaonic necropolis just outside of the capital Cairo.\"  It also specifically mentions \"Other major findings from the excavation include statues, amulets, and a well-preserved sarcophagus.\"",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The internal validation check and the external validation check both agree that the image shows an ancient Egyptian coffin, which aligns with the caption's description. However, there's a discrepancy in the timing. The caption states the event happened on Sunday, while external evidence suggests it occurred on Thursday. This mismatch reduces the confidence score.  The internal validation highlights a strong visual match between the image and the caption's description. The coffin is clearly visible, and the setting seems consistent with a display in Cairo. The external validation supports the core elements of the caption, confirming the unveiling of archaeological discoveries in Saqqara, Egypt, which includes a sarcophagus (a type of coffin), but the discrepancy in the day of the event introduces uncertainty.  While both checks indicate that the caption is not entirely fabricated and does reflect a genuine event, the difference in the dates prevents a complete agreement.   To further strengthen the validation, additional information specifying the exact location within Cairo where the display occurred and corroborating the day of the announcement would be beneficial.  The lack of complete temporal concordance results in a lower confidence score despite the strong visual and contextual correlation.",
+    "validation_summary": "Internal and external validation checks partially agree, confirming the presence of an ancient Egyptian coffin displayed in Cairo. However, a discrepancy in the specified date lowers the overall confidence score."
+  },
+  "inference_time": 44.26167416572571
+}

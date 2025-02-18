@@ -1,0 +1,49 @@
+{
+  "caption": "Pictured a garbage left behind by the caravan of refugees traveling north toward the United States from Honduras",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "United"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "States"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Honduras"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows a large amount of garbage left behind, possibly by refugees.  While the image doesn't explicitly confirm the refugees' origin or destination, the caption's mention of Honduras and the United States is plausible based on common migration patterns. However, there's no visual confirmation of this in the provided image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Migrant caravan: Guatemala blocks thousands bound for US",
+        "date": "2021-01-18T03:21:44",
+        "content": "A group of US-bound Central American migrants has been met with truncheons and tear gas in Guatemala, where security forces blocked their path.\nThousands of people were intercepted on a road near the border with Honduras on Sunday. The government said it would not accept \"illegal mass movements\".\nAn estimated 7,000 migrants, mostly from Honduras, have entered in recent days, fleeing poverty and violence.\nThey hope to travel on to Mexico, and then the US border.\nEvery year, tens of thousands of Central American migrants attempt this perilous journey to try and reach the US, often on foot, in groups known as \"caravans\".\nPresident-elect Joe Biden, a Democrat, has vowed to end the strict immigration policies of his predecessor, Donald Trump, a Republican.\nBut the Biden administration, which will take office on Wednesday, has warned migrants not to make the journey, as immigration policies will not change overnight.\nWhat happened when the group entered Guatemala?\nAs the migrants trekked across Guatemala towards its border with Mexico, they were slowed down by security forces near the south-eastern village of Vado Hondo.\nA group of soldiers and police officers blockaded a road, stopping many of them from advancing. Some people still attempted to force their way through, prompting security forces to push them back. Several people were injured.\nMany migrants retreated, with some waiting nearby to make a new attempt later. Others fled into nearby mountains.\n\"Fortunately the security forces established a contingency plan... and contained this battle,\" said Guillermo Daz, head of Guatemala's migration agency.\nA statement from the Guatemalan president's office said: \"Guatemala's message is loud and clear: These types of illegal mass movements will not be accepted, that's why we are working together with the neighbouring nations to address this as a regional issue.\"\nThe government later said 21 migrants who had sought medical assistance tested positive for Covid-19.\nWhy are so many people coming now?\nThe migrants say persecution, violence and poverty are a daily reality in their home countries. Conditions have been made worse by the devastation wrought by two huge hurricanes that battered Central America last November.\n\"There is still mud everywhere there, everything got knocked down, we lost everything,\" Ismael Eliazar told the Associated Press news agency.\nSo, in search of a better life, they want to reach the US in the hope of finding work and safety.\nDania Hinestrosa, a 23-year-old travelling with her daughter, told the AFP news agency: \"We have no work, nor food, so I decided to go to the United States.\"\nThe promise of new immigration policies under Mr Biden's administration is also thought to have spurred some migrants to make an attempt to reach the US border.\nWhat is the incoming US administration saying?\nMembers of Mr Biden's team have warned Central American migrants not to make dangerous journeys to the border.\nSpeaking to NBC News, an unnamed senior Biden administration official said migrants attempting to claim asylum in the US \"need to understand they're not going to be able to come into the United States immediately\".\nThe Biden administration will prioritise undocumented immigrants already living in the US, not those heading to the country now, the official said.\n\"Processing capacity at the border is not like a light that you can just switch on and off,\" Susan Rice, one of Mr Biden's policy advisers, told the Spanish language news agency Efe in December.\n\"Migrants and asylum seekers should absolutely not believe those in the region selling the idea that the border will suddenly be fully open to process everyone on day one. It will not.\"\nMark Morgan, acting commissioner of US Customs and Border Protection, last week urged would-be migrants at the southern border not to \"waste your time and money\".\nThe US commitment to the \"rule of law and public health\" is not affected by the change in administration, he said in a statement.",
+        "description": "Security forces block a group of thousands that could pose an early test for the Biden White House.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The provided text focuses on a caravan of refugees blocked by Guatemalan authorities and does not contain any information about the refugees leaving garbage behind.  Therefore, there is no evidence to support the claim in the news caption.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal check shows some confidence (confidence_score: 8) that the image depicts garbage left by refugees, aligning with a plausible migration pattern. However, this is based on visual inference and lacks explicit confirmation within the image itself. The external check (confidence_score: 3) strongly contradicts this, stating that there's no supporting evidence from the referenced news text to connect the image to refugees leaving garbage.  The discrepancy lies in the lack of corroborating information in the external source. The image itself only shows a substantial amount of litter, which is consistent with the internal assessment but doesn't verify the origin or identity of those who left the debris. Because the external validation fails to support the caption's claim and there is a significant confidence gap between internal and external assessment, the final verdict leans toward 'out of context'. The low confidence score (4) reflects the uncertainty due to the conflicting assessments and lack of definitive proof connecting the visual evidence to the specific claim made in the caption.",
+    "validation_summary": "Internal validation suggests a possible link between the image and the caption, but external validation completely refutes it. The lack of corroborating evidence in external sources and the absence of explicit visual confirmation in the image lead to an 'out of context' conclusion."
+  },
+  "inference_time": 45.196202754974365
+}

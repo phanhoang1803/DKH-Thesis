@@ -1,0 +1,57 @@
+{
+  "caption": "Jemal Ahmed chases away a swarm of locusts, after the locusts stormed his sorghum and sweet cane farm in Jawaha, Ethiopia.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Je"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##mal"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Ahmed"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "J"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##awa"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ha"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Ethiopia"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image shows a person who appears to be working in a sorghum field, but there is no evidence of locusts.  The name Jemal Ahmed is not visible, and while the location might be Ethiopia, it is not explicitly stated. Therefore, the caption's entities are not accurately represented in the image.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Locust swarms are a known issue in East Africa, particularly in Ethiopia, and frequently damage crops like sorghum and sugarcane.  While I can't independently verify this specific event, the scenario described is entirely plausible based on widely reported agricultural challenges in the region. The action of a farmer trying to deter locusts is also realistic.  However, the lack of specific details makes definitive verification impossible.",
+      "supporting_points": "Locust plagues in East Africa; Sorghum and sugarcane cultivation in Ethiopia; Common methods of pest control by farmers.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal check expresses low confidence (confidence_score: 3) in the caption's accuracy due to a lack of visual evidence supporting the presence of locusts, the farmer's name, and the specific location.  The discrepancy lies in the external check, which, despite acknowledging the plausibility of locust swarms damaging sorghum and sugarcane farms in Ethiopia (confidence_score: 8), lacks specific evidence to confirm this particular instance. While the external check leans towards the possibility that the caption could be true, the absence of supporting visual details within the image itself is a significant concern. The internal check's lack of confidence outweighs the external check's higher plausibility score.  The image shows a person working in a sorghum field using a tool that looks like a large sickle,  but the visual evidence does not depict locusts or verify any of the other details provided in the caption. Although locust swarms are a known problem in Ethiopia, this fact alone does not confirm the caption's accuracy.  Therefore, based on the limited information available in the image and the conflicting confidence scores, the caption is deemed out of context. The overall confidence score is low (4) reflecting the significant uncertainty and discrepancies between the internal and external validation results.",
+    "validation_summary": "Internal validation finds the caption inaccurate due to the absence of visual evidence for locusts, the farmer's name, and precise location. External validation acknowledges the plausibility of the scenario given Ethiopia's vulnerability to locust swarms but lacks specific verification.  The lack of visual confirmation within the image outweighs the external plausibility assessment, leading to a conclusion of the caption being out of context."
+  },
+  "inference_time": 9.362275838851929
+}

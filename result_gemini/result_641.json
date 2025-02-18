@@ -1,0 +1,37 @@
+{
+  "caption": "An FBI field agent quietly warned a Missouri sheriff's department that a propane bomb attack is expected around Christmas.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "FBI"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Missouri"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image shows a large explosion, with burning cars and debris. There is no mention of the FBI or Missouri in the image. Therefore, the entities mentioned in the caption are not present in the image.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The caption describes a plausible scenario: law enforcement receiving a warning about a potential attack. However, without further evidence, it's impossible to verify the claim. FBI involvement in local threats is realistic, as is the possibility of a propane bomb attack. The timing around Christmas adds a layer of potential motive, but isn't definitive.  The lack of specifics and sources makes it difficult to definitively confirm or deny.",
+      "supporting_points": "- FBI involvement in local investigations is common.\n- Propane bombs are a known threat.\n- Attacks around holidays are not unprecedented.\n- The lack of verifiable sources makes the claim difficult to assess.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 1,
+    "explanation": "The internal consistency check reveals a significant mismatch between the caption and the image content. The image depicts a large explosion with burning cars and debris, lacking any indication of FBI involvement, Missouri, or a planned propane bomb attack. The internal check gives a confidence score of 0, reflecting the complete absence of the entities mentioned in the caption within the image. The external check acknowledges the plausibility of the scenario described in the caption – law enforcement receiving a warning about a potential attack, including the possibility of a propane bomb attack around Christmas. However, due to the lack of verifiable evidence or sources to support the claim, it assigns a confidence score of 4, indicating that, while the caption presents a believable narrative, it cannot be verified. The discrepancy arises from the image's direct contradiction of the caption's core elements. While the external check considers the plausibility of the event, the image's contents provide no visual support for any part of the caption. This lack of alignment between the caption and the visual content, combined with the absence of external verification, leads to a final assessment of \"out of context\". The low confidence score of 1 reflects the significant discrepancies and the absence of any corroborative evidence.",
+    "validation_summary": "Both internal and external checks indicate a significant mismatch between the caption and the image content. The image shows an explosion, while the caption describes a specific FBI warning about an impending propane bomb attack.  Lack of supporting evidence leads to a low confidence score and a conclusion that the caption is out of context."
+  },
+  "inference_time": 6.9607954025268555
+}

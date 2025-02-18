@@ -1,0 +1,41 @@
+{
+  "caption": "As well as scrapping parades and fireworks, Disney kept interactive play areas and indoor live theatre shows closed",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "Disney"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a person in front of a Disney statue.  The caption mentions Disney in reference to the closure of certain entertainment options.  The image does not show whether those options were open or closed, but the presence of Disney branding makes the entity accurate.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "In Pictures: Shanghai Disneyland reopens",
+        "date": "2020-05-11T12:44:43",
+        "content": "Disney has reopened its Shanghai Disneyland park to a reduced number of visitors, ending a more than three-month closure caused by the coronavirus outbreak.\nChina has seen declining virus cases for weeks and has been gradually easing restrictions.\nOn Monday, it reported 17 new cases nationally - the highest daily increase since 28 April - bringing the total number of cases to 82,918, with the death toll at 4,633.\nAll photographs subject to copyright.",
+        "description": "Visitors return to Shanghai Disneyland as it opens its doors for the first time in more than three months.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The provided text focuses on the reopening of Shanghai Disneyland after a three-month closure due to the coronavirus outbreak.  It mentions a reduced number of visitors but contains no information about the closure of interactive play areas or indoor live theatre shows. Therefore, there is no support for the claim in the news caption.",
+      "supporting_points": "Source 1 mentions the reopening of Shanghai Disneyland with reduced visitors after a three-month closure due to the coronavirus outbreak, but it does not provide details about specific attractions that remained closed.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 3,
+    "explanation": "The internal validation check found the caption to be accurate with a confidence score of 10 because the image shows a Disney setting, aligning with the caption's mention of Disney. However, the external validation check contradicted this, scoring a 3 and stating that the provided text focuses on Shanghai Disneyland's reopening after a closure, offering no details about the closure of specific attractions as mentioned in the caption.  The external source's lack of information regarding interactive play areas and indoor theatre shows directly challenges the caption's claim. This discrepancy leads to a low overall confidence score. The internal check's high confidence is based solely on the presence of Disney elements in the image, which is insufficient to confirm the specific closures stated in the caption. The external check provides a more relevant context, indicating a significant lack of evidence to support the caption's assertion.  Therefore, considering the opposing results and the absence of supporting evidence, the caption is deemed out of context. The visual evidence, while showing a Disney location, doesn't directly address the specific closures mentioned in the caption.  The image lacks any visual cues regarding the operational status of interactive areas or theatres. Consequently, the image alone cannot validate or refute the caption's claim about the closure of specific attractions.  The external source's focus on the reopening of Shanghai Disneyland and the lack of information about specific attractions' closures are crucial in determining the out-of-context nature of the caption. Given the low confidence score from the external check and the lack of direct visual evidence to support the caption's claims, the final assessment concludes that the caption is out of context.",
+    "validation_summary": "Internal validation found the caption accurate based on the image's Disney setting, but external validation revealed no support for the caption's claim about specific attraction closures.  The discrepancy and lack of supporting evidence resulted in a low confidence score and an out-of-context assessment."
+  },
+  "inference_time": 37.28054165840149
+}

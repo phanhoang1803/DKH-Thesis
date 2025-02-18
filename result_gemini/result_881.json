@@ -1,0 +1,53 @@
+{
+  "caption": "And South Africans wait to pay tribute to the passing funeral procession of anti-apartheid activist George Bizos.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "South"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Africans"
+      },
+      {
+        "entity": "B-PER",
+        "word": "George"
+      },
+      {
+        "entity": "I-PER",
+        "word": "B"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##iz"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##os"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows a group of South Africans waiting, seemingly for a procession.  A portrait of George Bizos is visible. While the caption mentions a \"passing funeral procession\", the image does not explicitly confirm this; people are merely waiting. The entities are mostly present but the image doesn't explicitly showcase the funeral procession part of the caption.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "George Bizos was a prominent anti-apartheid activist in South Africa, so a funeral procession and public tribute are plausible.  However, without specific date information, it's impossible to definitively confirm the caption's accuracy. The phrasing \"passing funeral procession\" is slightly unusual but understandable.",
+      "supporting_points": "- George Bizos was a real anti-apartheid activist in South Africa.\n- Public figures' funerals often involve large processions and tributes.\n- The phrase 'passing funeral procession' is slightly awkward but doesn't render the statement implausible.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The internal and external validation both lean towards the caption being plausible, but not definitively confirmed by the image.  The image shows South Africans waiting, and a portrait of George Bizos, aligning with parts of the caption. However, neither check definitively confirms that the image depicts a funeral procession or that this specific event is taking place. \n\nInternal Check Discrepancy Analysis:\nThe internal check highlights that while the image shows people waiting and a portrait of George Bizos, it does not explicitly confirm a 'passing funeral procession'. This is a crucial discrepancy. The caption suggests an ongoing, dynamic event (a moving procession), whereas the image captures a static moment of people waiting. The image's lack of visual evidence regarding the procession reduces the caption's certainty considerably.\n\nExternal Check Discrepancy Analysis:\nThe external check supports that George Bizos had a public funeral, making a tribute and procession likely. However,  the lack of specific date/contextual information in the image renders external verification inconclusive.  Although the external check finds the caption plausible, it does not offer definitive proof that this image specifically shows the event described. The phrase 'passing funeral procession' also adds a layer of ambiguity not clearly resolved.\n\nConflict Resolution and Confidence Score:\nThe central conflict is the image's static nature versus the caption's dynamic description.  Both checks point to plausibility, but neither provides conclusive evidence.  Weighing the evidence conservatively, considering the lack of definitive visual proof of the procession, a confidence score of 8 reflects the uncertainty. The caption is deemed out of context because while elements align, the critical element of the 'passing funeral procession' is not visually evident in the image.\n\nEntity Analysis:\nThe entities mentioned (South Africans, George Bizos, funeral procession, tribute) are not in direct conflict, but their representation in the image is incomplete. The 'passing funeral procession' is an absent but crucial entity in the image. Its absence outweighs the presence of the other entities, leading to the OOC judgment.\n\nConclusion:\nAlthough the caption is plausible based on the context of George Bizos's life and the common occurrence of funeral processions, the image itself lacks the visual evidence to confirm the caption's description. Hence, the caption is judged out-of-context (OOC) with a confidence score of 8, reflecting the reasonable but not conclusive nature of the evidence.",
+    "validation_summary": "Both internal and external validation checks find the caption plausible but not conclusively supported by the image. The lack of visual evidence for the 'passing funeral procession' is the main discrepancy, leading to an OOC judgment."
+  },
+  "inference_time": 36.218639612197876
+}

@@ -1,0 +1,57 @@
+{
+  "caption": "The FBI raided the CDC in the middle of the night to seize data on a link between vaccines and autism.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "US"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Centers"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "for"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Disease"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Control"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "and"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Prevention"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The entities \"US Centers for Disease Control and Prevention\" accurately represent the organization mentioned in the news caption as \"CDC\".  The caption's claim is not being judged for accuracy, only the named entity recognition.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The news caption is highly implausible.  There is no credible scientific evidence linking vaccines to autism, and a clandestine FBI raid on the CDC to seize such data would be an extraordinary event that would be widely reported and immediately met with intense scrutiny and public outcry.  Such an action would also likely trigger significant legal challenges and political ramifications. The description doesn't fit typical patterns of responsible news reporting, implying a sensationalized or deliberately misleading claim.",
+      "supporting_points": "- Extensive research has consistently debunked any causal link between vaccines and autism.\n- A large-scale raid of this nature would be extremely difficult to keep secret and would generate massive media attention and public reaction.\n- The scientific consensus and public health messaging firmly reject the vaccine-autism link.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows the CDC building, which aligns with the textual entities identifying the CDC. However, the news caption claims an FBI raid occurred to seize data on a link between vaccines and autism. This claim is contradicted by external evidence showing no credible scientific evidence linking vaccines to autism and the implausibility of such a raid remaining secret.  The internal check only assesses named entity recognition, not the truthfulness of the caption. Therefore, the significant discrepancy between the image (showing the CDC building) and the highly implausible caption leads to an 'out of context' assessment.",
+    "validation_summary": "The image visually aligns with the mention of the CDC. However, external evidence strongly refutes the caption's claim of an FBI raid related to vaccine-autism data, resulting in an out-of-context conclusion."
+  },
+  "inference_time": 14.119698762893677
+}

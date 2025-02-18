@@ -1,0 +1,57 @@
+{
+  "caption": "An old photograph supposedly showing U.S. Sen. Tom Cotton of Arkansas sitting on a bed of gold bars during his time in the military recirculated on social media.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "U"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "S"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Tom"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Cotton"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Arkansas"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image shows a soldier sitting on a pile of gold bars.  A picture of Tom Cotton is included in the image. The caption mentions Arkansas as Cotton's state; this is correctly identified. However, the image is not definitive proof that the gold bars are related to Sen. Cotton. The image could be miscaptioned. The confidence score is 7 because the main entities are present, but the relationship between the entities is not definitively shown.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is This US Sen. Tom Cotton Sitting on a Pile of Gold?",
+        "date": "2020-06-03T10:17:02",
+        "content": "Claim:\nA photograph shows U.S. Sen. Tom Cotton of Arkansas sitting on a pile of gold during his time in the military.\nIn June 2020, an old photograph supposedly showing U.S. Sen. Tom Cotton of Arkansas sitting on a bed of gold bars during his time in the military recirculated on social media.\nThis photograph, displayed above, appears to be real. However, it does not feature Cotton.\nThis picture was reportedly taken in May 2003 and shows a member of the 173rd Airborne Brigade after nearly 1,000 gold bars were confiscated from a truck in Kirkuk, Iraq.\nCNN reported at the time:\nFor the second time in a week, U.S. troops have discovered what appears to be a cache of gold bars hidden in a truck, which could be worth just less than a quarter of a billion dollars, according to a Pentagon official.\nSoldiers from the 173rd Airborne Brigade discovered 999 gold bars hidden in a truck during a routine traffic inspection near the northern Iraqi city of Kirkuk within the last two days, Pentagon officials said.\nWe have been unable to find a definitive and credible source for this picture, but it does match up with news reports from the time. The patch on the person's arm, for instance, appears to match the winged sword patch of the 173rd Airborne Brigade:\nAlso, because this picture was taken in 2003, Cotton can be ruled out because the senator didn't join the military until 2005. Cotton also served with the 101st Airborne Division (whose patch resembles the division's nickname of \"Screaming Eagles\"), not the 173rd Airborne.\nWhen we reached out to Cotton, a spokesperson told us: \"The man in the photo is not Senator Cotton.\"",
+        "description": "The photograph appears to be real, but the caption tells a different story.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption accurately reflects the content of the provided evidence.  Source 1 explicitly states that an old photograph circulated on social media in June 2020, supposedly showing Senator Tom Cotton sitting on a pile of gold bars during his military service. The source then proceeds to debunk this claim.",
+      "supporting_points": "Source 1: \"In June 2020, an old photograph supposedly showing U.S. Sen. Tom Cotton of Arkansas sitting on a bed of gold bars during his time in the military recirculated on social media.\"",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The internal and external validation checks both support the conclusion that the original caption is out of context.  The internal check notes that while the image shows a soldier with gold bars and includes Tom Cotton's picture, it doesn't definitively link Cotton to the gold. The confidence score is 7 due to the lack of definitive proof of the relationship between Cotton and the gold. The external check has a confidence score of 10, strongly supporting the miscaptioned nature of the image by citing a source that explicitly states the image's circulation as a supposed depiction of Senator Cotton with gold bars, ultimately debunking the claim. There is no conflict between internal and external checks; they both converge to show the caption is out of context. The higher confidence score of the external check is given more weight because it provides concrete evidence (a news source debunking the image).  The overall assessment considers both checks, leading to a high confidence score of 9 in the final result. The final conclusion is that the original caption is misleading, as it presents a photograph that is likely misattributed to Sen. Cotton.  Additional investigation might reveal the soldier's identity and the actual context of the image, which could further solidify the OOC conclusion. However, based on available evidence, the conclusion is strong and reliable.",
+    "validation_summary": "Both internal and external validation checks concur that the caption is out of context. The external check, with a higher confidence score, provides strong evidence supporting the misattribution of the image.  The overall assessment is highly confident in the OOC determination."
+  },
+  "inference_time": 7.924170970916748
+}

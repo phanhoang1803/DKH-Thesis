@@ -1,0 +1,57 @@
+{
+  "caption": "This woman, dressed in the colours of the Nigerian flag, takes part in the celebrations at Abuja's Eagle Square...",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Nigerian"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Abu"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ja"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Eagle"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Square"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The woman in the image is wearing green and white, colors present in the Nigerian flag.  The background shows a large, open space; while not explicitly identifiable as Eagle Square in Abuja, the context of the caption makes it reasonable to assume this is the intended location. The location is not definitively confirmed visually. ",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Bola Tinubu inauguration: Pictures of how Tinubu swearing in ceremony happun",
+        "date": "2023-05-29T00:00:00",
+        "content": "29 May 2023\nAfrican leaders along wit religious leaders, traditional rulers and oda important pipo follow witness di event for Eagles Square Abuja.",
+        "description": "African leaders along wit religious leaders, traditional rulers and oda important pipo follow witness di event for Eagles Square Abuja.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The provided text mentions celebrations at Abuja's Eagle Square, but it does not contain any information about a woman dressed in the colors of the Nigerian flag.  Therefore, there is no direct evidence to support the claim in the news caption.",
+      "supporting_points": "Source 1 mentions the event at Eagle Square, Abuja, but it doesn't describe any specific attendees based on their clothing.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal validation shows some agreement with the caption. The woman is wearing green and white, colors present in the Nigerian flag. The location, while not explicitly confirmed in the image, is plausible given the context provided in the caption. However, the external validation contradicts this assessment; it states that external sources do not support the claim of a woman dressed in Nigerian flag colors participating in the celebrations.  This discrepancy significantly lowers the overall confidence score. The visual evidence alone is not sufficient to confirm the caption's accuracy, as the image doesn't clearly depict Eagle Square, Abuja.  The lack of external corroboration and uncertainty about the location despite the color consistency lead to the conclusion that the caption is likely out of context.  The internal confidence (8) is weighted down substantially by the external check's low confidence (3).  Therefore, the overall confidence in the caption's accuracy is low, resulting in an OOC rating of \"True\".  Further investigation to verify the event's location and the attendee's clothing details is required for definitive conclusion.",
+    "validation_summary": "Internal validation partially supports the caption (woman's attire and plausible location), while external validation finds no supporting evidence, leading to a significant discrepancy and a low confidence score. The lack of conclusive visual evidence regarding the location further reduces certainty."
+  },
+  "inference_time": 46.71407389640808
+}

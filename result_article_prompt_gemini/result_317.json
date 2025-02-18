@@ -1,0 +1,65 @@
+{
+  "caption": "Rescue workers at the site of a train accident on Great Belt Bridge in Nyborg, Denmark.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Great"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Belt"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Bridge"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "N"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##y"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##borg"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Denmark"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows a train accident scene on a bridge.  Rescue workers are present. While the exact location is not explicitly labeled in the image itself, the caption's geographic details (Great Belt Bridge in Nyborg, Denmark) are consistent with what appears to be a major bridge in a European-style setting.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Train accident on bridge in Denmark kills 6, injures 16",
+        "date": "2019-01-02T10:01:00",
+        "content": "Six people were killed and 16 others injured Wednesday when a passenger train apparently hit falling cargo from a passing freight train as it crossed a bridge in Denmark.\nThe rail operator, Danish Railways, earlier told TV2 that the victims were passengers on a train traveling from Odense to Copenhagen.\nPolice spokesman Lars Braemhoej said that while \"we do not know precisely what caused the accident,\" one possible cause was that cargo from a passing freight train fell off and hit the passenger train. He added there was \"considerable damage\" to the passenger train.\nPolice declined to comment on a report from Denmark's TV2 channel that a container had likely fallen off the cargo train.\nDanish media initially reported that a tarpaulin on a freight train hit the passenger train, which was going in the opposite direction, prompting it to brake violently.\n\"Ordinary Danes on their way to work or heading home from the Christmas holidays have had their lives smashed,\" said Prime Minister Lars Loekke Rasmussen.\nPhotos from the scene show the freight train was carrying crates of beer, and the tarpaulin that covered the train was torn in pieces.\nKasper Elbjoern, spokesman for Danish brewery group Carlsberg, confirmed that a freight train transporting its cargo was involved in the accident.\nPolice said those hurt sustained light to moderate injuries.\nJesper Nielsen, who was on the passenger train, told Denmark's TV2 the train \"was out on the bridge when there was a huge 'bang' .... very quickly thereafter, the train braked.\"\nThe accident took place on a road-and-rail bridge, part of the Storebaelt system of bridges and a tunnel linking the Danish islands of Zealand and Funen.",
+        "description": "Six people were killed and 16 others injured when a passenger train apparently hit falling cargo from a passing freight train as it crossed a bridge in Denmark.",
+        "source_domain": "www.nbcnews.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption accurately reflects the information in Source 1. The article explicitly mentions a train accident on a bridge in Denmark, with rescue workers implicitly implied by the description of injuries and the mention of the accident site.  The location is specified as part of the Storebaelt system, though not explicitly named Nyborg. The detail about Nyborg would require additional confirmation. The article provides sufficient detail to strongly support the core claim of the caption.",
+      "supporting_points": "Source 1: \"Six people were killed and 16 others injured when a passenger train apparently hit falling cargo from a passing freight train as it crossed a bridge in Denmark.\" Source 1: \"The accident took place on a road-and-rail bridge, part of the Storebaelt system of bridges and a tunnel linking the Danish islands of Zealand and Funen.\"",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 9,
+    "explanation": "The caption \"Rescue workers at the site of a train accident on Great Belt Bridge in Nyborg, Denmark\" aligns well with both the image content and external evidence.  The internal check gives high confidence (10) based on the visual depiction of a train accident on a bridge with rescue workers present, and the plausible geographic context.  The external check (8) confirms a train accident on a Danish bridge, part of the Storebaelt system. The external source doesn't explicitly name Nyborg but mentions the bridge connecting Zealand and Funen islands, which is consistent with the Great Belt Bridge's location.  The discrepancy between \"Great Belt Bridge in Nyborg\" and the external source's less specific mention of the Storebaelt system is minor.  Given the high confidence from both checks and the overall consistency between the caption and the evidence, the caption is deemed not out of context. The minor geographic uncertainty doesn't outweigh the strong support from both internal visual assessment and external news reporting of a train accident on a Danish bridge with rescue personnel responding.",
+    "validation_summary": "Both internal and external checks strongly support the caption's accuracy.  Minor geographic ambiguity is outweighed by the strong alignment between the visual evidence and external reporting of a train accident on a Danish bridge."
+  },
+  "inference_time": 6.490376949310303
+}

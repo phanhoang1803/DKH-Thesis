@@ -1,0 +1,61 @@
+{
+  "caption": "A photograph taken at the 'Million MAGA March' in November 2020 shows Nazi and Confederate flags on display.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Million"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "MA"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##GA"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "March"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Nazi"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Confederate"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows Nazi and Confederate flags displayed.  The flags are prominently featured and easily identifiable. The caption accurately reflects the visual content.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is This a Photo of a Nazi Flag from the 'Million MAGA March'?",
+        "date": "2020-11-14T08:29:57",
+        "content": "Claim:\nA photograph taken at the 'Million MAGA March' in November 2020 shows Nazi and Confederate flags on display.\nRating:\nMiscaptioned\nAbout this rating\nOn Nov. 14, 2020, supporters of President Donald Trump rallied in Washington D.C., in an event dubbed the \"Million MAGA March,\" either to commiserate with each other about Trump's recent loss in his failed bid for re-election, or to foster Trump's spurious claims that the presidential election had been \"stolen\" from him.\nSome posts shared on social media about the event purported to document the display of Nazi and Confederate flags offered for sale at the rally:",
+        "description": "\"At this time in our lives, we need to be united with love and respect for all.\"",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The provided text mentions a Snopes article that rates the claim as 'Miscaptioned'. While the article acknowledges the presence of individuals with Nazi and Confederate flags at the Million MAGA March, it suggests the claim might be misleading or taken out of context.  Therefore, a definitive True or False verdict cannot be given based solely on this information.",
+      "supporting_points": "Snopes article rates the claim as 'Miscaptioned', indicating that the claim might be exaggerated or inaccurate in some way.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "Internal validation shows high confidence that the image depicts Nazi and Confederate flags.  However, external validation, referencing a Snopes article, casts doubt on the caption's claim that the photo was definitively taken at the 'Million MAGA March' in November 2020.  While the Snopes article acknowledges the presence of such flags at the event, it labels the claim as 'Miscaptioned', suggesting the context might be misleading or inaccurate.  The conflict lies in the precise location and timing of the photograph. The internal check focuses solely on the image content (flags present), while the external check considers the broader context (event association). Since the external check raises concerns about the caption's accuracy regarding the event's specifics, and this is a crucial element of the claim, the overall assessment leans toward the external validation.  The high internal confidence score is acknowledged, reflecting the clear presence of the flags in the image. However, because the external check highlights uncertainty regarding the event context, and this context is part of the caption, the overall confidence score reflects this uncertainty. The lack of conclusive evidence linking the image definitively to the specific event cited in the caption leads to the 'Out Of Context' judgment.",
+    "validation_summary": "Internal validation strongly supports the presence of Nazi and Confederate flags, but external validation from Snopes raises concerns about the accuracy of the caption's claim regarding the event's specific context.  This discrepancy, and the uncertainty surrounding the image's origin, leads to the conclusion that the caption is likely out of context."
+  },
+  "inference_time": 6.932044267654419
+}

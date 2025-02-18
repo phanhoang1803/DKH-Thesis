@@ -1,0 +1,49 @@
+{
+  "caption": "Zurich's Bahnhofstrasse",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Zurich"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Bahn"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##hof"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##stra"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##sse"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image shows a street scene that appears to be in Zurich, Switzerland.  The street name is not clearly visible in the image, however, Bahnhofstrasse is a known street in Zurich, making this a plausible caption. The confidence score is lowered due to lack of clear visual confirmation of the street name.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Bahnhofstrasse is a well-known and famous street in Zurich, Switzerland.  It is a high-end shopping street and a significant landmark. Therefore, the caption \"Zurich's Bahnhofstrasse\" is factually accurate and plausible.",
+      "supporting_points": "Bahnhofstrasse is a famous street in Zurich. It's a significant landmark and shopping street.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 9,
+    "explanation": "The internal validation check expresses some uncertainty due to the lack of clear visibility of the street name in the image, resulting in a confidence score of 7. However, the external validation provides strong support, achieving a confidence score of 10.  Bahnhofstrasse's significance as a landmark street in Zurich is well-established, adding weight to the external validation.  The external validation's higher confidence score outweighs the internal reservation.  Therefore, while the image itself doesn't explicitly show the street name, the strong external evidence corroborates the caption's accuracy. The overall assessment leans towards accepting the caption's validity, recognizing the image's limitations in providing direct visual confirmation.  The discrepancy between the scores stems from the visual ambiguity of the image versus the established external knowledge of Bahnhofstrasse.  Since both checks are reasonably confident, and the external check provides more definitive confirmation, a high confidence score of 9 is assigned. The validation is based on the plausibility of the street setting and the external knowledge confirming the existence of Bahnhofstrasse as a major street in Zurich. No significant conflicts arise; the difference in scores reflects the different approaches to validation (internal: visual evidence, external: factual knowledge).",
+    "validation_summary": "Internal validation expresses some uncertainty due to the image's lack of clear street name visibility (confidence: 7). However, external validation strongly supports the caption's accuracy, citing Bahnhofstrasse's prominence in Zurich (confidence: 10). The higher external validation confidence, combined with the plausibility of the scene, leads to a high overall confidence in the caption's accuracy."
+  },
+  "inference_time": 40.819283962249756
+}

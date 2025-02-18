@@ -1,0 +1,45 @@
+{
+  "caption": "Ted Nugent, 70’s rocker turned hunting guide and conservative icon, was shot and killed early this morning in a tragic hunting accident.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Ted"
+      },
+      {
+        "entity": "I-PER",
+        "word": "N"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##ugen"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##t"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Ted Nugent, a musician known for his rock career and later his conservative views and hunting activities.  The caption falsely states he was killed. The entities are correctly identified in the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "Ted Nugent is still alive, so the news caption is factually incorrect.  The caption states he was shot and killed, which is easily verifiable through a simple web search. This makes the statement completely false.",
+      "supporting_points": "Ted Nugent's current status can be confirmed through numerous reliable news and online sources. A claim of his death would require significant evidence and reporting from reputable sources.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The internal check identifies the person in the image as Ted Nugent and correctly notes the caption's false claim of his death.  However, the external check definitively proves the caption is factually incorrect because Ted Nugent is still alive. This discrepancy is resolved by prioritizing the external validation, which provides verifiable evidence contradicting the caption's assertion. The high confidence score reflects the certainty of the external validation, showing that the caption is entirely false and out of context. The image shows Ted Nugent, but the caption's claim of his death is demonstrably false based on readily available information. No amount of internal analysis can outweigh verifiable external evidence.",
+    "validation_summary": "Internal validation confirms the image shows Ted Nugent but the caption is factually incorrect, stating he was killed. External validation decisively proves the caption's falsity through readily available information showing Nugent is alive.  The external evidence overrides the internal assessment, resulting in a high confidence conclusion that the caption is out of context."
+  },
+  "inference_time": 5.576842784881592
+}

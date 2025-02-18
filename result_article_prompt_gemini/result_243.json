@@ -1,0 +1,53 @@
+{
+  "caption": "President Coolidge and the first lady also had a pet dog, seen here outside the White House in 1927.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Cool"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##idge"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "White"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "House"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows President Calvin Coolidge and his wife, Grace Coolidge, posing outside the White House with their dog.  The entities \"Cool\" and \"##idge\" correctly identify President Coolidge.  \"White House\" is correctly identified in the background. The year is not explicitly stated in the image, but based on the clothing styles and the known history of the Coolidges' time in office, 1927 is a plausible year.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "White House pets: Cats, dogs and raccoons through the years",
+        "date": "2021-01-26T19:20:26",
+        "content": "It hasn't always been dogs and cats in the White House - here are a few photos going back decades of first families with their pets.",
+        "description": "Presidents and first ladies have been photographed with their cats, dogs, and even a raccoon, for decades.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The caption states that President Coolidge and the first lady had a pet dog seen outside the White House in 1927.  Source 1 mentions that presidents and first ladies have had various pets, including dogs, throughout the years, but it doesn't specifically confirm the Coolidges' dog or a photograph of it outside the White House in 1927. The article is a general overview of White House pets and lacks the specific detail needed to verify the caption.  While the claim is plausible given the general information in Source 1, the absence of direct corroboration limits the confidence level.",
+      "supporting_points": "Source 1 mentions that presidents and first ladies have had dogs as pets at the White House over the years.  However, it does not provide specific information about President Coolidge or a photo of a dog outside the White House in 1927.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 5,
+    "explanation": "Internal consistency check shows high confidence (score 10) in the accuracy of the caption based on the image content: President Coolidge and his wife are clearly identifiable, the White House is visible in the background, and a dog is present. However, the external check reveals low confidence (score 4) due to the lack of direct corroboration from reliable sources specifying the exact year (1927) and the identity of the dog as belonging to the Coolidges in this particular photograph.  While the historical context aligns with the possibility of the Coolidges owning a dog around this time, the external source fails to provide evidence specific to this image. This discrepancy creates uncertainty. The final confidence score reflects this uncertainty, leaning towards the lower external confidence score.  To definitively confirm the caption, more reliable sources, like archival records from the White House or verified historical photographs with metadata, are needed.  Without such external confirmation pinpointing the image to 1927 and verifying the dog's ownership by the Coolidges, it is not possible to state with high confidence that the caption is completely accurate. Therefore, the caption is deemed potentially out of context. This is a conservative assessment prioritizing certainty over speculation.",
+    "validation_summary": "Internal check strongly supports the caption's alignment with the image content.  External check lacks sufficient evidence to verify the specific year (1927) and the ownership of the dog, resulting in a lower confidence score and a final judgment that the caption might be out of context."
+  },
+  "inference_time": 7.451721429824829
+}

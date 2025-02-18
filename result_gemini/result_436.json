@@ -1,0 +1,73 @@
+{
+  "caption": "On Monday Bernie Sanders held a press gathering with radical anti-Semite Rep. Rashida Tlaib to promote their vision for America.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Bernie"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Sanders"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "anti"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Semi"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Rep"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Rashid"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##a"
+      },
+      {
+        "entity": "I-PER",
+        "word": "T"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##lai"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##b"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "America"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows Bernie Sanders and Rashida Tlaib together.  While the image alone cannot confirm or deny the accuracy of the \"radical anti-Semite\" label or their shared political vision, the presence of both individuals in the image supports the other entities in the caption.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "While both Bernie Sanders and Rashida Tlaib are public figures known for their political views, labeling Rep. Tlaib as a \"radical anti-Semite\" is a strong and potentially controversial claim requiring further evidence.  The news caption implies a joint event promoting a shared vision, which is plausible given their political alignment, but the specific characterization of Rep. Tlaib needs verification from reliable sources. The date is verifiable; however, the nature of the press gathering and the accuracy of the descriptive terms require additional fact-checking.",
+      "supporting_points": "Bernie Sanders and Rashida Tlaib are both prominent figures in US politics.  The term \"radical anti-Semite\" is a loaded term requiring evidence to support. The claim needs verification from reliable news sources.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal check shows high confidence (8) in the alignment of entities (Bernie Sanders and Rashida Tlaib appearing together in the image), supporting the basic claim of a joint event. However, the external check reveals low confidence (4) in the accuracy of the descriptive term \"radical anti-Semite.\"  The external check highlights that the label is strong and potentially controversial and requires robust evidence, which is lacking in the original caption and accompanying image.  The external check acknowledges the plausibility of a joint event between the two political figures due to their political alignment but emphasizes the need for independent verification of the \"radical anti-Semite\" claim.  The conflict arises from the internal check focusing on the presence of the entities, which is verifiable from the image, while the external check focuses on the accuracy of a strongly charged descriptive term requiring more rigorous external validation.  Because the external check focuses on the accuracy of the description and finds insufficient evidence to support this claim, the overall confidence score is low (4). The \"radical anti-Semite\" descriptor is problematic as it requires substantiated evidence, which is not provided in the given context.  While the image validates the presence of Sanders and Tlaib, it does not verify the other aspects of the caption, making the caption potentially misleading or inaccurate.  Therefore, the assessment concludes the caption is out of context (OOC = True) due to the lack of evidence supporting the controversial and subjective label. The overall confidence is low due to insufficient evidence to validate the descriptor, despite the image verifying the presence of the individuals mentioned.",
+    "validation_summary": "Internal check shows high confidence in entity alignment but external check highlights low confidence in the accuracy of the descriptive term \"radical anti-Semite.\" The conflict stems from a discrepancy between verifiable presence and the lack of evidence for a subjective, controversial label.  The overall assessment is that the caption is out of context due to insufficient evidence to support the claim."
+  },
+  "inference_time": 7.433013200759888
+}

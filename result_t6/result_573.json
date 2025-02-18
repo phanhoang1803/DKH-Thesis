@@ -1,0 +1,61 @@
+{
+  "caption": "Paramedics load a man showing symptoms of Covid-19 into an isolation chamber near Pretoria in South Africa on Friday,",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Co"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##vid"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Pre"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##toria"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "South"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Africa"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows paramedics in protective gear loading a patient into an isolation chamber.  The location appears to be outdoors, consistent with the caption's description. The entities \"Pretoria\" and \"South Africa\" are not explicitly visible in the image, but the caption's claim that the event occurred near Pretoria in South Africa is plausible given the context of the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Sawirrada Toddobaadka Afrika: 15 illaa 21 January 2021",
+        "date": "2021-01-24T00:00:00",
+        "content": "Qaar ka mid ah sawirrada xulka ah ee toddobaadkii la soo dhaafay la qaaday ee ku saabsan Afrika.\nSawirradan oo dhan waxaa ku xiran xuquuq lahaansho.",
+        "description": "Qaar ka mid ah sawirrada xulka ah ee toddobaadkii la soo dhaafay la qaaday ee ku saabsan Afrika.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The provided evidence, which is in Somali, does not contain information about paramedics loading a man with Covid-19 symptoms into an isolation chamber near Pretoria.  Therefore, there is no support for the claim in the news caption.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 3,
+    "explanation": "The internal validation check shows a high confidence score (10) because the image content aligns with the caption's description of paramedics loading a patient into an isolation chamber. The location details (Pretoria, South Africa) are not explicitly visible but deemed plausible based on the image context.  However, the external validation check provides a low confidence score (3) and reports a lack of supporting evidence.  The external evidence is described as being in Somali, indicating that the external source used did not contain relevant information to confirm or deny the caption's claim.  This significant discrepancy between the internal and external checks leads to a low overall confidence score.  Since the external validation, designed to verify the location and event specifics, failed to provide corroborating evidence, we must conclude that there is insufficient evidence to support the caption's claim fully. The absence of external validation weakens the overall assessment, and therefore the caption is considered out-of-context due to the lack of external verification. Further investigation would be needed with credible sources to confirm the date, location, and context of the depicted event. Note that visual analysis does not reveal any signs of tampering or miscontextualization.",
+    "validation_summary": "Internal validation supports the caption, while external validation fails to provide corroboration due to language barrier and lack of relevant information. The discrepancy in findings results in an OOC verdict with a low confidence score."
+  },
+  "inference_time": 27.247998237609863
+}

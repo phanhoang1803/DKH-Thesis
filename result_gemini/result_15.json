@@ -1,0 +1,45 @@
+{
+  "caption": "U.S. President Donald Trump tweeted that, \"Anyone who ordered a ticket to my rally and didn't attend should be arrested and face very powerful charges.\"",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "U"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "S"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Donald"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Trump"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Donald Trump speaking at a rally.  The caption mentions a tweet by Trump about people who ordered tickets but didn't attend. The image supports the presence of Trump and the location as a rally, although it doesn't directly show the tweet or the people who didn't attend.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "While Donald Trump did make controversial statements and was known for his strong rhetoric, there is no verifiable evidence supporting this specific claim.  There are many instances of his controversial statements online and in news sources, but this particular statement is not among those that have been widely reported.  Therefore, its plausibility is low, and further investigation is required for verification.",
+      "supporting_points": "Lack of verifiable evidence; Common knowledge of Trump's controversial statements; Absence of credible reporting on this specific statement.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 3,
+    "explanation": "The internal check aligns well with the image, finding the caption plausible because it shows Trump at a rally. However, the external check reveals a critical flaw:  lack of supporting evidence for the quoted tweet.  While Trump's history of controversial statements adds some context, the specific statement in the caption is unverifiable. The external check's low confidence score (3) significantly outweighs the internal check's higher score (10).  The discrepancy stems from the internal check focusing solely on image-caption alignment, while the external check explores the tweet's existence, revealing a crucial piece of missing information.  In essence, the image shows Trump at a rally, which is consistent with the caption's setting.  However, the alleged tweet remains unverified.   Because we cannot definitively prove or disprove the existence of the tweet, we must err on the side of caution. The absence of reliable external evidence makes the claim highly dubious, leading to the conclusion that the caption is out of context.  Further investigation would be required to verify the source and existence of the quoted tweet.  Without this verification,  the caption is not a valid representation of the event shown in the image, as it incorporates a claim that is currently unsupported.",
+    "validation_summary": "Internal check aligns with the image but lacks external validation. External check reveals the core claim (the tweet) is unverified, outweighing the internal assessment.  The caption is deemed out of context due to the lack of supporting evidence for the central claim."
+  },
+  "inference_time": 10.074020624160767
+}

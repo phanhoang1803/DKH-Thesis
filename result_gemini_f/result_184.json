@@ -1,0 +1,45 @@
+{
+  "caption": "Posts shared on social media about the event purported to document the display of Nazi and Confederate flags offered for sale at the rally",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Nazi"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Confederate"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows Nazi and Confederate flags displayed prominently.  The flags are not obscured and are central to the image, directly supporting the caption's claim that they were offered for sale at the rally.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is This a Photo of a Nazi Flag from the 'Million MAGA March'?",
+        "date": "2020-11-14T08:29:57",
+        "content": "Claim:\nA photograph taken at the 'Million MAGA March' in November 2020 shows Nazi and Confederate flags on display.\nRating:\nMiscaptioned\nAbout this rating\nOn Nov. 14, 2020, supporters of President Donald Trump rallied in Washington D.C., in an event dubbed the \"Million MAGA March,\" either to commiserate with each other about Trump's recent loss in his failed bid for re-election, or to foster Trump's spurious claims that the presidential election had been \"stolen\" from him.\nSome posts shared on social media about the event purported to document the display of Nazi and Confederate flags offered for sale at the rally:",
+        "description": "\"At this time in our lives, we need to be united with love and respect for all.\"",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption aligns with the content of the retrieved article from Snopes.com.  Snopes reports on social media posts claiming Nazi and Confederate flags were displayed and offered for sale at the Million MAGA March.  While Snopes rates the specific claim as 'Miscaptioned', the article itself verifies that such posts did exist, thus supporting the core assertion of the news caption. The caption doesn't claim the flags were actually for sale, only that posts *purported* to document this.",
+      "supporting_points": "Source 1 (Snopes): \"Some posts shared on social media about the event purported to document the display of Nazi and Confederate flags offered for sale at the rally\"",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 9,
+    "explanation": "The caption accurately reflects the content of the image and is supported by external evidence.  The internal check finds a high degree of confidence (10) because the image clearly shows Nazi and Confederate flags, directly supporting the claim that these flags were displayed. The external check also exhibits high confidence (8) by referencing a Snopes article. While Snopes labels the claim as 'Miscaptioned', it verifies the existence of social media posts alleging the sale of these flags at the rally.  This aligns with the caption's careful wording: \"Posts shared on social media...purported to document the display of Nazi and Confederate flags offered for sale.\"  The caption doesn't definitively assert that the flags *were* for sale, only that such claims were made on social media.  There is no discrepancy between the internal and external checks; both strongly support the caption's accuracy, albeit with slightly different focuses. The internal check focuses on the visual evidence within the image itself, while the external check focuses on the broader context of social media posts and the Snopes article's reporting on those posts.  Considering both the strong visual evidence and the corroboration from external sources, the conclusion is that the caption is not out of context.  The confidence score reflects this strong alignment between the caption and the available evidence. The slight reduction from a perfect 10 reflects the nuance that the caption doesn't claim the flags were definitively for sale, but rather that posts purported to show this.",
+    "validation_summary": "Both internal and external checks strongly support the caption's accuracy. The internal check confirms the presence of Nazi and Confederate flags in the image. The external check verifies that social media posts did indeed claim these flags were for sale, aligning with the caption's careful wording which avoids making this a definitive claim."
+  },
+  "inference_time": 7.741639614105225
+}

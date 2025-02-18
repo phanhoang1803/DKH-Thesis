@@ -1,0 +1,57 @@
+{
+  "caption": "Hannah Owens opens the doors to the giraffe house as Chester Zoo reopens to visitors following the further easing of coronavirus lockdown measures in England.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Hannah"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Owens"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Chester"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Zoo"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "England"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a woman, presumably Hannah Owens, opening a door to a giraffe enclosure at Chester Zoo.  The location is consistent with England. All entities are visually present and accurately represented.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Week in pictures: 13-19 June 2020",
+        "date": "2020-06-19T23:17:14",
+        "content": "A selection of powerful news photographs taken around the world this week.\nAll photographs belong to the copyright holders as marked.",
+        "description": "A selection of news photographs taken around the world this week.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided evidence is a collection of news photographs from a BBC article, which does not contain any information about Chester Zoo or Hannah Owens.  Therefore, there is no basis to support or refute the claim in the news caption.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal validation shows high confidence that the caption accurately describes the image's content. The image depicts a woman opening a door to a giraffe enclosure, consistent with the caption's description of Hannah Owens opening the doors to the giraffe house at Chester Zoo.  However, the external validation reveals a critical flaw: it failed to find any corroborating evidence from reputable sources that confirms the information in the caption. Specifically, there's no reliable information linking the woman in the picture to Hannah Owens, Chester Zoo's reopening, or the easing of coronavirus lockdown measures.  The lack of external verification undermines the credibility of the caption, despite the internal consistency. The image itself is visually sound; there is no indication of tampering or miscontextualization. The focus should be on the mismatch between the strong internal visual analysis and the absence of any reliable external validation. Because of this significant discrepancy, it's impossible to verify the accuracy of the caption with a high degree of confidence. The lack of external evidence suggests a high probability that the provided caption is out of context.",
+    "validation_summary": "Internal validation strongly suggests the caption accurately reflects the image content. However, the complete absence of external verification leads to a low confidence score and a determination that the caption is likely out of context."
+  },
+  "inference_time": 28.96237087249756
+}

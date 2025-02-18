@@ -1,0 +1,77 @@
+{
+  "caption": "Following President Trump's firing of James B. Comey as F.B.I. director, the bureau grew increasingly concerned about whether the president's actions constituted anti-American activity.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Trump"
+      },
+      {
+        "entity": "B-PER",
+        "word": "James"
+      },
+      {
+        "entity": "I-PER",
+        "word": "B"
+      },
+      {
+        "entity": "I-PER",
+        "word": "."
+      },
+      {
+        "entity": "I-PER",
+        "word": "Come"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##y"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "F"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "B"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "."
+      },
+      {
+        "entity": "I-ORG",
+        "word": "I"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "anti"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "American"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Donald Trump exiting a vehicle.  The caption mentions President Trump and the firing of James Comey.  The image supports the presence of President Trump.  The caption does not visually align with the image.  Therefore, I am uncertain about the relationship between image and caption.  The image shows Trump, but does not depict the firing of Comey.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption reflects a plausible narrative. President Trump did fire James Comey, and concerns were raised within the FBI about the potential implications of this action. While the term \"anti-American activity\" is subjective and might not be universally agreed upon, the FBI's internal concerns regarding the President's actions are credible given the context of the time.  However, the phrasing \"the bureau grew increasingly concerned\" is somewhat broad.  More specific details about the nature and extent of this concern are required to assess the claim fully.",
+      "supporting_points": "President Trump fired FBI Director James Comey. The firing of Comey led to various investigations and concerns about potential obstruction of justice. The context of the time was politically charged, with ongoing investigations related to Russian interference in the 2016 elections.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal check highlights a significant discrepancy: while the image shows President Trump, it offers no visual evidence related to the firing of James Comey or the FBI's concerns about his actions. The internal check's low confidence score (10) reflects this lack of visual connection. The external check, while acknowledging the historical context of Trump firing Comey and the subsequent FBI concerns, provides only a general assessment without directly corroborating the specific claim in the caption.  Its moderate confidence score (8) suggests that the caption is plausible in a broader sense, but doesn't firmly establish a direct link to the image. The key disagreement lies in the caption's assertion about the FBI's concerns following Comey's dismissal. While this event is historically verifiable (external check), the image offers no visual evidence to support this specific claim. Therefore, given the low confidence and the visual disconnect, we classify the caption as out of context. The image simply depicts Trump exiting a vehicle; it does not illustrate the claim about FBI concerns following a specific action. This lack of visual and direct textual link to the core of the caption necessitates the OOC classification.",
+    "validation_summary": "Internal and external checks disagree on the caption's accuracy.  Internal check finds the image unrelated to the FBI's concerns. External check confirms the event but lacks specific details about the visual content.  The low confidence scores reflect this lack of corroboration."
+  },
+  "inference_time": 40.563926458358765
+}

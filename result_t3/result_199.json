@@ -1,0 +1,45 @@
+{
+  "caption": "A coffin is brought into a cemetery complex for coronavirus victims in Jakarta, Indonesia.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Jakarta"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Indonesia"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both Jakarta and Indonesia are correctly identified and used in the context of the news caption.  Jakarta is specified as the location where the event (bringing a coffin for coronavirus victims) is taking place, and Indonesia provides the country context. The entities are accurate and contextually correct.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Striking news photos from around the world in 2020",
+        "date": "2020-12-30T00:15:20",
+        "content": "A selection of some of the best photographs taken by news agency photographers around the world this year.\nAll photographs subject to copyright.",
+        "description": "A selection of some of the best images taken by agency photographers during the past year.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The provided evidence is insufficient to verify the news caption. Source 1 mentions a selection of news photographs from 2020, including a photograph potentially depicting the scene described in the caption, but it does not explicitly confirm the location, date, or context of the photograph.  The caption's claim cannot be confirmed nor denied with the current information provided.  The absence of specific details regarding the photograph in Source 1 limits the ability to assess the caption's accuracy.",
+      "supporting_points": "Source 1: Mentions a selection of photographs from 2020, one of which could potentially depict the event in the caption, but offers no explicit verification.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 5,
+    "explanation": "The internal validation strongly supports the caption, identifying Jakarta and Indonesia correctly within the context. However, the external validation casts significant doubt.  Source 1, while mentioning a selection of 2020 photographs, does not definitively confirm the image's location or context, preventing a conclusive verification of the caption's accuracy. The lack of concrete evidence from external sources, combined with the image's ambiguity, leads to a conclusion of 'out of context'. The low confidence score reflects the uncertainty resulting from the limited external verification.",
+    "validation_summary": "Internal validation strongly supports the caption's place details, but external evidence is insufficient to confirm the location and context of the image, leading to an 'out of context' assessment."
+  },
+  "inference_time": 37.204649209976196
+}

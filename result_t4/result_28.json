@@ -1,0 +1,57 @@
+{
+  "caption": "NASA warned that Asteroid 52768 (1998 OR2) could hit Earth in April 2020 and cause catastrophic danger.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "NASA"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "As"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##tero"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##id"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Earth"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image shows an asteroid. NASA is mentioned in the caption and is an organization related to space and asteroids. Earth is mentioned in the caption and is the planet our asteroid could potentially hit.  However, the asteroid shown is not specifically identified as Asteroid 52768 (1998 OR2). There is no visual evidence confirming or denying if the asteroid in the image is the one mentioned in the caption, so I can't say with full certainty.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Will an Asteroid Hit Earth in April 2020?",
+        "date": "2020-03-04T03:54:57",
+        "content": "Claim:\nNASA warned that Asteroid 52768 (1998 OR2) could hit Earth in April 2020 and cause catastrophic danger.\nOn April 29, 2020, a large asteroid is expected to fly by earth at a distance of approximately 4 million miles. That may be of interest to stargazers, but the previous sentence isn't very alarming or attention-grabbing. Yet many media outlets wrote headlines about this incoming asteroid as if it posed an immediate and catastrophic threat to the planet.\nAn article in the Daily Express, for instance, was headlined: \"Asteroid warning: NASA tracks a 4KM asteroid approach - Could end civilisation if it hits.\" The site used a similar message when promoting this article on Twitter:\nWhile these headlines may bring clicks, they also may lead readers to falsely believe that this asteroid poses an immediate threat to life on Earth. That isn't the case.\nWhile Asteroid 52768 (1998 OR2) will approach Earth in April 2020, the asteroid is not expected to come within 3.9 million miles of the planet.\nNASA is constantly monitoring the skies for asteroids and meteors that pose a potential threat to Earth. When these near-Earth objects (NEOs) are discovered, NASA monitors them to find out when they will approach Earth, how fast they will be traveling, how large they are, and how close they will get. All of this data is publicly available on the Center for Near Earth Object Studies (CNEOS) website.\nAsteroid 52768 (1998 OR2) was first discovered (as its name implies) in 1998, so this asteroid isn't making a sudden and scary appearance above Earth. NASA has been monitoring it for more than two decades and has learned quite a bit. For instance, the asteroid is relatively large with a diameter between 1.1 and 2.5 miles, and it will be traveling at just under 20,000 mph when it makes its closest approach to Earth.\nWhile an asteroid of this size would cause catastrophic damage if it hit Earth, there's practically no chance that will happen in April 2020. According to NASA, this asteroid won't come within 3.9 million miles of Earth. In other words, it will approach no closer than about 16 times the distance between us and the moon.\nCNEOS writes (emphasis ours):\nOn a daily basis, about one hundred tons of interplanetary material drifts down to the Earths surface. Most of the smallest interplanetary particles that reach the Earths surface are the tiny dust particles that are released by comets as their ices vaporize in the solar neighborhood. The vast majority of the larger interplanetary material that reaches the Earths surface originates as the collision fragments of asteroids that have run into one another some eons ago.\nWith an average interval of about 10,000 years, rocky or iron asteroids larger than about 100 meters would be expected to reach the Earths surface and cause local disasters or produce the tidal waves that can inundate low lying coastal areas. On an average of every several hundred thousand years or so, asteroids larger than a kilometer could cause global disasters. In this case, the impact debris would spread throughout the Earths atmosphere so that plant life would suffer from acid rain, partial blocking of sunlight, and from the firestorms resulting from heated impact debris raining back down upon the Earths surface. Since their orbital paths often cross that of the Earth, collisions with near-Earth objects have occurred in the past and we should remain alert to the possibility of future close Earth approaches. It seems prudent to mount efforts to discover and study these objects, to characterize their sizes, compositions and structures and to keep an eye upon their future trajectories.\n[...]\nNo one should be overly concerned about an Earth impact of an asteroid or comet. The threat to any one person from auto accidents, disease, other natural disasters and a variety of other problems is much higher than the threat from NEOs. Over long periods of time, however, the chances of the Earth being impacted are not negligible so that some form of NEO insurance is warranted. At the moment, our best insurance rests with the NEO scientists and their efforts to first find these objects and then track their motions into the future. We need to first find them, then keep an eye on them.",
+        "description": "Clickbait headlines continue to stoke fears about \"doomsday asteroids.\"",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption claims NASA warned that Asteroid 52768 (1998 OR2) could hit Earth in April 2020 and cause catastrophic danger.  The provided evidence from Snopes explicitly refutes this claim. While the article acknowledges that an asteroid of that size *could* cause catastrophic damage if it hit Earth, it also states that NASA's data indicates the asteroid will not come within 3.9 million miles of Earth in April 2020, making a collision highly improbable.  The Snopes article directly addresses and debunks the claim in the news caption, highlighting the misleading nature of headlines that sensationalized the asteroid's approach.",
+      "supporting_points": "Claim: NASA warned that Asteroid 52768 (1998 OR2) could hit Earth in April 2020 and cause catastrophic danger.\nWhile an asteroid of this size would cause catastrophic damage if it hit Earth, there's practically no chance that will happen in April 2020. According to NASA, this asteroid won't come within 3.9 million miles of Earth.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The internal check acknowledges the image depicts an asteroid and that the caption mentions NASA and the potential for an asteroid impact on Earth. However, it correctly points out the lack of visual evidence to confirm if the image specifically shows Asteroid 52768 (1998 OR2). The internal check's confidence is low (7) due to this uncertainty.  The external check provides strong evidence from Snopes that refutes the central claim of the caption. Snopes clearly states that while a large asteroid could cause catastrophic damage, the Asteroid 52768 (1998 OR2) posed no such threat in April 2020 because it was projected to pass Earth at a safe distance (3.9 million miles). The external check holds a high confidence score (10).  The discrepancy lies in the fact that the internal check focuses only on the image and caption without accessing external information, hence the lower confidence score. The external check, however, uses reliable outside information to determine the factual accuracy of the news caption, resulting in a conclusive finding that the caption is out of context.  Considering the high confidence of the external validation (which involves fact-checking against a reliable source) and the inherent limitations of the internal check (lack of ability to verify the identity of the asteroid shown in the picture), we can conclude that the caption is indeed out of context. The image might show an asteroid, but it is not confirmed to be the asteroid mentioned in the caption, and the caption's claim regarding a potential catastrophic impact is false according to reliable external sources. This makes the caption not merely inaccurate but also misleading. There is no visual evidence to support the caption's central claim.  The external check's validation is robust and credible, while the internal check's findings are limited to visual interpretation and lack the definitive proof needed. Therefore, the final verdict is that the caption is out of context with a high confidence score.",
+    "validation_summary": "Internal check shows uncertainty about the asteroid's identity but acknowledges the plausibility of the caption's theme (asteroid impact). External check strongly refutes the claim using credible information from Snopes, highlighting the caption's misleading nature. The external validation significantly outweighs the internal uncertainty, leading to the conclusion that the caption is out of context."
+  },
+  "inference_time": 37.321232080459595
+}

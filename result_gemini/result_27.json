@@ -1,0 +1,49 @@
+{
+  "caption": "A photograph shows a Southeast African monkey from Madagascar.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Southeast"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "African"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Madagascar"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image shows monkeys, but they are not Southeast African monkeys from Madagascar.  The caption is inaccurate.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is This a Photograph of a Southeast African Monkey?",
+        "date": "2015-03-03T16:00:00",
+        "content": "Claim:\nA photograph shows a Southeast African monkey from Madagascar.\nRating:\nFalse\nAbout this rating\nIn early 2015, a photograph alleged to be that of a cute, odd-looking monkey from Madagascar began circulating via social media. The image was frequently shared with the claim that the pictured creature was a \"Madagascar Southeast African monkey:\"\nMadagascar, Southeast Africa Monkey\nThis photograph, however, does not capture an unusual primate from Madagascar. Instead, it depicts a doll from the \"Inari Foxes\" collection produced by the Santani Workshop in Russia. The group's Deviant Art page features several related images, including the one displayed above, of mythical creatures made of \"different types of doll plastic like fimo, cernit, sculpey, sonet:\"\nThis isn't the first time that a doll has fooled the internet. In December 2014, a photograph of a pair of cute (but fake) owlets also went viral on social media.",
+        "description": "This photograph does not show a Southeast African monkey from Madagascar.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided text from Snopes explicitly states that the photograph does not depict a Southeast African monkey from Madagascar.  It identifies the image as a doll, refuting the claim in the news caption.",
+      "supporting_points": "This photograph, however, does not capture an unusual primate from Madagascar. Instead, it depicts a doll from the \"Inari Foxes\" collection produced by the Santani Workshop in Russia.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "Both internal and external validation checks strongly suggest that the original caption is inaccurate. The internal check, with a confidence score of 1, identifies the image as containing monkeys, but not Southeast African monkeys from Madagascar.  This aligns perfectly with the external check, which achieves a high confidence score of 10 by referencing a Snopes article. The Snopes article definitively states that the photograph does not depict a primate from Madagascar; instead, it identifies the image as a doll from the \"Inari Foxes\" collection produced by the Santani Workshop in Russia. There is no conflict between the internal and external checks; both independently and decisively confirm the caption's inaccuracy.  The high confidence scores from both checks (1 and 10) reinforce the conclusion that the caption is completely out of context.  The external validation provides compelling evidence, specifically mentioning the Snopes article and its identification of the image as a doll, completely refuting the claim of a Southeast African monkey from Madagascar. Given the strong consensus and the explicit counter-evidence from a reliable source like Snopes, there is no uncertainty or need for further investigation. The evidence overwhelmingly supports a conclusion that the original caption is factually incorrect and out of context. Therefore, the final judgment is that the caption is out of context, and the confidence score is set to 10 to reflect the high certainty of this assessment.",
+    "validation_summary": "Both internal and external validation checks strongly agree that the caption is inaccurate. The image depicts monkeys, not a Southeast African monkey from Madagascar as the caption claims.  External validation confirms this by referencing a Snopes article which identifies the image as a doll, further confirming the caption's inaccuracy."
+  },
+  "inference_time": 41.23090839385986
+}

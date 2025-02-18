@@ -1,0 +1,55 @@
+{
+  "caption": "A video clip shows supporters of U.S. Sen. Bernie Sanders failing to identify a single country on an unlabeled world map.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "U"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "S"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Bernie"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Sanders"
+      }
+    ],
+    "result": {
+      "original_news_caption": "A video clip shows supporters of U.S. Sen. Bernie Sanders failing to identify a single country on an unlabeled world map.",
+      "original_entities": "[{'entity': 'B-LOC', 'word': 'U'}, {'entity': 'I-LOC', 'word': 'S'}, {'entity': 'B-PER', 'word': 'Bernie'}, {'entity': 'I-PER', 'word': 'Sanders'}]",
+      "explanation": "The entities extracted from the caption include \"U\" and \"S\" as part of a location (which likely refers to the United States) and \"Bernie Sanders\" as a person. The caption refers to supporters of U.S. Senator Bernie Sanders in a video clip.  The verification lies primarily in checking whether the visual content indeed shows supporters of Bernie Sanders and contextually relates to a map, particularly an unlabeled world map.\n\n1. **Textual Entities Check**: \n   - The \"U.S.\" (extracted as two entities \"U\" and \"S\") aligns correctly as the location associated with Bernie Sanders, confirming that the correct entity is utilized.\n   - The names \"Bernie\" and \"Sanders\" are also accurate and refer to the same politician mentioned in the caption.\n\n2. **Visual Content Analysis**: \n   - The content should depict a video clip of supporters related to legalization awareness.  If viewers cannot clearly identify support for Bernie Sanders, particularly if there are no related entities visualized (a crowd, a rally, or marked political messages), then the validity of the entities in the context of the caption can be brought into question, even if the names themselves are accurate. \n   - The presence of a world map must be confirmed. If the matrix is evident, but not all entities relate to Sanders explicitly, then it's possible the usage of entities becomes contextual (whether supporters are mentioning countries). \n\n3. **Conclusion**:  \n   - If both the text entities and the visual content (the presence of Bernie Sanders' supporters and a world map) are clearly seen, then the caption aligns as true. However, if none of these confirmed checks are fulfilled and the group does not seem to focus on locations/countries on a map or properly relate to Sanders, there may be discrepancies.",
+      "supported": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Does Video Show Bernie Supporters Unable to Identify One Country on a Map?",
+        "date": "2020-02-27T02:29:17",
+        "content": "Claim:\nA video clip shows supporters of U.S. Sen. Bernie Sanders failing to identify a single country on an unlabeled world map.\nOn Feb. 17, 2020, Republican U.S. Sen. Ted Cruz of Texas tweeted a video that showed people being asked to locate any country on an unlabeled world map  with each person failing at that seemingly simple task:\nCruz's added commentary in his tweet, which began with \"This is Bernies base,\" implied  if not directly asserted  that the persons shown in the video were supporters of 2020 Democratic presidential candidate Bernie Sanders:\nThis is Bernies base  the same folks who tell pollsters that socialism is great because free stuff is cool & they have no idea how many countries have tried it and utterly failed. The antidote: facts, truth & substance.\nHowever, the video tweeted by Cruz was taken from a comedy segment taped for the \"Jimmy Kimmel Live late night talk show back in 2018, before Sanders entered the race for the 2020 Democratic presidential nomination. More important, as Kimmel himself stated in response to Cruz's tweet, the persons shown in the video were randomly selected off the street and were not identified as Democrats or Sanders supporters in the segment  no one involved with the show questioned them about, or was aware of, whatever political affiliations they might have held.\nKimmel's crew then revisited that subject for his Feb. 26, 2020, show and compiled a clip of persons who explicitly identified themselves as Republicans (or as non-Sanders supporters) failing at the task of correctly identifying a single country on a world map:",
+        "description": "It's difficult to discern people's political affiliations just by looking at them.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "verdict": false,
+      "explanation": "The caption states that a video clip shows supporters of U.S. Sen. Bernie Sanders failing to identify a single country on an unlabeled world map. However, the retrieved related articles clearly indicate that this claim is misleading and ultimately false. The key claim in the related articles is that the video shared by Republican U.S. Sen. Ted Cruz—which he claimed showed Sanders supporters—was not specifically targeted towards Sanders supporters at all. \n\nAccording to the content of Source 1 (from snopes.com), the video originally aired as part of a comedy sketch on 'Jimmy Kimmel Live' and was filmed in 2018, well before Sanders launched his campaign for the 2020 presidential nomination. This timing difference raises a significant issue regarding the validity of Cruz's assertion that the individuals in the video were indeed Bernie Sanders supporters. Additionally, the video involved random people selected from the street, none of whom identified as supporters of Sanders or had been questioned about their political affiliations in the original segment. Therefore, attributing the failure to identify countries on the map specifically to Sanders supporters is factually incorrect. Cruz's claim appears to be classified as a broad political commentary rather than a documented fact about those individuals.\n\nFurthermore, the Snopes article emphasizes that Jimmy Kimmel's crew later compiled a different segment showing individuals who did identify as Republicans failing in the same task, highlighting that Cruz's video was not representative of any political group, let alone Sanders supporters. Therefore, there is a contradiction between the caption and the evidence presented in the articles. The video's context, its source, and the misattribution of the individuals' political affiliations present a clear case against the accuracy of the caption.\n\nBased on this detailed examination, the claim in the caption is unsubstantiated and misrepresents the content of the video in question. Thus, the overall conclusion is that the caption is false.",
+      "confidence_score": 9,
+      "supporting_points": "1. The video was taken from 'Jimmy Kimmel Live' and was part of a comedy segment, not directly related to Bernie Sanders supporters. (Source: Snopes)\n2. Senator Ted Cruz's commentary implied that those in the video were Sanders supporters, but there was no evidence from the segment that confirmed this. (Source: Snopes)\n3. The people in the video were randomly selected from the street and their political affiliations were not established. (Source: Snopes)"
+    }
+  },
+  "final_result": {
+    "final_answer": "True",
+    "explanation": "The evaluated caption accurately represents the context of the accompanying video clip. The crucial components of verification involved checking both internal and external validation results. The internal checks confirm that the entities mentioned—Bernie Sanders—are correctly identified, as he is indeed a U.S. Senator. The external checks, however, were particularly revealing, indicating that while the original news caption makes a specific claim about the supporters of Bernie Sanders, the context of the video in question presents significant discrepancies. The video is part of a comedy sketch and involves random people who do not identify specifically as Sanders supporters. Additionally, critical external sources clarify that the assertion about the group failing to identify a country on an unlabeled world map is misleading as it sensationalizes a comedic presentation without capturing the political context accurately.",
+    "additional_notes": "",
+    "OOC": false,
+    "confidence_level": 9
+  },
+  "inference_time": 58.683104038238525
+}

@@ -1,0 +1,45 @@
+{
+  "caption": "On Sunday zebras cross the road as a motorcyclist waits in Kimana Sanctuary in Kenya.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Kim"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ana"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Sanctuary"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Kenya"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image shows zebras at night, but there is no road or motorcyclist visible.  The location is not definitively identifiable as Kimana Sanctuary in Kenya.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Zebras are found in African savannas, and Kenya is in Africa. Motorcyclists may be present on roads near wildlife sanctuaries. Kimana Sanctuary's existence would need verification, but the overall scenario is plausible.",
+      "supporting_points": "Zebras inhabit African savannas; Kenya is in Africa; Motorcyclists can be found on roads near wildlife areas; Kimana Sanctuary plausibility needs external verification.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal check identifies a significant mismatch between the caption and the image. The caption describes zebras crossing a road with a motorcyclist present in Kimana Sanctuary, Kenya.  However, the image shows zebras in the dark, with only a light source visible in the background; there is no road or motorcyclist present. The internal check expresses low confidence (confidence_score: 0) in the caption's accuracy due to this discrepancy. The external check, while acknowledging the possibility of zebras in Kenya and the presence of motorcyclists near sanctuaries, expresses only moderate confidence (confidence_score: 8) because the image does not provide visual confirmation of the specific context described in the caption.  The external check's supporting points highlight plausible elements (zebras in Kenya, motorcyclists near sanctuaries), but it does not address the core discrepancies. The lack of visual evidence of a road or motorcyclist in the image, combined with the low confidence from the internal check, strongly suggests the caption is inaccurate in its description.  Therefore, the overall assessment concludes that the caption is out of context, and with a low confidence score (2 out of 10), given the significant discrepancies.  While zebras are found in Kenya and it's possible a motorcyclist might be near a sanctuary, the image itself directly contradicts the scene described.  The external check's higher confidence score reflects the general plausibility of zebras and motorcyclists in that region, not a confirmation of the scene in the image. No external source is provided to validate the existence or location of a motorcyclist on a road near Kimana Sanctuary in Kenya at a specific time.  The absence of such a detail weakens any arguments for aligning the caption with reality.   Given the image's clear demonstration of a nighttime scene lacking the road and motorcyclist mentioned, the internal check's verdict of 'False' takes precedence, resulting in an overall OOC verdict of 'True'. The low confidence score (2) reflects the uncertainty, and the inability to corroborate the caption's claims beyond the general plausibility of zebras in Kenya.",
+    "validation_summary": "Internal check found significant discrepancies between the image and caption, resulting in low confidence. The external check acknowledged general plausibility but lacked specific evidence, supporting the conclusion that the caption is out of context."
+  },
+  "inference_time": 29.653908014297485
+}

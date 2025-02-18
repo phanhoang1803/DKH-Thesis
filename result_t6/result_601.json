@@ -1,0 +1,49 @@
+{
+  "caption": "Brexiteers, like these ones who marched in London last month, are eager to leave the European Union partly in response to a recent flow of migrants from war-torn countries.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "London"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "European"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Union"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a protest in London.  The caption mentions Brexiteers and their desire to leave the European Union. While the image shows a protest, it does not explicitly show their motivations. However, the presence of the location (London) and reference to the European Union are clearly represented.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Walking the wall: my Brexit hike in northern England",
+        "date": "2019-12-04T14:55:55",
+        "content": "By Tom Rowley\nIt is only a mug of strongly brewed tea, but, after the morning I have had, it feels like the nectar of the gods. On the fourth day of my coast-to-coast walk across northern England, I had so far trudged through seven miles of waterlogged fields, edging slowly past cows and taking detours to avoid getting stuck in the mud. I only ever seemed to be walking uphill. No one else was mad enough to risk the Northumberland countryside on this freezing November day besides the cows and sheep. But suddenly a stone cottage popped up. I was intrigued: this was the first house I had come across that lay on the path. A hardy-looking woman stood in the garden amid the torrent of sleet that was lashing down on us both, topping up a bird feeder. Would you like a cup of tea? she asks, as I limp the last few steps towards her home.",
+        "description": "With the country divided and a general election looming, The Economists Britain correspondent quits Westminster and heads home. Could an 84-mile hike along Hadrians Wall teach him anything new? | 1843 magazine",
+        "source_domain": "www.economist.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The provided text focuses on a personal anecdote about a walk in northern England and does not contain information about Brexit, Brexiteers, or migration from war-torn countries.  Therefore, it offers no support for the news caption.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 3,
+    "explanation": "The internal validation gives a high confidence score (10) because the caption mentions Brexiteers marching in London, which is visually consistent with the image. However, the external validation fails completely (score of 1), as it points to unrelated content. This significant discrepancy casts doubt on the caption's accuracy.  The image shows a protest, which is consistent with the caption's description of a march. The flags and attire suggest a pro-Brexit or nationalist demonstration. But the caption goes further by suggesting the march was 'partly in response to a recent flow of migrants from war-torn countries'.  There is no visual evidence in the image to support this assertion. The people in the image are holding flags, some appearing to be Union Jacks, and there are signs, but nothing provides specific information on their reasons for protesting beyond a general pro-Brexit sentiment.  Therefore, while the image depicts a pro-Brexit march in London, the stated motivation is not visually supported or confirmed by external resources. Without corroborating evidence linking the march specifically to migration concerns, the caption's claim is an unsupported assertion, even though the scene itself may be factually accurate.  The low confidence score (3) reflects the significant contradiction between the high internal validation score and the complete failure of external validation.  The lack of visual cues supporting the migration motive makes the statement highly speculative and out of context.",
+    "validation_summary": "Internal validation suggests the image and caption align regarding the location and subject matter (Brexiteer march in London). However, external validation fails, indicating the caption's assertion regarding the march's motivation (migration concerns) lacks supporting evidence. The discrepancy between internal and external results lowers the overall confidence."
+  },
+  "inference_time": 40.87333035469055
+}

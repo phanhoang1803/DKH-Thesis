@@ -1,0 +1,41 @@
+{
+  "caption": "California's governor is under investigation for possible corruption.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "California"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Mike Pence, who is not the governor of California.  Therefore, the entity \"California\" is not correctly used in the caption.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is California Governor Jerry Brown 'Caught in the Middle' of a Corruption Investigation?",
+        "date": "2017-05-09T10:02:19",
+        "content": "Claim:\nCalifornia's governor is under investigation for possible corruption.\nOn 17 April 2017, the web site consjournal.com published a story purporting to link California Governor Jerry Brown to a corruption investigation.\nHowever, the story didn't stand up to the barest of scrutiny. The headline said that Brown was \"caught in the middle of a $60 billion corruption investigation,\" a premise that is undermined by the sources it cites, each of which states that Brown ordered the probe into the state Board of Equalization  but he was not the subject of the investigation.\nOne of those sources, a March 2017 Sacramento Bee story, identifies the focus of the identification, which was spurred in part by an audit of the department:\nThe reports authors say they found well-paid tax auditors on parking lot duty at a promotional event, a steep rise in spending on activities that do not appear connected to taxes, and misleading information provided to lawmakers.\nThe audit takes particular aim at board member Jerome Horton, finding that he has reassigned public employees to work for him, arranged events that strayed from the agencys mission and opened a call center in his district without securing the consent of his fellow elected leaders. Horton has defended his outreach events as a way to reach large numbers of taxpayers.\nThe following month, Brown asked the state Justice Department to investigate the department, which collects an estimated $60 billion a year from more than 30 types of taxes, including fuel for motor vehicles and jets; alcoholic beverage taxes; and taxes on cigarettes and tobacco products, among others. It functions independently of the state Franchise Tax Board, which collects personal income taxes, and the Employment Development Department, which focuses on payroll taxes.\nA separate audit conducted in November 2015 found that board staffers incorrectly sent nearly $47.8 million in taxes to the state general fund. California State Controller Betty Yee undertook the review after noticing \"irregularities\" in the fund.\nBesides ordering an investigation into the board, Brown said in a letter to its members that he had barred it from hiring \"key personnel\", and restricted its ability to issue contracts without outside approval.",
+        "description": "A conservative-leaning web site strained to connect Brown to a probe he personally ordered.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The claim that California's governor is under investigation for possible corruption is partially supported by the evidence.  Source 1, from Snopes, indicates that Governor Jerry Brown ordered an investigation into the state Board of Equalization due to potential corruption, but he himself was not the subject of the investigation.  While the governor is not under investigation, an investigation into a body he oversees was launched due to suspected corruption. Therefore, the caption is partially true but needs clarification.",
+      "supporting_points": "Source 1: Snopes article detailing the investigation into the California State Board of Equalization, initiated by Governor Jerry Brown, which found evidence of corruption.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The internal check correctly identifies a major discrepancy: the image depicts Mike Pence, not the governor of California.  This immediately renders the caption factually incorrect.  The external check, while acknowledging an investigation into potential corruption within a California state body (the State Board of Equalization) initiated by then-Governor Jerry Brown, clarifies that Governor Brown himself was not under investigation.  The external check's finding further strengthens the conclusion that the original caption is out of context. The caption's claim about California's governor being under investigation is false, regardless of any investigations within the state government.  The visual evidence irrefutably shows Mike Pence, who was never the California governor, making the image completely unrelated to the caption's assertion.  There's no ambiguity or uncertainty in the visual identification of the person depicted, nor is there any contradictory evidence between the internal and external checks regarding the lack of any investigation against the governor of California.  The high confidence score reflects the strong and consistent evidence from both checks supporting the conclusion that the caption is completely out of context and factually inaccurate regarding the identity of the person shown and the subject of any investigations mentioned.",
+    "validation_summary": "Both internal and external checks independently confirm the caption is out of context.  The image shows Mike Pence, not the California governor, and there is no evidence that the California governor was under investigation at the time of the image, contradicting the original claim."
+  },
+  "inference_time": 57.90678906440735
+}

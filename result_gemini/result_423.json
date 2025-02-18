@@ -1,0 +1,65 @@
+{
+  "caption": "social media users circulated a block of text — purportedly originating with a Prague newspaper — that termed the U.S. a ‘confederacy of fools’ for electing Joe Biden",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Prague"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "U"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "S"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "."
+      },
+      {
+        "entity": "B-PER",
+        "word": "Joe"
+      },
+      {
+        "entity": "I-PER",
+        "word": "B"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##iden"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Joe Biden.  The caption mentions Prague, U.S., and Joe Biden.  The image does not show Prague or a newspaper article. However, the caption refers to social media circulation of a text, and the image is of Joe Biden, so the entities are partially verified.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Did a Prague Newspaper Call U.S. a 'Confederacy of Fools' for Electing Joe Biden?",
+        "date": "2012-11-12T04:00:00",
+        "content": "Claim:\nA Prague newspaper termed the American people a 'confederacy of fools' for electing Joe Biden.\nRating:\nFalse\nAbout this rating\nShortly after the November 2020 U.S. presidential election in which Democratic challenger Joe Biden prevailed over incumbent Donald Trump, social media users circulated a block of text -- purportedly originating with a Prague newspaper -- that termed the U.S. a 'confederacy of fools' for electing Biden:\nBut this item was just another piece of repurposed political misinformation, one that had previously featured Donald Trump as its subject, and Barack Obama before him. It was originally presented as a reproduction of a newspaper editorial harshly critical of those who had voted for Obama in 2008, one supposedly published in \"the Prague newspaper, Prager Zeitungon.\" That mention appeared to be a misspelled reference to Prager Zeitung (\"Prague Newspaper\"), a German-language weekly newspaper from the Czech Republic which is also circulated in Germany, Austria and Switzerland. Later versions of this same item attributed that editorial to Vclav Klaus, a Czech politician who served as the first prime minister of an independent Czech Republic from 1993 to 1998 and then as the second President of the Czech Republic from 2003 to 2013.\nThe attributions of both publication and author were unverifiable, however. The initial version of this item (which was circulated at least as far back as April 2009) provided no contextual information such as a publication date or headline that would facilitate verification of its publication in Prager Zeitung. A search of that newspaper's website at that time pulled up only one article that mentioned Barack Obama, and that article included only an incidental reference about the level of security provided to a U.S. president. No evidence documented that this editorial had been published in either the print or online version of the Prager Zeitung.\nMoreover, not only did no evidence exist showing that Vclav Klaus penned this editorial, it was exceedingly unlikely that he would have written anything like it. Vclav Klaus and Barack Obama appeared to have a reasonably good working relationship while both were in office, and Klaus had not been otherwise been recorded as writing or saying anything (in public or private) nearly so harshly critical of President Obama as the editorial attributed to him here.\nMarcus Hundt, the editor-in-chief of Prager Zeitung, confirmed that the newspaper has never published such an article ... about Joe Biden nor about Barack Obama and that it primarily reports on events in the Czech Republic and Europe and not on domestic affairs in other counties.",
+        "description": "Former Czech president Vclav Klaus didn't call the American people a 'confederacy of fools' for electing Joe Biden or anyone else.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided text from Snopes directly addresses the claim in the news caption.  Snopes explicitly states that social media users circulated a text claiming a Prague newspaper called the U.S. a 'confederacy of fools' for electing Joe Biden. Snopes then debunks this claim, stating it is false and that the text had been repurposed misinformation previously targeting other presidents.  The evidence directly supports the factual elements of the news caption.",
+      "supporting_points": "Source 1:  \"Shortly after the November 2020 U.S. presidential election in which Democratic challenger Joe Biden prevailed over incumbent Donald Trump, social media users circulated a block of text -- purportedly originating with a Prague newspaper -- that termed the U.S. a 'confederacy of fools' for electing Biden\"",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The internal check identified a partial alignment between the caption and the image. The image shows Joe Biden, aligning with the caption's mention of him. However, the caption mentions Prague and a newspaper article, which are absent from the image. The internal check acknowledges this discrepancy but still concludes that the entities are partially verified, resulting in a 'True' verdict due to the presence of Joe Biden.  The external check uses Snopes as a source to corroborate the claim in the caption. Snopes directly addresses the claim that social media circulated a text— purportedly from a Prague newspaper—calling the U.S. a 'confederacy of fools' for electing Biden.  The Snopes article confirms the core elements of the caption: the circulation of the text on social media, the text's content, and the claim's association with the election of Joe Biden.  Both the internal and external checks present high confidence scores (10). The external validation strongly supports the caption's accuracy, given the direct confirmation from Snopes, a reputable fact-checking source.  The internal check's 'True' verdict, despite the visual mismatch, is supported by the external check which verifies the main claim of the caption regarding the social media circulation of the text mentioning Joe Biden. While the image itself doesn't depict the Prague newspaper or the circulated text,  the external validation makes up for this limitation, confirming the textual content of the caption through reliable source verification.  The discrepancies between internal and external checks are minor and easily explained. The image focuses solely on Joe Biden; it is not expected to include other elements mentioned in the caption, such as the newspaper article. This discrepancy doesn't negate the fact that the caption's central claim about the online spread of text related to Joe Biden is confirmed by Snopes. Overall, the high confidence scores from both internal and external checks, together with the validation of the caption's central claim from a reputable source, lead to a final assessment of 'False' for OOC (Out Of Context). The caption is not out of context because the core claim is confirmed.",
+    "validation_summary": "Both internal and external checks show high confidence (10). The internal check notes a partial entity alignment, focusing on Joe Biden's presence in the image. The external check uses Snopes to verify the central claim of the caption regarding the social media circulation of a text related to Joe Biden's election.  Despite a minor visual discrepancy (the absence of Prague and the newspaper article in the image), the strong external validation confirms the core accuracy of the caption. Thus, the caption is deemed NOT out of context."
+  },
+  "inference_time": 28.647416591644287
+}

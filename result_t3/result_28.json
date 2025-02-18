@@ -1,0 +1,45 @@
+{
+  "caption": "Protesters blocked a road leading to the airport in Lagos on Oct. 12.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Lagos"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Nigeria"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The entity \"Lagos\" is correctly used in the caption as the location where the protest took place.  The caption does not mention \"Nigeria\", so while it may be true that Lagos is in Nigeria, this additional entity is not supported by the caption and therefore is not considered accurate in this context.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "'Enough is enough' : Nigerians take to street in protest over a cost-of-living crisis",
+        "date": "2024-08-01T13:44:06",
+        "content": "LAGOS, Nigeria -At least seven people have been killed in Nigeria during nationwide protests against the rising cost of living and bad governance. Thousands of protestors have held demonstrations in several Nigerian cities. In some cities, the demonstrations were met with a heavy police presence.\nSix people were killed in the city of Minna, northern Nigeria, when police moved to dismantle a roadblock protesters had erected, blocking a major expressway. Another person was killed in the populous northern state of Kano, as police clashed with demonstrators there. On social media, there were other unconfirmed reports of killings and tear gas used to disperse protests in the capital, Abuja, drawing condemnation from rights groups.\nThe demonstrations across Nigeria have been organized for the first 10 days of August, in response to harsh economic conditions in Africas most populous country. A brutal combination of unprecedented fuel prices, high food inflation, rising electricity tariffs a collapse in the value of the naira, has led to one of the worst economic crises for decades.\nIn Lagos, much of the city usually bustling with activity and traffic, was eerily quiet, with several shops closed, and a larger police and military presence visible across the city. On Thursday, close to a thousand demonstrators gathered at a main expressway in Ketu, a commercial hub in Lagos, defying police orders to move into a designated area. Ibrahim Suleiman, a trader in Lagos, held a placard reading end bad governance and hunger is killing us.\nIm here to fight for my rights. My children dont go to school, we cant afford it anymore, he said. Were hungry. A can of beans is 2,200 naira ($1.32) garri is 4,000, he said referring to a common staple made from cassava, that has more than doubled in price this year.\nFor weeks Nigerian government ministers, lawmakers, governors and police and security chiefs have tried to prevent nationwide protests from taking place, warning against demonstrations similar to protests held inKenyaover the last month. Officials urged for patience, offered concessions and made threats, sparking criticism from civil society groups.\nNigerias economic crisishas deepened over the last year since the government elected in May 2023, adopted a series of economic reforms. It removed a controversial fuel subsidy and loosened currency controls. The reforms were praised by bodies like the IMF and World Bank, and economists who argued they were painful but necessary. But the impact of the policies has been severe for millions, exacerbating poverty and leading to near unprecedented rates of malnutrition and food insecurity according to aid groups.\nInflation has soared to 34 percent, the highest annual rate in almost 30 years, and food inflation at 40 percent. Rising insecurity in northwest and central Nigeria has also displaced farmers from their farmland, leading to rising food prices.\nIn recent weeks, Nigerias government has distributed food aid, often locally referred to as palliatives such as bags of rice, sent to various communities to help the vulnerable. Some Nigerian states have also sold rice at subsidized costs.\nBut the schemes which are widely held as inefficient and only reach a small fraction of those in need, have provoked anger. 29-year-old Samuel Ali at the protest in Lagos said, We dont need palliatives, were not beggars. All we want is good governance and jobs. Allow us to work and earn money. Rice spoils. Garri spoils. We dont want your food, we want a better country  enough is enough! ",
+        "description": "Thousands take to the streets in Nigeria in the first day of planned days of rage protests over the soaring cost of living and fuel crisis in the West African country.",
+        "source_domain": "www.npr.org"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption states that protesters blocked a road leading to the airport in Lagos on October 12th.  The provided evidence describes widespread protests across Nigeria in August 2024 due to economic hardship, including protests in Lagos. While the evidence mentions protests in Lagos and roadblocks in other cities, it does not specifically confirm a roadblock leading to the Lagos airport on October 12th. The date discrepancy is a significant issue. The evidence strongly suggests protests occurred in Lagos in August, making the October 12th claim questionable.  The source is reputable (NPR), but the lack of specific details regarding the airport roadblock lowers confidence. ",
+      "supporting_points": "Source 1 mentions protests in Lagos in August 2024, describing a protest at a main expressway in Ketu.  Source 1 does not mention any roadblocks to the airport nor does it mention any protests in October. The date in the caption (October 12th) significantly differs from the timeframe of the protests mentioned in Source 1 (August 2024).",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 3,
+    "explanation": "The image shows a protest in Lagos, Nigeria, which aligns with the caption's mention of Lagos. However, the caption specifies October 12th, while external evidence points to protests in Lagos during August 2024, with no mention of an airport roadblock on the specified date. The internal check correctly identifies Lagos but fails to account for the date discrepancy. The external evidence, while suggesting protests in Lagos, lacks specific details corroborating the caption's claim.  The visual evidence supports a protest in Lagos, but the date mismatch and lack of corroborating details regarding the airport roadblock significantly lower the confidence score. Therefore, the caption is considered out of context.",
+    "validation_summary": "The image shows a protest consistent with the location mentioned in the caption (Lagos). However, a significant date discrepancy exists between the caption (October 12th) and external evidence (August 2024).  External evidence does not confirm a roadblock at the Lagos airport on the specified date.  The overall context suggests a potential misrepresentation of the date and specific location of the protest."
+  },
+  "inference_time": 37.366639137268066
+}

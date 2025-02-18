@@ -1,0 +1,57 @@
+{
+  "caption": "Bo the dog waits to board Air Force One in Massachusetts in 2009.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Bo"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Air"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Force"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "One"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Massachusetts"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Bo, the Portuguese Water Dog, on a leash near Air Force One.  The setting appears to be an airport tarmac. While the exact location isn't explicitly stated, the presence of Air Force One strongly suggests a setting consistent with the caption's claim.  The year is not explicitly stated in the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "White House pets: Cats, dogs and raccoons through the years",
+        "date": "2021-01-26T19:20:26",
+        "content": "It hasn't always been dogs and cats in the White House - here are a few photos going back decades of first families with their pets.",
+        "description": "Presidents and first ladies have been photographed with their cats, dogs, and even a raccoon, for decades.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The provided text mentions that the caption describes Bo the dog waiting to board Air Force One in Massachusetts in 2009. However, the related articles are not specific enough to confirm or deny this claim.  Source 1 is about White House pets in general, spanning many years, and doesn't provide specific details about Bo's activities in 2009. Therefore, there is insufficient information to verify the caption.",
+      "supporting_points": "Source 1: Title: White House pets: Cats, dogs and raccoons through the years. Description: Presidents and first ladies have been photographed with their cats, dogs, and even a raccoon, for decades. Content: It hasn't always been dogs and cats in the White House - here are a few photos going back decades of first families with their pets.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal check has a high confidence score (10) because the image clearly shows Bo, a Portuguese Water Dog, near Air Force One, which strongly suggests a context consistent with the caption's description. However, the external check has a low confidence score (4) due to a lack of sufficient information from external sources to confirm the specifics mentioned in the caption.  While sources mention White House pets, they do not provide precise details to verify Bo's presence in Massachusetts on Air Force One in 2009. This significant discrepancy between internal and external validation results in a lower overall confidence score and a conclusion of \"Out Of Context\".  The image internally aligns with the caption elements, but the lack of strong external corroboration lowers the overall certainty.  Because the high internal confidence is not matched by a high external confidence, caution dictates a more conservative \"Out of Context\" assessment. The internal validation relies on strong visual cues but does not offer temporal or geographical confirmation. The external validation attempts to find supporting evidence that matches the caption's specific details (location, date, and event) but finds insufficient evidence.  To definitively verify the caption, more specific information, such as news articles, official records, or photo metadata with timestamps and GPS data are required.  The absence of such information necessitates a cautious approach, favoring the assessment that, while plausible, the caption lacks sufficient external validation to confidently confirm it as factually accurate.",
+    "validation_summary": "Internal validation strongly supports the caption's description of Bo near Air Force One.  However, external validation fails to provide sufficient evidence to confirm the specific location (Massachusetts) and date (2009) in the caption.  The conflict between the high internal and low external confidence scores leads to a final verdict of \"Out of Context\"."
+  },
+  "inference_time": 7.552353858947754
+}

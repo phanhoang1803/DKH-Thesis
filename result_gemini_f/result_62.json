@@ -1,0 +1,41 @@
+{
+  "caption": "A video supposedly showing an unusually large snare swimming across a river in Brazil",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Brazil"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a large snake in a muddy body of water.  The caption mentions Brazil as the location, which is consistent with the type of snake and environment depicted. The location is not explicitly shown but is inferred from the context. ",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Does Video Show a 10-Meter-Long Anaconda?",
+        "date": "2021-03-06T00:00:57",
+        "content": "Claim:\nA viral video shows a 10-meter-long anaconda swimming across a river in Brazil.\nRating:\nFalse\nAbout this rating\nA video supposedly showing an unusually large snare swimming across a river in Brazil is frequently shared on social media. This video has been shared with a variety of claims. In some postings, this anaconda is listed as 50 feet long. In others, it's labeled as a more reasonable 10 meters (about 32 feet long):\nThis video has been severely distorted to make this snake appear much larger. While we can't say for certain just how big this snake really was, we can say that the snake appears much smaller than 10 meters long in the unedited version of this video.\nThe unedited version of this viral video has been circulating online since at least April 2018. While that video did not contain much information about where the footage was taken, the video's description was written in Portuguese, which is spoken by the majority of Brazilians.\nhttps://www.youtube.com/watch?v=7ti6s_UStUc&feature=emb_title\nThe viral version of this video was stretched to make it appear as if his anaconda (and this \"river\") were much larger than they were in reality. The title of this video, \"sucuri gigante atravessando a estrada\" or \"giant anaconda crossing the road,\" also gives us some more context to help determine this snake's size. While the viral version of this video appears to show a \"50-foot snake\" crossing a wide river, it's clear that this video actually shows a snake crossing a flooded road.",
+        "description": "The anaconda is one of the largest snakes in the world.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption mentions a video showing an unusually large snake swimming in a river in Brazil. Snopes, a reputable fact-checking website, investigated a similar video that went viral.  Snopes determined the video was manipulated to make the snake appear much larger than it actually was.  Although the exact size of the snake in the original video is uncertain, the manipulation and exaggeration are established. This aligns with the caption's description of a video supposedly showing an \"unusually large snake\", indicating potential exaggeration or misrepresentation, rather than a straightforward contradiction. The discrepancy lies in the degree of exaggeration, not the core claim of a video showing a snake.",
+      "supporting_points": "Snopes article: \"A video supposedly showing an unusually large snare swimming across a river in Brazil is frequently shared on social media. This video has been severely distorted to make this snake appear much larger. While we can't say for certain just how big this snake really was, we can say that the snake appears much smaller than 10 meters long in the unedited version of this video.\"",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The internal check gives high confidence (10) that the caption accurately represents the image's content, noting the presence of a large snake in a water body, consistent with a Brazilian setting. However, the external check provides strong evidence (confidence score 8) suggesting the video was manipulated to make the snake look unusually large.  Snopes, a reliable fact-checking website, supports this, reporting that the original video shows a smaller snake than what is portrayed in the widely circulated versions. This discrepancy arises because the caption mentions an \"unusually large snake\", which, although consistent with the manipulated video, is demonstrably false based on independent verification. While the internal check focuses only on the image and infers the context, the external check incorporates information from a reputable source about the video's manipulation. This external evidence significantly outweighs the internal assessment.  The conflict arises because the internal check interprets the image's content at face value, without assessing the video's authenticity.  The external check, however, focuses on the larger context by considering the original source video and reported manipulations.  Therefore, the final verdict is based on the strong external evidence indicating that the video (and therefore the caption claiming the snake's unusual size) is misleading, and thus out of context.",
+    "validation_summary": "Internal check shows high confidence in the image's content alignment with the caption, while external check reveals evidence of video manipulation, suggesting the caption's claim of an unusually large snake is misleading.  The external evidence outweighs the internal assessment."
+  },
+  "inference_time": 7.594151735305786
+}

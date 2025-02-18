@@ -1,0 +1,85 @@
+{
+  "caption": "Under former U.S. President Donald Trump, Congress passed a law that gives outgoing presidential administrations control of American armed forces after Inauguration Day, for up to 60 days.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "U"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "."
+      },
+      {
+        "entity": "I-LOC",
+        "word": "S"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "."
+      },
+      {
+        "entity": "B-PER",
+        "word": "Donald"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Trump"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "Congress"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "American"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "In"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##au"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##ration"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Day"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows Donald Trump interacting with what appears to be American armed forces.  The caption mentions a law passed by Congress. While the image doesn't directly depict the legislative process, the presence of Trump and the military aligns with parts of the caption. The mention of \"Inauguration Day\" is not explicitly depicted.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Does Trump Control US Military for 60 Days After Leaving Office?",
+        "date": "2021-02-12T07:26:02",
+        "content": "Claim:\nUnder former U.S. President Donald Trump, Congress passed a law that gives outgoing presidential administrations control of American armed forces after Inauguration Day, for up to 60 days.\nRating:\nFalse\nAbout this rating\nIn early 2021, a rumor circulated online alleging that former U.S. President Donald Trump remained the leader of America's armed forces despite the fact that Joe Biden took the presidential oath of office on Jan. 20.\nSnopes became aware of the below-displayed image, which claimed Congress passed a law in 2019 (under Trump) that allows outgoing presidents to control the federal departments of defense and homeland security after the inauguration of their successors, for up to 60 days.\nIn other words, the image claimed Trump could issue orders for all branches of the country's armed forces  including the Marine Corps, Navy, Air Force, and Coast Guard  even though he was no longer commander in chief. Under terms outlined in the post, Trump would supposedly retain that executive authority until March 21.\nThe claim was an erroneous interpretation of an amendment to a longstanding law governing presidential transitions, the 1963 Presidential Transition Act.\nThat act outlines requirements for the General Services Administration (GSA), the executive branch agency that oversees the setup of White House operations between Election Day and Inauguration Day (when a new administration takes over), and has received various updates by Congress over the decades.\nThe claim, however, stemmed from an amendment (S. 394), proposed by Republican Sen. Ron Johnson in February 2019.\nThat bill, which became law in March 2020, ultimately clarified the GSA's role during transitions and established new conditions for presidential candidates before Election Day  including a requirement that they enter into a formal agreement with GSA, outlining the agency's commitment to them if they win.",
+        "description": "The claim stemmed from 2019 legislation introduced by a Republican lawmaker.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The claim in the news caption is rated as \"False\" by Snopes.  Snopes traces the claim to a 2019 amendment (S. 394) proposed by Senator Ron Johnson, which clarified the GSA's role in presidential transitions. This amendment did not give outgoing presidents control of the armed forces for 60 days after leaving office. The news caption's claim is therefore inaccurate.",
+      "supporting_points": "Source 1: Snopes fact-check directly addresses and debunks the claim made in the news caption.  It states that the claim is an erroneous interpretation of an amendment to the Presidential Transition Act and that the amendment did not give outgoing presidents control of the armed forces.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The internal validation check finds partial alignment between the image and the caption. The image shows Donald Trump with what seems to be the American armed forces, aligning with the mention of \"American armed forces\" in the caption. The caption also mentions a law passed by Congress giving outgoing administrations control of the armed forces for up to 60 days.  However, the image does not directly depict the legislative process or the 60-day timeframe mentioned in the caption. Therefore, the internal check concludes that there is a partial match, resulting in a true verdict with a lower confidence score. However, the external validation check uses Snopes, a reputable fact-checking website, to verify the main claim in the caption. Snopes explicitly debunks the claim, stating that the amendment in question did not grant outgoing presidents control of the armed forces for 60 days.  This creates a significant discrepancy between the internal and external findings. This contradiction is substantial enough to label the caption as out of context.  There is no visual evidence in the provided image directly supporting the claim regarding the 60-day control of the armed forces. The external evidence from Snopes clearly contradicts the caption's central claim, leading to a definitive conclusion that the caption is out of context.  The high confidence score (9) reflects the strong external evidence provided by Snopes, a well-respected fact-checking source.  Considering that the external check strongly contradicts the central assertion of the caption and that the internal check only partially supports it with a lower confidence score, there is overwhelming evidence to conclude that the caption is indeed out of context.  There is no evidence of visual manipulation in the image, and its visual content does not support the claim's core assertion. The context provided by the external source clarifies that the caption's claim is a misinterpretation of a legislative amendment that is significantly different from what is claimed. Therefore, the assessment is conclusive: the caption is out of context because of a fundamental factual inaccuracy regarding the legislation, despite the image showing Trump with the armed forces which is a minor element of the caption.",
+    "validation_summary": "Internal validation shows partial image-caption alignment but lacks direct evidence for the core claim. External validation (Snopes) strongly refutes the caption's main claim, creating a significant discrepancy. The external evidence is conclusive, rendering the caption out of context."
+  },
+  "inference_time": 41.58472800254822
+}

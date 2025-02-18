@@ -1,0 +1,41 @@
+{
+  "caption": "People who smell the perfume \"Lovely\" are killed either instantly or within three days.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Love"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image contains a perfume bottle labeled \"Lovely\". The caption claims that people who smell this perfume are killed.  There is no visual evidence supporting this claim. The image shows only a perfume bottle.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Are People Dying From Exposure to Sarah Jessica Parker's Perfume?",
+        "date": "2018-05-02T06:11:21",
+        "content": "Claim:\nPeople who smell the perfume \"Lovely\" are killed either instantly or within three days.\nRating:\nFalse\nAbout this rating\nMore than a decade after it was released, actress Sarah Jessica Parker's first perfume line was used for a variant on a long-running online hoax.\nAround 2016, messages circulating online promoted the claim that exposure to the fragrance, Lovely, is fatal:\n\"It's in 4 countries already btw African western world,\" a version the badly-constructed message states. \"If u spray once its death sentence, you die immediately.\"\nAnother version of the scam extends the user's alleged death to \"within three days\" while warning that \"It's been used by the ISIS military ground and distributed throughout the Arab world\":\nWhether it be instant or within days, the allegation that the perfume was responsible for fatalities or used by terrorists is false. Such claims have been passed around the Internet since October 2001, playing on fears of receiving hazardous substances in the mail.\nThese type of spurious emails tend to resurface periodically; in June 2017 residents in Melbourne, Australia reported receiving their own batch of messages about \"fatal perfumes.\"",
+        "description": "A variant on a long-running online hoax accused the actress's \"Lovely\" fragrance line of being used by terrorists.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided text directly quotes the false claim from the news caption: \"People who smell the perfume \"Lovely\" are killed either instantly or within three days.\"  Snopes.com explicitly rates this claim as false.",
+      "supporting_points": "Claim: People who smell the perfume \"Lovely\" are killed either instantly or within three days.\nRating: False",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The original news caption claims that smelling the perfume \"Lovely\" causes death, either instantly or within three days.  This claim is demonstrably false based on both internal and external validation.\n\nInternal validation reveals a significant discrepancy between the image and the caption. The image shows a perfume bottle labeled \"Lovely,\" providing no visual evidence to support the claim of fatal consequences from smelling it. The internal check correctly identifies this lack of evidence, assigning a confidence score of 0 and a verdict of False.\n\nExternal validation strongly refutes the caption's claim. The external check cites Snopes.com, a reputable fact-checking website, which explicitly labels the claim as false. This provides robust external evidence, with a high confidence score of 10 and a verdict of False.\n\nThere is complete agreement between the internal and external checks. Both methods independently confirm that the caption is factually inaccurate and out of context. The image shows a perfume; the caption makes a false and unsubstantiated claim about its lethality. There is no visual tampering or miscontextualization in the image, which simply depicts the perfume bottle.\n\nThe high confidence score of 10 reflects the strong corroboration between the internal analysis, which identifies the lack of supporting evidence in the image, and the external verification from a reliable source (Snopes.com), which directly contradicts the claim.\n\nIn conclusion, the original caption is demonstrably out of context. The claim it makes is unsubstantiated, contradicted by visual evidence from the image, and explicitly refuted by a reliable fact-checking website. Therefore, the conclusion that the caption is out of context (OOC: True) is reached with high confidence (confidence_score: 10).",
+    "validation_summary": "Both internal and external checks independently confirm that the news caption is false and out of context. The image shows a perfume bottle; the caption makes an unsubstantiated and demonstrably false claim about its effects."
+  },
+  "inference_time": 43.69908165931702
+}

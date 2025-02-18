@@ -1,0 +1,57 @@
+{
+  "caption": "This woman, dressed in the colours of the Nigerian flag, takes part in the celebrations at Abuja's Eagle Square...",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Nigerian"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Abu"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ja"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Eagle"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Square"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a woman in a green and white outfit, which are colors of the Nigerian flag, participating in what seems to be a parade or celebration.  The background is blurry, but it appears to be an outdoor setting possibly a square. Although the exact location cannot be confirmed as Abuja's Eagle Square, the visual evidence supports the entities mentioned in the caption.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Bola Tinubu inauguration: Pictures of how Tinubu swearing in ceremony happun",
+        "date": "2023-05-29T00:00:00",
+        "content": "29 May 2023\nAfrican leaders along wit religious leaders, traditional rulers and oda important pipo follow witness di event for Eagles Square Abuja.",
+        "description": "African leaders along wit religious leaders, traditional rulers and oda important pipo follow witness di event for Eagles Square Abuja.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The news caption mentions a woman in Nigerian flag colors celebrating at Abuja's Eagle Square.  Source 1 mentions celebrations at Eagle Square Abuja during Bola Tinubu's inauguration, attended by various leaders and dignitaries. While the source doesn't explicitly confirm a woman in Nigerian colours, the presence of a large crowd makes it plausible. However, the lack of direct corroboration for the woman lowers confidence. The caption focuses on a specific individual, while the article provides a broader overview of the event.",
+      "supporting_points": "Source 1: \"African leaders along wit religious leaders, traditional rulers and oda important pipo follow witness di event for Eagles Square Abuja.\" This confirms a celebratory event at Eagle Square, Abuja, but doesn't specifically mention the woman described in the caption.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal validation shows high confidence (10) that the caption is consistent with the image, as the woman is dressed in the colors of the Nigerian flag and is participating in a celebration. However, external validation shows low confidence (4).  Although external sources confirm celebrations at Abuja's Eagle Square during the inauguration of Bola Tinubu, which aligns with the setting implied in the caption and image, there is no corroborating evidence that specifically confirms the presence of a woman dressed in Nigerian flag colors during those celebrations. The external source provides a broader overview of the event, while the caption focuses on a specific individual. This discrepancy between the specificity of the caption and the generality of the external source lowers the overall confidence. The internal validation focuses solely on the image and its immediate visual content, while the external validation attempts to place the image within a larger context. The conflict arises from the limited information provided by the external source, which is unable to either confirm or deny the presence of the specific individual described in the caption. The absence of direct evidence from reliable external sources to confirm the woman's presence in Abuja's Eagle Square lowers the overall assessment. There is a high degree of visual consistency between the image and the caption, but this cannot compensate for the lack of external validation, which necessitates a conservative approach.",
+    "validation_summary": "Internal validation strongly supports the caption (confidence score 10), while external validation offers weak support due to lack of specific corroboration (confidence score 4). The discrepancy between the specific nature of the caption and the broader scope of the external source results in a low overall confidence score and a judgment that the caption is likely out of context."
+  },
+  "inference_time": 7.229058504104614
+}

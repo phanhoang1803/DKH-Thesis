@@ -1,0 +1,77 @@
+{
+  "caption": "Lockport High School in Lockport, N.Y., has adopted a facial recognition system for security.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "Lock"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##port"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "High"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "School"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Lock"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##port"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "N"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "."
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Y"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "."
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Lockport High School in Lockport, NY.  The caption accurately reflects this.  All entities are clearly visible and correctly identified.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "New York bans facial recognition in schools after report finds risks outweigh potential benefits",
+        "date": "2023-09-27T19:10:58",
+        "content": "New York state banned the use of facial recognition technology in schools Wednesday, following a report that concluded the risks to student privacy and civil rights outweigh potential security benefits.\nEducation Commissioner Betty Rosas order leaves decisions on digital fingerprinting and other biometric technology up to local districts.\nThe state has had a moratorium on facial recognition since parents filed a court challenge to its adoption by an upstate district.\nThe Lockport Central School District activated its system in January 2020 after meeting conditions set by state education officials at the time, including that no students be entered into the database of potential threats. The district stopped using the $1.4 million system later that year.\nThe western New York district was among the first in the country to incorporate the technology in the aftermath of deadly mass school shootings that have led administrators nationwide to adopt security measures ranging from bulletproof glass to armed guards. Lockport officials said the idea was to enable security officers to quickly respond to the appearance of disgruntled employees, sex offenders or certain weapons the system was programmed to detect.\nBut an analysis by the Office of Information Technology Services issued last month acknowledges that the risks of the use of (facial recognition technology) in an educational setting may outweigh the benefits.\nThe report, sought by the Legislature, noted the potentially higher rate of false positives for people of color, non-binary and transgender people, women, the elderly, and children.\nIt also cited research from the nonprofit Violence Project that found that 70% of school shooters from 1980 to 2019 were current students. The technology, the report said, may only offer the appearance of safer schools.\nBiotechnology would not stop a student from entering a school unless an administrator or staff member first noticed that the student was in crisis, had made some sort of threat, or indicated in some other way that they could be a threat to school security, the report said.\nThe ban was praised by the New York Civil Liberties Union, which sued the state Education Department on behalf of two Lockport parents in 2020.\nSchools should be safe places to learn and grow, not spaces where they are constantly scanned and monitored, with their most sensitive information at risk, said Stefanie Coyle, deputy director of the NYCLUs Education Policy Center.\nThe state report found that the use of digital fingerprinting was less risky and could be beneficial for school lunch payments and accessing electronic tablets and other devices. Schools may use that technology after seeking parental input, Rosa said.",
+        "description": "New York state has banned facial recognition technology in schools. The announcement by Education Commissioner Betty Rosa on Wednesday follows a report that concluded the risks outweigh potential security benefits.",
+        "source_domain": "apnews.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Source 1 mentions that Lockport Central School District used facial recognition technology in January 2020, but later stopped using it.  The caption states the school *adopted* the system, which is not fully accurate given that the system was later abandoned. The evidence shows a more nuanced timeline than the caption suggests.",
+      "supporting_points": "Source 1: The Lockport Central School District activated its system in January 2020 after meeting conditions set by state education officials at the time, including that no students be entered into the database of potential threats. The district stopped using the $1.4 million system later that year.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "explanation": "The internal consistency check shows high confidence that the image depicts Lockport High School, aligning with the caption's claim. However, the external check reveals a crucial detail: while Lockport Central School District initially implemented facial recognition, it later discontinued the system. This contradicts the caption's assertion that the school \"adopted\" the system, implying a permanent implementation. The discrepancy lies in the temporal aspect; the caption presents an oversimplified narrative, neglecting the system's eventual abandonment. The external source provides a more nuanced timeline, showing the system's temporary use, thereby reducing the caption's accuracy. While the image itself is genuine and accurately reflects the school, the caption's claim about the ongoing use of facial recognition lacks complete accuracy based on readily available information.  The high internal confidence score stems from the clear visual identification of the school, but the external check significantly lowers the overall confidence due to the factual inaccuracy regarding the system's continued use.  Therefore, despite the image's visual accuracy, the caption is ultimately considered out of context due to the misleading information regarding the facial recognition system's long-term adoption. The final confidence score reflects the weighting of strong internal visual evidence against the crucial information provided by external sources that contradicts the caption's claim.  In essence, while the image is correct, the caption's assertion is partially false, leading to an out-of-context classification.",
+    "validation_summary": "Internal validation strongly supports the image's depiction of Lockport High School.  External validation, however, reveals the caption's inaccuracy regarding the long-term adoption of facial recognition technology, as the system was later discontinued. This discrepancy leads to a final judgment of the caption being out of context."
+  },
+  "inference_time": 39.657288551330566
+}

@@ -1,0 +1,49 @@
+{
+  "caption": "An experimental Nazi missile launched in 1944 was likely to land “in the American Midwest” in late December 2016",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Nazi"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "American"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Midwest"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image contains missiles, but there is no information about them being Nazi missiles launched in 1944 or their predicted landing location.  Therefore, the entities in the caption cannot be verified from the image alone.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is an Experimental Nazi Missile Aimed at the U.S.?",
+        "date": "2016-12-30T05:53:24",
+        "content": "The Administrator of the National Aeronautics and Space Administration, Charlie Bolden, announced this morning that an experimental V-3 rocket launched by the Nazis during World War 2 could land in North America over the next few days.\nMeeting the press in Houston, Mr Bolden explained that NASA satellites first spotted the rocket a few months ago, and that the organization has been carefully monitoring its trajectory ever since.\nAccording to their observation, NASA experts have determined that the missile would soon reenter the Earths atmosphere, and would likely land in the American Midwest.\nWe have estimated that it would enter the atmosphere on December 26 or 27, Mr Bolden told reporters. Its hard to determine precisely where its going to hit, but it will almost certainly be in North America.",
+        "description": "A missile was not launched into space by Nazis in 1944, and is not headed for the midwestern United States.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption is directly contradicted by the provided evidence. Snopes explicitly debunks the claim that a Nazi missile launched in 1944 was headed for the American Midwest in late December 2016.  The fact-check article states that the claim is false.",
+      "supporting_points": "Source 1: Snopes fact-check article directly refutes the claim in the news caption.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The original caption claims that an experimental Nazi missile launched in 1944 was predicted to land in the American Midwest in late December 2016.  Both internal and external validation checks strongly refute this claim.\n\nInternal Validation:\nThe internal check analyzes the image content to assess the caption's accuracy. The image shows missiles, but provides no information about their origin (Nazi), launch date (1944), or predicted landing location (American Midwest). The internal check thus reports a confidence score of 0 and a verdict of False, indicating a complete lack of support for the caption's assertions from the image itself.\n\nExternal Validation:\nThe external check leverages outside sources to verify the caption's factual accuracy. It cites a Snopes fact-check article that directly debunks the claim. The Snopes article confirms that the claim is false, providing a high confidence score of 10 and a verdict of False. This strong external evidence conclusively contradicts the caption.\n\nDiscrepancy Analysis:\nThere is no discrepancy between the internal and external checks. Both independently conclude that the caption is inaccurate. The internal check highlights the image's lack of relevant information, while the external check uses a reliable source to prove the claim is false.  The absence of any supporting evidence from either check consistently points toward the caption being out of context.\n\nConfidence Score Justification:\nThe final confidence score is 10 because both internal and external checks strongly agree that the caption is false. The external check's high confidence score (10) is particularly compelling given that it relies on a reputable fact-checking source.  There is no uncertainty in this case, as both forms of validation conclusively reject the original caption's statements.\n\nConclusion:\nBased on both the lack of supporting evidence within the image and the definitive refutation by a reliable external source, the caption is deemed out of context.  The strong agreement between internal and external validation methods yields a high confidence score (10) and supports a conclusive 'OOC' verdict of True.",
+    "validation_summary": "Both internal and external validation checks strongly refute the original caption.  The image provides no supporting evidence, and a Snopes fact-check explicitly debunks the claim. There is no conflict between the checks; both independently lead to the conclusion that the caption is out of context."
+  },
+  "inference_time": 30.850651025772095
+}

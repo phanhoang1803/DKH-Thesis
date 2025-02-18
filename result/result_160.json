@@ -1,0 +1,55 @@
+{
+  "caption": "On Sunday zebras cross the road as a motorcyclist waits in Kimana Sanctuary in Kenya.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Kim"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ana"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Sanctuary"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Kenya"
+      }
+    ],
+    "result": {
+      "original_news_caption": "On Sunday zebras cross the road as a motorcyclist waits in Kimana Sanctuary in Kenya.",
+      "original_entities": "[{'entity': 'B-LOC', 'word': 'Kim'}, {'entity': 'I-LOC', 'word': '##ana'}, {'entity': 'I-LOC', 'word': 'Sanctuary'}, {'entity': 'B-LOC', 'word': 'Kenya'}]",
+      "explanation": "The caption states that zebras are crossing the road while a motorcyclist waits in Kimana Sanctuary, Kenya. The entities extracted from the caption, which are \"Kimana Sanctuary\" and \"Kenya\", indicate a specific location in Kenya where the event is taking place. In the image, if the visual evidence shows zebras crossing a road within a park or sanctuary that can be identified as Kimana Sanctuary, along with an identifiable motorcycle and perhaps a broader context of Kenya, this would support the accuracy of the caption. I would need to validate the presence of these elements in the image to confirm the correctness of the entities. Without seeing the image, it is impossible for me to determine if the zebras and motorcycle are indeed in the predicted location or if the context of the event aligns with the image presented. Also, the temporal context mentions that the event occurs 'on Sunday,' therefore, confirming that the visuals or context also identifies this event as taking place during the referenced time would further strengthen accuracy. Overall, I cannot confidently assess the visibility of the entities mentioned without the actual image context, including geographical markers or specific characteristics that would provide clarity on whether these entities are depicted accurately in the image provided.",
+      "supported": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Amwe mu mafoto yaranze Africa muri iki cyumweru: 12",
+        "date": "2021-03-20T00:00:00",
+        "content": "",
+        "description": "Amwe mu mafoto yaranze Africa muri iki cyumweru.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "verdict": false,
+      "explanation": "The news caption states that 'On Sunday zebras cross the road as a motorcyclist waits in Kimana Sanctuary in Kenya.' However, the retrieved related article does not substantively corroborate this specific claim or event. The article from BBC simply denotes it contains photography highlights from Africa within a given week but lacks content that supports or details the event of zebras crossing the road or a motorcyclist's presence in Kimana Sanctuary. With no relevant content that directly discusses the specific event mentioned in the caption, it shows that there is no sufficient evidence to support the claim. This leads to the determination that the caption is unsupported. Therefore, the verdict is 'False.' The score reflects the lack of relevant details and evidence found in the available source. Confirmation was not provided that any zebras crossed the road, nor was there mention of a motorcyclist in that setting. Thus, we have a disconnect between the caption claims and the actual content of the provided article, leading to reasonable doubt regarding its accuracy.",
+      "confidence_score": 3,
+      "supporting_points": "No direct quotes or details were found in the article that support the claim about zebras crossing or a motorcyclist's wait."
+    }
+  },
+  "final_result": {
+    "final_answer": "False",
+    "explanation": "The original caption states, 'On Sunday, zebras cross the road as a motorcyclist waits in Kimana Sanctuary in Kenya.' However, upon internal validation, the entities mentioned do align with the context, as Kimana Sanctuary is a location where zebras are indeed present. However, there is an absence of visual evidence provided that confirms the existence of either zebras crossing the road or a motorcyclist waiting in the specified location.\n\nLooking at external evidence, the claims made in the caption are not corroborated by any substantial content from the mentioned article or other sources, which raises doubts about the veracity of the event being reported. The BBC article referenced merely highlights photography from Africa and does not specifically document any incidents involving zebras crossing roads in Kimana Sanctuary or any motorcyclist in that area. \n\nThis absence of confirmation leads to the conclusion that the caption lacks supporting evidence for the specific claims it makes. Furthermore, while the entities might be contextually accurate, the overall claim about zebras crossing—along with the motorcyclist's presence—remains unsupported by available visual or external evidence. Therefore, the decision rendered from both checks is that the caption is inaccurate in its representation of events that are described, culminating in a final verdict of False.",
+    "additional_notes": "",
+    "OOC": true,
+    "confidence_level": 3
+  },
+  "inference_time": 47.5277738571167
+}

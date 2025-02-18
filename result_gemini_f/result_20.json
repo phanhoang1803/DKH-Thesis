@@ -1,0 +1,57 @@
+{
+  "caption": "Asylum seekers lining up last week in Tijuana, Mexico.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "T"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##i"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ju"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ana"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Mexico"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a group of people standing near a border fence in what seems to be Tijuana, Mexico.  The caption accurately reflects the image content and location. The entities \"Tijuana\" and \"Mexico\" are correctly identified and represented in the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Did Caravan Migrants Demand $50K from the U.S. to Return Home?",
+        "date": "2018-12-14T01:21:36",
+        "content": "Claim:\nCaravan migrants demanded $50,000 payments from the U.S. in order to go home.\nRating:\nMostly True\nAbout this rating\nWhat's True\nA small group of migrants marched to the U.S. consulate in Tijuana and demanded that their asylum claims be processed more quickly or that they be given $50,000 each to return home.\nWhat's False\nThe vast majority of migrants waiting to have their asylum claims processed by the United States had nothing to do with this demand.\nOn 12 December 2018, Fox News reported that a group of Central American migrants currently housed in Tijuana, Mexico, and hoping to present asylum claims to the United States had demanded $50,000 each from the Trump administration in exchange for returning home.\nAlthough the group that made the demand was relatively small (100-plus people out of a total of the roughly 3,000 housed at El Barretal migrant shelter), the outrageous-sounding headline captured most readers' attention: \"Migrant group demands Trump either let them in or pay them each $50G to turn around.\"\nThe Fox News report was aggregated from the work of the San Diego Union-Tribune, which had earlier that day reported that:\nThe first group demanding action, numbering about 100, arrived at the U.S. Consulate at about 11 am. The migrants said they were asking that the Trump Administration pay them $50,000 each or allow them into the U.S.\nWhen asked how the group came up with the $50,000 figure, organizer Alfonso Guerrero Ulloa of Honduras, said they chose that number as a group ...\n[A] second letter, delivered around 1:20 p.m., came from a separate group of caravan members asking for the U.S. to speed up the asylum process. Specifically, the group asked U.S. immigration officials to admit up to 300 asylum seekers at the San Ysidro Port of Entry each day.\nCurrently, officials admit between 40 and 100 asylum seekers. The group of migrants say the slow pace violates American and international laws that call for an immediate process, and places vulnerable migrants at risk.\nThe Union-Tribune reported that the group demanding money in exchange for turning around and going home was organized by Alfonso Guerrero Ulloa, a 54-year-old Honduran who sought political asylum in Mexico after being accused (falsely, he maintains) by the Honduran government of planting a bomb in a Chinese restaurant that injured six U.S. soldiers and a civilian in 1987.\nUlloa joined the caravan in early November 2018 and viewed it as something of a political cause, according to the Union-Tribune:\n[Ulloa] led a group of 100 migrants to the U.S. Consulate in Tijuana asking President Donald Trump to either let the migrants into the United States or oust [Honduran President Juan Orlando] Hernandez from office and pay each migrant $50,000 to go back to Honduras. He based that figure on what he considers reparations from the U.S. for their intervention in Central America.\nThe United States is directly responsible for this humanitarian crisis, he said. Honduras is practically colonized by the United States.\nThe Trump administration has sought to require that Central American migrants apply for asylum in the safe third country of Mexico rather than in the U.S. According to the Union-Tribune, roughly 2,500 have already done so, but humanitarian groups -- including the international medical charity Mdecins Sans Frontires (MSF) -- maintain that Mexico (still a developing country) is not safe for many of them, with women, children, and members of the LGBT community particularly vulnerable to violence in Mexico:\nMSF medical data shows that a quarter of our medical consultations for migrants and refugees in Mexico are related to injuries from intentional violence. Ninety per cent of our mental health consultations are related to violence. Our patients are suffering from anxiety, depression, and post-traumatic stress disorder, among other conditions, which have severe consequences on their ability to function. Women, children, and members of the Lesbian-Gay-Bisexual-Transgender-Queer (LGBTQ) community are more vulnerable to certain types of violence and require specific protection measures that are not effectively in place in Mexico.",
+        "description": "A small group of migrants awaiting their fate in Tijuana asked that they either be allowed into the U.S. to process their asylum claims or be paid to go home.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The provided text mentions asylum seekers in Tijuana, Mexico.  Source 1 discusses migrants in Tijuana but focuses on a specific group's demand for payment to return home. While this doesn't directly contradict the caption, it doesn't explicitly support the claim of asylum seekers lining up. The article's focus is narrow, making it difficult to verify the broader caption statement. More information would be needed to confirm if a general queue of asylum seekers was present at the same time and place.",
+      "supporting_points": "Source 1 mentions migrants in Tijuana awaiting asylum processing. However, this source focuses on a specific group's actions and not a general queue of asylum seekers.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal validation check gives a high confidence score (10) because the image clearly shows people near a border fence in what appears to be Tijuana, Mexico. The caption aligns well with this visual information. However, the external validation check provides a low confidence score (4), indicating that while the source mentions migrants in Tijuana awaiting asylum processing, it doesn't confirm the presence of a general queue of asylum seekers as described in the caption. The source's narrow focus limits its ability to support the broader statement made in the caption.  The discrepancy arises from the caption's generality versus the source's specific focus. The external source doesn't refute the image, but lacks the scope to confirm the caption entirely.  While the image supports the location and the general presence of people, the caption's claim of asylum seekers lining up lacks sufficient external verification to be considered accurate beyond reasonable doubt. The low confidence score of the external check is weighted more heavily due to its reliance on external evidence.  In conclusion, while the image internally supports the general setting of the caption, the lack of robust external evidence supporting the specific claim of 'asylum seekers lining up' leads to a conclusion that the caption is potentially out of context.",
+    "validation_summary": "Internal validation shows strong alignment between image and caption regarding location. External validation shows weak support for the caption's claim of 'asylum seekers lining up', resulting in a low overall confidence score and a conclusion that the caption is possibly out of context."
+  },
+  "inference_time": 6.87063455581665
+}

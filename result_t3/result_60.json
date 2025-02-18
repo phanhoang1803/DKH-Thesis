@@ -1,0 +1,53 @@
+{
+  "caption": "Supporters of Spain's far-right Vox party in Seville, celebrating the results of regional elections in Andalusia last month.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Spain"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "V"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##ox"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Spanish"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Spain is correctly identified as a location.  Vox is correctly identified as an organization. The entity \"Spanish\" is arguably incorrect as it's an adjective describing the party, not an entity itself.  The confidence score is reduced due to the uncertain classification of \"Spanish\".",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Andalusia",
+        "date": "2024-11-05T15:00:30",
+        "content": "",
+        "description": "Breaking news and top stories from Andalusia. The latest on the economy, politics, government, and business",
+        "source_domain": "www.ft.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The provided external evidence, Source 1, is insufficient to verify the accuracy of the news caption.  Source 1 only offers a link to a financial times stream with no content related to the caption's claim about Vox party supporters celebrating election results in Seville.  Therefore, there's no evidence to support or refute the caption's assertion.",
+      "supporting_points": "Source 1 provides a link to a Financial Times stream about Andalusia but offers no relevant content to verify the caption's statement regarding Vox supporters.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 3,
+    "explanation": "The image shows a crowd of people waving Spanish flags, which aligns with the caption's description of Vox supporters celebrating. However, the external evidence is insufficient to verify the location (Seville) or the specific event (regional elections in Andalusia). The internal check has low confidence due to the uncertain classification of \"Spanish\".  Therefore, the caption is considered out of context due to lack of sufficient external verification and uncertainty in internal entity recognition. The low confidence score reflects the weak external evidence and the uncertainty of the internal analysis.",
+    "validation_summary": "Internal analysis shows partial alignment with the image, but external evidence is insufficient to verify the caption's claim regarding location and specific event.  This results in a low confidence score and an overall judgment of the caption being out of context."
+  },
+  "inference_time": 37.625853061676025
+}

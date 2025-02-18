@@ -1,0 +1,41 @@
+{
+  "caption": "The two planets have not been this close to each other in a dark sky for 800 years, and are seen here from southern Spain.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Spain"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows two planets in a dark sky.  The caption mentions that this alignment hasn't happened in 800 years and that the image was taken from southern Spain.  The image itself doesn't provide evidence for the 800-year claim or the location, but the presence of the two planets aligns with the caption's description.  Therefore, the entity \"Spain\" is correctly used.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "In pictures: The great conjunction",
+        "date": "2020-12-22T11:35:21",
+        "content": "It might be Christmas, but for keen stargazers this was the time when Jupiter and Saturn crossed paths in the night sky, reaching their closest point on 21 December. Photographers have been out recording the moment.",
+        "description": "Planets Jupiter and Saturn cross paths in the night sky, an event known as the great conjunction.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The provided text mentions the conjunction of Jupiter and Saturn on December 21st, but it doesn't state the last time they were this close in a dark sky, nor specify the location of the image shown (southern Spain).  While the event is described, the caption's specific claims regarding the 800-year timeframe and the viewing location from southern Spain lack support from the evidence.",
+      "supporting_points": "Source 1 mentions the conjunction of Jupiter and Saturn on December 21st.  It does not corroborate the 800-year claim or the location in southern Spain.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal validation gives a high confidence score (10) because the image shows two planets, aligning with the caption's description of planets in a dark sky. However, it acknowledges the lack of evidence within the image itself to support the claims of an 800-year timeframe and the location in southern Spain.  The external validation, on the other hand, provides a low confidence score (4) because it points out that while the conjunction of Jupiter and Saturn on December 21st is a documented event, the specific claims in the caption regarding the 800-year timeframe and the image's origin in southern Spain are unsubstantiated.  The discrepancy lies in the unverifiable aspects of the caption.  The image itself is consistent with the general description of a planetary conjunction, but it does not offer any proof of when this specific conjunction occurred or where the picture was taken.  Therefore, the external validation's lack of support for the specific claims in the caption outweighs the internal validation's alignment with the general description. This leads to a final verdict of 'out of context' because the caption contains unverified claims not substantiated by visual evidence or external sources, despite the core description of a planetary conjunction being visually accurate. The low confidence score reflects this uncertainty stemming from the unverifiable nature of the time frame and location claims, even though the visual aspect of the planets is consistent with the caption's description.",
+    "validation_summary": "Internal validation finds the image generally consistent with the caption's description of a planetary conjunction, but external validation finds the claims of the 800-year timeframe and the location in Southern Spain to be unsubstantiated. This discrepancy, combined with the lack of verifiable evidence in the image itself for these specific claims, results in a final 'out of context' assessment."
+  },
+  "inference_time": 44.934645891189575
+}

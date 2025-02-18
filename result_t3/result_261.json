@@ -1,0 +1,49 @@
+{
+  "caption": "A volunteer attends to the burnt paw of a brushtail possum in Merimbula, Australia.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Me"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##bula"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Australia"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The entities \"Me\" and \"##bula\" together correctly identify \"Merimbula\", a location in Australia.  The entity \"Australia\" is also correctly identified as a location. All entities are used correctly and in context within the news caption.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Striking news photos from around the world in 2020",
+        "date": "2020-12-30T00:15:20",
+        "content": "A selection of some of the best photographs taken by news agency photographers around the world this year.\nAll photographs subject to copyright.",
+        "description": "A selection of some of the best images taken by agency photographers during the past year.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The provided evidence, a BBC article showcasing news photos from 2020, does not contain any information about a volunteer attending to a burnt brushtail possum in Merimbula, Australia.  The source is a collection of news photographs, which is relevant but insufficient to verify the caption's claim. There is no specific image description or context given that confirms the caption's details.  Therefore, the claim cannot be verified with the given evidence.",
+      "supporting_points": "Source 1 is a collection of news photographs from 2020 and does not contain the specified event.  There's no contextual information within Source 1 to support the claim in the news caption.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 5,
+    "explanation": "The image shows a person holding a possum's paw. While the image is consistent with the general theme of the caption (a possum and a person interacting), there is no visual evidence of burns on the paw or any indication that this event took place in Merimbula, Australia. The internal check correctly identifies the location, but the external check reveals that the provided BBC article does not corroborate the caption's specific claim.  The lack of supporting external evidence and the absence of visual evidence of burns significantly lowers the confidence score. Therefore, we can conclude that the caption is out of context.",
+    "validation_summary": "Internal entity recognition correctly identifies the location. However, the external evidence search failed to corroborate the caption's claim, and the image lacks visual evidence to support the specific details about burns or the event taking place in Merimbula, Australia."
+  },
+  "inference_time": 35.19250679016113
+}

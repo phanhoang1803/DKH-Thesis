@@ -1,0 +1,57 @@
+{
+  "caption": "An image gives a genuine glimpse at Florida congressman Matt Gaetz' hair.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Florida"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Matt"
+      },
+      {
+        "entity": "I-PER",
+        "word": "G"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##ae"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##tz"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows Matt Gaetz, a congressman from Florida.  His hair is a prominent feature of the image, making the caption's focus on his hair accurate. The entities are correctly identified and their presence is confirmed in the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is Matt Gaetz' Hair in This Photo Real?",
+        "date": "2021-04-06T08:33:53",
+        "content": "Claim:\nAn image gives a genuine glimpse at Florida congressman Matt Gaetz' hair.\nRating:\nFalse\nAbout this rating\nIn April 2021, as Florida congressman Matt Gaetz was being investigated for lewd and potentially illegal behavior involving underage women, some social media users started to mockingly share a picture of Gaetz with unusually tall hair:\nThis is not a genuine image of Gaetz' hair.\nIt comes from a July 2020 hearing before the U.S. House Judiciary Committee concerning the online dominance of companies such as Amazon, Facebook, Google and Apple. Here's a genuine screenshot of Gaetz from this hearing (left) and the doctored image (right). It's clear that the height of his hair was embellished in the fake image.\nA video of the full \"Online Platforms and Market Power: Examining the Dominance of Amazon, Apple, Facebook, and Google\" hearing can be seen below. Gaetz speaks several times during this hearing. He can be glimpsed, for example, around the 3:03:00 mark:",
+        "description": "If a social media posts explicitly states that an image is \"not photoshopped,\" it just might be photoshopped.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided text from Snopes.com directly contradicts the news caption.  Snopes.com explicitly states that the image depicting Matt Gaetz with unusually tall hair is \"not a genuine image of Gaetz' hair\" and that the image has been doctored.  The article further provides evidence, including a comparison between the altered image and a genuine screenshot from a congressional hearing, confirming the image's manipulation. Therefore, the claim in the news caption is demonstrably false.",
+      "supporting_points": "[\"This is not a genuine image of Gaetz' hair.\", \"It comes from a July 2020 hearing before the U.S. House Judiciary Committee concerning the online dominance of companies such as Amazon, Facebook, Google and Apple.\", \"It's clear that the height of his hair was embellished in the fake image.\"]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The internal check gives a confidence score of 10 and claims that the image shows Matt Gaetz and his hair, thus supporting the caption. However, the external check provides strong evidence from Snopes.com that contradicts this assessment. Snopes.com explicitly states that the image is doctored and that the height of Gaetz's hair has been artificially increased.  This discrepancy is critical. The external validation, which uses Snopes.com, a reputable fact-checking source, carries more weight. The high confidence score (10) assigned by both checks highlights a significant conflict that needs resolution.  Entity analysis confirms that the image contains Matt Gaetz, but it doesn't confirm the authenticity of his hairstyle. The external check's evidence of image manipulation definitively refutes the caption's assertion of the image being a 'genuine glimpse' of Gaetz's hair.  Given the strong and reliable evidence from Snopes.com, and the clear contradiction between the internal and external validations, the caption is deemed out of context. The high confidence score reflects the certainty derived from the reputable external source and the clarity of its evidence. Therefore, the caption is misleading because it presents a manipulated image as genuine.",
+    "validation_summary": "Internal validation supports the caption, while external validation from Snopes.com strongly refutes it, showing the image is doctored. The external validation is prioritized due to its reliability and the significant contradiction."
+  },
+  "inference_time": 6.725379228591919
+}

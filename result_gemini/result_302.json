@@ -1,0 +1,57 @@
+{
+  "caption": "Eminem biopic '8 Mile' will return with a sequel in late 2016.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Em"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##ine"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##m"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "8"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Mile"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Eminem, the main subject of the movie \"8 Mile\".  The caption correctly identifies Eminem and the movie title. There is no information about the sequel in the image itself, but that is not part of the entity analysis.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "8 Mile Sequel Confirmed for December 2016?",
+        "date": "2016-02-16T01:17:46",
+        "content": "At a press conference in Eminems native Detroit this morning, Eminem made this announcement:\nHey everyone, Im excited to tell you about a new movie coming up. Working title is 8 Mile 2 and it will be about my life after I came up and will follow basically my whole career. Im really looking forward to seeing this movie with yall and I hope you like it as much as Ive liked filming it.\nSurprisingly, the flick is being directed by none other than Clint Eastwood, a man you dont normally think of when you think of rap. Eastwood had his own comments about the upcoming film:\nThis movie was a big challenge for me, not only because of the subject matter, but also because its hard to dramatize a mans entire career like we set out to do. Nevertheless I am very pleased with how things are going and I think were really coming up with a multi-dimensional, well rounded story about Eminems career, both the bright and the dark parts.",
+        "description": "A sequel to Eminem's \"8 Mile\" isn't slated for release this year  or ever.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption is False. While Source 1 mentions an \"8 Mile\" sequel, it explicitly states that the sequel is not slated for release in 2016 or ever.  The source uses quotes from a press conference that is presented as a fabricated event to debunk the rumor of an 8 Mile sequel.",
+      "supporting_points": "Source 1: \"A sequel to Eminem's \"8 Mile\" isn't slated for release this year — or ever.\"",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The internal check aligns the caption with the image's content by identifying Eminem and the movie \"8 Mile.\" However, the external check strongly refutes the claim of a 2016 sequel, citing a source that debunks this rumor.  The high confidence score (10) from both checks indicates strong evidence on both sides, leading to a conflict. Entity analysis shows a strong match between the image and the movie \"8 Mile,\" but the external check provides compelling evidence against the sequel's existence in 2016 or at all. The discrepancy arises because the image only shows Eminem, and therefore only validates part of the caption.  The caption includes an assertion about a future event (a sequel's release date), which the image cannot either confirm or deny. The external validation, which specifically addresses the sequel's existence, should be given precedence.  Therefore, the caption is out of context because, while the image shows the protagonist of the movie, the statement about the sequel in 2016 is false according to external sources.  The conflict highlights the importance of validating information across multiple sources, especially when dealing with claims about future events.  Relying solely on the image's content would be insufficient in this case, as it doesn't address the critical aspect of the claim – the existence and release date of the sequel.  The high confidence score reflects the certainty of both the internal entity alignment and the external factual contradiction.",
+    "validation_summary": "Internal check confirms image-caption alignment regarding Eminem and \"8 Mile.\" External check strongly contradicts the sequel's 2016 release date, labeling the statement false.  High confidence in both checks highlights a conflict resolved by prioritizing the external validation's evidence."
+  },
+  "inference_time": 49.87888169288635
+}

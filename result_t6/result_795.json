@@ -1,0 +1,57 @@
+{
+  "caption": "A parody account “NotThis News” tricked Twitter users with a darkly comic video about a fictional mix-up.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "Not"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##T"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##his"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "News"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Twitter"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image contains a person at an event.  There is no information about \"NotThis News\" or any social media activity related to it. Therefore, the entities are not present in the image.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Did Make-a-Wish Apologize for Sending the Wrong Drake to Visit a Terminally Ill Boy?",
+        "date": "2018-02-19T07:11:18",
+        "content": "Claim:\nThe Make-a-Wish Foundation apologized for sending Drake & Josh star Drake Bell to visit a terminally ill boy, after the boy had requested a visit from the rapper Drake.\nRating:\nFalse\nAbout this rating\nThe parody Twitter account \"NotThis News\" tricked internet users with a video in February 2018 claiming that the Make-a-Wish Foundation had accidentally arranged for Nickelodeon star Drake Bell to visit a terminally ill child who had asked to meet the rapper Drake.\nNot This News also tweeted about the fabricated incident:\nNotThis News is a parody of the popular NowThis News platform, which publishes short videos addressing various angles on the day's news and current affairs. The parody account mimics the distinctive aesthetic and style of NowThis videos. On Twitter, NotThis News describes itself as \"The number one source for 100% totally factual pop culture news,\" but also includes the word \"parody\" in its description.\nThe footage of Drake Bell, star of the Nickelodeon show Drake and Josh, in the NotThis News video is actually taken from his visit to the home of YouTuber Brian Awadis (known as FaZe Rug) in January 2017. Awadis addressed the NotThis News hoax in February 2018, and Bell himself confirmed it was a joke in a phone conversation between the two friends:\nThe tweets in the video are also hoaxes. The first, sent by \"Deborah Brown,\" was actually posted on 16 February 2018, the same day the video was posted. In the video, the tweet is edited to appear as if it was posted in November 2017, garnering 187,000 retweets. In reality, it got two:\nAnd the response \"Let's make it happen brotha\" was never sent by the Make-a-Wish Foundation. NotThis News fabricated it for the purpose of their video.",
+        "description": "A parody account tricked Twitter users with a darkly comic video about a fictional mix-up.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption accurately reflects the content of Source 1.  The source explicitly states that a parody account, \"NotThis News,\" created a darkly comic video that tricked Twitter users with a fictional mix-up regarding a Make-A-Wish incident. This directly matches the news caption.",
+      "supporting_points": "Source 1: \"A parody account tricked Twitter users with a darkly comic video about a fictional mix-up.\"",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 1,
+    "explanation": "The internal check correctly identifies a mismatch between the image and the caption. The image shows a person, possibly a celebrity, at the 2014 Kids' Choice Awards. There is no visual evidence related to \"NotThis News,\" a parody account, or any social media activity. The external check, however, provides supporting evidence suggesting the caption might be accurate, possibly referencing a separate news article.  The significant discrepancy between the internal and external checks casts doubt on the caption's accuracy concerning the image. The image provides no information on any parody account or social media activity.  The external check relies on an external source that describes events unrelated to the image. Since the image lacks any connection to the described events, the caption is considered out of context with respect to the provided image.",
+    "validation_summary": "Internal validation found no connection between the image and the caption, while external validation suggested the caption might be accurate but referred to a separate news story.  The lack of visual evidence linking the image to the described events leads to the conclusion that the caption is out of context concerning this specific image."
+  },
+  "inference_time": 25.95017647743225
+}

@@ -1,0 +1,77 @@
+{
+  "caption": "US President Joe Biden signs the American Rescue Plan as Vice-President Kamala Harris observes.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "US"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Joe"
+      },
+      {
+        "entity": "I-PER",
+        "word": "B"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##iden"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "American"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Rescue"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Plan"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Kamal"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##a"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Harris"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows US President Joe Biden signing a document, while Vice President Kamala Harris observes from a distance.  All entities in the caption are present and accurately represented in the image. Their spatial relationship and interaction (Biden signing, Harris observing) are correctly depicted. ",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Live: Fact-checking Kamala Harris' NABJ interview in Philadelphia",
+        "date": "2024-09-17T00:00:00",
+        "content": "",
+        "description": "PolitiFact is live fact-checking Vice President Kamala Harris panel interview in Philadelphia hosted by the National As",
+        "source_domain": "www.politifact.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "None of the provided sources mention President Biden signing the American Rescue Plan with Vice President Harris present.  Source 1 is about a fact-check of a Kamala Harris interview and contains no information relevant to the news caption.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "Internal validation strongly supports the caption's accuracy, showing President Biden signing a document while Vice President Harris observes. However, external validation completely refutes the claim, finding no reliable sources corroborating the event described in the caption.  The discrepancy between the internal and external checks creates a significant uncertainty. The visual evidence itself does not contain specific information that proves or disproves the signing of the American Rescue Plan. Although the image strongly suggests a presidential signing event, the lack of external confirmation is critical.  There's no indication of visual manipulation, but the context is crucial and is absent from reliable external sources. Without further evidence, the caption cannot be reliably verified. The low confidence score reflects the significant uncertainty caused by this discrepancy. The visual evidence alone is not sufficient to overcome the lack of external corroboration, leading to the conclusion that the caption is likely out of context.",
+    "validation_summary": "Internal validation supports the caption, but external validation strongly contradicts it. The lack of external evidence outweighs the internal visual evidence, making the claim highly uncertain."
+  },
+  "inference_time": 43.71967053413391
+}

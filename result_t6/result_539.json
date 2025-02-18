@@ -1,0 +1,49 @@
+{
+  "caption": "Chelsea Clinton is married to George Soros' nephew.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Chelsea"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Clinton"
+      },
+      {
+        "entity": "B-PER",
+        "word": "George"
+      },
+      {
+        "entity": "I-PER",
+        "word": "So"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##ros"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image contains George Soros, but there is no mention of Chelsea Clinton or her marital status.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Chelsea Clinton's spouse is Marc Mezvinsky.  While it is possible for someone to be married to a relative of a prominent figure like George Soros, this claim needs verification.  There's no widely known connection between the Mezvinsky and Soros families that would make this claim inherently plausible without further evidence.",
+      "supporting_points": "Chelsea Clinton's husband is Marc Mezvinsky. George Soros is a well-known public figure.  The statement lacks readily available corroboration.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The original caption claims that Chelsea Clinton is married to George Soros' nephew.  Internal validation found no evidence to support this claim within the image itself, noting that while George Soros is present, there is no mention of Chelsea Clinton or her marital status. The confidence score for the internal check was 0, reflecting a complete absence of supporting evidence within the image.  External validation yielded a confidence score of 8, strongly suggesting the caption is false. External sources confirm that Chelsea Clinton's spouse is Marc Mezvinsky, and there is no widely known or readily verifiable connection between the Mezvinsky and Soros families. The external check found no credible evidence to support the original claim.  The lack of evidence within the image coupled with the strong external evidence refuting the claim leads to a definitive conclusion that the caption is out of context. The high confidence score reflects the strong agreement between the internal and external validation processes in rejecting the claim. There is no visual tampering or miscontextualization detected in the image; the image simply shows George Soros and provides no basis for the claim about Chelsea Clinton's marriage.",
+    "validation_summary": "Both internal and external validation strongly reject the claim that Chelsea Clinton is married to George Soros' nephew. The image shows George Soros but contains no information about Chelsea Clinton's marital status.  External sources confirm that her husband is Marc Mezvinsky, and there is no known familial link between the two families."
+  },
+  "inference_time": 92.88706135749817
+}

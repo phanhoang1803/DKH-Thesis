@@ -1,0 +1,73 @@
+{
+  "caption": "Former Alaska governor (and John McCain’s running mate in the 2008 Presidential race) Sarah Palin took to Facebook to demand a ban on “Arabic numerals” in U.S. schools",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Alaska"
+      },
+      {
+        "entity": "B-PER",
+        "word": "John"
+      },
+      {
+        "entity": "I-PER",
+        "word": "McCain"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Presidential"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Sarah"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Pa"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##lin"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "Facebook"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Arabic"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "U"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "S"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows Sarah Palin speaking at a podium.  Alaska is mentioned in the caption as her former governorship. John McCain is mentioned as her running mate, but he is not present in the image. Facebook is mentioned as the platform where she made the statement, but it's not visually represented. Arabic numerals, U.S., and Presidential race are concepts not directly depicted.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The news caption is factually incorrect.  Sarah Palin has not, to my knowledge, called for a ban on Arabic numerals in US schools.  While she is known for her controversial statements, this particular claim is unfounded and appears to be fabricated.",
+      "supporting_points": "Sarah Palin's public statements are widely reported. A claim of this nature would be significant and easily verifiable through reputable news sources. No such reports exist.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The internal consistency check shows a moderate level of confidence (confidence_score = 8) because the image shows Sarah Palin, aligning with the caption's mention of her. However, details like her Facebook post demanding a ban on \"Arabic numerals\" in U.S. schools,  John McCain's presence (he's only mentioned in the caption but not shown in the image), and the context of the 2008 presidential race are not visually verifiable. The external check, on the other hand, strongly contradicts the caption (confidence_score = 1), asserting that there's no evidence supporting the claim about Palin's statement on banning Arabic numerals in schools.  This discrepancy indicates a significant conflict between internal and external validation. The external check's findings are more reliable given the absence of credible news sources confirming the claim. Reputable news organizations extensively cover Palin's public pronouncements, and the lack of reporting on such a significant policy proposal strengthens the external check's conclusion.  The internal check, limited to visual verification, could not confirm the details beyond identifying Sarah Palin.  Therefore, the caption is out of context due to the factual inaccuracy identified by the strong external evidence.  The high confidence score (9) reflects the certainty gained from resolving the discrepancy by prioritizing the robust external validation over the weaker internal assessment that only checks visual aspects.",
+    "validation_summary": "Internal check finds partial alignment (confidence: 8), while external check strongly refutes the caption's core claim (confidence: 1). The external evidence of the lack of reporting on such a significant statement outweighs the limited visual evidence. Therefore, the caption is deemed out of context."
+  },
+  "inference_time": 9.903320550918579
+}

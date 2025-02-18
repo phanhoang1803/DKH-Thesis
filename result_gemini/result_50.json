@@ -1,0 +1,41 @@
+{
+  "caption": "The FBI raided the CDC in the middle of the night to seize data on a link between vaccines and autism.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "FBI"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "CD"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##C"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows the CDC building.  The caption mentions an FBI raid which is not depicted in the image. Therefore, the caption and image are not perfectly aligned, but the entities present in the image are correctly identified.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The claim that the FBI raided the CDC in the middle of the night to seize data on a link between vaccines and autism is factually incorrect and promotes a debunked conspiracy theory. There is no scientific evidence supporting a link between vaccines and autism.  A raid of this nature would be a major news event and would have been widely reported and verified. The absence of credible reporting on such an event strongly suggests the claim is false.",
+      "supporting_points": "- There is no scientific evidence of a link between vaccines and autism.\n- Such a significant event as an FBI raid on the CDC would be extensively covered by reputable news organizations.\n- The claim aligns with a known anti-vaccine misinformation campaign.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The internal consistency check identifies a mismatch between the image (showing the CDC building) and the caption (describing an FBI raid). While the image accurately depicts the CDC, the caption's claim of a raid to seize data on a link between vaccines and autism is unsubstantiated. The external check decisively refutes the caption's claim, citing the lack of scientific evidence for a vaccine-autism link and the absence of credible reporting on such a major event.  The high confidence score of the external check (1) stems from the verifiable absence of evidence supporting the claim.  This aligns with known anti-vaccine misinformation campaigns. The conflict between the internal and external check is easily resolved. The image's relevance is limited to showing the location (CDC building), and the caption's core assertion is easily disproven using readily available information.  The internal check's confidence score (8) is based on the image correctly depicting the entity (CDC building) while acknowledging the mismatch of the caption's event.  The high confidence score of 9 reflects both the strong internal assessment of the image's accuracy and the decisive refutation of the caption's central claim in the external check, which is based on readily verifiable information.\n\nIn summary, the internal check confirms the image shows the CDC building, but the external check shows the described event (FBI raid to seize data on vaccine-autism link) never happened, which makes the caption out of context.  The absence of evidence supporting the central claim in the caption, which would have been extensively reported had it occurred, is a critical factor.",
+    "validation_summary": "Internal check shows image depicts the CDC correctly, but the caption is false; External check strongly refutes the caption's claim, confirming it as a false and unsubstantiated conspiracy theory.  Both checks strongly indicate the caption is out of context."
+  },
+  "inference_time": 13.44976806640625
+}

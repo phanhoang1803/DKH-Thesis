@@ -1,0 +1,45 @@
+{
+  "caption": "Afghan security forces block a road near the site of the bombing in Kabul.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Afghan"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Kabul"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows Afghan security forces standing guard on a road at night.  The location appears to be Kabul, although this cannot be definitively confirmed from the image alone. The presence of Afghan security forces and the night-time setting align with the caption's description. The roadblock is visible, supporting the caption.  The confidence is reduced slightly because the exact location cannot be positively verified from just the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Afghan Taliban assault in Kabul secure zone",
+        "date": "2013-06-25T02:31:18",
+        "content": "Afghan security forces have put down a militant gun and bomb attack near the presidential palace, in one of the most secure areas of Kabul.\nOfficials say four insurgents and three security guards died. The Taliban say they carried out the attack.\nPresident Hamid Karzai was in the palace, but the target appears to have been the nearby Ariana hotel, which houses a CIA station.\nThis is the latest in a string of attacks on Kabul in recent months.\nMost recently a suicide bomber in the capital targeted a prominent Afghan politician on 18 June, just hours before Nato formally handed security responsibility to the Afghan forces.\nWith this attack the Taliban infiltrated one of the most heavily-guarded areas of the capital, with several key buildings such as the defence ministry and Nato headquarters located very close by.\nThe Afghan Taliban have showed no sign of abating their assault on security targets, despite last week's announcement that they had set up an office in the Gulf state of Qatar for peace talks.\nIn another attack on Tuesday, at least 10 civilians, including eight woman were killed when a roadside bomb hit their vehicle in Afghanistan's southern Kandahar province.\nPresident Karzai raised strong objections to the Taliban office, saying the flag and nameplate initially erected at the building showed they were trying to portray themselves as a government-in-exile.\nOfficials say the High Peace Council, the Afghan government body set up to lead peace efforts, would not take part unless the talks process was \"Afghan-led\".",
+        "description": "Afghan security forces fight off militants who launched a gun and bomb attack near the presidential palace, in one of the most secure areas of Kabul.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Source 1 mentions Afghan security forces fighting off a militant attack near the presidential palace. While it doesn't explicitly state they blocked a road, the engagement implies traffic control measures may have been necessary. The focus is on the attack itself, not the specific actions taken by security forces to manage the aftermath beyond suppressing the attack.",
+      "supporting_points": "Afghan security forces fight off militants who launched a gun and bomb attack near the presidential palace",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "explanation": "The internal check reveals a high degree of confidence (8/10) that the image aligns with the caption. The image shows Afghan security forces in a nighttime scene, guarding a road that appears to be blocked. The external check provides moderate support (7/10), indicating that Afghan security forces were engaged in an operation near the presidential palace. However, this source does not explicitly state that a road was blocked; it primarily focuses on the conflict itself. The discrepancy lies in the lack of precise confirmation from the external source about the roadblock. While the external source supports the presence of Afghan security forces and the general context of a security operation in Kabul, it does not corroborate the specific detail of a road closure.  The image itself does strongly suggest a roadblock, but the external source's lack of explicit mention of a roadblock and its focus on the broader conflict weakens the overall confidence. Consequently, despite strong internal validation, the less specific external evidence reduces the final confidence score to a moderate level. The absence of concrete external verification concerning the roadblock, while the presence of Afghan security forces and a night time scene is confirmed, pushes the assessment towards 'out of context'. Therefore, although the image shows what the caption describes, the absence of explicit external confirmation of the road blockage leads to the 'OOC' classification. The confidence score reflects this uncertainty, weighing the strong internal evidence against the less precise external support.",
+    "validation_summary": "Internal validation strongly supports the caption (8/10), showing Afghan security forces and a roadblock. External validation provides moderate support (7/10) confirming the presence of Afghan security forces in Kabul but does not explicitly mention a roadblock. The discrepancy regarding the roadblock lowers the overall confidence and results in an 'OOC' assessment."
+  },
+  "inference_time": 46.866130352020264
+}

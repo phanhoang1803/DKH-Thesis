@@ -1,0 +1,45 @@
+{
+  "caption": "New York state has legalized heroin.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "New"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "York"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image contains a person with a syringe, which may be related to drug use. However, there is no information about New York state legalizing heroin in the image.  The entities are not represented in the image.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Oregon Decriminalizes Small Amounts of Heroin and Cocaine; Four States Legalize Marijuana",
+        "date": "2020-11-04T05:05:45",
+        "content": "[Cheers erupt on New York City streets after President-elect Joe Bidens victory is declared.]\nOAKLAND, Calif.  The march to decriminalize drugs moved further across the nation on Tuesday despite continued federal prohibition.\nOregon became the first state to decriminalize small amounts of cocaine, heroin, methamphetamine and other drugs. And in New Jersey, South Dakota, Montana and Arizona, voters decisively passed laws legalizing recreational marijuana. Cannabis is now legal across a large bloc of states in the West  from Washington down to the Mexican border  and well beyond.\nCannabis was also on the ballot in Mississippi. If all of the marijuana measures pass, marijuana will be legal for medical use in three dozen states and recreational use will be allowed in 15.",
+        "description": "There were 38 statewide citizen initiatives being decided across the country on Tuesday, about half the level of the last presidential election.",
+        "source_domain": "www.nytimes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The news caption claims that New York state legalized heroin, which is not supported by any of the provided articles.  The articles discuss drug policy changes in other states such as Oregon (decriminalizing small amounts of heroin) and several states legalizing marijuana, but make no mention of New York legalizing heroin.  There is no information in the provided text to support the claim in the news caption.",
+      "supporting_points": "No information in the provided text supports the claim that New York legalized heroin.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The original caption claims that New York state has legalized heroin.  Both the internal and external checks decisively refute this claim. The internal check finds no evidence in the image to support the caption. The image depicts a person holding a syringe, suggestive of drug use, but contains no information about New York's drug policy. The lack of textual or visual information related to New York's heroin legalization renders the internal validation's confidence score 0.  The external check corroborates this conclusion.  It verifies that no reliable sources support the claim of New York legalizing heroin.  The external check also finds that articles discussing drug policy changes mention Oregon decriminalizing small amounts of heroin and some states legalizing marijuana, but none mention New York legalizing heroin, resulting in a confidence score of 0. The alignment between the internal and external checks is perfect. Both independently conclude that the caption is false, and the lack of any supporting evidence significantly strengthens this conclusion.  Therefore, the caption is definitively out of context, with a high confidence score of 10 reflecting the strong agreement and lack of ambiguity in both checks.",
+    "validation_summary": "Both internal and external checks strongly indicate that the caption is out of context. The image shows a person with a syringe, but provides no information regarding New York's drug policies.  External verification confirms that the statement about New York legalizing heroin is unsubstantiated."
+  },
+  "inference_time": 6.06051778793335
+}

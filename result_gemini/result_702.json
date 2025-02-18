@@ -1,0 +1,41 @@
+{
+  "caption": "A photograph of a scantily clad singer represents \"antifa\" in a Seattle anti-police-brutality protest zone in summer 2020.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Seattle"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows a protest sign in Seattle.  The caption mentions \"Seattle\" and the image verifies this location.  Therefore the entity is correctly used.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Does a Pic Show Antifa in Seattle Protest Zone?",
+        "date": "2020-06-30T07:18:57",
+        "content": "Claim:\nA photograph of a scantily clad singer represents \"antifa\" in a Seattle anti-police-brutality protest zone in summer 2020.\nRating:\nMiscaptioned\nAbout this rating\nIn late June 2020, social media users shared a photograph of a performer in a revealing black netting outfit alongside claims that the individual was among anti-fascist activists  also known as \"antifa\"  who had taken up residence in a police-free zone in Seattle that had become known as the Capitol Hill Organized Protest (CHOP).\nThe CHOP, which gained its moniker because its in the Capital Hill neighborhood of Seattle, was initially dubbed the Capitol Hill Autonomous Zone (CHAZ). It was set up by demonstrators amid protests over the killing of George Floyd, a Black man whose in-custody death while pinned under the knee of former Minneapolis police officer Derek Chauvin in May of 2020 went viral after being captured on video.\nDuring the resulting weeks of sustained protests against racism and police brutality, Seattle activists set up the police-free zone, which has become a target for criticism by President Donald Trump and his supporters. But disparaging comments linking the performer to the CHOP are misleading, as the image has nothing to do with the protests.\nHere is the version of the photograph that is being shared, along with commentary such as, \"Antifa Seattle today  this is the group that the Democrats want to rule America  no further comment necessary?!\"\nBut the picture wasn't taken in Seattle, and it wasn't taken during the protests that swept the nation in the spring of 2020 in the wake of Floyd's killing.\nThe original photograph was taken by photographer Peretz Partensky on Sept. 25, 2011, at the Folsom Street Fair, which is a leather and BDSM festival that takes place every fall in San Francisco, California. And the singer in the black netting is a member of the Italian disco band Hard Ton, which is based in Venice, Italy, according to its Facebook profile. The antifa flag in the upper left corner was edited into the picture after the fact.\nWe contacted Hard Ton for comment about the picture being misappropriated, but did not hear back in time for publication.\nBecause the original photograph was taken long before the CHOP was set up in Seattle, and the events took place in a different location altogether, we rate this claim \"Miscaptioned.\"",
+        "description": "A years-old photograph from a bondage festival in San Francisco was misappropriated.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided text explicitly states that the claim is false.  The photograph is miscaptioned; it was taken years prior at a San Francisco event, not during the Seattle protest, and the \"antifa\" flag was added later. The evidence directly contradicts the news caption.",
+      "supporting_points": "Claim: A photograph of a scantily clad singer represents \"antifa\" in a Seattle anti-police-brutality protest zone in summer 2020.\nRating: Miscaptioned\n...But the picture wasn't taken in Seattle, and it wasn't taken during the protests that swept the nation in the spring of 2020 in the wake of Floyd's killing. The original photograph was taken...on Sept. 25, 2011, at the Folsom Street Fair...And the singer in the black netting is a member of the Italian disco band Hard Ton...The antifa flag in the upper left corner was edited into the picture after the fact.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The internal check focuses on the alignment of entities mentioned in the caption with the image content. It finds that the caption mentions \"Seattle\" and the image shows a protest sign; thus, the entity alignment is considered correct. However, the external check reveals a significant discrepancy. The external check provides evidence that the image was miscaptioned and was not taken during the Seattle protests in summer 2020, as the caption claims. This information is backed up by factual evidence about the image's origin and date. The high confidence score (10) from the external check outweighs the internal check's score.  This is because the external check provides definitive proof from reputable sources that directly refutes the caption's claim, making the caption out of context. The conflict between the internal and external checks highlights the importance of cross-validation using various sources, especially when dealing with image captions. A low confidence score (10) from the internal check is based on limited analysis; it verifies only the presence of \"Seattle\" and protest signs and doesn't delve into the temporal context. While this is important in validating the location aspect, it lacks the depth required to evaluate the accuracy of the caption's claim regarding the context of the image.",
+    "validation_summary": "Internal check shows entity alignment between \"Seattle\" and the image location. External check decisively proves the caption is miscaptioned and chronologically inaccurate, based on evidence about the image's origin and the date it was taken. This makes the caption out of context."
+  },
+  "inference_time": 8.02100658416748
+}

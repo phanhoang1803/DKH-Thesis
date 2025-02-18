@@ -1,0 +1,41 @@
+{
+  "caption": "California's governor is under investigation for possible corruption.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "California"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Governor Jerry Brown of California.  The caption mentions an investigation for possible corruption, which is not directly depicted in the image but is plausible given that politicians are sometimes subject to such investigations.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is California Governor Jerry Brown 'Caught in the Middle' of a Corruption Investigation?",
+        "date": "2017-05-09T10:02:19",
+        "content": "Claim:\nCalifornia's governor is under investigation for possible corruption.\nOn 17 April 2017, the web site consjournal.com published a story purporting to link California Governor Jerry Brown to a corruption investigation.\nHowever, the story didn't stand up to the barest of scrutiny. The headline said that Brown was \"caught in the middle of a $60 billion corruption investigation,\" a premise that is undermined by the sources it cites, each of which states that Brown ordered the probe into the state Board of Equalization  but he was not the subject of the investigation.\nOne of those sources, a March 2017 Sacramento Bee story, identifies the focus of the identification, which was spurred in part by an audit of the department:\nThe reports authors say they found well-paid tax auditors on parking lot duty at a promotional event, a steep rise in spending on activities that do not appear connected to taxes, and misleading information provided to lawmakers.\nThe audit takes particular aim at board member Jerome Horton, finding that he has reassigned public employees to work for him, arranged events that strayed from the agencys mission and opened a call center in his district without securing the consent of his fellow elected leaders. Horton has defended his outreach events as a way to reach large numbers of taxpayers.\nThe following month, Brown asked the state Justice Department to investigate the department, which collects an estimated $60 billion a year from more than 30 types of taxes, including fuel for motor vehicles and jets; alcoholic beverage taxes; and taxes on cigarettes and tobacco products, among others. It functions independently of the state Franchise Tax Board, which collects personal income taxes, and the Employment Development Department, which focuses on payroll taxes.\nA separate audit conducted in November 2015 found that board staffers incorrectly sent nearly $47.8 million in taxes to the state general fund. California State Controller Betty Yee undertook the review after noticing \"irregularities\" in the fund.\nBesides ordering an investigation into the board, Brown said in a letter to its members that he had barred it from hiring \"key personnel\", and restricted its ability to issue contracts without outside approval.",
+        "description": "A conservative-leaning web site strained to connect Brown to a probe he personally ordered.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The news caption states that California's governor is under investigation for possible corruption. Source 1 mentions an investigation into the state Board of Equalization, which was ordered by Governor Jerry Brown, but the governor himself was not the subject of that investigation.  While the governor is connected to the investigation by ordering it, the caption's statement is misleading as it implies the governor is personally under investigation.",
+      "supporting_points": "Source 1:  The headline said that Brown was \"caught in the middle of a $60 billion corruption investigation,\" a premise that is undermined by the sources it cites, each of which states that Brown ordered the probe into the state Board of Equalization — but he was not the subject of the investigation.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "explanation": "The original news caption claims that California's governor is under investigation for possible corruption.  Internal validation, based solely on the image, finds the caption plausible because the image depicts Governor Jerry Brown, and politicians are sometimes investigated for corruption. However, the internal validation acknowledges a lack of direct visual evidence of an investigation. The confidence score is high (10) because the connection between the governor and the possibility of corruption is plausible, but low visual evidence necessitates this lower confidence.\n\nExternal validation reveals a discrepancy.  Sources indicate an investigation into the state Board of Equalization, initiated by Governor Brown, but not an investigation of the governor himself.  The external validation highlights the misleading nature of the caption, as it implies the governor is personally under investigation, which the sources don't support.  The external validation's lower confidence score (6) reflects this ambiguity and the need to correct the caption's interpretation.\n\nThe discrepancy between internal and external validation lies in the interpretation of \"under investigation.\" The image and internal validation interpret this broadly to include any investigation involving the governor, even indirectly. The external validation takes a narrower perspective, focusing specifically on investigations directly targeting the governor as the subject. This difference in interpretation leads to differing conclusions about the caption's accuracy.\n\nConsidering both internal and external evidence, the caption is deemed out of context (OOC = true). The lower confidence score (6) reflects uncertainty arising from the differing interpretations and the lack of direct visual evidence in the image supporting the claim of the governor being personally under investigation. The final assessment prioritizes the more specific external validation which refutes the direct implication of the caption.",
+    "validation_summary": "Internal validation finds the caption plausible but lacks direct visual evidence. External validation reveals the caption misrepresents the investigation, focusing on a probe the governor ordered rather than one targeting him.  Discrepancies arise from differing interpretations of \"under investigation.\" The caption is deemed out of context due to the external findings and lack of direct visual evidence."
+  },
+  "inference_time": 59.02399969100952
+}

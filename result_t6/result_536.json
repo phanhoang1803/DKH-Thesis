@@ -1,0 +1,57 @@
+{
+  "caption": "Yet another quiet evening falls over Singapore's Kallang Basin outside the window",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Singapore"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Ka"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##llan"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##g"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Basin"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a cat sitting on a window sill, with a view of Singapore's Kallang Basin visible outside the window.  The caption accurately reflects this scene, and the entities \"Singapore\" and \"Kallang Basin\" are clearly visible and correctly identified.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Coronavirus: Your pictures of 'the view from my window'",
+        "date": "2020-05-22T09:32:00",
+        "content": "We asked our readers to send in their pictures on the theme of \"the view from my window\" during lockdown due to the spread of the coronavirus. Here are some of the pictures sent to us from around the world.\nThe next theme is \"home-made\" and the deadline for entries is 2 June 2020.\nSend pictures to yourpics@bbc.co.uk or follow the link to \"Upload your pictures here\" below.\nFurther details and terms can be found by following the link to \"We set the theme, you take the pictures,\" at the bottom of the page.\nAll photographs subject to copyright.",
+        "description": "Our readers reveal the view from their windows as they spend time indoors during the coronavirus pandemic.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The provided news caption is about a quiet evening in Singapore's Kallang Basin.  The retrieved evidence is about pictures of views from windows during the coronavirus pandemic. There is no overlap in information; therefore, the evidence does not support the caption.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal validation strongly supports the caption, indicating high confidence in the caption's accuracy based on the image content. The image clearly shows a view of Singapore's Kallang Basin from a window, aligning perfectly with the caption's description.  However, the external validation contradicts this assessment, stating that the evidence retrieved does not support the caption and provides no corroborating information. This discrepancy significantly lowers the overall confidence in the caption's accuracy. The external validation's lack of supporting evidence weakens its assessment.  Without additional reliable external sources confirming or refuting the caption's claim of a quiet evening over Kallang Basin, we cannot definitively state its accuracy. Therefore, the final verdict leans towards the caption being out of context due to the lack of external corroboration. A higher confidence score would require stronger external validation supporting the description of a quiet evening in the specific location and time suggested.",
+    "validation_summary": "Internal validation strongly supports the caption, showing a clear view of Kallang Basin from a window. External validation fails to find any supporting evidence, leading to a significant contradiction.  Overall, the lack of external support makes it difficult to confirm the description of a quiet evening."
+  },
+  "inference_time": 27.04973554611206
+}

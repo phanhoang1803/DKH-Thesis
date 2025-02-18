@@ -1,0 +1,55 @@
+{
+  "caption": "A photograph taken by the International Space Station shows bushfires raging across Australia.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "International"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Space"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Station"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Australia"
+      }
+    ],
+    "result": {
+      "original_news_caption": "A photograph taken by the International Space Station shows bushfires raging across Australia.",
+      "original_entities": "[{'entity': 'B-LOC', 'word': 'International'}, {'entity': 'I-LOC', 'word': 'Space'}, {'entity': 'I-LOC', 'word': 'Station'}, {'entity': 'B-LOC', 'word': 'Australia'}]",
+      "explanation": "The caption accurately states that the photograph was taken by the International Space Station (ISS), which is a factual claim supported by the naming of the space station entities in the caption. The word ‘Australia’ is correctly used as it pertains to the location being photographed, indicating bushfires occurring in that geographical area. However, without visual evidence or context showing the bushfires – which is a key detail – we have to remain cautious about confirming the occurrence of bushfires in the image explicitly. In summary, the entities align with the content of the caption, supporting the general context that the ISS captured an important environmental event happening in Australia. Therefore, we conclude that the entities are used correctly and are contextually appropriate for the caption. \n \nOverall, the entities are correctly used as follows: 'International', 'Space', and 'Station' as part of the International Space Station, and 'Australia' as the geographical location depicted, representing the ongoing bushfires.",
+      "supported": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is This a Photo of Australian Fires Taken from the Space Station?",
+        "date": "2020-01-05T03:32:52",
+        "content": "Claim:\nA photograph taken by the International Space Station shows bushfires raging across Australia.\nIn January 2020, as record-breaking temperatures and months of severe drought fueled a series of massive bushfires across Australia, a spectacular photograph was posted to social media purporting to show the scope of those across the continent as viewed from the International Space Station (ISS):\nHowever, this striking image did not originate with the ISS, nor was it actually a photograph. Rather, it was a \"3D visualization\" of the Australian fires by Anthony Hearsey, \"an image maker who specialises in photography, retouching and creative imaging,\" which was compiled from NASA satellite data collected across the span of a month.\nMany postings of this image included a disclaimer noting that the visualization encompassed \"all the areas which have been affected\" by fires in Australia, but that \"not all the areas are still burning\":\nhttps://imgur.com/gallery/9oiePhO\nAnthony Hearsey himself offered a clarification of what this image represents:\nThis is a 3D visualisation of the fires in Australia. NOT A PHOTO. Think of this as prettier looking graph.\nThis is made from data from NASAs FIRMS (Satellite data regarding fires) between 05/12/19 - 05/01/20. These are all the areas which have been affected by bushfires.\nScale is a little exaggerated due to the renders glow, but generally true to the info from the NASA website. Also note that NOT all the areas are still burning, and this is a compilation.",
+        "description": "Composite images created from multiple data inputs are often mistaken for literal photographs.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "verdict": false,
+      "explanation": "The news caption claims that a \"photograph taken by the International Space Station shows bushfires raging across Australia.\" However, the retrieved article from Snopes clearly contradicts this assertion. It explains that the image being referenced is not a photograph, but rather a \"3D visualization\" created from NASA satellite data. The article details that this visualization was crafted by Anthony Hearsey, who specializes in creative imaging, and is not an actual photographic representation from the ISS. Instead, it was a composite of data collected over a month regarding areas affected by bushfires in Australia, which leads to a misinterpretation of the image as a real-time photographic depiction of the fires. Furthermore, Hearsey noted that while the visualization accurately represented affected areas, not all of them were simultaneously burning, which adds another layer of complexity to the misrepresentation. Given this clear and explicit debunking of the claim made in the caption, it cannot be considered accurate or supported by the evidence provided in the related articles.",
+      "confidence_score": 10,
+      "supporting_points": "1. The Snopes article stated, \"A photograph taken by the International Space Station shows bushfires raging across Australia,\" but this was clarified to be a misunderstanding.  \n2. The article emphasizes that the image in question is a \"3D visualization of the fires in Australia. NOT A PHOTO\" - a critical distinction that directly contradicts the news caption.  \n3. The content explains that the visualization was based on NASA FIRMS data collected from December 5, 2019, to January 5, 2020, stating, \"These are all the areas which have been affected by bushfires,\" further clarifying that the visual representation does not equate to an actual photograph, reinforcing the inaccuracy of the caption."
+    }
+  },
+  "final_result": {
+    "final_answer": "True",
+    "explanation": "The original caption states that a photograph taken by the International Space Station shows bushfires raging across Australia. However, the internal validation confirms the accuracy of the entities involved (the International Space Station and Australia). The external validation, however, contradicts the caption by clarifying that the image referenced is not a photograph but a 3D visualization created from NASA satellite data. This indicates a significant discrepancy, as the caption implies real-time photographic evidence of bushfires, which is not supported by the evidence.",
+    "additional_notes": "The entities used in the caption are correct, but the context regarding the nature of the imagery is incorrect. This is a critical distinction that affects the overall accuracy of the caption. Therefore, the caption is out of context because it presents the visualization as a photographic record, which it is not.",
+    "OOC": true,
+    "confidence_level": 10
+  },
+  "inference_time": 49.57361912727356
+}

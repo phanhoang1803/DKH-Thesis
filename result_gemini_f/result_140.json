@@ -1,0 +1,45 @@
+{
+  "caption": "Guest take in the day at the Denver Zoo in 2013.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Denver"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Zoo"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows a sign for the Denver Zoo, confirming the presence of both entities.  The year is not explicitly stated in the image, but the style of the signage and clothing of the people suggest that the image is likely from around 2013.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Victims 'taunted tiger' before it killed zoo visitor",
+        "date": "2007-12-26T00:00:00",
+        "content": "Three victims of a tiger attack at a city zoo taunted the animal moments before it struck, killing one of the men, court documents have revealed.\nPaul Dhaliwal, 19, admitted that he, his brother Kulbir, 23, and their friend Carlos Sousa, 17, who died in the tragedy, had shouted and waved at the tiger, called Tatiana, from the edge of its enclosure at San Francisco zoo.\nAccording to an affidavit obtained by the San Francisco Chronicle, the trio had stood on top of a 3ft railing, but had not thrown anything into the pen to provoke the cat.\nThe men had also been smoking marijuana prior to the incident and toxicology tests showed Dhaliwal had been twice the legal alcohol limit for driving.\n\"As a result of this investigation, (police believe) that the tiger may have been taunted/agitated by its eventual victims,\" said Inspector Valerie Matthews, who prepared the affidavit.\nPolice believe this factor contributed to the tiger escaping from its enclosure and attacking its victims, Matthews said.\nDocuments showed that Sousa's father, Carlos Sousa Sr, said Dhaliwal had told him the three had stood on a metal railing just a few feet from the edge of the tiger moat. \"When they got down they heard a noise in the bushes, and the tiger was jumping out of the bushes on him (Paul Dhaliwal),\" the affidavit revealed.\nPolice later found a partial shoe print that matched Dhaliwal's on top of the railing, Matthews said in the documents.\nThe Siberian tiger attacked the three men on Christmas Day last year after leaping over a 1m (3ft) wall and out of its enclosure. Both brothers suffered serious bite and claw wounds in the attack. Zoo officials have since acknowledged that the wall was 1.2m (4ft) shorter than the recommended minimum.\nThe affidavit also revealed that Kulbir and Sousa both had alcohol in their blood, but within the legal driving limit. All three had marijuana in their systems.\nKulbir Dhaliwal told police that the three had smoked pot and each had \"a couple shots of vodka\" before leaving San Jose for the zoo on Christmas Day, the affidavit said. Police found a small amount of marijuana in Kulbir's car, which the victims had driven to the zoo, as well as a partially drunk bottle of vodka, according to court documents.\nZoo spokesman Sam Singer said he had not seen the documents but believed the victims did taunt the animal, even though they claim they had not. \"Those brothers painted a completely different picture to the public and the press,\" Singer said. \"Now it's starting to come out that what they said is not true.\"\nMark Geragos, a lawyer for the Dhaliwal brothers, was not available for comment yesterday. He has repeatedly said the men did not taunt the tiger. Calls to Sousa's father and Michael Cardoza, a lawyer for the Sousa family, were not returned.",
+        "description": "Three men attacked by a tiger at a city zoo taunted the animal before it struck, killing one of the men, court documents reveal",
+        "source_domain": "www.theguardian.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided news caption mentions guests visiting the Denver Zoo in 2013.  The related article discusses a tiger attack at the San Francisco Zoo on Christmas Day of a previous year. There is no overlap in time, location, or subject matter between the caption and the article. Therefore, the article is not relevant to the truthfulness of the caption.",
+      "supporting_points": "The news caption refers to the Denver Zoo in 2013, while the related article describes an incident at the San Francisco Zoo in a prior year.  The events are unrelated.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal validation check gives a high confidence score (10) because the image clearly shows the Denver Zoo signage, aligning with the caption's mention of the Denver Zoo. However, the lack of explicit year mention in the image and the external check's inability to find corroborating evidence lead to a low confidence score.  The external check has a confidence score of 0 because the provided news article is irrelevant.  It discusses a separate incident at a different zoo in a different year. Therefore, the external validation fails to support the year mentioned in the caption (2013). The conflict arises from the internal validation's reliance on visual cues for the year, which lacks precision and is subjective. The lack of external corroboration and the uncertainty around the year in the image result in a low overall confidence score.  To improve the assessment, additional evidence, like the date of the photograph or corroborating information (news articles, zoo records, etc.) from around 2013, would be helpful.  The absence of such supporting evidence makes it difficult to confidently assert that the image depicts the Denver Zoo specifically in 2013. Therefore, considering the low confidence and the mismatch between internal and external validation results, we conclude that the caption might be out of context. The lack of firm external validation necessitates a cautious approach, lowering the overall confidence score.",
+    "validation_summary": "Internal validation aligns with the image showing Denver Zoo, but the year is uncertain. External validation fails to find any relevant information. The discrepancy results in a low confidence and suggests the caption might be out of context."
+  },
+  "inference_time": 6.517811059951782
+}

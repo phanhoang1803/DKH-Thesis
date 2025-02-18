@@ -1,0 +1,61 @@
+{
+  "caption": "A viral photograph shows Donald Trump with E. Jean Carroll, who's accused him of past sexual assault, proving he was lying when he said he didn't know her.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Donald"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Trump"
+      },
+      {
+        "entity": "B-PER",
+        "word": "E"
+      },
+      {
+        "entity": "B-PER",
+        "word": "."
+      },
+      {
+        "entity": "I-PER",
+        "word": "Jean"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Carroll"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Donald Trump and a woman.  While the caption identifies the woman as E. Jean Carroll,  visual verification of identity is impossible from this image alone. The caption states that the photo proves Trump was lying about not knowing her; this cannot be confirmed or denied visually.  The presence of both Trump and a woman is visually confirmed.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Does This Photo Show Trump With E. Jean Carroll?",
+        "date": "2019-06-25T07:18:36",
+        "content": "Claim:\nA viral photograph shows Donald Trump with E. Jean Carroll, who's accused him of past sexual assault, proving he was lying when he said he didn't know her.\nRating:\nMiscaptioned\nAbout this rating\nOn 25 June 2019, social media users shared an image of Jill Harth, a woman who has accused Donald Trump of groping her, apparently confusing her with E. Jean Carroll, yet another woman who accused the incumbent U.S. president of past sexual assault:\nThis is a picture of Harth, not Carroll, although some users shared it with the erroneous belief that it undermined Trump's claim that he didn't know Carroll. Carroll has accused him of raping her in a Bergdorf Goodman fitting room in the mid-1990s.\nIn an interview with The Hill, Trump said the incident never happened, stating that Carroll was \"not my type.\"\n\"I don't know anything about her,\" Trump declared. \"I know nothing about this woman. I know nothing about her. She is -- it's just a terrible thing that people can make statements like that.\"\n(New York magazine and other mainstream news outlets published a different photograph showing Trump in the company of Carroll, her then-husband John Johnson, and Trump's then-wife Ivana at a public event in the 1980s. Trump didn't question the authenticity of that photograph but continued to insist, in spite of it, that he had \"absolutely no idea\" who E. Jean Carroll was.)\nThe image of Harth with Trump was taken more than 20 years earlier. Harth accused Trump of having groped her in 1992 in his daughter's bedroom. The picture was published during a 2016 broadcast of the TV news show Inside Edition, in a story about Harth's allegations. It can be viewed at about the 45-second mark in the video below:",
+        "description": "Social media posts have confused one woman who has accused Trump of sexual assault with another accuser.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The provided text from Snopes.com states that a viral photograph of Trump with Jill Harth was miscaptioned as being Trump with E. Jean Carroll.  While the caption claims the photo proves Trump lied about not knowing Carroll, the evidence shows the photo is actually of Trump with a different accuser, Jill Harth.  Therefore, the caption is factually incorrect.",
+      "supporting_points": "Source 1: Snopes.com article - states the viral photo is miscaptioned and shows Trump with Jill Harth, not E. Jean Carroll.  Trump's statement of not knowing Carroll is discussed, but the photo in question does not relate to that statement.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The internal check acknowledges the visual presence of Donald Trump and a woman but cannot verify the woman's identity as E. Jean Carroll, nor confirm or deny the claim regarding Trump's statement.  The external check, referencing Snopes.com, directly contradicts the caption, stating that the image is of Donald Trump with Jill Harth, not E. Jean Carroll. This directly refutes the caption's assertion that the photo proves Trump's lie about not knowing Carroll. The discrepancy between the internal and external checks highlights a critical issue: the internal check relies solely on visual evidence, which is insufficient to confirm the woman's identity. The external check provides verifiable information contradicting the caption's central claim.  The external evidence from a reputable source (Snopes.com) is given higher weight due to its ability to identify the individual in the picture. Visual analysis alone cannot definitively identify the woman; therefore, relying on visual verification alone for this claim is unreliable.  The internal check correctly points out the limitation of visual identification, but fails to account for the external verification that definitively identifies the woman as Jill Harth, not E. Jean Carroll.  The claim that the photograph proves Trump lied about not knowing Carroll is directly refuted by the external check, demonstrating the image is miscaptioned and irrelevant to that specific claim. The confidence score reflects the certainty of the external validation and the acknowledgement of the limitation of visual-only verification in the internal check.  Considering the misidentification and the factual inaccuracy revealed by the external check, the caption is definitively out of context.  In summary, the discrepancies between internal and external checks show the need for thorough external verification. Relying only on visual evidence to support a specific claim of this nature risks misinterpretation and false conclusions. The high confidence score from the external check combined with the limitations explicitly stated in the internal check supports the conclusion that the caption is out of context.",
+    "validation_summary": "Internal check finds visual evidence for Trump and a woman but cannot confirm the woman's identity or the caption's central claim. External check, using Snopes.com, definitively shows the image is of Trump with Jill Harth, not E. Jean Carroll, directly contradicting the caption and rendering it out of context."
+  },
+  "inference_time": 59.7900505065918
+}

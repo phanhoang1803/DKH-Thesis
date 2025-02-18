@@ -1,0 +1,49 @@
+{
+  "caption": "Joe and Joshua appreciate a neighbour's rainbow in support of our NHS.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Joe"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Joshua"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "NHS"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows two children, likely brothers, looking at a rainbow painted on a wooden fence.  While their names are not explicitly stated, the visual context strongly suggests the caption accurately reflects the scene. The presence of the NHS is inferred from the common use of rainbows as symbols of support for healthcare workers during times of crisis. The lack of explicit NHS branding or references in the image means there is some uncertainty, but the overall context makes it likely that the caption is accurate.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Radio lamington: Australian NHS workers get a taste of home sweet home",
+        "date": "2020-12-16T22:43:31",
+        "content": "When a box of soft, pastel lamingtons arrived at Caleb Byrts office, it helped quell his homesickness at a time when work was more stressful than usual. Byrt is an occupational therapist from Geelong who has lived in London for the last four years.\nLike many of the best Australian wines, confectionery and telly, the lamington is a legend at home and a relative nobody away. In the UK its occasionally sighted at Aussie barbecues and antipodean-run cafes, or recalled by long-term Neighbours fans as the solution to many of Erinsboroughs fundraising problems, but its not the sort of thing youll find supermarkets selling in six-packs.\nBut Radio Lamington might be about to change all that. Since launching in London in April they have not only raised the international profile of the iced sponge squares, but helped keep spirits up among the citys NHS frontliners by donating a box for every one sold.\nSo far theyve delivered more than 40,000 lamingtons to hospitals around the city  including to Byrts team. The highlight for me was watching UK locals admit they thoroughly enjoyed an Australian dessert they had never experienced before, he says. It also was appreciated in the wider sense, in that the work the team does is often thankless.\nRadio Lamington is the brainchild of Prue Freeman, the Australian co-founder of Londons Daisy Green restaurant group. Freeman, who grew up on a sheep farm outside Ballarat, moved to London in 2010 to work in finance but always intended to start her own business. By 2012 she was selling coffee and banana bread to city bankers from a bike at the bottom of the Gherkin building. Now Freeman and husband Tom Onions have 12 cafes and restaurants across central London. Theyre brightly lit, Australian-inspired venues with upbeat staff and a buzzy atmosphere thats as much a part of the experience as the menu. All of this meant that, when they were forced to close during Londons first lockdown, it wasnt so easy to pivot to takeaway.\nWe werent really set up, Freeman says. Our business is more about people coming in and the ambience and brunch doesnt travel that well.\nStaff were sent home and the companys brand-new kitchen in Paddington was closed. But Londons not an easy place to wait out a pandemic, especially for young hospitality workers who often live in crowded share houses with people they dont know very well, and no access to gardens or other outdoor space. Cabin fever soon set in.\nPeople were going a bit crazy, Freeman says. Everyone was at home for long periods of time and we all kept saying, what can we do, how can we help?\nIn April they decided to reopen the kitchen and start baking for the #FeedtheNHS campaign. Around 25% of London Ambulance Service paramedics are Australians or New Zealanders, and with huge numbers in the hospitals too, lamingtons were the obvious choice.\nIt was just something nice that we could do, and a bit of a taste of home, says Freeman. The people working there are doing such a lot for everyone. We just wanted to do something a bit lighthearted in an otherwise dark situation.\nThe first few weeks we were just making what wed always done, the sort of classic lamington, Freeman says. But over time people started playing around with flavours. They now do rainbow lamingtons (rainbows have become a symbol of support for NHS workers), pecan pie, tiramisu, lemon and yuzu. Theres even a Golden Gaytime-inspired lamington  a homage to the classic Australian ice cream with a vanilla sponge, toffee filling and malt biscuit crumb  to give Australians in London a double dose of two favourite nostalgia foods.\nAs London re-enters tough lockdown restrictions, the lamingtons will keep coming. Out of everything we make, lamingtons are the most labour intensive, Freeman says. They definitely arent the quickest things to make, but theyre worth it.",
+        "description": "Homesick Australians are sending each other lamingtons by the thousand in London  and feeding frontline NHS workers too",
+        "source_domain": "www.theguardian.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The news caption mentions Joe and Joshua appreciating a neighbor's rainbow in support of the NHS.  The provided text focuses on Australians in London sending lamingtons to NHS workers, with rainbow lamingtons mentioned as a symbol of support. While rainbow lamingtons are connected to NHS support, there's no mention of Joe and Joshua or a specific neighbor's rainbow. The articles' focus is on a broader initiative, not a specific instance of neighborhood appreciation. Therefore, the caption isn't directly supported, but there's a thematic connection to NHS support via rainbow imagery.",
+      "supporting_points": "Source 1 mentions rainbow lamingtons as a symbol of support for NHS workers: \"They now do rainbow lamingtons (rainbows have become a symbol of support for NHS workers)\"",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "explanation": "The internal validation gives a high confidence score (8) because the image shows two children looking at a rainbow painted on a fence, which aligns with the caption's description of Joe and Joshua appreciating a neighbor's rainbow. The NHS connection is inferred, as rainbows were used symbolically to support healthcare workers, but this is not explicitly shown in the image.  The external validation, however, has a low confidence score (4) as it cannot corroborate the specific details of the caption. It mentions a broader initiative of Australians sending rainbow lamingtons to NHS workers, which is thematically related but not a direct confirmation of the specific scene in the image. There is a discrepancy between the internal and external checks. The internal check focuses on the visual alignment and contextual inference, while the external check searches for direct evidence supporting the specific individuals and actions mentioned in the caption. The internal check's high score stems from a strong visual and contextual match, despite the lack of explicit NHS references.  The external check's low score reflects the lack of direct corroboration. The conflict arises because the internal check relies on common symbolic interpretations (rainbow=NHS support), while the external check requires factual corroboration, which is absent.  Given this conflict, the overall confidence score is moderate (6). The lack of external evidence directly supporting the claim weakens the assertion, leading to a final verdict of 'out of context'. While the image is consistent with the sentiment of showing appreciation for the NHS via a rainbow, there's no external source confirming it's Joe and Joshua specifically appreciating a specific neighbor's rainbow.   The absence of direct external confirmation significantly lowers the confidence level, despite the apparent internal consistency. Therefore, the final OOC judgement is 'True'.",
+    "validation_summary": "Internal validation shows strong visual consistency but relies on contextual inference. External validation lacks direct evidence supporting the specifics of the caption. Discrepancy exists; moderate confidence.  OOC: True"
+  },
+  "inference_time": 8.163756847381592
+}

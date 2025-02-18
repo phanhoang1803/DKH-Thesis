@@ -1,0 +1,53 @@
+{
+  "caption": "Hannah Owens opens the doors to the giraffe house as Chester Zoo",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Hannah"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Owens"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Chester"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Zoo"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a woman, possibly Hannah Owens, opening a door to a giraffe enclosure at what seems to be Chester Zoo.  All entities are visually present and consistent with the caption.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Week in pictures: 13-19 June 2020",
+        "date": "2020-06-19T23:17:14",
+        "content": "A selection of powerful news photographs taken around the world this week.\nAll photographs belong to the copyright holders as marked.",
+        "description": "A selection of news photographs taken around the world this week.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided news caption mentions Hannah Owens opening the doors to a giraffe house at Chester Zoo.  However, none of the retrieved related articles contain this information. Source 1 is a collection of news photographs and does not offer textual details to support or refute the claim.  Therefore, there is no evidence in the provided sources to support the caption.",
+      "supporting_points": "No information in the provided sources supports the claim that Hannah Owens opened the doors to a giraffe house at Chester Zoo.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal check shows high confidence (10) in the caption's accuracy because the image clearly depicts a woman opening a door to a giraffe enclosure, aligning with the caption's description of Hannah Owens opening the doors to the giraffe house at Chester Zoo. However, the external check reveals a complete lack of supporting evidence (confidence score 0).  No online sources corroborate the claim that Hannah Owens is the woman in the picture or that the image depicts Chester Zoo. This discrepancy creates a significant conflict. The low external confidence score outweighs the high internal confidence score because verifiable external evidence is crucial for confirming the caption's accuracy. The image itself offers only visual information, which is insufficient to definitively identify the woman, location, and specific event described in the caption. Therefore, there is insufficient evidence to support the caption's claim. While the image aligns internally with the caption, the absence of external validation makes it highly likely that the caption is out of context. The image could be from a different zoo, a different person could be depicted, or the context of the photo might be entirely different from what the caption suggests.",
+    "validation_summary": "Internal check strongly supports the caption (confidence score 10), while the external check finds no supporting evidence (confidence score 0). The lack of external verification renders the caption highly suspect, outweighing the high internal confidence.  Therefore, the caption is deemed out of context."
+  },
+  "inference_time": 6.883183240890503
+}

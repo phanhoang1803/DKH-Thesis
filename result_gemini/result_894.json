@@ -1,0 +1,85 @@
+{
+  "caption": "During the coronavirus disease pandemic in 2020, a popular social media meme asserted that philanthropist Bill Gates was partnered with business magnate George Soros in owning a lab in Wuhan, China (the presumed location where the COVID-19 outbreak originated), and was being sued by India over the deaths of girls resulting from vaccinations",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Bill"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Gates"
+      },
+      {
+        "entity": "B-PER",
+        "word": "George"
+      },
+      {
+        "entity": "I-PER",
+        "word": "So"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##ros"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Wu"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##han"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "China"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "CO"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##VI"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##D"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "-"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "19"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "India"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Bill Gates and Dr. Fauci.  The text on the image mentions Bill Gates, George Soros, Wuhan, China, and India.  All these entities are present in the image or mentioned in the text overlay. The caption accurately reflects the content of the image and text.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The claim that Bill Gates and George Soros owned a lab in Wuhan and were being sued by India over vaccine-related deaths is a false and unsubstantiated conspiracy theory.  There is no credible evidence to support this assertion.  While Gates and Soros are both involved in philanthropic activities, including global health initiatives, there's no legitimate connection to the described events.  The statement conflates unrelated events and promotes misinformation.",
+      "supporting_points": "- No reputable news sources or official statements support the claim of Gates and Soros owning a lab in Wuhan.\n- There is no evidence of legal action against Gates or Soros by India concerning vaccine-related deaths.\n- The claim is a common element of various conspiracy theories circulating online and lacks verifiable evidence.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal validation check gives a high confidence score of 10 because the image and text overlay contain the entities mentioned in the caption.  However, the external validation check gives a low confidence score of 2, and finds the claim to be false and unsubstantiated. The external validation provides strong evidence that the claim about Bill Gates, George Soros, the Wuhan lab, and the lawsuit by India is a false conspiracy theory.  There is no credible evidence to support any of these assertions.  Reputable news sources and official statements do not corroborate the claims.\n\nThe conflict between the internal and external checks highlights a crucial limitation of relying solely on the visual and textual content of the image for validation.  While the image and text internally support the claim, external validation reveals the information to be false and misleading.  The high internal confidence score reflects only the presence of the mentioned entities within the given context, but lacks any assessment of the veracity of the information presented.\n\nThe low external confidence score is significant.  It emphasizes the importance of cross-referencing information from diverse and reliable sources before drawing conclusions.  The absence of credible evidence supporting the claims directly contradicts the internally consistent narrative.  Considering the significant weight of the external check's negative findings, coupled with the lack of substantiation for the core claims, the overall confidence score is lowered substantially.\n\nGiven the lack of evidence and the clear indication of misinformation, we assess that the caption is out of context. The claim is a fabricated narrative, not a factual representation of events.  There is no valid basis to support the connection between Bill Gates, George Soros, the Wuhan lab, and a lawsuit by India based on the provided evidence.",
+    "validation_summary": "Internal validation shows high alignment between entities in the caption and image/text, giving a confidence score of 10. However, external validation reveals the claim to be a false conspiracy theory, resulting in a low confidence score of 2.  The significant discrepancy and lack of credible evidence lead to a final assessment that the caption is out of context."
+  },
+  "inference_time": 34.52825474739075
+}

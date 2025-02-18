@@ -1,0 +1,61 @@
+{
+  "caption": "An old photograph supposedly showing U.S. Sen. Tom Cotton of Arkansas sitting on a bed of gold bars during his time in the military recirculated on social media.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "U"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "."
+      },
+      {
+        "entity": "I-LOC",
+        "word": "S"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Tom"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Cotton"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Arkansas"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows a soldier sitting amidst a pile of what appears to be gold bars.  A separate image shows Senator Tom Cotton. The caption claims the image is miscaptioned, implying the soldier is not Senator Cotton. The entities 'Tom Cotton' and 'Arkansas' are correctly identified.  The 'U.S.' is implied visually through Senator Cotton's image, but not explicitly shown with the soldier. The confidence score is reduced because the image lacks direct visual confirmation that the soldier in the pile of gold bars is Senator Cotton; the caption explicitly states the image is miscaptioned.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is This US Sen. Tom Cotton Sitting on a Pile of Gold?",
+        "date": "2020-06-03T10:17:02",
+        "content": "Claim:\nA photograph shows U.S. Sen. Tom Cotton of Arkansas sitting on a pile of gold during his time in the military.\nIn June 2020, an old photograph supposedly showing U.S. Sen. Tom Cotton of Arkansas sitting on a bed of gold bars during his time in the military recirculated on social media.\nThis photograph, displayed above, appears to be real. However, it does not feature Cotton.\nThis picture was reportedly taken in May 2003 and shows a member of the 173rd Airborne Brigade after nearly 1,000 gold bars were confiscated from a truck in Kirkuk, Iraq.\nCNN reported at the time:\nFor the second time in a week, U.S. troops have discovered what appears to be a cache of gold bars hidden in a truck, which could be worth just less than a quarter of a billion dollars, according to a Pentagon official.\nSoldiers from the 173rd Airborne Brigade discovered 999 gold bars hidden in a truck during a routine traffic inspection near the northern Iraqi city of Kirkuk within the last two days, Pentagon officials said.\nWe have been unable to find a definitive and credible source for this picture, but it does match up with news reports from the time. The patch on the person's arm, for instance, appears to match the winged sword patch of the 173rd Airborne Brigade:\nAlso, because this picture was taken in 2003, Cotton can be ruled out because the senator didn't join the military until 2005. Cotton also served with the 101st Airborne Division (whose patch resembles the division's nickname of \"Screaming Eagles\"), not the 173rd Airborne.\nWhen we reached out to Cotton, a spokesperson told us: \"The man in the photo is not Senator Cotton.\"",
+        "description": "The photograph appears to be real, but the caption tells a different story.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption accurately reflects the content of the retrieved evidence.  Source 1 explicitly states that an old photograph circulated on social media in June 2020, supposedly showing Senator Tom Cotton sitting on a pile of gold bars during his military service. The source then proceeds to debunk this claim, showing that the photo is of a different soldier in 2003 and that Cotton did not join the military until 2005.",
+      "supporting_points": "Source 1: In June 2020, an old photograph supposedly showing U.S. Sen. Tom Cotton of Arkansas sitting on a bed of gold bars during his time in the military recirculated on social media.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "Both internal and external validation support the conclusion that the original caption is out of context. The internal check acknowledges the visual discrepancy: the image shows a soldier sitting on gold bars, while a separate image shows Senator Tom Cotton.  The caption claims that the image of the soldier is miscaptioned, suggesting the soldier is not Senator Cotton. This discrepancy, however, is confirmed by external sources, making the original caption inaccurate. The external check provides strong evidence, citing a source that confirms the circulation of a miscaptioned image. This source explicitly states that the photograph was falsely associated with Senator Tom Cotton, clarifying that it depicts a different soldier from 2003, whereas Senator Cotton joined the military later, in 2005.  The high confidence score of 10 from the external check strengthens the assessment.  The internal check's slightly lower score (8) is due to the lack of explicit visual confirmation in the provided image that the soldier is *not* Senator Cotton; the miscaption is inferred from the caption itself and supported by the external evidence. There is no evidence of visual tampering or miscontextualization within the image itself; the image is merely mismatched with the accompanying caption.The analysis accounts for visual evidence, textual entities, and external verification. The consistency between the internal and external findings leads to a confident conclusion. There are no significant disagreements between the two checks. The external source directly addresses and refutes the original claim. There is no indication that visual details contradict internal or external findings.  In summary, a thorough analysis of visual evidence, internal consistency, and external verification strongly supports the conclusion that the original caption is indeed out of context and misrepresents the image.",
+    "validation_summary": "Both internal and external validation confirm that the image is miscaptioned. The original caption falsely associates the image with Senator Tom Cotton. External sources verify that the soldier in the image is not Senator Cotton, confirming the miscaption."
+  },
+  "inference_time": 39.02434992790222
+}

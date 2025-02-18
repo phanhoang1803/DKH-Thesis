@@ -1,0 +1,53 @@
+{
+  "caption": "A photograph taken by the International Space Station shows bushfires raging across Australia.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "International"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Space"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Station"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Australia"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows bushfires across Australia.  While the image source isn't explicitly stated as the International Space Station, it's highly likely given the perspective and scale shown. Therefore, all entities are correctly used.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is This a Photo of Australian Fires Taken from the Space Station?",
+        "date": "2020-01-05T03:32:52",
+        "content": "Claim:\nA photograph taken by the International Space Station shows bushfires raging across Australia.\nIn January 2020, as record-breaking temperatures and months of severe drought fueled a series of massive bushfires across Australia, a spectacular photograph was posted to social media purporting to show the scope of those across the continent as viewed from the International Space Station (ISS):\nHowever, this striking image did not originate with the ISS, nor was it actually a photograph. Rather, it was a \"3D visualization\" of the Australian fires by Anthony Hearsey, \"an image maker who specialises in photography, retouching and creative imaging,\" which was compiled from NASA satellite data collected across the span of a month.\nMany postings of this image included a disclaimer noting that the visualization encompassed \"all the areas which have been affected\" by fires in Australia, but that \"not all the areas are still burning\":\nhttps://imgur.com/gallery/9oiePhO\nAnthony Hearsey himself offered a clarification of what this image represents:\nThis is a 3D visualisation of the fires in Australia. NOT A PHOTO. Think of this as prettier looking graph.\nThis is made from data from NASAs FIRMS (Satellite data regarding fires) between 05/12/19 - 05/01/20. These are all the areas which have been affected by bushfires.\nScale is a little exaggerated due to the renders glow, but generally true to the info from the NASA website. Also note that NOT all the areas are still burning, and this is a compilation.",
+        "description": "Composite images created from multiple data inputs are often mistaken for literal photographs.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The claim in the news caption is directly addressed and refuted by Source 1.  Snopes investigates the claim and finds that the image is not a photograph taken from the International Space Station but a 3D visualization created from NASA satellite data.  The article provides quotes from the creator of the visualization confirming that it is not a photograph and explains its construction. The high confidence score reflects the clear contradiction between the caption and the reliable source's detailed explanation.",
+      "supporting_points": "Source 1 (Snopes): \"However, this striking image did not originate with the ISS, nor was it actually a photograph. Rather, it was a \"3D visualization\" of the Australian fires by Anthony Hearsey... which was compiled from NASA satellite data collected across the span of a month.\" \nSource 1 (Snopes): \"This is a 3D visualisation of the fires in Australia. NOT A PHOTO. Think of this as prettier looking graph.\" \nSource 1 (Snopes): \"These are all the areas which have been affected by bushfires. Scale is a little exaggerated due to the renders glow, but generally true to the info from the NASA website. Also note that NOT all the areas are still burning, and this is a compilation.\"",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The internal check gives a high confidence score (10) because the image clearly shows bushfires in Australia, aligning with the caption's description. However, the external check also has a high confidence score (10), but contradicts the caption.  The external check cites Snopes, a reputable fact-checking website, which definitively states that the image is not a photograph taken from the ISS but a 3D visualization created from NASA satellite data.  This directly refutes the caption's claim that it's a photograph from the ISS. The conflict lies in the source of the image. The internal check assumes the image's origin based on its visual characteristics, while the external check provides concrete evidence from a reliable source demonstrating the actual origin. Because the external evidence is factual and directly addresses the image's origin, it takes precedence over the internal check's visual inference. The Snopes article provides detailed information about the image's creation, including quotes from its creator, making the external validation highly reliable.  There is no ambiguity or uncertainty; the Snopes article definitively refutes the caption's claim regarding the image's source. Therefore, considering both internal and external validation results, the caption is deemed out of context. The high confidence score (10) reflects the certainty of the external evidence and its direct refutation of the caption's central claim.",
+    "validation_summary": "Internal validation shows high confidence in the caption's alignment with the image content.  External validation, however, shows equally high confidence in refuting the caption's claim regarding the image's origin (International Space Station photograph) based on Snopes's fact-checking.  The external evidence is deemed more reliable, resulting in the caption being marked as out-of-context."
+  },
+  "inference_time": 7.44866418838501
+}

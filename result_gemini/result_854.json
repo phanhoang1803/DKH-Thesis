@@ -1,0 +1,41 @@
+{
+  "caption": "The show is part of the gold-producing nation's newly launched International Gold Fair.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "International"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Gold"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Fair"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image contains people tying head wraps, and there is no evidence of an International Gold Fair.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The statement is plausible but lacks specific details to verify. Many countries produce gold, and many host international fairs.  Without knowing the specific nation mentioned and the existence of a recently launched gold fair, it's impossible to definitively confirm this claim. The caption is consistent with the general idea that gold-producing countries might host such events, hence a moderate confidence score.",
+      "supporting_points": "Many countries produce gold. International fairs are common. The statement is generic enough to be potentially true for some countries but lacks the specificity needed for verification.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 1,
+    "explanation": "The internal check has a confidence score of 0 and correctly identifies that the image depicts women tying head wraps, an activity not related to an international gold fair.  The external check, while acknowledging the plausibility of a gold-producing nation hosting a gold fair, gives a confidence score of 4 due to a lack of specific details to verify the claim.  The caption's generic nature makes it difficult to verify. There is a significant discrepancy between the internal and external checks. However, the image provides no visual evidence whatsoever to support the caption's claim. The lack of visual evidence, combined with the low confidence score of the external check stemming from its inability to verify the claim, leads to the conclusion that the caption is out of context.  The internal check's assessment is strongly supported by the visual content of the image.  The external check's slightly higher score only reflects the general plausibility of the caption's statement, which is insufficient without more specific verifiable information. The image focuses entirely on the women and their head wraps, devoid of any context that could suggest an International Gold Fair.  The caption's claim is too broad and not supported by any visual cues or details from the picture. The external validation's attempt to verify the caption's plausibility based on general knowledge is inadequate due to the lack of specific references or supporting evidence. Therefore, given the lack of any evidence to link the image to the described event, and given the strong rejection by the internal validation, the caption is confidently assessed as out of context.",
+    "validation_summary": "Internal validation strongly rejects the caption as out of context (confidence 0). External validation finds the caption plausible but unverifiable (confidence 4), highlighting a significant discrepancy.  The lack of visual evidence in the image supporting the caption's claim results in a final OOC judgment."
+  },
+  "inference_time": 42.78861451148987
+}

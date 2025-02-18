@@ -1,0 +1,57 @@
+{
+  "caption": "Bo the dog waits to board Air Force One in Massachusetts in 2009.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Bo"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "Air"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Force"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "One"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Massachusetts"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Bo, the Portuguese Water Dog, on a leash in front of Air Force One.  The plane is clearly visible with the \"Air Force One\" markings.  The location is consistent with Massachusetts.  All entities are correctly identified and represented in the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "White House pets: Cats, dogs and raccoons through the years",
+        "date": "2021-01-26T19:20:26",
+        "content": "It hasn't always been dogs and cats in the White House - here are a few photos going back decades of first families with their pets.",
+        "description": "Presidents and first ladies have been photographed with their cats, dogs, and even a raccoon, for decades.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The provided text mentions White House pets through the years, including dogs, but doesn't offer specific information about Bo the dog, Air Force One, Massachusetts, or the year 2009.  Therefore, there is no supporting evidence in the given source to verify the caption.",
+      "supporting_points": "Source 1 mentions White House pets, including dogs, but does not contain the specific details mentioned in the news caption.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "Internal validation strongly supports the caption's accuracy. The image clearly shows Bo, a Portuguese Water Dog, on a leash, in front of an aircraft that visually matches Air Force One. The plane's markings and the presence of personnel consistent with an official presidential travel context enhance internal consistency. However, external validation fails to corroborate these details. The lack of external sources directly verifying the specific event (Bo on Air Force One in Massachusetts in 2009) weakens the overall confidence. While the image itself is internally consistent, the absence of external corroboration significantly impacts the certainty of the caption's accuracy. The discrepancy stems from the difficulty in finding reliable external resources that would explicitly confirm this particular event. Although the image strongly suggests the caption's veracity based on its visual elements and internal consistency, the lack of external support necessitates a conservative assessment, lowering the overall confidence score. The internal validation's high confidence score (10) reflects the strong visual evidence within the image, whereas the external validation's low confidence score (3) points towards the lack of corroborating information from independent external sources. The final judgment, therefore, leans towards a cautious acceptance, acknowledging the limitation imposed by the absence of robust external verification.  In essence, while the image strongly suggests the described event likely occurred, the lack of external validation prevents a definitive confirmation.",
+    "validation_summary": "Internal validation strongly supports the caption, showing visual consistency with the stated details. However, external validation fails to confirm the specific event, creating a conflict. The final assessment is cautious, prioritizing the need for external corroboration for a definitive conclusion."
+  },
+  "inference_time": 43.84212374687195
+}

@@ -1,0 +1,41 @@
+{
+  "caption": "The National Cancer Institute has \"admitted\" that \"cannabis kills cancer.\"",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "National"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Cancer"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Institute"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a pill bottle containing cannabis and a stethoscope, related to medical cannabis.  The caption mentions the National Cancer Institute and a claim about cannabis killing cancer. The image does not visually depict either of these, therefore the caption and image are unrelated.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The statement that the National Cancer Institute has \"admitted\" that \"cannabis kills cancer\" is highly implausible. While research is ongoing into the potential therapeutic effects of cannabis and cannabinoids on certain cancers, there is no established scientific consensus supporting the claim that cannabis is a cancer cure.  The use of the word \"admitted\" suggests a prior denial, which is not supported by any evidence.  Claims of a definitive cure should be treated with extreme skepticism unless they come from reputable sources via peer-reviewed publications. The statement lacks proper nuance and scientific accuracy.",
+      "supporting_points": "- Extensive research is ongoing into cannabis and cancer, but no definitive conclusions regarding a cure have been made.\n- The claim of \"admission\" is unsubstantiated and inflammatory.\n- Scientific claims, especially concerning cures, require robust peer-reviewed evidence.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "Both the internal and external checks strongly indicate that the caption is out of context. The internal check finds no visual connection between the image (a pill bottle with cannabis and a stethoscope) and the caption's claim about the National Cancer Institute admitting that cannabis kills cancer.  The confidence score of 10 reflects the strong alignment between the image and the lack of evidence in the caption. The external check further reinforces this conclusion by highlighting the implausibility of the claim.  The external check points out the lack of scientific consensus supporting the idea that cannabis kills cancer, the unsubstantiated nature of the \"admission\" claim, and the overall lack of reputable evidence backing up such a bold assertion.  The external check's confidence score of 2 reflects a cautious approach given the complex nature of medical research and the need to avoid spreading misinformation.  There is no conflict between the internal and external checks; both independently and overwhelmingly support the conclusion that the caption is out of context. The combination of a strong internal assessment (10) and a moderately confident external assessment (2) results in a final confidence score of 10, representing high certainty that the provided caption is inaccurate and misleading regarding the image content and scientific evidence.",
+    "validation_summary": "Both internal and external validation processes strongly suggest the caption is out of context. The image shows medical cannabis, while the caption makes an unsubstantiated claim about the National Cancer Institute's alleged admission regarding cannabis as a cancer cure.  There is no conflict between the two validation methods; both align in their assessment of the caption's inaccuracy."
+  },
+  "inference_time": 30.525960683822632
+}

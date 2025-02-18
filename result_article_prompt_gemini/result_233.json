@@ -1,0 +1,53 @@
+{
+  "caption": "Hillary Clinton was \"'on trial' for Benghazi\" in June 2020, but the news of it was obscured by other events.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Hillary"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Clinton"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Ben"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##azi"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Hillary Clinton speaking at an event.  The caption mentions Benghazi, which is not directly visible in the image. However, the mention of Hillary Clinton is accurate as she is the central focus of the image.  The image does not provide any direct information to assess whether she was \"on trial\" for Benghazi, or if the news was obscured by other events. The assessment is based solely on the presence of Hillary Clinton in the image and therefore only focuses on that entity.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Was Hillary Clinton Recently 'On Trial' for Benghazi?",
+        "date": "2020-06-17T07:02:19",
+        "content": "Claim:\nHillary Clinton was \"'on trial' for Benghazi\" in June 2020, but the news of it was obscured by other events.\nIn June 2020, as protests ignited by the police-custody death of George Floyd swept across the U.S., a widely shared social media meme asserted that former U.S. Secretary of State Hillary Clinton had been \"'on trial' for Benghazi,\" but the news of that occurrence had been obscured by news media coverage of the Floyd protests:\nBut in fact, no legal activity -- either in the court system or in Congress -- involving Clinton and the 2012 attack against two United States government facilities in Benghazi, Libya, was taking place in June 2020.\nThis meme likely confusingly referenced a court hearing that took place on June 2 to determine whether Clinton should be compelled to submit to a deposition in a lawsuit. However, that lawsuit was about a records request and compliance with the Freedom of Information Act (FOIA) related to Clinton's use of a private email account and server during her time as secretary of state -- it had nothing to do with the 2012 attack in Benghazi, was not a \"trial,\" and did not involve any appearance by Clinton herself in court.\nA House Select Committee extensively investigated the 2012 attack that left four Americans dead in Libya and issued a lengthy report that found no wrongdoing on the part of Clinton in connection with that event:\nEnding one of the longest, costliest and most bitterly partisan congressional investigations in history, the House Select Committee on Benghazi issued its final report, finding no new evidence of culpability or wrongdoing by Hillary Clinton in the 2012 attacks in Libya that left four Americans dead.\nThe 800-page report delivered a broad rebuke of the Defense Department, the Central Intelligence Agency and the State Department  and the officials who led them  for failing to grasp the acute security risks in Benghazi, and especially for maintaining outposts there that they could not protect.\nPrevious investigations concluded that State Department officials had erred in not better securing the diplomatic compound amid reports of a deteriorating security situation. But they also determined that the attacks had come with little warning and that it would have been difficult to intervene once they had begun.",
+        "description": "The former U.S. secretary of state's lawyers were in court in June 2020 for a hearing about a public records request, not for a Benghazi trial.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption claims that Hillary Clinton was \"'on trial' for Benghazi\" in June 2020, but this was obscured by other news.  Source 1 directly addresses this claim. While a hearing involving Clinton's lawyers did occur in June 2020 concerning a FOIA request related to her email server, it was not a trial for Benghazi. The article explicitly states that this was not a trial related to Benghazi and that no legal activity concerning Clinton and Benghazi was happening at that time. The article successfully debunks the claim in the news caption.",
+      "supporting_points": "- \"In June 2020, as protests ignited by the police-custody death of George Floyd swept across the U.S., a widely shared social media meme asserted that former U.S. Secretary of State Hillary Clinton had been \"'on trial' for Benghazi,' but the news of that occurrence had been obscured by news media coverage of the Floyd protests: But in fact, no legal activity -- either in the court system or in Congress -- involving Clinton and the 2012 attack against two United States government facilities in Benghazi, Libya, was taking place in June 2020.\" \n- \"This meme likely confusingly referenced a court hearing that took place on June 2 to determine whether Clinton should be compelled to submit to a deposition in a lawsuit. However, that lawsuit was about a records request and compliance with the Freedom of Information Act (FOIA) related to Clinton's use of a private email account and server during her time as secretary of state -- it had nothing to do with the 2012 attack in Benghazi, was not a \"trial,\" and did not involve any appearance by Clinton herself in court.\"",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The internal check acknowledges the presence of Hillary Clinton in the image but admits the inability to verify the claim about the Benghazi trial and news obscurity.  The confidence score is relatively low (10) because the assessment is based only on the visual presence of Hillary Clinton, without any contextual information from the image itself regarding the Benghazi trial. The external check, however, provides strong evidence contradicting the caption's claim.  It cites a source that directly refutes the assertion that Hillary Clinton was \"'on trial' for Benghazi\" in June 2020, clarifying that no such trial occurred. Instead, it points to a hearing unrelated to Benghazi concerning a FOIA request about Clinton's email server.  This external source significantly undermines the caption's claim.  The high confidence score (8) of the external check stems from its direct and detailed refutation of the caption's core claim with precise references. The discrepancy between the internal and external checks arises from their different scopes. The internal check focuses solely on the image's content, while the external check examines the broader context of the claim and corroborates information from external sources.  The external check holds much greater weight because it utilizes factual evidence to assess the truthfulness of the caption, unlike the internal check, which only assesses image-caption consistency without considering factual accuracy.  The external check's strong evidence that no trial for Benghazi took place overrides the internal check's weak assertion based solely on the presence of Hillary Clinton. Therefore, the caption is considered out of context, given the compelling evidence from the external check debunking the claim.",
+    "validation_summary": "Internal check had low confidence and focused only on entity presence; external check had high confidence and directly refuted the caption's claim using supporting evidence. The external evidence strongly suggests the caption is out of context."
+  },
+  "inference_time": 8.790617227554321
+}

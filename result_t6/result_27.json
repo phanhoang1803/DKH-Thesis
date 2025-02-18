@@ -1,0 +1,49 @@
+{
+  "caption": "A photograph shows a Southeast African monkey from Madagascar.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Southeast"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "African"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Madagascar"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image contains langurs, which are not from Southeast Africa or Madagascar.  The caption is incorrect.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is This a Photograph of a Southeast African Monkey?",
+        "date": "2015-03-03T16:00:00",
+        "content": "Claim:\nA photograph shows a Southeast African monkey from Madagascar.\nRating:\nFalse\nAbout this rating\nIn early 2015, a photograph alleged to be that of a cute, odd-looking monkey from Madagascar began circulating via social media. The image was frequently shared with the claim that the pictured creature was a \"Madagascar Southeast African monkey:\"\nMadagascar, Southeast Africa Monkey\nThis photograph, however, does not capture an unusual primate from Madagascar. Instead, it depicts a doll from the \"Inari Foxes\" collection produced by the Santani Workshop in Russia. The group's Deviant Art page features several related images, including the one displayed above, of mythical creatures made of \"different types of doll plastic like fimo, cernit, sculpey, sonet:\"\nThis isn't the first time that a doll has fooled the internet. In December 2014, a photograph of a pair of cute (but fake) owlets also went viral on social media.",
+        "description": "This photograph does not show a Southeast African monkey from Madagascar.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided text from Snopes explicitly states that the photograph does not show a Southeast African monkey from Madagascar.  Instead, it depicts a doll. This directly contradicts the news caption.",
+      "supporting_points": "Source 1 explicitly states: \"This photograph, however, does not capture an unusual primate from Madagascar. Instead, it depicts a doll from the \"Inari Foxes\" collection produced by the Santani Workshop in Russia.\"",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The original news caption claims the image shows a Southeast African monkey from Madagascar.  Both internal and external validation processes strongly refute this claim.\n\nInternal validation, with a confidence score of 1, definitively states that the image depicts langurs, a primate species not found in Southeast Africa or Madagascar. This internal analysis directly contradicts the caption's assertion.\n\nExternal validation, possessing a significantly higher confidence score of 10, provides further evidence against the caption's accuracy.  It cites a reliable source (Snopes) that explicitly states the photograph does not depict a Madagascan primate; instead, it shows a doll.  This external evidence not only refutes the caption but also reveals a misrepresentation of the image's content.\n\nThere is complete agreement between internal and external validation. Both methods independently and conclusively demonstrate that the caption is inaccurate and misrepresents the content of the photograph.  The high confidence score from external validation, reinforced by the internal analysis, strengthens the conclusion that the caption is entirely out of context.\n\nThe visual evidence itself further supports this conclusion. The primates in the image bear no resemblance to the physical characteristics of Southeast African monkeys, or any monkey native to Madagascar.  Their physical features align with langurs. \n\nTherefore, based on the unanimous and strongly supported findings of both internal and external validation, combined with the visual analysis of the image, the news caption is definitively deemed out of context.",
+    "validation_summary": "Both internal and external validations strongly disagree with the caption. Internal validation identifies the primates as langurs, while external validation reveals the image depicts a doll, contradicting the caption's claim of a Madagascan monkey."
+  },
+  "inference_time": 38.89187979698181
+}

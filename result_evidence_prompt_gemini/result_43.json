@@ -1,0 +1,61 @@
+{
+  "caption": "Yoga teacher Harriet McAtee conducts a yoga class on her 6ft (1.8m)-wide narrowboat in Oxford.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Harriet"
+      },
+      {
+        "entity": "I-PER",
+        "word": "M"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##c"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##A"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##tee"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Oxford"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Harriet McAtee performing yoga on a narrowboat in Oxford.  All entities are clearly visible and correctly identified.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Week in pictures: 13-19 February 2021",
+        "date": "2021-02-20T00:13:45",
+        "content": "A selection of powerful news photographs taken around the world this week.\nAll pictures are subject to copyright.",
+        "description": "A selection of striking images taken around the world this week.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided text does not contain any information about Harriet McAtee or a yoga class on a narrowboat in Oxford.  The source mentions a selection of news photographs from a specific week but gives no details about their content.",
+      "supporting_points": "Source 1 provides a general description of a collection of news photographs but lacks specific information to support or refute the claim.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal check shows high confidence that the caption accurately reflects the image content. However, the external check reveals a lack of supporting evidence to confirm the details mentioned in the caption. The external source only describes a selection of news photographs without providing specific information about their content or context. This significant discrepancy lowers the overall confidence. The internal check's high confidence is based solely on the image, which depicts a woman performing yoga on a narrowboat. However, without external verification of the woman's identity (Harriet McAtee), the location (Oxford), and the nature of the activity (yoga class), we cannot confirm these details.  Therefore, there is a high degree of uncertainty in determining whether the caption is indeed a true reflection of the provided image's context. The lack of corroborating evidence from the external source raises doubt about the accuracy of the caption's details.  While the image itself supports the core idea of someone practicing yoga on a narrowboat, the specific claims regarding Harriet McAtee, Oxford, and the yoga class remain unverified.   To improve the confidence score, additional information such as news articles, website links, or other reliable sources confirming the caption's details would be needed. Without such information, the caption cannot be definitively validated. The internal and external checks significantly disagree, causing a conflict in the validation results. As a result, a lower confidence score is assigned, reflecting the uncertainty and lack of sufficient evidence.",
+    "validation_summary": "Internal check shows high confidence in caption accuracy based on image content, while external check finds no supporting evidence. The lack of external verification of details mentioned in the caption (Harriet McAtee, Oxford, yoga class) lowers the confidence score significantly.  There is a strong disagreement between the two checks. "
+  },
+  "inference_time": 7.1833271980285645
+}

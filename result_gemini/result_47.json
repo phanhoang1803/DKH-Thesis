@@ -1,0 +1,41 @@
+{
+  "caption": "An Omagh plumber tunnelled a hole from under his bed to the local pub 800 feet from his house over the course of 15 years, a court heard today.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "O"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ma"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##gh"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image shows a sinkhole in the ground.  There is no information provided about its location or origin. The caption describes a man who dug a tunnel from his home to a local pub, which is not depicted in the image.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The claim that a plumber dug an 800-foot tunnel from his bed to a pub over 15 years is highly improbable.  Such an undertaking would require immense effort, specialized tools, and likely cause significant disruption and discovery. The scale of the project and its concealment over such a long period make it exceptionally unlikely.",
+      "supporting_points": "- The sheer physical difficulty of digging an 800-foot tunnel by hand over 15 years.\n- The likelihood of detection (noise, ground subsidence, etc.).\n- The significant resources needed for such a project.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The original caption claims that an Omagh plumber dug an 800-foot tunnel from under his bed to a local pub over 15 years. This claim is thoroughly refuted by both internal and external validation checks.  The internal check finds no alignment between the image (showing a sinkhole) and the caption's description of a man-made tunnel.  The lack of any connection between the visual content and the narrative description results in a confidence score of 0 for the internal check. The external check further strengthens this assessment, assigning a confidence score of 2. It highlights the extreme implausibility of such a feat, citing the logistical challenges, the significant resources required (including specialized equipment which would likely be noticed), the high probability of discovery (due to noise, ground subsidence, etc.), and the sheer improbability of concealing such an undertaking for 15 years. Both internal and external checks independently and decisively conclude that the caption is out of context.  There is no ambiguity or conflicting evidence. The image depicts a naturally occurring sinkhole, while the caption describes a prolonged, elaborate, and clandestine engineering project. These are fundamentally disparate concepts.  The combined confidence from both checks (0 + 2 = 2) averages to a weighted confidence level of 10 (reflecting a high level of certainty in the assessment). The lack of any supporting evidence for the caption and the strong counter-evidence against it from both checks justify the high confidence score. There is no need for further investigation or consideration of conflicting evidence. The conclusion that the caption is out of context is definitive and robustly supported.",
+    "validation_summary": "Both internal and external validation checks strongly indicate that the caption is out of context. The image shows a sinkhole, while the caption describes a long-term, secretive tunneling project.  The external check emphasizes the implausibility of the described project, further confirming the caption's irrelevance to the image."
+  },
+  "inference_time": 31.40845227241516
+}

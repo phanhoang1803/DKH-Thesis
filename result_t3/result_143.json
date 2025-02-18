@@ -1,0 +1,93 @@
+{
+  "caption": "Mr. Biden campaigned in October for Amy McGrath, the Kentucky Democrat, who was defeated in a closely watched congressional race.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Joe"
+      },
+      {
+        "entity": "I-PER",
+        "word": "B"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##iden"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Amy"
+      },
+      {
+        "entity": "I-PER",
+        "word": "McGrath"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "O"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##wing"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##sville"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "K"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##y"
+      },
+      {
+        "entity": "B-PER",
+        "word": "B"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##iden"
+      },
+      {
+        "entity": "B-PER",
+        "word": "B"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##iden"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The entities \"Joe Biden\" and \"Amy McGrath\" are correctly identified and used in the context of the news caption.  The entity \"Kentucky\" is partially correct; it's present but the other parts of the location are incorrectly identified.  There is some inconsistency and inaccuracy in the extraction of \"Biden\", with multiple instances and sub-word tokenization issues. However, overall, the core entities are present and the caption reflects the entity usage.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "2018 Midterm Election Results",
+        "date": "2018-01-23T20:35:05",
+        "content": "",
+        "description": "A full list of elections for the House and Senate, including which races matter most for congressional control.",
+        "source_domain": "www.nytimes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The provided evidence, a link to the New York Times' 2018 midterm election results page, is insufficient to verify or refute the claim that Mr. Biden campaigned for Amy McGrath in October.  The link only provides a calendar of election results and does not contain information on campaign activities.  Therefore, we cannot confirm or deny the statement about Biden's campaigning.",
+      "supporting_points": "Source 1 only offers a calendar of election results for the 2018 midterms. It does not contain information about campaign events or endorsements.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 5,
+    "explanation": "The image shows Joe Biden interacting with a crowd of people, some of whom appear to be taking photos with their phones.  Amy McGrath is not visually identifiable in this image. The internal check shows a reasonable level of accuracy in identifying named entities. However, the external check reveals that the provided evidence (a link to the New York Times' 2018 midterm election results) is insufficient to verify the claim about Biden campaigning for McGrath in October 2018.  The external source does not provide information on campaign activities. The lack of corroborating external evidence and the absence of Amy McGrath in the image lead to a conclusion that the caption is likely out of context.",
+    "validation_summary": "Internal entity recognition partially supports the caption, but the external evidence fails to verify the claim about Biden campaigning for Amy McGrath.  The image itself doesn't show McGrath."
+  },
+  "inference_time": 37.15986657142639
+}

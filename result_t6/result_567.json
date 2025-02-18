@@ -1,0 +1,41 @@
+{
+  "caption": "Sheep looks to Skye",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Skye"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a sheep on a hill overlooking a body of water. In the background, there are mountains that resemble the Isle of Skye. Therefore, the caption \"Sheep looks to Skye\" is accurate.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Rabbits 'threat' to the Storr on Skye",
+        "date": "2012-03-30T13:48:01",
+        "content": "Wild rabbits are causing erosion and eating fragile upland plants in one of Scotland's most striking landscapes, according to a new report.\nThe Storr is the highest point on the Trotternish Ridge on Skye and features the Old Man of Storr rock formation.\nResults of monitoring of the ridge by researchers suggest reducing rabbit numbers to help to protect the Special Area of Conservation.\nDeclines in sheep grazing on the ridge were also deemed to be beneficial.\nThe Trotternish Ridge is owned by the Scottish government.\nHistorically, it was taken over by the state in 1904 and made available to crofters who had been forced off the land during the Highland Clearances in the 19th Century.\nUpland plants, including rare grasses, grow on the ridge and have protection under Special Area of Conservation and Site of Special Scientific Interest designations.",
+        "description": "Wild rabbits are causing erosion and eating fragile upland plants in one of Scotland's most striking landscapes, report warns.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The provided text focuses on rabbits and their impact on the Storr on Skye.  There is mention of sheep grazing declines being beneficial, but this is not the same as stating that sheep are looking to Skye. The caption is too vague and not supported by the evidence.",
+      "supporting_points": "Source 1 mentions that declines in sheep grazing on the ridge were beneficial.  However, this does not support the caption 'Sheep looks to Skye'.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal check shows high confidence (score 10) that the caption accurately reflects the image, based on the visual resemblance of the background mountains to the Isle of Skye.  However, the external check reveals a significant discrepancy. The external check (score 3) indicates a lack of supporting evidence from external sources. The external source focuses on the impact of rabbits and sheep grazing on Skye, but it doesn't directly support the claim that the sheep in the image is \"looking to Skye.\" The caption's vagueness and the absence of explicit corroboration from external sources weaken its accuracy. The discrepancy arises from the difference in interpretation. While the internal check relies on visual similarity, the external check demands explicit textual evidence. The low confidence score of the external check and the absence of concrete textual evidence in the provided context, despite the visual plausibility suggested by the internal check, lead to the conclusion that the caption may be out of context. Therefore, the final verdict is 'OOC: True'. The low confidence score reflects the uncertainty introduced by the contradictory assessment from the external check and the vagueness of the caption.",
+    "validation_summary": "Internal check strongly supports the caption (confidence 10), while the external check provides weak evidence against it (confidence 3).  The vagueness of the caption and the lack of explicit external support lead to an overall low confidence and the conclusion that the caption is likely out of context."
+  },
+  "inference_time": 48.727644205093384
+}

@@ -1,0 +1,49 @@
+{
+  "caption": "A deserted Leicester Square in London on 17 March",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Leicester"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Square"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "London"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows Leicester Square in London.  The square is largely deserted, aligning with the caption's description. There is no ambiguity.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Coronavirus: Pictures show London's empty streets",
+        "date": "2020-03-17T13:10:39",
+        "content": "Streets around some of London's most popular landmarks are much quieter than normal after the government announced new measures to protect people from the coronavirus outbreak.\nPrime Minister Boris Johnson warned people to avoid social contact, to work from home where possible and advised people to stay away from pubs, bars and restaurants.\nMayor of London Sadiq Khan said the London Underground would be running a reduced service after passenger numbers dropped in recent days.\nIt was revealed at a government press conference on Tuesday that the coronavirus outbreak in London was \"a few weeks ahead\" compared to the rest of the UK.\nAt the scene\nBBC reporter Rebecca Cafe\nOxford Street, long considered Europe's busiest shopping street, was far from busy this afternoon but it was not empty.\nThe people milling around weren't weighed down with shopping bags. Instead most were walking with a purpose, perhaps to go to work or to pick up lunch.\nThe bigger shops had several people inside but if you looked through the windows of the more specialists shops, the sales assistants were standing alone, with no-one to serve.\nPeople eating in a sit-down restaurant were pretty much eating alone, however places where food could be taken away had a steady trade.\nThere were still a few tourists, strolling down either looking for their hotel or pointing out the sights, but how long they will stay here remains to be seen.\nLondon is not on lockdown - but people are definitely attempting to keep a social distance.\nAll pictures subject to copyright",
+        "description": "Prime Minister Boris Johnson has advised people to stay away from pubs, clubs and restaurants.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The provided text mentions that streets around popular landmarks in London were quieter than normal due to government measures to combat the coronavirus outbreak.  However, there is no specific mention of Leicester Square being deserted on March 17th. The BBC report describes Oxford Street as not being empty, but less busy than usual.  Therefore, while the overall situation described in the caption is consistent with the news report's general observations, there's no direct evidence to confirm the specific detail of Leicester Square being deserted on that date.",
+      "supporting_points": "Source 1 mentions that streets around some of London's most popular landmarks are much quieter than normal after government announcements regarding coronavirus.  The report also states that Oxford Street, while less busy, was not empty.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal validation gives a high confidence score (10) that the image depicts a deserted Leicester Square in London, matching the caption.  However, the external validation provides a low confidence score (3), indicating a lack of direct corroborating evidence to confirm Leicester Square's desertion specifically on March 17th.  The external source mentions quieter streets in London due to coronavirus measures, but doesn't confirm the specific state of Leicester Square on that date.  This discrepancy lowers the overall confidence score. The visual evidence strongly supports the internal validation, showing a largely empty square. However, visual evidence alone cannot definitively prove the exact date. The lack of concrete external verification for the specific detail ('deserted on March 17th') leads to the conclusion that the caption might be out of context, despite the strong visual match.  While the general context of a quieter London in March 2020 due to the coronavirus is consistent, the specificity of the caption about Leicester Square being deserted on that precise date lacks sufficient supporting external evidence.",
+    "validation_summary": "Internal validation strongly supports the caption, while external validation finds insufficient evidence to confirm the specific detail of Leicester Square being deserted on March 17th. This discrepancy results in a low confidence score and a conclusion of the caption being possibly out of context."
+  },
+  "inference_time": 39.309879779815674
+}

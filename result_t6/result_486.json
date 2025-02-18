@@ -1,0 +1,45 @@
+{
+  "caption": "Mr. Trump and the Brexiteers have harnessed deep divisions in each of their societies.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Trump"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "B"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a large picture of Donald Trump.  The caption mentions Mr. Trump, which is accurately represented in the image.  The caption also mentions \"Brexiteers\", which are not present in the image.  However, the question asks about the presence and accuracy of the entities mentioned in the caption, and only Trump is visually present. Therefore, the verdict is true for the entities present in the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Some thoughts on the crisis of liberalism-and how to fix it",
+        "date": "2018-06-12T16:58:43",
+        "content": "By BAGEHOT\nBREXIT is such an all-consuming process for the Britishat once a drama, a muddle and a messthat it is easy to forget that it is part of something bigger: a crisis of liberalism in the west. A growing number of countries have had their own equivalents of Brexit: Donald Trumps victory over Hillary Clinton in the 2016 presidential election; the election of a populist government in Italy; the Catalan revolt in Spain; the rise of populist authoritarians in Russia, Hungary, Poland and, to some extent, India; the simmering rage against what Viktor Orban calls liberal blah blah in the intellectual dark-web. The list will be a lot longer by the time Brexit has been completed.",
+        "description": "Liberalism needs nothing less than a great rebalancing if it is to regain its intellectual and political vitality | Britain",
+        "source_domain": "www.economist.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Source 1 mentions both Mr. Trump and Brexit in the context of a crisis of liberalism in the West, stating that both events represent  \"equivalents of Brexit.\"  While it doesn't explicitly state that they \"harnessed deep divisions,\" the implication is that their victories were due to exploiting existing societal divisions. The article's focus is broader than the caption's specific claim, hence the moderate confidence score.",
+      "supporting_points": "Source 1:  mentions both Donald Trump's victory and Brexit as part of a larger \"crisis of liberalism,\" suggesting both capitalized on societal divisions.  The exact phrasing of \"harnessed deep divisions\" is not present, but the implication aligns with the source's content.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows a billboard with a picture of Donald Trump. The caption states that \"Mr. Trump and the Brexiteers have harnessed deep divisions in each of their societies.\" The internal check focuses on the visual presence of entities mentioned in the caption.  It correctly identifies that the image depicts Mr. Trump, giving a true verdict for that part. However, it notes the absence of any visual representation of 'Brexiteers', which are also mentioned in the caption. While it concludes with a true verdict because Trump is represented, this highlights a key discrepancy: only part of the caption is visually supported by the image. \n\nThe external check supports the general claim that both Trump's election and Brexit reflect societal divisions, citing sources suggesting both capitalized on these divisions to achieve their respective outcomes. Although the source doesn't use the exact phrase \"harnessed deep divisions,\" it implies similar sentiment. However, the external validation is also limited as it only partially corroborates the claim and doesn't directly address the image content. The connection between the image and the full caption remains tenuous. \n\nThe discrepancy lies in the caption's mention of both Trump and Brexiteers. The image only shows Trump.  The internal check acknowledges this but assigns 'true' because at least one part of the caption is visually represented. However, this is a weakness as the caption makes a statement connecting two distinct entities and only shows one. \n\nThe external check provides broader context suggesting a potential link between Trump's election and Brexit based on societal division. It strengthens the argument that societal divisions played a role, but does not directly confirm the caption's statement linking Trump and Brexiteers in a single action of \"harnessing deep divisions.\" It lacks evidence to specifically support that specific claim regarding their joint actions.\n\nConsidering the discrepancies and limitations, the final verdict is that the caption is out of context concerning the image. The image alone does not support the full claim in the caption.  The external evidence partially supports the claim regarding societal divisions and the two events, but does not connect them as directly stated in the caption and relating it to the image. The confidence score is relatively low (7 out of 10) because the external source is more indirect support for a claim that is partially, but insufficiently, represented in the image.  While there's some alignment, the lack of complete visual representation of the caption's central argument leads to a conclusion of out-of-context.",
+    "validation_summary": "Internal check finds partial visual match (Trump), external check partially supports the claim about societal divisions but doesn't confirm the connection between Trump and Brexiteers as stated in the caption.  Discrepancy exists because the image shows only one of the two entities mentioned, making the caption's claim of a joint action unsupported.  Final verdict: Out of context."
+  },
+  "inference_time": 44.975504875183105
+}

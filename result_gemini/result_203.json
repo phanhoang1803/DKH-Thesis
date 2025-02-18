@@ -1,0 +1,53 @@
+{
+  "caption": "Mr. Biden campaigned in October for Amy McGrath, the Kentucky Democrat, who was defeated in a closely watched congressional race.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "B"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##iden"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Amy"
+      },
+      {
+        "entity": "I-PER",
+        "word": "McGrath"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Kentucky"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Democrat"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Joe Biden campaigning.  Amy McGrath is not present in this image. The other entities are present and correctly identified.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Amy McGrath ran for US Senate in Kentucky in 2020, not for a congressional seat.  Joe Biden did campaign for her.  While the details of his campaigning are widely reported, confirming the exact date (October) requires additional verification. The fact that she lost is also verifiable. Thus the statement has elements of truth and falsehood.",
+      "supporting_points": "Amy McGrath ran for Senate in Kentucky in 2020; Joe Biden campaigned for her; She lost the election.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The original caption states that Mr. Biden campaigned for Amy McGrath in October for a closely watched congressional race, and that she was defeated. Internal consistency check reveals that the image shows Joe Biden campaigning, but Amy McGrath is not present. The external check confirms that Amy McGrath ran for the US Senate in Kentucky in 2020, not a congressional race, and that Joe Biden did campaign for her. The external check also confirms that she lost the election. However, the claim about the campaign happening in October needs further verification.  The discrepancy between the internal and external checks lies primarily in the claim that Amy McGrath was involved in a congressional race. The image itself provides no information about the context of the campaign; hence it cannot corroborate the caption's claim about the specific race. The high confidence score reflects the agreement on the core aspects: Biden campaigning and McGrath's defeat; the disagreement lies in the specifics of the election, which the image does not directly support. Overall, the caption is out of context because the image doesn't show Amy McGrath, and the details regarding the type of race and specific month of campaigning are incorrect, based on external evidence.",
+    "validation_summary": "Both internal and external checks reveal inconsistencies. The image does not depict Amy McGrath, contradicting the caption. While external sources confirm Biden's campaign for McGrath and her defeat, the claim about a congressional race and the timing (October) require additional validation. The overall agreement on the core aspects (Biden campaigning, McGrath's defeat) is high, but the discrepancies in the details concerning the specific election and month significantly reduce the accuracy of the caption."
+  },
+  "inference_time": 40.17497706413269
+}

@@ -1,0 +1,61 @@
+{
+  "caption": "Coffin makers in Harare, Zimbabwe, prepare to put the finishing touches to their work.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "M"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##bar"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##e"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Hara"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##re"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "Z"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The entities \"Harare\" and \"Zimbabwe\" are correctly identified and their locations are consistent with the caption. However, the partial entities \"M\", \"##bar\", \"##e\", and \"Z\" are not correctly identified, causing uncertainty.  The caption does not seem to support these as part of a location or organization name. Therefore, a definitive judgment cannot be made. The confidence score reflects this uncertainty.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Africa's week in pictures: 18 - 24 September 2020",
+        "date": "2020-09-24T23:05:37",
+        "content": "A selection of the week's best photos from across the continent and beyond:\nPictures from Reuters, PA and EPA.",
+        "description": "A selection of the week's best photos from across the continent and beyond.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The provided evidence is insufficient to verify the accuracy of the news caption.  Source 1 is a collection of photos from Africa, mentioning Reuters, PA, and EPA as picture sources. There is no information about coffin makers in Harare, Zimbabwe, or any related context. The caption lacks supporting evidence from the source, making it impossible to assess its accuracy.",
+      "supporting_points": "Source 1:  The BBC article is a collection of photographs. No specific reference is made to coffin makers in Harare, Zimbabwe.  The caption is not supported by the content of Source 1.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 5,
+    "explanation": "The image shows two men working on coffins, seemingly in a workshop. While this aligns with the caption's description of \"coffin makers\", there's no specific information in the image or provided external sources to confirm the location as Harare, Zimbabwe.  The internal entity recognition is unreliable. The external source only offers a collection of photos with no specific details about this image's origin or context. Therefore, the claim of the image depicting coffin makers in Harare, Zimbabwe, lacks sufficient evidence.",
+    "validation_summary": "Both internal and external checks reveal insufficient evidence to confirm the caption's claim about the image depicting coffin makers in Harare, Zimbabwe. The image's visual content shows coffin making, but location verification is missing."
+  },
+  "inference_time": 25.893473863601685
+}

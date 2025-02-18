@@ -1,0 +1,69 @@
+{
+  "caption": "In February 2021, former U.S. President Donald Trump gave a speech at the Conservative Political Action Conference (CPAC) launched a 2024 presidential campaign.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "U"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "S"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Donald"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Trump"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "Conservative"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Political"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Action"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Conference"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "CP"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##AC"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows Donald Trump speaking at an event with CPAC branding visible.  The image confirms the presence of Donald Trump at a CPAC event in 2021. The caption mentions a 2024 presidential campaign launch, which is not visually confirmed in this image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Donald Trump did speak at CPAC in February 2021.  However, while he strongly hinted at a 2024 run, he did not officially *launch* his campaign at that specific event.  The official announcement came later. Therefore, the statement is partially true but slightly inaccurate in its phrasing.",
+      "supporting_points": "News reports from February 2021 confirm Trump's CPAC speech.  Later announcements confirmed the timing of his 2024 campaign launch.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The internal check correctly identifies that the image shows Donald Trump at a CPAC event in 2021.  However, it flags the claim of a 2024 campaign launch as unverified by the image itself, giving a confidence score of 10 and a True verdict.  The external check agrees that Trump spoke at CPAC in February 2021 but notes that while he strongly suggested a 2024 run, his campaign launch occurred later, making the caption partially inaccurate in its phrasing.  This yields a lower confidence score of 8 and a False verdict.  Both checks agree that the image shows Trump at CPAC in 2021; however, they disagree on the accuracy of the campaign launch detail. The external check provides additional information from news reports, which supports the visual evidence but refines the detail about the campaign launch timing.  The higher weight should be given to the external check because it considers information beyond just the image.  The fact that the claim about the 2024 campaign launch is incorrect significantly lowers the overall accuracy of the caption. Therefore, while the core aspect of Trump's CPAC presence in 2021 is validated, the additional detail concerning the campaign launch is inaccurate. This inaccuracy, combined with the external check's assessment, leads to an 'OOC' classification of True. A confidence score of 9 reflects the certainty of the CPAC presence in 2021 coupled with the strong evidence against the campaign launch claim as stated in the caption.",
+    "validation_summary": "Internal and external checks agree on Trump's CPAC 2021 appearance.  They disagree on the campaign launch claim, with external verification providing evidence against it.  The inaccurate detail leads to an overall 'out of context' assessment."
+  },
+  "inference_time": 42.96487045288086
+}

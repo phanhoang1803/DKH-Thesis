@@ -1,0 +1,49 @@
+{
+  "caption": "Duck! could have been the cry from this heron in flight over a fellow bird at the River Avon, Hamilton",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "River"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Avon"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Hamilton"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a heron flying over a river, with a duck in the water. The river appears to be the River Avon, and Hamilton is likely a nearby location.  All entities are present and accurately represented in the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Your pictures of Scotland 8 - 15 January",
+        "date": "2021-01-15T10:57:42",
+        "content": "A selection of your pictures of Scotland sent in between 8 and 15 January. Send your photos to scotlandpictures@bbc.co.uk. Please ensure you adhere to the BBC's rules regarding photographs that can be found here.\nPlease also ensure you follow current coronavirus guidelines and take your pictures safely and responsibly.\nConditions of use: If you submit an image, you do so in accordance with the BBC's terms and conditions.\nPlease ensure that the photograph you send is your own and if you are submitting photographs of children, we must have written permission from a parent or guardian of every child featured (a grandparent, auntie or friend will not suffice).\nIn contributing to BBC News you agree to grant us a royalty-free, non-exclusive licence to publish and otherwise use the material in any way, including in any media worldwide.\nHowever, you will still own the copyright to everything you contribute to BBC News.\nAt no time should you endanger yourself or others, take any unnecessary risks or infringe the law.\nYou can find more information here.\nAll photos are subject to copyright.",
+        "description": "A selection of your pictures of Scotland sent in between 8 and 15 January.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided news caption is about a heron in flight over a bird at the River Avon, Hamilton.  None of the provided evidence mentions herons, birds, the River Avon, or Hamilton. The evidence is about photographs submitted to the BBC from Scotland.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 1,
+    "explanation": "The internal validation check shows high confidence that the caption accurately reflects the image content. The image depicts a heron flying over a river, with a duck visible in the water. The caption mentions a heron, a duck-like bird, and a river, all of which are present in the image.  However, the external validation check reports a complete lack of supporting evidence. It states that the provided evidence pertains to photographs submitted to the BBC from Scotland and doesn't contain any information about the River Avon or Hamilton. The discrepancy between these two checks is substantial, indicating a strong possibility of the caption being out of context.  The internal validation relies solely on the image and caption's consistency. Without corroborating evidence to confirm the location or context of the image, we cannot confidently ascertain its accuracy. The absence of supporting geographical information about Hamilton and the River Avon casts serious doubt on the veracity of the caption. The reliance on purely internal consistency based on visual analysis and textual comparison is insufficient to establish the caption's accuracy. Therefore, based on the significant discrepancy between the internal and external validation results, we have a very low confidence score in the caption's accuracy and conclude that it's out of context.  The external check completely contradicts the caption and provides no evidence supporting any of the details present. The lack of corroboration suggests the possibility of a mistaken caption assignment or a deliberate misrepresentation.",
+    "validation_summary": "Internal validation shows high confidence in the caption's match to the image, but external validation finds no supporting evidence for the location (River Avon, Hamilton). This major discrepancy indicates a high likelihood of the caption being out of context."
+  },
+  "inference_time": 30.878048419952393
+}

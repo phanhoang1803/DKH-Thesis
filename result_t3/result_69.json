@@ -1,0 +1,105 @@
+{
+  "caption": "An image shows a recruitment flyer for a group seeking to hire \"professional anarchists.\"",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "“"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Rage"
+      },
+      {
+        "entity": "I-MISC",
+        "word": ","
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Flower"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "T"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##hr"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##ow"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##er"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Is"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Banks"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##y"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Ash"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Salon"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Street"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Bethlehem"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "West"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Bank"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The entities \"Rage, Flower T\" seem out of context.  The other entities such as locations and the name Banks are not directly contradicted by the caption, but their relevance is unclear without more context. The caption mentions a recruitment flyer, and some entities may be from that flyer, but this cannot be definitively confirmed.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is This a Real Anarchist Recruitment Flyer?",
+        "date": "2020-05-31T08:25:41",
+        "content": "False and forged images are being spread nationwide that say, Get paid to be a professional anarchist. This disinformation displays TCD's phone number and an incorrect TCD email/web address. THESE IMAGES ARE FAKED TO DISCREDIT DEMOCRATS. But some people believe them. TCD has received telephone calls from the gullible asking for \"George Soros\" and other Trumpian conspiratorial nonsense.\nIF YOU SEE IT, DO NOT SHARE IT. DO NOT COMMENT ON PAGES THAT SHARE IT. If you do either, you increase its visibility on Facebook (or Twitter, Tik Tok, etc.) and are inadvertently helping to spread false right-wing propaganda of an anti-democratic, anti-Semitic nature. You may be endangering fellow Democrats.\nDO HELP prevent the spread of disruptive nonsense by reporting it to Facebook as FALSE NEWS, and assuring folks that it didnt come from us. Use the 3 dots in the corner of each post, select \"Find Support or Report Post,\" and report it as FALSE NEWS.\nThe images are Nazi-style disinformation intended to incite violence against Democrats. We condemn those who would undermine our democracy by spreading lies to our fellow citizens. Reject lies and embrace reality.\nShare this widely. Thurston County Democrats needs your help fighting fascistic disinformation. www.ThurstonDemocrats.org. Thank you.",
+        "description": "\"We condemn those who would undermine our democracy by spreading lies to our fellow citizens\"",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption states that an image shows a recruitment flyer for a group seeking to hire \"professional anarchists.\"  The provided evidence from Snopes.com explicitly debunks this claim. Snopes reports that the image is fake, part of a disinformation campaign, and created to discredit Democrats.  The flyer is not a genuine recruitment tool. Therefore, the news caption is inaccurate.",
+      "supporting_points": "Source 1 (Snopes) states that images claiming to be recruitment flyers for \"professional anarchists\" are fake and part of a disinformation campaign intended to discredit Democrats.  The article calls these images \"forged\" and \"false.\" The article confirms that the images circulating include false contact information.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts a graffiti art piece of a figure throwing flowers, not a recruitment flyer.  Internal analysis flags inconsistencies in the textual entities provided. External validation, specifically from Snopes, strongly refutes the caption's claim, stating the image is part of a disinformation campaign and not a genuine recruitment flyer.  The combination of visual misrepresentation and strong external evidence confirms the caption is out of context.",
+    "validation_summary": "Both internal and external validations strongly indicate that the caption is inaccurate and out of context. The image shows artwork, not a recruitment flyer, and external evidence (Snopes) confirms the image is part of a disinformation campaign."
+  },
+  "inference_time": 24.53563404083252
+}

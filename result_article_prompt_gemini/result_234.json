@@ -1,0 +1,49 @@
+{
+  "caption": "Just a Bernie Sanders rally in California",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Bernie"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Sanders"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "California"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image shows a massive rally in what seems to be Cuba, not a Bernie Sanders rally in California.  Therefore, the caption is completely inaccurate.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "27,000 People Came to a Bernie Sanders Rally in California",
+        "date": "2016-05-16T02:24:52",
+        "content": "Claim:\nPhotograph depicts a Bernie Sanders rally in California attended by more than 27,000 people that was ignored by the news media.\nRating:\nMostly True\nAbout this rating\nWhat's True\nPhotographs of a crowd estimated at 27,000 in attendance at a Bernie Sanders rally in California are authentic and unaltered.\nWhat's False\nThe Sanders rally depicted in the photographs did not occur in May 2016, and large Sanders rallies in August 2015 and May 2016 were amply covered by news outlets.\nIn May 2016, a meme appeared on social media charging that coverage of crowds in attendance at rallies for Democratic presidential hopeful Bernie Sanders had been ignored in mainstream news coverage of the 2016 presidential campaign:\nThe photograph used in the meme was originally published in August 2015 by The Hill in their coverage of a Sanders rally in Los Angeles. However, the image went into heavy circulation after Sanders drew large crowds during a campaign swing through Sacramento in early May 2016, an event documented by Twitter users:\nNeither the August 2015 nor the May 2016 rally was ignored by the news media, mainstream or otherwise. The August 2015 Los Angeles rally involving an estimated 27,000 people was reported by The Hill, and the May 2016 Sacramento event was covered by the Los Angeles Times, the Sacramento Bee, SFGate, the New York Times, and the Huffington Post (among others):\nVideo of the 9 May 2016 Sacramento rally was also posted to YouTube, bearing the identifying marker of ABC News:",
+        "description": "A circulating photograph depicted a Bernie Sanders rally in Los Angeles in August 2015, not a May 2016 event in Sacramento.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption \"Just a Bernie Sanders rally in California\" is supported by the provided article.  While the caption is simplistic, the article details multiple Bernie Sanders rallies in California, including one in Los Angeles with an estimated 27,000 attendees and another in Sacramento. The article confirms these events were covered by news media, refuting any suggestion of media silence. Therefore, the caption accurately reflects the occurrence of Sanders rallies in California, even if it doesn't specify the exact location or date.",
+      "supporting_points": "Source 1 explicitly mentions Bernie Sanders rallies in California, including one in Los Angeles with an estimated 27,000 attendees and another in Sacramento. The article states that these events were covered by multiple news outlets, such as The Hill, Los Angeles Times, Sacramento Bee, SFGate, New York Times, and Huffington Post.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The internal check correctly identifies a significant mismatch between the image and the caption. The image depicts a massive rally in what appears to be Cuba, featuring a large crowd, flags, and a specific geographic layout inconsistent with any known Bernie Sanders rally in California. The internal check's high confidence score (1) reflects this clear visual discrepancy.  The external check, while indicating the existence of Bernie Sanders rallies in California, does not provide evidence to support the claim that the image depicts one of these events.  The external check focuses on the presence of reported rallies, not on visual verification of specific events. The high confidence score (8) in the external check is based on the confirmation of California rallies reported in news media. However, this does not negate the strong visual evidence contradicting the caption's claim.   The discrepancy lies in the nature of the evidence: the internal check uses visual analysis of the image itself, while the external check relies on textual reports of events.  There's no overlap between the image's content and the external check's information. To reconcile this discrepancy, we must prioritize the direct visual evidence provided by the image. The image clearly does not show a Bernie Sanders rally in California.  Therefore, the caption is out of context, with a strong degree of certainty given the direct visual evidence. The external evidence confirms Sanders rallies took place in California; however, this information is irrelevant to the image's content.  The difference in confidence scores between the two checks stems from the difference in evidence types. The high confidence in the internal check comes from straightforward visual analysis, while the external check relies on indirect evidence (news reports) and doesn't actually verify the specific event shown in the image. Therefore, the most accurate assessment prioritizes the direct visual evidence, leading to the conclusion that the caption is out of context.",
+    "validation_summary": "Internal and external checks show conflicting results.  Internal check strongly refutes the caption based on image content, while external check confirms the occurrence of related events (Bernie Sanders rallies in California). The visual evidence from the image takes precedence, leading to the conclusion that the caption is out of context."
+  },
+  "inference_time": 8.195146083831787
+}

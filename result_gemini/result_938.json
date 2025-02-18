@@ -1,0 +1,69 @@
+{
+  "caption": "An image posted to Facebook on Jan. 21, 2017, shows Serhiy Kivalov, a lawmaker from Ukraine, attending the Liberty Ball, part of Mr. Trump's inauguration.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "Facebook"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Ser"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##y"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Ki"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##val"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##ov"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Ukraine"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Liberty"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Ball"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Trump"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Serhiy Kivalov at the Liberty Ball during Trump's inauguration.  All entities are present and correctly identified in the image and caption.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The claim is plausible.  Serhiy Kivalov was a Ukrainian lawmaker, and Donald Trump's inauguration included various balls and events. It's possible a Ukrainian lawmaker attended. However, without direct visual evidence of the image itself or corroboration from reliable news sources, it remains uncertain. The date is consistent with Trump's inauguration.",
+      "supporting_points": "- Serhiy Kivalov was a real Ukrainian lawmaker.\n- Donald Trump's inauguration in 2017 included events like the Liberty Ball.\n- It is possible for foreign officials to attend such events.\n- Independent verification of the Facebook post and image is needed to confirm the claim.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "Internal validation shows high confidence (score 10) in the caption's accuracy based on the image content. The image clearly shows Serhiy Kivalov at the Liberty Ball during Trump's inauguration. However, external validation provides only moderate confidence (score 8). While it acknowledges the possibility of a Ukrainian lawmaker attending the event, it lacks definitive proof from reliable sources. The external validation highlights the need for independent verification of the Facebook post and image to confirm the claim. The discrepancy arises from the difference in confidence scores between internal (high) and external (moderate) validation.  The internal check relies on direct visual evidence from the image, while the external check acknowledges the lack of independent verification to confirm the claim from external sources. There is no conflict; rather, the external check emphasizes the limitations of solely relying on the image and the need for additional verification from credible external sources.  The image alone provides strong internal evidence, but without independent external validation, the claim remains uncertain. Therefore, the overall confidence score is lowered to 8, reflecting the uncertainty associated with the lack of strong external evidence. The OOC is set to true because although the image itself supports the caption, the lack of external corroboration raises doubts about its overall reliability.",
+    "validation_summary": "Internal validation strongly supports the caption's accuracy based on the image content.  External validation shows moderate confidence due to the lack of independent verification from reliable news sources. The final assessment lowers the confidence score reflecting this uncertainty."
+  },
+  "inference_time": 6.616430997848511
+}

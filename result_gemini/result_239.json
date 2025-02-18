@@ -1,0 +1,53 @@
+{
+  "caption": "A video clip shows supporters of U.S. Sen. Bernie Sanders failing to identify a single country on an unlabeled world map.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "U"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "S"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Bernie"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Sanders"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a man who is being interviewed. He is standing in front of an unlabeled world map. The caption mentions Bernie Sanders supporters failing to identify countries on a world map. Although the man in the image is not identified as a Bernie Sanders supporter, the image is consistent with the caption's description of an unlabeled world map being used in an interview.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Does Video Show Bernie Supporters Unable to Identify One Country on a Map?",
+        "date": "2020-02-27T02:29:17",
+        "content": "Claim:\nA video clip shows supporters of U.S. Sen. Bernie Sanders failing to identify a single country on an unlabeled world map.\nOn Feb. 17, 2020, Republican U.S. Sen. Ted Cruz of Texas tweeted a video that showed people being asked to locate any country on an unlabeled world map  with each person failing at that seemingly simple task:\nCruz's added commentary in his tweet, which began with \"This is Bernies base,\" implied  if not directly asserted  that the persons shown in the video were supporters of 2020 Democratic presidential candidate Bernie Sanders:\nThis is Bernies base  the same folks who tell pollsters that socialism is great because free stuff is cool & they have no idea how many countries have tried it and utterly failed. The antidote: facts, truth & substance.\nHowever, the video tweeted by Cruz was taken from a comedy segment taped for the \"Jimmy Kimmel Live late night talk show back in 2018, before Sanders entered the race for the 2020 Democratic presidential nomination. More important, as Kimmel himself stated in response to Cruz's tweet, the persons shown in the video were randomly selected off the street and were not identified as Democrats or Sanders supporters in the segment  no one involved with the show questioned them about, or was aware of, whatever political affiliations they might have held.\nKimmel's crew then revisited that subject for his Feb. 26, 2020, show and compiled a clip of persons who explicitly identified themselves as Republicans (or as non-Sanders supporters) failing at the task of correctly identifying a single country on a world map:",
+        "description": "It's difficult to discern people's political affiliations just by looking at them.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The claim is partially supported.  The provided text mentions a video showing people failing to identify countries on a map. However, the evidence refutes the claim that those people were specifically Bernie Sanders supporters. The video was from a comedy segment, and the participants weren't identified as Sanders supporters.",
+      "supporting_points": "Source 1 explicitly states that the people in the video were randomly selected and not identified as Democrats or Sanders supporters.  The video was from a comedy segment, and Senator Cruz's implication that the participants were Bernie Sanders supporters is disputed.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The internal check gives a high confidence score (10) because the image aligns with the caption's description of an unlabeled world map being used in an interview.  However, the external check provides a lower confidence score (7) and contradicts the caption's claim that the individuals were Bernie Sanders supporters. The external check reveals that the video was part of a comedy segment, and the participants were randomly selected; their political affiliations were not established. This discrepancy between internal and external validation is significant.  The internal check focuses solely on the image's content, while the external check considers the broader context of the video and its origin. The external information about the video being a comedy segment and lack of verification of participants' political affiliation is crucial. The internal validation focuses only on the visual aspect, missing the crucial context provided by the external check. While the image shows a map and an interview, it doesn't confirm the participants' political leanings.  The external check refutes the central claim about the participants being Bernie Sanders supporters, undermining the caption's accuracy.  Given the strong evidence from the external check and the lack of supporting evidence for the claim about Bernie Sanders supporters in the video clip, the final verdict is that the caption is out of context.  The higher weight is given to the external check because it addresses the broader contextual information beyond the image itself. The confidence score is 8 because the internal check shows a strong visual match but is superseded by the more comprehensive, externally sourced information. The discrepancy highlights the importance of considering broader context beyond image-based assessments to validate the accuracy of captions.",
+    "validation_summary": "Internal validation shows a strong visual match between the image and a portion of the caption. However, external validation refutes the claim about the individuals being Bernie Sanders supporters, indicating that the caption is out of context. The conflict is resolved by prioritizing the external check which offers crucial contextual information not available in the image alone."
+  },
+  "inference_time": 7.7636332511901855
+}

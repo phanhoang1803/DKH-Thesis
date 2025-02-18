@@ -1,0 +1,33 @@
+{
+  "caption": "On the same day, gold miners wait backstage at an event in Mali",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Mali"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows women in Mali, and the caption accurately reflects the presence of the location.  There is no evidence in the image to suggest the women are gold miners. However, the caption does not explicitly state they *are* gold miners, just that they are waiting backstage.  The focus is on the location, which is correct.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Mali has gold mining activity, and it's plausible that miners might attend or be present at events related to the industry or local community. However, without specific details of the event, it's difficult to confirm the caption's accuracy.  The statement is not inherently implausible, but lacks specifics for strong verification.",
+      "supporting_points": "- Mali is known for gold mining.\n- Events related to mining or local communities in mining areas are possible.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal check identifies a discrepancy: while the image shows women in Mali, there's no evidence to support the claim that they are gold miners. The external check acknowledges the possibility of miners attending events in a gold-mining region like Mali, but it lacks sufficient evidence to confirm this. The low confidence score reflects the lack of supporting evidence for the \"gold miners\" aspect of the caption. Both checks agree that the location (Mali) is correctly identified, but disagree on the occupation of the women.  Given the limited information in the image and the ambiguous caption, it's not possible to definitively verify the caption's accuracy beyond the geographical location. The uncertainty stems from a lack of visual cues or contextual information linking these women to gold mining. The caption's assertion about their occupation is unsupported by the evidence present in the image. While it's not impossible that these women are gold miners attending an event, this interpretation is purely speculative. Therefore, the caption's claim regarding their profession is considered out of context and lacks strong supporting evidence.",
+    "validation_summary": "Both internal and external checks agree on the image's location (Mali) but disagree on the occupation of the women. The lack of evidence linking the women to gold mining renders the caption's assertion as out of context."
+  },
+  "inference_time": 35.87415671348572
+}

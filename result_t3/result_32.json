@@ -1,0 +1,41 @@
+{
+  "caption": "A ZIP code in Brooklyn has N.Y.C.’s highest death rate.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "Tri"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##nse"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##o"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided entities \"Tri\", \"##nse\", and \"##o\" do not appear in the news caption.  Therefore, it's impossible to judge their correctness within the context of the caption.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "It is plausible that a ZIP code in Brooklyn, a densely populated borough of New York City, could have a high death rate due to various socioeconomic and health factors.  While I don't have access to real-time mortality data to confirm the specific claim, the general premise aligns with the understanding that death rates can vary significantly within a city based on factors such as income inequality, access to healthcare, and population density. Therefore, the statement is considered plausible.",
+      "supporting_points": "Death rates vary geographically within cities due to factors like socioeconomic status, access to healthcare and population density. Brooklyn is a densely populated borough of NYC, thus some areas might have higher death rates than others.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 3,
+    "explanation": "The image depicts a tire shop in what seems to be an urban environment. There is no visual evidence related to death rates or statistics. The internal check found no entities from the caption in the image, and the external check, while acknowledging the plausibility of a high death rate in certain Brooklyn ZIP codes, does not link this plausibility to the image.  The lack of visual connection between the image and the caption's claim, combined with the absence of supporting textual information from the image itself, leads to the conclusion that the caption is out of context.",
+    "validation_summary": "Internal check reveals no direct textual connection between the caption and image. External check finds the caption's claim plausible in general terms but lacks a visual connection to the image. The image shows a tire shop and doesn't directly or indirectly support the claim about death rates."
+  },
+  "inference_time": 29.873216152191162
+}

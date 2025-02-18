@@ -1,0 +1,81 @@
+{
+  "caption": "Former Alaska governor (and John McCain’s running mate in the 2008 Presidential race) Sarah Palin took to Facebook to demand a ban on “Arabic numerals” in U.S. schools",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Alaska"
+      },
+      {
+        "entity": "B-PER",
+        "word": "John"
+      },
+      {
+        "entity": "I-PER",
+        "word": "McCain"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Presidential"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Sarah"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Pa"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##lin"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "Facebook"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Arabic"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "U"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "S"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image shows Sarah Palin speaking.  The caption mentions her role as John McCain's running mate and her Facebook post. The image aligns with the \"Sarah Palin\" entity.  The other entities are mentioned in the caption but aren't visually present in the image. Thus, the confidence score is moderate.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Sarah Palin Wants 'Arabic Numerals' Banned From America's Schools",
+        "date": "2016-05-06T10:59:29",
+        "content": "Claim:\nSarah Palin wants to ban \"Arabic numerals\" from American schools.\nIn April 2016, a story popped up on a hoax news web site reporting that former Alaska governor (and John McCain's running mate in the 2008 Presidential race) Sarah Palin took to Facebook to demand a ban on \"Arabic numerals\" in U.S. schools:\nIn keeping with the Republican partys platform of proposed safeguards, Palin also called for advanced screening for all teachers:\nIf foreign elements can swimmingly cross over the river and through the woods, they can just as easily infiltrate the teaching profession in ways we must not encourage. These dangerous foreign walk-overs who look more and more like real every-day normal Americans, lured with gift baskets and teddy bears, often blend into the very footholds of our societal norms after establishing dangerous toeholds.\nPalin, known as a vocal and athletic supporter of Donald Trump, said that she is now a double-barreled, locked and loaded supporter of both Trumps and Ted Cruzs proposed guidelines for stricter immigration laws, border protections and neighborhood scrutinies.\n-An earlier version of this report incorrectly stated Mrs. Palins call for the removal of Aerobics from physical education courses. The author regrets the error.\nThere is no truth to this story, which came from a well-known (and prolific) hoax and satire news site. The joke in this case is that \"Arabic numerals\" (also known as Hindu-Arabic numerals) are the numbers most familiar to much of the world, and originated in India during the 6th or 7th century. They were introduced to Europe by mathematicians from what is now the Middle East (shown here as they appeared in the Codex Vigilianus around the 10th century):\nPalin has thrown her political backing behind Trump, and has been active on traditional and social media expressing that support. However, she has made no mention of banning numbers, whether of Hindu-Arabic or Roman origin.",
+        "description": "The hoax story originated from a satire news web site.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption is False.  Snopes.com, a reputable fact-checking website, explicitly debunks the claim that Sarah Palin called for a ban on Arabic numerals in US schools.  The article traces the origin of the claim to a hoax news website and states that Palin has not made any such statement. The Snopes article provides detailed evidence to support its conclusion.",
+      "supporting_points": "Source 1 (Snopes): \"There is no truth to this story, which came from a well-known (and prolific) hoax and satire news site. The joke in this case is that \"Arabic numerals\" (also known as Hindu-Arabic numerals) are the numbers most familiar to much of the world, and originated in India during the 6th or 7th century. They were introduced to Europe by mathematicians from what is now the Middle East... Palin has made no mention of banning numbers, whether of Hindu-Arabic or Roman origin.\"",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The internal validation check assesses the image's alignment with the caption, focusing on the presence of Sarah Palin. It finds a moderate match because the image shows Palin, aligning with one entity, but the caption also includes information (her role as McCain's running mate and the Facebook post) not visually present. The external validation check, however, is crucial.  It uses Snopes.com, a reputable fact-checking source, to confirm the accuracy of the caption's claim.  Snopes conclusively debunks the claim, stating that Palin never called for a ban on Arabic numerals in US schools.  The discrepancy highlights a significant conflict: while the image shows Palin, the core assertion of the caption is factually incorrect. The high confidence score from the external check (10) outweighs the moderate confidence from the internal check (7). The external validation, supported by a reliable source, strongly indicates the caption is out of context. The external evidence decisively shows the caption misrepresents Palin's actions and statements.  Therefore, the caption is deemed out of context, with a high confidence level.",
+    "validation_summary": "Internal validation shows moderate alignment (7/10) with the image, while external validation strongly refutes the caption's claim (10/10) using a reliable fact-checking source.  The external evidence overwhelmingly supports a conclusion of 'out of context'."
+  },
+  "inference_time": 6.7231879234313965
+}

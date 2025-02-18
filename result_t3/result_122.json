@@ -1,0 +1,49 @@
+{
+  "caption": "A photograph shows buses purchased by Black Lives Matter to \"transport members to riots.\"",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "Disney"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "B"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##LM"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The entities \"Disney\", \"B\", and \"##LM\" are not present in the provided news caption.  Therefore, there is no basis for judging their usage. The caption mentions \"Black Lives Matter\", which is a different entity.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Does This Photo Show Buses Purchased by BLM?",
+        "date": "2020-07-27T05:24:41",
+        "content": "Claim:\nA photograph shows buses purchased by Black Lives Matter to \"transport members to riots.\"\nRating:\nMiscaptioned\nAbout this rating\nAmidst the political turmoil in the U.S. following the May 2020 police custody death of George Floyd in Minneapolis, a meme shared on social media sought to denigrate the Black Lives Matter (BLM) movement. That meme claimed BLM had raised \"over a billion dollars\" but had not used that money to provide necessities such as food, housing, or schooling; instead, they had expended it on buying \"huge charter busses to transport members to riots\":\nAs for the first part of the meme, BLM is a \"decentralized movement advocating for non-violent civil disobedience in protest against incidents of police brutality and all racially motivated violence against African-American people\"; it isn't a centrally organized group that was founded for the purpose of feeding the hungry, providing housing, or funding schooling, nor does it raise money on that basis.\nMoreover, the photograph accompanying this meme does not show any buses purchased by BLM \"to transport members to riots,\" or for any other purpose. The vehicles pictured here belong to the Toronto Raptors professional basketball team, who wrapped their buses with the Black Lives Matter name as a show of support for the movement, as documented on the Raptors' Twitter account:",
+        "description": "The BLM movement began with the use of the hashtag #BlackLivesMatter on social media after the acquittal of George Zimmerman in the shooting death of Trayvon Martin.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption is inaccurate. Snopes, a reputable fact-checking website, debunks the claim.  The image in question shows buses belonging to the Toronto Raptors, not buses purchased by Black Lives Matter. The Raptors used the BLM name as a show of support. The Snopes article provides detailed information about the meme's origin and its attempt to denigrate the BLM movement.",
+      "supporting_points": "Source 1 from Snopes explicitly states that the photograph does not show buses purchased by BLM and that the buses belong to the Toronto Raptors.  The source describes the meme as an attempt to denigrate the BLM movement by falsely claiming that funds were used to transport members to riots.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The news caption claims the image shows buses purchased by Black Lives Matter to transport members to riots.  Internal checks reveal no direct textual support for this claim within the image itself.  External validation, primarily from Snopes, definitively refutes the caption. Snopes identifies the buses as belonging to the Toronto Raptors, used as a show of support for BLM. The claim's purpose appears to be to denigrate the BLM movement. Therefore, the caption is out of context and inaccurate.",
+    "validation_summary": "Internal checks found no supporting evidence in the image. External fact-checking from a reliable source (Snopes) strongly refutes the caption, confirming it is out of context."
+  },
+  "inference_time": 33.27803063392639
+}

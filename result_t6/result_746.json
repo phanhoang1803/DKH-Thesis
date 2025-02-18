@@ -1,0 +1,101 @@
+{
+  "caption": "Mr Kennedy's daughter Caroline was given a pony, named Macaroni, by Lyndon B Johnson. The president, Caroline and Macaroni are seen above with John Kennedy Jr outside the Oval Office in 1962.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Kennedy"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Caroline"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Mac"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##aro"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Lyndon"
+      },
+      {
+        "entity": "I-PER",
+        "word": "B"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Johnson"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Caroline"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Mac"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##aro"
+      },
+      {
+        "entity": "B-PER",
+        "word": "##ni"
+      },
+      {
+        "entity": "B-PER",
+        "word": "John"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Kennedy"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Jr"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Oval"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Office"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows John F. Kennedy, Caroline Kennedy, and John F. Kennedy Jr. with a pony.  The caption mentions Lyndon B. Johnson gifting the pony, which is not depicted in the image. The image shows the family interacting with the pony outside what seems to be the Oval Office, which aligns with the caption.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "White House pets: Cats, dogs and raccoons through the years",
+        "date": "2021-01-26T19:20:26",
+        "content": "It hasn't always been dogs and cats in the White House - here are a few photos going back decades of first families with their pets.",
+        "description": "Presidents and first ladies have been photographed with their cats, dogs, and even a raccoon, for decades.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided text does not contain any information about Caroline Kennedy receiving a pony named Macaroni from Lyndon B. Johnson.  Therefore, the claim cannot be verified or refuted using the given source.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 3,
+    "explanation": "The internal validation gives a high confidence score of 8 because the image clearly shows John F. Kennedy, Caroline Kennedy, and John F. Kennedy Jr. with a pony, aligning with the caption's description.  However, the external validation has a confidence score of 0, stating that there is no external information to corroborate the claim about Lyndon B. Johnson gifting the pony to Caroline.  This significant discrepancy necessitates a lower overall confidence score. The internal validation focuses solely on the visual alignment between the image and caption elements present in the caption, while neglecting the crucial detail about the pony's origin (Lyndon B. Johnson's gift). The external validation attempts to verify this missing detail, and its failure highlights a crucial omission in the caption. The lack of external evidence to support the statement about Lyndon B. Johnson gifting the pony creates uncertainty, and suggests that the caption might be incomplete or inaccurate regarding this important context. This, in turn, affects the overall assessment of whether the image accurately reflects the entire narrative within the caption. Therefore, the final determination is that the caption is out of context because it presents additional information (Lyndon B. Johnson's gift) not confirmed by available visual or external evidence.",
+    "validation_summary": "Internal validation shows strong visual agreement but lacks external confirmation for the claim of Lyndon B. Johnson gifting the pony.  The discrepancy between internal and external validation results in a low overall confidence score and a conclusion that the caption is out of context."
+  },
+  "inference_time": 36.76111936569214
+}

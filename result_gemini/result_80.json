@@ -1,0 +1,53 @@
+{
+  "caption": "Hillary Clinton “got her wish” that someone like Donald Trump would run for office",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Hillary"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Clinton"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Donald"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Trump"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both Hillary Clinton and Donald Trump are clearly and accurately depicted in the image.  The image shows them together, which aligns with the caption's implication that they are related in some way. There are no visual ambiguities or occlusions affecting the identification of either person.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Did Hillary Clinton Get 'Her Wish' That Trump Would Run for Office?",
+        "date": "2019-10-24T06:42:37",
+        "content": "Claim:\nA photograph proves Hillary Clinton wanted someone like Donald Trump to run for office.\nRating:\nMiscaptioned\nAbout this rating\nIn October 2019, a meme circulated on Facebook and Instagram suggesting Hillary Clinton got her wish that someone like Donald Trump would run for office.\nIn the meme, a photograph of Hillary Clinton and Donald Trump is shown above a caption that quotes Clinton as saying, \"I would like to see people like Donald Trump run for office; Theyre honest and cant be bought.\nThis was a variation of a familiar claim, which we identified as \"False\" back in 2016 when Clinton was running for president against Donald Trump.\nThe quote is a fabrication inspired by remarks Clinton delivered to Goldman Sachs in 2013. Purported transcripts of those remarks were published by WikiLeaks weeks before the 2016 election.\nThe image in the meme, while it appears clipped straight from an old newspaper, is more than likely a cropped detail of a photograph taken at the wedding of Donald and Melania Trump in 2005. Un-cropped versions of the photograph, easily surfaced in a quick Google Image search, show Bill Clinton and Melania Trump standing to Hillarys left.\nSeveral different media outlets, including CNN, NBC, ABC, The New York Times, and The Hollywood Reporter, have published similar images from that photo op and also confirmed that, yes, Bill and Hillary Clinton did attend the Trumps' wedding.\nWe rate the new variation of this claim as \"Miscaptioned\" because it applies a previously debunked, false back story to a real, though doctored, photograph. In other words, its an old lie dressed up in new (black tie) clothing.",
+        "description": "An old claim resurfaced in newer, fancier clothing.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The provided evidence directly addresses the claim that Hillary Clinton wished for someone like Donald Trump to run for office.  Snopes rates this claim as \"Miscaptioned\",  explaining that a meme circulating online falsely attributes a quote to Clinton.  The quote is fabricated, stemming from a misinterpretation of her remarks to Goldman Sachs. While the photo in the meme is real, the caption is false. Therefore, the news caption is inaccurate.",
+      "supporting_points": "Source 1 explicitly states that the claim is 'Miscaptioned' and that the quote attributed to Hillary Clinton is a fabrication.  The source details how the meme uses a real photo but applies a false quote. Snopes identifies the origin of the false quote and demonstrates that it is not a true representation of Clinton's views.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The internal check shows high confidence (10) in the accuracy of the image depicting Hillary Clinton and Donald Trump, aligning with the caption's implication of a relationship between them. However, the external check reveals a significant discrepancy.  With a confidence score of 8, the external check demonstrates that the claim in the caption – that Hillary Clinton \"got her wish\" regarding Donald Trump's candidacy – is false.  Snopes, a reputable fact-checking source, labels the statement as 'Miscaptioned,' attributing it to a fabricated quote misrepresenting Clinton's remarks to Goldman Sachs.  The external evidence directly refutes the caption's claim, highlighting the importance of external validation.  The conflict arises from a disconnect between the visual content (which is accurate) and the factual claim within the caption. While the image is internally consistent with the caption at a superficial level (showing both individuals together), the deeper meaning conveyed by the caption is proven false by external sources.  The high confidence scores from both checks highlight the importance of considering both internal consistency (entity alignment) and external verification. The external validation carries more weight in this scenario, given that it directly addresses the truthfulness of the caption's central claim, which is demonstrably false.  The internal check is limited to assessing visual consistency and does not evaluate the accuracy of the caption's implied meaning.  Therefore, because of the high-confidence external evidence indicating the caption misrepresents Clinton's views and the quote is a fabrication, the caption is considered out of context despite the high internal confidence score.  The final assessment leans towards the external evidence, prioritizing factual accuracy over superficial visual alignment.  This case underscores the need for comprehensive validation strategies that include both internal checks and rigorous external verification.",
+    "validation_summary": "Internal check shows high confidence in image accuracy but external check (Snopes) reveals caption's claim is false, leading to an OOC assessment.  The external evidence outweighs the internal due to its direct refutation of the caption's central claim."
+  },
+  "inference_time": 49.54175639152527
+}

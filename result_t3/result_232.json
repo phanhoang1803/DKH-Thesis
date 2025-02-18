@@ -1,0 +1,65 @@
+{
+  "caption": "The sandstorms were expected to shift south towards the Yangtze River delta and should clear by Wednesday or Thursday, the environment ministry said.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "China"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "CC"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##TV"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Central"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Business"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "District"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Beijing"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "None of the entities retrieved from the content are present in the news caption.  Therefore, there is no basis for comparison or judgment.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "In pictures: Beijing sandstorm turns sky orange",
+        "date": "2021-03-15T18:24:53",
+        "content": "On Monday, the Chinese capital of Beijing experienced what its weather bureau called the worst sandstorm in a decade.",
+        "description": "China's weather bureau has called it the worst sandstorm in a decade.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The provided evidence focuses on a severe sandstorm in Beijing, not on the movement of sandstorms towards the Yangtze River delta.  Source 1 mentions the worst sandstorm in a decade in Beijing, but offers no information about the sandstorm's trajectory or predicted clearing time.  The news caption's claim about the sandstorm's southward movement and predicted clearing time lacks support from the given evidence. Therefore, the accuracy of the caption cannot be verified with the provided source.",
+      "supporting_points": "Source 1 describes the Beijing sandstorm as 'the worst in a decade', but contains no information about the sandstorm's movement towards the Yangtze River delta or its predicted dissipation timeframe.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 5,
+    "explanation": "The image shows a person in Beijing wearing a face mask during a sandstorm, consistent with reports of a severe sandstorm in the city. However, the caption focuses on the predicted movement of the sandstorm towards the Yangtze River delta and its clearing time, which is not supported by the image or the provided external evidence. The external evidence mentions the severity of the Beijing sandstorm but doesn't confirm the caption's claims about its southward movement and predicted dissipation.  Therefore, the caption is out of context.",
+    "validation_summary": "The image depicts a sandstorm in Beijing, aligning with reports of a severe weather event.  However, the caption's claim regarding the sandstorm's trajectory and dissipation timeframe lacks support from the image or external evidence."
+  },
+  "inference_time": 35.76553511619568
+}

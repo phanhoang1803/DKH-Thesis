@@ -1,0 +1,73 @@
+{
+  "caption": "Some animals took advantage of the quieter streets: goats took a stroll around the deserted streets of Llandudno, north Wales, on 31 March. Town councillor Carol Marubbi said: \"They are curious... and I think they are wondering what's going on, like everybody else.\"",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "L"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##land"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ud"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##no"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Wales"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Carol"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Mar"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##ub"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##bi"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows goats walking down a street in Llandudno, Wales.  The caption mentions Llandudno, Wales, and a person named Carol Marubbi. While the image does not depict Carol Marubbi, the other information is visually confirmed. Therefore, the entities are correctly used.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "2020 in pictures: Coronavirus in the UK",
+        "date": "2020-12-31T00:45:27",
+        "content": "A selection of some of the most striking images taken by news photographers covering the coronavirus pandemic in the UK.\nPhotos are subject to copyright.",
+        "description": "Images that defined the year a pandemic dominated the nation.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The provided evidence mentions a picture selection from BBC news about the coronavirus pandemic in the UK, but it does not contain the specific claim about goats strolling in Llandudno.  Therefore, there is no support for the news caption within the given source.",
+      "supporting_points": "Source 1 is related to coronavirus pictures but does not contain the information about goats in Llandudno.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 5,
+    "explanation": "The internal check shows high confidence in the caption's accuracy based on the image content. The image clearly depicts goats walking on a street that appears to be in Llandudno, Wales. The internal check correctly identifies the presence of goats and the location mentioned in the caption. However, the external check reveals a significant discrepancy.  The external check lacks sufficient evidence to support the claim that the goats strolling in Llandudno was reported by the BBC during the coronavirus pandemic. The external source is vaguely related to the coronavirus pictures, but it does not specifically corroborate the claim made in the caption. This disagreement between the internal and external checks creates uncertainty. The lack of robust external evidence significantly lowers the overall confidence score.  The high confidence of the internal check is undermined by the low confidence and negative verdict of the external check.  The internal check's confidence stems from the clear visual evidence in the image aligning with aspects of the caption.  The external check's low confidence highlights the absence of corroborating external reporting that would confirm the caption's specific claim about the goats' actions and the time frame mentioned (March 31st). Given this discrepancy, we must lean towards caution. It's possible the image is genuine, showing goats walking in Llandudno, but there is no strong evidence to support the claim that this specific event was reported by the BBC or the date.  The lack of strong external evidence prevents us from definitively concluding that the caption is completely accurate. The visual evidence supports part of the caption but not all elements, therefore classifying it as out of context.  The overall assessment is cautious, favoring the external check's low confidence, as the absence of supporting external evidence is a significant factor in determining the truthfulness and context of the caption.",
+    "validation_summary": "Internal check strongly supports the caption based on the image's visual content. However, the external check fails to find supporting evidence, causing a significant discrepancy.  The absence of external corroboration leads to a conclusion that the caption is out of context."
+  },
+  "inference_time": 39.16005539894104
+}

@@ -1,0 +1,61 @@
+{
+  "caption": "A street vendor named “nah” who supposedly told a reporter he was selling $100 sweatshirts to “stupid” supporters of U.S. President Donald Trump",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "U"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "."
+      },
+      {
+        "entity": "I-LOC",
+        "word": "S"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "."
+      },
+      {
+        "entity": "B-PER",
+        "word": "Donald"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Trump"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows people wearing clothing with Donald Trump's name and the year 2020 on them.  It also shows a vendor selling merchandise.  While the vendor's name isn't visible, and the price of the sweatshirts isn't explicitly shown, the other entities are present and depicted accurately.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Did Vendor 'Nah' Sell $100 Trump Sweatshirts?",
+        "date": "2021-01-11T02:02:22",
+        "content": "Claim:\nA photograph shows a vendor identified as \"Nah\" who said that he was selling $100 sweatshirts to \"stupid\" Trump supporters.\nRating:\nMiscaptioned\nAbout this rating\nOn Jan. 10, 2021, an anecdote went viral on Twitter about a street vendor named \"nah\" who supposedly told a reporter he was selling $100 sweatshirts to \"stupid\" supporters of U.S. President Donald Trump:\nThis is a genuine photograph of two people selling Trump merchandise in Washington, D.C. The displayed caption, however, does not capture a genuine exchange between a journalist and these vendors.\nThe text below the image originated with an article published on Medium in which the editors of the publication \"Level\" reimagined captions for various photographs that were taken on the day that a pro-Trump mob stormed the Capitol, Jan. 6, 2021. The editors explained in the article's title and opening paragraph that these captions were not factual:\nWe Added Some Details to Getty Photos of Those Terrorists Who Stormed the U.S. Capitol\n[...]\nSee, most of the captions that come with those photos are minimally descriptive: Thousands of Donald Trump supporters storm the United States Capitol building following a Stop the Steal rally on January 6, 2021, in Washington, D.C. The world needs to know who these people are, so we went digging. Are these really their names and circumstances? Nope  but thats not going to stop us from thinking they are!\nWhile the viral caption for this picture is not real, the photograph is. It was taken near the U.S. Capitol the day of the insurrection and shows two unidentified vendors selling Trump merchandise. As lamented in the aforementioned article, the real caption on Getty Images does not provide much additional detail about these vendors:\nStreet vendors selling President Donald Trump memorabilia are seen on the sidewalk near the U.S. Capitol Building on January 6, 2021 in Washington, DC. A pro-Trump mob stormed the Capitol, breaking windows and clashing with police officers. Trump supporters gathered in the nation's capital today to protest the ratification of President-elect Joe Biden's Electoral College victory over President Trump in the 2020 election. (Photo by Jon Cherry/Getty Images)",
+        "description": "This is a real photo but ...",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The claim that a street vendor named \"nah\" sold $100 sweatshirts to \"stupid\" Trump supporters is FALSE. Snopes.com fact-check debunks this claim.  While the photo of vendors selling Trump merchandise is real, the alleged quote from the vendor is fabricated.  Snopes explicitly states that the caption accompanying the photo was created by Level, a publication that admitted to reimagining captions for photos from the day of the Capitol riot. The original caption from Getty Images did not include any such quote.",
+      "supporting_points": "Source 1: Snopes.com fact-check explicitly states that the viral caption is not real and the quote attributed to the vendor \"Nah\" is fabricated. The original Getty Images caption provided no such quote.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The original caption claims that a street vendor, identified only as \"nah,\" sold $100 sweatshirts to \"stupid\" supporters of President Trump.  Internal validation shows a degree of consistency with the image. The photo depicts a vendor selling merchandise with Trump's name and '2020' on it, aligning with the caption's description of merchandise and political affiliation. However, the vendor's name and the price of the sweatshirts are not visible in the image, limiting the internal validation's certainty.  The external check, however, decisively refutes the core claim of the caption. Snopes.com's fact-check explicitly confirms that the quote attributed to the vendor is fabricated and that the original caption accompanying the Getty Images photo contained no such quote. This external evidence strongly suggests the original caption is out of context. The discrepancy between the partial internal consistency and the strong external evidence pointing to fabrication means the original caption is unreliable.  The external validation's high confidence score of 10, coupled with Snopes's authoritative debunking, far outweighs the weaker internal validation. The visual evidence itself is consistent with a vendor selling Trump merchandise near the Capitol building, but this fact alone doesn't validate the false claims about the vendor's name, his words, or the price of his products. Therefore, the caption is deemed out of context. There is no visual evidence to suggest any tampering or misrepresentation of the image itself; the image appears genuine. The issue lies solely with the caption's fabricated elements.",
+    "validation_summary": "Internal validation partially supports the presence of Trump merchandise and a vendor, but lacks evidence for the vendor's name, quote, and price. External validation definitively refutes the core claim of the caption as fabricated, resulting in a conclusion that the caption is out of context."
+  },
+  "inference_time": 36.628440856933594
+}

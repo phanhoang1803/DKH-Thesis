@@ -1,0 +1,49 @@
+{
+  "caption": "A video shows Anderson Cooper laughing uncontrollably after Kellyanne Conway used the phrase \"alternative facts.\"",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Anderson"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Cooper"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Kelly"
+      },
+      {
+        "entity": "B-PER",
+        "word": "##anne"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Conway"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Anderson Cooper, who is mentioned in the caption.  The caption states that he is laughing uncontrollably after Kellyanne Conway used the phrase \"alternative facts.\" While the image shows Anderson Cooper, it does not show Kellyanne Conway or depict him laughing uncontrollably, thus the confidence score is 10, but the verdict is true because the image shows the entity Anderson Cooper. ",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The event described is plausible.  Kellyanne Conway's use of the phrase \"alternative facts\" was widely reported and became a subject of significant media attention and public discussion.  Anderson Cooper is a prominent news anchor known for his reactions on air.  Therefore, it is conceivable that a video exists showing Cooper's reaction to Conway's statement. However, without seeing the video itself or having a verifiable source that confirms the existence and context of such a video, it's not possible to be completely certain. The claim does not seem inherently implausible given the personalities involved and the media climate at the time.",
+      "supporting_points": "Kellyanne Conway's use of the phrase \"alternative facts\" is a well-documented event. Anderson Cooper is a known news anchor with a documented history of on-air reactions.  The claim's plausibility stems from the high media attention surrounding the \"alternative facts\" controversy.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal validation correctly identifies Anderson Cooper in the image, but notes the caption's claim about him laughing uncontrollably after Kellyanne Conway's \"alternative facts\" statement is not visually supported.  The confidence score is low because the image only shows Anderson Cooper; it doesn't depict the event described in the caption. The external validation acknowledges the plausibility of the event described in the caption, considering the public attention surrounding Kellyanne Conway's statement and Anderson Cooper's role as a news anchor. However, it also points out the lack of verifiable evidence to confirm the video's existence. The discrepancy lies in the visual evidence: the image doesn't show the described event, while the external check accepts its plausibility.  Because the image lacks visual evidence to confirm the core claim in the caption (uncontrollable laughter in reaction to Conway's statement), the caption is deemed out of context.  The low confidence score reflects the limited visual information and the reliance on external plausibility rather than direct visual confirmation.",
+    "validation_summary": "Internal validation confirms the presence of Anderson Cooper but finds the caption's description of his reaction unsupported. External validation acknowledges the event's plausibility but lacks evidence to confirm the video's existence. The image itself does not visually support the caption's central claim."
+  },
+  "inference_time": 11.462411642074585
+}

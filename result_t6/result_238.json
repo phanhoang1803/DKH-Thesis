@@ -1,0 +1,41 @@
+{
+  "caption": "Demonstrators in Jakarta cover an elderly woman during clashes with police",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Jakarta"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a group of people, some of whom appear to be demonstrators, in what seems to be Jakarta, Indonesia.  A woman who looks elderly is being shielded or protected by several people. While there is no direct evidence of \"clashes with police\", the scene suggests a protest or demonstration. The location entity \"Jakarta\" is plausible given the visual scene and context.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Indonesia protest: Jakarta anti-governor rally turns violent",
+        "date": "2016-11-04T03:50:12",
+        "content": "Indonesian police have used tear gas and water cannon to subdue protesters as thousands of hard-line Muslims marched against Jakarta's governor.\nBasuki Tjahaja Purnama, a Christian, is the first ethnic Chinese to hold the governor's post in the capital of majority Muslim Indonesia.\nThe demonstrators accuse him of having insulted Islam's holy book, the Koran, and want him to be prosecuted.\nClashes broke out between police and protesters who refused to disperse.\nOne elderly man died, the Associated Press reports, citing police. Several other people, including police officers, have been injured.\nProtesters had earlier marched upon the presidential palace.\nPolice had been braced for the possibility of religious and racial tensions erupting at the rally, which an estimated 50,000 people attended.\nIt had mostly been peaceful but groups of angry demonstrators clashed with police after nightfall and set vehicles alight.\nIn 1998, a wave of anti-Chinese sentiment led to mobs looting and burning Chinese-owned shops and houses. Ethnic Chinese make up about 1% of Indonesia's population of 250 million people.\nThe protest was held to demand that Mr Purnama be prosecuted for blasphemy over comments he made in September that were seen as criticising a Koranic verse.\nHe said that Islamic groups using a passage of the Koran to urge people not to support him were deceiving voters, who will go to the polls in February.\nThe verse is interpreted by some as prohibiting Muslims from living under the leadership of a non-Muslim.\nMr Purnama has since apologised but formal complaints were lodged against him by Islamic groups for defamation. He is now being investigated by police.\nWho is Governor Ahok?\nSome protesters at Friday's rally carried signs calling for the governor's death, the BBC's Rebecca Henschke in Jakarta says.\nRepresentatives met with Vice-President Yusuf Kalla, who promised that the investigation into Mr Purnama would be completed within two weeks.",
+        "description": "Indonesian police clash with hard-line Muslims protesting against Jakarta's governor.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "Source 1 describes clashes between police and protesters, mentions injuries and one death, but contains no information about demonstrators covering an elderly woman.  The news caption is not supported by the provided evidence.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal validation gives a high confidence score (10) because the image shows a group of people protecting an elderly woman during what appears to be a protest or demonstration in Jakarta.  However, the external validation gives a low confidence score (3) as it finds no supporting evidence for the claim in the provided news sources. There is a significant discrepancy between the internal and external validation results. The internal assessment relies heavily on visual interpretation, while the external assessment lacks corroborating information.  The image itself strongly suggests a protest or demonstration, and the elderly woman is clearly being protected by others.  While there's no explicit mention of clashes with police in the image itself, the overall context is suggestive of a tense situation. However, the external source's failure to support the specific caption detail of demonstrators protecting an elderly woman during clashes with police weakens the claim substantially.  The lack of external evidence directly contradicting the claim, while still leaving it unsubstantiated, is the reason the confidence score isn't lower. The absence of corroborating evidence casts doubt on the accuracy of the news caption, specifically the detail about the interaction between demonstrators and the elderly woman in the context of clashes with police.  The image could depict a demonstration, and there's plausible protection of the woman, but the connection to police clashes is not directly supported, and the available information suggests the caption's claim needs further confirmation.  Therefore, the conclusion is that the caption is likely out of context, despite the visual evidence suggesting a protest and protection of the woman. The uncertainty lies in the missing external validation confirming the connection between the woman, demonstrators, and clashes with police.",
+    "validation_summary": "Internal validation finds the image consistent with a demonstration and protection of an elderly woman but lacks evidence of police clashes.  External validation finds no supporting evidence for the specific claim in the provided news sources, leading to a significant discrepancy and a conclusion of out-of-context caption."
+  },
+  "inference_time": 44.62858319282532
+}

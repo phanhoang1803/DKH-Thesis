@@ -1,0 +1,65 @@
+{
+  "caption": "A photograph of current and former U.S. presidents shows President Obama giving former President George W. Bush \"bunny ears.\"",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "U"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "S"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "."
+      },
+      {
+        "entity": "B-PER",
+        "word": "Obama"
+      },
+      {
+        "entity": "B-PER",
+        "word": "George"
+      },
+      {
+        "entity": "I-PER",
+        "word": "W"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Bush"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows President Obama, George W. Bush, and other former presidents.  Obama is playfully making \"bunny ears\" behind Bush. The caption accurately reflects this visual content and the entities are correctly identified and their relationships are accurately described.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Did Obama Give George W. Bush 'Bunny Ears'?",
+        "date": "2016-09-23T03:04:50",
+        "content": "Claim:\nA photograph of current and former U.S. presidents shows President Obama giving former President George W. Bush \"bunny ears.\"\nRating:\nFalse\nAbout this rating\nIn 2013, all four living former United States Presidents  Jimmy Carter, George H.W. Bush, George W. Bush, and Bill Clinton  gathered with current President Barack Obama for the opening of the George W. Bush Presidential Center. As expected, that assembly of chief executives was photographed for posterity by former Chief Official White House Photographer Pete Souza:\nLater, someone performed a little digital manipulation to that photograph to make it appear as if President Obama had given former President George W. Bush \"bunny ears\" when the picture was snapped:",
+        "description": "An image showing President Obama giving former President George W. Bush \"bunny ears\" during a photo op is a fake.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided text from Snopes explicitly states that a photograph depicting President Obama giving former President George W. Bush \"bunny ears\" is digitally manipulated and fake.  Therefore, the news caption is false.",
+      "supporting_points": "Source 1: Snopes article explicitly debunks the claim, stating that the image is digitally manipulated.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The internal check gives a high confidence score (10) because the caption aligns well with the visual content of the image. The image shows President Obama appearing to give former President George W. Bush \"bunny ears.\"  The caption accurately describes this visual element and identifies the individuals correctly. However, the external check also provides a high confidence score (10) and contradicts the internal check by stating that the image is digitally manipulated and is therefore fake. The external check references a Snopes article, which is a reputable source for fact-checking. The conflict between these two checks requires careful consideration.  The internal check assesses the literal depiction in the image, but the external check provides evidence suggesting that the literal depiction is false. Because we have strong evidence that the image is digitally altered, and thus the visual content of the image is not a true representation of an actual event, we must prioritize the external validation. This is because the external validation examines the authenticity of the image as a whole, while the internal validation focuses on the immediate visual content without considering its potential manipulation. The Snopes article's assertion that the image is fake is a more robust form of validation. The high confidence scores in both internal and external checks further solidify this assessment.  Therefore, the caption is determined to be out of context because it describes a situation shown in a manipulated image that did not actually occur. The discrepancy is resolved by weighing the evidence: a fact-checked source demonstrating the image's falsity overrides a purely visual interpretation.",
+    "validation_summary": "Internal check shows high confidence in the caption's accuracy based on the image's visual content.  However, an external check (Snopes) provides equally high confidence that the image is digitally manipulated and fake. The external validation, verifying the image's authenticity, supersedes the purely visual interpretation.  Therefore, the caption is deemed out of context."
+  },
+  "inference_time": 41.931737422943115
+}

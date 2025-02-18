@@ -1,0 +1,85 @@
+{
+  "caption": "Photographs shared widely on TikTok and Twitter in late 2020 and early 2021 showed U.S. Rep. Alexandria Ocasio-Cortez.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "T"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##ik"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##T"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##ok"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "U"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "S"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Alexandria"
+      },
+      {
+        "entity": "I-PER",
+        "word": "O"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##cas"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##io"
+      },
+      {
+        "entity": "I-PER",
+        "word": "-"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Co"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##rte"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##z"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image contains Dua Lipa, not Alexandria Ocasio-Cortez.  Therefore, the entities are incorrect.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The statement is factually plausible.  Alexandria Ocasio-Cortez is a public figure, and it's common for photos and videos of her to circulate on social media platforms like TikTok and Twitter. The timeframe (late 2020 and early 2021) is also consistent with the active use of these platforms during that period. However, without access to specific photographic evidence, verification is limited.",
+      "supporting_points": "Alexandria Ocasio-Cortez is a prominent US politician; TikTok and Twitter are widely used social media platforms; Photos of public figures frequently appear on social media; The specified timeframe is consistent with the platforms' active usage.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 0,
+    "explanation": "The internal check correctly identifies a mismatch between the caption and the image content. The image shows Dua Lipa, not Alexandria Ocasio-Cortez. The external check acknowledges the plausibility of AOC's photos circulating on social media but lacks specific photographic evidence. This lack of evidence coupled with the internal check's definitive mismatch makes the caption out of context. The low confidence score reflects the absence of supporting evidence for the caption from the image itself. A high confidence in the external check is not sufficient to outweigh the definitive contradiction presented by the internal check.",
+    "validation_summary": "Internal check identifies a clear mismatch between the image and caption. External check finds the caption plausible but lacks concrete evidence, leading to a final verdict of 'out of context' due to the lack of alignment between image and caption."
+  },
+  "inference_time": 6.162787914276123
+}

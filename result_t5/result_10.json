@@ -1,0 +1,37 @@
+{
+  "caption": "On April 1, 2020, a short video supposedly showing an orangutan named Sandra washing her hands circulated on social media along with the claim that the ape had learned the practice after watching zookeepers during the COVID-19 coronavirus disease pandemic",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Sandra"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "CO"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows an orangutan seemingly washing something in a blue tub.  While the name \"Sandra\" is not visible, the action of washing aligns with the news caption.  The caption mentions COVID-19, but that is not visually represented, thus the lower confidence score.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "While it's plausible that an orangutan might learn handwashing behavior by observing zookeepers, the specific claim about Sandra the orangutan washing her hands in April 2020 in response to the COVID-19 pandemic requires verification.  The claim lacks specific sourcing and could be easily fabricated or misremembered.  Orangutans are known for their intelligence and ability to learn from observation, making the core idea believable, but the exact timing and subject need confirmation.",
+      "supporting_points": "Orangutans are intelligent primates capable of observational learning; The COVID-19 pandemic began in early 2020;  Social media is frequently the source of misinformation;  Anecdotal evidence requires corroboration;  Handwashing is a hygiene practice easily demonstrable.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal check gives a higher confidence score (8) than the external check (3). The internal check focuses on the visual aspect of the image: an orangutan washing something in a blue tub, which aligns with the caption's description of handwashing.  However, it doesn't verify the claim about the orangutan's name, the specific date (April 1, 2020), or the connection to the COVID-19 pandemic. The external check casts doubt on the claim's veracity by pointing out the lack of verifiable sourcing for the claim about Sandra the orangutan.  While the external check acknowledges the plausibility of orangutans learning handwashing behavior through observation, it emphasizes the need for corroboration to confirm the specific claim about Sandra.  The discrepancy lies in the level of detail considered; the internal check is more focused on superficial visual consistency, while the external check considers the broader context and verifiability of the claim. The image itself does not provide evidence to support the COVID-19 related aspect of the claim. There's no visible contextual evidence in the image itself connecting the event to the COVID-19 pandemic (e.g., news headlines, signage, etc.).  Because external verification finds insufficient evidence to confirm the key details of the claim (specific orangutan, date, and pandemic connection), and the visual evidence alone is insufficient, the overall confidence score is low. The claim lacks concrete external verification and relies on an interpretation of the visual which is not fully conclusive. Therefore, the caption is deemed out of context.",
+    "validation_summary": "Internal check finds partial visual alignment but lacks verification of specific details. External check highlights the need for corroboration and questions the claim's sourcing, leading to a low confidence score and an out-of-context assessment. The visual evidence does not support the COVID-19 claim."
+  },
+  "inference_time": 10.309125423431396
+}

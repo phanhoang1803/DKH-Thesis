@@ -1,0 +1,73 @@
+{
+  "caption": "Liberian artist Kreevious Bachue works in his studio in the capital, Monrovia, on Wednesday.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Liberia"
+      },
+      {
+        "entity": "B-PER",
+        "word": "K"
+      },
+      {
+        "entity": "B-PER",
+        "word": "##ree"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##vious"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Bach"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##ue"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Mon"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "##rov"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ia"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a man who appears to be of Liberian descent, painting in a studio.  The name \"Kreevious Bachue\" is not explicitly visible, but the image strongly suggests the subject is an artist working in his studio. The location is not definitively stated as Monrovia, but given the context, that is plausible. ",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Africa's week in pictures: 12-18 June 2020",
+        "date": "2020-06-18T23:09:32",
+        "content": "A selection of the week's best photos from across the continent and beyond.\nPictures from AFP, EPA, Reuters and Getty Images.",
+        "description": "A selection of the week's best photos from across the continent and beyond.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided evidence is a collection of photos from across Africa during a specific week in 2020.  There is no mention of Liberian artist Kreevious Bachue, his studio, or any work done on a Wednesday.  The evidence is irrelevant to the news caption.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal validation shows a high degree of confidence (confidence_score: 10) that the image depicts an artist working in his studio, aligning with the caption's description. However, the external validation (confidence_score: 0) completely contradicts this, stating that there's no evidence supporting the claim about Liberian artist Kreevious Bachue, his studio location, or the specific day mentioned in the caption.  The discrepancy is substantial. The external check's lack of supporting evidence significantly undermines the internal assessment. While the image itself is consistent with the caption's general description of an artist at work, the absence of external corroboration makes the claim about the specific artist, location, and day highly unreliable. There is no mention of this artist anywhere that can support the claim and hence, the visual evidence alone is insufficient to verify the caption.  Therefore, the caption is deemed out of context due to the lack of external validation. The low confidence score reflects this significant uncertainty.",
+    "validation_summary": "Internal validation suggests the image aligns with the caption's general description, but external validation completely refutes the specific details. The lack of external evidence outweighs the internal visual consistency, leading to an OOC judgment."
+  },
+  "inference_time": 28.010790824890137
+}

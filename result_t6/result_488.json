@@ -1,0 +1,57 @@
+{
+  "caption": "This phone box on the Ardnamurchan peninsula looked a bit lonely.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "A"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "##rd"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##nam"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ur"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "##chan"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a red telephone box in a rural landscape.  The location appears consistent with the Ardnamurchan peninsula in Scotland. The phone box does look somewhat isolated.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Your pictures of Scotland 28 August - 4 September",
+        "date": "2020-09-04T12:10:53",
+        "content": "A selection of your pictures of Scotland sent in between 28 August and 4 September. Send your photos to scotlandpictures@bbc.co.uk. Please ensure you adhere to the BBC's rules regarding photographs which can be found here.\nPlease also ensure you follow current coronavirus guidelines and take your pictures safely and responsibly.\nConditions of use: If you submit an image, you do so in accordance with the BBC's terms and conditions.\nPlease ensure that the photograph you send is your own and if you are submitting photographs of children, we must have written permission from a parent or guardian of every child featured (a grandparent, auntie or friend will not suffice).\nIn contributing to BBC News you agree to grant us a royalty-free, non-exclusive licence to publish and otherwise use the material in any way, including in any media worldwide.\nHowever, you will still own the copyright to everything you contribute to BBC News.\nAt no time should you endanger yourself or others, take any unnecessary risks or infringe the law.\nYou can find more information here.",
+        "description": "A selection of your pictures of Scotland sent in between 28 August and 4 September",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided text does not contain any information about a lonely phone box on the Ardnamurchan peninsula.  The source mentions a collection of photos of Scotland but gives no details about their content.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal validation check strongly supports the caption's claim, assigning a confidence score of 10. The image clearly shows a red telephone box in a seemingly remote location, consistent with the description of a \"lonely\" phone box on the Ardnamurchan peninsula. The visual evidence aligns well with the caption's description. However, the external validation check completely contradicts this, giving a confidence score of 0 and stating that the provided text offers no information about the image's caption.  This discrepancy creates uncertainty. The external check's lack of relevant information weakens the overall confidence.  Given the conflicting results, a conservative approach is adopted. The internal validation's strong support for the caption is weighed against the external check's complete lack of supporting evidence. Therefore, while the image itself visually supports the caption, the absence of corroborating external information lowers the overall confidence score. The final judgment is that the caption is out of context because the external source failed to verify the connection between the caption and the image, despite the internal analysis suggesting a strong connection.",
+    "validation_summary": "Internal validation strongly supports the caption, while external validation finds no supporting evidence. The discrepancy and lack of external confirmation lower confidence in the caption's accuracy."
+  },
+  "inference_time": 36.39071559906006
+}

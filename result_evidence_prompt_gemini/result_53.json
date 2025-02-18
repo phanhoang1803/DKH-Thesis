@@ -1,0 +1,65 @@
+{
+  "caption": "Lex Scott Davis and Trevor Jackson in \"Superfly.\"",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Lex"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Scott"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Davis"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Trevor"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Jackson"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Super"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##fly"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Lex Scott Davis and Trevor Jackson.  The movie title \"Superfly\" is not directly visible in the image, but the context strongly suggests they are in a scene from the film.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Whats on TV Friday: Solo: A Star Wars Story and Superfly",
+        "date": "2019-01-11T06:00:04",
+        "content": "A Star Wars origin story is available for streaming. And Director Xs Superfly remake is on Starz.\nWhats Streaming",
+        "description": "A Star Wars origin story is available for streaming. And Director Xs Superfly remake airs on Starz.",
+        "source_domain": "www.nytimes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The provided text mentions the movie \"Superfly\" but makes no claim about Lex Scott Davis and Trevor Jackson's involvement.  Therefore, there is no evidence to support or refute the caption's claim about the actors.",
+      "supporting_points": "Source 1 mentions \"Superfly\" but doesn't list actors.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal check has high confidence (10) that the caption accurately reflects the image content, identifying Lex Scott Davis and Trevor Jackson. However, the external check has low confidence (3) because it cannot confirm their involvement in \"Superfly\" based on available sources.  The discrepancy arises from the lack of definitive external evidence to support the movie title association. While the internal check relies on visual recognition and contextual clues suggesting a movie scene, this is insufficient to definitively validate the claim without corroborating evidence from cast lists, movie databases, or other reliable sources. The external check highlights this absence, leading to a lower overall confidence score.  The final assessment leans towards \"out of context\" because the critical piece of information – the actors' participation in \"Superfly\" – lacks solid external verification. More evidence is needed to confidently assert that the image is from the film \"Superfly\". Even though the actors are correctly identified, the movie title remains unconfirmed by external sources.",
+    "validation_summary": "Internal check strongly supports the caption (confidence 10), identifying the actors. External check lacks sufficient evidence to confirm the movie title association (confidence 3). Discrepancy leads to a low overall confidence and OOC classification."
+  },
+  "inference_time": 5.852481365203857
+}

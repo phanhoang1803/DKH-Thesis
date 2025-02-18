@@ -1,0 +1,77 @@
+{
+  "caption": "UK Prime Minister Boris Johnson meets European Commission President Ursula von der Leyen, in Brussels. The two met to discuss the Brexit trade deadlock after months of talks failed to reach an agreement.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Boris"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Johnson"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "European"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Commission"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Ursula"
+      },
+      {
+        "entity": "I-PER",
+        "word": "von"
+      },
+      {
+        "entity": "I-PER",
+        "word": "der"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Le"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##ye"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##n"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "All entities are correctly identified and their usage in the caption is accurate.  Boris Johnson is correctly identified as a person and his title as UK Prime Minister is implied by the context. Ursula von der Leyen is correctly identified as a person, and her title as European Commission President is explicitly stated in the caption.  The European Commission is correctly identified as an organization. The temporal consistency is also accurate, as the meeting described is consistent with recent events.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Subscribe to read",
+        "date": "2019-09-04T19:40:35",
+        "content": "Then $75 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.",
+        "description": "EU chief negotiator tells diplomats UK has presented no new proposals",
+        "source_domain": "www.ft.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The provided external evidence is insufficient to verify the accuracy of the news caption. Source 1 is a paywalled article from the Financial Times, and only the title and description are available.  The description mentions that the UK hasn't presented new proposals, which is indirectly related to the caption's claim of a Brexit trade deadlock but doesn't confirm the meeting between Johnson and von der Leyen.  Without access to the full article content, a definitive judgment cannot be made. The caption's claim needs further verification from reliable sources.",
+      "supporting_points": "Source 1: Title: Subscribe to read, Description: EU chief negotiator tells diplomats UK has presented no new proposals",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "explanation": "The internal validation strongly supports the caption, indicating a high degree of accuracy in identifying the individuals and the event described. However, the external validation reveals insufficient evidence to definitively confirm the meeting, as the key source is a paywalled article with limited accessible content.  Therefore, while the image and internal analysis strongly suggest the caption is accurate, the lack of robust external confirmation leads to an \"out of context\" assessment. The confidence score reflects this uncertainty, with higher confidence in the internal validation and lower confidence in the external validation.",
+    "validation_summary": "Internal validation strongly supports the caption's accuracy, while external validation lacks sufficient evidence for confirmation. This discrepancy leads to an \"out of context\" assessment."
+  },
+  "inference_time": 45.054808378219604
+}

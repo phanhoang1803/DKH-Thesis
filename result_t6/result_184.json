@@ -1,0 +1,45 @@
+{
+  "caption": "Posts shared on social media about the event purported to document the display of Nazi and Confederate flags offered for sale at the rally",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Nazi"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Confederate"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows a Nazi flag and a Confederate flag displayed prominently, supporting the caption's claim that these flags were offered for sale at the rally.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is This a Photo of a Nazi Flag from the 'Million MAGA March'?",
+        "date": "2020-11-14T08:29:57",
+        "content": "Claim:\nA photograph taken at the 'Million MAGA March' in November 2020 shows Nazi and Confederate flags on display.\nRating:\nMiscaptioned\nAbout this rating\nOn Nov. 14, 2020, supporters of President Donald Trump rallied in Washington D.C., in an event dubbed the \"Million MAGA March,\" either to commiserate with each other about Trump's recent loss in his failed bid for re-election, or to foster Trump's spurious claims that the presidential election had been \"stolen\" from him.\nSome posts shared on social media about the event purported to document the display of Nazi and Confederate flags offered for sale at the rally:",
+        "description": "\"At this time in our lives, we need to be united with love and respect for all.\"",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption accurately reflects the content of Source 1.  Source 1 explicitly states that \"Some posts shared on social media about the event purported to document the display of Nazi and Confederate flags offered for sale at the rally.\"",
+      "supporting_points": "Source 1: \"Some posts shared on social media about the event purported to document the display of Nazi and Confederate flags offered for sale at the rally\"",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 9,
+    "explanation": "The image itself provides strong internal validation for the caption. The presence of Nazi and Confederate flags displayed prominently at a table, seemingly for sale, directly supports the claim made in the caption.  The internal check gives a confidence score of 10 because the visual evidence is unambiguous.  The external check, with a confidence score of 8, confirms that news sources report social media posts documenting the presence of these flags at a rally.  The external source does not explicitly state the flags were 'for sale', but the visual evidence strongly suggests it. There is a minor discrepancy; the external source uses the word 'purported' to indicate a report about the event, introducing a degree of uncertainty. However, this is mitigated by the strong visual evidence in the image and the high confidence score from the internal check.  There is no indication of visual tampering or miscontextualization. The flags are clearly visible and the setting appears consistent with the reported context of a rally. The overall assessment is that the caption is not out of context.  The confidence score is 9, reflecting the slightly lower confidence from the external source's use of the term 'purported' but bolstered by the clear visual evidence.",
+    "validation_summary": "Both internal and external checks support the caption's claim, with the internal check providing stronger evidence from the visual representation of the flags for sale.  A minor discrepancy exists regarding the explicit mention of the flags being \"for sale\", but this is mitigated by visual evidence."
+  },
+  "inference_time": 47.8162145614624
+}

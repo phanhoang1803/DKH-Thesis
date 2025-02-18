@@ -1,0 +1,101 @@
+{
+  "caption": "A girl observes a partial solar eclipse on the Mahanakhon Skywalk Glass Tray at the King Power Mahanakhon building in Bangkok, Thailand.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Ma"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##hana"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##kh"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##on"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Sky"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##walk"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Glass"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "T"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "King"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Power"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Ma"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##hana"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##kh"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##on"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Bangkok"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Thailand"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a girl on a glass floor high above the city of Bangkok, Thailand, using what appears to be eclipse glasses.  The location is consistent with the King Power Mahanakhon building. All entities are present and correctly identified in the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": " :          ",
+        "date": "2020-06-29T00:00:00",
+        "content": "                                                  ",
+        "description": "                                                  ",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The provided news caption describes a girl observing a solar eclipse in Bangkok, Thailand.  The retrieved evidence discusses images submitted by readers to the BBC Urdu about walking during the COVID-19 pandemic. There is no overlap between the subject matter of the news caption and the evidence provided. Therefore, the evidence does not support the news caption.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal validation gives a high confidence score (10) because the image clearly shows a girl on a high-rise glass floor in Bangkok, using what looks like eclipse glasses. The location matches the King Power Mahanakhon building. However, the external validation completely contradicts this, stating there is no supporting evidence and assigning a very low confidence score (1). The external check claims that the evidence retrieved discusses a different subject (walking during the COVID-19 pandemic), bearing no relation to the caption's description of a solar eclipse observation.  This significant discrepancy needs careful consideration. While the internal visual analysis strongly suggests the caption's accuracy, the lack of corroborating external evidence raises serious doubts.  The absence of any external source supporting the described event weakens the overall credibility. There's no information about a solar eclipse event in Bangkok on the date suggested in the image, further undermining the external validation.  The image itself, while internally consistent, is insufficient to conclusively prove the caption's accuracy without additional evidence. Consequently, a low confidence score is assigned, and 'OOC' is set to 'true' due to the unresolved contradiction between internal visual analysis and the failure of external validation to provide support. The image might be authentic, but the context provided in the original caption cannot be fully verified.",
+    "validation_summary": "Internal validation strongly supports the caption, while external validation finds no supporting evidence, resulting in a significant contradiction. The lack of external corroboration leads to a low confidence score and 'OOC' set to true."
+  },
+  "inference_time": 37.326966285705566
+}

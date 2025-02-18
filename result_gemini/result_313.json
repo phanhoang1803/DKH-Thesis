@@ -1,0 +1,61 @@
+{
+  "caption": "Office worker Hideyuki Togashi, 48, shows his tattoos as he poses for a photograph at a park near his house in Tokyo, Japan, September 7, 2020",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Hi"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##de"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##yuki"
+      },
+      {
+        "entity": "I-PER",
+        "word": "To"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##gas"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##hi"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Tokyo"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Japan"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image contains a person with tattoos and a prosthetic leg, but there is no information to confirm the name, age, location, or occupation mentioned in the caption.  Therefore, I cannot verify if the entities are correctly used.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The caption is plausible.  It describes a common journalistic style: identifying a person, stating their age, describing an action (posing for a photo), and providing location and date.  While I cannot verify the specific individual or the event, there is nothing inherently implausible about an office worker in Tokyo having tattoos and posing for a photograph in a park.  The date is in the past, and the setting is realistic.  However, the lack of independent verification means I cannot be completely certain.",
+      "supporting_points": "- Common journalistic style for news captions.\n- Tokyo, Japan, is a real and populated place.\n- September 7, 2020 is a valid date in the past.\n- Office workers exist and can have tattoos.\n- People often pose for photographs in parks.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal check has low confidence (confidence_score: 0) because it cannot verify the information provided in the caption against the image content. There is a mismatch between the caption describing an office worker, Hideyuki Togashi, 48, in Tokyo, and the image showing a person with tattoos and a prosthetic leg. The image alone does not provide any information to confirm or deny the name, age, location, or occupation.  The external check has moderate confidence (confidence_score: 8) because it finds the caption plausible based on its journalistic style and realistic setting. However, it acknowledges a lack of independent verification to confirm the specific details. This creates a conflict: the internal check suggests the caption is likely incorrect, while the external check suggests it's plausible but unverifiable.  Due to the lack of corroborating evidence from the image, the internal check's low confidence score outweighs the external check's moderate confidence.  We prioritize certainty over plausibility. The fact that the image provides no information to support the caption's details (name, age, profession, location) leans towards the caption being out of context. Therefore, the final assessment is that the caption is likely out of context, with a low confidence score reflecting the uncertainty.",
+    "validation_summary": "Internal check finds caption details unverified and mismatched with image content. External check finds caption plausible but unverifiable.  Low internal confidence outweighs moderate external confidence, leading to an OOC assessment."
+  },
+  "inference_time": 10.248074293136597
+}

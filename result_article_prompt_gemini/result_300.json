@@ -1,0 +1,73 @@
+{
+  "caption": "Some animals took advantage of the quieter streets: goats took a stroll around the deserted streets of Llandudno, north Wales, on 31 March. Town councillor Carol Marubbi said: \"They are curious... and I think they are wondering what's going on, like everybody else.\"",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "L"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##land"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ud"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##no"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Wales"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Carol"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Mar"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##ub"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##bi"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows goats walking down a street in Llandudno, Wales.  The caption mentions this, and the entities are correctly identified and located within the image.  There is no ambiguity.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "2020 in pictures: Coronavirus in the UK",
+        "date": "2020-12-31T00:45:27",
+        "content": "A selection of some of the most striking images taken by news photographers covering the coronavirus pandemic in the UK.\nPhotos are subject to copyright.",
+        "description": "Images that defined the year a pandemic dominated the nation.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided related articles do not contain information about goats strolling in Llandudno.  Source 1 is a general overview of coronavirus images in the UK and does not offer specific details to support the news caption's claim.",
+      "supporting_points": "No information related to the news caption's claim was found in the provided articles.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "Internal validation shows high confidence that the caption aligns well with the image content. The image clearly depicts goats walking on a street, which matches the caption's description. However, the external validation reveals a lack of supporting evidence from related articles. None of the provided sources confirm the event of goats strolling in Llandudno on March 31st, as stated in the caption.  This discrepancy between internal and external validation leads to a low overall confidence score. The internal check's high confidence score relies solely on the visual match between the image and caption, while the external check's low confidence stems from the absence of corroborating evidence from external sources. Because the external validation is crucial for verifying the factual accuracy of the claim made in the caption, it outweighs the high internal consistency score. The absence of external evidence strongly suggests a possibility that the claim might be inaccurate or that insufficient research was performed to confirm the event before the caption was created. In the absence of verifiable evidence from external sources, the claim remains unsubstantiated despite the visual coherence within the image itself.",
+    "validation_summary": "Internal validation shows strong alignment between caption and image.  External validation finds no supporting evidence for the event described in the caption.  The lack of external corroboration significantly lowers the overall confidence in the caption's accuracy."
+  },
+  "inference_time": 6.09215521812439
+}

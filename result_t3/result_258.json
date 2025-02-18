@@ -1,0 +1,97 @@
+{
+  "caption": "Liberian artist Kreevious Bachue works in his studio in the capital, Monrovia, on Wednesday.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "K"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##ree"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##vious"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Bach"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##ue"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "Far"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##chu"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##re"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Print"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "^"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Gallery"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Mon"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##rov"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ia"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Liberia"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The entities \"Kreevious Bachue\" and \"Monrovia\" are correctly identified and used in the context of the news caption.  The entity \"Liberia\" is also correctly identified as the nationality of the artist. However, there's an unexpected entity \"Farchure Print Gallery\" which is not present in the caption. This raises some uncertainty. I'm unsure whether this is an error in entity extraction or if it refers to an additional detail omitted in the caption.  The overall context is consistent with the named entities.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Africa's week in pictures: 12-18 June 2020",
+        "date": "2020-06-18T23:09:32",
+        "content": "A selection of the week's best photos from across the continent and beyond.\nPictures from AFP, EPA, Reuters and Getty Images.",
+        "description": "A selection of the week's best photos from across the continent and beyond.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The provided evidence is insufficient to verify the caption's accuracy. Source 1 is a collection of photos from various agencies, but it does not specifically mention Kreevious Bachue or confirm if a picture of him working in his Monrovia studio on a Wednesday exists within that collection.  The lack of specificity makes it impossible to confirm or deny the caption's claim. The caption's claim is plausible but remains unverified.",
+      "supporting_points": "Source 1: mentions a selection of photos from Africa during the week of June 12-18, 2020, but doesn't contain information to corroborate the caption's specifics.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 5,
+    "explanation": "The image shows a man who appears to be painting a zebra. The caption states that the man is Liberian artist Kreevious Bachue working in his studio in Monrovia, Liberia. Internal entity recognition supports this claim. However, external validation is weak, as the BBC article cited doesn't corroborate the specific details in the caption. While the image and internal validation suggest a high degree of probability, the lack of strong external confirmation lowers the confidence score. Therefore, the caption is likely true, but the lack of robust evidence makes it impossible to assert it with high confidence.",
+    "validation_summary": "Internal entity recognition aligns with the caption. External evidence is insufficient to fully confirm the caption's details, resulting in a lower confidence score and the assessment of the caption as out of context because of a lack of verification."
+  },
+  "inference_time": 29.811043977737427
+}

@@ -1,0 +1,69 @@
+{
+  "caption": "Supporters of Spain's far-right Vox party in Seville, celebrating the results of regional elections in Andalusia last month.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Spain"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "V"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##ox"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Seville"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "And"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "##al"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##us"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ia"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows a crowd of people waving Spanish flags and wearing Vox party vests.  The location appears to be indoors at a political event. The caption states this is a celebration of regional election results in Andalusia. While the image supports most aspects of the caption, the exact location and date are not explicitly visually confirmed, hence a minor deduction in confidence.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Andalusia",
+        "date": "2024-11-05T15:00:30",
+        "content": "",
+        "description": "Breaking news and top stories from Andalusia. The latest on the economy, politics, government, and business",
+        "source_domain": "www.ft.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided evidence does not contain any information about supporters of Spain's far-right Vox party celebrating election results in Seville.  Source 1 only offers a link to a news stream about Andalusia, with no accessible content.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal validation check shows some confidence in the caption's accuracy, pointing out that the image depicts individuals waving Spanish flags and wearing Vox party vests at what seems to be a political gathering. However, it acknowledges that the image alone doesn't explicitly confirm the location as Seville or the exact date of the Andalusian regional elections.  The external validation check, on the other hand, completely refutes the caption's claims.  It states that there's no supporting evidence linking the image to Vox supporters celebrating election results in Seville.  The discrepancy between the internal and external checks is significant. The internal check's confidence score is high based purely on visual analysis, which is inadequate without external corroboration. The external check's confidence score is 0, indicating a complete lack of external evidence to support the caption.  Given this conflict and lack of substantial external verification,  we must default to a conservative assessment. The image displays features consistent with a political celebration in Spain, but there is no concrete proof that it is specifically linked to Vox's victory celebration in Seville's regional elections. The absence of external validation, combined with the internal check's limitations on pinpointing the exact context, renders the caption potentially out of context. Therefore, the final assessment is that the caption is likely OOC.",
+    "validation_summary": "Internal validation shows partial visual agreement with the caption; however, external validation completely fails to corroborate the claim, leading to a low confidence score and a conclusion that the caption is likely out of context."
+  },
+  "inference_time": 36.64889192581177
+}

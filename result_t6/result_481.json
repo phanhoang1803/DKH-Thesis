@@ -1,0 +1,57 @@
+{
+  "caption": "Ulta Beauty will close its doors following a buyout by competitor Sephora.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "U"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##lta"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Beauty"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "Sep"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##hora"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows an Ulta Beauty store.  The caption mentions Ulta Beauty and Sephora, both of which are relevant to the image, although the image does not depict a Sephora store or any event suggesting an acquisition.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is Ulta Closing After a Sephora Buyout?",
+        "date": "2017-05-12T04:50:50",
+        "content": "Claim:\nUlta Beauty will close its doors following a buyout by competitor Sephora.\nRating:\nFalse\nAbout this rating\nIn April 2017, social media rumors circulated that makeup and beauty chain Ulta Beauty was closing all stores following a buyout by competitor Sephora:\nMany versions contained what appeared to be a link to an article about the sudden closures, (which sometimes appeared to be published by Curbed.com):\nHowever, all links led to a page that was mocked up to look like a phony article from People magazine (hosted at \"people.com-realsource.co\"), with a claim that Sephora's supposed buyout of Ulta would be beneficial for cosmetics shoppers:\nSephora Just Announced They Are Buying Out Ulta - Here's How YOU Can Take Advantage\nSephora just announced that they will acquire the 950 Ulta Stores nationwide, the first major announcement regarding the buy out in the new year. The mega-retailer will double in size and has already begun the liquidation process of Ulta products. To date, 18 of the 950 Ulta stores have already closed. The remaining stores will close by the end of the year.\nSome of you may be sad to see your local Ulta Beauty close down, but the rest of you are probably wondering:\"Will this benefit me in any way?\" The answer to that question is absolutely \"YES!\" On top of the final blowout sales that are going to be held at each of the closing locations, Ulta Beauty cosmetics department is offering FREE SAMPLES of their skin care products..\nThe scam advertisement then claimed that Ulta carries a secret product reserved only for celebrities and other high rollers, but now accessible to all due to the (nonexistent) liquidation of their products thanks to the (nonexistent) buyout:\nUntil recently, Ulta Beauty has always kept an amazing wrinkle secret called Vlamorous Cream reserved for their high paying celebrity clients. They reported that in order to clear the products off the shelves, they needed to give out free samples for everyone to try. As a result, a few weeks ago they shared the simple solution previously only shared with celeb clients to everyone!\nVisitors to the fake People site were greeted by a landing page that resembles the magazine's digital counterpart, complete with invitations to subscribe and a portal to other magazine titles. Clicking the links to other magazines leads to more scam sales pages:\nAttempts to close the page causes a window to pop up with information about a \"free trial\" with dwindling supplies. The page is not published by People, it does not report real news, and it serves only to convert traffic into sales for a skincare product it falsely claims was a long-kept secret at Ulta.",
+        "description": "A shady advertisement posed as a magazine article seeming to report that the beauty supplier had been bought out by a competing chain.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption is False. Snopes.com, a fact-checking website, explicitly debunks the claim that Ulta Beauty is closing due to a buyout by Sephora.  The claim originated from a fraudulent advertisement disguised as a news article.",
+      "supporting_points": "Source 1 from Snopes.com explicitly states that the claim of Ulta closing after a Sephora buyout is FALSE.  The source details how a fake advertisement, mimicking a magazine article, spread the false information.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The internal validation check, based solely on the image and caption, finds a tenuous connection. The image depicts an Ulta Beauty store, and the caption mentions both Ulta Beauty and Sephora. However, the image doesn't visually support the claim of a buyout or closure. The internal check's high confidence score is misleading because it only considers the superficial connection between the image and the caption's entities, failing to assess the truthfulness of the core claim.  The external validation check decisively refutes the caption's claim. Snopes.com, a reputable fact-checking website, directly debunks the news about Ulta closing due to a Sephora buyout.  The source details the origin of the misinformation: a fraudulent advertisement disguised as a news article. The external check's high confidence score is justified by the clear and verifiable evidence from a trusted source.  The significant discrepancy between the internal and external checks arises from the limitations of the internal check. The internal check fails to validate the factual accuracy of the news statement, while the external check uses reliable sources to determine the falsity of the claim.  The visual evidence alone is insufficient to confirm or deny the news of a buyout and subsequent closure.  The image only confirms the existence of an Ulta store; it provides no indication of closure or acquisition.  Therefore, due to the strong contradictory evidence from the external check and the inadequate validation of the internal check, the caption is determined to be out of context. The high confidence score reflects the certainty provided by the external fact-checking source that directly disproves the caption's main assertion.",
+    "validation_summary": "Internal validation superficially links the image and caption entities but fails to verify the claim's accuracy. External validation definitively refutes the caption's statement using evidence from Snopes.com, showing a fraudulent source for the news.  The discrepancy highlights the limitation of internal validation when dealing with factual claims requiring external verification. The final assessment is that the caption is out of context."
+  },
+  "inference_time": 45.80034613609314
+}

@@ -1,0 +1,65 @@
+{
+  "caption": "A photograph shows U.S. President Joe Biden on a movie set designed to look like the Oval Office.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "U"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "S"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Joe"
+      },
+      {
+        "entity": "I-PER",
+        "word": "B"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##iden"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Oval"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Office"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows President Joe Biden in what appears to be the Oval Office.  The caption accurately identifies him and the location.  The entities are correctly labeled. While it's not explicitly stated that it is a movie set, the context strongly suggests that it could be. However, it is not possible to definitively assert that this is a movie set based on the image alone.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is This Biden on a Movie Set Resembling the Oval Office?",
+        "date": "2021-02-10T01:34:54",
+        "content": "Claim:\nA photograph shows U.S. President Joe Biden on a movie set designed to look like the Oval Office.\nVoting in the 2020 U.S. Election may be over, but the misinformation keeps on ticking. Never stop fact-checking. Follow our post-election coverage here.\nIn February 2021, a few weeks after Joe Biden was sworn in as the 46th president of the United States, a few social media users appeared to be in denial of reality as they held on to the idea that former President Donald Trump was somehow still the commander in chief. When a photo of Biden in the Oval Office started circulating online, they claimed that the photo was not taken at the White House but actually showed a movie set:\nThis photograph was taken on Feb. 5, 2021, as Biden and Vice President Kamala Harris held a meeting in the actual Oval Office to discuss their COVID-19 relief package. ABC News reported:\nIn an Oval Office meeting with House Democrats on Friday, Biden recounted how as vice president, then-President Barack Obama had tasked him with pushing through legislation on Capitol Hill to address the recession.\n\"It was hard as hell to get the votes for it to begin with, and then it was hard as hell to get even the number we got,\" Biden said at the start of the gathering. \"But one thing we learned is, you know, we can't do too much here; we can do too little. We can do too little and sputter.\"\nThe claim that this photograph was taken on a movie set is based entirely on what appears, at first glance, to be a crack in the wall behind Biden. This crack, however, simply shows a partially opened door.\nThe Oval Office has four doors, two of which were designed to blend in with the walls. Here's a photograph of Trump that shows the same \"crack\" that can be seen in the viral image of Biden. In the Trump photo, it's clear that this \"crack\" is just a door:\nWhile these \"hidden\" doors may conjure up thoughts of secret passages or escape pathways, there isn't anything secret about these doors. They are just normal doors that open up to rooms adjacent to the Oval Office. The decision to blend them into the walls appears to have been a purely aesthetic choice.\nHere's another video from the Oval Office that showcases these doors. In 2010, former President Barack Obama met with some students featured in the documentary \"Waiting for Superman.\" At one point, one of the kids asks Obama about these strange looking doors:",
+        "description": "This hoax joins others in attempting to prove Donald Trump is still president by insisting that Joe Biden was \"faking\" his presidency.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption is directly supported by the evidence. Source 1 explicitly states: \"A photograph shows U.S. President Joe Biden on a movie set designed to look like the Oval Office.\"  However, the source then goes on to debunk this claim, showing that the photo was actually taken in the real Oval Office.  The caption itself is factually accurate as a description of the claim, even if the claim itself is false.",
+      "supporting_points": "Source 1: Claim: A photograph shows U.S. President Joe Biden on a movie set designed to look like the Oval Office.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The internal check has a confidence score of 8 and correctly identifies President Biden in what appears to be the Oval Office. However, it acknowledges the ambiguity regarding whether it's a movie set, stating that it's not definitively assertable from the image alone. The external check has a higher confidence score of 10.  It confirms that the caption accurately reflects a claim – that the photo shows President Biden on a movie set resembling the Oval Office.  Crucially, the external check then reveals that this claim is false; the photo was actually taken in the real Oval Office. This discrepancy is key. While the caption accurately describes a claim, the claim itself is incorrect. The alignment of entities (President Biden, Oval Office) is consistent across both checks. However, the crucial difference lies in the interpretation of the setting. The internal check leans towards uncertainty, while the external check definitively states the claim's falsity. Therefore, despite the high confidence scores, a conflict arises: the caption presents information that is factually inaccurate, even if it correctly describes an initially made (but false) assertion. Weighing both checks, and considering the external check's definitive evidence refuting the core assertion within the caption, the final conclusion is that the caption is out of context.  The high confidence score reflects the strong evidence supporting this conclusion, not the accuracy of the original caption itself.",
+    "validation_summary": "Internal and external checks both show high confidence but reveal conflicting interpretations. The caption accurately reflects a specific claim, but that claim is later proven false by external evidence.  Therefore, the caption is deemed out of context."
+  },
+  "inference_time": 43.08456635475159
+}

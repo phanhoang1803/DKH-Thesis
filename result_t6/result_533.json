@@ -1,0 +1,61 @@
+{
+  "caption": "First Lady Grace Coolidge and Rebecca the raccoon make an appearance at the annual White House egg-rolling event on 18 April 1927.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Grace"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Cool"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##idge"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Rebecca"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "White"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "House"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows Grace Coolidge and a raccoon.  The setting appears to be an outdoor event with a crowd of people, consistent with a White House egg roll. While the exact date cannot be confirmed visually, the clothing styles are consistent with the 1920s.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "White House pets: Cats, dogs and raccoons through the years",
+        "date": "2021-01-26T19:20:26",
+        "content": "It hasn't always been dogs and cats in the White House - here are a few photos going back decades of first families with their pets.",
+        "description": "Presidents and first ladies have been photographed with their cats, dogs, and even a raccoon, for decades.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The provided text mentions a raccoon as a White House pet, but it does not provide any information about a specific event, date, or the First Lady Grace Coolidge.  Therefore, there is insufficient evidence to support or refute the claim.",
+      "supporting_points": "Source 1 mentions that there has been a raccoon as a White House pet in the past.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "Internal validation shows high confidence that the image depicts Grace Coolidge and a raccoon at what seems to be a public event. The clothing styles and overall scene align with the era suggested in the caption. However, external validation reveals a low confidence level due to the lack of corroborating evidence regarding a specific White House egg-rolling event with this detail on April 18th, 1927.  While it's plausible that Grace Coolidge had a pet raccoon and that such an event could have happened, the absence of verifiable external sources that specifically mention this combination makes it impossible to confirm the caption's accuracy.  The discrepancy lies in the specificity of the caption details. The internal analysis strongly supports the core elements of the image—Grace Coolidge, a raccoon, and a large gathering—but falls short on supporting the date and specific event mentioned. This means that while the image is likely from a public appearance of Grace Coolidge featuring her pet raccoon, it's not possible to definitively say that it depicts the 1927 White House Easter Egg Roll.  The absence of definitive evidence from external sources requires a cautious approach and lower confidence score, despite the image's internal consistency. Further investigation into White House records and historical accounts from 1927 might be needed for greater accuracy. In the absence of such evidence, the conservative approach favors deeming the caption as potentially out of context.",
+    "validation_summary": "Internal validation strongly supports the image's core elements (Grace Coolidge, raccoon, public gathering), but external validation fails to confirm the specific event and date mentioned in the caption. This discrepancy leads to a low confidence level and a conclusion that the caption might be out of context."
+  },
+  "inference_time": 26.82808208465576
+}

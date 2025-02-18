@@ -1,0 +1,45 @@
+{
+  "caption": "Afghans wounded in the blast receive treatment at a hospital in Kabul on Monday.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Afghan"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Kabul"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a hospital ward in Kabul with several people who appear to be wounded and receiving treatment.  The people are of Middle Eastern/South Asian descent, consistent with the term \"Afghans.\" The presence of medical equipment and the apparent injuries of the individuals further supports the caption. Kabul is mentioned in the image metadata as the location.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Many children among Afghan volleyball match bomb victims",
+        "date": "2014-11-24T12:17:26",
+        "content": "Many children were among a crowd watching a volleyball match in eastern Afghanistan on Sunday when a suicide bomber struck killing at least 50.\nOne boy told the BBC he saw the bomber arrive on a motorbike.\nThe boy's right leg was injured in the explosion but he dragged himself away.\nAfghan intelligence blamed the attack on the Haqqani militant network. On Monday one soldier died after a Nato convoy was attacked in Kabul.\nThe Haqqani network, whose leadership is believed to be based in the tribal area of Pakistan, is reported to have a strong presence in several eastern provinces of Afghanistan including Paktika, where the attack took place.\n\"Around 17 of the victims are children between eight to 14 years of age,\" said Maj Gen Siawash, head of the Kabul military hospital. At least 60 people were also wounded.\nIt is thought to be one of the deadliest attacks to hit Afghanistan in recent years. Reports say the crowd gathering to watch the volleyball tournament in a remote district of Paktika was very dense, which is why casualties were so high. People had come from surrounding districts to cheer on their home teams.\n\"I was watching the game, sitting on the ground with my brother, when the blast happened,\" 11-year-old Mohammad Rasuol told the AFP news agency. He was wounded in the chest and his brother is in intensive care, AFP reports.",
+        "description": "Many children were among a crowd gathering to watch a volleyball match in eastern Afghanistan on Sunday when a suicide bomber struck, killing at least 50.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption mentions Afghans wounded in a blast receiving treatment in a Kabul hospital on Monday. Source 1 mentions that on Monday, one soldier died after a NATO convoy was attacked in Kabul, and that at least 60 people were wounded in a volleyball match bombing in eastern Afghanistan on Sunday. While the caption doesn't directly state the location of the injuries, the proximity in time and the mention of wounded Afghans makes it plausible that some of the 60 wounded from the bombing may have received treatment in Kabul. However, there's no direct evidence linking the wounded from the Kabul event and those treated in a Kabul hospital. Hence, the verdict is set to partially true.",
+      "supporting_points": "Source 1: On Monday one soldier died after a Nato convoy was attacked in Kabul. At least 60 people were also wounded.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The internal consistency check strongly supports the caption. The image clearly shows a hospital ward with individuals who appear injured and receiving medical treatment. The ethnic appearance of the individuals is consistent with Afghans, and the setting aligns with a hospital in Kabul.  The high confidence score of 10 reflects this strong internal validation.\n\nHowever, the external validation check provides a weaker, albeit partially supportive, assessment. While there was news of a bombing in Afghanistan resulting in injuries, the external source doesn't explicitly confirm that the individuals pictured in this specific hospital are the victims of that particular blast. There's a temporal proximity and a geographical link (Kabul), making the connection plausible but not definitively proven. The lower confidence score of 7 reflects this uncertainty.\n\nThe discrepancy lies in the level of certainty. The internal check is highly confident based on the visual evidence, whereas the external check introduces doubt due to the lack of direct confirmation.  This discrepancy necessitates a conservative assessment, leaning towards \"out of context\" because we cannot definitively confirm that the pictured individuals are directly connected to the specific event mentioned in the caption.  While the image strongly suggests a hospital scene with injured Afghans in Kabul, a direct and unambiguous link to the mentioned blast is missing from the available external sources.  Therefore, even though the visual evidence and internal validation are very convincing, the inability to directly confirm the event described in the caption based on external sources necessitates labeling this as 'out of context'.  The final confidence score reflects the strong internal evidence balanced by the external source's inability to explicitly link the visual information to the stated event.",
+    "validation_summary": "Internal validation strongly supports the caption, showing a hospital scene consistent with the description. However, external verification lacks a direct link between the specific blast and the patients in the image, resulting in an 'out of context' assessment with a confidence score of 7."
+  },
+  "inference_time": 51.9188346862793
+}

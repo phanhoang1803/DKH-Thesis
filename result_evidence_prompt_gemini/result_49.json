@@ -1,0 +1,85 @@
+{
+  "caption": "The Cow and the Tailor Shop, Rajasthan, by Elizabeth Brooks, from the US",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "The"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Co"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##w"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "and"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "the"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Tai"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##lor"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Shop"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Rajasthan"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Elizabeth"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Brooks"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "US"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows a cow standing near what seems to be a tailor shop in Rajasthan.  The presence of Elizabeth Brooks and her nationality are not visually verifiable from this image alone.  Therefore, the entities related to the person and location are uncertain.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Portland's 'Avenue of Roses' wins LensCulture Street Photography Awards",
+        "date": "2020-07-01T10:33:37",
+        "content": "A series showing the \"rampant urban growth\" of Portland, in the US state of Oregon, has won the LensCulture Street Photography Awards 2020.\nKevin Fletcher's photos were taken along a single street known as the Avenue of Roses, less than a mile from where he lives.\n\"I am drawn to the sublime beauty and stories that exist in places like this, places so normal, so daily, and so banal that we tend to overlook them,\" Fletcher said.\n\"The Avenue of Roses used to be the rural outer edge of the city.\n\"However, consistent urban growth has tsunamied right up to and over it, creating a taught rope of pavement compressed on both sides by gentrification and increased housing prices.\n\"It has also become a socio-political line that divides the inner portions of the city, epitomised by 'green' modernisation and increasing wealth, from the perimeter neighbourhoods that don't benefit in the same way.\"\nOther winning images show the liveliness of society before lockdowns began in many parts of the world.\nJim Casper, editor-in-chief of LensCulture, an online publication dedicated to contemporary photography, said: \"Great photographs and series from 'normal life', just a few months ago now, seem charged with new poignancy as they reflect the liveliness and excitement of human interactions before street life stopped for a while.\"\nHere is a selection of pictures from the 39 other winning photographers, chosen from hundreds of entries from 19 countries.\nSecond-place series: Wee Muckers - Youth of Belfast, by Toby Rinder, from Germany\nToby Binder has been documenting the daily life of teenagers in British working-class communities for more than a decade.\nAfter the Brexit referendum, he focused his work on Belfast.\nThird-place series: Subordinate, by Michael McIlvaney from the UK\n\"These images aim to demonstrate, whether actually or conceptually, the daily collisions between one's inner private self and the everyday reality of urban city living,\" photographer Michael McIlvaney said.\n\"They form part of a project intended to explore the metaphors associated with this tension: vulnerability, alienation, subordination, fear, threat, isolation, infringement and intrusion.\"\nFirst-place single: Untitled, by Gabi Ben Avraham, from Israel\nSecond-place single: Anonymous, by Stuart Paton, from Italy\nFinalists",
+        "description": "Life before and during lockdown is captured by 39 winning photographers.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided text focuses on photography awards and does not contain any information about \"The Cow and the Tailor Shop, Rajasthan\" by Elizabeth Brooks.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal check shows some alignment with the image content, identifying a cow near a shop that could potentially be a tailor shop in Rajasthan. However, the confidence is low (score 8) because the caption's claim about Elizabeth Brooks and her nationality cannot be verified visually.  The external check completely contradicts the caption, stating that there is no information supporting the existence of a photograph with that title and creator in photography award databases. The external check has a confidence score of 0. Because the external check casts significant doubt, and the internal check is itself uncertain, the overall confidence is very low. The discrepancy highlights the lack of verifiable evidence supporting the photographer's identity and the photograph's title, as described in the caption.  There is no compelling evidence to support the caption's claim about the photograph's origin or creator. Therefore, it is concluded that the caption is out of context.",
+    "validation_summary": "Internal check shows partial alignment but low confidence due to unverifiable elements. External check completely refutes the caption.  Significant discrepancy leads to low overall confidence and a conclusion of out-of-context."
+  },
+  "inference_time": 6.27546763420105
+}

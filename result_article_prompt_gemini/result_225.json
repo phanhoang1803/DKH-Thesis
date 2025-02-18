@@ -1,0 +1,36 @@
+{
+  "caption": "A picture shows a massive tsunami headed for a crowded beach.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows a massive wave approaching a beach crowded with people.  This aligns perfectly with the caption describing a tsunami headed for a crowded beach.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Indonesia tsunami: Aerial images of debris and survival",
+        "date": "2018-10-02T04:11:14",
+        "content": "Five days after a powerful earthquake and tsunami hit the Indonesian city of Palu, images are emerging which show the true scale of the devastation.\nThe number of people now known to have died in the area has risen to more than 1,300, according to the country's disaster response agency.\nThe Red Cross estimates that more than 1.6 million people have been affected. The United Nations says almost 200,000 people are in urgent need of help.\nDamage assessment by the EU emergency mapping service, Copernicus, estimates up to 3,000 buildings have been damaged or destroyed in the disaster.\nMany people were on the beach preparing for a festival when the wave hit, about half-an-hour after the earthquake.\nEntire neighbourhoods, like Balaroa below, have been inundated with mud.\nSome estimates says 1,700 homes were swallowed up in Balaroa and hundreds more in another neighbourhood of Petobo. Among those killed were about 30 students at a Christian Bible study group.\nThe saturated sand and silt started to behave like a liquid under increased pressure from the quake and began sliding, taking buildings and infrastructure with it.\nThis hillside has been left covered in mud after liquefaction caused the soil and sediment to flow downhill:\nThe tsunami washed away all normal services in Palu city.\nThere's little running water, power, food or drinking water. Sanitation is a growing problem. Transport routes have been severed, hampering rescue efforts.\nThe 126m-long (410ft) Jemalam bridge, which connects almost 350,000 inhabitants of the west of the city with those in the east, has been destroyed.\nPeople have been picking through the debris to find anything that might be salvaged to make their lives easier.\nEven basic items like plastic sheets or kitchenware can make the difference.\nMany of the dead have been buried in mass graves. But it is feared many other bodies may still lie buried under the debris.\nThe military has taken over the airport to fly in aid and move out the badly injured.",
+        "description": "Before and after images reveal the scale of the disaster which hit the Indonesian city of Palu.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The news caption describes a picture showing a massive tsunami headed for a crowded beach. While Source 1 mentions a tsunami hitting a beach in Palu, Indonesia, where many people were present for a festival, it doesn't describe a picture depicting the tsunami approaching the beach. The article details the aftermath and the devastation caused.  The caption's claim is partially supported as a tsunami did hit a crowded beach, but there's no direct corroboration for the existence of a picture showing the tsunami approaching the beach.",
+      "supporting_points": "Source 1: \"Many people were on the beach preparing for a festival when the wave hit, about half-an-hour after the earthquake.\"",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "explanation": "The internal check shows high confidence (10) that the caption accurately reflects the image content. The image depicts a large wave approaching a crowded beach, consistent with the caption's description of a tsunami. However, the external check expresses lower confidence (4) due to a lack of direct evidence supporting the existence of a picture specifically showing the tsunami approaching the beach, although it confirms the occurrence of a tsunami hitting a crowded beach during a festival in Palu, Indonesia. This discrepancy arises because the external check focuses on source verification of the caption's claim rather than visual image analysis.  The external check focuses on whether this specific image exists as described in the caption, rather than whether the caption is generally accurate.  While the external source supports the general event (tsunami hitting crowded beach), it lacks verification of this specific image's existence. The internal check focuses solely on the image itself. There is a clear conflict between internal and external checks. Since the external validation only partially supports the claim, we need to take a more conservative approach. Considering both, the higher confidence is given to the external check.  While the image itself strongly suggests a tsunami, without external corroboration of the picture's specific origin and context, we can't definitively confirm the caption is completely accurate. The lack of certainty on the image's specific origin makes it impossible to definitively claim the caption is in context or out of context. Therefore, the OOC status leans towards true because of lack of specific supporting evidence, although the image does strongly suggest the caption's accuracy.",
+    "validation_summary": "Internal check strongly supports the caption (confidence 10), aligning with the image content. External check offers weak support (confidence 4), lacking direct proof of the image's existence, despite confirming the event.  Discrepancy exists due to different validation approaches; the conflict is resolved by prioritizing the lack of external source verification for the exact image described.  Conclusion leans towards OOC=true due to insufficient evidence but acknowledges the image's strong suggestion of the caption's general accuracy."
+  },
+  "inference_time": 7.298581600189209
+}

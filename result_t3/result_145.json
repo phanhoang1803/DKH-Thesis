@@ -1,0 +1,36 @@
+{
+  "caption": "A photograph shows contestants at a men's beauty contest in 1919.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "There are no entities retrieved from the content.  Therefore, there is nothing to compare the caption to. The caption itself is internally consistent.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is This a Photo of a Men's Beauty Contest From 1919?",
+        "date": "2021-03-29T05:22:39",
+        "content": "Claim:\nA photograph shows contestants at a men's beauty contest in 1919.\nA photograph showing six men in striped bathing suits is frequently shared on social media, attached to the claim that this picture was snapped at a \"men's beauty contest\" in 1919:\nThis is a genuine photograph of six men in striped bathing suits in the early 1900s. However, we've found no evidence to support the claim that it was taken at a beauty contest.\nThe earliest internet postings of the photo we could find came in articles concerning the early days of swimsuit fashion. In 2012, Angus Trumble, the Director of the National Portrait Gallery of Australia in Canberra, provided a little more information about the photograph's origins.\nIn a brief anecdote, Trumble wrote that the photo was originally available as a postcard captioned \"Schner durch Streifen. Mitteleuropa um 1910,\" which translates roughly to \"men made more beautiful by stripes. Central Europe around 1910.\"\nTrumble wrote:\nLast evening over an early dinner in New York a dear old friend visiting from Australia gave me this postcard which he found lately in a museum bookshop in Germany. The caption reads Schner durch Streifen. Mitteleuropa um 1910. The first phrase is difficult to translate with equal concision, but surely means [men made more] beautiful by stripes, and presumably therefore drips with irony.\nWhile we've yet to see the back of this postcard, Trumble's account is supported by the fact that this same image is available via Winkler Postkarten, a German website that sells old postcards, under the same German caption: \"Schner durch Streifen Mitteleuropa um 1910.\"\nThe claim that this photo shows a \"men's beauty contest in 1919\" doesn't appear to be based on any evidence. It seems that this caption was simply attached to this image (around August 2020) in order to make it a more shareworthy piece of media. As far as we can tell, however, the men in this photo weren't participating in any beauty contests. The photo simply shows six men in striped bathing suits somewhere in central Europe circa 1910.",
+        "description": "Beauty standards, like swimsuit fashions, certainly change over time.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The provided evidence from Snopes strongly refutes the news caption.  Snopes investigates the claim that the photograph depicts a 1919 men's beauty contest and finds no supporting evidence.  Instead, it traces the photo's origins to a German postcard from around 1910 with a caption suggesting irony rather than a beauty contest. The caption's claim is therefore inaccurate and appears to be a misrepresentation of the image's context.",
+      "supporting_points": "Source 1 (Snopes):  \"The claim that this photo shows a \"men's beauty contest in 1919\" doesn't appear to be based on any evidence. It seems that this caption was simply attached to this image (around August 2020) in order to make it a more shareworthy piece of media. As far as we can tell, however, the men in this photo weren't participating in any beauty contests. The photo simply shows six men in striped bathing suits somewhere in central Europe circa 1910.\"",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The internal check has low confidence because it could not find any entities to compare to the caption. However, the external check from Snopes strongly refutes the caption's claim. Snopes' investigation reveals that the image is not from a 1919 men's beauty contest but rather a German postcard from around 1910, with a caption suggesting irony. This contradicts the caption's claim, making it out of context.",
+    "validation_summary": "Internal check is inconclusive due to lack of entities. External evidence from Snopes strongly refutes the caption, indicating that the image depicts a scene unrelated to a 1919 men's beauty contest."
+  },
+  "inference_time": 39.32216191291809
+}

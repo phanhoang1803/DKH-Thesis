@@ -1,0 +1,36 @@
+{
+  "caption": "A picture shows a massive tsunami headed for a crowded beach.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a large wave approaching a beach crowded with people. This is consistent with the description of a massive tsunami headed for a crowded beach.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Tsunami",
+        "date": "2005-01-04T04:00:00",
+        "content": "Claim:\nClaim: Photographs show the tsunami that struck Indian Ocean shorelines in Asia in December 2004.\nStatus: False.\nExample: [Collected on the Internet, 2004]\nOrigins: These\nphotographs are yet another examples of any images depicting large waves being grabbed and passed around as \"real photographs\" of the December 2004 Indian Ocean tsunami. These pictures were purportedly taken in Thailand in December 2004, but they actually date from 2002 and depict not a tsunami, but a tidal bore (unusually high tides resulting in waters flowing upstream at high speeds) on the Qian Tang Jiang River, in Hangzhou, China.\nTidal bores occur at predictable times, and watching these events is a four-day-long government-sponsored tourist festival in China, hence there were plenty of people and photographers on hand to observe the one captured in the pictures above. Several news outlets in a variety of countries have been taken in by these photos and have run them as genuine pictures of the 2004 Indian Ocean tsunami.\nLast updated: 11 January 2005\nSources:\nChakrawertti, Samiran. \"After the Deadly Tsunami, a Photo Hoax Wave.\"\nThe Times of India. 7 January 2005.\nHollemans, Ellen. \"Citizen Falls Into Tsunami Trap.\"\n[South Africa] Mail & Guardian. 10 January 2005.\n[South Africa] Mail & Guardian. \"The Citizen Eats Humble Pie.\"",
+        "description": "Do photographs show the tsunami that struck Asia in December 2004?",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The provided text describes a picture falsely circulated as depicting the 2004 Indian Ocean tsunami.  The image actually shows a tidal bore, not a tsunami, and was taken in China in 2002.  This directly contradicts the news caption, which claims a picture shows a tsunami headed for a crowded beach.  While the caption's description of the image's content (a tsunami on a beach) is consistent with the false claim in Source 1,  the fact that the image is misidentified as the 2004 tsunami makes the caption inaccurate.",
+      "supporting_points": "Source 1: The provided photographs are misidentified images of a tidal bore from China, not a tsunami.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The internal consistency check shows high confidence (confidence score: 10) that the caption accurately describes the image content: a large wave approaching a crowded beach.  However, the external check reveals a significant discrepancy.  The external check (confidence score: 8) identifies the image as a misidentified tidal bore from China, not a tsunami from the 2004 Indian Ocean tsunami as the caption implies. The image's visual features, while consistent with the internal interpretation of a large wave hitting a beach,  are not consistent with the specific event described in the original caption (the 2004 Indian Ocean tsunami). The external source provides compelling evidence that the photograph's context is entirely false.  Therefore, despite the initial apparent consistency between the caption and the image's visual content, the external validation definitively establishes that the caption is out of context. The discrepancy between the internal and external checks highlights the importance of corroborating visual interpretation with verifiable external information.  The high confidence score of the internal check was based solely on the visual analysis, neglecting the critical aspect of verifying the image's origin and true context. This case demonstrates the potential for misleading visual information if it's not validated through reliable external sources. The final confidence score of 8 reflects the certainty in the external evidence that invalidates the caption's claim while acknowledging the internal check's perception of the image's visual contents.",
+    "validation_summary": "Internal check indicates high confidence in the caption's accuracy based on visual interpretation. External check reveals that the image is misidentified, contradicting the caption's claim that it shows the 2004 Indian Ocean tsunami.  The external evidence strongly suggests that the caption is out of context."
+  },
+  "inference_time": 52.757949113845825
+}

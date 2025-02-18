@@ -1,0 +1,57 @@
+{
+  "caption": "A video shows \"CNN reporter\" Jade Sacker filming a pro-Trump mob storm the U.S. Capitol.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Sa"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##cker"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "CNN"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Capitol"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "CNN"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The entities \"Sa\" and \"##cker\" correctly identify Jade Sacker, a person.  \"CNN\" is correctly identified as an organization. \"Capitol\" is correctly identified as a location. The repeated identification of \"CNN\" is also correct given its mention in the caption.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Does Jade Sacker Work for CNN?",
+        "date": "2021-01-15T04:46:14",
+        "content": "Claim:\nA video shows \"CNN reporter\" Jade Sacker filming a pro-Trump mob storm the U.S. Capitol.\nRating:\nMiscaptioned\nAbout this rating\nOn Jan. 6, 2021, a large group of U.S. President Donald Trump's supporters stormed the U.S. Capitol. In the immediate aftermath of the attack, which resulted in the death of a police officer and four other individuals, some of Trump's backers floated the evidence-free claim that this attempted insurrection was actually the work of antifa. While the claim that antifa was responsible for the attack has been dismissed by the FBI, this rumor continued to circulate on social media.\nOn Jan. 15, 2021, a slight wrinkle was added to this rumor: Not only was antifa responsible for the attack, but so was CNN. A viral video supposedly showing \"CNN's Own\" Jade Sacker quickly racked up more than 2 million views as it circulated on Twitter. Other postings of this video labeled Sacker as \"CNN photojournalist\" or \"CNN reporter.\"\nHere's a screenshot of one such posting.\nWhile this video was widely shared as if it showed a woman named Jade Sacker, we have not been able to independently verify this. If this video truly does show Sacker, however, it's important to note Sacker is not an employee of CNN. Describing her as \"CNN's own\" or \"CNN reporter Jade Sacker\" is inaccurate.\nSacker is a freelance photojournalist who documented the pro-Trump mob storming the Capitol on Jan. 6, 2021. She is not, nor has she ever been, employed by CNN.\nMatt Dornic, the head of strategic communications for CNN Worldwide, wrote on Twitter that \"no one named Jade Sacker works for CNN.\"\nSo, where does this rumor come from?\nOn the evening of Jan. 6, Sacker appeared on \"Anderson Cooper 360\" alongside a man named John Sullivan to talk about what they saw during the Capitol riot. Specially, these two appeared on the network to discuss a piece of footage captured by Sullivan that showed the shooting death of a woman inside the Capitol. Here's a screenshot from that interview:\nSacker appeared on CNN because she was a witness to the Capitol riot, not because she was employed by CNN, or because she was hired by the network to report from the event.\nIt should be noted that Sullivan was arrested by the FBI for his alleged involvement in the riot a few days after this interview. While Sullivan claims that he was at the Capitol to document the event as a journalist, the FBI affidavit notes that Sullivan can be heard on video yelling things like \"we about to burn this shit down\" and \"we accomplished this shit. We did this together. Fuck yeah! We are all a part of this history.\"",
+        "description": "Another round of misinformation attempted to shift blame for the Capitol riots, as some falsely claim that Jade Sacker worked for CNN.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption is inaccurate.  Snopes.com provides evidence that while Jade Sacker was filming the pro-Trump mob storming the Capitol, she is not and has never been a CNN employee. The caption misrepresents her affiliation with the network.",
+      "supporting_points": "Source 1 (Snopes) explicitly states that Jade Sacker is a freelance photojournalist, not a CNN employee. The article refutes the claim that she works for CNN, citing a statement from CNN's head of strategic communications.  Snopes further explains that Sacker appeared on CNN as a witness to events, not as a CNN employee.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The original caption claims that Jade Sacker, shown in the video filming the pro-Trump mob storming the Capitol, is a CNN reporter.  Internal entity recognition correctly identifies Jade Sacker and CNN. However, external validation from Snopes.com definitively refutes this claim. Snopes provides evidence that Sacker is a freelance photojournalist, not a CNN employee, and that her appearance on CNN was as a witness, not as a network reporter. This discrepancy between the caption and verified external evidence renders the caption out of context.",
+    "validation_summary": "Internal entity recognition supports the caption's identification of people and organizations. However, strong external evidence from Snopes.com contradicts the caption's assertion that Jade Sacker is a CNN reporter, leading to an OOC classification."
+  },
+  "inference_time": 25.151398181915283
+}

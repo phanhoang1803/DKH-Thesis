@@ -1,0 +1,41 @@
+{
+  "caption": "A crude oil storage tank sits behind a fence at a petroleum extraction site, in Weld County, near Mead, Colo., Monday, Feb. 13, 2017.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "We"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ld"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "County"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The entity \"Weld County\" is correctly identified as I-LOC.  However, the entities \"We\" and \"##ld\" are incorrect. \"We\" is not present in the caption, and \"##ld\" seems to be a partial match of \"Weld\", which should be tagged as B-LOC, not I-LOC.  The caption uses \"Weld County\" as a location, but the entity recognition is partially inaccurate.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The statement is plausible. Crude oil storage tanks are common at petroleum extraction sites. Weld County, Colorado is known for its oil and gas industry, making the location realistic.  The date format is standard for news reporting. There is nothing inherently implausible about the description. My uncertainty stems from lack of specific knowledge about the exact location and operations in Mead, Colorado on that particular date.",
+      "supporting_points": "- Weld County, Colorado is associated with oil and gas extraction.\n- Crude oil storage tanks are standard features at petroleum extraction sites.\n- The date and location information is presented in a typical news reporting format.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image strongly supports the caption. A crude oil storage tank is clearly visible, behind a fence. While there is no direct evidence of the location being Weld County, Colorado, this is plausible given the prevalence of oil extraction in that area. The internal entity recognition is partially incorrect, but the external check finds the caption plausible.  The confidence score is lower because the external validation relies heavily on general knowledge about the oil and gas industry in Weld County, rather than specific evidence.",
+    "validation_summary": "The image directly supports the caption, showing a crude oil tank behind a fence. Internal entity recognition is partially inaccurate. External validation finds the caption plausible, but relies on general knowledge, not specific evidence."
+  },
+  "inference_time": 22.20188617706299
+}

@@ -1,0 +1,41 @@
+{
+  "caption": "US President Donald Trump speaks, with a flag behind him, during a campaign rally at Cecil Airport in Jacksonville, Florida, on 24 September 2020",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Donald"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Trump"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Florida"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Donald Trump is correctly identified as a person (PER). Florida is correctly identified as a location (LOC).  The entities are used accurately within the context of the news caption. Temporal consistency is observed as the date is mentioned in the caption.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "Donald Trump was the US president in 2020, and he held numerous campaign rallies.  Holding a rally at an airport is also plausible.  September 24th, 2020, falls within the timeframe of his presidency and the lead-up to the 2020 election. Therefore, the caption is generally plausible. However, without specific knowledge of Trump's itinerary on that exact date, complete certainty is not possible.",
+      "supporting_points": "- Donald Trump was the US President during 2020.\n- He frequently held campaign rallies during his presidency.\n- Holding rallies at airports is a common practice for political campaigns.\n- September 24, 2020, is a date within his term as president.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image shows Donald Trump speaking at a podium with an American flag in the background. This aligns with the caption's description of a campaign rally. Internal entity recognition correctly identifies Donald Trump and Florida. External checks confirm the plausibility of Trump holding a rally in Florida during his presidency in 2020. However, the external check lacks definitive proof of the specific event on September 24, 2020, hence the lower confidence score.  The visual evidence strongly supports the core elements of the caption, making it highly likely to be accurate.",
+    "validation_summary": "Internal and external validation checks support the caption's claim, but the lack of specific evidence for the date reduces the confidence level. Visual evidence strongly aligns with the caption."
+  },
+  "inference_time": 31.51801824569702
+}

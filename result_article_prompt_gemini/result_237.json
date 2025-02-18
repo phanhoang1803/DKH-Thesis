@@ -1,0 +1,41 @@
+{
+  "caption": "After Hurricane Laura in August 2020, a photograph supposedly showing two sharks that got stuck in power lines several feet above the ground widely circulated on social media",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Laura"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows fish hanging from power lines, which aligns with the caption's description of sharks stuck in power lines.  While the image doesn't explicitly state that this occurred after Hurricane Laura in August 2020, the presence of the fish in the power lines suggests a scenario where extreme weather events could have been involved.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Does a Photo Show Sharks on a Power Line After Hurricane Laura?",
+        "date": "2020-09-22T07:32:01",
+        "content": "Claim:\nA photograph shows sharks stuck in power lines after Hurricane Laura in 2020.\nAfter Hurricane Laura in August 2020, a photograph supposedly showing two sharks that got stuck in power lines several feet above the ground widely circulated on social media:\nThis was a genuine picture of several sharks (and other marine animals) stuck in a collection of power lines. However, Hurricane Laura (or any other weather event) was not the culprit for this bizarre scene.\nThe above-displayed picture was taken in Mobile, Alabama, below the Dog River Bridge circa Aug. 31, 2020, and it shows the aftermath of a traffic accident. According to local news outlet WKRG, a boat full of a fisherman's catch fell 40 feet off the Dog River Bridge to the road below and in the process left portions of the net, as well as several fish, stuck up in the power lines.\nHere's a better look at the fish stuck in the power line:\nWKRG wrote:\nA boat fell 40 feet from the Dog River bridge onto the road below.\nOn the way down it took out some power lines and caused a mess on the road. The boat was badly damaged and the catch of the day was thrown across the road.\nIt's not clear what caused the accident, but WKRG reported that nobody was hurt. Here's a video news report about the incident that includes a few additional images of this fishy scene:",
+        "description": "Sharks and hurricanes are a popular combination among online rumors.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption accurately reflects the widely circulated photograph of sharks in power lines after Hurricane Laura.  Snopes.com's article directly addresses this image and confirms its circulation.  While the caption doesn't explicitly state the cause, the article clarifies it was due to a boat accident, not the hurricane itself.  The caption's focus on the image and its virality aligns with the article's main point. Therefore, the caption is supported by the retrieved article.",
+      "supporting_points": "Source 1 (Snopes): \"After Hurricane Laura in August 2020, a photograph supposedly showing two sharks that got stuck in power lines several feet above the ground widely circulated on social media.\"  Source 1 (Snopes) also confirms the image's existence and details its origin from a traffic accident, not Hurricane Laura.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 9,
+    "explanation": "The internal and external checks both support the caption's accuracy. The internal check notes that the image aligns with the caption's description of fish in power lines, even if the specific details about Hurricane Laura are not explicitly shown in the image. The external check confirms that the image was widely circulated after Hurricane Laura, as stated in the caption. However, a discrepancy arises. While the caption mentions \"two sharks,\" the external check points out that Snopes.com clarified the incident was due to a boat accident involving fish, not sharks specifically.  The discrepancy lies in the type of fish; the caption mentions sharks while the external source specifies other types of fish. However, both agree that the image of fish in power lines circulated after Hurricane Laura.  This supports the core statement of the caption. The high confidence scores in both checks (internal 10, external 8), coupled with the confirmation of the image's circulation post-Hurricane Laura, outweigh the species discrepancy. Therefore, the caption is not out of context, although a minor correction on the type of fish would increase its accuracy.",
+    "validation_summary": "Both internal and external checks support the caption's accuracy, with the external check clarifying that the fish were not sharks, but the core message of the image's wide circulation post-Hurricane Laura remains valid."
+  },
+  "inference_time": 7.104743242263794
+}

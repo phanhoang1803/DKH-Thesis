@@ -1,0 +1,69 @@
+{
+  "caption": "This woman, dressed in the colours of the Nigerian flag, takes part in the celebrations at Abuja's Eagle Square...",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "Independence"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Eagles"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Square"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Abu"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ja"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Nigeria"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Independence"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Celebration"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The entities \"Abuja\" and \"Eagle Square\" are correctly identified and used in the caption.  However, \"Nigeria\" is mentioned implicitly through the colors of the flag but isn't explicitly present in the provided entities.  The other entities such as \"Independence\" and \"Celebration\" are related but not directly mentioned in the caption. There is some ambiguity and lack of precision, leading to a moderate confidence score.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Bola Tinubu inauguration: Pictures of how Tinubu swearing in ceremony happun",
+        "date": "2023-05-29T00:00:00",
+        "content": "29 May 2023\nAfrican leaders along wit religious leaders, traditional rulers and oda important pipo follow witness di event for Eagles Square Abuja.",
+        "description": "African leaders along wit religious leaders, traditional rulers and oda important pipo follow witness di event for Eagles Square Abuja.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The caption states that a woman, dressed in the colors of the Nigerian flag, is participating in celebrations at Abuja's Eagle Square.  Source 1 mentions celebrations at Eagle Square, Abuja, during Bola Tinubu's inauguration. While the source doesn't explicitly confirm a woman in Nigerian flag colors, the presence of celebrations at the specified location makes the caption plausible.  However, the lack of explicit mention of such a woman limits confidence. The source's reliability is moderate; it's from the BBC Pidgin, a reputable source, but the informal language ('oda important pipo') slightly reduces confidence.",
+      "supporting_points": "Source 1 confirms events at Eagle Square, Abuja on May 29, 2023, during Bola Tinubu's inauguration.  This aligns with the caption's location and implies celebratory events. The absence of direct mention of a woman in Nigerian colors is a limitation.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image shows a woman in a green and white outfit, which could be interpreted as the colors of the Nigerian flag, performing with hoops at what appears to be a large public event. The caption states that the event takes place at Abuja's Eagle Square. External evidence from BBC Pidgin confirms that celebrations did occur at Eagle Square, Abuja, on May 29, 2023, during Bola Tinubu's inauguration.  While the external source doesn't explicitly mention a woman in a Nigerian flag-themed costume, the overall context aligns reasonably well with the caption. The internal check noted a moderate confidence because the caption only implicitly links the costume to Nigeria.  The lack of explicit confirmation of the woman's costume in the external source, coupled with the implicit connection to Nigeria in the caption, lowers the confidence score. The visual evidence strongly supports the location and the celebratory nature of the event.",
+    "validation_summary": "Both internal and external checks support the caption's core elements (location and celebratory event), but there's insufficient explicit evidence to fully confirm the woman's costume details. Visual evidence supports the general context."
+  },
+  "inference_time": 45.77849578857422
+}

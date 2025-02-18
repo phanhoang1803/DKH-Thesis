@@ -1,0 +1,49 @@
+{
+  "caption": "Coffin makers in Harare, Zimbabwe, prepare to put the finishing touches to their work.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Hara"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##re"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Zimbabwe"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows coffin makers working on coffins.  The location is not explicitly shown but is consistent with the caption's claim. There is no information to contradict the claim.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Africa's week in pictures: 18 - 24 September 2020",
+        "date": "2020-09-24T23:05:37",
+        "content": "A selection of the week's best photos from across the continent and beyond:\nPictures from Reuters, PA and EPA.",
+        "description": "A selection of the week's best photos from across the continent and beyond.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided news caption mentions coffin makers in Harare, Zimbabwe. However, the external evidence is a collection of photos from across Africa, and there is no mention of coffin makers in Harare, Zimbabwe, or any specific location. Therefore, there is no support for the caption in the evidence provided.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal check shows high confidence that the image depicts coffin makers at work, aligning with the caption. However, the external check reveals a crucial discrepancy.  The external evidence lacks any information corroborating the caption's specific claim of the location being Harare, Zimbabwe. The external check's confidence score is 0, indicating a complete lack of supporting evidence. This significant disagreement necessitates a low overall confidence score. The visual evidence alone is insufficient to definitively confirm the location. While the image depicts coffin making, it does not provide geographical markers or other contextual clues to verify the Harare, Zimbabwe location. Therefore, despite the internal consistency, the lack of external validation leads to a conclusion of \"out of context.\"  There's no indication of image manipulation or misrepresentation, but the absence of external verification regarding location makes the claim unverifiable.",
+    "validation_summary": "Internal consistency supports the caption's description of coffin makers. However, the external check finds no evidence to confirm the location as Harare, Zimbabwe, resulting in a significant discrepancy and a low confidence score. The claim's veracity regarding the location remains unconfirmed."
+  },
+  "inference_time": 26.998091459274292
+}

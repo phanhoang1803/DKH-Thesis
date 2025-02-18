@@ -1,0 +1,53 @@
+{
+  "caption": "Gertie, a shiba inu, was purchased at a pet store as part of an investigation by the Humane Society by puppy store manhattan.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "G"
+      },
+      {
+        "entity": "B-PER",
+        "word": "##ert"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##ie"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "Human"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##e"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Society"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image shows a woman cuddling a Shiba Inu dog.  The caption mentions an investigation by the Humane Society, which is not visually depicted.  The dog's name, Gertie, is not explicitly shown in the image. While the breed of dog is correct, the context of the caption about the Humane Society investigation is absent from the visual content.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The caption is plausible in that humane societies do investigate pet stores for animal welfare violations, and purchasing an animal is a common investigative method.  However, without further information verifying the specific Humane Society's actions and the pet store involved, the claim cannot be definitively confirmed or denied.  There's a possibility the name 'Gertie' and other details are fabricated for the story.",
+      "supporting_points": "Humane societies investigate puppy mills and pet stores for animal cruelty, Purchasing animals is one way to gather evidence, Shiba Inus are a common breed sold in pet stores, Verification of specific Humane Society actions and the identity of the pet store are required for higher confidence.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 5,
+    "explanation": "The internal check identifies a significant discrepancy between the image's content (a woman cuddling a Shiba Inu) and the caption's claim about a Humane Society investigation involving the purchase of the dog from a pet store. The image provides no evidence of this investigation.  The external check, while acknowledging the plausibility of Humane Society investigations into pet stores, points out the lack of verifiable information to confirm the specific details mentioned in the caption.  Both checks agree that the caption lacks visual support in the image. The external check's higher confidence score (4) compared to the internal check's score (6) results in a slightly lower overall confidence score.  However, the key element connecting the image and caption (the Humane Society investigation and the purchase of the dog) lacks evidence.  The dog's name and the specific context are not shown in the image. The external check's acceptance is based on the general plausibility of such investigations, not on confirmation of the specifics mentioned in the caption. Therefore, considering the overall lack of visual evidence supporting the caption's central claim, the final judgment is that the caption is out of context.",
+    "validation_summary": "Both internal and external checks identify a lack of visual evidence in the image to support the caption's claim about a Humane Society investigation. The external check acknowledges the general plausibility of such investigations, but this doesn't resolve the disconnect between the image and the specific details in the caption."
+  },
+  "inference_time": 24.0788733959198
+}

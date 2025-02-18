@@ -1,0 +1,49 @@
+{
+  "caption": "Does George Soros Own a Lab That ‘Developed’ COVID-19?",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "George"
+      },
+      {
+        "entity": "I-PER",
+        "word": "So"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##ros"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows George Soros.  The caption mentions George Soros. Therefore, the entity is correctly used.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Does George Soros Own a Lab That 'Developed' COVID-19?",
+        "date": "2020-04-02T05:04:38",
+        "content": "Claim:\nFinancier George Soros owns the lab in Wuhan, China, where the COVID-19 coronavirus disease was \"developed.\"\nAs the COVID-19 coronavirus disease pandemic spread across the globe in March 2020, conspiracy buffs shared memes and videos featuring variations on a common theme  the SARS-CoV-2 virus was a human-made creation developed in a Chinese lab owned by all-purpose boogeyman George Soros for the purpose of causing economic disruption that would unseat Donald Trump from the U.S. presidency:\nWe've extensively covered the false notion that the SARS-CoV-2 virus was bioengineered in a lab in Wuhan, China, in a separate article and concluded that:\nThe theory that SARS-CoV-2 was manufactured in, and escaped from, a lab in Wuhan is based solely on the proximity of infectious-disease labs near a potential source of the COVID-19 outbreak. Several scientific claims have been made or manufactured to further bolster the notion that something nefarious is going on with COVID-19 and these labs, but this information comes from non-peer-reviewed papers misconstrued to be actual additions to the scientific record, or from disreputable websites such as Mercola.com. The actual scientific facts known about the novel coronavirus leave little room for it to be a virus of human creation, however.\nRegardless, the idea of a Soros connection to the COVID-19 pandemic stems from the fact that Wuhan, China, was the apparent origin point of the novel coronavirus, and WuXi AppTec, a Shanghai-based pharmaceutical, biopharmaceutical, and medical device company, operates a \"small molecule drug discovery and research services\" facility there. And according to the conspiracy theory, Soros \"owns WuXi AppTec.\" QED.\nHowever, Soros holds no executive position at WuXi AppTec, and a list of the company's major shareholders shows that none owns more than 10% of the shares, and all of the largest shareholders are Chinese entities with no discernible connection to Soros himself.\nA May 2011 quarterly report filed with the U.S. Securities and Exchange Commission (SEC) shows that Soros Fund Management, a private American investment management firm, does (or did) have a holding in a related company (Wuxi PharmaTech (Cayman)). However, such institutional investment is common in the business world and does not make the head of any given investment firm the \"owner\" of all the businesses in which the firm holds a stake.\nWhen pulled, the thread of Soros to Soros Fund Management, to Wuxi PharmaTech (Cayman), to WuXi AppTec, to a biotech research facility in Wuhan, leads to nothing. All credible scientific evidence indicates the SARS-CoV-2 virus evolved or mutated and was not bioengineered, and the addition of Soros to any far-fetched conspiracy theory indicates nothing so much as a lack of imagination.",
+        "description": "Somehow, some way, business magnate George Soros gets accused of being involved in almost every politically contentious event.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided text from Snopes directly addresses the claim that George Soros owns a lab in Wuhan that developed COVID-19.  Snopes investigates the claim, tracing the connection through Soros Fund Management's investment in a related company, Wuxi PharmaTech (Cayman), and then to WuXi AppTec's facility in Wuhan.  The article concludes that Soros has no ownership or executive position in these entities and that the theory is unfounded.  The evidence strongly refutes the claim in the news caption.",
+      "supporting_points": "Claim: Financier George Soros owns the lab in Wuhan, China, where the COVID-19 coronavirus disease was \"developed.\" ... However, Soros holds no executive position at WuXi AppTec, and a list of the company's major shareholders shows that none owns more than 10% of the shares, and all of the largest shareholders are Chinese entities with no discernible connection to Soros himself. ... When pulled, the thread of Soros to Soros Fund Management, to Wuxi PharmaTech (Cayman), to WuXi AppTec, to a biotech research facility in Wuhan, leads to nothing.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The internal check focuses solely on the presence of George Soros in both the image and caption, concluding that the entity is correctly used. However, this check lacks a crucial component: verifying the accuracy of the claim made in the caption. The external check, utilizing Snopes, directly addresses the claim that George Soros owns a lab involved in COVID-19 development.  Snopes's investigation thoroughly debunks this claim, presenting evidence that Soros has no ownership or executive position in the relevant entities.  This directly contradicts the caption's assertion. The discrepancy between the internal check (which only assesses entity presence) and the external check (which assesses claim validity) is significant. The external check's high confidence score (10) and strong evidence from Snopes outweigh the limited scope of the internal check.  Therefore, the caption is out of context because it makes a factually inaccurate claim about George Soros's involvement in COVID-19 development. The image, while showing George Soros, does not provide any visual evidence to support the claim made in the caption.  The claim's falsity, verified by Snopes, renders the caption out of context despite the image correctly showing the individual mentioned.",
+    "validation_summary": "Internal check confirms the presence of George Soros, but external check (Snopes) strongly refutes the claim in the caption, showing it to be false.  The external evidence outweighs the limited scope of the internal check, leading to the conclusion that the caption is out of context."
+  },
+  "inference_time": 50.048755168914795
+}

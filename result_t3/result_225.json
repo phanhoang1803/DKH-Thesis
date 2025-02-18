@@ -1,0 +1,45 @@
+{
+  "caption": "Mr Read, 55, took up the hobby for the first time a year ago",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Mike"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Read"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided entities, Mike Read, do not match the name used in the caption, Mr Read.  While 'Read' is consistent, 'Mike' is not present in the caption.  Therefore, a definitive judgment cannot be made without further information.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "New Zealand man 'decapitated' by home-made hovercraft",
+        "date": "2011-08-03T09:16:32",
+        "content": "A New Zealand man has been decapitated by a propeller while demonstrating a home-made hovercraft to his family, local media reports say.\nDr Alastair Kenneth Senior, 40, died instantly when his hovercraft suffered a mechanical failure, causing a blade to shear off and hit him in the head.\nThe accident happened at Muriwai Beach, west of Auckland.\nHovercraft experts are assisting police, amid calls for regulation of the hobby to build and run the crafts.\nIt was reported to be the first time Mr Senior had driven the hovercraft. Police said that the victim had made the vehicle from scratch, possibly using an online design.\nSergeant Colin Nuttall said there had been a \"collapse in the structure'' when the accident happened about midday on Sunday, with his partner and a next-door neighbour looking on.\nAn engineer is now examining to determine what exactly went wrong.\n\"He took it up there for a test-run. It was the first time he'd tried to drive it, but I'm not sure if it was the first time he'd started it up,\" said Sgt Nuttall.\n\"His partner and neighbour were there at the time, they saw it.\"\nPolice said anyone could build or fly a hovercraft in New Zealand without a licence.\nThe newspaper went on to quote a former member of the Hovercraft Club of New Zealand, Ashley Shaw, who said the craft were generally safe.\n\"To make them, it's a piece of cake. I designed my own,\" he said.\n\"Hovercraft are inherently very, very safe and simple devices. They are quite stable.\"",
+        "description": "A New Zealand man is reportedly decapitated by a propeller while demonstrating a home-made hovercraft in front of his family.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption states that Mr. Read, 55, took up a hobby for the first time a year ago. The provided evidence details the death of Dr. Alastair Kenneth Senior, 40, who died while operating a home-made hovercraft for the first time.  The caption is inaccurate regarding the name, age, and specific circumstances. While both stories involve a first-time hobbyist, the details are completely different. The evidence is from a reputable source (BBC News), making it reliable, but it doesn't support the caption's claims.",
+      "supporting_points": "Source 1 clearly identifies the deceased as Dr. Alastair Kenneth Senior, age 40, not Mr. Read, 55.  The article explicitly states that it was the first time Dr. Senior had operated the hovercraft.  The caption's details are not consistent with the reported facts in the BBC News article.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a man with a telescope, seemingly an amateur astronomer. The caption mentions Mr. Read, 55, taking up a hobby a year ago.  The internal check flags a mismatch in names (Mr. Read vs. Mike Read). The external check reveals a strong conflict. The BBC News article cited describes a completely different event: the death of Dr. Alastair Kenneth Senior, 40, while using a homemade hovercraft for the first time. This is a significant discrepancy, rendering the original caption inaccurate and out of context. The image provides no evidence to support the caption's details about Mr. Read.",
+    "validation_summary": "Both internal and external checks reveal significant inconsistencies between the image, caption, and external evidence. The caption is deemed out of context."
+  },
+  "inference_time": 34.833874464035034
+}

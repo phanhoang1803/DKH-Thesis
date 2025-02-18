@@ -1,0 +1,61 @@
+{
+  "caption": "A normally busy street near Potsdamer Platz on Tuesday in Berlin.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Po"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##dam"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##er"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "P"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##latz"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Berlin"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a street scene in Berlin near Potsdamer Platz.  The street is relatively empty, suggesting it may be a time when it is not normally busy.  Potsdamer Platz is visible in the background. Therefore, the entities are correctly identified and used within the context of the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "The Berlin Wall Through Time",
+        "date": "2009-11-09T00:00:00",
+        "content": "'Open This Gate'\nDrawn to the citys historic Brandenburg Gate as word spread on the night of Nov. 9, 1989, both East and West Berliners clambered up the wall and crowded Pariser Platz to take part in the opening. Two years earlier at this spot, Ronald Reagan had implored Mikhail Gorbachev in a speech to open this gate, to tear down this wall.\nToday, the entire area around the 18th century landmark gate, just south of the Reichstag building where the German parliament meets, is a pedestrian plaza. The Quadriga -- the bronze sculpture atop the Brandenburg Gate -- depicts a chariot drawn by four horses and driven by Victoria, the Roman goddess of victory. The horses face east.\nStreet of History\nVisitors used the graffiti-pocked Berlin Wall as a backdrop for souvenir photos along Ebertstrasse, which runs south generally from the Brandenburg Gate to Potsdamer Platz.\nToday, Ebertstrasse is the location of the Memorial to the Murdered Jews of Europe as well as the new U.S. Embassy. It was also along this street that Roger Waters of Pink Floyd held an outdoor performance of the rock opera The Wall in 1990, eight months after the Berlin Wall fell, for which an estimated 350,000 people gathered.\nBoth Sides Now\nAfter the wall was breached, people could view the two sides of Berlin at once for the first time in decades. Here, a photographer straddles the wall looking up toward the Reichstag, where the German parliament convenes, on Nov. 10, 1989, a day after the fall.\nToday, evidence of the Berlin Wall is embedded in the pavement of streets it once divided; here, a long, double cobblestone line shows the former location of the wall along what is now bustling Ebertstrasse.\nA New Look\nEast German border soldiers and their Klieg lights were trained on the intersection of Zimmerstrasse and Charlottenstrasse, not far from the famous Allied checkpoint Charlie. In this March 1990 photo, the patrol towers were abandoned but the wall had not been removed.\nBy 2009, the corner of Zimmerstrasse and Charlottenstrasse had been completely reconstructed with offices, shops and apartments. Overall, eastern Germany has clawed its way back to a measure of prosperity.\nAll Along the Watchtower\nThe wall cut off the eastern end of the Lohmuehlenbruecke, the bridge over the Neukollner Schifffahrtskanal, leaving the part of the city called Neukoelln in West Berlin and its neighbors in Treptow in East Berlin. Near here, the first watchtower was erected in the so-called death strip between the outer and inner walls, and various buildings were razed to give guards a better overview. The border strip, which contained anti-vehicle trenches and other defenses, has been redesigned as a park.",
+        "description": "A historical look at points along the border that separated East and West Berlin from 1961 until 1989.",
+        "source_domain": "www.nytimes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The provided text focuses on the historical evolution of Potsdamer Platz and its surrounding areas, particularly in the context of the Berlin Wall. While it mentions that Ebertstrasse, which runs to Potsdamer Platz, is now bustling, it doesn't directly state the busyness of the street on a particular Tuesday.  The article's descriptions are historical, not real-time observations.  Therefore, there is no direct support for the claim, but the implication is that the area is now busy, aligning with the caption's assertion. The lack of precise temporal detail lowers the confidence score.",
+      "supporting_points": "Ebertstrasse, which runs south generally from the Brandenburg Gate to Potsdamer Platz. Today, Ebertstrasse is the location of the Memorial to the Murdered Jews of Europe as well as the new U.S. Embassy. It was also along this street that Roger Waters of Pink Floyd held an outdoor performance of the rock opera The Wall in 1990, eight months after the Berlin Wall fell, for which an estimated 350,000 people gathered. Today, evidence of the Berlin Wall is embedded in the pavement of streets it once divided; here, a long, double cobblestone line shows the former location of the wall along what is now bustling Ebertstrasse.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The internal check shows high confidence (10) in the caption's accuracy because the image clearly depicts a street scene in Berlin near Potsdamer Platz, and the street's relative emptiness is noted, suggesting a time when it is not normally busy.  The external check, however, shows lower confidence (4). While the external source mentions Ebertstrasse's current bustling activity near Potsdamer Platz, it does not offer direct support for the street's busyness on a specific Tuesday.  The external information is primarily historical, lacking real-time observations.  There's a discrepancy between the two assessments.  The internal assessment relies on direct visual observation, which is strong evidence. However, the external source lacks precise temporal information to fully corroborate the caption's claim about a particular Tuesday.  Therefore, the overall confidence score is a weighted average that considers both checks, leaning towards the strong internal evidence while acknowledging the external check's limitations.  The final assessment is that the caption is not definitively out of context, but there is some uncertainty due to the lack of external corroboration for the specific day mentioned.",
+    "validation_summary": "Internal check strongly supports the caption (confidence 10), aligning entities with the image context.  External check offers weaker support (confidence 4), lacking precise temporal data.  Discrepancies exist; visual evidence from the internal check is stronger.  Final verdict is not OOC, but with moderated confidence due to temporal uncertainty."
+  },
+  "inference_time": 7.483763217926025
+}

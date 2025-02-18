@@ -1,0 +1,73 @@
+{
+  "caption": "#Tshisekedi: Moving forward to a better future for the #DRC",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Felix"
+      },
+      {
+        "entity": "I-PER",
+        "word": "T"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##shi"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##se"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##ked"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##i"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Vita"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##l"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Ka"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##mer"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##he"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The caption mentions \"Tshisekedi\", which aligns with the extracted entities representing a person's name.  However, the entities show a name broken down into sub-word units (likely due to word tokenization). The caption uses the name as a whole, while the entities represent it in parts.  If the sub-word units are intended to represent \"Felix Tshisekedi\", and \"Vital Kamerhe\" then the entities are not entirely correctly identified as only \"Tshisekedi\" is mentioned in the caption. There is uncertainty concerning \"Vita##l Ka##mer##he\" as only  \"Tshisekedi\" is explicitly mentioned in the caption. ",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The caption \"#Tshisekedi: Moving forward to a better future for the #DRC\" is plausible.  Felix Tshisekedi is the president of the Democratic Republic of Congo (DRC), and it's common for leaders to express optimism about their country's future. The hashtag usage is also typical of social media news reporting. However, the lack of specific context makes it difficult to definitively assess the caption's truthfulness. The statement is a general aspiration and not a concrete statement of fact. Therefore, while seemingly plausible, a degree of uncertainty remains.",
+      "supporting_points": "- Felix Tshisekedi is the President of the DRC.\n- It is common for political leaders to express hope for their nation's future.\n- The use of hashtags is standard in social media news reporting.\n- The statement is a general aspiration, lacking specific details to confirm or deny.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 5,
+    "explanation": "The internal check reveals a mismatch between the caption's mention of \"Tshisekedi\" and the fragmented entity extraction, suggesting potential errors in entity recognition. While the external check finds the caption plausible given Tshisekedi's role as DRC president, the lack of specific context and the internal inconsistency lower confidence.  The image shows Tshisekedi with a group of people, seemingly in a meeting or event; this aligns with the caption's general sentiment but doesn't offer conclusive proof. The overall assessment leans towards \"out of context\" due to the weak entity recognition and lack of verifiable context in the caption.",
+    "validation_summary": "Internal check flags inconsistencies in entity extraction, while external check finds the caption plausible but lacks specific contextual support. The image aligns with the general theme but not specifically."
+  },
+  "inference_time": 25.162500381469727
+}

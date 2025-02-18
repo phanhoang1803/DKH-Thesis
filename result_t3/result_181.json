@@ -1,0 +1,45 @@
+{
+  "caption": "A Colorado hunter who apparently claimed that a Sasquatch (a creature of legend also known as Bigfoot or, in some circles, the Yeti) sexually assaulted him",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Big"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##foot"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The entities \"Bigfoot\" are correctly identified and used in the context of the news caption.  \"Big\" and \"foot\" are correctly identified as parts of the larger entity \"Bigfoot\". The caption explicitly mentions Bigfoot as a synonym for Sasquatch.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Did a Hunter Claim He Was Sexually Assaulted by a Sasquatch?",
+        "date": "2017-05-16T03:57:08",
+        "content": "Claim:\nA Colorado hunter claimed he was sexually assaulted by a Sasquatch.\nRating:\nFalse\nAbout this rating\nIn May 2017, people on social media got wind of an article about a Colorado hunter who apparently claimed that a Sasquatch (a creature of legend also known as Bigfoot or, in some circles, the Yeti) sexually assaulted him:\nThe article was published by World News Daily Report on 11 May 2017:\nThe 57-year old man was walking to his hunting cabin on Sunday, to see if it had suffered any damage during the winter.\nAll of a sudden, a large gorilla-like creature dropped from a tree in front of him punched him in the face ... While Mr. Whitaker was trying to recover from the attack, the large humanoid creature began to tear his clothes while letting out some terrifying howls.\nWhen I regained consciousness, he had already torn my pants and was tearing through my underwear. I stabbed him in the shoulder with my hunting knife, and that made him run away.\nThe item included a photograph of large footprints, purportedly captured at the scene of the incident. That image dated back to at least 2011, and was unrelated to any incidents involving a hunter versus Bigfoot encounter in 2017.\nHowever, all of this is beside the point, because there is no truth to this story; World News Daily Report admits on its own disclaimer page that all of its site content is fictional:\nWNDR assumes however all responsibility for the satirical nature of its articles and for the fictional nature of their content. All characters appearing in the articles in this website  even those based on real people  are entirely fictional and any resemblance between them and any persons, living, dead, or undead is purely a miracle.",
+        "description": "Rumors that a man claimed he was set upon by Bigfoot while on a hunting trip are just fake news.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption is inaccurate.  The external evidence from Snopes definitively debunks the claim. Snopes reveals that the story originated from World News Daily Report, a website that explicitly states its content is fictional satire.  The Snopes article details how the supposed evidence (footprints) is old and unrelated to the 2017 claim. Therefore, the core assertion of the caption—that a Colorado hunter claimed sexual assault by a Sasquatch—is false.",
+      "supporting_points": "- Snopes rates the claim as \"False\".\n- World News Daily Report, the source of the story, admits that all its content is fictional satire.\n- The photograph of footprints presented as evidence is old and unrelated to the alleged incident.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a person in a white, furry costume in a snowy forest. This is not related to the news caption which describes a hunter's claim of sexual assault by a Sasquatch. The internal check correctly identifies the entity \"Bigfoot\", but the external check from Snopes reveals that the news story is false and fictional.  Therefore, there is a significant mismatch between the image and the caption's content.",
+    "validation_summary": "Internal check confirms the presence of the mentioned entity, but the external check from a reliable source (Snopes) debunks the news story as false and fictional. The image is completely unrelated to the false news report."
+  },
+  "inference_time": 34.58015036582947
+}

@@ -1,0 +1,49 @@
+{
+  "caption": "Image shows a massive Bernie Sanders rally in California.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Bernie"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Sanders"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "California"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image shows a large crowd of people, but it is not possible to determine from the image whether it is a Bernie Sanders rally or not.  The location is also not specified in the image. Therefore, it is uncertain whether the entities are correctly used.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "27,000 People Came to a Bernie Sanders Rally in California",
+        "date": "2016-05-16T02:24:52",
+        "content": "Claim:\nPhotograph depicts a Bernie Sanders rally in California attended by more than 27,000 people that was ignored by the news media.\nRating:\nMostly True\nAbout this rating\nWhat's True\nPhotographs of a crowd estimated at 27,000 in attendance at a Bernie Sanders rally in California are authentic and unaltered.\nWhat's False\nThe Sanders rally depicted in the photographs did not occur in May 2016, and large Sanders rallies in August 2015 and May 2016 were amply covered by news outlets.\nIn May 2016, a meme appeared on social media charging that coverage of crowds in attendance at rallies for Democratic presidential hopeful Bernie Sanders had been ignored in mainstream news coverage of the 2016 presidential campaign:\nThe photograph used in the meme was originally published in August 2015 by The Hill in their coverage of a Sanders rally in Los Angeles. However, the image went into heavy circulation after Sanders drew large crowds during a campaign swing through Sacramento in early May 2016, an event documented by Twitter users:\nNeither the August 2015 nor the May 2016 rally was ignored by the news media, mainstream or otherwise. The August 2015 Los Angeles rally involving an estimated 27,000 people was reported by The Hill, and the May 2016 Sacramento event was covered by the Los Angeles Times, the Sacramento Bee, SFGate, the New York Times, and the Huffington Post (among others):\nVideo of the 9 May 2016 Sacramento rally was also posted to YouTube, bearing the identifying marker of ABC News:",
+        "description": "A circulating photograph depicted a Bernie Sanders rally in Los Angeles in August 2015, not a May 2016 event in Sacramento.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The provided text states that a photograph of a Bernie Sanders rally in California with more than 27,000 attendees is authentic.  While the exact date and location are debated (August 2015 in Los Angeles vs. May 2016 in Sacramento), the existence of a massive rally is confirmed.  The caption's claim of a \"massive rally\" aligns with this evidence.",
+      "supporting_points": "Photographs of a crowd estimated at 27,000 in attendance at a Bernie Sanders rally in California are authentic and unaltered.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The internal check expresses uncertainty about the caption's accuracy due to the inability to verify the event depicted in the image as a Bernie Sanders rally and the unspecified location.  The confidence score is low (1) because the image alone does not provide sufficient information to confirm the caption. However, the external check strongly supports the existence of a large Bernie Sanders rally in California, with estimates of attendance exceeding 27,000.  While the exact date and location (August 2015 in Los Angeles or May 2016 in Sacramento) are subject to debate, the fact of a massive rally is corroborated.  This discrepancy stems from the limited information provided by the image itself. The internal check focuses solely on visual identification, lacking the contextual information readily available through external verification. Therefore, the external check carries greater weight due to its access to supporting evidence (photographic documentation of the rally).  The confidence score of 8 reflects the strong external validation while acknowledging the inherent limitations of solely relying on image analysis for event identification.  The image shows a large crowd, consistent with the external evidence of a large rally.  However, without clear identifying markers within the image (e.g., Bernie Sanders' likeness, signage, banners, specific location markers), the internal assessment remains uncertain.  This highlights the importance of integrating multiple sources of information (visual evidence, external documentation) to achieve a more accurate and confident validation. Ultimately, while the image does depict a large gathering that aligns with external descriptions of the Sanders rallies in California, the lack of explicit identification within the image itself necessitates a 'True' determination for OOC, indicating a mismatch between caption and image contents verifiable through the provided image only.",
+    "validation_summary": "Internal check shows low confidence due to inability to verify the image as a Bernie Sanders rally. External check strongly supports the existence of a large Bernie Sanders rally in California, causing a conflict. The final assessment leans towards the external validation, but the lack of definitive visual confirmation within the image results in 'OOC: True'."
+  },
+  "inference_time": 50.85069131851196
+}

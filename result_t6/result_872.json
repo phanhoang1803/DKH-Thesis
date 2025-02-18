@@ -1,0 +1,65 @@
+{
+  "caption": "Vladimir Putin said that 'ISIS will regret' assassinating a Russian ambassador since he is 'not Obama' and this is 'not Benghazi.'",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Vladimir"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Putin"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "IS"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##IS"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Russian"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Obama"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Ben"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##gh"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##azi"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image contains Vladimir Putin.  The caption mentions Vladimir Putin, ISIS, Russian, Obama, and Benghazi.  While the image only shows Vladimir Putin, the other entities are mentioned in the context of his statement, making the entities relevant to the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "While Putin's strong reaction to the assassination of a Russian ambassador is plausible, the exact quote needs verification.  The comparison to Obama and Benghazi is provocative and requires confirmation from reliable news sources.  The statement's plausibility hinges on whether Putin actually made this comparison, not on the general reaction itself.",
+      "supporting_points": "- Putin has historically reacted strongly to attacks on Russian interests.\n- The assassination of a diplomat is a serious event that usually elicits a strong response from the involved nation.\n- The comparison to Obama and Benghazi is a highly charged political statement that needs to be verified. \n- Multiple news sources need to be consulted to verify the exact words used by Putin.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal consistency check shows high confidence (score 10) because the image shows Vladimir Putin, and the caption mentions him along with other entities relevant to his reported statement. However, the external check reveals low confidence (score 4).  The external check highlights the critical need to verify the exact quote attributed to Putin. While his strong reaction to the assassination is plausible, the specific comparison to Obama and Benghazi requires rigorous verification from multiple reliable news sources. The core issue is the lack of confirmation for the precise phrasing of Putin's statement.  The plausibility of the caption is directly tied to whether or not he used the exact words cited, not just the fact that he likely responded strongly to the event. The discrepancy between the internal and external checks arises from this difference in focus. The internal check focuses on the presence of relevant entities in both the image and the caption, whereas the external check prioritizes factual accuracy of the quoted statement.  To resolve this discrepancy, we need to find credible evidence supporting the exact words attributed to Putin in the caption. Without such evidence, the caption remains highly suspect, even though the general premise of Putin's strong reaction to the ambassador's assassination seems plausible based on geopolitical context and his known behavior.  The internal validation relies heavily on the contextual relevance of the mentioned entities, but this contextual relevance does not automatically validate the accuracy of the direct quote.  The external check methodically highlights the need for factual verification of the quoted speech, emphasizing the importance of sourcing to confirm the details.  In summary, the lack of confirmed evidence for the precise words attributed to Putin in the caption, despite the plausible context, leads to a low confidence score and an \"OOC\" verdict. The visual aspect of the image—showing Vladimir Putin—supports the presence of the main entity mentioned, but it cannot validate the accuracy of the direct quote and the associated comparisons.",
+    "validation_summary": "Internal validation shows high confidence in the relevance of entities. External validation reveals low confidence due to the lack of verifiable evidence supporting the exact quote attributed to Putin.  The discrepancy lies in the difference between contextual relevance and factual accuracy of the quoted statement.  Without independent verification of the quote, the caption is considered out of context."
+  },
+  "inference_time": 35.90402364730835
+}

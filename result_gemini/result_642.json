@@ -1,0 +1,61 @@
+{
+  "caption": "The following day a Rwandan UN peacekeeper patrols the road leading to Damara in Central African Republic.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Rwanda"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##n"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "UN"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Dam"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ara"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Central"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "African"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Republic"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows a UN peacekeeper, who appears to be Rwandan given his uniform patch.  He is patrolling a road. Although the exact location isn't explicitly shown, the context suggests it could be in the Central African Republic.  The caption mentions \"Damara,\" but the image does not confirm this specific location. The presence and role of the peacekeeper in the image support the caption.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Based on general knowledge, it is plausible that a Rwandan UN peacekeeper would patrol a road in the Central African Republic.  Rwanda has contributed troops to UN peacekeeping missions, and the Central African Republic has experienced significant conflict requiring such intervention. The statement is verifiable by checking UN peacekeeping records for Rwandan deployments in CAR and news reports about their activities. However, without specific date information, the temporal accuracy cannot be confirmed.  The statement does not contain any obvious red flags or common misconceptions.",
+      "supporting_points": "Rwanda has a history of participating in UN peacekeeping missions. The Central African Republic has faced extensive conflict and instability requiring international peacekeeping interventions. UN records of peacekeeping deployments are publicly available.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The internal and external validation checks both support a high confidence score, but ultimately indicate that the caption is out of context. While the image shows a Rwandan UN peacekeeper (indicated by the uniform patch) patrolling a road and it is plausible that this scenario would occur in the Central African Republic given Rwanda's participation in UN peacekeeping missions there, the caption's claim that this specific event occurred on *the following day* lacks supporting evidence. The image provides no temporal information, making it impossible to verify the 'following day' statement. The external check points out the difficulty of confirming the temporal accuracy without further details.  Both checks agree on the plausibility of a Rwandan UN peacekeeper being present in the CAR, but the absence of temporal evidence related to the 'following day' clause is a critical discrepancy. While the image supports the presence of a peacekeeper and possible location, it does not explicitly show \"the road leading to Damara.\" Therefore, even though the core elements of the image are consistent with the caption (peacekeeper, potential location, patrol), the lack of evidence for the critical temporal aspect ('following day') leads to the conclusion that the caption is out of context. The high confidence score reflects the high degree of plausibility of the scene depicted, excluding the unverifiable time element.  The absence of a specific date or any other temporal anchor in the image prevents confident confirmation of the claim.",
+    "validation_summary": "Both internal and external checks find the core elements of the caption (Rwandan peacekeeper, patrol, CAR location) plausible. However, the temporal element ('following day') lacks support in the image, making the caption out of context.  High confidence in the plausibility of the scene depicted excluding the unverifiable time element."
+  },
+  "inference_time": 27.478657007217407
+}

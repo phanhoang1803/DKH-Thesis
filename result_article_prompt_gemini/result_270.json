@@ -1,0 +1,41 @@
+{
+  "caption": "In late October 2019, a number of local news outlets reported on an extremely rare, one-in-a-million purple lobster that was caught in Maine.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Maine"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows two lobsters; one is purple, and the other is orange.  The caption mentions a purple lobster caught in Maine.  The image supports the caption.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Was a Rare Purple Lobster Caught in Maine?",
+        "date": "2019-10-30T05:27:56",
+        "content": "Maine lobsterman catches extremely rare purple lobster\nA Maine lobsterman said he was shocked when he netted a rare purple lobster last week.\nKeith Potter netted the purple lobster on Tuesday off the coast of Winter Harbor.\nThese are not genuine photographs of a purple lobster.\nThese digitally manipulated images appear to have first been shared to the private Facebook group All Things Lobstering and show a user named Keith Potter. While these pictures were originally shared in jest, they eventually escaped the confines of this Facebook group, were mistaken for real, and ended up on the pages of several local news outlets.\nPotter took to Facebook on Oct. 28 to confess that the \"purple lobster\" in these images was created with Photoshop:\nStop messaging me about that fake purple lobster it was a joke I posted in a closed group and someone took it and shared it, if you read the comments you can tell it was a joke ?? and if you're butthurt over a photoshopped lobster please get a life ??\nWe took a closer look at these pictures and can understand how people were fooled. We don't see any obvious errors that would give them away as fake. However, a \"purple lobster\" of this size off the coast of Maine wouldn't just be a rare catch. It would practically be a historic one.\nThe Maine lobster (Homarus Americanus) is typically a mottled brown color but can also be found in a several colorful variations. Maine Lobsterman's Community Alliance reports that blue, calico, orange, and even white Maine lobsters have been documented:\nWhile Professor Robert Steneck, a marine biologist at the University of Maine Darling Marine Center, said that a purple-colored lobster was technically possible, we have yet to encounter any genuine photographs or news reports about such a catch off the coast of Maine.\nHere's a video with more detail about lobster color variations:\nWhile the large Maine lobster may not frequently (or ever) be seen in the color purple, a smaller genus of lobster called the reef lobster (Enoplometopus) that lives in the warm waters of the Caribbean can be seen in a wide variety of bright colors. Here's a photograph of a purple reef lobster:",
+        "description": "A photograph prompted coverage by several news outlets.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The news caption claims that in late October 2019, several local news outlets reported on a rare purple lobster caught in Maine.  Source 1 from Snopes.com directly refutes this claim. While it mentions several news outlets covering a purported purple lobster, it definitively states that the images were digitally manipulated and the story was a hoax.  The claim of a real purple lobster catch is unsubstantiated and actively contradicted by a reliable source that investigated the event. Therefore, the caption is false.",
+      "supporting_points": "Source 1: \"A Maine lobsterman said he was shocked when he netted a rare purple lobster last week...These are not genuine photographs of a purple lobster. These digitally manipulated images appear to have first been shared to the private Facebook group All Things Lobstering...Potter took to Facebook on Oct. 28 to confess that the \"purple lobster\" in these images was created with Photoshop\"",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The internal check shows high confidence (10) that the caption accurately reflects the image content. The image depicts a purple lobster, aligning with the caption's description of a rare purple lobster. However, the external check reveals a significant discrepancy.  With a confidence score of 3, it identifies a reliable source (Snopes) that debunks the claim. Snopes directly states that the images circulating online, including those similar to the provided image, are digitally manipulated. This contradicts the caption's assertion of a genuine one-in-a-million purple lobster catch in Maine. The external validation is crucial because it relies on an investigation into the original news reports, directly addressing the veracity of the claim. The internal check's high confidence is based solely on the visual aspect of the image and does not consider the authenticity of the event itself.  The conflict arises from a fundamental difference in the nature of the checks. Internal consistency examines the relationship between the caption and the image itself, while external validation investigates the truthfulness of the claim within the context of reported news. The external source provides strong evidence contradicting the claim, outweighing the internal assessment. Therefore, the caption is deemed out-of-context because it presents a claim that has been proven to be false by reliable external verification. The confidence score is high (9) because both internal and external analyses provide strong evidence, although they lead to conflicting conclusions.  The external evidence, confirming the hoax nature of the image, carries more weight due to its investigation into the source of the images and the original news reports. In short, while the image itself aligns with the caption's description, external fact-checking reveals that the event described never happened. Thus, the caption is out-of-context.",
+    "validation_summary": "Internal check finds high alignment between image and caption; external check finds caption is false based on Snopes investigation revealing the image is digitally manipulated and the event a hoax. External evidence outweighs internal assessment."
+  },
+  "inference_time": 7.445977687835693
+}

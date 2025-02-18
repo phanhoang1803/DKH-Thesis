@@ -1,0 +1,73 @@
+{
+  "caption": "Human flesh is the finest meat in the world, according to Katy Perry, who puts the “exquisite flavor” of the meat down to “the taboo nature of the product” and the fact that “forbidden pleasures are always the most delicious.”",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Katy"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Perry"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Perry"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "“"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Bon"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##pp"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##é"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##ti"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##t"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The entities \"Katy Perry\" are correctly identified and their usage seems correct in the context of the news caption.  However, the entities starting with “Bon appétit” seem to be incorrectly identified as MISC and are out of context.  The judgment is based solely on the correctly identified entities.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Katy Perry Reveals Penchant for Cannibalism?",
+        "date": "2017-11-03T00:44:11",
+        "content": "Claim:\nIn an interview with a French radio station, Katy Perry revealed a preference for eating human meat.\nOn 1 November 2017, the notorious fake news web site Your News Wire falsely reported that the singer Katy Perry had admitted her preference for human meat in an interview with French radio:\nHuman flesh is the finest meat in the world, according to Katy Perry, who puts the exquisite flavor of the meat down to the taboo nature of the product and the fact that forbidden pleasures are always the most delicious.\nGoing as far as to claim that cannibalism is way more popular than you might think, Katy Perry also claimed that so many people in Hollywood tell you that human meat is the best, the absolute best, meat in the world.\nThese quotes were entirely fabricated and appeared to play on the music video for Perry's recent single \"Bon Apptit,\" which used special effects to show her being \"prepared\" by a group of male chefs before being cooked in various ways:\nThe article also referenced a long-standing conspiracy theory about Satanist/Illuminati infiltration of Hollywood which includes associated occult rituals, falsely asserting Perry told a French radio station that \"There is a group of old Hollywood guys who have an annual dinner party where the main dish is human.\"",
+        "description": "A disreputable web site adds to its archive of distasteful and entirely fabricated stories.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption is inaccurate.  The external evidence, from Snopes, explicitly debunks the claim that Katy Perry made the statement about human flesh being the finest meat. Snopes identifies the source of the claim as a notorious fake news website, Your News Wire, and labels the story as entirely fabricated.  The Snopes article details how the false claim likely played on a music video where Perry was shown being \"prepared\" by chefs, fueling the false narrative. Therefore, the caption's claim is demonstrably false.",
+      "supporting_points": "Source 1 (Snopes): Explicitly states the quote attributed to Katy Perry is entirely fabricated by the fake news website Your News Wire. The article details the false claim's origins and context, highlighting its connection to a music video and a conspiracy theory.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Katy Perry at an event.  There is nothing in the image to suggest the caption's claim that she said human flesh is the finest meat. Internal entity analysis partially supports the presence of Katy Perry, but flags other entities as out of context.  Crucially, external evidence from Snopes definitively debunks the caption's claim, rating it as entirely fabricated by a known fake news website. The Snopes report details how the false claim originated and spread, highlighting its lack of basis.  Therefore, the caption is demonstrably false and out of context.",
+    "validation_summary": "Both internal and external validation confirm that the caption is out of context. The image shows Katy Perry, but contains no evidence for the claim about human flesh. External fact-checking definitively debunks the claim as a fabrication."
+  },
+  "inference_time": 24.156347036361694
+}

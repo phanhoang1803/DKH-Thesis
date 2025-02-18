@@ -1,0 +1,97 @@
+{
+  "caption": "Supporters of Tanzania's ruling Chama Cha Mapinduzi party come out on Friday to celebrate their candidate's victory in the disputed Zanzibari presidential election",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "Cha"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##ma"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Cha"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Map"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##ind"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##uz"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##i"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "Revolutionary"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Party"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Z"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##an"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##zi"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##bar"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Stone"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Town"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The entities \"Chama Cha Mapinduzi\" and \"Zanzibar\" are correctly identified and their usage aligns with the context of the news caption.  The entity \"Revolutionary Party\" seems to be an alternative name for Chama Cha Mapinduzi, which is acceptable given that it's a common translation. The mention of Stone Town is not directly stated in the caption, but it is implicitly referred to when mentioning Zanzibari elections, so it is not incorrect. ",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Tanzania poll: John Magufuli of CCM defeats Edward Lowassa",
+        "date": "2015-10-29T13:20:31",
+        "content": "Tanzania's governing CCM party candidate John Magufuli has won the presidential election with 58% of the vote, the electoral commission says.\nHis main rival Edward Lowassa has rejected the official results that gave him 40% of the ballots cast.\nThe opposition Ukawa coalition candidate earlier claimed he had won with 62% of the vote.\nThe elections on Sunday were the most fierce the governing party faced after 54 years in power.\nAfrica Live: BBC news updates\nJohn Magufuli is celebrating his 56th birthday so the presidency is a perfect gift for him. He was never a CCM insider and confounded many when he was elected as the ruling party's presidential candidate.\nAs works minister in the outgoing government, Mr Magufuli was reputed to be a no-nonsense, results-driven politician. He became known as \"The Bulldozer\" for driving a programme to build roads across the country.\nHe campaigned for the presidency on a platform of hard work, and will now have to tackle far bigger problems facing the East African state. This includes constant power outages, and corruption - an issue which led to many people turning against CCM in the election.\n'The Bulldozer' in profile\nPresident Jakaya Kikwete, who is standing down after two terms in office, retweeted a CCM photo of Mr Magufuli, external and the accompanying words: \"Our next Commander-in-Chief, Dr John Pombe Magufuli, the President-elect of The United Republic of Tanzania.\"\nAbdallah Safari, vice-president of Chadema, one of the four opposition parties that make up Ukama, told the BBC that Tanzanians \"have been robbed of their victory\".\nBBC Tanzania analyst Zuhura Yunus says the result is a big blow for Mr Lowassa after four opposition parties put their faith in him, uniting for the first time to field a single candidate.",
+        "description": "Tanzania's governing party candidate John Magufuli has won Sunday's fiercely competitive presidential election with 58% of the vote, officials say.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The caption states that supporters of Tanzania's ruling Chama Cha Mapinduzi (CCM) party celebrated their candidate's victory in the Zanzibari presidential election on Friday.  Source 1, from the BBC, reports on the Tanzanian presidential election (not specifically Zanzibari) on Sunday, with CCM's John Magufuli declared the winner. The discrepancy in the day of the week and the specific election is a significant issue. While the source supports the overall narrative of a CCM victory, it doesn't directly verify the celebration on Friday in relation to a Zanzibari election. Therefore, the caption's accuracy is questionable and lacks sufficient evidence to confirm the specific details.",
+      "supporting_points": "Source 1 clearly states that Magufuli won the *Tanzanian* presidential election on Sunday, not a Zanzibari election on Friday.  The caption's claim of a Friday celebration needs further evidence to be verified.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 3,
+    "explanation": "The internal check shows high confidence in the alignment between the entities in the caption and the image. However, the external check reveals a significant discrepancy. The caption mentions a Friday celebration for a Zanzibari election victory, whereas the BBC article reports a Tanzanian presidential election win on Sunday. This major conflict in dates and election type casts doubt on the accuracy of the caption, leading to a low confidence score. The image itself doesn't provide enough context to resolve this conflict. Therefore, the caption is considered out of context.",
+    "validation_summary": "Internal validation shows high confidence in entity recognition and context alignment, but external validation reveals a critical discrepancy in date and election type. The discrepancies lower the overall confidence and indicate a caption out of context."
+  },
+  "inference_time": 36.19613218307495
+}

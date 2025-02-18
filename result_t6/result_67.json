@@ -1,0 +1,57 @@
+{
+  "caption": "Jemal Ahmed chases away a swarm of locusts, after the locusts stormed his sorghum and sweet cane farm in Jawaha, Ethiopia.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Je"
+      },
+      {
+        "entity": "B-PER",
+        "word": "##mal"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Ahmed"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "J"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##awa"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "##ha"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Ethiopia"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image shows a person working in a field of sorghum.  There is no evidence of locusts. The name Jemal Ahmed is not visible, neither is the location Jawaha. The location Ethiopia is not visually verifiable.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Locust swarms are a known problem in East Africa, including Ethiopia.  Sorghum and sweet cane are crops commonly grown in the region.  While it's improbable a single person could effectively chase away a large swarm, the image of a farmer attempting to protect his crops is plausible. The claim requires verification from reliable news sources or reports to confirm the specific incident and location details.  There is no information to suggest this is untrue based on general world knowledge.",
+      "supporting_points": "- Locust swarms are a recurring agricultural problem in parts of East Africa.\n- Sorghum and sugarcane are crops cultivated in Ethiopia.\n- The scenario described is consistent with the challenges faced by farmers in regions prone to locust infestations.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal check flags a low confidence score (3) due to the absence of visual evidence supporting the claim.  The name Jemal Ahmed, the location Jawaha, and the presence of locusts are not visible in the image. While the external check offers a higher confidence score (8) by referencing the known issue of locust swarms in Ethiopia and the plausibility of the scenario, it acknowledges the need for further verification from reliable sources to confirm the specific event. This discrepancy highlights the limitations of relying solely on visual and general knowledge for verification.  The image depicts a farmer working in a sorghum field, which aligns with the caption in terms of the crop type and location (Ethiopia), but lacks crucial details. The absence of locusts directly contradicts the core assertion of the caption. The relatively low confidence score of the internal check and the need for external validation to confirm the event weigh heavily against the caption's accuracy. The claim requires further evidence linking the farmer, location, specific date and the event described in the caption.  Without this additional information, the caption is deemed out of context, making the image potentially misleading if presented without further verification and context.",
+    "validation_summary": "Internal check finds low confidence due to lack of visual evidence supporting claims of locusts, specific location or individual. External check finds higher confidence referencing general knowledge on locust swarms in Ethiopia, but stresses the need for additional verification. The discrepancies lead to a low overall confidence score and a conclusion of the caption being out of context."
+  },
+  "inference_time": 33.195454120635986
+}

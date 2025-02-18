@@ -1,0 +1,57 @@
+{
+  "caption": "A new bronze statue of US First Lady Melania Trump is unveiled near her hometown in Slovenia.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "US"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Mel"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##ania"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Trump"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Slovenia"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image shows a bronze statue of a woman, but it is not Melania Trump.  The statue's location is not definitively Slovenia. Therefore, the caption is incorrect.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Melania Trump: New metal statue unveiled in Slovenia",
+        "date": "2020-09-16T08:34:27",
+        "content": "A new bronze statue to US First Lady Melania Trump has been unveiled near her hometown in Slovenia.\nIt replaces a wooden sculpture erected last year, which was set alight shortly afterwards by unknown arsonists.\nSome described the original as a \"disgrace\" or a \"Smurfette\", saying it did not look like Mrs Trump.\nThe new statue features a plaque dedicating the sculpture to \"the eternal memory of a monument to Melania which stood at this location\".\nMrs Trump was born in Novo Mesto in 1970 but grew up in the town of Sevnica, when Slovenia was part of the Communist nation of Yugoslavia.\nUS artist Brad Downey commissioned the original piece and placed it outside Sevnica in 2019.\nIt was carved out of a tree trunk by local chainsaw artisan Ales Zupevc and depicted her in a blue coat like the one she wore to her husband's inauguration, but bore only a loose resemblance to the First Lady.\nIt was set alight on 4 July - Independence Day in the US - but Mr Downey has since exhibited the burnt statue in Slovenia, saying it \"represents a visual representation of political tensions that are erupting in my country\".\nThe new statue, made of bronze and revealed to the public on Tuesday, is a replica of the original.\n\"We are here today because we put up again a statue of Melania to the place where it was burnt and to commemorate the statue that was set on fire,\" Slovenian artist Marko Vivoda told AP news agency.\nSince the election of US President Donald Trump in 2016, tourists have come to Sevnica to learn more about the First Lady's origins.\nResidents have brought out ranges of Melania-branded merchandise, including slippers, cakes, and Trump-like burgers with fly-away cheese \"hair\".\nA wooden statue of President Trump also appeared in Sevnica last year.",
+        "description": "A new bronze statue in Slovenia takes the place of the former wooden one, set on fire last year.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption accurately reflects the information provided in Source 1.  The article explicitly states that \"A new bronze statue to US First Lady Melania Trump has been unveiled near her hometown in Slovenia.\"",
+      "supporting_points": "Source 1: Content: A new bronze statue to US First Lady Melania Trump has been unveiled near her hometown in Slovenia.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The internal validation check correctly identifies that the caption is inaccurate. The image depicts a bronze statue of a woman, but it does not resemble Melania Trump. Moreover, there's no evidence in the image to confirm the statue's location as Slovenia. The internal check's confidence score of 3 reflects this uncertainty. However, the external check presents conflicting information. It claims that a news source confirms the caption's accuracy, stating that a statue of Melania Trump was unveiled near her hometown in Slovenia. The high confidence score (10) assigned by the external check indicates strong support for this claim. This discrepancy necessitates a closer analysis. Considering the conflicting evidence, we must resolve this discrepancy. The image itself does not provide enough information to verify the identity of the statue or its location. Therefore, we must primarily rely on the external validation. Although the external check offers strong evidence, it is crucial to note that verifying this information requires consulting the cited news source. Without accessing the source directly, we cannot confirm its reliability and the accuracy of its statement. A reasonable approach involves considering the image's direct evidence (lack of Melania Trump's likeness, no location identifiers) and acknowledging the external claim's high confidence without directly verifying the source.  The lack of verifiable supporting information from the news source reduces the overall confidence despite the external check's high score. Given the internal check's correct identification of the image content and the absence of direct verification for the external claim, we must lean towards the internal check's conclusion. While the external check suggests a high confidence, this is contingent on the news source's credibility, which is unknown without accessing it directly.  Based on this analysis, we assess the caption as being out of context. The confidence score is adjusted to reflect uncertainty due to the discrepancy between the checks and the inability to verify the external source. The final confidence score is set at 8.  The internal check is given more weight because it directly analyzes the provided image and does not rely on unverified external information.",
+    "validation_summary": "Internal validation correctly identifies the caption's inaccuracy due to the statue's misidentification and lack of locational evidence. External validation claims a news source confirms the caption's accuracy, creating a conflict. Due to the lack of direct access to the news source, the final assessment prioritizes the internal validation, concluding that the caption is out of context."
+  },
+  "inference_time": 42.8266077041626
+}

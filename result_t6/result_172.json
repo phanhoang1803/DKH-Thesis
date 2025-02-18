@@ -1,0 +1,53 @@
+{
+  "caption": "In December 2015, a photograph of Republican presidential candidate Ted Cruz along with a quote uttered by him about his relationship with God started circulating around the internet",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Republican"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Ted"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Cruz"
+      },
+      {
+        "entity": "B-PER",
+        "word": "God"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Ted Cruz, a Republican.  The caption mentions a quote about his relationship with God, but the image itself doesn't show any text or context related to that quote. However, the entities present in the image are correctly identified.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "The 598 People, Places and Things Donald Trump Has Insulted on Twitter: A Complete List",
+        "date": "2016-01-28T22:50:55",
+        "content": "Insults since Mr. Trump became president are highlighted in yellow; the most recent updates are shaded purple. (This list covers tweets since Mr. Trump declared his candidacy.)\nNote: based on an analysis of tweets since June 15, 2015. Retweets are not endorsements. Some names may be omitted.",
+        "description": "A detailed list of the journalists, politicians and places President Trump has insulted since declaring his candidacy.",
+        "source_domain": "www.nytimes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided evidence is about Donald Trump's insults on Twitter and does not contain any information about Ted Cruz, a photograph of him, or a quote about his relationship with God.  Therefore, the evidence is irrelevant to the news caption.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 1,
+    "explanation": "The internal check shows some agreement with the caption by identifying Ted Cruz in the image. However, it acknowledges the absence of the quote mentioned in the caption within the image itself.  The crucial discrepancy lies in the external check, which completely fails to corroborate the claim.  The external check explicitly states that it found no evidence supporting the caption's claim about Ted Cruz, a photo of him, or a quote about his relationship with God. This lack of external corroboration is a significant red flag.  The internal check's confidence is low (10/10) because it only confirms the presence of Ted Cruz but doesn't validate the core claim of the caption about the quote and its circulation. The external check has a confidence score of 0, definitively refuting the caption's claim.  Considering the strong disagreement and the absence of external validation, the overall confidence score is extremely low (1/10).  There is no visual evidence in the provided image that supports the claim of a specific quote about God circulating online in December 2015. The image simply shows Ted Cruz, lacking any contextual information related to the alleged quote or its online circulation.  The lack of supporting evidence, combined with the conflicting results of the internal and external checks, strongly suggests the caption is out of context.  Therefore, the final assessment is that the caption is out of context (OOC: True) with a very low confidence score (1/10).",
+    "validation_summary": "Internal check partially agrees (identifies Ted Cruz but not the quote), while external check completely refutes the caption's claim, leading to a low confidence score and a conclusion that the caption is out of context."
+  },
+  "inference_time": 47.142842054367065
+}

@@ -1,0 +1,77 @@
+{
+  "caption": "Traffic on the railway between Ivory Coast's biggest city, Abidjan, and Ouagadougou, the capital of Burkina Faso, was halted on Friday after a landslide",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Ivory"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Coast"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "A"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##bid"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##jan"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "O"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ua"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##gado"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ug"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ou"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Burkina"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Faso"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image shows a railway line damaged by a landslide.  While the image does not explicitly show the location, the description mentions Abidjan (Ivory Coast) and Ouagadougou (Burkina Faso), which are plausible locations given the appearance of the landscape. The presence of the landslide is clearly depicted. Therefore, the entities are reasonably well supported, but there is not enough visual information to completely verify the location.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The statement is plausible because landslides can disrupt railway traffic. However, there's no readily available information confirming a specific landslide halting traffic between Abidjan and Ouagadougou on a particular Friday.  The geographical reality is that Abidjan (Ivory Coast) and Ouagadougou (Burkina Faso) are not directly connected by rail.  A railway journey between these cities would necessitate multiple connections and travel through other countries. The claim may be referring to a disruption on a segment of the railway network within one of these countries, potentially causing cascading effects on the broader route. More information is needed to assess its accuracy.",
+      "supporting_points": "Landslides can cause significant disruption to railway infrastructure. Abidjan is in Ivory Coast and Ouagadougou in Burkina Faso. There is no direct railway line between Abidjan and Ouagadougou. The news may be referring to a disruption on a section of railway within one of these countries or in a connecting country.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal check shows a reasonable level of confidence (7) that the image depicts a railway line damaged by a landslide, aligning with the caption's core description. However, the external check significantly lowers the confidence (4) by revealing a crucial geographical inaccuracy. The caption states that the landslide disrupted railway traffic between Abidjan (Ivory Coast) and Ouagadougou (Burkina Faso), implying a direct rail connection which doesn't exist.  A railway journey between these cities involves multiple connections through other nations, making the caption's assertion of a single landslide affecting the entire route unlikely. The external check highlights the absence of corroborating news reports confirming such a specific event on a particular Friday, further weakening the caption's accuracy.  The conflict arises from the image's visual alignment with the caption's general description of a landslide disrupting railway lines versus the lack of external evidence supporting the specific geographical and temporal details in the caption.  The high confidence of the internal check is mainly attributed to the visual evidence of the landslide and the plausible nature of such events disrupting railway traffic. However, the low confidence of the external check, grounded in geographical realities and the lack of independent verification, significantly outweighs the internal assessment. The lack of a direct railway line between Abidjan and Ouagadougou is a major discrepancy; this invalidates the claim made in the caption regarding the disruption of traffic on that specific route.  While the image undeniably shows a damaged railway due to a landslide, the caption's specific claims of the route affected and the timing of the event lack sufficient external validation. Therefore, due to the significant discrepancy between internal and external validation, and the substantial evidence against the accuracy of the caption's geographical and temporal details, the final conclusion is that the caption is out of context.",
+    "validation_summary": "Internal check shows reasonable alignment between image and caption's core description of a landslide disrupting railway lines, but external check reveals a critical geographical inaccuracy; no direct rail connection exists between the mentioned cities. The lack of supporting external evidence further lowers confidence. The major discrepancy lies in the caption's claim of a specific event disrupting a nonexistent direct rail route."
+  },
+  "inference_time": 8.06193232536316
+}

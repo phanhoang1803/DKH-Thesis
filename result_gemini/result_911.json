@@ -1,0 +1,53 @@
+{
+  "caption": "Thousands attended a Vox rally in Madrid in October. The party preaches conservative values embedded in Spain's monarchy and Roman Catholicism, including ending the right to abortion.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "V"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##ox"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Madrid"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Spain"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Roman"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Catholicism"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows a large crowd at what seems to be a political rally. The stage displays the word \"VOX\", which is a Spanish political party. The location is mentioned as Madrid in the caption, and the image does not contradict this, as it is a large indoor arena. The caption also mentions that Vox has conservative values embedded in Spain's monarchy and Roman Catholicism and includes ending the right to abortion, this information is not visually evident from the image alone.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "Vox is a right-wing populist party in Spain with stances against abortion rights.  While their rallies draw crowds, the exact numbers are hard to verify without specific sources for the Madrid rally mentioned.  The description of their values aligns with their public platform. The claim requires external verification to confirm the attendance figure and the specific date in October. ",
+      "supporting_points": "Vox's political stances are publicly known.  Large political rallies are common. Precise attendance figures often require independent verification.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "explanation": "The internal consistency check finds the caption consistent with the image, highlighting the presence of a large crowd at a Vox rally in Madrid.  However, it acknowledges that details like the exact attendance numbers and the specific date in October are not visually verifiable. The external check, while agreeing with the general information about Vox's political stances, points out the difficulty in verifying the precise attendance figures without additional sources.  The external check's lower confidence score (4) stems from this lack of precise verification for the attendance numbers and specific date.  The internal check, while having higher confidence (10), also acknowledges its limitations in confirming these details.  There is agreement between the checks that the image depicts a Vox rally in Madrid. The disagreement lies in the certainty of the attendance figures and the exact date of the rally, making it impossible to definitively state whether the claim about \"thousands\" attending is accurate. The image alone doesn't provide sufficient data to confirm this specific claim, and while external sources may provide additional information, that information is not supplied here. The overall confidence score is lowered due to the uncertainty around the attendance number and precise date. While the image and the caption are not completely contradictory, the lack of specific details in both diminishes confidence in completely endorsing the caption.",
+    "validation_summary": "Internal check finds the caption largely consistent with the image, but external check highlights difficulties in verifying the exact attendance and date. Agreement on the main event but disagreement on specifics leads to a lowered confidence score."
+  },
+  "inference_time": 23.829764127731323
+}

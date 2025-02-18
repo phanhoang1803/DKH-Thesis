@@ -1,0 +1,65 @@
+{
+  "caption": "Rescue workers at the site of a train accident on Great Belt Bridge in Nyborg, Denmark.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Great"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Belt"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Bridge"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "N"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##y"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##borg"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Denmark"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows a train accident on a bridge.  The caption correctly identifies the location as the Great Belt Bridge in Nyborg, Denmark. All entities are correctly identified and their locations are accurately described in the caption.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Train accident on bridge in Denmark kills 6, injures 16",
+        "date": "2019-01-02T10:01:00",
+        "content": "Six people were killed and 16 others injured Wednesday when a passenger train apparently hit falling cargo from a passing freight train as it crossed a bridge in Denmark.\nThe rail operator, Danish Railways, earlier told TV2 that the victims were passengers on a train traveling from Odense to Copenhagen.\nPolice spokesman Lars Braemhoej said that while \"we do not know precisely what caused the accident,\" one possible cause was that cargo from a passing freight train fell off and hit the passenger train. He added there was \"considerable damage\" to the passenger train.\nPolice declined to comment on a report from Denmark's TV2 channel that a container had likely fallen off the cargo train.\nDanish media initially reported that a tarpaulin on a freight train hit the passenger train, which was going in the opposite direction, prompting it to brake violently.\n\"Ordinary Danes on their way to work or heading home from the Christmas holidays have had their lives smashed,\" said Prime Minister Lars Loekke Rasmussen.\nPhotos from the scene show the freight train was carrying crates of beer, and the tarpaulin that covered the train was torn in pieces.\nKasper Elbjoern, spokesman for Danish brewery group Carlsberg, confirmed that a freight train transporting its cargo was involved in the accident.\nPolice said those hurt sustained light to moderate injuries.\nJesper Nielsen, who was on the passenger train, told Denmark's TV2 the train \"was out on the bridge when there was a huge 'bang' .... very quickly thereafter, the train braked.\"\nThe accident took place on a road-and-rail bridge, part of the Storebaelt system of bridges and a tunnel linking the Danish islands of Zealand and Funen.",
+        "description": "Six people were killed and 16 others injured when a passenger train apparently hit falling cargo from a passing freight train as it crossed a bridge in Denmark.",
+        "source_domain": "www.nbcnews.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption accurately describes the event reported in the related article from NBC News.  The article explicitly mentions a train accident on a bridge in Denmark, involving rescue workers. While the caption doesn't specify the exact location as \"Storebaelt system of bridges\", the article confirms the accident happened on a road-and-rail bridge linking Zealand and Funen islands, part of that system. The article's details about casualties and the nature of the accident further support the caption's assertion of a train accident requiring rescue workers.",
+      "supporting_points": "Source 1: \"Six people were killed and 16 others injured when a passenger train apparently hit falling cargo from a passing freight train as it crossed a bridge in Denmark.\" Source 1: \"The accident took place on a road-and-rail bridge, part of the Storebaelt system of bridges and a tunnel linking the Danish islands of Zealand and Funen.\"",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 9,
+    "explanation": "The caption \"Rescue workers at the site of a train accident on Great Belt Bridge in Nyborg, Denmark\" is validated as accurate based on both internal and external checks.  The internal check shows high confidence (10) because the image directly depicts a train accident on a bridge, and the caption accurately reflects this visual information. The entities (rescue workers, train accident, Great Belt Bridge, Nyborg, Denmark) are all aligned correctly with the image content.  The external check provides supporting evidence (confidence score 8) from a news report confirming a train accident in Denmark, involving rescue workers and occurring on a road-and-rail bridge. Although the news report doesn't specifically name the Great Belt Bridge, it describes a bridge linking Zealand and Funen islands, which aligns with the location of the Great Belt Bridge system. The discrepancy in the level of specificity of the location is minor considering that the overall event reported (train accident on a bridge in Denmark involving rescue workers) is corroborated across both checks. Therefore, the minor location discrepancy doesn't significantly impact the overall accuracy assessment.  The high confidence score from the internal check combined with the strong supporting evidence from the external check (even with a slightly lower confidence score) leads to a conclusion that the caption accurately represents the context. No conflicts are identified between internal and external validation. Both assessments are strongly supportive of the caption's accuracy.",
+    "validation_summary": "Both internal and external checks strongly support the caption's accuracy. The internal check finds perfect alignment between the image and the caption, while the external check corroborates the main facts reported in the caption with a news article, with only minor discrepancy regarding the bridge's specific name.  Overall, the caption is considered accurate."
+  },
+  "inference_time": 7.051780700683594
+}

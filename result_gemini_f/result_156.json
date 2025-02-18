@@ -1,0 +1,65 @@
+{
+  "caption": "A photograph shows the \"Supreme Army General of Antifa\" in Portland.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "Supreme"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Army"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "General"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "of"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "Anti"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##fa"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Portland"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image contains a person with a mohawk hairstyle and black clothing. There is no indication that this person is the \"Supreme Army General of Antifa\" or that the photo was taken in Portland.  The caption is completely unrelated to the image.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Does Photo Show the 'Supreme Army General of Antifa'?",
+        "date": "2020-09-18T04:38:46",
+        "content": "Claim:\nA photograph shows the \"Supreme Army General of Antifa\" in Portland.\nIn September 2020, as demonstrations in Portland, which started in late May after the police killing of George Floyd in Minneapolis, reached 100 straight days, social media users began circulating a photograph said to depict the \"Supreme Army General of Antifa\" making a visit to that city:\nHowever, this photograph had nothing to do with protests, antifa, or Portland. It depicted a 19-year-old Japanese student whose unusual fashion style has garnered some attention in the Tokyo area of his home country, as documented by TokyoFashion.com:\nStanding out on the streets of Harajuku is 19-year-old student Nagi, who caught our eye with his tall mohawk and punk style.\nNagi is wearing an all black punk-inspired look featuring a remake sleeveless collar shirt paired with a Lad Musician long skirt and Dr. Martens lace-up leather boots. Aside from his tall mohawk and face mask, he also accessorized his outfit with a handmade body harness, spike choker necklace, round sunglasses, curved horn earrings and assorted resale silver rings. He finished the look with a handmade bag with chain link handles.\nNagis favorite brands include Comme Des Garcons and Anrealage. He also shared that he loves listening to hip hop music. Follow Nagi on Instagram to see more of his style.",
+        "description": "FBI Director Chris Wray said of antifa that, Its not a group or an organization. Its a movement or an ideology.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided fact-checking article from Snopes.com directly debunks the claim in the news caption.  The caption states that a photograph shows the \"Supreme Army General of Antifa\" in Portland.  Snopes.com shows that the photo is actually of a Japanese fashion student and has nothing to do with antifa or Portland protests. Therefore, the claim is demonstrably false.",
+      "supporting_points": "Snopes.com article: \"However, this photograph had nothing to do with protests, antifa, or Portland. It depicted a 19-year-old Japanese student whose unusual fashion style has garnered some attention in the Tokyo area of his home country\"",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "Both the internal and external checks strongly indicate that the original caption is out of context. The internal check finds no alignment between the image content (a person with a mohawk and black clothing) and the caption's claim (the \"Supreme Army General of Antifa\" in Portland).  The confidence score of 0 reflects this complete lack of connection.  The external check provides strong evidence from a reputable source (Snopes.com) that directly refutes the caption's claim. Snopes definitively states that the image depicts a Japanese fashion student and has no relation to Antifa or Portland. The high confidence score of 10 reflects the strong, verifiable evidence provided by Snopes.com.  There is no conflict between the internal and external checks; both independently and decisively confirm that the caption is entirely inaccurate and unrelated to the image.  The high confidence score of 10 for the external validation, combined with the 0 score for the internal validation, results in a final confidence score of 10 for the OOC assessment. There is no uncertainty; the evidence overwhelmingly supports the conclusion that the caption is completely out of context.",
+    "validation_summary": "Both internal and external validations strongly support the conclusion that the caption is out of context.  Internal validation finds no connection between the image and the caption, while external validation uses a reputable source (Snopes.com) to definitively debunk the caption's claim."
+  },
+  "inference_time": 7.381535768508911
+}

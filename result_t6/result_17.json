@@ -1,0 +1,53 @@
+{
+  "caption": "On the same day in South Africa, a bird walks along Durban's empty shore where a ban on gatherings kept revellers at bay.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "South"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Africa"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Du"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##rban"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows a beach scene in Durban, South Africa.  A bird is visible walking on the shore, and the city skyline is in the background. The beach appears relatively empty, consistent with the caption's description of a ban on gatherings. All entities are correctly identified and represented in the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "",
+        "date": "2023-05-02T00:00:00",
+        "content": "",
+        "description": "",
+        "source_domain": "www.ft.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "There is no information provided in the retrieved evidence to support or contradict the news caption.  The source cited is an XML sitemap, not an article containing factual information about a bird on a shore in Durban, South Africa.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal validation provides a high confidence score (10) supporting the caption's accuracy.  The image shows a bird on an empty beach in Durban, South Africa, which aligns with the description of a gathering ban keeping people away. However, the external validation fails completely (confidence score 0), stating that no external evidence supports or refutes the caption's claim.  This significant discrepancy necessitates a conservative assessment.  The lack of corroborating external evidence undermines the internal validation's strong assertion. While the image itself strongly suggests the scene described in the caption, the absence of any supporting context from reputable news sources or official records creates significant uncertainty.  Therefore, considering the lack of external verification and the potential for misrepresentation without supporting evidence,  it's impossible to confidently conclude the caption is definitively accurate. The discrepancy in confidence scores between internal and external validation renders the caption highly questionable, resulting in an 'out of context' assessment.",
+    "validation_summary": "Internal validation strongly supports the caption, while external validation provides no supporting evidence, leading to a low overall confidence and 'out of context' conclusion."
+  },
+  "inference_time": 38.00754761695862
+}

@@ -1,0 +1,41 @@
+{
+  "caption": "A photograph shows a purple lobster caught in Maine.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Maine"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows a purple lobster. While the image does not explicitly state the lobster was caught in Maine, the caption's claim is not contradicted by the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Was a Rare Purple Lobster Caught in Maine?",
+        "date": "2019-10-30T05:27:56",
+        "content": "Maine lobsterman catches extremely rare purple lobster\nA Maine lobsterman said he was shocked when he netted a rare purple lobster last week.\nKeith Potter netted the purple lobster on Tuesday off the coast of Winter Harbor.\nThese are not genuine photographs of a purple lobster.\nThese digitally manipulated images appear to have first been shared to the private Facebook group All Things Lobstering and show a user named Keith Potter. While these pictures were originally shared in jest, they eventually escaped the confines of this Facebook group, were mistaken for real, and ended up on the pages of several local news outlets.\nPotter took to Facebook on Oct. 28 to confess that the \"purple lobster\" in these images was created with Photoshop:\nStop messaging me about that fake purple lobster it was a joke I posted in a closed group and someone took it and shared it, if you read the comments you can tell it was a joke ?? and if you're butthurt over a photoshopped lobster please get a life ??\nWe took a closer look at these pictures and can understand how people were fooled. We don't see any obvious errors that would give them away as fake. However, a \"purple lobster\" of this size off the coast of Maine wouldn't just be a rare catch. It would practically be a historic one.\nThe Maine lobster (Homarus Americanus) is typically a mottled brown color but can also be found in a several colorful variations. Maine Lobsterman's Community Alliance reports that blue, calico, orange, and even white Maine lobsters have been documented:\nWhile Professor Robert Steneck, a marine biologist at the University of Maine Darling Marine Center, said that a purple-colored lobster was technically possible, we have yet to encounter any genuine photographs or news reports about such a catch off the coast of Maine.\nHere's a video with more detail about lobster color variations:\nWhile the large Maine lobster may not frequently (or ever) be seen in the color purple, a smaller genus of lobster called the reef lobster (Enoplometopus) that lives in the warm waters of the Caribbean can be seen in a wide variety of bright colors. Here's a photograph of a purple reef lobster:",
+        "description": "A photograph prompted coverage by several news outlets.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The provided text explicitly states that the images of a purple lobster are digitally manipulated and fake.  Therefore, the news caption is false.",
+      "supporting_points": "These digitally manipulated images appear to have first been shared to the private Facebook group All Things Lobstering and show a user named Keith Potter. While these pictures were originally shared in jest, they eventually escaped the confines of this Facebook group, were mistaken for real, and ended up on the pages of several local news outlets.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The internal check gives a high confidence score (10) based on the visual content of the image, which shows a purple lobster.  However, the external check provides strong evidence (confidence score 1) that the image is digitally manipulated and the caption is therefore false. The external check cites multiple sources showing the image is a hoax and not a photograph of a naturally occurring purple lobster caught in Maine.  The conflict arises from the discrepancy between the apparent visual evidence and factual information from external sources.  Given that the external evidence is substantial and credible, showing the image is digitally altered and not of a naturally occurring purple lobster caught in Maine, it overrides the internal visual interpretation. The high confidence score of 9 reflects the strong external validation refuting the caption's claim, despite the initial internal assessment. Therefore, the caption is deemed out of context.",
+    "validation_summary": "Internal check shows high confidence in the image depicting a purple lobster. External check strongly refutes this, showing the image to be digitally manipulated and the claim about a Maine lobster to be false. The external evidence overrides the internal visual assessment."
+  },
+  "inference_time": 6.193200349807739
+}

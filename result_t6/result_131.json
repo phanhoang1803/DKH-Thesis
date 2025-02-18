@@ -1,0 +1,41 @@
+{
+  "caption": "A photograph shows salt spilled from a fallen shaker that created the image of Jesus on a table.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Jesus"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a painting of Jesus, not salt spilled to form an image of Jesus.  The caption is therefore inaccurate.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Did Spilled Salt Form an Image of Jesus?",
+        "date": "2020-08-03T08:31:00",
+        "content": "Claim:\nA photograph shows salt spilled from a fallen shaker that created the image of Jesus on a table.\nA meme popular on social media posits that a photograph depicts a praying diner who was belittled by atheists for his faith until a salt shaker on his table fell and the spilled crystals miraculously formed an image of Jesus:\nThe narrative attached to this picture is a ridiculous and fabricated one, a spoof of the type of inspirational stories known as \"glurge (in particular, the subset of glurge tales involving tests of faith.) The photograph seen here is real, however -- but its explanation is an artistic rather than a miraculous one.\nThe person pictured here is artist Rob Ferrel of San Antonio, Texas, who uses a variety of media to create his artworks, including salt and other food products, as reported on Oddity Central:\nA true artist doesnt really need expensive tools and materials to produce something beautiful, and San Antonio artist Rob Ferrel is the perfect example. For months, he has been treating his Instagram followers with highly realist portraits that he creates using nothing but salt, a few brushes, and a piece of cardstock.\nFerrel begins by pouring salt on a table and then moves it around with brushes until recognizable features begin to emerge. He also uses cardstock for clean, sharp lines. Once the portrait is ready, he photographs it and posts it to Instagram, and then gathers up all the salt to make his next masterpiece.\nHis posts regularly get thousands of likes, but some of the more popular portraits are of Michael Jackson, Snoop Dogg, John Lennon, Lebron James, the cast of Fast & Furious, and The Notorious B.I.G, which he made on a wooden floor.\nBut its not just salt Ferrel works with. The young artist is so talented that he can produce breathtaking art out of pretty much anything. He runs a salon in San Antonio called Rob the Original Barbershop, where he gives customers crazy haircuts sculpted with logos, patterns, and celeb portraits.\nFerrel demonstrated his \"salt art\" during a television appearance on KRPC's Houston Life with hosts Derrick Shore and Courtney Zavala:",
+        "description": "Do not attribute to the divine that which can be explained by condiments.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided text from Snopes explicitly states: \"A photograph shows salt spilled from a fallen shaker that created an image of Jesus on a table.\" This directly matches the news caption.  The article further details the context of the image, explaining that it was created by artist Rob Ferrel using salt as an artistic medium, not a miraculous event.",
+      "supporting_points": "Source 1 explicitly states: \"A photograph shows salt spilled from a fallen shaker that created an image of Jesus on a table.\"",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The internal and external validation checks produced conflicting results. The internal check, based solely on the image, correctly identifies that the image is a painting of Jesus and not an image formed by spilled salt.  The confidence score of 10 reflects the high certainty of this visual assessment.  There is no ambiguity in the visual evidence; the image is clearly a painted artwork, not a random salt arrangement.  The internal check's verdict is therefore correctly False.\n\nHowever, the external check, referencing a Snopes article, claims the caption accurately reflects a photograph of salt spilled to form a Jesus image. The external check provides a high confidence score of 10, indicating strong support for its claim.  This presents a direct contradiction to the internal check's assessment.\n\nTo reconcile this discrepancy, several points need to be addressed:  First, it's crucial to verify the Snopes article's claim independently. While Snopes is generally considered a reliable source, there is still a possibility of misinformation or misinterpretation.  Second, the source of the image and caption needs investigation; if the source itself misrepresented the context, both the image and the caption might be out of context.  Third, the possibility that the image is a different image than the one mentioned in the Snopes article must be considered, leading to a mismatched context.  Without further investigation on the origin and accurate reference details, we can only conclude that there is a substantial mismatch between the visual evidence and the external claim. \n\nGiven that the image directly contradicts the caption's description, and that the external verification relies on a single source that cannot be independently validated within this context, we must prioritize the internal analysis based on the visual evidence, and the resulting contradiction. The visual evidence strongly suggests the caption is out of context. Therefore, the final verdict is that the caption is out of context (OOC: True), with a confidence score of 8 reflecting the certainty in the image analysis, but acknowledging the uncertainty in the external validation's reliability and accuracy, specifically regarding the image's true source and exact match.",
+    "validation_summary": "Internal validation strongly suggests the caption is inaccurate as the image is a painting, not salt. External validation, citing Snopes, claims the caption is accurate, describing a salt-formed image.  The visual evidence significantly contradicts the external claim leading to a final verdict of 'out of context'"
+  },
+  "inference_time": 55.17660045623779
+}

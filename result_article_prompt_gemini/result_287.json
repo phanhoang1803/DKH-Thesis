@@ -1,0 +1,65 @@
+{
+  "caption": "Videos snapshot circulated on TikTok that supposedly showed an alien spaceship, or unidentified flying object (UFO), flying over New Jersey",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "T"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##ik"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##T"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##ok"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "UFO"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "New"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Jersey"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image shows a Goodyear Blimp, not an alien spaceship or UFO.  The caption is completely unrelated to the image content. TikTok is mentioned in the caption, but is not depicted in the image.  New Jersey is also mentioned but not shown. ",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Was a UFO Spotted Over New Jersey?",
+        "date": "2020-09-16T03:15:47",
+        "content": "Claim:\nA video shows a \"UFO\" flying over New Jersey in September 2020.\nRating:\nMiscaptioned\nAbout this rating\nIn mid-September 2020, videos started to circulate on TikTok that supposedly showed an alien spaceship, or unidentified flying object (UFO), flying over New Jersey:\nThe video, which racked up millions of views within a few days, shows several curious onlookers observing the \"UFO\" near New Jersey's Route 21 highway. While this may have been an unidentified flying object to these onlookers, this \"alien spaceship\" has since been identified as a Goodyear Blimp.\nThe above-displayed video was taken on Monday, Sept. 14, in an area close to MetLife Stadium. Coincidentally, the stadium was hosting the NFL's Monday Night Football game between the New York Giants and the Pittsburgh Steelers.\nA Goodyear spokesman told Insider that the company's blimp was indeed flying in the area:\n\"A representative for Goodyear confirmed to Insider that the company flew a blimp in New York City and northern New Jersey on Monday evening to capture aerial footage of the NFL game between the Pittsburgh Steelers and the New York Giants at MetLife Stadium in East Rutherford, New Jersey.\"\nThe object in the above-displayed video does resemble the size and shape of a Goodyear blimp. The \"alien\" looking light can also be explained, as many Goodyear blimps are equipped with bright digital displays. Here's a video from Goodyear showing a Veteran's Day message on the blimp in 2017:",
+        "description": "It appears some TikTok users were unable to identify an easily identifiable flying object.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption accurately reflects the content of the provided article from Snopes.  The article directly states that videos circulated on TikTok showing an object that some viewers thought was an alien spaceship or UFO flying over New Jersey.  The article then debunks this claim, identifying the object as a Goodyear Blimp. The caption's claim is thus supported by the article's reporting of the initial claim and its subsequent clarification.",
+      "supporting_points": "Direct quote from Source 1: \"In mid-September 2020, videos started to circulate on TikTok that supposedly showed an alien spaceship, or unidentified flying object (UFO), flying over New Jersey\"",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The internal and external validation checks yield conflicting results regarding the accuracy of the caption. The internal check finds the caption to be out of context with a confidence score of 2, stating that the image depicts a Goodyear Blimp, not a UFO as claimed in the caption. The external check, however, supports the caption's accuracy with a confidence score of 10. It cites a Snopes article which verifies that videos circulated on TikTok showing an object some viewers believed to be a UFO over New Jersey. The article then clarifies that this object was in fact a Goodyear Blimp. The conflict arises from the fact that the caption focuses on the initial, mistaken identification of the object in the TikTok videos, while the image itself directly shows the Goodyear Blimp, thus eliminating the ambiguity or uncertainty present in the initial TikTok videos.  The external validation relies heavily on the reporting of initial misidentification in the TikTok videos, which is not represented in the provided image. The image only shows the Goodyear Blimp, not the public reaction of identifying it as a UFO, which is the key element of the caption.  Therefore, while the external source validates the claim that a UFO-like object was mistakenly identified on TikTok, it doesn't validate the caption's direct claim that the image itself depicts a UFO. The internal check accurately reflects the content of the image, while the external check accurately reflects the content of a separate news article about the TikTok videos. The discrepancy highlights the difference between the direct visual representation in an image and the reported interpretations of that image or similar objects in another context (TikTok videos). While the external check provides strong evidence for the initial claim circulating on TikTok, the image itself contradicts the caption's direct claim by showing the object is clearly identified as a Goodyear Blimp. Given the image's direct visual evidence and the discrepancy with the external check's reliance on a separate source (TikTok videos),  the caption is ultimately deemed out of context regarding the image provided. The higher confidence score of 8 reflects the strong external evidence supporting the TikTok reports, but it also accounts for the significant contradiction between the image and caption.",
+    "validation_summary": "Internal validation shows a low confidence (2) that the caption matches the image, identifying the image as a Goodyear Blimp. External validation, however, shows high confidence (10) supporting the claim through a Snopes article referencing similar videos on TikTok. A conflict exists because the image shows the Blimp directly, while the caption is based on the interpretation of videos showing an object initially mistaken for a UFO. The final verdict concludes that the caption is out of context given the image, with a confidence score of 8."
+  },
+  "inference_time": 8.637046813964844
+}

@@ -1,0 +1,36 @@
+{
+  "caption": "A picture shows a massive tsunami headed for a crowded beach.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows a massive wave approaching a beach crowded with people.  This aligns perfectly with the news caption.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Indonesia tsunami: Aerial images of debris and survival",
+        "date": "2018-10-02T04:11:14",
+        "content": "Five days after a powerful earthquake and tsunami hit the Indonesian city of Palu, images are emerging which show the true scale of the devastation.\nThe number of people now known to have died in the area has risen to more than 1,300, according to the country's disaster response agency.\nThe Red Cross estimates that more than 1.6 million people have been affected. The United Nations says almost 200,000 people are in urgent need of help.\nDamage assessment by the EU emergency mapping service, Copernicus, estimates up to 3,000 buildings have been damaged or destroyed in the disaster.\nMany people were on the beach preparing for a festival when the wave hit, about half-an-hour after the earthquake.\nEntire neighbourhoods, like Balaroa below, have been inundated with mud.\nSome estimates says 1,700 homes were swallowed up in Balaroa and hundreds more in another neighbourhood of Petobo. Among those killed were about 30 students at a Christian Bible study group.\nThe saturated sand and silt started to behave like a liquid under increased pressure from the quake and began sliding, taking buildings and infrastructure with it.\nThis hillside has been left covered in mud after liquefaction caused the soil and sediment to flow downhill:\nThe tsunami washed away all normal services in Palu city.\nThere's little running water, power, food or drinking water. Sanitation is a growing problem. Transport routes have been severed, hampering rescue efforts.\nThe 126m-long (410ft) Jemalam bridge, which connects almost 350,000 inhabitants of the west of the city with those in the east, has been destroyed.\nPeople have been picking through the debris to find anything that might be salvaged to make their lives easier.\nEven basic items like plastic sheets or kitchenware can make the difference.\nMany of the dead have been buried in mass graves. But it is feared many other bodies may still lie buried under the debris.\nThe military has taken over the airport to fly in aid and move out the badly injured.",
+        "description": "Before and after images reveal the scale of the disaster which hit the Indonesian city of Palu.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The provided text mentions a tsunami hitting a beach in Indonesia. While Source 1 describes a tsunami in Palu, Indonesia, it doesn't include a picture of a massive tsunami headed for a crowded beach.  The article mentions that many people were on the beach when the wave hit, but doesn't visually describe the event as the caption does. Therefore, there's partial support but not a direct visual match.",
+      "supporting_points": "Source 1: \"Many people were on the beach preparing for a festival when the wave hit, about half-an-hour after the earthquake.\"",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "explanation": "The internal check gives a high confidence score (10) because the image clearly shows a large wave approaching a crowded beach, aligning with the caption. However, the external check provides a lower confidence score (4). While it confirms a tsunami in Palu, Indonesia, impacting people on a beach, it doesn't corroborate the image's depiction of a massive wave headed towards a densely crowded beach.  The discrepancy lies in the visual description. The external source describes the event as a tsunami that affected people on the beach, but it doesn't offer a detailed visual description like the caption does. The external source lacks the visual information needed to confirm the caption's description of a 'massive' wave approaching a 'crowded' beach with a specific level of density.  Therefore, although there is a general alignment between the event and the caption, the lack of precise visual detail in the external evidence reduces the confidence. The weighted average considers both scores and leans towards uncertainty given that the external validation provides only partial support and highlights a visual mismatch.  In summary, the external source gives context to the occurrence of a tsunami on an Indonesian beach, but the specific visual details described in the caption remain unverified by the external source. This visual mismatch causes a lower overall confidence score.",
+    "validation_summary": "Internal check strongly supports the caption (confidence 10), while the external check offers partial support, but lacks visual confirmation (confidence 4), leading to an overall assessment of 'out of context' with a moderate confidence score."
+  },
+  "inference_time": 6.501952171325684
+}

@@ -1,0 +1,36 @@
+{
+  "caption": "There were performances galore at the stadium...",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a performance at what seems to be a stadium.  People are performing acrobatic feats while wearing colorful, traditional clothing.  The caption accurately describes the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "MLB London Series: Runs galore as New York Yankees beat Boston Red Sox",
+        "date": "2019-06-29T22:26:09",
+        "content": "The New York Yankees won the historic Major League Baseball meeting against the Boston Red Sox at a packed London Stadium.\nAaron Hicks hit the first home run of the first MLB game staged in Europe as the Yankees won 17-13.\nPrince Harry and Meghan, Duchess of Sussex, attended the first of the two-match series to add to the occasion at a fixture attended by 59,659 people.\nThe teams produced the most runs in a nine-inning game this season.\nThe second match will take place on Sunday.\nRed Sox manager Alex Cora, for one, said he was hoping to concede fewer runs in Sunday's game two: \"Hopefully tomorrow's game is more controlled in terms of runs and we give the people from London a closer game. Those are cool too.\"",
+        "description": "The New York Yankees win the historic MLB meeting against the Boston Red Sox at a packed London Stadium.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption \"There were performances galore at the stadium...\" is supported by Source 1, which describes a baseball game at a packed London Stadium with many runs scored.  The phrase \"runs galore\" in the Source 1 title and description directly reflects the caption's implication of plentiful performances (in the form of baseball plays leading to runs). The high attendance also contributes to the sense of numerous events/performances at the stadium.",
+      "supporting_points": "Source 1: Title: MLB London Series: Runs galore as New York Yankees beat Boston Red Sox; Description: The New York Yankees win the historic MLB meeting against the Boston Red Sox at a packed London Stadium.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "Internal validation strongly supports the caption. The image clearly depicts a performance, likely in a stadium given the blurred background suggesting a large crowd. The performers are wearing elaborate costumes and engaging in a synchronized acrobatic display.  The internal check gives a confidence score of 10. However, the external validation reveals a mismatch. The provided external source refers to a baseball game with \"runs galore,\" interpreting \"performances\" metaphorically as baseball plays resulting in runs. While this source mentions a packed stadium, the context is entirely different from the image's visual content.  The external check gives a confidence score of 8, but the context is different.  This discrepancy lowers the overall confidence. The visual evidence overwhelmingly shows a cultural performance, not a baseball game. Therefore, while the caption is not factually incorrect in its broad sense (there was a performance), it lacks specificity and is misleading concerning the nature of the performance. It is out of context because the external source, while mentioning performances in a stadium, is associated with a completely different event.",
+    "validation_summary": "Internal validation strongly supports the caption's description of a performance in a stadium. However, external validation reveals a significant contextual mismatch, associating the caption with a baseball game rather than the cultural performance shown in the image.  Visual evidence firmly supports the internal assessment that the image depicts a cultural performance, not a baseball game. The final verdict is OOC because of the significant contextual discrepancy, and confidence is lowered because of the differing contexts. "
+  },
+  "inference_time": 43.21933555603027
+}

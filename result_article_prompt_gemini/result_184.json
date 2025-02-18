@@ -1,0 +1,45 @@
+{
+  "caption": "Posts shared on social media about the event purported to document the display of Nazi and Confederate flags offered for sale at the rally",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Nazi"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Confederate"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows a Nazi flag and a Confederate flag displayed for sale at what seems to be a rally.  Both entities are visibly present and accurately represented in the image, supporting the caption's claim.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is This a Photo of a Nazi Flag from the 'Million MAGA March'?",
+        "date": "2020-11-14T08:29:57",
+        "content": "Claim:\nA photograph taken at the 'Million MAGA March' in November 2020 shows Nazi and Confederate flags on display.\nRating:\nMiscaptioned\nAbout this rating\nOn Nov. 14, 2020, supporters of President Donald Trump rallied in Washington D.C., in an event dubbed the \"Million MAGA March,\" either to commiserate with each other about Trump's recent loss in his failed bid for re-election, or to foster Trump's spurious claims that the presidential election had been \"stolen\" from him.\nSome posts shared on social media about the event purported to document the display of Nazi and Confederate flags offered for sale at the rally:",
+        "description": "\"At this time in our lives, we need to be united with love and respect for all.\"",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption accurately reflects the content of Source 1, which explicitly states that \"Some posts shared on social media about the event purported to document the display of Nazi and Confederate flags offered for sale at the rally.\"  Source 1 further investigates this claim and rates it as \"Miscaptioned\", indicating that while such posts existed, the claim's accuracy is questionable.  The caption's focus is on the existence of the social media posts, not necessarily their truthfulness, which aligns with Source 1's reporting.",
+      "supporting_points": "Source 1: \"Some posts shared on social media about the event purported to document the display of Nazi and Confederate flags offered for sale at the rally.\"",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 9,
+    "explanation": "The caption accurately reflects the presence of Nazi and Confederate flags in the image.  The internal check provides strong evidence (confidence score of 10) supporting the caption's claim by directly observing these flags in the provided image. The external check (confidence score of 8) corroborates this finding by referencing a news source that mentions social media posts claiming the sale of such flags at the rally. While the external source rates the claim as 'Miscaptioned', suggesting uncertainty about the accuracy of the social media posts, it does not contradict the image's clear depiction of the flags.  The discrepancy lies in the emphasis: the caption focuses on the existence of the social media posts about the flags, while the news source questions the posts' veracity. However, the core element—the presence of the flags—is consistent between the caption, image, and the news report. Therefore, considering the strong internal evidence from the image itself and the supporting external evidence mentioning the social media posts, the caption is not out of context. The confidence score is slightly lowered from 10 to 9 to reflect the uncertainty about the exact truthfulness of the social media posts reported in the external source, but the visual evidence overwhelmingly supports the core claim.",
+    "validation_summary": "Both internal and external checks support the presence of Nazi and Confederate flags, although the external check highlights uncertainty surrounding the claims made on social media. The visual evidence strongly supports the caption's claim."
+  },
+  "inference_time": 6.737539291381836
+}

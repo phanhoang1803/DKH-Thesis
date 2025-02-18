@@ -1,0 +1,61 @@
+{
+  "caption": "First Lady Grace Coolidge and Rebecca the raccoon make an appearance at the annual White House egg-rolling event on 18 April 1927.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Grace"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Cool"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##idge"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Rebecca"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "White"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "House"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Grace Coolidge with a raccoon.  The setting appears to be an outdoor event with a crowd of people, consistent with a White House Easter Egg Roll. While it's difficult to definitively confirm the date as April 18, 1927, from the image alone, the visual evidence strongly supports the caption's entities.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "White House pets: Cats, dogs and raccoons through the years",
+        "date": "2021-01-26T19:20:26",
+        "content": "It hasn't always been dogs and cats in the White House - here are a few photos going back decades of first families with their pets.",
+        "description": "Presidents and first ladies have been photographed with their cats, dogs, and even a raccoon, for decades.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The provided text mentions that presidents and first ladies have been photographed with raccoons, but it doesn't offer specific details to confirm the event described in the caption.  There is no mention of a specific date, the First Lady Grace Coolidge, or an egg-rolling event. Therefore, while the evidence mentions the presence of raccoons at the White House, it does not support the claim made in the caption.",
+      "supporting_points": "Source 1 mentions that presidents and first ladies have posed with raccoons, but does not corroborate the details provided in the caption.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal validation check shows high confidence (score 10) in the caption's accuracy because the image clearly depicts Grace Coolidge with a raccoon in what seems to be a public event with many onlookers, consistent with a White House Easter Egg Roll. However, the external validation check expresses low confidence (score 5), citing the lack of corroborating evidence from external sources. There is no mention of this specific event (date, First Lady, egg-rolling) in the sources cited. Although the external source mentions that presidents and first ladies have been photographed with raccoons at the White House, this is not specific enough to confirm the caption's claims.  The discrepancy between the internal and external checks arises from the challenge of definitively verifying historical events from an image alone.  While the image is internally consistent with the caption's description, the lack of external corroboration leaves a considerable uncertainty. The visual evidence strongly supports the presence of Grace Coolidge and a raccoon at an outdoor gathering, but it cannot independently verify the date or the specific event being the annual White House egg-rolling event.  There is no visual evidence of Easter eggs or other activities directly associated with an Easter egg roll.  Therefore, despite the strong internal visual consistency, the absence of solid external verification makes it unreliable to confidently claim that the image depicts the exact scene described in the caption. The low confidence score reflects the limitations of validating historical events solely based on a photograph and the absence of robust external validation.",
+    "validation_summary": "Internal validation strongly supports the caption based on visual evidence, showing Grace Coolidge with a raccoon at an outdoor event. External validation, however, finds insufficient corroborating evidence to confirm the specific event as the 1927 White House Easter Egg Roll, leading to a disagreement and a low overall confidence score. The lack of external verification regarding the date and event outweighs the strong internal consistency."
+  },
+  "inference_time": 28.350815534591675
+}

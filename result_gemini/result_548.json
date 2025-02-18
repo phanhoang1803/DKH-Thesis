@@ -1,0 +1,45 @@
+{
+  "caption": "A photograph proves Hillary Clinton wanted someone like Donald Trump to run for office.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Hillary"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Clinton"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Donald"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Trump"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows Hillary Clinton and Donald Trump together.  The caption suggests a relationship between them, which is visually confirmed by their presence in the same photograph. There is no information in the image to support or refute the claim of Hillary Clinton wanting Donald Trump to run for office, however, the entities are correctly identified and represented.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The claim that a photograph proves Hillary Clinton wanted Donald Trump to run for office is highly speculative and lacks evidence.  There is no verifiable evidence to support such a direct causal link. While Clinton and Trump have been political rivals, inferring a desire for Trump's candidacy from a photograph is a vast overreach and likely fueled by misinterpretations or deliberate misinformation.",
+      "supporting_points": "Lack of credible evidence; absence of verifiable sources; high degree of speculation; political rivalry is not proof of deliberate support for opponent's campaign",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 3,
+    "explanation": "The internal check shows high confidence (10) in the accurate representation of entities within the image.  However, the external check expresses low confidence (2) and strongly refutes the caption's claim, highlighting the lack of evidence to support the assertion that Hillary Clinton wanted Donald Trump to run for office.  The photograph merely depicts the two individuals together; it does not provide any proof of Clinton's intentions regarding Trump's candidacy.  The significant discrepancy between the internal and external checks arises because the internal check focuses solely on the image's content (entity alignment), while the external check considers the factual plausibility of the caption's claim. The internal check correctly identifies the entities present in the image—Hillary Clinton and Donald Trump—but it fails to assess the validity of the implied causal relationship. The external check correctly points out the speculative nature of the claim and the lack of supporting evidence. Because of the significant difference in confidence scores and the external check's strong argument against the caption's claim, the overall assessment concludes that the caption is out of context. The substantial disagreement highlights the limitations of relying solely on image content for assessing the truthfulness of a claim.  Further information or evidence beyond the photograph would be required to support the caption's assertion.  The confidence score is low (3) because the internal check's high confidence is countered by the external check's low confidence and strong refutation, indicating a substantial lack of external evidence to support the claim.",
+    "validation_summary": "Internal check confirms accurate entity representation in the image but fails to validate the claim. External check strongly refutes the claim due to lack of evidence, resulting in a final assessment that the caption is out of context."
+  },
+  "inference_time": 46.854140520095825
+}

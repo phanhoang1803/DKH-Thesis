@@ -1,0 +1,41 @@
+{
+  "caption": "The FBI raided the CDC in the middle of the night to seize data on a link between vaccines and autism.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "FBI"
+      },
+      {
+        "entity": "B-ORG",
+        "word": "CD"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##C"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows the Centers for Disease Control and Prevention (CDC) building.  The caption mentions an FBI raid, which is not depicted in the image.  The entities \"FBI\" and \"CDC\" are correctly identified, although the visual content does not show the event described in the caption.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The claim that the FBI raided the CDC to seize data on a link between vaccines and autism is factually incorrect and based on a known false and harmful misconception. There is no credible scientific evidence supporting a causal link between vaccines and autism.  A raid of this nature would be a major news event, widely reported and easily verifiable.  The absence of such reporting strongly suggests the claim is false.",
+      "supporting_points": "There is no scientific evidence of a link between vaccines and autism.  Major events like an FBI raid on the CDC would be widely reported in reputable news sources.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The claim in the news caption is demonstrably false based on both internal and external validation.  The internal check correctly identifies that the image shows the CDC building but does not depict an FBI raid, scoring low confidence due to the absence of the described event.  The external check definitively refutes the core claim—that the FBI raided the CDC to obtain data linking vaccines to autism—citing the lack of scientific evidence for such a link and the absence of any credible news reports about such a raid.  This external check achieves high confidence due to its reliance on established scientific consensus and the easily verifiable nature of a major news event like an FBI raid on a prominent government agency.  There is complete agreement between the internal and external checks that the caption is out of context. The visual evidence only shows the exterior of the CDC building; there's no indication of a raid, which perfectly aligns with the external validation's confirmation that no such raid occurred. The high confidence score of 10 reflects the strong convergence of evidence from both internal analysis of the image and external fact-checking of the caption's central assertion.  The image itself is not misleading; it accurately depicts the CDC building. The misrepresentation lies entirely in the caption's false description of an event that never happened.",
+    "validation_summary": "Both internal and external checks strongly indicate that the caption is out of context. The image shows the CDC building, but not an FBI raid, and external sources confirm that the described raid and its purported purpose are false."
+  },
+  "inference_time": 10.757333278656006
+}

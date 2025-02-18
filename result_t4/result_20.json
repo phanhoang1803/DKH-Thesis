@@ -1,0 +1,36 @@
+{
+  "caption": "An aerial view of lots of rubbish discarded next to a recycling centre",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a large amount of discarded clothing and other items piled up next to several clothing and shoe recycling bins. This aligns perfectly with the description of \"lots of rubbish discarded next to a recycling centre.\"",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Recycling lorry dumps waste near Bridport after battery fire",
+        "date": "2024-12-19T14:45:30",
+        "content": "A lorry load of recyclable waste had to be dumped on a road after batteries caused it to catch fire.\nDorset Council said discarded batteries caught fire when they were crushed inside the refuse collection vehicle as it operated near Bridport, Dorset.\nThe driver noticed smoke coming and dumped its cargo onto the road. It was then extinguished by fire fighters.\nThe council said nobody was injured and the collection vehicle was not damaged.\nIn a Facebook post, Dorset Council Waste Services warned batteries could catch fire when crushed inside a recycling vehicle.\nIt said residents should place batteries in a clear plastic bag on top of their recycling bin rather than being placed inside.\nFires that begin inside lorries are easily spread by recyclable material like cardboard and paper, it added.\nIn November 2023 a battery fire caused more than 20,000 of damage at a recycling centre in Reading.\nIn September West Berkshire Council launched a kerbside recycling scheme for batteries in an effort to reduce similar fires.",
+        "description": "Fire crews extinguish a blaze caused by discarded batteries catching fire in a recycling vehicle",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The provided text describes a lorry dumping its load of recyclable waste onto a road due to a fire caused by discarded batteries.  While it mentions a large amount of waste, it doesn't explicitly state that this waste was next to a recycling center. The text focuses on the fire incident and its cause, not the location of the discarded waste relative to a recycling center. Therefore, there is not enough evidence to support the claim in the caption.",
+      "supporting_points": "Source 1 mentions that the lorry dumped its load of recyclable waste onto a road after a fire, but does not state this happened next to a recycling center.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "explanation": "The internal check strongly supports the caption, with a confidence score of 10, because the image clearly shows a large amount of discarded clothing and other items next to several recycling bins.  However, the external check contradicts this, providing a confidence score of 5 and stating that the available source mentions a lorry dumping waste onto a road due to a fire, without explicitly mentioning proximity to a recycling center. This discrepancy necessitates a careful analysis to determine the overall accuracy of the caption.  The external check's lower confidence score indicates a lack of definitive evidence to corroborate the caption's claim regarding the location of the waste relative to the recycling center. The visual evidence strongly suggests the waste is next to recycling bins; the image does not show any sign of a road or lorry. While the external source might be referring to a separate incident, the direct visual evidence overwhelmingly supports the caption's description of waste near recycling bins.   Therefore, while there's a direct visual correlation to the caption internally, the external source's information presents uncertainty, warranting a conservative assessment. The visual evidence might be from a different location or incident than the external source is reporting on.  The absence of supporting evidence from external sources that aligns with the image and the caption's description decreases our confidence level.  Hence the OOC is true due to external information raising serious doubt, despite the strong internal consistency.",
+    "validation_summary": "Internal validation strongly supports the caption, showing a direct correlation between the image and the description. External validation provides contradictory information, lacking explicit evidence regarding the waste's proximity to a recycling center. Visual evidence strongly suggests that the waste is indeed next to the recycling bins. The discrepancy between the high internal and low external confidence scores necessitates a conservative assessment, resulting in a lower overall confidence score and a conclusion that the caption might be out of context."
+  },
+  "inference_time": 57.470036029815674
+}

@@ -1,0 +1,49 @@
+{
+  "caption": "Sam Murray captured this striking sunset at Lossiemouth on the Moray coast.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Loss"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ie"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##mouth"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The entities \"Loss\", \"##ie\", and \"##mouth\" correctly identify \"Lossiemouth\" as a location in the news caption.  The entity tagging (B-LOC, I-LOC, I-LOC) also accurately reflects the location's name structure.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Your pictures of Scotland 4 - 11 December",
+        "date": "2020-12-11T10:05:35",
+        "content": "A selection of your pictures of Scotland sent in between 4 and 11 December. Send your photos to scotlandpictures@bbc.co.uk. Please ensure you adhere to the BBC's rules regarding photographs that can be found here.\nPlease also ensure you follow current coronavirus guidelines and take your pictures safely and responsibly.\nConditions of use: If you submit an image, you do so in accordance with the BBC's terms and conditions.\nPlease ensure that the photograph you send is your own and if you are submitting photographs of children, we must have written permission from a parent or guardian of every child featured (a grandparent, auntie or friend will not suffice).\nIn contributing to BBC News you agree to grant us a royalty-free, non-exclusive licence to publish and otherwise use the material in any way, including in any media worldwide.\nHowever, you will still own the copyright to everything you contribute to BBC News.\nAt no time should you endanger yourself or others, take any unnecessary risks or infringe the law.\nYou can find more information here.\nAll photos are subject to copyright.",
+        "description": "A selection of your pictures of Scotland sent in between 4 and 11 December.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The provided evidence is a BBC article showcasing various photographs of Scotland submitted by viewers. While the article mentions a call for photos between December 4th and 11th, it does not explicitly verify or corroborate the claim that Sam Murray took a specific sunset photograph at Lossiemouth.  The lack of specific image attribution within the article makes it impossible to confirm the caption's accuracy. The evidence is reliable in that it's from the BBC, but it lacks the specific information needed to verify the caption.",
+      "supporting_points": "Source 1 states that the BBC received various pictures of Scotland between December 4th and 11th, but offers no specific details about this sunset photo.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 5,
+    "explanation": "The image shows a beautiful sunset over a coastal town that appears to be Lossiemouth. The internal check correctly identifies Lossiemouth from the image and caption. However, the external check reveals that while the BBC article mentions receiving many pictures of Scotland around the specified timeframe, it doesn't verify the source or context of this particular image.  Therefore, although visually consistent, the lack of explicit confirmation from the BBC for this specific image's source and context makes the caption's accuracy questionable.",
+    "validation_summary": "Internal check strongly supports the caption, correctly identifying the location. External check is inconclusive, failing to verify the photographer or image's origin despite being sourced from the BBC. Therefore, the overall confidence is low."
+  },
+  "inference_time": 26.509195566177368
+}

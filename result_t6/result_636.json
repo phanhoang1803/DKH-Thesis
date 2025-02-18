@@ -1,0 +1,65 @@
+{
+  "caption": "Verna Evans: \"A bellowing stag in the autumn landscape of Richmond Park in London, during the rutting season.\"",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "V"
+      },
+      {
+        "entity": "B-PER",
+        "word": "##ern"
+      },
+      {
+        "entity": "B-PER",
+        "word": "##a"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Evans"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Richmond"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Park"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "London"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows a stag in Richmond Park, London.  The time of year appears to be autumn, aligning with the rutting season.  The stag is bellowing, as described in the caption.  All entities are correctly identified and represented.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Your pictures on the theme of 'autumn landscapes'",
+        "date": "2020-11-13T14:43:26",
+        "content": "We asked our readers to send in their pictures on the theme of \"autumn landscapes\". Here are some of the pictures sent to us from around the world.\nThe next theme is \"monochrome\" and the deadline for entries is 24 November 2020.\nSend pictures to yourpics@bbc.co.uk or follow the link below to \"Upload your pictures here\".\nFurther details and terms can be found by following the link to \"We set the theme, you take the picture\", at the bottom of the page.\nAll photographs subject to copyright.",
+        "description": "A selection of pictures from our readers on the theme of 'autumn landscapes\".",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided news caption mentions a specific photographer, Verna Evans, and a specific location and event (a bellowing stag in Richmond Park during rutting season).  None of this information is present in the provided source. Source 1 is a call for reader-submitted photos on the theme of autumn landscapes. It does not contain any specific information about the photographer, subject matter, or location described in the news caption.",
+      "supporting_points": "Source 1 is irrelevant to the news caption. It does not contain the names of photographers mentioned, nor does it contain details about the specific scene described. ",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 1,
+    "explanation": "The internal validation check shows high confidence that the caption accurately describes the image. The image depicts a stag in what appears to be an autumnal landscape, possibly Richmond Park. The stag is bellowing, consistent with the rutting season.  However, the external validation check reveals a significant discrepancy. The external source provides no corroborating evidence for the caption's claim.  It does not mention Verna Evans as the photographer or confirm the image's origin as Richmond Park during rutting season. The lack of external verification significantly undermines the credibility of the caption. Therefore, despite the internal consistency, the absence of external evidence leads to a conclusion that the caption might be out of context. The low confidence score reflects this uncertainty.",
+    "validation_summary": "Internal validation strongly supports the caption, while external validation fails to corroborate any details, resulting in a high level of uncertainty and a conclusion that the caption is likely out of context."
+  },
+  "inference_time": 26.680123805999756
+}

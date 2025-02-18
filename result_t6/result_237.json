@@ -1,0 +1,41 @@
+{
+  "caption": "After Hurricane Laura in August 2020, a photograph supposedly showing two sharks that got stuck in power lines several feet above the ground widely circulated on social media",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Laura"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows fish hanging from power lines.  The caption mentions sharks, which may or may not be the same type of fish.  The image is consistent with a post-hurricane scenario, as debris and unusual occurrences are common following such events. While the caption mentions Hurricane Laura in August 2020, this temporal information is not directly visible in the image. The presence and identity of Hurricane Laura are not explicitly depicted in the picture, therefore I am uncertain whether the entity 'Laura' is correctly used.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Does a Photo Show Sharks on a Power Line After Hurricane Laura?",
+        "date": "2020-09-22T07:32:01",
+        "content": "Claim:\nA photograph shows sharks stuck in power lines after Hurricane Laura in 2020.\nAfter Hurricane Laura in August 2020, a photograph supposedly showing two sharks that got stuck in power lines several feet above the ground widely circulated on social media:\nThis was a genuine picture of several sharks (and other marine animals) stuck in a collection of power lines. However, Hurricane Laura (or any other weather event) was not the culprit for this bizarre scene.\nThe above-displayed picture was taken in Mobile, Alabama, below the Dog River Bridge circa Aug. 31, 2020, and it shows the aftermath of a traffic accident. According to local news outlet WKRG, a boat full of a fisherman's catch fell 40 feet off the Dog River Bridge to the road below and in the process left portions of the net, as well as several fish, stuck up in the power lines.\nHere's a better look at the fish stuck in the power line:\nWKRG wrote:\nA boat fell 40 feet from the Dog River bridge onto the road below.\nOn the way down it took out some power lines and caused a mess on the road. The boat was badly damaged and the catch of the day was thrown across the road.\nIt's not clear what caused the accident, but WKRG reported that nobody was hurt. Here's a video news report about the incident that includes a few additional images of this fishy scene:",
+        "description": "Sharks and hurricanes are a popular combination among online rumors.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption accurately reflects the information presented in Source 1.  Source 1 explicitly states that after Hurricane Laura in August 2020, a photograph of sharks in power lines circulated on social media. While Source 1 clarifies that the image was not due to the hurricane, but rather a traffic accident, the core statement in the news caption remains factually accurate.",
+      "supporting_points": "Source 1: \"After Hurricane Laura in August 2020, a photograph supposedly showing two sharks that got stuck in power lines several feet above the ground widely circulated on social media\"",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The internal and external validation checks produced conflicting results regarding the accuracy of the news caption. The internal check expressed uncertainty about the caption's accuracy due to discrepancies between the image's visual content and the caption's specifics.  The internal check noted that while the image shows fish hanging from power lines, consistent with a post-hurricane scenario, the caption's claim about \"two sharks\" is not definitively confirmed by the image.  Further, the temporal information (Hurricane Laura in August 2020) is not visually evident in the image. Therefore, the internal check gave a low confidence score and a negative verdict.\n\nConversely, the external check found the caption accurate, citing an external source that corroborated the claim about the image circulating on social media after Hurricane Laura. This external source, however, clarified that the image depicted a traffic accident, not a direct consequence of the hurricane. This difference is significant, as it suggests a potential misrepresentation or misinterpretation of the event depicted in the image.\n\nThe conflict arises because the internal check focuses on the visual evidence and its direct correspondence to the caption's claims, while the external check relies on a broader context provided by an external source. The external source confirms the circulation of the image in the specified timeframe and context, but the internal check emphasizes the visual limitations. The external source may be correct regarding the circulation, but incomplete in its description of the cause.\n\nConsidering both checks, the final judgment leans towards the caption being out of context (OOC) because the caption's specific details (two sharks) are not fully supported by the image, and the connection to Hurricane Laura seems more circumstantial than direct, even considering the external source. The external source's additional information regarding a traffic accident suggests the image's context was possibly misinterpreted in creating the original caption.\n\nThe confidence score is moderate (7 out of 10) because, while the image doesn't show definitive evidence supporting the caption's specific claims, the external validation confirms that an image of similar nature did circulate online following the hurricane. This makes a completely negative verdict less certain, suggesting the caption is at least partially correct in its overall claim of the image circulating after Hurricane Laura, even if the details might be inaccurate or misleading.",
+    "validation_summary": "Internal validation expresses uncertainty due to visual discrepancies and lack of direct temporal evidence in the image. External validation confirms the image circulation but reveals a different context (traffic accident) than what the caption implies.  The conflict highlights a potential misinterpretation of the event depicted in the image, leading to a conclusion that the caption is out of context."
+  },
+  "inference_time": 40.12046432495117
+}

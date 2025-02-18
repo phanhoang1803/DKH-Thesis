@@ -1,0 +1,49 @@
+{
+  "caption": "Children look at a magazine during a break from selling fruit in Senegal's capital, Dakar, on Sunday.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Senegal"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Da"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##kar"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows children selling fruit.  The location appears to be a rocky beach, consistent with a coastal area. While the exact location isn't explicitly labeled, the overall scene aligns with the caption's description of children selling fruit and looking at a magazine during a break.  The mention of \"Senegal's capital, Dakar,\" is not visually verifiable from the image alone.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Subscribe to read",
+        "date": "2019-12-13T05:00:50",
+        "content": "Then $75 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.",
+        "description": "From Senegals spectacular capital to the snows of the Val di Fassa, FT contributors share their most eye-opening trips",
+        "source_domain": "www.ft.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided evidence is irrelevant to the news caption.  The source is a subscription advertisement for the Financial Times, with no content related to children selling fruit in Dakar, Senegal.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal validation suggests a high degree of confidence that the caption accurately reflects the image content. The image clearly shows children selling fruit and looking at a magazine. The setting appears to be a rocky beach, consistent with a coastal area. However, the external validation completely contradicts this assessment, stating that the provided evidence (presumably the source of the image) is irrelevant to the caption and has no connection to children selling fruit in Dakar, Senegal. This significant discrepancy casts serious doubt on the caption's accuracy.  The external check's confidence score of 0 indicates a lack of evidence supporting the caption's claims.  Given the complete lack of corroborating evidence from the external source and the inability to verify the location as Dakar, Senegal, solely from the image, the caption's claim regarding the location and context is unsubstantiated. The internal visual analysis only confirms the children selling fruit and looking at a magazine, not the location. Therefore, the overall confidence score is low. There is a high likelihood that the caption is out of context due to a mismatch between the image source and the information provided in the caption. It is possible the image was obtained from an unrelated source and incorrectly associated with the given caption. More information about the source of the image is needed to resolve this uncertainty and assess the accuracy of the caption with greater confidence. In the absence of such information, reliance on the visual evidence alone leads to a limited validation.",
+    "validation_summary": "Internal validation shows a high degree of visual consistency with the caption's description of children selling fruit and looking at a magazine. However, external validation completely refutes the caption's claims, resulting in a significant discrepancy and low confidence score. The absence of external evidence supporting the claim about Senegal's capital, Dakar, is the primary factor leading to the 'Out of Context' conclusion."
+  },
+  "inference_time": 37.31267714500427
+}

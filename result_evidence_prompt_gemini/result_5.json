@@ -1,0 +1,65 @@
+{
+  "caption": "Men from the Maasai tribe perform a traditional jumping ritual as they observe a rite of passage to mark the transition to cultural junior elder within the Masai-Mara national reserve.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Ma"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##asa"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##i"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Ma"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##sai"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "-"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Mara"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image clearly shows Maasai men participating in a jumping ritual.  The clothing and the act of jumping are consistent with descriptions of Maasai traditions and rites of passage. The location appears to be consistent with the Masai Mara.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "20 photographs of the week",
+        "date": "2021-03-05T22:07:34",
+        "content": "Protests in Myanmar and Spain, Mount Sinabung erupts, the destruction in Syria and the enduring impact of Covid-19: the most striking images from around the world this week\nTopics",
+        "description": "Protests in Myanmar and Spain, Mount Sinabung erupts, the destruction in Syria and the enduring impact of Covid-19: the most striking images from around the world this week",
+        "source_domain": "www.theguardian.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided news caption is not supported by the retrieved evidence. The external evidence focuses on unrelated global events such as protests, volcanic eruptions, and the impact of Covid-19.  There is no mention of Maasai tribe rituals or events within the Maasai-Mara National Reserve.",
+      "supporting_points": "Source 1 focuses on unrelated global events and contains no information about Maasai tribes or rituals.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 3,
+    "explanation": "The internal consistency check shows high confidence (10) in the caption's accuracy because the image aligns well with the description of a Maasai jumping ritual. However, the external check completely contradicts this, showing zero confidence and reporting that there is no supporting evidence for such an event in the specified time frame or location.  This significant discrepancy necessitates a low overall confidence score.  The lack of corroborating external evidence outweighs the strong internal alignment. The explanation provided by the external check is clear and does not offer any alternative interpretations, hence the low confidence score. It's important to note that the absence of evidence doesn't necessarily mean evidence of absence.  However, given the strong negative result from the external check focusing on reputable news sources, we cannot endorse the caption's accuracy.  The image, on its own, is not enough to verify the claim about a specific rite of passage within the Masai Mara National Reserve.  To resolve this discrepancy, additional reliable sources would be needed to confirm the event's occurrence and context.  Without such corroboration, we must conclude that the caption is likely out of context, despite the apparent visual fit within the image.",
+    "validation_summary": "Internal check strongly supports the caption, while the external check completely refutes it.  The lack of external supporting evidence leads to a low confidence and a conclusion that the caption is likely out of context."
+  },
+  "inference_time": 8.315961837768555
+}

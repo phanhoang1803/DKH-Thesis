@@ -1,0 +1,37 @@
+{
+  "caption": "Press assembly lines inside the Dasung factory.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Das"
+      },
+      {
+        "entity": "I-ORG",
+        "word": "##ung"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image shows a person standing in front of what seems to be assembly lines in a factory. However, there is no visible indication that this is the Dasung factory.  The caption mentions the presence of press assembly lines inside the Dasung factory, which is only partially confirmed by the image. The person in the image could be in any factory. Therefore, the confidence is low.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Dasung is a known manufacturer of e-paper displays.  It's plausible they have factory assembly lines. However, without specific verification (e.g., factory tour images, news articles showing the interior of their factory), it remains uncertain. The statement is not inherently implausible but lacks definitive evidence.",
+      "supporting_points": "Dasung manufactures e-readers and e-paper displays. Manufacturing of electronics typically involves assembly lines.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The image shows a man standing in a factory with large industrial machinery that appears to be press assembly lines.  Internal validation raises concerns because, while the image depicts assembly lines, there's no confirmation that the factory is Dasung. The caption's claim that the image depicts \"Press assembly lines inside the Dasung factory\" is therefore not fully supported. The internal validation points to a low confidence score due to this lack of confirmation. External validation attempts to corroborate the caption by referencing Dasung's status as a manufacturer, implying the likelihood of assembly lines in their factory. However, this is weak evidence as it doesn't directly link the image to Dasung.  The external validation confidence is low due to this lack of direct evidence, offering only a plausible scenario, not definitive proof. The discrepancy between the two validations is significant. Internal validation finds no explicit mention of Dasung in the image, while external validation only offers circumstantial evidence about Dasung's factory processes, which are not specifically linked to the picture. Combining these low confidence scores (internal 6, external 6) results in a lower overall confidence score. The lack of definitive evidence that this is Dasung's factory leads to the conclusion that the caption is likely out of context.",
+    "validation_summary": "Internal validation casts doubt on the caption's claim by finding no visual indication that the depicted factory is Dasung. External validation offers weak support by pointing out Dasung's manufacturing nature, implying potential assembly lines, but lacks direct evidence.  The combined evidence points to a low confidence in the caption's accuracy, thus indicating a likely out-of-context scenario."
+  },
+  "inference_time": 24.463363885879517
+}

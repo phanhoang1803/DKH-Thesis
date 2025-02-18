@@ -1,0 +1,61 @@
+{
+  "caption": "A common kingfisher catching a fish in a lake near Tiszaalpar, Hungary.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "T"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "##is"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "##za"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##al"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##par"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Hungary"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a kingfisher catching a fish.  The location is not specified in the image itself, but the caption states it is near Tiszaalpar, Hungary.  Assuming the caption is accurate, the entities are correctly used.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Week in pictures: 12-18 December 2020",
+        "date": "2020-12-19T00:16:29",
+        "content": "A selection of powerful news photographs taken around the world this week.\nAll pictures are subject to copyright.",
+        "description": "A selection of some of the most powerful images taken around the world this week.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided news caption is not supported by the retrieved related articles. The related articles offer a general selection of news photographs but do not contain specific information about a common kingfisher catching a fish in a lake near Tiszaalpar, Hungary.  There is no mention of this specific event or location within the described sources.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal consistency check shows high confidence (10) in the caption's accuracy because the image clearly depicts a kingfisher catching a fish. However, the external check reveals a complete lack of supporting evidence (confidence score 0). No related articles or reliable sources corroborate the claim that this specific event occurred near Tiszaalpar, Hungary.  This significant discrepancy necessitates a low overall confidence score. The absence of external verification outweighs the internal visual confirmation.  While the image strongly suggests a kingfisher catching a fish, the claim of the location (Tiszaalpar, Hungary) lacks any supporting evidence.  A lack of geographical metadata within the image itself further undermines the confidence in the caption's accuracy. To verify the caption, one would need to locate additional sources, such as news reports, wildlife photography databases, or eyewitness accounts that specifically mention this kingfisher sighting near Tiszaalpar. Without such corroboration, the claim of the location remains unsubstantiated. In conclusion, the high internal confidence is offset entirely by the total lack of external validation. Therefore, the caption is deemed out of context due to the unverifiable location claim, resulting in a low confidence score.",
+    "validation_summary": "Internal check shows high confidence in the image content (kingfisher catching fish), but the external check finds no supporting evidence for the specified location (Tiszaalpar, Hungary). The lack of external validation leads to an overall low confidence in the caption's accuracy."
+  },
+  "inference_time": 5.984279632568359
+}

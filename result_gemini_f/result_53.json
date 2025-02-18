@@ -1,0 +1,65 @@
+{
+  "caption": "Lex Scott Davis and Trevor Jackson in \"Superfly.\"",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Lex"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Scott"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Davis"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Trevor"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Jackson"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Super"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##fly"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Lex Scott Davis and Trevor Jackson.  The movie title \"Superfly\" is not explicitly visible in the image, but the context provided suggests the image is from the movie. The entities are correctly identified and represented.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Whats on TV Friday: Solo: A Star Wars Story and Superfly",
+        "date": "2019-01-11T06:00:04",
+        "content": "A Star Wars origin story is available for streaming. And Director Xs Superfly remake is on Starz.\nWhats Streaming",
+        "description": "A Star Wars origin story is available for streaming. And Director Xs Superfly remake airs on Starz.",
+        "source_domain": "www.nytimes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption mentions Lex Scott Davis and Trevor Jackson in \"Superfly.\" The provided article mentions the movie \"Superfly\" was on Starz. While the article doesn't explicitly name the actors, it strongly suggests their presence given that it's a known film, and it is likely that the lead actors would be mentioned in promotional material related to its airing on Starz.  The lack of explicit mention of the actors lowers the confidence score. The source is a reputable news source, increasing the confidence slightly.",
+      "supporting_points": "Source 1 mentions the airing of \"Director X's Superfly remake\" on Starz.  This indicates the movie was aired which is likely to include lead actors.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 8,
+    "explanation": "The internal validation check gives a high confidence score of 10 because the image clearly shows Lex Scott Davis and Trevor Jackson, and the context suggests it's from \"Superfly.\" The external validation check has a slightly lower confidence score of 7 because it relies on the mention of \"Superfly\" on Starz to indirectly suggest the actors' presence, without explicitly confirming it in the specific source used. While the source is reputable, the indirect nature of evidence lowers the confidence.  There is no major discrepancy between the two checks; they both agree that the caption is likely accurate, but the external check provides slightly weaker support due to the indirectness of the evidence. The final confidence score of 8 reflects this agreement, leaning more towards the higher internal confidence while acknowledging the less direct evidence from the external check. Both checks confirm the presence of the named actors, and the context strongly suggests that the image comes from the movie \"Superfly.\"  Therefore, even with the lower confidence of the external check, the evidence strongly supports the accuracy of the caption.",
+    "validation_summary": "Both internal and external checks agree that the caption accurately represents the context, with the internal check having higher confidence due to direct visual confirmation of the actors. The external check supports the accuracy but with slightly lower confidence due to indirect evidence."
+  },
+  "inference_time": 6.147932052612305
+}

@@ -1,0 +1,49 @@
+{
+  "caption": "It left 13 people dead in Anyama just north of Abidjan",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Anya"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ma"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "A"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "##bid"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##jan"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The entities \"Anyama\" and \"Abidjan\" are correctly identified in the caption. However, the entity mentions are fragmented and not entirely accurate. \"Anya\" and \"##ma\" correctly identify \"Anyama\", but the remaining entities seem to represent a misidentification of \"Abidjan\".  A more accurate tagging would be needed for a definitive judgment.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The statement is plausible. Anyama is a real town located north of Abidjan, Ivory Coast.  Incidents resulting in multiple fatalities are unfortunately possible in various locations globally. However, without specific details about the event (e.g., a source, date, type of incident), it's difficult to definitively verify this claim. The lack of specifics lowers the confidence score.",
+      "supporting_points": "- Anyama is a real town near Abidjan, Ivory Coast.\n- Sadly, events causing multiple deaths can happen in various places.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The image depicts a damaged bridge and a crowd of people, suggesting a disaster or emergency. While the caption mentions 13 deaths in Anyama, near Abidjan, the image provides no direct evidence of casualties or the specific event causing 13 deaths. The internal check identifies fragmented and inaccurate entity mentions. External validation finds the location plausible but lacks verifiable evidence to confirm the specific death toll.  The lack of specific details and verifiable evidence in the external validation, combined with the image's inability to show the claimed deaths, leads to a low confidence score and the conclusion that the caption may be out of context.",
+    "validation_summary": "Internal and external validation both raise concerns about the caption's accuracy. The image lacks evidence of the specific event and the reported death toll. While the location is plausible, the claim lacks supporting evidence."
+  },
+  "inference_time": 8.848254442214966
+}

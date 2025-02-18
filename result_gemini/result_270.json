@@ -1,0 +1,41 @@
+{
+  "caption": "In late October 2019, a number of local news outlets reported on an extremely rare, one-in-a-million purple lobster that was caught in Maine.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Maine"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows two lobsters; one is purple, and another one is orange. The caption mentions a purple lobster caught in Maine. Although there is no direct evidence that this purple lobster was caught in Maine, the image aligns with the description of a purple lobster. Therefore, the verdict is true.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Was a Rare Purple Lobster Caught in Maine?",
+        "date": "2019-10-30T05:27:56",
+        "content": "Maine lobsterman catches extremely rare purple lobster\nA Maine lobsterman said he was shocked when he netted a rare purple lobster last week.\nKeith Potter netted the purple lobster on Tuesday off the coast of Winter Harbor.\nThese are not genuine photographs of a purple lobster.\nThese digitally manipulated images appear to have first been shared to the private Facebook group All Things Lobstering and show a user named Keith Potter. While these pictures were originally shared in jest, they eventually escaped the confines of this Facebook group, were mistaken for real, and ended up on the pages of several local news outlets.\nPotter took to Facebook on Oct. 28 to confess that the \"purple lobster\" in these images was created with Photoshop:\nStop messaging me about that fake purple lobster it was a joke I posted in a closed group and someone took it and shared it, if you read the comments you can tell it was a joke ?? and if you're butthurt over a photoshopped lobster please get a life ??\nWe took a closer look at these pictures and can understand how people were fooled. We don't see any obvious errors that would give them away as fake. However, a \"purple lobster\" of this size off the coast of Maine wouldn't just be a rare catch. It would practically be a historic one.\nThe Maine lobster (Homarus Americanus) is typically a mottled brown color but can also be found in a several colorful variations. Maine Lobsterman's Community Alliance reports that blue, calico, orange, and even white Maine lobsters have been documented:\nWhile Professor Robert Steneck, a marine biologist at the University of Maine Darling Marine Center, said that a purple-colored lobster was technically possible, we have yet to encounter any genuine photographs or news reports about such a catch off the coast of Maine.\nHere's a video with more detail about lobster color variations:\nWhile the large Maine lobster may not frequently (or ever) be seen in the color purple, a smaller genus of lobster called the reef lobster (Enoplometopus) that lives in the warm waters of the Caribbean can be seen in a wide variety of bright colors. Here's a photograph of a purple reef lobster:",
+        "description": "A photograph prompted coverage by several news outlets.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Source 1 directly addresses the claim.  While several news outlets initially reported on a purple lobster caught in Maine in late October 2019, the source reveals this was based on digitally manipulated images that were mistakenly shared as real.  The source explicitly states that these images \"eventually escaped the confines of this Facebook group, were mistaken for real, and ended up on the pages of several local news outlets.\"  It also notes that the lobsterman himself confessed the image was photoshopped on October 28th.  Therefore, the caption's claim of multiple news outlets reporting is true, but the underlying fact of a real purple lobster is false.",
+      "supporting_points": "Source 1: \"A Maine lobsterman said he was shocked when he netted a rare purple lobster last week...These are not genuine photographs of a purple lobster...These digitally manipulated images appear to have first been shared to the private Facebook group All Things Lobstering and show a user named Keith Potter. While these pictures were originally shared in jest, they eventually escaped the confines of this Facebook group, were mistaken for real, and ended up on the pages of several local news outlets.\"",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The internal check shows high confidence (10) in the caption's accuracy based on the image alone.  The image depicts a purple lobster, which aligns with the caption's mention of a rare purple lobster. However, the external check reveals a crucial discrepancy.  While the external check confirms that several news outlets reported on a purple lobster in Maine in late October 2019,  it strongly contradicts the caption's implication that the reported event was genuine. The external check, with a confidence score of 8, cites a source that exposes the purple lobster images as digitally manipulated and mistakenly reported as real by news outlets. The source specifically mentions the lobsterman admitting to photoshopping the images. This external evidence directly refutes the caption's underlying claim that a one-in-a-million purple lobster was genuinely caught.  The conflict arises because the internal check relies solely on visual evidence, which is insufficient to establish the authenticity of the event.  The external check, using factual reporting,  provides compelling evidence that invalidates the core claim of the caption.  Therefore, given the strong evidence from the external check and the conflicting nature of the internal check's visual assessment, we conclude that the caption is out of context. The high confidence score of 9 reflects the strength of the external evidence and the compelling nature of the source's explanation about the digitally manipulated image.",
+    "validation_summary": "Internal check shows high confidence (10) based on image alignment; External check reveals (with confidence 8) that the news reports were based on a digitally manipulated image, contradicting the caption's implication of a real event.  Discrepancy resolved by prioritizing external verification, leading to the conclusion that the caption is out of context."
+  },
+  "inference_time": 8.604318857192993
+}

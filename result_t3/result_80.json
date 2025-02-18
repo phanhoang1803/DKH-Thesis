@@ -1,0 +1,41 @@
+{
+  "caption": "A clear sky in Edinburgh gifted this magical once-in-a-lifetime shot of the great conjunction of Jupiter and Saturn to photographer Gavin Dougan",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Jupiter"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Saturn"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Edinburgh"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Edinburgh is correctly identified as a location. Jupiter and Saturn are planets, not locations, so their classification as B-LOC is incorrect.  However, given the context of the conjunction being photographed in Edinburgh, the planets' presence in the caption is not factually wrong, only mis-tagged.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The conjunction of Jupiter and Saturn is a real astronomical event that happens periodically.  Edinburgh has variable weather, so a clear sky is plausible. Gavin Dougan could be a real photographer.  Therefore, the scenario described is plausible. The only uncertainty is the photographer's existence and whether this specific photo was indeed a 'once-in-a-lifetime' shot (which is subjective).",
+      "supporting_points": "- Jupiter and Saturn conjunctions occur periodically.\n- Edinburgh weather is variable; clear skies are possible.\n- People named Gavin Dougan likely exist.\n- The term 'once-in-a-lifetime shot' is subjective and open to interpretation.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 5,
+    "explanation": "The image depicts a nighttime view of Edinburgh, Scotland. While the image itself is beautiful and accurately represents the cityscape, there is no visual evidence of Jupiter and Saturn. The internal check correctly points out the misclassification of planets as locations, and the external check, while acknowledging the plausibility of the event and photographer, highlights the subjectivity of the \n\"once-in-a-lifetime shot.\" Since the key element of the caption (the conjunction) is missing in the image, and this is not a minor detail, the caption is considered out of context.",
+    "validation_summary": "Internal check flags misclassification of planets, while external check notes plausibility but subjectivity of the caption.  Lack of visual evidence of the conjunction leads to an OOC verdict."
+  },
+  "inference_time": 10.209984064102173
+}

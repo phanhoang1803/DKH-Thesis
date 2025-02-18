@@ -1,0 +1,73 @@
+{
+  "caption": "On Feb. 17, 2020, Republican U.S. Sen. Ted Cruz of Texas tweeted a video that showed people being asked to locate any country on an unlabeled world map — with each person failing at that seemingly simple task, asserting that the persons shown in the video were supporters of 2020 Democratic presidential candidate Bernie Sanders",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Republican"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "U"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "S"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Ted"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Cruz"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Texas"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Democratic"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Bernie"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Sanders"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image shows a man being interviewed in front of a world map.  While the caption mentions Sen. Ted Cruz and Bernie Sanders, neither are present in the image. The image does not provide information to confirm or deny the assertions made in the caption. Therefore, I am only assessing the presence of entities that are visually present.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Does Video Show Bernie Supporters Unable to Identify One Country on a Map?",
+        "date": "2020-02-27T02:29:17",
+        "content": "Claim:\nA video clip shows supporters of U.S. Sen. Bernie Sanders failing to identify a single country on an unlabeled world map.\nOn Feb. 17, 2020, Republican U.S. Sen. Ted Cruz of Texas tweeted a video that showed people being asked to locate any country on an unlabeled world map  with each person failing at that seemingly simple task:\nCruz's added commentary in his tweet, which began with \"This is Bernies base,\" implied  if not directly asserted  that the persons shown in the video were supporters of 2020 Democratic presidential candidate Bernie Sanders:\nThis is Bernies base  the same folks who tell pollsters that socialism is great because free stuff is cool & they have no idea how many countries have tried it and utterly failed. The antidote: facts, truth & substance.\nHowever, the video tweeted by Cruz was taken from a comedy segment taped for the \"Jimmy Kimmel Live late night talk show back in 2018, before Sanders entered the race for the 2020 Democratic presidential nomination. More important, as Kimmel himself stated in response to Cruz's tweet, the persons shown in the video were randomly selected off the street and were not identified as Democrats or Sanders supporters in the segment  no one involved with the show questioned them about, or was aware of, whatever political affiliations they might have held.\nKimmel's crew then revisited that subject for his Feb. 26, 2020, show and compiled a clip of persons who explicitly identified themselves as Republicans (or as non-Sanders supporters) failing at the task of correctly identifying a single country on a world map:",
+        "description": "It's difficult to discern people's political affiliations just by looking at them.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption accurately reflects that Senator Ted Cruz tweeted a video on February 17, 2020, showing individuals failing to identify countries on an unlabeled world map.  The caption also correctly states Cruz implied these individuals were Bernie Sanders supporters. Source 1 directly supports this, quoting Cruz's tweet and noting the date. However, the source also clarifies that the video's subjects weren't verified Sanders supporters, a detail omitted from the caption.",
+      "supporting_points": "Source 1: \"On Feb. 17, 2020, Republican U.S. Sen. Ted Cruz of Texas tweeted a video that showed people being asked to locate any country on an unlabeled world map — with each person failing at that seemingly simple task: Cruz's added commentary in his tweet, which began with 'This is Bernie’s base,' implied — if not directly asserted — that the persons shown in the video were supporters of 2020 Democratic presidential candidate Bernie Sanders\"",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The original caption states that the image is from a video tweeted by Senator Ted Cruz on February 17, 2020, showing people failing to locate countries on an unlabeled world map, implying they were Bernie Sanders supporters.  The internal check focuses on the visual content of the provided image, which shows a man standing in front of a world map.  Neither Senator Cruz nor Bernie Sanders is visible in the image. The internal check correctly notes that the image alone cannot confirm or deny the assertions in the caption, limiting its analysis to the visual presence of entities. The external check corroborates the caption's core claim regarding Senator Cruz tweeting a video on that date, displaying people struggling with the map identification task and suggesting links to Sanders supporters, citing supporting evidence from news sources. However, the external check also highlights a crucial piece of information omitted from the caption: the video's subjects' affiliation with Sanders was not verified.  This discrepancy significantly impacts the accuracy assessment. The image provides no evidence of the implied association with Sanders supporters. While the external check validates the central event described (Cruz's tweet), the crucial absence of verification regarding the Sanders supporters mentioned in the caption creates a context mismatch.  The image's visual content is insufficient to confirm the connection between the individuals in the video and Bernie Sanders. Combining the internal check's limited scope and the external check's revelation of unverified claims, we conclude that the caption is out of context. The image shows a person by a map, which aligns with part of the caption, but the significant omission of the unverifiable link to Bernie Sanders supporters creates the out-of-context label. The confidence score reflects the validity of the core event (Cruz's tweet) but considers the out-of-context aspect due to the unverified claims.",
+    "validation_summary": "Internal check focuses on the visual entities in the image, while the external check confirms the event but points out the caption omits verification for the implied link between the individuals in the video and Bernie Sanders. The key discrepancy leads to an out-of-context assessment."
+  },
+  "inference_time": 37.37339806556702
+}

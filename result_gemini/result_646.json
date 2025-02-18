@@ -1,0 +1,45 @@
+{
+  "caption": "Troy takes pictures for the Wicked social media accounts, which often involves photographing famous faces like Warwick Davis when they visit the show",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Troy"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Wicked"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Warwick"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Davis"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Warwick Davis with a group of actors from the musical Wicked.  Troy is not visible in the image.  The image supports the presence of Warwick Davis and the show Wicked. ",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Warwick Davis's association with the theatre world, particularly his involvement in productions that might attract social media attention, makes this plausible.  However, there's no readily available public information confirming Troy's specific role in Wicked's social media.  The statement is plausible but lacks definitive proof.",
+      "supporting_points": "Warwick Davis is a well-known actor; he has appeared in theatre productions. Many theatre productions utilize social media for marketing and promotion; such roles as photographing actors for social media are plausible.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The internal check identifies a discrepancy: the image shows Warwick Davis but not Troy. While the external check acknowledges the plausibility of Warwick Davis's presence and a social media role for someone like \"Troy,\" it lacks definitive evidence to confirm this specific person's involvement in managing Wicked's social media. Both checks agree on the presence of Warwick Davis and the general plausibility of a social media manager photographing actors.  However, the absence of Troy in the image, along with the lack of external confirmation of this person's role in Wicked's social media, leads to a judgment that the caption is out of context.  The high confidence score reflects the high level of certainty in the presence of Warwick Davis and the general plausibility of a social media management role in the context of a Broadway show, but also accounts for uncertainty due to the absence of definitive confirmation on the specific social media manager and the fact that the image does not include the person whose name is mentioned in the caption. The absence of Troy significantly undermines the claim. The internal check's high confidence is primarily based on the clear presence of Warwick Davis.  The external check acknowledges this plausibility while introducing the uncertainty around the unverified \"Troy.\"  Entity analysis confirms the presence of Warwick Davis, aligning with both checks.  There is no conflict between internal and external assessments regarding Warwick Davis but a significant conflict arises from the absence of evidence for Troy's involvement in the image and in Wicked's social media management.",
+    "validation_summary": "Internal check confirms Warwick Davis's presence but notes Troy's absence. External check supports the plausibility of the overall scenario but lacks evidence for Troy's specific role. Both checks agree on Warwick Davis's presence but disagree on the presence and role of Troy, leading to a conclusion of out-of-context."
+  },
+  "inference_time": 36.961466550827026
+}

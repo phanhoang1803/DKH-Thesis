@@ -1,0 +1,45 @@
+{
+  "caption": "People who smell the perfume \"Lovely\" are killed either instantly or within three days.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Love"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##ly"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a bottle of \"Lovely\" perfume.  The caption's claim about people being killed is completely unrelated to the image and is false. The entities \"Love\" and \"##ly\" are extracted from the perfume name, which is present and accurate in the image.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Are People Dying From Exposure to Sarah Jessica Parker's Perfume?",
+        "date": "2018-05-02T06:11:21",
+        "content": "Claim:\nPeople who smell the perfume \"Lovely\" are killed either instantly or within three days.\nRating:\nFalse\nAbout this rating\nMore than a decade after it was released, actress Sarah Jessica Parker's first perfume line was used for a variant on a long-running online hoax.\nAround 2016, messages circulating online promoted the claim that exposure to the fragrance, Lovely, is fatal:\n\"It's in 4 countries already btw African western world,\" a version the badly-constructed message states. \"If u spray once its death sentence, you die immediately.\"\nAnother version of the scam extends the user's alleged death to \"within three days\" while warning that \"It's been used by the ISIS military ground and distributed throughout the Arab world\":\nWhether it be instant or within days, the allegation that the perfume was responsible for fatalities or used by terrorists is false. Such claims have been passed around the Internet since October 2001, playing on fears of receiving hazardous substances in the mail.\nThese type of spurious emails tend to resurface periodically; in June 2017 residents in Melbourne, Australia reported receiving their own batch of messages about \"fatal perfumes.\"",
+        "description": "A variant on a long-running online hoax accused the actress's \"Lovely\" fragrance line of being used by terrorists.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption's claim is directly addressed and refuted by Snopes, a reputable fact-checking website.  Snopes explicitly debunks the rumor that Sarah Jessica Parker's perfume \"Lovely\" causes death upon exposure, noting that it's a long-standing online hoax.  The article provides specific examples of the hoax's wording and its recurring nature, showing how the false claim has circulated for years.",
+      "supporting_points": "[\"Claim: People who smell the perfume \\\"Lovely\\\" are killed either instantly or within three days.\", \"Rating: False\", \"Whether it be instant or within days, the allegation that the perfume was responsible for fatalities or used by terrorists is false.\", \"Such claims have been passed around the Internet since October 2001, playing on fears of receiving hazardous substances in the mail.\"]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "Both the internal and external validation checks strongly indicate that the original caption is out of context. The internal check finds a mismatch between the image (showing a bottle of \"Lovely\" perfume) and the caption's claim about deaths caused by the perfume.  The confidence score of 10 reflects the clear disconnect between the visual content and the caption's false assertion.  The external check corroborates this assessment, referencing a fact-checking website (Snopes) that definitively debunks the claim.  Snopes not only refutes the causal link between the perfume and deaths, but also highlights the longevity of this online hoax, further supporting the conclusion of the internal check.  The alignment of the entities (\"Lovely\" perfume) in both checks is also consistent, contributing to a higher confidence score.  There are no discrepancies or conflicts between the internal and external checks, allowing for a clear and confident assessment of the caption as being completely out of context.",
+    "validation_summary": "Both internal and external validations strongly confirm that the caption is out of context.  The claim about deaths is completely unrelated to the image of the perfume and is factually false, as confirmed by a reputable fact-checking source."
+  },
+  "inference_time": 6.66537070274353
+}

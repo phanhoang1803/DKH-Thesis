@@ -1,0 +1,37 @@
+{
+  "caption": "An FBI field agent quietly warned a Missouri sheriff's department that a propane bomb attack is expected around Christmas.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-ORG",
+        "word": "FBI"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Missouri"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image depicts a large explosion, and there is no visual evidence related to the FBI, Missouri, or any propane bomb attack.  Therefore, the entities are not present in the image.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The caption describes a plausible scenario: law enforcement receiving a warning about a potential attack. However, without specific details (source of the warning, evidence supporting the threat, etc.), it's impossible to verify its accuracy.  The lack of supporting evidence and the vague nature of the threat make a definitive judgment difficult. FBI involvement in such warnings is plausible, as is the possibility of threats around holidays. But the claim remains unverifiable without further information. Therefore, while not impossible, the claim is uncertain.",
+      "supporting_points": "- FBI agents do interact with local law enforcement.\n- Terrorist threats and attacks are a real concern.\n- Increased security measures are often taken around holidays.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 1,
+    "explanation": "The internal consistency check reveals a complete mismatch between the image content (a large explosion) and the caption's description of an FBI warning about a planned propane bomb attack. The image provides no visual evidence supporting the entities or the event described in the caption.  The external check, while acknowledging the plausibility of an FBI warning about a potential bomb threat, highlights the lack of verifiable evidence to support the specific claim in the caption.  The vague nature of the threat, absence of supporting details, and the inability to confirm the source of the information make it impossible to verify the caption's accuracy. The discrepancy lies in the absence of any visual link between the image and the caption's narrative. The image shows a large-scale explosion, potentially an accidental one or one resulting from a different cause, not a targeted propane bomb attack as described in the caption. There's no indication of location or the involvement of law enforcement in the image. Because both the internal and external checks point to a lack of evidence supporting the caption's claim, the caption is considered out of context. The low confidence score reflects the absence of any corroborating evidence.",
+    "validation_summary": "Both internal and external checks indicate a significant mismatch between the image and the caption. The image shows a large explosion, while the caption describes an FBI warning about a planned propane bomb attack. No evidence in the image supports the caption's claims."
+  },
+  "inference_time": 6.22103214263916
+}

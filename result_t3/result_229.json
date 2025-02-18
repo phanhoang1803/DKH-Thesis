@@ -1,0 +1,53 @@
+{
+  "caption": "Mr. Trump and the Brexiteers have harnessed deep divisions in each of their societies.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "West"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Des"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Moines"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Iowa"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided entities are unrelated to the persons and places mentioned in the news caption.  The caption focuses on Mr. Trump and Brexiteers and their actions within their respective societies. The entities refer to a location in Iowa, which is not mentioned in the caption. Therefore, there is no alignment.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Some thoughts on the crisis of liberalism-and how to fix it",
+        "date": "2018-06-12T16:58:43",
+        "content": "By BAGEHOT\nBREXIT is such an all-consuming process for the Britishat once a drama, a muddle and a messthat it is easy to forget that it is part of something bigger: a crisis of liberalism in the west. A growing number of countries have had their own equivalents of Brexit: Donald Trumps victory over Hillary Clinton in the 2016 presidential election; the election of a populist government in Italy; the Catalan revolt in Spain; the rise of populist authoritarians in Russia, Hungary, Poland and, to some extent, India; the simmering rage against what Viktor Orban calls liberal blah blah in the intellectual dark-web. The list will be a lot longer by the time Brexit has been completed.",
+        "description": "Liberalism needs nothing less than a great rebalancing if it is to regain its intellectual and political vitality | Britain",
+        "source_domain": "www.economist.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The provided text from the Economist article mentions both Donald Trump and Brexit in the context of a broader crisis of liberalism in the West.  The article suggests that both Trump's election and Brexit tapped into societal divisions. While the article doesn't explicitly state that Trump and Brexiteers \"harnessed\" these divisions, the implication is strongly present, suggesting they capitalized on pre-existing societal fractures. The caption is therefore largely accurate, though it presents a slightly stronger claim than the source directly supports. The source's reliability is high, given it's an article from a reputable publication like The Economist. However, the article presents a specific viewpoint on a complex historical event, so there's a potential for bias, although it's not overtly apparent.",
+      "supporting_points": "[\"BREXIT is such an all-consuming process for the British—at once a drama, a muddle and a mess—that it is easy to forget that it is part of something bigger: a crisis of liberalism in the west.\", \"A growing number of countries have had their own equivalents of Brexit: Donald Trump’s victory over Hillary Clinton in the 2016 presidential election; the election of a populist government in Italy; the Catalan revolt in Spain; the rise of populist authoritarians in Russia, Hungary, Poland and, to some extent, India; the simmering rage against what Viktor Orban calls “liberal blah blah” in the intellectual dark-web. The list will be a lot longer by the time Brexit has been completed.\"]",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows a billboard with Donald Trump's face, which is related to the caption mentioning Mr. Trump. However, there is no visual connection to Brexiteers or the societal divisions mentioned in the caption. The internal check correctly identifies the lack of alignment between the image's geolocation and the caption's context. The external check finds partial support for the caption in an Economist article, showing that the caption's claim is not entirely unfounded, although it might be an overstatement of the article's main idea.  Considering the overall evidence, the image is visually unrelated to the context and there is a significant gap in the subject and content between the image and the caption.  The external source adds some support to the claim regarding Trump's actions but not a direct relationship between Trump's actions and the Brexiteers and a combined effect on societal divisions. Overall, the caption is partially supported by the external evidence but does not align with the image. Thus, OOC is True.",
+    "validation_summary": "Internal check reveals a complete mismatch between image context and caption, while the external check provides partial support for the caption's assertion about Trump, but not its broader claim about a combined Trump-Brexiteer effect on societal divisions. The image lacks elements related to Brexiteers and broader societal impact."
+  },
+  "inference_time": 42.84734797477722
+}

@@ -1,0 +1,45 @@
+{
+  "caption": "A Lime scooter is shown on the Embarcadero in San Francisco, April 16, 2018.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "San"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Francisco"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The entities \"San\" and \"Francisco\" are correctly identified as location entities (B-LOC and I-LOC) and accurately reflect their usage in the news caption, which explicitly mentions San Francisco as the location.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Subscribe to read",
+        "date": "2018-06-21T04:04:20",
+        "content": "Then $75 per month. Complete digital access to quality FT journalism on any device. Cancel anytime during your trial.",
+        "description": "Start-up plans to roll out popular US service to 25 locations by end of the year",
+        "source_domain": "www.ft.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The provided external evidence is irrelevant to the news caption.  Source 1 is a subscription advertisement for the Financial Times and contains no information about Lime scooters, the Embarcadero, or San Francisco. Therefore, it's impossible to assess the accuracy of the caption using the given evidence. The caption's accuracy remains unverified.",
+      "supporting_points": "Source 1 is an advertisement for the Financial Times and is unrelated to the news caption.  It provides no information about Lime scooters or the stated date and location.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 5,
+    "explanation": "The internal check correctly identifies the location mentioned in the caption. However, the external evidence is irrelevant and doesn't support or contradict the caption. The image shows a Lime scooter, consistent with the caption, but lacks definitive proof of its location or date.  Therefore, while the image supports the caption's description of the object, there is no external validation to confirm the location and date, making the caption potentially out of context.",
+    "validation_summary": "Internal check supports the caption's description of the scooter and its location, but external evidence is irrelevant. The lack of supporting external evidence makes the caption's context uncertain."
+  },
+  "inference_time": 33.14089894294739
+}

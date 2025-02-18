@@ -1,0 +1,76 @@
+{
+  "caption": "On Saturday a plane crashes shortly after take off in South Sudan's capital Juba, killing the four South Sudanese passengers and the three Russian crew members.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "South"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Sudan"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Ju"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##ba"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "South"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "Sudan"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##ese"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "Russian"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows a crashed plane, and people are near the wreckage.  The caption mentions a plane crash in South Sudan's capital, Juba, with South Sudanese and Russian casualties. While the image supports the crash in South Sudan, it doesn't explicitly confirm the nationalities of the victims or the exact location as Juba. The image is consistent with the caption, but lacks definitive proof of all details. ",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "South Sudan plane crash: Dozens killed near Juba airport",
+        "date": "2015-11-04T08:52:24",
+        "content": "A cargo plane has crashed on take-off near the international airport in South Sudan's capital Juba, killing at least 36 people.\nTwo people were pulled from the wreckage alive but one of them later died, leaving a young girl as the only survivor, the Red Cross said.\nThe Antonov An-12 plane was heading to Paloch, Upper Nile State, and crashed 800m (half a mile) from the runway.\nIn a statement, Ukraine-based Antonov said the plane had not been airworthy.\nIt said the plane, which was built in 1971, \"was is no state to fly because it failed to undergo timely technical servicing... that should have included work on extending its resources and exploitation timeframe\", AFP news agency reported.\nSouth Sudan authorities warned that the death toll could rise as the debris was cleared.\nThe plane crashed into a farming community on an island on the White Nile River but so far all the victims recovered were from the aircraft, the Red Cross said.",
+        "description": "A cargo plane crashes near the international airport in South Sudan's capital Juba, killing at least 36 people.",
+        "source_domain": "www.bbc.com"
+      },
+      {
+        "title": "South Sudan plane crash baby 'conscious' in Juba",
+        "date": "2015-11-05T16:24:53",
+        "content": "A 14-month old girl who survived Wednesday's plane crash in South Sudan's capital, Juba, is now conscious, doctors say.\nThe girl is being treated at the city's teaching hospital and is able to recognise relatives, journalist Philip Mabior from Juba's Eye Radio reports.\nAt least 36 people died after the plane crashed on take-off near Juba airport.\nThe cause of the crash remains unclear but the manufacturer said the cargo plane was not airworthy.\nThe UN peacekeeping mission in South Sudan has sent divers to search the nearby White Nile for bodies, and also for the black box recorders.\nThe Antonov An-12 plane, operated by local company Allied Services Limited was heading to Paloch, Upper Nile State, and came down 800m (half a mile) from the runway.\nIt crashed into a farming community on an island on the White Nile, but it is not clear how many of the victims and survivors were passengers and how many were on the ground.\nIt is not clear if the 14-month old girl is the only survivor.\nShe was one of two people taken alive from the wreckage on Wednesday, the other is reported to have died later.\nHowever, Philip Mabior said another person who survived the crash was also being treated in hospital.",
+        "description": "A 14-month old girl who survived Wednesday's plane crash in South Sudan is now conscious in hospital and able to recognise relatives, doctors say.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The news caption mentions a plane crash in Juba, South Sudan on Saturday, killing seven people (four passengers and three crew members).  The provided evidence describes a plane crash in Juba on Wednesday, resulting in at least 36 deaths. While both accounts describe a plane crash in Juba, the discrepancies in the day of the week, the number of casualties and the description of the passengers and crew members make it difficult to ascertain if the news caption is supported by the evidence. The evidence does not directly support the specific number of passengers and crew listed in the news caption.",
+      "supporting_points": "Source 1 and Source 2 both report a plane crash in Juba, South Sudan, but on Wednesday, not Saturday.  The number of casualties reported in the evidence (at least 36) differs significantly from the seven reported in the news caption.  The evidence does not specify the number of passengers and crew members; rather it gives the total number of deaths. ",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal check shows some alignment between the image and caption, noting a plane crash in South Sudan. However, it acknowledges a lack of definitive proof regarding casualties. The external check reveals significant discrepancies. The news caption states a Saturday crash with seven deaths, while external sources report a Wednesday crash with at least 36 deaths.  The discrepancies in the day of the week, casualty count, and passenger/crew details create a significant conflict. The external evidence strongly suggests the caption is inaccurate in its details, even if the general event (a plane crash in Juba) is true. While the image supports the occurrence of a plane crash, it does not offer specifics to validate the casualty numbers or nationalities mentioned in the news caption.  The low confidence score reflects the substantial uncertainty caused by these conflicting accounts. Given the large difference in the number of casualties reported, and the conflicting information on the day the crash occurred, there is a significant doubt about the accuracy of the original caption. Therefore, the overall assessment concludes that the caption is out of context.",
+    "validation_summary": "Internal check finds partial alignment, while external check reveals significant discrepancies in date, casualty count, and victim details. The conflicting information lowers confidence in the caption's accuracy."
+  },
+  "inference_time": 37.76761865615845
+}

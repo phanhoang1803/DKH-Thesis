@@ -1,0 +1,65 @@
+{
+  "caption": "A photograph shows U.S. President Joe Biden on a movie set designed to look like the Oval Office.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "U"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "S"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Joe"
+      },
+      {
+        "entity": "I-PER",
+        "word": "B"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##iden"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Oval"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Office"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows U.S. President Joe Biden in what appears to be the Oval Office.  All entities are present and accurately represented in the image.  There is no movie set involved.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Is This Biden on a Movie Set Resembling the Oval Office?",
+        "date": "2021-02-10T01:34:54",
+        "content": "Claim:\nA photograph shows U.S. President Joe Biden on a movie set designed to look like the Oval Office.\nVoting in the 2020 U.S. Election may be over, but the misinformation keeps on ticking. Never stop fact-checking. Follow our post-election coverage here.\nIn February 2021, a few weeks after Joe Biden was sworn in as the 46th president of the United States, a few social media users appeared to be in denial of reality as they held on to the idea that former President Donald Trump was somehow still the commander in chief. When a photo of Biden in the Oval Office started circulating online, they claimed that the photo was not taken at the White House but actually showed a movie set:\nThis photograph was taken on Feb. 5, 2021, as Biden and Vice President Kamala Harris held a meeting in the actual Oval Office to discuss their COVID-19 relief package. ABC News reported:\nIn an Oval Office meeting with House Democrats on Friday, Biden recounted how as vice president, then-President Barack Obama had tasked him with pushing through legislation on Capitol Hill to address the recession.\n\"It was hard as hell to get the votes for it to begin with, and then it was hard as hell to get even the number we got,\" Biden said at the start of the gathering. \"But one thing we learned is, you know, we can't do too much here; we can do too little. We can do too little and sputter.\"\nThe claim that this photograph was taken on a movie set is based entirely on what appears, at first glance, to be a crack in the wall behind Biden. This crack, however, simply shows a partially opened door.\nThe Oval Office has four doors, two of which were designed to blend in with the walls. Here's a photograph of Trump that shows the same \"crack\" that can be seen in the viral image of Biden. In the Trump photo, it's clear that this \"crack\" is just a door:\nWhile these \"hidden\" doors may conjure up thoughts of secret passages or escape pathways, there isn't anything secret about these doors. They are just normal doors that open up to rooms adjacent to the Oval Office. The decision to blend them into the walls appears to have been a purely aesthetic choice.\nHere's another video from the Oval Office that showcases these doors. In 2010, former President Barack Obama met with some students featured in the documentary \"Waiting for Superman.\" At one point, one of the kids asks Obama about these strange looking doors:",
+        "description": "This hoax joins others in attempting to prove Donald Trump is still president by insisting that Joe Biden was \"faking\" his presidency.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption is explicitly supported by the provided article from Snopes.  The article directly addresses the claim that a photo of President Biden in what appears to be the Oval Office was actually taken on a movie set. Snopes debunks this claim, showing that the photo was indeed taken in the Oval Office and explains the visual feature that led to the misinformation.",
+      "supporting_points": "Claim: A photograph shows U.S. President Joe Biden on a movie set designed to look like the Oval Office.\nSnopes' analysis shows the photograph was taken in the actual Oval Office on February 5, 2021, during a meeting with Vice President Kamala Harris and House Democrats to discuss their COVID-19 relief package.  The article explains the \"crack\" in the wall was actually a partially opened door, a design feature present in the Oval Office.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The internal check and the external check yielded contradictory results regarding the accuracy of the caption. The internal check, with a confidence score of 10, determined that the caption was inaccurate because the image shows President Biden in what appears to be the Oval Office, not a movie set.  The explanation provided by the internal check clearly states that all entities in the image are accurately represented and that there is no movie set. This assessment is based purely on visual analysis of the provided image.  Conversely, the external check, also with a confidence score of 10, concluded that the caption was accurate.  It based its conclusion on a Snopes article that debunked the claim that the image was taken on a movie set, directly stating that the photo was taken in the Oval Office. The external check strongly supports the accuracy of the caption using this external source. The discrepancy between these two checks with equally high confidence scores needs careful consideration.  To resolve the discrepancy, we must prioritize the external validation because it is grounded in factual evidence from a reliable source (Snopes), a fact-checking website.  The internal check relied only on visual interpretation, which can be subjective and prone to misinterpretations, especially concerning subtle visual cues (like the crack in the wall mentioned by Snopes).  Snopes provides an explanation for a potentially misleading aspect of the image; hence, their analysis is more comprehensive and robust than a simple visual assessment.  Therefore, while the internal check suggests the caption is inaccurate, the external check's reliance on a credible source of information significantly outweighs this assessment.  The high confidence score of both checks highlights the importance of the discrepancy; however, the detailed explanation and evidence provided by Snopes lead to a conclusion that the caption is, in fact, out of context due to the context provided by Snopes.  In summary, the external validation, supported by Snopes' analysis, provides more reliable evidence than a purely visual assessment.",
+    "validation_summary": "Internal check (confidence 10) deemed caption inaccurate, stating the image shows Biden in the Oval Office; External check (confidence 10) deemed caption accurate, referencing Snopes' debunking of the claim that the image was from a movie set.  External validation prioritized due to its factual evidence from a reliable source."
+  },
+  "inference_time": 7.4327592849731445
+}

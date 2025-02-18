@@ -1,0 +1,81 @@
+{
+  "caption": "Terry the Turtle flipping the bird, by Mark Fitzpatrick, Lady Elliot Island, Queensland, Australia",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Terry"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Turtle"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Mark"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Fi"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##tz"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##patrick"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Lady"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Elliot"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "Island"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Queensland"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Australia"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a sea turtle making a gesture that resembles giving the finger.  The caption accurately reflects this. The location details are also correct. All named entities in the caption are accurately represented in the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Comedy Wildlife Photography Awards 2020 finalists revealed",
+        "date": "2020-09-12T23:21:36",
+        "content": "The finalists of this year's Comedy Wildlife Photography Awards have been announced, each one showing the power of anthropomorphism.\nA fish that appears to smile, a bear giving a friendly wave from afar and a very grumpy sea turtle - this year's finalists show animals in relatable comedy moments.\nThe Comedy Wildlife Photography Awards were founded by Paul Joynson-Hicks and Tom Sullam, both professional photographers and passionate conservationists.\nIn addition to providing some light-hearted relief, the competition aims to highlight the extremely important message of wildlife conservation in an engaging and positive way, working with competition partner The Born Free Foundation.\nThe winners will be announced at an online awards ceremony on 22 October.\nIn the meantime, here are a few finalists' entries that might give you a chortle.\n.",
+        "description": "A grumpy sea turtle and a waving brown bear were also also competition finalists.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "The provided text mentions a \"grumpy sea turtle\" as a finalist in the Comedy Wildlife Photography Awards. While this aligns with the subject of the news caption, it doesn't confirm the specific details like the turtle's name being Terry, the photographer being Mark Fitzpatrick, the location being Lady Elliot Island, or the exact pose described.  The evidence only partially supports the caption.",
+      "supporting_points": "Source 1 mentions a \"very grumpy sea turtle\" among the finalists of the Comedy Wildlife Photography Awards 2020.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal validation strongly supports the caption, giving a confidence score of 10 due to the clear match between the image content and the caption details.  The image depicts a sea turtle making a gesture resembling giving the finger, aligning with the description \"Terry the Turtle flipping the bird.\" The location details (Lady Elliot Island, Queensland, Australia) are also visually consistent with a coral reef environment.  However, the external validation provides weak support, achieving only a confidence score of 4. The external source mentions a \"grumpy sea turtle\" in the Comedy Wildlife Photography Awards, which is related thematically, but doesn't confirm the specific details provided in the caption (the turtle's name being Terry, the photographer, the exact location, or the precise pose). This discrepancy between the high internal confidence and the low external confidence necessitates a more cautious assessment.  The lack of corroborating evidence from external sources to verify the specific details of the caption (name of the turtle, photographer, exact location) leads to uncertainty. While the image itself strongly supports the core idea of a sea turtle making a rude gesture, the additional details in the caption lack independent verification. Therefore, despite the visual evidence strongly aligning with the core descriptive elements of the caption, the absence of external validation for specific details leads to a conclusion that the caption might be out of context, albeit with a low confidence score due to the strong internal validation of the core image description.",
+    "validation_summary": "Internal validation strongly supports the caption's description of a sea turtle's gesture and location, but external validation lacks confirmation for specific details like the turtle's name and photographer, resulting in an overall 'out of context' assessment with low confidence."
+  },
+  "inference_time": 36.295876026153564
+}

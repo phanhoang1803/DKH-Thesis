@@ -1,0 +1,45 @@
+{
+  "caption": "While community leader Janet Sharty hands out popcorn, lollipops and biscuits for children as New Year's gifts.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Janet"
+      },
+      {
+        "entity": "I-PER",
+        "word": "S"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##hart"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##y"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image shows children receiving food items, but there is no visual evidence to support the assertion that a community leader named Janet Sharty is distributing these items.  The caption mentions \"popcorn, lollipops and biscuits\", but the image shows different items. There's no one clearly identifiable as \"Janet Sharty.\"",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The caption describes a plausible scenario. Community leaders often organize events for children, and handing out snacks as New Year's gifts is a common practice.  However, the name \"Janet Sharty\" might be unusual and could raise a slight eyebrow, but it's not inherently implausible. The plausibility rests on the common practice of community leaders engaging in such activities. There is nothing inherently contradictory or illogical about the statement.",
+      "supporting_points": "Community leaders often organize events for children; Distributing snacks as gifts is a common practice; The name itself does not inherently contradict the statement.",
+      "verdict": true
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 4,
+    "explanation": "The internal check expresses strong doubt about the caption's accuracy due to mismatches between the described items (popcorn, lollipops, biscuits) and those visible in the image (which seem to be other food items).  The lack of visual evidence for \"Janet Sharty\" further weakens the caption's credibility. The external check, while acknowledging the general plausibility of a community leader distributing snacks, points out that the name \"Janet Sharty\" is unusual.  The external check does not take into account the discrepancies identified by the internal check, leading to its higher confidence score.  There is a direct conflict between the two checks. The image shows a group of people, mostly children, receiving food items. However, no one is clearly identifiable as \"Janet Sharty\", nor can the items be confirmed as popcorn, lollipops and biscuits. The internal check's lower confidence score reflects the lack of direct corroboration from the image itself. There's no name tag or clear indication that the woman distributing the food items is Janet Sharty. The internal check's conclusion is well-supported by the visual evidence. The discrepancy between the items mentioned and those shown in the image is significant. The external check's confidence is largely based on the general plausibility of such events, and is only weakened by the unusual name mentioned. However, the crucial discrepancy on the food items and the absent community leader named Janet Sharty is not adequately addressed by the external check.  Considering both checks and resolving their discrepancies, the conclusion is that the caption is likely inaccurate. While such events are commonplace, the specific details presented in the caption lack sufficient visual corroboration from the image.",
+    "validation_summary": "Internal and external checks disagree. The internal check finds the caption inaccurate due to item and person mismatches. The external check finds the scenario plausible but notes an unusual name.  The discrepancies between the listed items and those pictured are significant and outweigh the external check's general plausibility argument.  The image lacks confirmation of the named community leader. The final assessment is that the caption is likely out-of-context."
+  },
+  "inference_time": 11.76199984550476
+}

@@ -1,0 +1,49 @@
+{
+  "caption": "The coffin of the Ebola victim is carried away.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "E"
+      },
+      {
+        "entity": "B-MISC",
+        "word": "##bol"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##a"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows people in medical scrubs carrying a wooden box on a stretcher through a wooded area.  The caption accurately describes this action. While the contents of the box are not explicitly visible, the context strongly suggests it is a coffin, and the presence of individuals in medical attire implies it likely contains the remains of an Ebola victim.  Therefore, the entities are accurately used.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Liberia's coffin makers suffer in Ebola outbreak",
+        "date": "2014-10-28T02:24:43",
+        "content": "Liberia's coffin trade is suffering as a consequence of the Ebola outbreak ravaging this West Africa nation.\nThese days body bags have replaced caskets as the corpses of Ebola victims are highly contagious and they must be carefully sealed within them before burial or cremation.\nFunerals - big social events, when friends and family would gather around an open casket, often touching their loved one to bid farewell - are also a thing of the past.\n\"Because of this Ebola situation, people hardly buy from us these days,\" says carpenter Titus Mulbah, showing visible signs of disappointment when I turned out not to be a customer.\nIn his mid-20s, he is one of a group running the Talented Brothers Casket Centre on Somalia Drive in the capital, Monrovia.\nFrom humble beginnings, it has grown to occupy two plots, displaying many different kinds of caskets, under corrugated iron roofs along a stretch of road which links the port to the east of the city.\nBefore the outbreak of Ebola, Mr Mulbah said business was good with funeral services all over the city especially at weekends.\n\"For the last two months it has been difficult to sell even one casket a day,\" Mr Mulbah laments.\n\"And this is all because all bodies now are considered Ebola bodies, as if other diseases are not killing people here.\"\nThe coffin maker says there is no space to put new stock \"so we come here just to sit and sleep all day and go back home\".\nBut Moses Ahoussouhe, proprietor of the St Moses Funeral Parlours in the same area, said he backed the safety measures, as he did want to come into contact with bodies that may not have been tested for Ebola.\n\"We prefer going short on cash now, compared to doing the wrong things and getting affected; so we go by the flow of the government's restriction and policy,\" he told the BBC.\nFollowing resistance from some communities to having Ebola victims buried in their area, it has been decreed that people dying from Ebola in the Monrovia area be cremated.\nThe government has had to hire experts and bring in a crematorium so that bodies are not burnt in the open.\n\"We know cremation is not our culture in our country; our culture is burial,\" said Tolbert Nyenswah, Liberia's assistant health minister, who heads the government's Ebola response.\n\"But now we have disease; so we have to change the way we used to do business.\"\nThe hasty removal of Ebola victims means these days will be a painful reminder of the virus' legacy for many families, without any physical monument to mark their lives.\nWhen President Ellen Johnson-Sirleaf declared the state of emergency in August, she summed up the despair of many with the words: \"Ebola has attacked our way of life.\"\nBack at the casket centre, Mr Mulbah keeps his eyes on the road looking out for customers.\nBut the vehicles stopping only drop off passengers who walk in the opposite direction.\nHe clings to the belief that has become prevalent in Liberia that the coming dry season will somehow break the epidemic - heavy rain can make roads impassable and hamper aid efforts in a country with little infrastructure.\n\"We want see Ebola go so that we can get back into business,\" he says.",
+        "description": "Liberia's coffin trade is suffering as a consequence of the Ebola outbreak ravaging the country as body bags have replaced caskets when burying those who have died of the virus, writes the BBC's Jonathan Paye-Layleh.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The provided text mentions that Ebola victims are buried in body bags, not coffins, due to the contagious nature of the virus.  While the caption mentions a coffin, the evidence strongly suggests this is not standard practice during the Ebola outbreak.  The article describes a decline in the coffin-making business due to this change in burial practices. Therefore, the caption is not directly supported but is indirectly related to the situation described.",
+      "supporting_points": "These days body bags have replaced caskets as the corpses of Ebola victims are highly contagious and they must be carefully sealed within them before burial or cremation.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "explanation": "The internal validation shows high confidence in the caption's accuracy based on the image content. The image clearly depicts people in medical scrubs carrying a wooden box resembling a coffin on a stretcher. The context suggests the box contains the remains of an Ebola victim. However, external validation reveals a discrepancy.  External sources indicate that Ebola victims are typically buried in body bags, not coffins, due to the highly contagious nature of the virus. This contradicts the caption's assertion. The external source provides evidence that the decline in the coffin-making industry is linked to the shift from coffins to body bags for Ebola victims.  This difference in burial practices significantly lowers the confidence in the caption's accuracy. While the image visually supports the caption's description of the action (carrying a wooden box), the external information strongly suggests that the box's contents and the burial practice depicted are not standard procedures during an Ebola outbreak. Therefore, despite the internal consistency, the external evidence renders the caption out of context. The final assessment considers both aspects. Although the visual evidence strongly suggests a coffin is being transported by medical personnel, the context of Ebola burial practices overwhelmingly points to the use of body bags instead of coffins.  This creates a conflict between the visual interpretation and the external knowledge.  Given the strong external evidence contradicting the caption's implied burial method, the confidence score is lowered, and the overall judgment is that the caption is out of context.",
+    "validation_summary": "Internal validation supports the caption based on the image's visual content.  External validation contradicts the caption, citing standard Ebola burial practices utilizing body bags instead of coffins. The discrepancy between visual and contextual information leads to a low confidence score and an out-of-context classification."
+  },
+  "inference_time": 41.66447734832764
+}

@@ -1,0 +1,57 @@
+{
+  "caption": "President Trump's second wife, Marla Maples, died in a plane crash in April 2017.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Trump"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Mar"
+      },
+      {
+        "entity": "B-PER",
+        "word": "##la"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Maple"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##s"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The image is of Marla Maples.  The caption is incorrect as it states she died in a plane crash. This is factually incorrect.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Did Marla Maples Die in a Plane Crash?",
+        "date": "2017-04-18T02:33:49",
+        "content": "Claim:\nPresident Trump's second wife, Marla Maples, died in a plane crash in April 2017.\nRating:\nFalse\nAbout this rating\nOn 17 April 2017, fake news site True Trumpers published a page containing only the clickbait headline \"Just In: Trumps Ex-Wife Marla Maples Died After Airline Accident!\" and a photograph of what appeared to be the wreckage of a crashed plane:\nThere is no truth to the sensational headline, a claim which would have made worldwide news if it were accurate; indeed, the image used here is actually from July 1997, when a Federal Express plane crashed and burned during a landing at Newark International Airport. (Despite the dramatic image, only minor injuries were reported.)",
+        "description": "Reports that President Trump's ex-wife Marla Maples died in an airline accident are fake news that reused 1997 images of a downed cargo jet.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided text from Snopes explicitly states that the claim of Marla Maples dying in a plane crash in April 2017 is false.  The fact-check article details how the claim originated from a fake news site and that the image used was from a 1997 incident. This directly contradicts the news caption.",
+      "supporting_points": "Snopes Fact Check: \"Reports that President Trump's ex-wife Marla Maples died in an airline accident are fake news that reused 1997 images of a downed cargo jet.\"",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The original news caption claims that Marla Maples, President Trump's second wife, died in a plane crash in April 2017. This claim is factually incorrect and is deemed out of context.  The internal check, with a confidence score of 0, correctly identifies the image as Marla Maples but flags the death claim as false. The external check, with a confidence score of 10, provides strong evidence from a Snopes fact-check article.  The Snopes article explicitly debunks the claim, stating that reports of her death in a plane crash are fake news, reusing images from a 1997 incident involving a downed cargo jet.  There is complete agreement between the internal and external checks that the caption is false. The visual evidence in the image shows Marla Maples, who is still alive. There is no visual evidence of a plane crash or any indication that the image is manipulated or miscontextualized to create a false narrative. The high confidence score of 10 reflects the strong and consistent evidence from both internal analysis and reputable external fact-checking sources confirming the falsity of the original caption. The caption is demonstrably false and completely out of context with the provided image.",
+    "validation_summary": "Both internal and external checks decisively confirm that the caption is false. The image depicts Marla Maples, who is still alive, contradicting the caption's claim of her death in a plane crash.  Snopes fact-check corroborates this conclusion."
+  },
+  "inference_time": 44.892250776290894
+}

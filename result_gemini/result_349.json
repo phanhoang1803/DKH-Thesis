@@ -1,0 +1,37 @@
+{
+  "caption": "People who smell the perfume \"Lovely\" are killed either instantly or within three days.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Love"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##ly"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a bottle of \"Lovely\" perfume.  The caption is about people being killed after smelling the perfume.  There is nothing in the image to support this claim.  The entities \"Love\" and \"##ly\" are components of the perfume name, accurately representing what is in the image.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The news caption is factually implausible.  Perfumes do not have lethal properties. The claim that smelling a perfume causes death is nonsensical and lacks any scientific or factual basis. There are no known cases or reports supporting such a claim. This statement is likely a hoax or a fabrication.",
+      "supporting_points": "Perfumes are cosmetic products, not poisonous substances.  Toxicity is determined by the chemical composition and dosage, not simply the scent. There is no evidence linking any perfume to immediate or delayed death.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The internal check finds a discrepancy: the image shows a bottle of \"Lovely\" perfume, aligning with the entity \"Lovely\" in the caption. However, the claim that smelling the perfume causes death is entirely unsupported by the image. The external check decisively refutes the caption's claim. Perfumes are not inherently lethal; the statement lacks scientific basis and is likely a hoax.  Both checks agree that the caption is out of context. The high confidence score reflects the strong agreement and the implausibility of the caption's claim. There is no conflict between internal and external checks; both independently support the conclusion that the caption is out of context.",
+    "validation_summary": "Both internal and external checks strongly indicate that the caption is out of context. The claim is factually implausible and not supported by the image."
+  },
+  "inference_time": 43.39725065231323
+}

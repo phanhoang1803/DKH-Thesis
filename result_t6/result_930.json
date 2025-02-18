@@ -1,0 +1,69 @@
+{
+  "caption": "three days later the celebrations are more formal, at the inauguration of the new Zanzibari President, Hussein Mwinyi.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-MISC",
+        "word": "Z"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##an"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##zi"
+      },
+      {
+        "entity": "I-MISC",
+        "word": "##bari"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Hussein"
+      },
+      {
+        "entity": "I-PER",
+        "word": "M"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##win"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##yi"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows a formal ceremony, consistent with a presidential inauguration.  While the image doesn't explicitly show Hussein Mwinyi, the presence of uniformed personnel and the formal setting strongly suggests the event is of an official and significant nature, aligned with a presidential inauguration. The location might be Zanzibar, but it cannot be definitively confirmed from the image alone. The entity recognition seems largely accurate based on the context of a Zanzibari presidential inauguration.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Africa's week in pictures: 30 October - 5 November 2020",
+        "date": "2020-11-06T00:31:43",
+        "content": "A selection of the week's best photos from across the continent and beyond:\nAll pictures subject to copyright.",
+        "description": "A selection of the week's best photos from across the continent and beyond.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided news caption mentions the inauguration of the new Zanzibari President, Hussein Mwinyi, three days after celebrations.  However, none of the provided evidence mentions this event. Source 1 is a photo gallery with no textual information relevant to the claim. Therefore, there is no support for the claim in the evidence provided.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal validation shows some consistency with the caption, indicating a formal ceremony possibly related to a presidential inauguration. However, the external validation completely contradicts this, stating a lack of evidence to support the claim about the Zanzibari President Hussein Mwinyi's inauguration. The image itself depicts a formal military ceremony, but it offers no specific details about the event's location or the individuals present.  There is no visible mention of \"Hussein Mwinyi\" or any clear indicators to confirm the event as his inauguration. The internal validation's confidence is low (8), reflecting uncertainty in definitively associating the image with a presidential inauguration based solely on the visual context. The external validation's confidence is 0, indicating a complete absence of corroborating evidence.  The discrepancy between the internal and external validation results points to a significant lack of evidence to support the caption's claim. The visual content is consistent with a formal state event, but it lacks the necessary details (e.g., banners, speeches, specific political figures) to definitively confirm its relation to the specified inauguration.  Therefore, given the low confidence score in the internal validation and the complete lack of external supporting evidence, the caption is considered out of context. The final verdict relies heavily on the absence of corroborative evidence, making a strong case for the caption being unrelated to the inauguration described.  In the absence of any reliable external source to confirm the event depicted, the visual elements alone do not offer enough evidence to confirm the caption's assertion. It is possible the image is from a different event altogether, even a similar formal state occasion.  Therefore, a conservative approach is adopted, and the caption is declared OOC due to the overwhelming lack of external validation.",
+    "validation_summary": "Internal validation suggests a possible link to a presidential inauguration based on the formal context, but external validation finds no evidence to support this claim, resulting in a low confidence score and the conclusion that the caption is out of context."
+  },
+  "inference_time": 30.12932276725769
+}

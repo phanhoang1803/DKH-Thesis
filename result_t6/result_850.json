@@ -1,0 +1,53 @@
+{
+  "caption": "A volunteer attends to the burnt paw of a brushtail possum in Merimbula, Australia.",
+  "ground_truth": 0,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-LOC",
+        "word": "Me"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##rim"
+      },
+      {
+        "entity": "I-LOC",
+        "word": "##bula"
+      },
+      {
+        "entity": "B-LOC",
+        "word": "Australia"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows a person tending to a possum's paw.  While the exact location is not specified in the image, the caption's mention of Merimbula, Australia is consistent with the general context of wildlife care in Australia. The focus is on the interaction between the person and possum, therefore location is less visually apparent.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Striking news photos from around the world in 2020",
+        "date": "2020-12-30T00:15:20",
+        "content": "A selection of some of the best photographs taken by news agency photographers around the world this year.\nAll photographs subject to copyright.",
+        "description": "A selection of some of the best images taken by agency photographers during the past year.",
+        "source_domain": "www.bbc.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 0,
+      "explanation": "The provided evidence, a collection of news photos from 2020, does not contain any information about a volunteer attending to a burnt brushtail possum in Merimbula, Australia.  Therefore, there is no support for the news caption within the given source.",
+      "supporting_points": "[]",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "explanation": "The internal validation suggests the caption is plausible, based on the image content showing a person handling a possum's paw.  However, the external validation definitively refutes the caption.  The external check, having access to a large dataset of news photos from 2020, found no evidence to support the claim about a volunteer attending to a burnt brushtail possum in Merimbula, Australia.  This discrepancy creates a significant challenge. The internal consistency relies on visual interpretation and contextual inference (e.g., possums are found in Australia, and the act of handling the paw suggests care), lacking concrete evidence. The external check provides a definitive negative result. Given the complete absence of external corroboration and the lack of specific details supporting the 'burnt paw' claim within the image itself, the caption's accuracy cannot be supported. While the image shows a plausible scenario, the lack of external verification leads to the conclusion that the caption is out of context.  The low confidence score reflects the conflicting results and absence of concrete evidence for the specific details mentioned in the caption (location, burn injury).  Further investigation, like locating the original news source associated with the image, would be required to confirm or deny the caption's accuracy conclusively.",
+    "validation_summary": "Internal validation finds the caption plausible based on visual interpretation, while external validation completely refutes it, leading to a conclusion of out-of-context with low confidence."
+  },
+  "inference_time": 38.61980891227722
+}

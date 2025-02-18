@@ -1,0 +1,65 @@
+{
+  "caption": "A photograph from the 1980s shows Boris Johnson with his \"lover,\" Ghislaine Maxwell.",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Boris"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Johnson"
+      },
+      {
+        "entity": "B-PER",
+        "word": "G"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##his"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##lain"
+      },
+      {
+        "entity": "I-PER",
+        "word": "##e"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Maxwell"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image shows Boris Johnson and Ghislaine Maxwell together.  While the caption describes Maxwell as Johnson's \"lover,\" the image alone cannot confirm or deny the nature of their relationship. The entities are present and correctly identified in the image.",
+      "verdict": true
+    }
+  },
+  "external_check": {
+    "candidates": [
+      {
+        "title": "Was Boris Johnson Photographed with Ghislaine Maxwell?",
+        "date": "2020-07-22T10:24:27",
+        "content": "Claim:\nA photograph from the 1980s shows Boris Johnson with his \"lover,\" Ghislaine Maxwell.\nRating:\nMiscaptioned\nAbout this rating\nOn July 2, 2020, Ghislaine Maxwell -- the former girlfriend and longtime associate of the late financier and convicted sex offender Jeffrey Epstein -- was arrested for her \"alleged role in recruiting, grooming and sexually abusing underage girls as young as 14 as part of a years-long criminal enterprise.\"\nSoon afterwards, social media users began circulating a decades-old photograph purporting to show Maxwell with a young Boris Johnson, now the United Kingdom's prime minister:\nJohnson is indeed the man pictured here, but the photograph has nothing to do with Maxwell, nor was Johnson one of Maxwell's \"lovers.\"\nThe woman seen with Johnson in this picture is Allegra Mostyn-Owen, daughter of the art historian William Mostyn-Owen and Italian writer Gaia Servadio, whom Johnson married in 1987. (That marriage was annulled in 1993.)",
+        "description": "The rumors and conspiracy theories flowed in after Maxwell's arrest in 2020.",
+        "source_domain": "www.snopes.com"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided text from Snopes directly contradicts the news caption.  Snopes explicitly states that the photograph shows Boris Johnson with Allegra Mostyn-Owen, not Ghislaine Maxwell, and debunks the claim that they were lovers.",
+      "supporting_points": "Source 1: Snopes article explicitly states that the woman in the photograph with Boris Johnson is Allegra Mostyn-Owen, not Ghislaine Maxwell.  It refutes the claim that Johnson and Maxwell were lovers.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The internal check shows some confidence (confidence_score: 8) in the caption's accuracy based solely on the image, acknowledging that the image itself doesn't confirm the relationship's nature. However, the external check decisively contradicts the caption (confidence_score: 10).  Snopes, a reputable fact-checking source, explicitly identifies the woman in the photograph as Allegra Mostyn-Owen, not Ghislaine Maxwell, completely refuting the claim that Maxwell and Boris Johnson were lovers. This strong external evidence significantly outweighs the limited internal assessment. The conflict between the two checks is substantial. The internal check is based on a visual interpretation that does not have sufficient information about the identities involved and the nature of the relationship.  The external check provides irrefutable evidence that contradicts the caption's central claim. Entity analysis, by verifying the woman's identity through a trusted source like Snopes, confirms the external check's findings and highlights the inaccuracy of the original caption. Therefore, the final assessment is that the caption is definitively out of context because it misidentifies the woman and falsely describes the relationship.  The high confidence score of 10 reflects the strong external evidence and the clear contradiction found when cross-referencing the internal and external analysis.",
+    "validation_summary": "Internal check shows limited confidence in the caption's accuracy based on visual analysis alone. External check, using a reliable source (Snopes), strongly refutes the caption, identifying the woman as Allegra Mostyn-Owen and debunking the lovers claim.  The external evidence decisively outweighs the internal assessment, leading to a conclusion that the caption is out of context."
+  },
+  "inference_time": 28.72446894645691
+}

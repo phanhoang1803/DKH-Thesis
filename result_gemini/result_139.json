@@ -1,0 +1,45 @@
+{
+  "caption": "Experiencing “Satan’s raw power” is something everybody should experience at least once in their lifetime, according to Katy Perry, who advised fans to “add praying to Satan to your bucket list.“",
+  "ground_truth": 1,
+  "internal_check": {
+    "textual_entities": [
+      {
+        "entity": "B-PER",
+        "word": "Satan"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Katy"
+      },
+      {
+        "entity": "I-PER",
+        "word": "Perry"
+      },
+      {
+        "entity": "B-PER",
+        "word": "Satan"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image shows Katy Perry.  The caption mentions Katy Perry saying something about Satan. The image does not provide any information about whether Katy Perry said that or not. Therefore, only the entity Katy Perry can be confirmed from the image.",
+      "verdict": false
+    }
+  },
+  "external_check": {
+    "candidates": [],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The statement is highly implausible.  While Katy Perry is known for her flamboyant style and sometimes provocative statements, advocating for the worship of Satan is significantly outside the realm of her public persona and would likely cause widespread backlash. There is no reliable evidence to support this claim.",
+      "supporting_points": "Katy Perry's public image; General societal views on Satanism; Lack of credible news sources reporting such a statement.",
+      "verdict": false
+    }
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The internal check identifies Katy Perry in the image, aligning with the caption's mention of her. However, it flags the lack of image-based evidence for the claim about Satan. The external check reinforces this, highlighting the implausibility of the statement and the absence of credible reporting. Both checks agree that the caption is out of context, with high confidence (10 for internal and 2 for external).  The discrepancy in confidence scores arises because the internal check focuses solely on the image's content, while the external check considers broader contextual factors, such as Katy Perry's public image and the general lack of evidence for such a statement. The external check's lower confidence score reflects the inherent difficulty of definitively proving a negative—that she did *not* make the statement. However, the sheer improbability of the claim, coupled with the absence of corroborating evidence, provides sufficient grounds to conclude with high confidence that the caption is out of context.  The strong alignment on the core issue (out-of-context) despite the confidence score difference warrants a final confidence score of 10, as the external check's lower score is due to the nature of disproving a negative rather than an actual conflict.",
+    "validation_summary": "Both internal and external checks agree that the caption is out of context. The internal check confirms the presence of Katy Perry but notes the absence of evidence for the statement about Satan.  The external check points to the implausibility of the statement and the lack of credible sources.  While confidence scores differ slightly, both point to the caption being out of context."
+  },
+  "inference_time": 28.709883213043213
+}
