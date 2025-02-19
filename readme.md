@@ -67,7 +67,6 @@ python download_direct_annotations_dirs.py --hashing_cutoff <cutoff> --sub_split
 - To perform the inverse search for images, run:
 ```javascript
 python download_inverse_annotations_dirs.py --hashing_cutoff <cutoff> --sub_split <split> --start_idx <start> --how_many <samples_num> --save_folder_path <folder_path>
-python .\download_direct_annotations_dirs.py --google_api_key "AIzaSyBJkAID3urNPfJDJQSzt1jXSmc7mLly4EA" --google_cse_id "94f1749818bdb40a1" --continue_download 1 --how_many 10
 ```
 - parameters are similar to the direct search. 
 - Output:
