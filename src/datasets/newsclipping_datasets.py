@@ -1,10 +1,11 @@
+import codecs
 import json
 from typing import Optional, Dict, Any
 from datetime import datetime
 from torch.utils.data import Dataset
 from argparse import ArgumentParser
 from PIL import Image
-
+import os
 
 class NewsClippingDataset(Dataset):
     def __init__(self, data_path: str, transform: Optional[Any] = None):
@@ -71,24 +72,174 @@ class NewsClippingDataset(Dataset):
         }
 
 
+class MergedBalancedNewsClippingDataset(Dataset):
+    def __init__(self, data_path: str, transform: Optional[Any] = None):
+        """
+        Args:
+            data_path (str): Path to the root directory containing dataset files
+            transform (Optional[Any]): Optional transform to be applied on images
+        """
+        self.data_path = data_path
+        self.newsclipping_annotations = self._load_data(os.path.join(data_path, "news_clippings_test.json"))["annotations"]
+        self.visualnews_data_mapping = self._load_data(os.path.join(data_path, "visual_news_test.json"))
+        self.transform = transform
+        
+    def __len__(self):
+        return len(self.newsclipping_annotations)
+   
+    @staticmethod
+    def _load_data(data_path: str):
+        """Load JSON data with proper error handling."""
+        try:
+            with open(data_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+        except FileNotFoundError:
+            raise FileNotFoundError(f"Dataset file not found at: {data_path}")
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Invalid JSON format in file {data_path}: {str(e)}")
+        return data
+    
+    def _read_text_file(self, file_path: str) -> str:
+        """
+        Read text file with multiple encoding fallbacks.
+        """
+        encodings = ['utf-8', 'latin-1', 'cp1252', 'ascii']
+        
+        for encoding in encodings:
+            try:
+                with codecs.open(file_path, 'r', encoding=encoding) as f:
+                    return f.read()
+            except UnicodeDecodeError:
+                continue
+            except Exception as e:
+                print(f"Warning: Unexpected error reading file {file_path}: {str(e)}")
+                
+        # If all encodings fail, try binary read and decode with replacement
+        try:
+            with open(file_path, 'rb') as f:
+                return f.read().decode('utf-8', errors='replace')
+        except Exception as e:
+            print(f"Warning: Failed to read file {file_path} with any encoding: {str(e)}")
+            return ""
+    
+    def __getitem__(self, idx: int):
+        """
+        Get a dataset item with robust error handling.
+        
+        Returns:
+            Dict containing:
+                - image: PIL Image or transformed image
+                - caption: str
+                - content: str
+                - label: bool
+                - metadata: Dict with additional information
+        """
+        item = self.newsclipping_annotations[idx]
+        result = {
+            "image": None,
+            "caption": "",
+            "content": "",
+            "label": item["falsified"],
+            "metadata": {
+                "id": item["id"],
+                "image_id": item["image_id"],
+                "similarity_score": item["similarity_score"],
+                "source_dataset": item["source_dataset"]
+            }
+        }
+        
+        # Load image
+        try:
+            image_path = os.path.join(self.data_path, 
+                                    self.visualnews_data_mapping[str(item["image_id"])]["image_path"])
+            image = Image.open(image_path).convert('RGB')
+            if self.transform:
+                image = self.transform(image)
+            result["image"] = image
+        except Exception as e:
+            print(f"Warning: Failed to load image for item {item['id']}: {str(e)}")
+        
+        # Load caption
+        try:
+            result["caption"] = self.visualnews_data_mapping[str(item["id"])]["caption"]
+        except KeyError:
+            print(f"Warning: Caption not found for item {item['id']}")
+        
+        # Load article content
+        try:
+            article_path = os.path.join(self.data_path, 
+                                      self.visualnews_data_mapping[str(item["id"])]["article_path"])
+            result["content"] = self._read_text_file(article_path)
+        except Exception as e:
+            print(f"Warning: Failed to load article for item {item['id']}: {str(e)}")
+            
+        return result
+    
 if __name__ == "__main__":
+    from argparse import ArgumentParser
+    import matplotlib.pyplot as plt
+    from torchvision import transforms
+    
     parser = ArgumentParser()
     parser.add_argument(
         "--data_path",
         type=str,
-        default="news_dataset.json",
-        help="Path to the dataset JSON file."
+        default="test_dataset",
+        help="Path to the dataset root directory"
     )
     args = parser.parse_args()
 
     try:
-        dataset = NewsClippingDataset(data_path=args.data_path)
+        # Initialize dataset without transforms for visualization
+        dataset = MergedBalancedNewsClippingDataset(data_path=args.data_path)
         print(f"Dataset loaded successfully with {len(dataset)} entries.")
+        
+        # Get and display sample
         sample = dataset[0]
+        
+        # Print text information
         print("\nSample item:")
-        print(f"Title: {sample['title']}")
-        print(f"Source: {sample['source']}")
-        print(f"Topic: {sample['topic']}")
-        print(f"Timestamp: {sample['timestamp']}")
+        print(f"Caption: {sample['caption']}")
+        print(f"Content length: {len(sample['content'])} characters")
+        print(f"Label: {sample['label']}")
+        print(f"Metadata: {sample['metadata']}")
+        
+        # Display image if available
+        if sample['image'] is not None:
+            plt.figure(figsize=(10, 8))
+            plt.imshow(sample['image'])
+            plt.axis('off')
+            plt.title(f"Sample Image\nCaption: {sample['caption'][:100]}...")
+            plt.show()
+        else:
+            print("No image available for this sample")
+        
     except Exception as e:
-        print(f"Error loading dataset: {e}")
+        print(f"Error loading dataset: {str(e)}")
+        
+    # Example with transforms
+    print("\nLoading dataset with transforms...")
+    transform = transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+    ])
+    
+    try:
+        dataset_transformed = MergedBalancedNewsClippingDataset(
+            data_path=args.data_path,
+            transform=transform
+        )
+        sample_transformed = dataset_transformed[0]
+        
+        if sample_transformed['image'] is not None:
+            # Convert tensor to image for display
+            img_transformed = transforms.ToPILImage()(sample_transformed['image'])
+            
+            plt.figure(figsize=(10, 8))
+            plt.imshow(img_transformed)
+            plt.axis('off')
+            plt.title("Transformed Image (224x224)")
+            plt.show()
+            
+    except Exception as e:
+        print(f"Error loading transformed dataset: {str(e)}")
