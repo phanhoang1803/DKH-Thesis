@@ -25,7 +25,7 @@ import fasttext
 parser = argparse.ArgumentParser(description='Download dataset for inverse search queries')
 parser.add_argument('--save_folder_path', type=str, default='queries_dataset',
                     help='location where to download data')
-parser.add_argument('--google_cred_json', type=str, default='my_file.json',
+parser.add_argument('--google_cred_json', type=str, default='credentials.json',
                     help='json file for credentials')
 parser.add_argument('--google_api_key', type=str, default='',
                     help='api_key for the custom search engine')
@@ -35,7 +35,7 @@ parser.add_argument('--google_cse_id', type=str, default='',
                     
 parser.add_argument('--split_type', type=str, default='merged_balanced',
                     help='which split to use in the NewsCLIP dataset')
-parser.add_argument('--sub_split', type=str, default='val',
+parser.add_argument('--sub_split', type=str, default='test',
                     help='which split to use from train,val,test splits')
                     
 parser.add_argument('--how_many_queries', type=int, default=20,
@@ -95,9 +95,8 @@ else:
         all_inverse_annotations_idx = json.load(db_file)         
 
 ### load visual_news and CLIP datasets ####
-visual_news_data = json.load(open("visual_news/origin/data.json"))
-visual_news_data_mapping = {ann["id"]: ann for ann in visual_news_data}
-clip_data = json.load(open("news_clippings/data/"+args.split_type+"/"+args.sub_split+".json"))
+visual_news_data_mapping = json.load(open("test_dataset/visual_news_test.json"))
+clip_data = json.load(open("test_dataset/news_clippings_test.json"))
 clip_data_annotations = clip_data["annotations"]
 
 ### find where to start from the clip_data ###
@@ -270,10 +269,10 @@ def save_json_file(file_path, dict_file, cur_id_in_clip, saving_idx_file=False):
                 json.dump(old_idx_file, db_file)       
 
 ### Loop #### 
-for i in range(start_counter,end_counter):
+for i in range(start_counter,end_counter):    
     start_time = time.time()
     ann = clip_data_annotations[i]
-    image_path = os.path.join('visual_news/origin/',visual_news_data_mapping[ann["image_id"]]["image_path"])
+    image_path = os.path.join('test_dataset',visual_news_data_mapping[str(ann["image_id"])]["image_path"])
     id_in_clip = i 
     image_id_in_visualNews = ann["image_id"]
     text_id_in_visualNews = ann["id"]
