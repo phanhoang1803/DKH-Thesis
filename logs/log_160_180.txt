@@ -1,0 +1,61 @@
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+Connecting to LLM Model...
+LLM Model Connected
+Connecting to Vision Model...
+Vision Model Connected
+Processing items from index 160 to 180
+Processing item 160
+Error processing item 160: 429 Resource has been exhausted (e.g. check quota).
+Processing item 161
+Traceback (most recent call last):
+  File "F:\Thesis\DKH-Thesis\src\inference_use_searched_evidences.py", line 283, in <module>
+    main()
+  File "F:\Thesis\DKH-Thesis\src\inference_use_searched_evidences.py", line 242, in main
+    result = inference(
+  File "F:\Thesis\DKH-Thesis\src\inference_use_searched_evidences.py", line 112, in inference
+    vision_result = vision_connector.call_with_structured_output(
+  File "F:\Thesis\DKH-Thesis\src\modules\reasoning_module\connector\gpt_vision.py", line 113, in call_with_structured_output
+    response = self.client.chat.completions.create(
+  File "F:\Thesis\DKH-Thesis\venv\lib\site-packages\openai\_utils\_utils.py", line 279, in wrapper
+    return func(*args, **kwargs)
+  File "F:\Thesis\DKH-Thesis\venv\lib\site-packages\openai\resources\chat\completions.py", line 859, in create
+    return self._post(
+  File "F:\Thesis\DKH-Thesis\venv\lib\site-packages\openai\_base_client.py", line 1283, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+  File "F:\Thesis\DKH-Thesis\venv\lib\site-packages\openai\_base_client.py", line 960, in request
+    return self._request(
+  File "F:\Thesis\DKH-Thesis\venv\lib\site-packages\openai\_base_client.py", line 996, in _request
+    response = self._client.send(
+  File "F:\Thesis\DKH-Thesis\venv\lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "F:\Thesis\DKH-Thesis\venv\lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "F:\Thesis\DKH-Thesis\venv\lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "F:\Thesis\DKH-Thesis\venv\lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "F:\Thesis\DKH-Thesis\venv\lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "F:\Thesis\DKH-Thesis\venv\lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "F:\Thesis\DKH-Thesis\venv\lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+  File "F:\Thesis\DKH-Thesis\venv\lib\site-packages\httpcore\_sync\connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+  File "F:\Thesis\DKH-Thesis\venv\lib\site-packages\httpcore\_sync\http11.py", line 136, in handle_request
+    raise exc
+  File "F:\Thesis\DKH-Thesis\venv\lib\site-packages\httpcore\_sync\http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+  File "F:\Thesis\DKH-Thesis\venv\lib\site-packages\httpcore\_sync\http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "F:\Thesis\DKH-Thesis\venv\lib\site-packages\httpcore\_sync\http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+  File "F:\Thesis\DKH-Thesis\venv\lib\site-packages\httpcore\_backends\sync.py", line 128, in read
+    return self._sock.recv(max_bytes)
+  File "C:\Users\phanh\AppData\Local\Programs\Python\Python310\lib\ssl.py", line 1259, in recv
+    return self.read(buflen)
+  File "C:\Users\phanh\AppData\Local\Programs\Python\Python310\lib\ssl.py", line 1132, in read
+    return self._sslobj.read(len)
+KeyboardInterrupt
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1740155940.585207  194196 init.cc:229] grpc_wait_for_shutdown_with_timeout() timed out.

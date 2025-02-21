@@ -33,6 +33,7 @@ def arg_parser():
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--start_idx", type=int, default=-1)
     parser.add_argument("--end_idx", type=int, default=-1)
+    parser.add_argument("--skip_existing", action="store_true")
     parser.add_argument("--output_dir_path", type=str, default="./result/")
     parser.add_argument("--errors_dir_path", type=str, default="./errors/")
     
@@ -235,6 +236,9 @@ def main():
             print(f"Processing item {idx}")
             item = dataset[idx]
         
+            if args.skip_existing and os.path.exists(os.path.join(args.output_dir_path, f"result_{idx}.json")):
+                continue
+        
             result = inference(
                 entities_module=entities_module,
                 llm_connector=llm_connector,
@@ -269,11 +273,11 @@ def main():
         "average_inference_time": total_time / len(results)
     }
     
-    # Save results
-    with open(os.path.join(args.output_dir_path, "final_results.json"), "w") as f:
-        json.dump(final_results, f, indent=2, cls=NumpyJSONEncoder, ensure_ascii=False)
-    with open(os.path.join(args.errors_dir_path, "error_items.json"), "w") as f:
-        json.dump(error_items, f, indent=2, cls=NumpyJSONEncoder, ensure_ascii=False)
+    # # Save results
+    # with open(os.path.join(args.output_dir_path, "final_results.json"), "w") as f:
+    #     json.dump(final_results, f, indent=2, cls=NumpyJSONEncoder, ensure_ascii=False)
+    # with open(os.path.join(args.errors_dir_path, "error_items.json"), "w") as f:
+    #     json.dump(error_items, f, indent=2, cls=NumpyJSONEncoder, ensure_ascii=False)
 
 if __name__ == "__main__":
     main()
