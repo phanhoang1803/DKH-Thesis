@@ -1,3 +1,4 @@
+import base64
 import codecs
 import json
 from typing import Optional, Dict, Any
@@ -129,6 +130,7 @@ class MergedBalancedNewsClippingDataset(Dataset):
         Returns:
             Dict containing:
                 - image: PIL Image or transformed image
+                - image_base64: Image base64
                 - caption: str
                 - content: str
                 - label: bool
@@ -137,6 +139,7 @@ class MergedBalancedNewsClippingDataset(Dataset):
         item = self.newsclipping_annotations[idx]
         result = {
             "image": None,
+            "image_base64": None,
             "caption": "",
             "content": "",
             "label": item["falsified"],
@@ -153,17 +156,24 @@ class MergedBalancedNewsClippingDataset(Dataset):
             image_path = os.path.join(self.data_path, 
                                     self.visualnews_data_mapping[str(item["image_id"])]["image_path"])
             image = Image.open(image_path).convert('RGB')
+            with open(image_path, "rb") as image_file:
+                # Read the file and encode it to Base64
+                image_base64 = base64.b64encode(image_file.read()).decode('utf-8')
+            
             if self.transform:
                 image = self.transform(image)
             result["image"] = image
+            result["image_base64"] = image_base64
         except Exception as e:
-            print(f"Warning: Failed to load image for item {item['id']}: {str(e)}")
+            # print(f"Warning: Failed to load image for item {item['id']}: {str(e)}")
+            raise e
         
         # Load caption
         try:
             result["caption"] = self.visualnews_data_mapping[str(item["id"])]["caption"]
         except KeyError:
-            print(f"Warning: Caption not found for item {item['id']}")
+            # print(f"Warning: Caption not found for item {item['id']}")
+            raise e
         
         # Load article content
         try:
@@ -171,7 +181,8 @@ class MergedBalancedNewsClippingDataset(Dataset):
                                       self.visualnews_data_mapping[str(item["id"])]["article_path"])
             result["content"] = self._read_text_file(article_path)
         except Exception as e:
-            print(f"Warning: Failed to load article for item {item['id']}: {str(e)}")
+            # print(f"Warning: Failed to load article for item {item['id']}: {str(e)}")
+            raise e
             
         return result
     

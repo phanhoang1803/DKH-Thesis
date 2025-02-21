@@ -13,6 +13,7 @@ from functools import lru_cache, partial
 from src.utils.logger import Logger
 import time
 from sentence_transformers import SentenceTransformer
+from .cached_evidences.cached_evidences import EvidencesModule, Evidence
 
 # class ExternalRetrievalModule:
 #     def __init__(self, text_api_key: str, cx: str, news_sites: List[str] = None, fact_checking_sites: List[str] = None, model_name: str = "sentence-transformers/all-MiniLM-L6-v2"):

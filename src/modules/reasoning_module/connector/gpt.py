@@ -19,52 +19,21 @@ SYSTEM_PROMPT = """You are a highly accurate and logical fact-checking assistant
 - **Clarity**: Clearly highlight any uncertainties, gaps, or limitations in the available information.
 """
 
-FINAL_RESPONSE_SCHEMA = {
-    "type": "object",
-    "required": ["final_answer", "explanation", "additional_notes", "OOC", "confidence_level"],
-    "properties": {
-        "final_answer": {
-            "type": "string",
-            "description": "The overall synthesized result based on both internal and external validation checks, summarizing the caption's accuracy."
-        },
-        "explanation": {
-            "type": "string",
-            "description": "A short, clear explanation (up to 1000 words) of the final verdict, integrating internal and external validation results."
-        },
-        "additional_notes": {
-            "type": "string",
-            "description": "Any additional remarks or observations that are not part of the main explanation but are relevant to the decision."
-        },
-        "OOC": {
-            "type": "boolean",
-            "description": "Indicates whether the caption is out of context (True) or in context (False) based on both internal and external checks."
-        },
-        "confidence_level": {
-            "type": "integer",
-            "description": "A score (0-10) reflecting the confidence level in the final decision, with higher numbers indicating greater certainty."
-        }
-    }
-}
-
 INTERNAL_RESPONSE_SCHEMA = {
     "type": "object",
-    "required": ["original_news_caption", "original_entities", "supported", "explanation"],
+    "required": ["verdict", "explanation", "confidence_score"],
     "properties": {
-        "original_news_caption": {
-            "type": "string",
-            "description": "The caption being analyzed for correctness based on its alignment with the entities."
-        },
-        "original_entities": {
-            "type": "string",
-            "description": "A list of entities extracted from the content that need to be validated against the caption."
+        "verdict": {
+            "type": "boolean",
+            "description": "Indicates whether the internal validation passed (True) or failed (False)"
         },
         "explanation": {
             "type": "string",
-            "description": "A short explanation (about 1000 words) of the decision, detailing the alignment or discrepancies between the caption and entities."
+            "description": "Explanation of the internal validation decision"
         },
-        "supported": {
-            "type": "boolean",
-            "description": "Indicates whether the entities in the caption are correctly used and supported by the content (True or False)."
+        "confidence_score": {
+            "type": "integer",
+            "description": "Confidence score for the internal validation"
         }
     }
 }
@@ -75,19 +44,42 @@ EXTERNAL_RESPONSE_SCHEMA = {
     "properties": {
         "verdict": {
             "type": "boolean",
-            "description": "Indicates whether the caption is accurate (True) or inaccurate (False) based on external evidence."
+            "description": "Indicates whether the external validation passed (True) or failed (False)"
         },
         "explanation": {
             "type": "string",
-            "description": "A short, concise explanation (about 1000 words) of the decision, based on the comparison between the caption and external evidence."
+            "description": "Explanation of the external validation decision"
         },
         "confidence_score": {
             "type": "integer",
-            "description": "A score (0-10) reflecting the confidence in the decision, with higher scores indicating greater certainty."
+            "description": "Confidence score for the external validation"
         },
         "supporting_points": {
             "type": "string",
-            "description": "Key points from the external evidence that support or refute the caption's accuracy."
+            "description": "Supporting points from external validation"
+        }
+    }
+}
+
+FINAL_RESPONSE_SCHEMA = {
+    "type": "object",
+    "required": ["OOC", "validation_summary", "explanation", "confidence_score"],
+    "properties": {
+        "OOC": {
+            "type": "boolean",
+            "description": "Indicates whether the content is out of context"
+        },
+        "validation_summary": {
+            "type": "string",
+            "description": "Summary of all validation results"
+        },
+        "explanation": {
+            "type": "string",
+            "description": "Final explanation of the validation"
+        },
+        "confidence_score": {
+            "type": "integer",
+            "description": "Final confidence score"
         }
     }
 }
