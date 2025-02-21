@@ -2,10 +2,10 @@
 
 API_KEY="AIzaSyBJkAID3urNPfJDJQSzt1jXSmc7mLly4EA"
 CSE_ID="94f1749818bdb40a1"
-START=1000
-END=7000
-STEP=500
-MAX_JOBS=8  # Adjust this to limit the number of parallel processes
+START=7000
+END=7200
+STEP=20
+MAX_JOBS=10  # Adjust this to limit the number of parallel processes
 
 for ((i=START; i<END; i+=STEP)); do
     j=$((i+STEP))
