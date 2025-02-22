@@ -1,7 +1,7 @@
 # dataloaders/newsclipping_dataloader.py
 
 from torch.utils.data import DataLoader
-from datasets.newsclipping_datasets import NewsClippingDataset
+from mdatasets.newsclipping_datasets import NewsClippingDataset
 from typing import Optional, Any, List
 
 

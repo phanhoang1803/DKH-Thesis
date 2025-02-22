@@ -1,7 +1,7 @@
 # dataloaders/visualnews_dataloader.py
 
 from torch.utils.data import DataLoader
-from datasets.visualnews_datasets import VisualNewsDataset
+from mdatasets.visualnews_datasets import VisualNewsDataset
 from typing import Optional, Any, List
 from torchvision import transforms
 

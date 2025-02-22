@@ -2,9 +2,9 @@
 
 from datetime import datetime
 import numpy as np
-from modules import NERConnector, EntitiesModule, BLIP2Connector, GPTConnector, GeminiConnector, ExternalRetrievalModule, EvidencesModule, Evidence, GPTVisionConnector, GeminiVisionConnector
+from modules import EntitiesModule, GPTConnector, GeminiConnector, ExternalRetrievalModule, EvidencesModule, Evidence, GPTVisionConnector, GeminiVisionConnector
 from dataloaders import cosmos_dataloader
-from datasets.newsclipping_datasets import MergedBalancedNewsClippingDataset
+from mdatasets.newsclipping_datasets import MergedBalancedNewsClippingDataset
 from src.modules.evidence_retrieval_module.scraper.scraper import Article
 from templates import get_internal_prompt, get_final_prompt, get_external_prompt, get_vision_prompt
 import os
@@ -23,11 +23,11 @@ from src.modules.reasoning_module.connector.gpt_vision import VISION_FINAL_SCHEM
 
 def arg_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data_path", type=str, default="test_dataset", 
+    parser.add_argument("--data_path", type=str, default="/media02/taduy03/khanhhoang/DKH-Thesis/test_dataset", 
                        help="")
-    parser.add_argument("--internal_path", type=str, default="test_dataset/links_test.json", 
+    parser.add_argument("--internal_path", type=str, default="/media02/taduy03/khanhhoang/DKH-Thesis/test_dataset/links_test.json", 
                         help="")
-    parser.add_argument("--external_path", type=str, default="queries_dataset\merged_balanced\direct_search/test/test.json")
+    parser.add_argument("--external_path", type=str, default="queries_dataset/merged_balanced/direct_search/test/test.json")
     parser.add_argument("--llm_model", type=str, default="gemini", choices=["gpt", "gemini"])
     parser.add_argument("--vision_model", type=str, default="gpt", choices=["gpt", "gemini"])
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
