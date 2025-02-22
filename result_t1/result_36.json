@@ -1,38 +1,72 @@
 {
-  "caption": "An Army soldier checks his sword during the rehearsal for the Republic Day parade, in New Delhi, India January 18, 2021.",
-  "ground_truth": 0,
+  "caption": "Gambling tables at Venetian Macau Queensland wants some Asian highrollers too",
+  "ground_truth": false,
   "internal_check": {
-    "textual_entities": [
-      {
-        "entity": "B-ORG",
-        "word": "Indian"
-      },
-      {
-        "entity": "I-ORG",
-        "word": "Army"
-      }
+    "visual_entities": [
+      "The Venetian Macao",
+      "The Venetian Resort Las Vegas",
+      "Casino",
+      "Hotel",
+      "Resort",
+      "Gambling",
+      "Boutique hotel",
+      "Online Casino",
+      "Las Vegas",
+      "Macao",
+      "venetian hotel macau casino"
     ],
     "result": {
-      "verdict": false
+      "confidence_score": 9,
+      "explanation": "The visual entities detected in the image are: The Venetian Macao, The Venetian Resort Las Vegas, Casino, Hotel, Resort, Gambling, Boutique hotel, Online Casino, Las Vegas, Macao, venetian hotel macau casino. The news caption contains \"Gambling tables at Venetian Macau Queensland wants some Asian highrollers too\". The image shows an interior of a casino filled with gambling tables which supports the news caption. The content also supports the caption because it talks about casinos in Macau. The visual entities and the news caption are accurately represented in the given image.",
+      "verdict": true
     }
   },
   "external_check": {
-    "candidates": [],
+    "web_results": [
+      {
+        "title": "Campbell Newman plans three new casinos in Queensland | Gambling | The Guardian",
+        "content": "Campbell Newman plans three new casinos in Queensland | Gambling ...",
+        "caption": "Gambling tables at Venetian Macau: Queensland wants some Asian high-rollers too. Photograph: Kin Cheung/AP",
+        "domain": "www.theguardian.com"
+      },
+      {
+        "title": "AGBriefings February 2018 by Asia Gaming Brief - Issuu",
+        "content": "AGBriefings February 2018 by Asia Gaming Brief - Issuu",
+        "caption": "",
+        "domain": "issuu.com"
+      },
+      {
+        "title": "AGBriefings December 2021 Edition by Asia Gaming Brief - Issuu",
+        "content": "AGBriefings December 2021 Edition by Asia Gaming Brief - Issuu",
+        "caption": "",
+        "domain": "issuu.com"
+      },
+      {
+        "title": "Campbell Newman plans three new casinos in Queensland | Gambling | The Guardian",
+        "content": "Campbell Newman plans three new casinos in Queensland | Gambling ...",
+        "caption": "Gambling tables at Venetian Macau: Queensland wants some Asian high-rollers too. Photograph: Kin Cheung/AP",
+        "domain": "www.theguardian.com"
+      },
+      {
+        "title": "Campbell Newman plans three new casinos in Queensland | Gambling | The Guardian",
+        "content": "Venetian-Macau-casino-010.jpg? ...",
+        "caption": "Gambling tables at Venetian Macau: Queensland wants some Asian high-rollers too. Photograph: Kin Cheung/AP",
+        "domain": "www.theguardian.com"
+      }
+    ],
     "result": {
-      "confidence_score": 3,
-      "explanation": "This assessment is knowledge-based. The caption's plausibility is evaluated based on general knowledge about Republic Day parades in India and army practices.  While it's plausible that an army soldier would check their sword during a parade rehearsal, there's no way to verify the specific details (date, location, event) without external evidence. The caption itself is grammatically correct and follows typical news reporting patterns. However, the lack of external verification significantly reduces confidence.  Concerning elements include the absence of verifiable details and the reliance on general knowledge alone.",
-      "supporting_evidence": [
-        "Republic Day parades in India typically involve military participation.",
-        "Army personnel would likely check their equipment before a formal event.",
-        "The caption lacks specific verifiable details that could be cross-referenced with external sources."
-      ],
-      "verdict": true
+      "verdict": true,
+      "alignment_score": 85,
+      "confidence_score": 9,
+      "explanation": "The main news image and several of the reference images depict a similar setting, which appears to be a casino with multiple gaming tables arranged uniformly. Chairs are neatly positioned around these tables, and there is a recurrent presence of people in formal attire seemingly operating or participating in games. This alignment suggests that they are scenes from a similar location or event.\n\nHowever, two of the reference images don't match the setting of a casino, indicating different content unrelated to the casino images. These images cannot be used to validate or compare against the news image contextually. Thus, they are disregarded in this analysis.\n\nThe casino-related images exhibit consistent elements such as lighting with hanging chandeliers, floral carpet patterns, and the spatial arrangement of tables and chairs which match the news image closely. The angle and perspective used in these images are also very similar, showing a wide view of the gaming area, reinforcing their contextual similarity.\n\nOverall, the visual and contextual consistency between the news image and the valid reference images supports a high alignment score.",
+      "key_observations": "1. Consistent casino setting with similar table and chair arrangements.\n2. Matching lighting and carpet patterns in the casino images.\n3. Wide-angle perspective consistently used in the valid images.\n4. Two reference images not relevant as they depict different content.\n5. No significant signs of image manipulation detected in the aligned images."
     }
   },
   "final_result": {
     "OOC": false,
-    "confidence_score": 4,
-    "validation_summary": "Internal check flags inconsistency, while external check, relying on general knowledge, deems the caption plausible but lacks specific verifiable details. Discrepancy exists due to the absence of external evidence to corroborate the claim.  Confidence is low due to this lack of corroboration. Overall assessment is uncertain but leans toward acceptance of the caption's plausibility because of the general knowledge check results. However, the lack of strong verifiable evidence keeps confidence limited.  The major point of disagreement stems from the inability to verify the specific event. Although the scenario depicted is plausible, absence of concrete evidence weakens the assessment substantially.  Note: Internal Check focuses on the explicit textual entities and their consistency, whereas external validation accounts for broader contextual plausibility in relation to the image, considering knowledge-based assumptions which is weaker than fact-based evidence. Therefore, the absence of supporting evidence greatly affects the final confidence score.   The Internal check focuses on the precise words mentioned, which might lack sufficient context.  The External check, while plausible, could only assess the context based on general knowledge, which weakens its reliability considerably. Thus the final score is low, reflecting this uncertainty.   There is a clear conflict between the two validation methods. This highlights the need for additional evidence to resolve the uncertainty before a conclusive assessment can be provided.  The internal check based on explicit entity recognition is narrow and may miss crucial contextual information, whereas external validation employs general knowledge based assessment which might lack precision and verification. The limited confidence score of 4 directly reflects this uncertainty stemming from inconsistent findings.  The lack of robust evidence significantly weakens any claim of certainty, hence the low confidence score. This situation highlights the limitations of relying on purely general knowledge and the need for external source verification in validating news captions effectively.   The final confidence score is a weighted average of internal and external check results, giving slightly more weight to external checks since it consider the wider contextual understanding of the situation.  The OOC is set to false because no significant contextual inconsistencies were identified, however, the low confidence score reflects the major uncertainty.   It is important to have a good balance between general contextual understanding (as provided by external check) and precise factual matching with the explicit textual elements mentioned (as done by the internal check). Neither method should be considered in isolation for a strong assessment.  Overall, we are unsure about the accuracy of the caption. This is caused by lack of concrete evidence to confirm the specific details of the news caption, which limits our confidence despite the plausible nature of the depicted situation. We need more verifiable details to reach a higher degree of certainty. The low confidence score reflects the uncertainty derived from the conflicting findings of both internal and external validation methods.  In summary: The assessment leans towards the caption plausibility but the absence of concrete evidence makes the final verdict uncertain. The resulting confidence score is low, indicating the substantial uncertainty about the accuracy of the news caption."
+    "confidence_score": 10,
+    "explanation": "Both the internal and external checks confirm that the image depicts a casino setting with gambling tables, consistent with the caption's mention of 'Gambling tables at Venetian Macau.' The internal check explicitly identifies visual elements such as the casino and gambling tables, aligning them with the caption. The external check further validates this by comparing the image to reference images of similar casino environments. The high alignment score (85) from the external check and the positive verdict from the internal check provide strong evidence that the caption accurately represents the image content. Therefore, the caption is not out of context.",
+    "validation_summary": "Both internal and external checks confirm the image depicts a casino with gambling tables, supporting the caption's reference to 'Gambling tables at Venetian Macau.' The external check provides a high alignment score, and the internal check yields a positive verdict."
   },
-  "inference_time": 30.885414600372314
+  "inference_time": 17.726991415023804
 }

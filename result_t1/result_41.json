@@ -1,62 +1,76 @@
 {
-  "caption": "Cruise Ship Company Carnival Fined $28M For Pumping Pollution Into Oceans",
-  "ground_truth": 1,
+  "caption": "A brand new Toyota Camry sits on the sales lot at City Toyota in Daly City Calif in this 2010 file photo",
+  "ground_truth": true,
   "internal_check": {
-    "textual_entities": [
-      {
-        "entity": "B-LOC",
-        "word": "P"
-      },
-      {
-        "entity": "I-LOC",
-        "word": "##unta"
-      },
-      {
-        "entity": "I-LOC",
-        "word": "del"
-      },
-      {
-        "entity": "I-LOC",
-        "word": "E"
-      },
-      {
-        "entity": "I-LOC",
-        "word": "##ste"
-      },
-      {
-        "entity": "B-LOC",
-        "word": "U"
-      },
-      {
-        "entity": "I-LOC",
-        "word": "##rag"
-      },
-      {
-        "entity": "I-LOC",
-        "word": "##uay"
-      }
+    "visual_entities": [
+      "Santa Pod Raceway",
+      "Drag racing",
+      "Car",
+      "Image",
+      "Stock photography",
+      "Getty Images",
+      "Photograph",
+      "Graphics",
+      "Photography",
+      "Racing",
+      "Illustration",
+      "Wallpaper",
+      "Motorcycle drag racing",
+      "Motorcycle",
+      "asphalt"
     ],
     "result": {
+      "confidence_score": 10,
+      "explanation": "The caption describes a Toyota Camry at a dealership, which does not match the visual elements of the image, which features 'Santa Pod Raceway', a 'Drag racing' 'Car', and related elements such as 'Motorcycle drag racing' and 'asphalt'. Therefore, the caption does not accurately represent the visual entities in the image.",
       "verdict": false
     }
   },
   "external_check": {
-    "candidates": [],
+    "web_results": [
+      {
+        "title": "Top-seller Camry loses consumer mag OK after \"poor\" crash test",
+        "content": "Top-seller Camry loses consumer mag OK after \"poor\" crash test",
+        "caption": "A Toyota Camry sits on the sales lot at City Toyota February 3, 2010 in Daly City, California. Consumer Reports says it can no longer recommend the Camry, the biggest selling car in America, after it failed a crash test.",
+        "domain": "www.nbcnews.com"
+      },
+      {
+        "title": "It was a day of trouble for Toyota  Twin Cities",
+        "content": "It was a day of trouble for Toyota  Twin Cities",
+        "caption": "DALY CITY, CA  FEBRUARY 03:  A brand new Toyota Prius sits on the sales lot at City Toyota February 3, 2010 in Daly City, California. It has been reported that Toyota said there were dozens of complaints about brakes on the Prius, as the carmaker is being pressured by U.S. Transportation Secretary Ray LaHood, who says the automaker isnt acting fast enough to fix millions of defective accelerator pedals on late model Toyota cars and trucks. LaHood retracted a statement today that Toyota owners should stop driving vehicles affected by the accelerator recall.  (Photo by Justin Sullivan/Getty Images)",
+        "domain": "www.twincities.com"
+      },
+      {
+        "title": "1,110 Late Model Car Stock Photos, High-Res Pictures, and Images ...",
+        "content": "1,110 Late Model Car Stock Photos, High-Res Pictures, and Images ...",
+        "caption": "",
+        "domain": "www.gettyimages.com"
+      },
+      {
+        "title": "499 Fast Acting Stock Photos, High-Res Pictures, and Images ...",
+        "content": "499 Fast Acting Stock Photos, High-Res Pictures, and Images ...",
+        "caption": "",
+        "domain": "www.gettyimages.com"
+      },
+      {
+        "title": "364 Japan Auto Company Toyota Recall Stock Photos, High-Res ...",
+        "content": "364 Japan Auto Company Toyota Recall Stock Photos, High-Res ...",
+        "caption": "",
+        "domain": "www.gettyimages.com"
+      }
+    ],
     "result": {
-      "confidence_score": 3,
-      "explanation": "This assessment is knowledge-based.  Carnival Cruise Lines has a history of environmental violations, and significant fines for such violations are plausible.  The specific amount ($28M) is not easily verifiable without external evidence, but it falls within the range of what could be expected for a major cruise company's pollution offenses.  The caption's wording is straightforward and consistent with typical news reporting. However, without corroborating evidence, complete certainty cannot be achieved.  The potential for exaggeration or misreporting exists. ",
-      "supporting_evidence": [
-        "Carnival Cruise Lines has been involved in numerous environmental controversies.",
-        "Large fines for environmental violations by corporations are common.",
-        "The figure of $28 million is plausible but unverified without external evidence."
-      ],
-      "verdict": true
+      "verdict": false,
+      "alignment_score": 10,
+      "confidence_score": 9,
+      "explanation": "The news image and reference images show entirely different subjects and contexts. The news image features a drag racing car with a distinctive design in front of a racetrack, labeled \"Santa Pod Raceway,\" indicating an event related to motorsports. In contrast, the reference images primarily feature various Toyota cars at a dealership. There is no alignment in terms of subject, spatial settings, or contextual elements across the images. The focus in the news image is on a racetrack environment with a colorful race car, while the reference images focus on commercial showroom settings with Toyota branding.\n\nOther visual elements such as lighting, shadows, and environmental details do not correspond between the images. The news image has a lower angle shot possibly captured during an action scene, while the reference images depict stationary cars in a showroom-like setting. The Toyota cars, particularly models like Camry and Prius, are the central subjects rather than any racing vehicles. \n\nNo signs of digital manipulation are visible, but the lack of contextual and visual consistency leads to the conclusion that these images are unrelated.",
+      "key_observations": "1. News image features a colorful drag racing car at a racetrack.\n2. Reference images show Toyota cars at a car dealership.\n3. No shared visual elements such as setting or subject matter.\n4. Different lighting conditions and image angles.\n5. No sequential or chronological relationship between images."
     }
   },
   "final_result": {
-    "OOC": false,
-    "confidence_score": 6,
-    "validation_summary": "Internal check flags the caption as possibly out of context due to inconsistencies in location entities. However, the external check, based on knowledge of Carnival's history and typical fine amounts for such violations, finds the caption plausible, despite lacking specific evidence to confirm the $28M figure.  The discrepancy stems from a lack of direct evidence to support the claim and reliance on general knowledge in the external assessment. Overall, the lack of definitive verification lowers confidence in the caption's accuracy despite its plausibility.  The incomplete location entities in the internal check also indicate possible problems with the data extraction, further reducing confidence.  Therefore the final verdict is that the caption may not be out of context, but the accuracy cannot be confirmed without further evidence; the confidence score reflects this uncertainty.  Further investigation is needed for higher certainty.  Plausibility is supported by Carnival's history but the exact number requires verification. Note: The external check's high confidence score is based on background knowledge, not verified sources for the $28M fine. This needs clarification for stronger evidence.   The lack of external evidence also reduces the overall confidence score.   The assessment considers the plausibility based on knowledge, but this approach does not fully meet the needs for strong confirmation. This is important as the confidence score is directly related to the validity of evidence presented for such assertions. A low confidence score is given despite the plausibility of the claim due to a lack of strong verification. Therefore, a final confirmation cannot be obtained without stronger evidence and verification procedures to support the claim of a $28M fine.  This is crucial for ensuring the quality and reliability of information being conveyed. The discrepancy is largely due to a knowledge-based approach versus evidence-based validation. This limitation must be addressed in order to enhance the accuracy and reliability of this information.  The approach needs a more rigorous validation methodology to address the uncertainty associated with the current process.  The confidence score is adjusted based on the level of uncertainty reflected in both internal and external validation results. Without stronger evidence, the level of confidence will remain low. Additional verification is needed to ensure the claim is accurate.  Finally, the validation procedure needs a more robust approach which requires a well defined methodology for evidence-based validation and a more detailed investigation to ensure the reliability of the results.  The current procedure does not clearly define the standards for verification and is prone to uncertainty. Without a clear set of standards, the accuracy cannot be ascertained in a reliable way. Future development in this area will need more focus on developing a rigorous methodology for evidence-based validation to address the concerns of uncertainty and lack of direct corroboration.  In this specific case, the plausibility of the claim does not equate to definitive evidence of its truthfulness. Therefore, more information is needed to reach a stronger conclusion.  The existing procedure needs to be further refined and improved to enhance its reliability and ensure future validations are more accurate and less uncertain. This is essential for ensuring the accuracy and reliability of information being conveyed.  More development is needed in this area to address these concerns.  Without definitive verification, a lower confidence score is warranted, even if the claim appears plausible based on other factors.   This is a key lesson learned from this assessment.  The assessment clearly shows the limitations of relying solely on general knowledge in validating claims. A more rigorous, evidence-based approach to validation is critical to improve confidence scores and minimize uncertainty in the results. The confidence score reflects this ongoing need for improvement in validation methodology.  It should not be interpreted as a failure in assessing information but rather as a call for improvement in the assessment process to achieve higher accuracy and certainty in such assessments. The plausibility of the claim is not a substitute for verified evidence.  Therefore, a lower confidence score is assigned to emphasize this crucial distinction. The focus should be on developing a robust methodology that minimizes reliance on plausibility and relies more on objective and verifiable evidence.  In summary, while the claim's plausibility exists based on Carnival's history and typical fine amounts, the lack of precise evidence to support the $28M figure lowers the overall confidence in its accuracy.  Therefore, while not definitively out of context, further verification is highly recommended. The existing procedure needs to be more robust, including well defined standards for evidence-based validation and investigation to resolve such uncertainty. The current assessment approach needs to be revised to address the limitations encountered in this process and improve reliability of future validations."
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "Both internal and external checks indicate that the caption is out of context. The internal check confirms that the visual elements in the image, such as 'Santa Pod Raceway', 'Drag racing', and 'Car', do not match the caption's description of a Toyota Camry at a dealership. The external check further reinforces this by showing no alignment between the news image (a drag racing car at a racetrack) and the reference images (Toyota cars at a dealership). There is no contradiction; both checks independently arrive at the same conclusion that the caption is unrelated to the image content.",
+    "validation_summary": "Both internal and external checks confirm that the caption is out of context, as the image shows a drag racing car at a racetrack, while the caption describes a Toyota Camry at a dealership."
   },
-  "inference_time": 13.513723373413086
+  "inference_time": 14.867626667022705
 }

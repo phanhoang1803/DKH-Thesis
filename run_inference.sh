@@ -1,6 +1,6 @@
 #!/bin/bash
 
-START=0
+START=30
 END=4000
 STEP=100
 MAX_JOBS=4  # Adjust this to limit the number of parallel processes

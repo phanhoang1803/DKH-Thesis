@@ -1,29 +1,66 @@
 {
-  "caption": "Gertie, a shiba inu, was purchased at a pet store as part of an investigation by the Humane Society by puppy store manhattan.",
-  "ground_truth": 0,
+  "caption": "A Turkish man stands next to a bank window that was damaged during riots after antigovernment demonstrations on June 5 2013 in Istanbul Turkey",
+  "ground_truth": false,
   "internal_check": {
-    "textual_entities": [],
+    "visual_entities": [
+      "Street",
+      "Graffiti",
+      "Art",
+      "Recreation",
+      "protest"
+    ],
     "result": {
+      "confidence_score": 10,
+      "explanation": "The caption accurately describes the image. A man is standing next to a window covered in graffiti, and the caption mentions it was damaged during riots after anti-government demonstrations. The visual entities also list 'protest', aligning with the theme. Thus, the caption is a reasonable description of the visual content.",
       "verdict": true
     }
   },
   "external_check": {
-    "candidates": [],
+    "web_results": [
+      {
+        "title": "Anti-government protests in Turkey",
+        "content": "Anti-government protests in Turkey",
+        "caption": "",
+        "domain": "www.usatoday.com"
+      },
+      {
+        "title": "249   Stock Photos, High-Res Pictures, and Images - Getty Images",
+        "content": "249   Stock Photos, High-Res Pictures, and Images - Getty Images",
+        "caption": "",
+        "domain": "www.gettyimages.co.uk"
+      },
+      {
+        "title": "1,229 Man Atm Photos & High Res Pictures - Getty Images",
+        "content": "1,229 Man Atm Photos & High Res Pictures - Getty Images",
+        "caption": "",
+        "domain": "www.gettyimages.ie"
+      },
+      {
+        "title": "Retrieval Augmented Verification: Unveiling Disinformation with\n  Structured Representations for Zero-Shot Real-Time Evidence-guided\n  Fact-Checking of Multi-modal Social media posts - ",
+        "content": "Retrieval Augmented Verification: Unveiling Disinformation with ...",
+        "caption": "",
+        "domain": "hub.baai.ac.cn"
+      },
+      {
+        "title": "Riot police policemen hi-res stock photography and images - Page 15 - Alamy",
+        "content": "Riot police policemen hi-res stock photography and images - Page ...",
+        "caption": "",
+        "domain": "www.alamy.com"
+      }
+    ],
     "result": {
-      "confidence_score": 2,
-      "explanation": "This assessment is knowledge-based. The caption is plausible because humane societies do investigate puppy mills and pet stores for animal welfare violations.  Purchasing a dog as part of such an investigation is a possible scenario. However, without external evidence, it's impossible to verify the details (name of the dog, specific pet store, etc.).  The lack of specifics and the reliance on the plausibility of the scenario lowers confidence significantly.",
-      "supporting_evidence": [
-        "Humane societies conduct investigations into pet stores and puppy mills.",
-        "Purchasing an animal is a possible method for gathering evidence during an investigation.",
-        "The absence of specifics makes verification impossible without external evidence."
-      ],
-      "verdict": false
+      "verdict": true,
+      "alignment_score": 85,
+      "confidence_score": 8,
+      "explanation": "The news image of a man standing in front of vandalized glass closely aligns with one of the reference images, which features the same setting and composition. The background details, graffiti style, and text match precisely, indicating the images likely originate from the same event or series of events. The lighting, shadows, and angle of capture also align well between these two images, contributing to the conclusion of continuity. However, other reference images capture different events, like a protest involving water cannons and burning flares, which do not match the main image in terms of subject matter or setting. These depict different contexts and likely different locations or times, suggesting varied coverage of related but distinct events. No obvious digital manipulations are detected in the aligned images, reinforcing the visual consistency. Overall, the main image aligns well with one specific reference image, but not with others portraying different scenes.",
+      "key_observations": "1. The main image significantly matches with the third image showing the same graffiti and positioning of the individual, indicating consistency.\n2. Other images, including scenes of protests with water cannons and pyrotechnics, depict different events, showing no visual or contextual match with the news image. \n3. Elements such as the graffiti text ('HÃ¼kÃ¼met Ä°stifa') and the broken glass are consistent across the matching images.\n4. Differences in lighting and environmental context are noted in non-matching images, highlighting unrelated events.\n5. No signs of digital alterations are found in the matching pictures, suggesting authenticity."
     }
   },
   "final_result": {
-    "OOC": true,
-    "confidence_score": 2,
-    "validation_summary": "Internal check found the caption consistent, while external check found it plausible but unverifiable due to lack of specifics, resulting in low confidence.  External evidence was unavailable; assessment was knowledge-based. Discrepancy exists between internal and external checks regarding verifiability and confidence level.  Internal assessment is overly confident given lack of evidence supporting the details within the caption. Therefore, the caption is deemed out of context based on lack of supporting evidence to validate its specifics.  External check highlights the inherent difficulty in verifying such a claim without external evidence.  The low confidence score is primarily due to the unverifiable nature of the provided information despite the general plausibility of the scenario.  There is a significant degree of uncertainty around the specifics due to no external evidence being available for verification of the details provided in the caption. Overall, the claim is considered plausible, but lacking in verifiable evidence and thus, deemed out of context based on the applied validation criteria. Note the discrepancy in confidence levels between the two checks, with the internal check exhibiting excessive confidence in the absence of sufficient external evidence. The external assessment’s low confidence score is a more appropriate reflection of the available information.  The final confidence score is thus chosen based on the most conservative and realistic assessment of the claim’s validation status given the available information. The overall assessment balances the plausibility of the scenario against the lack of verifiable supporting evidence for the specific details provided in the caption, leading to a low confidence score and an OOC status of ‘true’ based on the validation criteria provided. Note that the caption's plausibility does not compensate for its lack of verifiability.  The conclusion is drawn based primarily on the external verification's assessment of the limitations in the available information and its impact on validating the specific details stated in the news caption. The discrepancy in confidence reflects the challenges in validating assertions without sufficient external supporting evidence, even when the general claim is plausible given knowledge of typical Humane Society activities.  The low confidence score thus reflects this critical issue.  The validation summary accurately reflects the limitations in validating the claim without the necessary external supporting information to definitively confirm the details provided in the caption. It is crucial to distinguish between plausibility and verifiability to ensure the accuracy and reliability of the assessment. Thus, the out of context status is chosen based on the validation criteria, reflecting the need for substantial evidence to support such claims.  The confidence score reflects this assessment, and it is deemed necessary to highlight this distinction between plausibility and verifiability when judging out of context claims, particularly when external evidence is unavailable to sufficiently verify the details.  External verification is key to confirming such assertions and ensuring accuracy in reporting and assessment. It is important to recognize this limitation of the present assessment and to emphasize the requirement for external support whenever possible for similar validation tasks. The final conclusion reflects this requirement and the inherent limitation to rely on plausibility alone.  The confidence score reflects the level of uncertainty and is informed by both internal and external evaluations, with the latter having a stronger influence because of its consideration of evidence limitations, leading to a more realistic and cautious assessment. The summary accurately conveys the main points and provides context for the final decision. The overall process highlights the importance of a holistic approach that encompasses both internal consistency and external validation for better accuracy. The lack of external evidence greatly influenced the final assessment, demonstrating the necessity for external verification in cases where internal consistency is not sufficient to guarantee the claim's accuracy. The focus of the analysis is thus on the verifiable aspects of the claim, not its general plausibility.  Therefore, based on the validation criteria, the caption is concluded to be out of context and merits the low confidence score, reflecting the limitations in verification efforts. The emphasis is on demonstrating the necessity of external validation and external evidence to substantiate assertions, ensuring that the assessment is grounded in sufficient evidence, as opposed to mere plausibility. The evaluation method clearly outlines and incorporates validation criteria, ensuring transparency and rigor in the assessment process. This process emphasizes the importance of balancing internal consistency with robust external validation to achieve comprehensive and dependable assessment results. Therefore, the final confidence score remains low, signifying the lack of conclusive evidence to verify the caption's details.  The OOC status remains true, reflecting that insufficient supporting evidence exists to establish the caption's consistency within its claimed context. The rationale for this decision is firmly grounded in the validation criteria, emphasizing the need for verifiable evidence to confirm the truthfulness of news content. The limitations inherent in relying solely on internal consistency are recognized, and the need for robust external verification is underscored for a more reliable and accurate assessment. The present assessment underscores the importance of this distinction between plausibility and verifiability in information validation. The low confidence score and the "
+    "OOC": false,
+    "confidence_score": 9,
+    "explanation": "Both the internal and external checks confirm that the caption accurately describes the image content. The internal check highlights the presence of a man next to a graffiti-covered window, aligning with the caption's description of damage during riots after anti-government demonstrations. The external check further validates this by matching the image with a reference image showing the same setting, graffiti, and individual, indicating they likely originate from the same event. While other reference images depict different scenes, the core elements of the caption are verified by at least one reference image and internal analysis, supporting the caption's accuracy. No significant discrepancies or contradictions were found, and no digital manipulations were detected. The caption, therefore, provides a relevant and fitting representation of the visual information.",
+    "validation_summary": "Both internal and external checks confirm the caption's accuracy. The internal check notes visual alignment with the description, while the external check finds a matching reference image, verifying the context of damaged property during protests. Discrepancies are present with other reference images showing different events, but core components are verified."
   },
-  "inference_time": 15.565774202346802
+  "inference_time": 57.927053451538086
 }

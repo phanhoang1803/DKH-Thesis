@@ -1,38 +1,72 @@
 {
-  "caption": "A butterfly interrupts play at the Australian Open",
-  "ground_truth": 0,
+  "caption": "Ukrainian troops are helping to evacuate civilians from Debaltseve",
+  "ground_truth": true,
   "internal_check": {
-    "textual_entities": [
-      {
-        "entity": "B-PER",
-        "word": "Naomi"
-      },
-      {
-        "entity": "I-PER",
-        "word": "Osaka"
-      }
+    "visual_entities": [
+      "Civilian",
+      "2015 Chattanooga shootings",
+      "Military recruitment",
+      "United States",
+      "Soldier",
+      "military",
+      "Deadly Attack",
+      "Bodyguard",
+      "Troop",
+      "Patrol",
+      "soldier"
     ],
     "result": {
+      "confidence_score": 2,
+      "explanation": "The caption describes a scene in Debaltseve with Ukrainian troops evacuating civilians. However, the image shows armed men in what appears to be an American setting. None of the detected entities align with the provided caption or news content. Therefore, the caption does not accurately represent the visual entities in the image.",
       "verdict": false
     }
   },
   "external_check": {
-    "candidates": [],
+    "web_results": [
+      {
+        "title": "U.N. criticizes both sides in Ukraine conflict over civilian deaths - Los Angeles Times",
+        "content": "U.N. criticizes both sides in Ukraine conflict over civilian ...",
+        "caption": "",
+        "domain": "www.latimes.com"
+      },
+      {
+        "title": "Q&A: Neil Buckley answers your questions on Ukraine",
+        "content": "Q&A: Neil Buckley answers your questions on Ukraine",
+        "caption": "",
+        "domain": "www.ft.com"
+      },
+      {
+        "title": "Ukranian troops withdrawn as truce falters | CNN",
+        "content": "Ukranian troops withdrawn as truce falters | CNN",
+        "caption": "",
+        "domain": "www.cnn.com"
+      },
+      {
+        "title": "Aid groups warn  of deepening crisis as Nato states consider arming Ukraine  The Irish Times",
+        "content": "Aid groups warn of deepening crisis as Nato states consider arming ...",
+        "caption": "",
+        "domain": "www.irishtimes.com"
+      },
+      {
+        "title": "Rebels Set Sights on Small Eastern Ukraine Town - The New York Times",
+        "content": "Rebels Set Sights on Small Eastern Ukraine Town - The New York Times",
+        "caption": "",
+        "domain": "www.nytimes.com"
+      }
+    ],
     "result": {
-      "confidence_score": 3,
-      "explanation": "This assessment is knowledge-based. The caption \"A butterfly interrupts play at the Australian Open\" is plausible. Butterflies are known to occasionally enter sporting events, and the Australian Open is an outdoor event making such an occurrence possible. However, without external evidence, it's impossible to verify if this specific event happened. The possibility of such an event occurring is what determines the plausibility score. There is no inherent implausibility.  Therefore, the verdict leans towards true, but with a low confidence score due to the lack of evidence.",
-      "supporting_evidence": [
-        "Butterflies are small flying insects.",
-        "The Australian Open is an outdoor tennis tournament.",
-        "Unforeseen events, including animal interference, can disrupt sporting events."
-      ],
-      "verdict": true
+      "verdict": false,
+      "alignment_score": 20,
+      "confidence_score": 9,
+      "explanation": "The news image and the reference images depict significantly different scenes. The news image shows two individuals in military-style attire on a bright, sunny day in a suburban setting with visible cars and a real estate office in the background. The reference images, however, depict a different scene entirely — military personnel in a cold, possibly war-torn area, with snow or sludge on the ground, interacting with civilians around buses. These scenes show no visible similarities in terms of location, context, or subjects, aside from the presence of individuals in military-like attire.",
+      "key_observations": "1. Different settings: The news image shows a sunny suburban environment; reference images show a colder, possibly urban conflict zone.\n2. Distinct backgrounds: The news image has parked cars and a real estate office; reference images focus on buses and rough terrain.\n3. Lighting and weather differences: Sunny day in the news image versus overcast or cold conditions in reference images.\n4. Subject interaction: Individuals in the news image appear casual while those in reference images are engaged in conflict-zone activities."
     }
   },
   "final_result": {
-    "OOC": false,
-    "confidence_score": 3,
-    "validation_summary": "Internal check found the caption implausible due to the lack of Naomi Osaka in the Australian Open. However, external check, based on knowledge, found the caption plausible because butterflies can interrupt sporting events, but lacked evidence to verify this specific event.  There's a significant discrepancy between the internal and external checks, with the external check's low confidence score reflecting the lack of evidence to confirm the event's occurrence. The final verdict leans towards plausible but uncertain due to the absence of concrete evidence and the conflicting internal assessment.  The confidence score remains low, reflecting uncertainty. The final OOC is false, because the external evidence leans towards plausibility, though not definitively true.  The absence of clear external evidence is the primary driver in this assessment.  Therefore, the lack of external evidence greatly reduces the overall confidence in the caption's accuracy.  The primary reason the OOC value is false is that the external check suggests plausibility, despite the lack of strong supporting evidence. This assessment prioritizes the possibility of the caption's truth rather than the certainty of its truth due to a lack of definitive evidence from both internal and external sources. Note that the internal check is completely independent of the external check and based on different criteria. The final result is uncertain but leans towards the plausibility of the caption due to the assessment made by the external validation check. Thus the final decision is OOC: False. The final confidence score is low (3). The validation process has pointed out the importance of supporting evidence in assessing the accuracy of the caption, and the limitations of plausibility assessment without such evidence.   The image itself does not explicitly state the event happened at the Australian Open but the image itself does present the stated event; therefore, the final result is uncertain. The explanation details the importance of considering both internal and external assessments when validating a caption and highlights the uncertainty in this case due to the lack of clear external evidence.  The final result reflects a cautious approach given the conflicting evidence and absence of definitive proof.  The final confidence score is low, reflecting uncertainty, even with the plausible scenario mentioned by the external check. The internal check results are noted for completeness but the lack of supporting evidence strongly outweighs this information because this image doesn't provide the temporal or spatial information to confirm that event happened at the Australian Open.  The lack of explicit mention of the Australian Open in the image is a key factor driving the low confidence score and the OOC value, and the final judgment emphasizes the need for stronger supporting evidence in such situations. There are many sources that show the image is of Naomi Osaka, however, the image doesn't offer confirmation of the caption. Therefore, the OOC and confidence values are determined as above.  Therefore, the final confidence score remains 3 due to the uncertainty and lack of sufficient evidence despite the plausibility of the scenario suggested by the external check. Finally, given the lack of confirming evidence despite the plausible scenario, the OOC remains false but with the low confidence score of 3 and the detailed explanation of uncertainties and limitations provided above.  The external check, despite its low confidence score, leans towards the plausibility of the caption and drives the OOC toward false, although with significant uncertainty and low confidence score.  In conclusion, the final OOC is False, and confidence_score is 3, based on the interpretation of both internal and external checks combined with the lack of direct evidence linking the image to the Australian Open event. This assessment explains the decision-making process and emphasizes the importance of evidence-based validation in resolving discrepancies between internal and external checks.  The low confidence score reflects the limitations of knowledge-based assessments in the absence of strong supporting evidence and the presence of conflicting interpretations from the internal check.  Therefore, the final verdict is that the caption is likely plausible but not certain, and the low confidence score reflects the uncertainty resulting from the lack of confirmation.  In conclusion, all available evidence (and lack thereof) is considered and explained in detail leading to the OOC value, confidence score, and detailed explanation provided.   The final decision reflects the uncertainty and acknowledges the limitations of both internal and external validations in this particular case.  The image itself is a significant piece of evidence but without explicit details on the location and time of the photo, the conclusion cannot be definitive. This decision recognizes that external and internal assessments combined can sometimes indicate uncertainty, and a low confidence score is justified when supporting evidence is absent.  In short, the absence of supporting evidence reduces the final confidence and although plausible, the absence of definitive evidence leads to the relatively low confidence score. This decision process and justification aim for complete transparency and clarity in validating claims even in ambiguous scenarios. The final OOC is therefore determined to be False with a confidence score of 3. All evidence has been processed, and an explanation has been created to justify this result. The image alone cannot confirm the event; therefore, this conclusion is justified. The low confidence score is justified due to lack of direct evidence despite the plausible nature of the situation outlined in the external validation.  The uncertainty inherent in the validation process has been thoroughly accounted for and addressed in the explanation. In conclusion, the final OOC and confidence score are true reflections of the validation process and its limitations."
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "Both internal and external checks indicate that the provided caption does not accurately represent the image. The internal check highlights that the visual elements in the image (armed men in an American setting) do not align with the caption's description of Ukrainian troops evacuating civilians in Debaltseve. The external check reinforces this by demonstrating that the image differs significantly from reference images of Ukrainian evacuations. Given this consistent evidence, the caption appears to be out of context.",
+    "validation_summary": "Both internal and external checks confirm that the caption is not aligned with the content of the image. The image shows armed men in an American setting, while the caption describes Ukrainian troops evacuating civilians in Debaltseve. Therefore, the caption is out of context."
   },
-  "inference_time": 51.28923273086548
+  "inference_time": 16.02604913711548
 }

@@ -186,7 +186,7 @@ def main():
     elif args.llm_model == "gemini":
         llm_connector = GeminiConnector(
             api_key=os.environ["GEMINI_API_KEY"],
-            model_name="gemini-2.0-pro-exp-02-05"
+            model_name="gemini-2.0-flash-001"
         )
     else:
         raise ValueError(f"Invalid LLM model: {args.llm_model}")
