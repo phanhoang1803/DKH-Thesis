@@ -23,9 +23,9 @@ from src.modules.reasoning_module.connector.gpt_vision import VISION_FINAL_SCHEM
 
 def arg_parser():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data_path", type=str, default="/media02/taduy03/khanhhoang/DKH-Thesis/test_dataset", 
+    parser.add_argument("--data_path", type=str, default="test_dataset", 
                        help="")
-    parser.add_argument("--internal_path", type=str, default="/media02/taduy03/khanhhoang/DKH-Thesis/test_dataset/links_test.json", 
+    parser.add_argument("--internal_path", type=str, default="test_dataset/links_test.json", 
                         help="")
     parser.add_argument("--external_path", type=str, default="queries_dataset/merged_balanced/direct_search/test/test.json")
     parser.add_argument("--llm_model", type=str, default="gemini", choices=["gpt", "gemini"])
@@ -88,7 +88,7 @@ def inference(entities_module: EntitiesModule,
     image_base64 = data["image_base64"]
 
     # Get external evidence
-    web_results = evidences_module.get_evidence_by_index(idx)
+    web_results = evidences_module.get_evidence_by_index(index=idx, query=data["caption"], min_results=5)
     
     # Get extracted reference images from web results
     reference_images = [result.image_data for result in web_results if result.image_data]
@@ -106,32 +106,40 @@ def inference(entities_module: EntitiesModule,
     )
     
     # 2: External Checking
-    vision_result = None
-    vision_prompt = get_vision_prompt()
+    # vision_result = None
+    # vision_prompt = get_vision_prompt()
+    # if reference_images:
+    #     vision_result = vision_connector.call_with_structured_output(
+    #         prompt=vision_prompt,
+    #         schema=VisionResponse if isinstance(vision_connector, GeminiVisionConnector) else VISION_FINAL_SCHEMA,
+    #         # schema=VISION_FINAL_SCHEMA,
+    #         image_base64=image_base64,
+    #         ref_images_base64=reference_images
+    #     )
+    
+    external_prompt = get_external_prompt(
+        caption=data["caption"],
+        web_results=web_results
+    )
+    # external_result = vision_connector.call_with_structured_output(
+    #     prompt=external_prompt,
+    #     schema=ExternalResponse if isinstance(vision_connector, GeminiConnector) else EXTERNAL_RESPONSE_SCHEMA
+    # )
+    external_result=None
     if reference_images:
-        vision_result = vision_connector.call_with_structured_output(
-            prompt=vision_prompt,
+        external_result = vision_connector.call_with_structured_output(
+            prompt=external_prompt,
             schema=VisionResponse if isinstance(vision_connector, GeminiVisionConnector) else VISION_FINAL_SCHEMA,
-            # schema=VISION_FINAL_SCHEMA,
             image_base64=image_base64,
             ref_images_base64=reference_images
         )
     
-    # external_prompt = get_external_prompt(
-    #     caption=data["caption"],
-    #     web_results=web_results,
-    #     vision_result=vision_result
-    # )
-    # external_result = llm_connector.call_with_structured_output(
-    #     prompt=external_prompt,
-    #     schema=ExternalResponse if isinstance(llm_connector, GeminiConnector) else EXTERNAL_RESPONSE_SCHEMA
-    # )
-
     # 3: Final Checking
     final_prompt = get_final_prompt(
         caption=data["caption"],
+        content=data["content"],
         internal_result=internal_result,
-        external_result=vision_result,
+        external_result=external_result,
     )
     final_result = llm_connector.call_with_structured_output(
         prompt=final_prompt,
@@ -150,7 +158,7 @@ def inference(entities_module: EntitiesModule,
         },
         "external_check": {
             "web_results": [web_result.to_dict() for web_result in web_results],
-            "result": vision_result
+            "result": external_result
         },
         "final_result": final_result,
         "inference_time": float(inference_time)

@@ -12,13 +12,15 @@ inference_time_list = []
 candidates = []
 entities = []
 
-result_dir = '/media02/taduy03/khanhhoang/DKH-Thesis/result'
-result_json_list = os.listdir(result_dir)[:20]
+result_dir = 'result'
+result_json_list = os.listdir(result_dir)
 for item in result_json_list:
     try:
         result_json_dir = os.path.join(result_dir, item)
         with open(result_json_dir, 'r') as f:
             result_json = json.load(f)
+            if result_json['external_check']['web_results'] == []:
+                continue
             captions.append(result_json['caption'])
             ground_truth.append(result_json['ground_truth'])
             predicted.append(1 if result_json['final_result']['OOC'] else 0)

@@ -109,7 +109,7 @@ class GPTVisionConnector:
                     }
                 })
 
-        # Call GPT-4 Vision API
+        # Call GPT-4o API
         response = self.client.chat.completions.create(
             model=self.model_name,
             messages=messages,

@@ -1,10 +1,13 @@
 import json
 import os
-from typing import Dict, Optional, Union, List
+from typing import Dict, Optional, Tuple, Union, List
 from dataclasses import dataclass
 from PIL import Image
 import base64
 from io import BytesIO
+
+from sentence_transformers import SentenceTransformer
+import torch
 
 @dataclass
 class Evidence:
@@ -73,7 +76,12 @@ class EvidencesModule:
         self.json_file_path = json_file_path
         with open(json_file_path, "r") as file:
             self.data = json.load(file)
-    
+
+        # Initialize SentenceTransformer model
+        self.model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.model.to(self.device)
+        
     def _load_and_encode_image(self, image_path: str) -> str:
         """
         Load an image from path and encode it in base64.
@@ -102,16 +110,66 @@ class EvidencesModule:
             print(f"Error loading image {image_path}: {str(e)}")
             return ""
 
-    def get_evidence_by_index(self, index: Union[int, str], max_evidences = 5) -> List[Evidence]:
+    def batch_similarity(self, query_text: str, texts: List[str]) -> torch.Tensor:
+        """Calculate similarities for multiple texts at once."""
+        if not texts:
+            return torch.tensor([])
+            
+        # Encode query and all texts in separate batches
+        query_embedding = self.model.encode(query_text, convert_to_tensor=True)
+        text_embeddings = self.model.encode(texts, convert_to_tensor=True, batch_size=32)
+        
+        # Calculate similarities all at once
+        similarities = torch.nn.functional.cosine_similarity(
+            query_embedding.unsqueeze(0), 
+            text_embeddings
+        )
+        
+        return similarities
+
+    def filter_by_similarity(self, query: str, evidence_list: List[Evidence], 
+                           threshold: float = 0.7) -> List[Tuple[Evidence, float]]:
+        """Filter evidence based on similarity with query."""
+        if not evidence_list:
+            return []
+
+        # Prepare lists of titles and captions
+        titles = [ev.title for ev in evidence_list]
+        captions = [ev.caption if ev.caption else "" for ev in evidence_list]
+        
+        # Calculate similarities in batch
+        title_similarities = self.batch_similarity(query, titles)
+        caption_similarities = self.batch_similarity(query, captions)
+        
+        # Combine similarities and evidence
+        evidence_scores = []
+        for i, evidence in enumerate(evidence_list):
+            title_sim = float(title_similarities[i]) if len(title_similarities) > i else 0.0
+            caption_sim = float(caption_similarities[i]) if len(caption_similarities) > i else 0.0
+            similarity = max(title_sim, caption_sim)
+            
+            if similarity >= threshold:
+                evidence_scores.append((evidence, similarity))
+            
+        # Sort by similarity score
+        evidence_scores.sort(key=lambda x: x[1], reverse=True)
+        return evidence_scores
+
+    def get_evidence_by_index(self, index: Union[int, str], query: str,
+                            max_results: int = 5, threshold: float = 0.7,
+                            min_results: int = 1) -> List[Evidence]:
         """
-        Get evidence for a specific index. For odd indices, returns the evidence
-        of the preceding even index.
+        Get evidence for a specific index, filtered by similarity to query.
         
         Args:
             index (Union[int, str]): The index to look up
+            query (str): Query text to filter evidence by similarity
+            max_results (int): Maximum number of results to return
+            threshold (float): Minimum similarity score threshold
+            min_results (int): Minimum number of results to return even if below threshold
             
         Returns:
-            List[Evidence]: List of Evidence objects containing domain, image data, title, caption, and content
+            List[Evidence]: List of Evidence objects filtered by similarity to query
         """
         # Convert index to int if it's a string
         idx = int(index) if isinstance(index, str) else index
@@ -172,10 +230,27 @@ class EvidencesModule:
             print(f"Error loading direct annotation file for index {idx}: {str(e)}")
             return []
         
+        # Filter by similarity first
+        evidence_scores = self.filter_by_similarity(query, evidence_list, threshold)
+        
+        # If we don't have enough results meeting the threshold, include top results
+        if len(evidence_scores) < min_results:
+            evidence_scores = self.filter_by_similarity(query, evidence_list, threshold=0.0)[:min_results]
+        
+        # Get just the evidence objects, scores no longer needed
+        filtered_evidence = [ev for ev, _ in evidence_scores]
+        
         # Filter to max_evidences based on unique titles
+        final_evidence = self.filter_evidences(max_results, filtered_evidence)
+        
+        return final_evidence
+
+    def filter_evidences(self, max_evidences: int, evidence_list: List[Evidence]) -> List[Evidence]:
+        """Filter evidence list to maximum size while preserving uniqueness by title."""
         filtered_evidence = []
         seen_titles = set()
         
+        # First pass: include unique titles
         for evidence in evidence_list:
             title = evidence.title.strip()
             if title not in seen_titles and len(filtered_evidence) < max_evidences:
@@ -187,7 +262,7 @@ class EvidencesModule:
             for evidence in evidence_list:
                 if evidence not in filtered_evidence and len(filtered_evidence) < max_evidences:
                     filtered_evidence.append(evidence)
-        
+                    
         return filtered_evidence
 
 if __name__ == "__main__":
