@@ -8,6 +8,7 @@ from io import BytesIO
 
 from sentence_transformers import SentenceTransformer
 import torch
+from urllib.parse import urlparse
 
 @dataclass
 class Evidence:
@@ -61,14 +62,17 @@ class Evidence:
         except Exception as e:
             return {
                 "error": f"Serialization failed: {str(e)}",
-                "url": self._clean_text(self.url),
                 "title": self._clean_text(self.title)
             }
 
-class EvidencesModule:
+class BaseEvidencesModule:
+    """
+    Base class for evidence modules
+    """
+    
     def __init__(self, json_file_path: str):
         """
-        Initialize the EvidencesModule with a JSON file path.
+        Initialize the BaseEvidencesModule with a JSON file path.
         
         Args:
             json_file_path (str): Path to the JSON file containing evidence data
@@ -82,33 +86,18 @@ class EvidencesModule:
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model.to(self.device)
         
-    def _load_and_encode_image(self, image_path: str) -> str:
-        """
-        Load an image from path and encode it in base64.
-        
-        Args:
-            image_path (str): Path to the image file
-            folder_path (str): Base folder path
+        self.NEWS_DOMAINS = [
+            # Major News Organizations
+            "theguardian.com", "usatoday.com", "bbc.com", "cnn.com", "latimes.com",
+            "independent.co.uk", "nbcnews.com", "npr.org", "aljazeera.com",
+            "apnews.com", "cbsnews.com", "abcnews.go.com", "pbs.org", "abc.net.au",
             
-        Returns:
-            str: Base64 encoded image data or empty string if loading fails
-        """
-        try:
-            with Image.open(image_path) as img:
-                # Convert to RGB if image is in RGBA mode
-                if img.mode == 'RGBA':
-                    img = img.convert('RGB')
-                
-                # Save image to bytes buffer
-                buffer = BytesIO()
-                img.save(buffer, format='JPEG')
-                image_bytes = buffer.getvalue()
-                
-                # Encode to base64
-                return base64.b64encode(image_bytes).decode('utf-8')
-        except Exception as e:
-            print(f"Error loading image {image_path}: {str(e)}")
-            return ""
+            # Newspapers
+            "denverpost.com", "tennessean.com", "thetimes.com", "sandiegouniontribune.com",
+            
+            # Magazines/Long-form Journalism
+            "magazine.atavist.com", "newyorker.com", "theatlantic.com", "vanityfair.com"
+        ]
 
     def batch_similarity(self, query_text: str, texts: List[str]) -> torch.Tensor:
         """Calculate similarities for multiple texts at once."""
@@ -154,6 +143,99 @@ class EvidencesModule:
         # Sort by similarity score
         evidence_scores.sort(key=lambda x: x[1], reverse=True)
         return evidence_scores
+
+    def filter_evidence_by_domain(self, evidence_list, allowed_domains):
+        """
+        Filter evidence list by allowed domains.
+        
+        Args:
+            evidence_list (list): List of Evidence objects to filter
+            allowed_domains (list): List of domain strings to allow
+            
+        Returns:
+            list: Filtered list of Evidence objects
+        """
+        # Normalize allowed domains
+        normalized_domains = set()
+        for domain in allowed_domains:
+            domain = domain.lower().strip()
+            if domain.startswith("www."):
+                domain = domain[4:]
+            normalized_domains.add(domain)
+        
+        # Filter evidence list
+        filtered_evidence = []
+        for ev in evidence_list:
+            domain = ev.domain.lower().strip()
+            if domain.startswith("www."):
+                domain = domain[4:]
+                
+            if domain in normalized_domains:
+                filtered_evidence.append(ev)
+                
+        return filtered_evidence
+    
+    def filter_evidences(self, max_evidences: int, evidence_list: List[Evidence]) -> List[Evidence]:
+        """Filter evidence list to maximum size while preserving uniqueness by title."""
+        filtered_evidence = []
+        seen_titles = set()
+        
+        # First pass: include unique titles
+        for evidence in evidence_list:
+            title = evidence.title.strip()
+            if title not in seen_titles and len(filtered_evidence) < max_evidences:
+                filtered_evidence.append(evidence)
+                seen_titles.add(title)
+        
+        # Second pass: if we still need more evidence, include duplicates
+        if len(filtered_evidence) < max_evidences:
+            for evidence in evidence_list:
+                if evidence not in filtered_evidence and len(filtered_evidence) < max_evidences:
+                    filtered_evidence.append(evidence)
+                    
+        return filtered_evidence
+
+    # def get_evidence_by_index(self, index: Union[int, str], query: str,
+    #                         max_results: int = 5, threshold: float = 0.7,
+    #                         min_results: int = 1) -> List[Evidence]:
+    #     """
+    #     Get evidence for a specific index, filtered by similarity to query.
+    #     Base implementation to be overridden by subclasses.
+    #     """
+    #     raise NotImplementedError("Subclasses must implement get_evidence_by_index")
+
+
+class TextEvidencesModule(BaseEvidencesModule):
+    """
+    Evidences retrieved by using text search on Google
+    """
+    
+    def _load_and_encode_image(self, image_path: str) -> str:
+        """
+        Load an image from path and encode it in base64.
+        
+        Args:
+            image_path (str): Path to the image file
+            
+        Returns:
+            str: Base64 encoded image data or empty string if loading fails
+        """
+        try:
+            with Image.open(image_path) as img:
+                # Convert to RGB if image is in RGBA mode
+                if img.mode == 'RGBA':
+                    img = img.convert('RGB')
+                
+                # Save image to bytes buffer
+                buffer = BytesIO()
+                img.save(buffer, format='JPEG')
+                image_bytes = buffer.getvalue()
+                
+                # Encode to base64
+                return base64.b64encode(image_bytes).decode('utf-8')
+        except Exception as e:
+            print(f"Error loading image {image_path}: {str(e)}")
+            return ""
 
     def get_evidence_by_index(self, index: Union[int, str], query: str,
                             max_results: int = 5, threshold: float = 0.7,
@@ -230,7 +312,10 @@ class EvidencesModule:
             print(f"Error loading direct annotation file for index {idx}: {str(e)}")
             return []
         
-        # Filter by similarity first
+        # Filter by domain first
+        evidence_list = self.filter_evidence_by_domain(evidence_list, self.NEWS_DOMAINS)
+        
+        # Then filter by similarity
         evidence_scores = self.filter_by_similarity(query, evidence_list, threshold)
         
         # If we don't have enough results meeting the threshold, include top results
@@ -245,48 +330,110 @@ class EvidencesModule:
         
         return final_evidence
 
-    def filter_evidences(self, max_evidences: int, evidence_list: List[Evidence]) -> List[Evidence]:
-        """Filter evidence list to maximum size while preserving uniqueness by title."""
-        filtered_evidence = []
-        seen_titles = set()
-        
-        # First pass: include unique titles
-        for evidence in evidence_list:
-            title = evidence.title.strip()
-            if title not in seen_titles and len(filtered_evidence) < max_evidences:
-                filtered_evidence.append(evidence)
-                seen_titles.add(title)
-        
-        # Second pass: if we still need more evidence, include duplicates
-        if len(filtered_evidence) < max_evidences:
-            for evidence in evidence_list:
-                if evidence not in filtered_evidence and len(filtered_evidence) < max_evidences:
-                    filtered_evidence.append(evidence)
-                    
-        return filtered_evidence
 
-if __name__ == "__main__":
-    # Example path - adjust this to your actual metadata file path
-    metadata_path = "queries_dataset/merged_balanced/direct_search/test/test.json"
-    
-    # Initialize the module
-    module = EvidencesModule(metadata_path)
-    
-    # Test with both even and odd indices
-    test_indices = [0, 1, 2, 3]
-    
-    for idx in test_indices:
-        print(f"\nProcessing index {idx}:")
-        evidences = module.get_evidence_by_index(idx)
+class ImageEvidencesModule(BaseEvidencesModule):
+    """
+    Evidences for image search without loading actual images
+    """
+    def get_entities_by_index(self, index: Union[int, str]) -> Optional[List[str]]:
+        """
+        Retrieve entities for a specific image index.
         
-        print(f"Found {len(evidences)} evidences")
+        Args:
+            index (Union[int, str]): The index of the image in the JSON data
+            
+        Returns:
+            Optional[List[str]]: List of entities for the specified index, or None if not found
+        """
+        idx = int(index) if isinstance(index, str) else index
         
-        # Print details of each evidence
-        for i, ev in enumerate(evidences, 1):
-            print(f"\nEvidence {i}:")
-            print(f"Domain: {ev.domain}")
-            print(f"Image Path: {ev.image_path}")
-            print(f"Image Data Length: {len(ev.image_data)} bytes")  # Print length of base64 data
-            print(f"Title: {ev.title}")
-            print(f"Caption: {ev.caption}")
-            print(f"Content: {ev.content}")
+        item = self.data.get(str(idx))
+        if not item:
+            return []
+            
+        folder_path = item.get("folder_path")
+        if not folder_path:
+            return []
+        
+        try:
+            annotation_file = os.path.join(folder_path, "inverse_annotation.json")
+            with open(annotation_file, 'r') as file:
+                annotation_data = json.load(file)
+                
+            entities = annotation_data.get("entities", [])
+            return entities
+        
+        except (FileNotFoundError, json.JSONDecodeError) as e:
+            print(f"Error loading direct annotation file for index {idx}: {str(e)}")
+            return []
+    
+    def get_evidence_by_index(self, index: Union[int, str],
+                              max_results: int = 5) -> List[Evidence]:
+        """
+        Get evidence for a specific index.
+        This version doesn't load actual image data.
+        
+        Args:
+            index (Union[int, str]): The index to look up
+            max_results (int): Maximum number of results to return
+            
+        Returns:
+            List[Evidence]: List of Evidence objects filtered by similarity to query
+        """
+        # Convert index to int if it's a string
+        idx = int(index) if isinstance(index, str) else index
+        
+        item = self.data.get(str(idx))
+        if not item:
+            return []
+            
+        folder_path = item.get("folder_path")
+        if not folder_path:
+            return []
+        
+        evidence_list = []
+        try:
+            annotation_file = os.path.join(folder_path, "inverse_annotation.json")
+            with open(annotation_file, 'r') as file:
+                annotation_data = json.load(file)
+            
+            # Process images with captions
+            for item in annotation_data.get('all_matched_captions', []):
+                image_path = item.get('image_path', '')
+                
+                # Skip image data loading, just set to empty string
+                image_data = ""
+                
+                # Get caption
+                caption = ''
+                if isinstance(item.get('caption'), dict):
+                    caption = item.get('caption', {}).get('caption_node', '')
+                    if caption == '':
+                        caption = item.get('caption', {}).get('alt_node', '')
+                
+                # Get domain
+                domain = item.get('page_link', '')
+                
+                parsed_url = urlparse(domain)
+                domain = parsed_url.netloc
+                
+                evidence_list.append(Evidence(
+                    domain=domain,
+                    image_path=image_path,
+                    image_data=image_data,  # Empty image data
+                    title=item.get('page_title', ''),
+                    caption=caption,
+                    content=item.get('snippet', '')
+                ))
+                
+        except (FileNotFoundError, json.JSONDecodeError) as e:
+            print(f"Error loading direct annotation file for index {idx}: {str(e)}")
+            return []
+        
+        # Filter by domain first
+        filtered_evidence = self.filter_evidence_by_domain(evidence_list, self.NEWS_DOMAINS)
+        
+        # Filter to max_evidences based on unique titles
+        final_evidence = self.filter_evidences(max_results, filtered_evidence)
+        
+        return final_evidence

@@ -2,11 +2,11 @@
 
 from datetime import datetime
 import numpy as np
-from modules import EntitiesModule, GPTConnector, GeminiConnector, ExternalRetrievalModule, EvidencesModule, Evidence, GPTVisionConnector, GeminiVisionConnector
+from modules import EntitiesModule, GPTConnector, GeminiConnector, ExternalRetrievalModule, TextEvidencesModule, Evidence, GPTVisionConnector, GeminiVisionConnector, ImageEvidencesModule
 from dataloaders import cosmos_dataloader
 from mdatasets.newsclipping_datasets import MergedBalancedNewsClippingDataset
 from src.modules.evidence_retrieval_module.scraper.scraper import Article
-from templates import get_internal_prompt, get_final_prompt, get_external_prompt, get_vision_prompt
+from templates import get_internal_prompt, get_final_prompt, get_vision_prompt
 import os
 from dotenv import load_dotenv
 import argparse
@@ -49,10 +49,10 @@ def arg_parser():
     
     return parser.parse_args()
 
-def inference(entities_module: EntitiesModule, 
+def inference(image_evidences_module: ImageEvidencesModule, 
              llm_connector: GPTConnector,
-             vision_connector: GPTVisionConnector, 
-             evidences_module: EvidencesModule,
+             vlm_connector: GPTVisionConnector, 
+             text_evidences_module: TextEvidencesModule,
              data: dict,
              idx: int):
     
@@ -82,54 +82,36 @@ def inference(entities_module: EntitiesModule,
 
     start_time = time.time()
     
-    # Extract text entities
-    visual_entities = entities_module.get_entities_by_index(idx)
-    
     image_base64 = data["image_base64"]
-
-    # Get external evidence
-    web_results = evidences_module.get_evidence_by_index(index=idx, query=data["caption"], min_results=5)
+    
+    visual_entities = image_evidences_module.get_entities_by_index(idx)
+    image_evidences = image_evidences_module.get_evidence_by_index(idx)
+    text_evidences = text_evidences_module.get_evidence_by_index(index=idx, query=data["caption"], min_results=5)
     
     # Get extracted reference images from web results
-    reference_images = [result.image_data for result in web_results if result.image_data]
+    reference_images = [evidence.image_data for evidence in text_evidences if evidence.image_data]
     
-    # 1: Internal Checking
+    # 1: Internal Checking (Image Checking - Image Search)
     internal_prompt = get_internal_prompt(
         caption=data["caption"],
         content=data["content"],
-        visual_entities=visual_entities
+        visual_entities=visual_entities,
+        image_evidences=image_evidences
     )
     internal_result = llm_connector.call_with_structured_output(
         prompt=internal_prompt,
         schema=InternalResponse if isinstance(llm_connector, GeminiConnector) else INTERNAL_RESPONSE_SCHEMA,
-        image_base64=image_base64
+        # image_base64=image_base64
     )
     
-    # 2: External Checking
-    # vision_result = None
-    # vision_prompt = get_vision_prompt()
-    # if reference_images:
-    #     vision_result = vision_connector.call_with_structured_output(
-    #         prompt=vision_prompt,
-    #         schema=VisionResponse if isinstance(vision_connector, GeminiVisionConnector) else VISION_FINAL_SCHEMA,
-    #         # schema=VISION_FINAL_SCHEMA,
-    #         image_base64=image_base64,
-    #         ref_images_base64=reference_images
-    #     )
-    
-    external_prompt = get_external_prompt(
-        caption=data["caption"],
-        web_results=web_results
-    )
-    # external_result = vision_connector.call_with_structured_output(
-    #     prompt=external_prompt,
-    #     schema=ExternalResponse if isinstance(vision_connector, GeminiConnector) else EXTERNAL_RESPONSE_SCHEMA
-    # )
-    external_result=None
+    # 2: External Checking (Text Checking - Text Search)
+    vision_result = None
+    vision_prompt = get_vision_prompt()
     if reference_images:
-        external_result = vision_connector.call_with_structured_output(
-            prompt=external_prompt,
-            schema=VisionResponse if isinstance(vision_connector, GeminiVisionConnector) else VISION_FINAL_SCHEMA,
+        vision_result = vlm_connector.call_with_structured_output(
+            prompt=vision_prompt,
+            schema=VisionResponse if isinstance(vlm_connector, GeminiVisionConnector) else VISION_FINAL_SCHEMA,
+            # schema=VISION_FINAL_SCHEMA,
             image_base64=image_base64,
             ref_images_base64=reference_images
         )
@@ -139,7 +121,7 @@ def inference(entities_module: EntitiesModule,
         caption=data["caption"],
         content=data["content"],
         internal_result=internal_result,
-        external_result=external_result,
+        external_result=vision_result,
     )
     final_result = llm_connector.call_with_structured_output(
         prompt=final_prompt,
@@ -154,11 +136,12 @@ def inference(entities_module: EntitiesModule,
         "ground_truth": data["label"],
         "internal_check": {
             "visual_entities": visual_entities,
+            "image_evidences": [ev.to_dict() for ev in image_evidences],
             "result": internal_result
         },
         "external_check": {
-            "web_results": [web_result.to_dict() for web_result in web_results],
-            "result": external_result
+            "text_evidences": [ev.to_dict() for ev in text_evidences],
+            "result": vision_result
         },
         "final_result": final_result,
         "inference_time": float(inference_time)
@@ -218,7 +201,7 @@ def main():
     
     # Initialize external retrieval module
     # print("Connecting to External Retrieval Module...")
-    evidences_module = EvidencesModule(args.external_path)
+    evidences_module = TextEvidencesModule(args.external_path)
     
     # Process data and save results
     results = []
@@ -248,10 +231,10 @@ def main():
                 continue
         
             result = inference(
-                entities_module=entities_module,
+                image_evidences_module=entities_module,
                 llm_connector=llm_connector,
-                vision_connector=vlm_connetor,
-                evidences_module=evidences_module,
+                vlm_connector=vlm_connetor,
+                text_evidences_module=evidences_module,
                 data=item,
                 idx=idx
             )
