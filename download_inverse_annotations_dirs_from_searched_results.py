@@ -246,12 +246,21 @@ def main():
                 # )
                 
                 try:
-                    with open(json_download_file_name, 'r') as f:
-                        current_data = json.load(f)
-                    current_data.update(new_entry)
-                    with open(json_download_file_name, 'w') as f:
-                        json.dump(current_data, f)
-                
+                    # with open(json_download_file_name, 'r') as f:
+                    #     current_data = json.load(f)
+                    # current_data.update(new_entry)
+                    # with open(json_download_file_name, 'w') as f:
+                    #     json.dump(current_data, f)
+                    # WINDOWS
+                    from filelock import FileLock
+                    lock_file = f"{json_download_file_name}.lock"
+                    with FileLock(lock_file):
+                        with open(json_download_file_name, 'r') as f:
+                            current_data = json.load(f)
+                        current_data.update(new_entry)
+                        with open(json_download_file_name, 'w') as f:
+                            json.dump(current_data, f)
+                    
                     # Save individual result
                     with open(os.path.join(new_folder_path, 'inverse_annotation.json'), 'w') as f:
                         json.dump(processed_results, f)

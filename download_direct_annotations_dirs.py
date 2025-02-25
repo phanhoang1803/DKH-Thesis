@@ -47,7 +47,7 @@ import tqdm
 import concurrent
 import concurrent.futures as cf
 
-os.chdir("/media02/taduy03/khanhhoang/DKH-Thesis")
+# os.chdir("/media02/taduy03/khanhhoang/DKH-Thesis")
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Download dataset for direct search queries')
@@ -317,12 +317,44 @@ def main():
             }
             
             try:
-                with open(json_download_file_name, 'r') as f:
-                    current_data = json.load(f)
-                current_data.update(new_entry)
-                with open(json_download_file_name, 'w') as f:
-                    json.dump(current_data, f)
+                # with open(json_download_file_name, 'r') as f:
+                #     current_data = json.load(f)
+                # current_data.update(new_entry)
+                # with open(json_download_file_name, 'w') as f:
+                #     json.dump(current_data, f)
+                # Use file locking to prevent race conditions
+                
+                # LINUX
+                # import fcntl
+                
+                # with open(json_download_file_name, 'r+') as f:
+                #     # Acquire an exclusive lock
+                #     fcntl.flock(f, fcntl.LOCK_EX)
                     
+                #     try:
+                #         current_data = json.load(f)
+                #         current_data.update(new_entry)
+                        
+                #         # Go back to the beginning of the file
+                #         f.seek(0)
+                #         # Write the updated data
+                #         json.dump(current_data, f)
+                #         # Truncate in case the new data is smaller than the old data
+                #         f.truncate()
+                #     finally:
+                #         # Release the lock
+                #         fcntl.flock(f, fcntl.LOCK_UN)
+                
+                # WINDOWS
+                from filelock import FileLock
+                lock_file = f"{json_download_file_name}.lock"
+                with FileLock(lock_file):
+                    with open(json_download_file_name, 'r') as f:
+                        current_data = json.load(f)
+                    current_data.update(new_entry)
+                    with open(json_download_file_name, 'w') as f:
+                        json.dump(current_data, f)
+                
                 with open(os.path.join(new_folder_path, 'direct_annotation.json'), 'w') as f:
                     json.dump(direct_search_results, f)
             except Exception as e:
