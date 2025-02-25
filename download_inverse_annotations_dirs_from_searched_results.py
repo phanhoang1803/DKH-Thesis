@@ -5,7 +5,7 @@ import argparse
 import os
 import json
 import io
-import fasttext
+# import fasttext
 from utils import get_captions_from_page, save_html
 import concurrent.futures as cf
 from collections import defaultdict
@@ -176,7 +176,7 @@ def main():
     args = parse_arguments()
     
     # Initialize model and load data
-    lang_model = fasttext.load_model('lid.176.bin')
+    # lang_model = fasttext.load_model('lid.176.bin')
     with open(args.existing_results_path, 'r') as f:
         existing_results = json.load(f)
     
@@ -236,18 +236,28 @@ def main():
             if processed_results['entities'] or processed_results['all_matched_captions']:
                 # Save to index file
                 new_entry = {str(item_id): {'folder_path': new_folder_path}}
-                all_inverse_annotations_idx.update(new_entry)
-                save_json_file(
-                    json_download_file_name, 
-                    all_inverse_annotations_idx, 
-                    item_id, 
-                    files_info['unsaved.txt'], 
-                    all_inverse_annotations_idx
-                )
+                # all_inverse_annotations_idx.update(new_entry)
+                # save_json_file(
+                #     json_download_file_name, 
+                #     all_inverse_annotations_idx, 
+                #     item_id, 
+                #     files_info['unsaved.txt'], 
+                #     all_inverse_annotations_idx
+                # )
                 
-                # Save individual result
-                result_path = os.path.join(new_folder_path, 'inverse_annotation.json')
-                save_json_file(result_path, processed_results, item_id, files_info['unsaved.txt'])
+                try:
+                    with open(json_download_file_name, 'r') as f:
+                        current_data = json.load(f)
+                    current_data.update(new_entry)
+                    with open(json_download_file_name, 'w') as f:
+                        json.dump(current_data, f)
+                
+                    # Save individual result
+                    with open(os.path.join(new_folder_path, 'inverse_annotation.json'), 'w') as f:
+                        json.dump(processed_results, f)
+                except Exception as e:
+                    print(f"Error saving results for item {item_id}: {str(e)}")
+                
             else:
                 files_info['no_annotations.txt'].write(f"{item_id}\n")
                 files_info['no_annotations.txt'].flush()
