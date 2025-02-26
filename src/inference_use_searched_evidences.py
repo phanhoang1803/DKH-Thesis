@@ -25,9 +25,10 @@ def arg_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_path", type=str, default="test_dataset", 
                        help="")
-    parser.add_argument("--internal_path", type=str, default="test_dataset/links_test.json", 
+    parser.add_argument("--entities_path", type=str, default="test_dataset/links_test.json")
+    parser.add_argument("--image_evidences_path", type=str, default="queries_dataset/merged_balanced/inverse_search/test/test.json", 
                         help="")
-    parser.add_argument("--external_path", type=str, default="queries_dataset/merged_balanced/direct_search/test/test.json")
+    parser.add_argument("--text_evidences_path", type=str, default="queries_dataset/merged_balanced/direct_search/test/test.json")
     parser.add_argument("--llm_model", type=str, default="gemini", choices=["gpt", "gemini"])
     parser.add_argument("--vision_model", type=str, default="gpt", choices=["gpt", "gemini"])
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
@@ -49,7 +50,8 @@ def arg_parser():
     
     return parser.parse_args()
 
-def inference(image_evidences_module: ImageEvidencesModule, 
+def inference(entities_module: EntitiesModule,
+             image_evidences_module: ImageEvidencesModule, 
              llm_connector: GPTConnector,
              vlm_connector: GPTVisionConnector, 
              text_evidences_module: TextEvidencesModule,
@@ -84,7 +86,7 @@ def inference(image_evidences_module: ImageEvidencesModule,
     
     image_base64 = data["image_base64"]
     
-    visual_entities = image_evidences_module.get_entities_by_index(idx)
+    visual_entities = entities_module.get_entities_by_index(idx)
     image_evidences = image_evidences_module.get_evidence_by_index(idx)
     text_evidences = text_evidences_module.get_evidence_by_index(index=idx, query=data["caption"], min_results=5)
     
@@ -126,7 +128,7 @@ def inference(image_evidences_module: ImageEvidencesModule,
     final_result = llm_connector.call_with_structured_output(
         prompt=final_prompt,
         schema=FinalResponse if isinstance(llm_connector, GeminiConnector) else FINAL_RESPONSE_SCHEMA, 
-        image_base64=image_base64
+        # image_base64=image_base64
     )
     
     inference_time = time.time() - start_time
@@ -165,9 +167,6 @@ def main():
     if not os.path.exists(args.errors_dir_path):
         os.makedirs(args.errors_dir_path)
     
-    # Initialize models
-    entities_module = EntitiesModule(args.internal_path)
-    
     print("Connecting to LLM Model...")
     if args.llm_model == "gpt":
         llm_connector = GPTConnector(
@@ -178,6 +177,7 @@ def main():
         llm_connector = GeminiConnector(
             api_key=os.environ["GEMINI_API_KEY"],
             model_name="gemini-2.0-flash-001"
+            # model_name="gemini-2.0-pro-exp-02-05"
         )
     else:
         raise ValueError(f"Invalid LLM model: {args.llm_model}")
@@ -200,8 +200,11 @@ def main():
         
     
     # Initialize external retrieval module
-    # print("Connecting to External Retrieval Module...")
-    evidences_module = TextEvidencesModule(args.external_path)
+    print("Connecting to External Retrieval Module...")
+    entities_module = EntitiesModule(args.entities_path)
+    image_evidences_module = ImageEvidencesModule(args.image_evidences_path)
+    text_evidences_module = TextEvidencesModule(args.text_evidences_path)
+    
     
     # Process data and save results
     results = []
@@ -231,10 +234,11 @@ def main():
                 continue
         
             result = inference(
-                image_evidences_module=entities_module,
+                entities_module=entities_module,
+                image_evidences_module=image_evidences_module,
                 llm_connector=llm_connector,
                 vlm_connector=vlm_connetor,
-                text_evidences_module=evidences_module,
+                text_evidences_module=text_evidences_module,
                 data=item,
                 idx=idx
             )

@@ -4,7 +4,7 @@
 from typing import Optional
 
 
-INTERNAL_CHECKING_PROMPT = """TASK: Assess whether internet-sourced images provide reasonable visual support for the given news caption and verify the accuracy of claims based on visual evidence.
+INTERNAL_CHECKING_PROMPT_WITH_EVIDENCE = """TASK: Assess whether internet-sourced images provide reasonable visual support for the given news caption and verify the accuracy of claims based on visual evidence.
 
 INPUT:
 - News Caption: {caption}
@@ -23,6 +23,24 @@ INSTRUCTIONS:
 8. Visual Manipulation Assessment: Note any signs that sourced images may have been altered or manipulated.
 
 NOTE: Consider both what is present and what is absent in the visual evidence. Images from different sources may show different perspectives of the same event or entirely different events.
+"""
+
+INTERNAL_CHECKING_PROMPT_WITHOUT_EVIDENCE = """TASK: Assess whether the news caption accurately represents the visual content based on the detected visual entities in the image.
+
+INPUT:
+- News Caption: {caption}
+- News Content: {content}
+- Detected Visual Entities: {visual_entities}
+
+INSTRUCTIONS:
+1. Entity Verification: Confirm whether visual entities detected in the image align with those mentioned in the news caption and content.
+2. Consistency Analysis: Check if the relationships, quantities, and descriptions in the caption match what is detected in the image.
+3. Context Evaluation: Determine if the context implied by the caption matches the visual scene represented by the detected entities.
+4. Completeness Assessment: Identify if any critical elements mentioned in the caption are missing from the detected visual entities.
+5. Contradiction Detection: Note any specific elements in the detected visual entities that directly contradict claims in the caption.
+6. Confidence Evaluation: Consider the reliability of the entity detection and how it affects verification confidence.
+
+NOTE: Focus solely on the relationship between the caption and the detected visual entities in the image. Base your assessment only on what can be objectively determined from this comparison.
 """
 
 INTERNAL_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
@@ -81,19 +99,21 @@ CONTEXT:
 INPUT:
 - News Caption: {news_caption}
 - News Content: {news_content}
-- News Image: [Image Attached]
 - Internal Check Result: {internal_result}
 - External Check Result: {external_result}
 
 INSTRUCTIONS:
 1. Synthesize the internal and external validation results to form a comprehensive assessment.
-2. Compare the caption with both the news image and any detected entities to determine accuracy.
-3. When internal and external checks conflict, evaluate the strength of evidence from each source.
-4. Base the final decision strictly on available data; avoid inferring or assuming missing details.
-5. If evidence is inconclusive or ambiguous, flag the case for further review rather than making unsupported judgments.
-6. Document any limitations, including uncertainties or missing information that may impact the decision.
-7. For partially accurate captions, specify which elements are correct and which are misrepresented.
-8. If either validation check lacks sufficient data, indicate this explicitly in your assessment.
+2. Prioritize the validation method with significantly higher confidence scores when the checks conflict, but critically evaluate the specific evidence and reasoning behind each assessment before making a final determination.
+3. When confidence scores are comparable but results differ, analyze the specific evidence provided by each method.
+4. Weight alignment scores as a key indicator of the match between caption and image content.
+5. Base the final decision strictly on available data; avoid inferring or assuming missing details.
+6. If evidence is inconclusive or ambiguous, flag the case for further review.
+7. Document any limitations, including uncertainties or missing information that may impact the decision.
+8. For partially accurate captions, specify which elements are correct and which are misrepresented.
+9. If either validation check lacks sufficient data, indicate this explicitly in your assessment.
+10. Consider both the overall confidence scores and specific alignment scores for individual elements when weighing evidence.
+11. If one validation method has a significantly higher confidence score while the other is very low, investigate the reasoning behind both results. Prioritize the stronger evidence but document the limitations of the weaker check. If the discrepancy suggests potential manipulation or missing data, flag the case for further review.
 
 NOTE: Make the final verdict strictly based on the available evidence. Avoid speculation or assumptions beyond what is directly observable in the provided information.
 """
@@ -112,13 +132,28 @@ Where:
 """
 
 
-def get_internal_prompt(caption: str, content: str, visual_entities: str, image_evidences: str) -> str:
-    internal_prompt = INTERNAL_CHECKING_PROMPT.format(
-        caption=caption,
-        content=content,
-        visual_entities=visual_entities,
-        image_evidences=image_evidences
-    )
+def get_internal_prompt(caption: str, content: str, visual_entities: str, image_evidences: list) -> str:
+    if image_evidences == []:
+        internal_prompt = INTERNAL_CHECKING_PROMPT_WITHOUT_EVIDENCE.format(
+            caption=caption,
+            content=content,
+            visual_entities=visual_entities
+        )
+    else:
+        results_str = ""
+        for i, result in enumerate(image_evidences, 1):
+            results_str += f"\Evidence {i}:\n"
+            results_str += f"Title: {result.title}\n"
+            results_str += f"Caption: {result.caption}\n"
+            results_str += f"Domain: {result.domain}\n"
+            results_str += "-" * 50 + "\n"
+        
+        internal_prompt = INTERNAL_CHECKING_PROMPT_WITH_EVIDENCE.format(
+            caption=caption,
+            content=content,
+            visual_entities=visual_entities,
+            image_evidences=results_str
+        )
     internal_prompt += INTERNAL_CHECKING_OUTPUT
     return internal_prompt
 

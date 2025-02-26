@@ -12,6 +12,7 @@ inference_time_list = []
 candidates = []
 entities = []
 
+# result_dir = 'result_new_ic_dont_use_img_matched_tags'
 result_dir = 'result'
 result_json_list = os.listdir(result_dir)
 for item in result_json_list:
@@ -19,15 +20,19 @@ for item in result_json_list:
         result_json_dir = os.path.join(result_dir, item)
         with open(result_json_dir, 'r') as f:
             result_json = json.load(f)
-            if result_json['external_check']['web_results'] == []:
+            
+            if result_json['external_check']['text_evidences'] == []:
+                # print(result_json_dir)
                 continue
             captions.append(result_json['caption'])
             ground_truth.append(result_json['ground_truth'])
             predicted.append(1 if result_json['final_result']['OOC'] else 0)
             confidence_scores.append(result_json['final_result']['confidence_score'])
             inference_time_list.append(result_json['inference_time'])
-            candidates.append(result_json['external_check']['web_results'])
-            entities.append(result_json['internal_check']['visual_entities'])
+            # candidates.append(result_json['external_check']['text_evidences'])
+            # entities.append(result_json['internal_check']['visual_entities'])
+            if result_json['ground_truth'] != result_json['final_result']['OOC']:
+                print(result_json_dir)
     except Exception as e:
         print(e)
         
@@ -35,8 +40,8 @@ print(len(captions))
 print(len(ground_truth))
 print(len(predicted))
 print(len(inference_time_list))
-print(len(candidates))
-print(len(entities))
+# print(len(candidates))
+# print(len(entities))
 
 df = pd.DataFrame({
     'caption': captions,
@@ -44,8 +49,8 @@ df = pd.DataFrame({
     'predicted': predicted,
     'confidence_score': confidence_scores,
     'inference_time': inference_time_list,
-    'candidates': candidates,
-    'entities': entities
+    # 'candidates': candidates,
+    # 'entities': entities
 })
 df['adjusted_predicted'] = df.apply(
     lambda row: row['predicted'] if row['confidence_score'] >= 8 else 1 - row['predicted'], axis=1

@@ -96,7 +96,7 @@ class BaseEvidencesModule:
             "denverpost.com", "tennessean.com", "thetimes.com", "sandiegouniontribune.com",
             
             # Magazines/Long-form Journalism
-            "magazine.atavist.com", "newyorker.com", "theatlantic.com", "vanityfair.com"
+            # "magazine.atavist.com", "newyorker.com", "theatlantic.com", "vanityfair.com"
         ]
 
     def batch_similarity(self, query_text: str, texts: List[str]) -> torch.Tensor:
@@ -281,7 +281,11 @@ class TextEvidencesModule(BaseEvidencesModule):
                 if image_data == "":
                     continue
                 
-                caption = img.get('caption', {}).get('caption_node', '') if isinstance(img.get('caption'), dict) else ''
+                caption = ''
+                if isinstance(item.get('caption'), dict):
+                    caption = item.get('caption', {}).get('caption_node', '')
+                    if caption == '':
+                        caption = item.get('caption', {}).get('alt_node', '')
                 
                 evidence_list.append(Evidence(
                     domain=img.get('domain', ''),
@@ -305,6 +309,27 @@ class TextEvidencesModule(BaseEvidencesModule):
                     image_data=image_data,
                     title=img.get('page_title', ''),
                     caption='',
+                    content=img.get('snippet', '')
+                ))
+                
+            for img in annotation_data.get('images_with_caption_matched_tags', []):
+                image_path = img.get('image_path', '')
+                image_data = self._load_and_encode_image(image_path)
+                if image_data == "":
+                    continue
+                
+                caption = ''
+                if isinstance(item.get('caption'), dict):
+                    caption = item.get('caption', {}).get('caption_node', '')
+                    if caption == '':
+                        caption = item.get('caption', {}).get('alt_node', '')
+                
+                evidence_list.append(Evidence(
+                    domain=img.get('domain', ''),
+                    image_path=image_path,
+                    image_data=image_data,
+                    title=img.get('page_title', ''),
+                    caption=caption,
                     content=img.get('snippet', '')
                 ))
                 
@@ -421,7 +446,7 @@ class ImageEvidencesModule(BaseEvidencesModule):
                     domain=domain,
                     image_path=image_path,
                     image_data=image_data,  # Empty image data
-                    title=item.get('page_title', ''),
+                    title=item.get('title', ''),
                     caption=caption,
                     content=item.get('snippet', '')
                 ))
