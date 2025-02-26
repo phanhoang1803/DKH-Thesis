@@ -55,24 +55,25 @@ Where:
 """
 
 
-VISION_CHECKING_PROMPT = """TASK: Analyze the visual consistency between the news image and reference images retrieved from web results, which were searched using the caption. 
-Differences in visual elements do not necessarily mean the image is misleading—consider whether it still represents the same event, location, or broader context.
+VISION_CHECKING_PROMPT = """TASK: Analyze the visual consistency between the news image and reference images retrieved from web searches conducted using the news caption. Determine whether the news image accurately represents what would be expected based on the caption, recognizing that visual differences don't necessarily indicate misleading content if the core context remains consistent.
 
 INPUT:
 - News Image: The main image being verified (First image in the list).
+- News Caption (used for image search): {news_caption}
 - Reference Images: Images retrieved from web search results based on the caption.
 
 INSTRUCTIONS:
-1. Compare key visual elements such as main subjects, objects, and overall composition to determine similarity with reference images.
-2. Check for temporal consistency by analyzing lighting conditions, seasonal elements, and timestamps to detect potential time discrepancies.
-3. Verify spatial relationships, including the scale, background environment, and positioning of objects, ensuring they align with the reference images.
-4. Examine lighting and camera angles to identify inconsistencies in shadows, perspectives, or unnatural lighting conditions.
-5. Detect possible manipulation by looking for artifacts, irregularities, or unnatural edits that suggest digital alterations.
-6. Assess whether the images, despite visual differences, still refer to the same event, location, or broader context.
-7. If the news image differs significantly from the reference images and does not appear to represent the same event or context, flag it as potentially misleading or out of context.
+1. Review the news caption to understand what visual elements should be expected in the news image.
+2. Compare key visual elements in the news image (subjects, objects, composition) with those in reference images obtained when searching for the caption.
+3. Check for temporal consistency by analyzing lighting conditions, seasonal elements, and timestamps to detect potential time discrepancies.
+4. Verify spatial relationships, including the scale, background environment, and positioning of objects, ensuring they align with reference images found using the caption.
+5. Examine lighting and camera angles to identify inconsistencies in shadows, perspectives, or unnatural lighting conditions.
+6. Detect possible manipulation by looking for artifacts, irregularities, or unnatural edits that suggest digital alterations.
+7. Assess whether the news image, despite any visual differences from reference images, still represents the event or context described in the caption.
+8. If the news image differs significantly from reference images and does not appear to represent the context implied by the caption, flag it as potentially misleading or out of context.
 
 NOTE:
-Only assess visible elements. Do not infer or assume additional context beyond what is present in the images. Clearly document any inconsistencies and indicate whether the image is visually different but still contextually relevant.
+Only assess visible elements. Do not infer or assume additional context beyond what is present in the images and caption. Clearly document any inconsistencies and indicate whether the image is visually different but still contextually relevant to the caption used for the search.
 """
 
 VISION_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
@@ -83,11 +84,11 @@ VISION_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
 - "key_observations": List of specific matches, differences, or concerns
 
 Where:
-- verdict: "True" if the news image significantly aligns with reference images, "False" otherwise.
-- alignment_score: A score (0-100) indicating the degree of visual consistency.
+- verdict: "True" if the news image significantly aligns with reference images and appropriately represents the news caption, "False" otherwise.
+- alignment_score: A score (0-100) indicating the degree of visual consistency between the news image and reference images retrieved using the caption.
 - confidence_score: A confidence level (0-10) for the final assessment.
-- explanation: A comprehensive comparison of key visual elements, including matches, differences, and manipulation signs.
-- key_observations: A bullet-point list of notable findings, highlighting specific visual consistencies or discrepancies.
+- explanation: A comprehensive comparison of key visual elements in relation to the caption, including matches, differences, and manipulation signs.
+- key_observations: A bullet-point list of notable findings, highlighting specific visual consistencies or discrepancies between the news image and reference images in the context of the caption.
 """
 
 FINAL_CHECKING_PROMPT = """TASK: Determine whether a news caption accurately represents its accompanying image, considering potential misinformation, out-of-context usage, or falsified details.
@@ -114,8 +115,10 @@ INSTRUCTIONS:
 9. If either validation check lacks sufficient data, indicate this explicitly in your assessment.
 10. Consider both the overall confidence scores and specific alignment scores for individual elements when weighing evidence.
 11. If one validation method has a significantly higher confidence score while the other is very low, investigate the reasoning behind both results. Prioritize the stronger evidence but document the limitations of the weaker check. If the discrepancy suggests potential manipulation or missing data, flag the case for further review.
+12. When both internal and external checks yield the same evaluation with comparable confidence scores, consider this strong evidence for that conclusion. Combine supporting evidence from both methods, but still critically evaluate the specific alignment scores and reasoning to ensure the shared conclusion is well-supported by factual details rather than similar methodological biases.
 
-NOTE: Make the final verdict strictly based on the available evidence. Avoid speculation or assumptions beyond what is directly observable in the provided information.
+NOTE: The primary verification task is to determine whether the news caption accurately represents its accompanying image. The news content serves as contextual reference to help interpret caption claims, but is not itself the subject of verification.
+Make the final verdict strictly based on the available evidence. Avoid speculation or assumptions beyond what is directly observable in the provided information.
 """
 
 FINAL_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
@@ -157,9 +160,9 @@ def get_internal_prompt(caption: str, content: str, visual_entities: str, image_
     internal_prompt += INTERNAL_CHECKING_OUTPUT
     return internal_prompt
 
-def get_vision_prompt() -> str:
+def get_vision_prompt(news_caption: str) -> str:
     """Generate vision analysis prompt with caption context."""
-    vision_prompt = VISION_CHECKING_PROMPT + VISION_CHECKING_OUTPUT
+    vision_prompt = VISION_CHECKING_PROMPT.format(news_caption=news_caption) + VISION_CHECKING_OUTPUT
     return vision_prompt
 
 def get_final_prompt(

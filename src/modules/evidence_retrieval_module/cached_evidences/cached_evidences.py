@@ -97,6 +97,9 @@ class BaseEvidencesModule:
             
             # Magazines/Long-form Journalism
             # "magazine.atavist.com", "newyorker.com", "theatlantic.com", "vanityfair.com"
+            "newyoker.com", "ffxnow.com", "laist.com", "hudson.org", "rollcall.com",
+            "economist.com", "nps.gov"
+            
         ]
 
     def batch_similarity(self, query_text: str, texts: List[str]) -> torch.Tensor:
@@ -275,8 +278,8 @@ class TextEvidencesModule(BaseEvidencesModule):
                 annotation_data = json.load(file)
             
             # Process images with captions
-            for img in annotation_data.get('images_with_captions', []):
-                image_path = img.get('image_path', '')
+            for item in annotation_data.get('images_with_captions', []):
+                image_path = item.get('image_path', '')
                 image_data = self._load_and_encode_image(image_path)
                 if image_data == "":
                     continue
@@ -286,34 +289,34 @@ class TextEvidencesModule(BaseEvidencesModule):
                     caption = item.get('caption', {}).get('caption_node', '')
                     if caption == '':
                         caption = item.get('caption', {}).get('alt_node', '')
-                
+                    
                 evidence_list.append(Evidence(
-                    domain=img.get('domain', ''),
+                    domain=item.get('domain', ''),
                     image_path=image_path,
                     image_data=image_data,
-                    title=img.get('page_title', ''),
+                    title=item.get('page_title', ''),
                     caption=caption,
-                    content=img.get('snippet', '')
+                    content=item.get('snippet', '')
                 ))
             
             # Process images without captions
-            for img in annotation_data.get('images_with_no_captions', []):
-                image_path = img.get('image_path', '')
+            for item in annotation_data.get('images_with_no_captions', []):
+                image_path = item.get('image_path', '')
                 image_data = self._load_and_encode_image(image_path)
                 if image_data == "":
                     continue
                 
                 evidence_list.append(Evidence(
-                    domain=img.get('domain', ''),
+                    domain=item.get('domain', ''),
                     image_path=image_path,
                     image_data=image_data,
-                    title=img.get('page_title', ''),
+                    title=item.get('page_title', ''),
                     caption='',
-                    content=img.get('snippet', '')
+                    content=item.get('snippet', '')
                 ))
                 
-            for img in annotation_data.get('images_with_caption_matched_tags', []):
-                image_path = img.get('image_path', '')
+            for item in annotation_data.get('images_with_caption_matched_tags', []):
+                image_path = item.get('image_path', '')
                 image_data = self._load_and_encode_image(image_path)
                 if image_data == "":
                     continue
@@ -325,12 +328,12 @@ class TextEvidencesModule(BaseEvidencesModule):
                         caption = item.get('caption', {}).get('alt_node', '')
                 
                 evidence_list.append(Evidence(
-                    domain=img.get('domain', ''),
+                    domain=item.get('domain', ''),
                     image_path=image_path,
                     image_data=image_data,
-                    title=img.get('page_title', ''),
+                    title=item.get('page_title', ''),
                     caption=caption,
-                    content=img.get('snippet', '')
+                    content=item.get('snippet', '')
                 ))
                 
         except (FileNotFoundError, json.JSONDecodeError) as e:

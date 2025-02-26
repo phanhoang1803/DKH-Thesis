@@ -108,7 +108,7 @@ def inference(entities_module: EntitiesModule,
     
     # 2: External Checking (Text Checking - Text Search)
     vision_result = None
-    vision_prompt = get_vision_prompt()
+    vision_prompt = get_vision_prompt(news_caption=data["caption"])
     if reference_images:
         vision_result = vlm_connector.call_with_structured_output(
             prompt=vision_prompt,
