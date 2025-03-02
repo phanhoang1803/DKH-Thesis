@@ -29,6 +29,7 @@ def arg_parser():
     parser.add_argument("--image_evidences_path", type=str, default="queries_dataset/merged_balanced/inverse_search/test/test.json", 
                         help="")
     parser.add_argument("--text_evidences_path", type=str, default="queries_dataset/merged_balanced/direct_search/test/test.json")
+    parser.add_argument("--random_index_path", type=str, default="src/random_index.txt")
     parser.add_argument("--llm_model", type=str, default="gemini", choices=["gpt", "gemini", "fireworks"])
     parser.add_argument("--vision_model", type=str, default="gpt", choices=["gpt", "gemini", "fireworks"])
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
@@ -233,7 +234,10 @@ def main():
         raise ValueError(f"Start index {start_idx} is greater than end index {end_idx}")
     
     print(f"Processing items from index {start_idx} to {end_idx}")
-    for idx in range(start_idx, end_idx + 1):
+    # Load random 1000 index from file
+    with open(args.random_index_path, "r") as f:
+        random_index = [int(line.strip()) for line in f.readlines()]
+    for idx in random_index:
         try:
             print(f"Processing item {idx}")
             item = dataset[idx]
@@ -263,7 +267,7 @@ def main():
                 json.dump(error_item, f, indent=2, ensure_ascii=False)
             error_items.append(error_item)
             print(f"Error processing item {idx}: {e}")
-            raise Exception(e)
+            # raise Exception(e)
                 
         # break
     
