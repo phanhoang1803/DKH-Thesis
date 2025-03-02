@@ -115,7 +115,7 @@ INSTRUCTIONS:
 9. If either validation check lacks sufficient data, indicate this explicitly in your assessment.
 10. Consider both the overall confidence scores and specific alignment scores for individual elements when weighing evidence.
 11. If one validation method has a significantly higher confidence score while the other is very low, investigate the reasoning behind both results. Prioritize the stronger evidence but document the limitations of the weaker check. If the discrepancy suggests potential manipulation or missing data, flag the case for further review.
-12. When both internal and external checks yield the same evaluation with comparable confidence scores, consider this strong evidence for that conclusion. Combine supporting evidence from both methods, but still critically evaluate the specific alignment scores and reasoning to ensure the shared conclusion is well-supported by factual details rather than similar methodological biases.
+12. When both internal and external checks yield the same evaluation with comparable confidence scores it will be considered the caption is not out of context.
 
 NOTE: The primary verification task is to determine whether the news caption accurately represents its accompanying image. The news content serves as contextual reference to help interpret caption claims, but is not itself the subject of verification.
 Make the final verdict strictly based on the available evidence. Avoid speculation or assumptions beyond what is directly observable in the provided information.

@@ -29,8 +29,8 @@ def arg_parser():
     parser.add_argument("--image_evidences_path", type=str, default="queries_dataset/merged_balanced/inverse_search/test/test.json", 
                         help="")
     parser.add_argument("--text_evidences_path", type=str, default="queries_dataset/merged_balanced/direct_search/test/test.json")
-    parser.add_argument("--llm_model", type=str, default="gemini", choices=["gpt", "gemini"])
-    parser.add_argument("--vision_model", type=str, default="gpt", choices=["gpt", "gemini"])
+    parser.add_argument("--llm_model", type=str, default="gemini", choices=["gpt", "gemini", "fireworks"])
+    parser.add_argument("--vision_model", type=str, default="gpt", choices=["gpt", "gemini", "fireworks"])
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--start_idx", type=int, default=-1)
     parser.add_argument("--end_idx", type=int, default=-1)
@@ -171,7 +171,8 @@ def main():
     if args.llm_model == "gpt":
         llm_connector = GPTConnector(
             api_key=os.environ["OPENAI_API_KEY"],
-            model_name="gpt-4o"
+            # model_name="gpt-4o"
+            model_name="gpt-4o-mini-2024-07-18"
         )
     elif args.llm_model == "gemini":
         llm_connector = GeminiConnector(
@@ -187,12 +188,19 @@ def main():
     if args.vision_model == "gpt":
         vlm_connetor = GPTVisionConnector(
             api_key=os.environ["OPENAI_API_KEY"],
-            model_name="gpt-4o"
+            model_name="gpt-4o-mini-2024-07-18"
         )
     elif args.vision_model == "gemini":
         vlm_connetor = GeminiVisionConnector(
             api_key=os.environ["GEMINI_API_KEY"],
             model_name="gemini-1.5-flash-latest"
+        )
+    elif args.vision_model == "fireworks":
+        print(os.environ["VLM_API_KEY"])
+        print(os.environ["VLM_MODEL_NAME"])
+        vlm_connetor = GPTVisionConnector(
+            api_key=os.environ["VLM_API_KEY"],
+            model_name=os.environ["VLM_MODEL_NAME"]
         )
     else:
         raise ValueError(f"Invalid Vision model: {args.vision_model}")
@@ -255,7 +263,7 @@ def main():
                 json.dump(error_item, f, indent=2, ensure_ascii=False)
             error_items.append(error_item)
             print(f"Error processing item {idx}: {e}")
-            # raise Exception(e)
+            raise Exception(e)
                 
         # break
     

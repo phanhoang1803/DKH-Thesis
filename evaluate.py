@@ -13,7 +13,7 @@ candidates = []
 entities = []
 
 # result_dir = 'result_new_ic_dont_use_img_matched_tags'
-result_dir = 'result'
+result_dir = 'result2'
 result_json_list = os.listdir(result_dir)
 for item in result_json_list:
     try:
@@ -24,6 +24,7 @@ for item in result_json_list:
             if result_json['external_check']['text_evidences'] == []:
                 # print(result_json_dir)
                 continue
+            
             captions.append(result_json['caption'])
             ground_truth.append(result_json['ground_truth'])
             predicted.append(1 if result_json['final_result']['OOC'] else 0)
