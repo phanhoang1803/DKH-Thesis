@@ -190,6 +190,7 @@ def main():
         vlm_connetor = GPTVisionConnector(
             api_key=os.environ["OPENAI_API_KEY"],
             model_name="gpt-4o-mini-2024-07-18"
+            # model_name="gpt-4o"
         )
     elif args.vision_model == "gemini":
         vlm_connetor = GeminiVisionConnector(
@@ -225,6 +226,13 @@ def main():
     start_idx = args.start_idx if args.start_idx >= 0 else 0
     end_idx = args.end_idx if args.end_idx >= 0 else len(dataset) - 1
     
+    # Load random 1000 index from file
+    with open(args.random_index_path, "r") as f:
+        random_index = [int(line.strip()) for line in f.readlines()]
+    
+    # Select indices in random_index which are between start_idx and end_idx
+    indices = [idx for idx in random_index if start_idx <= idx <= end_idx]
+    
     # Validate indices
     if start_idx >= len(dataset):
         raise ValueError(f"Start index {start_idx} is out of range for dataset of length {len(dataset)}")
@@ -234,10 +242,8 @@ def main():
         raise ValueError(f"Start index {start_idx} is greater than end index {end_idx}")
     
     print(f"Processing items from index {start_idx} to {end_idx}")
-    # Load random 1000 index from file
-    with open(args.random_index_path, "r") as f:
-        random_index = [int(line.strip()) for line in f.readlines()]
-    for idx in random_index:
+
+    for idx in indices:
         try:
             print(f"Processing item {idx}")
             item = dataset[idx]

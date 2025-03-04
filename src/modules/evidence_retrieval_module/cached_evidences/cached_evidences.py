@@ -98,10 +98,20 @@ class BaseEvidencesModule:
             # Magazines/Long-form Journalism
             # "magazine.atavist.com", "newyorker.com", "theatlantic.com", "vanityfair.com"
             "newyoker.com", "ffxnow.com", "laist.com", "hudson.org", "rollcall.com",
-            "economist.com", "nps.gov"
+            "economist.com", "nps.gov", 
             
+            # COSMOS ADDED DOMAINS
+            'nytimes.com', 'washingtontimes.com', 'edition.cnn.com', "bbc.co.uk",
+            "magazine.atavist.com", "newyoker.com", "aljazeera.com", "vox.com",
+            "euronews.com"
         ]
 
+        self.EXCLUDED_DOMAINS = [
+            "snopes.com", "en.wikipedia.org", "mdpi.com", "yumpu.com",
+            "reddit.com", "scmp.com", "pinterest.com", "imdb.com",
+            "movieweb.com"
+        ]
+        
     def batch_similarity(self, query_text: str, texts: List[str]) -> torch.Tensor:
         """Calculate similarities for multiple texts at once."""
         if not texts:
@@ -178,7 +188,36 @@ class BaseEvidencesModule:
                 
         return filtered_evidence
     
-    def filter_evidences(self, max_evidences: int, evidence_list: List[Evidence]) -> List[Evidence]:
+    def filter_evidence_by_excluding_domains(self, evidence_list, excluded_domains):
+        """
+        Filter evidence list by excluding domains.
+        
+        Args:
+            evidence_list (list): List of Evidence objects to filter
+            excluded_domains (list): List of domain strings to exclude
+            
+        Returns:
+            list: Filtered list of Evidence objects
+        """
+        normalized_excluded_domains = set()
+        for domain in excluded_domains:
+            domain = domain.lower().strip()
+            if domain.startswith("www."):
+                domain = domain[4:]
+            normalized_excluded_domains.add(domain)
+        
+        filtered_evidence = []
+        for ev in evidence_list:
+            domain = ev.domain.lower().strip()
+            if domain.startswith("www."):
+                domain = domain[4:]
+                
+            if domain not in normalized_excluded_domains:
+                filtered_evidence.append(ev)
+                
+        return filtered_evidence
+    
+    def filter_evidences(self, max_evidences: int, evidence_list: List[Evidence]):
         """Filter evidence list to maximum size while preserving uniqueness by title."""
         filtered_evidence = []
         seen_titles = set()
@@ -213,13 +252,41 @@ class TextEvidencesModule(BaseEvidencesModule):
     Evidences retrieved by using text search on Google
     """
     
-    def _load_and_encode_image(self, image_path: str) -> str:
+    # def _load_and_encode_image(self, image_path: str) -> str:
+    #     """
+    #     Load an image from path and encode it in base64.
+        
+    #     Args:
+    #         image_path (str): Path to the image file
+            
+    #     Returns:
+    #         str: Base64 encoded image data or empty string if loading fails
+    #     """
+    #     try:
+    #         with Image.open(image_path) as img:
+    #             # Convert to RGB if image is in RGBA mode
+    #             if img.mode == 'RGBA':
+    #                 img = img.convert('RGB')
+                
+    #             # Save image to bytes buffer
+    #             buffer = BytesIO()
+    #             img.save(buffer, format='JPEG')
+    #             image_bytes = buffer.getvalue()
+                
+    #             # Encode to base64
+    #             return base64.b64encode(image_bytes).decode('utf-8')
+    #     except Exception as e:
+    #         print(f"Error loading image {image_path}: {str(e)}")
+    #         return ""
+    
+    def _load_and_encode_image(self, image_path: str, max_size: int = 1024):
         """
-        Load an image from path and encode it in base64.
+        Load an image from path, resize it, and encode it in base64.
         
         Args:
             image_path (str): Path to the image file
-            
+            max_size (int): Maximum dimension (width or height) in pixels
+                
         Returns:
             str: Base64 encoded image data or empty string if loading fails
         """
@@ -229,9 +296,24 @@ class TextEvidencesModule(BaseEvidencesModule):
                 if img.mode == 'RGBA':
                     img = img.convert('RGB')
                 
+                # Resize image while maintaining aspect ratio
+                width, height = img.size
+                if width > height:
+                    if width > max_size:
+                        new_width = max_size
+                        new_height = int(height * (max_size / width))
+                else:
+                    if height > max_size:
+                        new_height = max_size
+                        new_width = int(width * (max_size / height))
+                        
+                # Only resize if needed
+                if width > max_size or height > max_size:
+                    img = img.resize((new_width, new_height), Image.Resampling.LANCZOS)
+                
                 # Save image to bytes buffer
                 buffer = BytesIO()
-                img.save(buffer, format='JPEG')
+                img.save(buffer, format='JPEG', quality=90)
                 image_bytes = buffer.getvalue()
                 
                 # Encode to base64
@@ -242,7 +324,7 @@ class TextEvidencesModule(BaseEvidencesModule):
 
     def get_evidence_by_index(self, index: Union[int, str], query: str,
                             max_results: int = 5, threshold: float = 0.7,
-                            min_results: int = 1) -> List[Evidence]:
+                            min_results: int = 1):
         """
         Get evidence for a specific index, filtered by similarity to query.
         
@@ -341,14 +423,18 @@ class TextEvidencesModule(BaseEvidencesModule):
             return []
         
         # Filter by domain first
-        evidence_list = self.filter_evidence_by_domain(evidence_list, self.NEWS_DOMAINS)
+        filtered_evidence_list = self.filter_evidence_by_domain(evidence_list, self.NEWS_DOMAINS)
+        
+        # if filtered_evidence_list == []:
+        #     filtered_evidence_list = self.filter_evidence_by_excluding_domains(evidence_list, self.EXCLUDED_DOMAINS)
+        #     max_results = 1
         
         # Then filter by similarity
-        evidence_scores = self.filter_by_similarity(query, evidence_list, threshold)
+        evidence_scores = self.filter_by_similarity(query, filtered_evidence_list, threshold)
         
         # If we don't have enough results meeting the threshold, include top results
         if len(evidence_scores) < min_results:
-            evidence_scores = self.filter_by_similarity(query, evidence_list, threshold=0.0)[:min_results]
+            evidence_scores = self.filter_by_similarity(query, filtered_evidence_list, threshold=0.0)[:min_results]
         
         # Get just the evidence objects, scores no longer needed
         filtered_evidence = [ev for ev, _ in evidence_scores]
@@ -363,7 +449,7 @@ class ImageEvidencesModule(BaseEvidencesModule):
     """
     Evidences for image search without loading actual images
     """
-    def get_entities_by_index(self, index: Union[int, str]) -> Optional[List[str]]:
+    def get_entities_by_index(self, index: Union[int, str]):
         """
         Retrieve entities for a specific image index.
         
@@ -396,7 +482,7 @@ class ImageEvidencesModule(BaseEvidencesModule):
             return []
     
     def get_evidence_by_index(self, index: Union[int, str],
-                              max_results: int = 5) -> List[Evidence]:
+                              max_results: int = 5):
         """
         Get evidence for a specific index.
         This version doesn't load actual image data.
@@ -461,6 +547,10 @@ class ImageEvidencesModule(BaseEvidencesModule):
         # Filter by domain first
         filtered_evidence = self.filter_evidence_by_domain(evidence_list, self.NEWS_DOMAINS)
         
+        # if filtered_evidence == []:
+        #     filtered_evidence = self.filter_evidence_by_excluding_domains(evidence_list, self.EXCLUDED_DOMAINS)
+        #     max_results = 1
+
         # Filter to max_evidences based on unique titles
         final_evidence = self.filter_evidences(max_results, filtered_evidence)
         

@@ -24,7 +24,7 @@ def parse_arguments():
                         help='whether to continue processing or start from 0')
     parser.add_argument('--how_many', type=int, default=-1,
                         help='how many items to process, -1 means process until the end')
-    parser.add_argument('--existing_results_path', type=str, required=True,
+    parser.add_argument('--existing_results_path', type=str, default="test_dataset/links_test.json",
                         help='path to JSON file containing existing inverse search results')
     parser.add_argument('--hashing_cutoff', type=int, default=15,
                         help='threshold used in hashing')
@@ -139,18 +139,20 @@ def process_one_item(item_id, result_data, save_folder_path, hashing_cutoff):
             try:
                 for future in cf.as_completed(futures, timeout=60):
                     try:
-                        result = future.result(timeout=30)
+                        result = future.result(timeout=50)
                         if result:
                             results.append(result)
                     except Exception as e:
                         print(f"Error processing future: {str(e)}")
-                        continue
             
-            except (KeyboardInterrupt, Exception) as e:
-                print(f"{'🛑 User interrupted!' if isinstance(e, KeyboardInterrupt) else '🔥 Critical error: ' + str(e)}")
-                executor.shutdown(wait=False, cancel_futures=True)
-                if isinstance(e, KeyboardInterrupt):
-                    raise
+            except KeyboardInterrupt:
+                print("🛑 User interrupted! Shutting down all processes...")
+                executor.shutdown(wait=False, cancel_futures=True)  # 🚀 Force stop all workers
+                raise  # Re-raise KeyboardInterrupt
+            
+            except Exception as e:
+                print(f"🔥 Critical error: {str(e)}. Forcing shutdown.")
+                executor.shutdown(wait=False, cancel_futures=True)  # 🚀 Force stop all workers
     
     return results
 
@@ -215,7 +217,7 @@ def main():
             args.hashing_cutoff
         )
         
-        if results:
+        if results or 1:
             # Filter non-English results
             # filtered_results = filter_non_english(results, lang_model)
             
@@ -271,6 +273,8 @@ def main():
                 files_info['no_annotations.txt'].write(f"{item_id}\n")
                 files_info['no_annotations.txt'].flush()
         else:
+            print("Writing to annotaion file")
+            print(results)
             files_info['no_annotations.txt'].write(f"{item_id}\n")
             files_info['no_annotations.txt'].flush()
         

@@ -7,6 +7,7 @@ from torch.utils.data import Dataset
 from argparse import ArgumentParser
 from PIL import Image
 import os
+from io import BytesIO
 
 class NewsClippingDataset(Dataset):
     def __init__(self, data_path: str, transform: Optional[Any] = None):
@@ -156,12 +157,39 @@ class MergedBalancedNewsClippingDataset(Dataset):
             image_path = os.path.join(self.data_path, 
                                     self.visualnews_data_mapping[str(item["image_id"])]["image_path"])
             image = Image.open(image_path).convert('RGB')
-            with open(image_path, "rb") as image_file:
-                # Read the file and encode it to Base64
-                image_base64 = base64.b64encode(image_file.read()).decode('utf-8')
             
+            # with open(image_path, "rb") as image_file:
+            #     # Read the file and encode it to Base64
+            #     image_base64 = base64.b64encode(image_file.read()).decode('utf-8')
+            
+            # if self.transform:
+            #     image = self.transform(image)
+            # result["image"] = image
+            # result["image_base64"] = image_base64
+            
+            # Resize before encoding to base64 (maintain aspect ratio)
+            max_size = 1024  # Maximum dimension (width or height)
+            width, height = image.size
+            if width > height and width > max_size:
+                new_width = max_size
+                new_height = int(height * (max_size / width))
+                image_resized = image.resize((new_width, new_height), Image.Resampling.LANCZOS)
+            elif height > width and height > max_size:
+                new_height = max_size
+                new_width = int(width * (max_size / height))
+                image_resized = image.resize((new_width, new_height), Image.Resampling.LANCZOS)
+            else:
+                image_resized = image  # No resize needed
+
+            # Save resized image to buffer and encode
+            buffer = BytesIO()
+            image_resized.save(buffer, format='JPEG', quality=90)
+            image_base64 = base64.b64encode(buffer.getvalue()).decode('utf-8')
+
+            # Apply transform for tensor operations (if needed)
             if self.transform:
                 image = self.transform(image)
+
             result["image"] = image
             result["image_base64"] = image_base64
         except Exception as e:

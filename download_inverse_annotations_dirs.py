@@ -20,7 +20,7 @@ import os
 from bs4 import NavigableString
 import json
 from utils import get_captions_from_page, save_html
-import fasttext
+# import fasttext
 
 parser = argparse.ArgumentParser(description='Download dataset for inverse search queries')
 parser.add_argument('--save_folder_path', type=str, default='queries_dataset',
@@ -40,7 +40,7 @@ parser.add_argument('--sub_split', type=str, default='test',
                     
 parser.add_argument('--how_many_queries', type=int, default=20,
                     help='how many query to issue for each item - each query is 10 images')
-parser.add_argument('--continue_download', type=int, default=0,
+parser.add_argument('--continue_download', type=int, default=1,
                     help='whether to continue download or start from 0 - should be 0 or 1')
 
 parser.add_argument('--how_many', type=int, default=-1,
@@ -61,7 +61,7 @@ my_api_key = args.google_api_key
 my_cse_id =  args.google_cse_id
 
 PRETRAINED_MODEL_PATH = 'lid.176.bin'
-model = fasttext.load_model(PRETRAINED_MODEL_PATH)
+# model = fasttext.load_model(PRETRAINED_MODEL_PATH)
 
 full_save_path = os.path.join(args.save_folder_path,args.split_type,'inverse_search',args.sub_split)
 if not os.path.exists(full_save_path):
@@ -148,10 +148,10 @@ def get_captions_and_process(img_url,page_url,page, save_folder_path,file_save_c
     page_title = page.page_title if page.page_title else ''
     if len(title) < len(page_title.lstrip().rstrip()):
         title = page_title
-    if title: 
-        lang_pred = model.predict(title.replace("\n"," "))
-        if lang_pred[0][0] != '__label__en':
-            return{}
+    # if title: 
+    #     lang_pred = model.predict(title.replace("\n"," "))
+    #     if lang_pred[0][0] != '__label__en':
+    #         return{}
     saved_html_flag = save_html(req, os.path.join(save_folder_path,str(file_save_counter)+'.txt'))     
     if saved_html_flag:            
         html_path = os.path.join(save_folder_path,str(file_save_counter)+'.txt')

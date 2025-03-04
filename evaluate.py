@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import json
 import os
+import argparse
 
 captions = []
 ground_truth = []
@@ -13,17 +14,24 @@ candidates = []
 entities = []
 
 # result_dir = 'result_new_ic_dont_use_img_matched_tags'
-result_dir = 'result2'
+parser = argparse.ArgumentParser()
+parser.add_argument('--result_dir', type=str, default='result')
+args = parser.parse_args()
+result_dir = args.result_dir
+
+result_dir2 = 'result_4o_gemini_94'
 result_json_list = os.listdir(result_dir)
+
+incorrect_index = []
 for item in result_json_list:
     try:
         result_json_dir = os.path.join(result_dir, item)
-        with open(result_json_dir, 'r') as f:
+        with open(result_json_dir, 'r', encoding='utf-8') as f:
             result_json = json.load(f)
             
-            if result_json['external_check']['text_evidences'] == []:
-                # print(result_json_dir)
-                continue
+            # if result_json['external_check']['text_evidences'] == []:
+            #     # print(result_json_dir)
+            #     continue
             
             captions.append(result_json['caption'])
             ground_truth.append(result_json['ground_truth'])
@@ -34,9 +42,23 @@ for item in result_json_list:
             # entities.append(result_json['internal_check']['visual_entities'])
             if result_json['ground_truth'] != result_json['final_result']['OOC']:
                 print(result_json_dir)
+                # print(os.path.join(result_dir2, item))
+                
+                # # extract index from result_json_dir
+                # index = result_json_dir.split('_')[-1].split('.')[0]
+                # incorrect_index.append(int(index))
     except Exception as e:
-        print(e)
-        
+        print(item)
+        print(f"ERROR: {e}")
+        raise
+
+# save incorrect_index to a file
+# incorrect_index.sort()
+# print(incorrect_index)
+# with open('src/incorrect_index.txt', 'w') as f:
+#     for index in incorrect_index:
+#         f.write(str(index) + '\n')
+
 print(len(captions))
 print(len(ground_truth))
 print(len(predicted))

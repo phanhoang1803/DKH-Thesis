@@ -58,9 +58,9 @@ Where:
 VISION_CHECKING_PROMPT = """TASK: Analyze the visual consistency between the news image and reference images retrieved from web searches conducted using the news caption. Determine whether the news image accurately represents what would be expected based on the caption, recognizing that visual differences don't necessarily indicate misleading content if the core context remains consistent.
 
 INPUT:
-- News Image: The main image being verified (First image in the list).
-- News Caption (used for image search): {news_caption}
-- Reference Images: Images retrieved from web search results based on the caption.
+- News Image: The main image being verified (First image in the list)
+- News Caption: "{news_caption}" (used to retrieve reference images)
+- Reference Images: Images retrieved from web search results based on the caption
 
 INSTRUCTIONS:
 1. Review the news caption to understand what visual elements should be expected in the news image.
@@ -76,6 +76,34 @@ NOTE:
 Only assess visible elements. Do not infer or assume additional context beyond what is present in the images and caption. Clearly document any inconsistencies and indicate whether the image is visually different but still contextually relevant to the caption used for the search.
 """
 
+VISION_CHECKING_PROMPT_WITH_REFERENCE_TITLE = """TASK: Analyze the visual consistency between the news image and reference images retrieved from web searches conducted using the news caption. Determine whether the news image accurately represents what would be expected based on the caption, with special attention to detecting cheapfakes where authentic images are paired with misleading captions.
+
+INPUT:
+- News Image: The main image being verified (First image in the list)
+- News Caption: "{news_caption}" (used to retrieve reference images)
+- Reference Images: Images retrieved from web search results based on the caption
+- Reference Text: "{reference_text}" (Titles/Captions of the reference images in order)
+
+INSTRUCTIONS:
+1. Review the news caption to understand what visual elements should be expected in the news image.
+2. Compare key visual elements in the news image (subjects, objects, composition) with those in reference images obtained when searching for the caption.
+3. Check for temporal consistency by analyzing lighting conditions, seasonal elements, and timestamps to detect potential time discrepancies.
+4. Verify spatial relationships, including the scale, background environment, and positioning of objects, ensuring they align with reference images found using the caption.
+5. Examine lighting and camera angles to identify inconsistencies in shadows, perspectives, or unnatural lighting conditions.
+6. Detect possible manipulation by looking for artifacts, irregularities, or unnatural edits that suggest digital alterations.
+7. Compare the news caption with reference titles/captions to identify context manipulation:
+   - Check if the news caption assigns incorrect time, location, or participants to an authentic image
+   - Identify if the news caption creates a misleading narrative despite using a visually authentic image
+   - Look for subtle alterations in framing that change the implied meaning of the image
+8. Assess whether the news image, despite any visual differences from reference images, still represents the event or context described in the caption.
+9. Flag the content as potentially misleading or out of context if either:
+   - The news image differs significantly from reference images and does not appear to represent the context implied by the caption
+   - The news image appears authentic but the caption significantly misrepresents what the image actually shows based on reference titles/captions
+
+NOTE:
+Only assess visible elements. Do not infer or assume additional context beyond what is present in the images and caption. Clearly document any inconsistencies and indicate whether the image is visually different but still contextually relevant to the caption used for the search. Treat reference information as the benchmark for determining the actual context of images.
+"""
+
 VISION_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
 - "verdict": True/False
 - "alignment_score": 0-100
@@ -84,41 +112,63 @@ VISION_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
 - "key_observations": List of specific matches, differences, or concerns
 
 Where:
-- verdict: "True" if the news image significantly aligns with reference images and appropriately represents the news caption, "False" otherwise.
+- verdict: "True" if the news image significantly aligns with reference images AND its caption accurately represents the context of the image, "False" otherwise.
 - alignment_score: A score (0-100) indicating the degree of visual consistency between the news image and reference images retrieved using the caption.
 - confidence_score: A confidence level (0-10) for the final assessment.
-- explanation: A comprehensive comparison of key visual elements in relation to the caption, including matches, differences, and manipulation signs.
-- key_observations: A bullet-point list of notable findings, highlighting specific visual consistencies or discrepancies between the news image and reference images in the context of the caption.
+- explanation: A comprehensive comparison of both visual elements and contextual accuracy, including analysis of potential cheapfake techniques.
+- key_observations: A bullet-point list of notable findings, highlighting specific visual consistencies or discrepancies AND any caption/context manipulation techniques identified.
 """
 
-FINAL_CHECKING_PROMPT = """TASK: Determine whether a news caption accurately represents its accompanying image, considering potential misinformation, out-of-context usage, or falsified details.
+# FINAL_CHECKING_PROMPT = """TASK: Determine whether a news caption accurately represents its accompanying image, considering potential misinformation, out-of-context usage, or falsified details.
 
-CONTEXT:
-- Internal Check: Evaluates whether internet-sourced images provide reasonable visual support for the news caption by comparing caption/content with sourced image evidence.
-- External Check: Assesses the visual consistency between the news image and reference images retrieved from web searches based on the caption.
+# CONTEXT:
+# - Internal Check: Evaluates whether internet-sourced images provide reasonable visual support for the news caption by comparing caption/content with sourced image evidence.
+# - External Check: Assesses the visual consistency between the news image and reference images retrieved from web searches based on the caption.
+
+# INPUT:
+# - News Caption: {news_caption}
+# - News Content: {news_content}
+# - Internal Check Result: {internal_result}
+# - External Check Result: {external_result}
+
+# INSTRUCTIONS:
+# 1. Synthesize the internal and external validation results to form a comprehensive assessment.
+# 2. Prioritize the validation method with higher confidence scores when the checks conflict, but critically evaluate the specific evidence and reasoning behind each assessment before making a final determination.
+# 3. Weight alignment scores as a key indicator of the match between caption and image content.
+# 4. Base the final decision strictly on available data; avoid inferring or assuming missing details.
+# 5. If evidence is inconclusive or ambiguous, flag the case for further review.
+# 6. Document any limitations, including uncertainties or missing information that may impact the decision.
+# 7. For partially accurate captions, specify which elements are correct and which are misrepresented.
+# 8. If either validation check lacks sufficient data, indicate this explicitly in your assessment.
+# 9. Consider both the overall confidence scores and specific alignment scores for individual elements when weighing evidence.
+# 10. If one validation method has a significantly higher confidence score while the other is very low, investigate the reasoning behind both results. Prioritize the stronger evidence but document the limitations of the weaker check. If the discrepancy suggests potential manipulation or missing data, flag the case for further review.
+# 11. When both internal and external checks yield the same evaluation with comparable confidence scores it will be considered the caption is not out of context.
+
+# NOTE: The primary verification task is to determine whether the news caption accurately represents its accompanying image. The news content serves as contextual reference to help interpret caption claims, but is not itself the subject of verification.
+# Make the final verdict strictly based on the available evidence. Avoid speculation or assumptions beyond what is directly observable in the provided information.
+# """
+
+FINAL_CHECKING_PROMPT = """TASK: Verify if a news caption accurately represents its image, identifying potential misinformation or out-of-context usage.
 
 INPUT:
 - News Caption: {news_caption}
-- News Content: {news_content}
+- News Content: {news_content} (for context only)
 - Internal Check Result: {internal_result}
 - External Check Result: {external_result}
 
 INSTRUCTIONS:
-1. Synthesize the internal and external validation results to form a comprehensive assessment.
-2. Prioritize the validation method with significantly higher confidence scores when the checks conflict, but critically evaluate the specific evidence and reasoning behind each assessment before making a final determination.
-3. When confidence scores are comparable but results differ, analyze the specific evidence provided by each method.
-4. Weight alignment scores as a key indicator of the match between caption and image content.
-5. Base the final decision strictly on available data; avoid inferring or assuming missing details.
-6. If evidence is inconclusive or ambiguous, flag the case for further review.
-7. Document any limitations, including uncertainties or missing information that may impact the decision.
-8. For partially accurate captions, specify which elements are correct and which are misrepresented.
-9. If either validation check lacks sufficient data, indicate this explicitly in your assessment.
-10. Consider both the overall confidence scores and specific alignment scores for individual elements when weighing evidence.
-11. If one validation method has a significantly higher confidence score while the other is very low, investigate the reasoning behind both results. Prioritize the stronger evidence but document the limitations of the weaker check. If the discrepancy suggests potential manipulation or missing data, flag the case for further review.
-12. When both internal and external checks yield the same evaluation with comparable confidence scores it will be considered the caption is not out of context.
+1. Synthesize internal check (caption vs. image content) and external check (image vs. reference images) results.
+2. When checks conflict, prioritize the method with higher confidence scores while critically evaluating the evidence.
+3. Consider alignment scores as key indicators of caption-image match.
+4. Base decisions solely on available data without inference.
+5. Flag cases with inconclusive or ambiguous evidence for review.
+6. Document limitations and uncertainties affecting the assessment.
+7. For partially accurate captions, specify correct and misrepresented elements.
+8. Note explicitly if either validation method lacks sufficient data.
+9. Consider both overall confidence and specific element alignment scores.
+10. When confidence scores are similar and both checks agree, conclude the caption is not out of context.
 
-NOTE: The primary verification task is to determine whether the news caption accurately represents its accompanying image. The news content serves as contextual reference to help interpret caption claims, but is not itself the subject of verification.
-Make the final verdict strictly based on the available evidence. Avoid speculation or assumptions beyond what is directly observable in the provided information.
+NOTE: Verify only whether the caption accurately represents the image. The news content provides context but is not being verified. Avoid speculation beyond observable evidence.
 """
 
 FINAL_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
@@ -160,9 +210,20 @@ def get_internal_prompt(caption: str, content: str, visual_entities: str, image_
     internal_prompt += INTERNAL_CHECKING_OUTPUT
     return internal_prompt
 
-def get_vision_prompt(news_caption: str) -> str:
+def get_vision_prompt(news_caption: str, reference_text: Optional[list[str]] = None) -> str:
     """Generate vision analysis prompt with caption context."""
-    vision_prompt = VISION_CHECKING_PROMPT.format(news_caption=news_caption) + VISION_CHECKING_OUTPUT
+    if reference_text:
+        ref_str = ""
+        for i, text in enumerate(reference_text, 1):
+            ref_str += f"Reference {i}: {text}\n"
+            ref_str += "-" * 50 + "\n"
+        vision_prompt = VISION_CHECKING_PROMPT_WITH_REFERENCE_TITLE.format(
+            news_caption=news_caption,
+            reference_text=ref_str
+        )
+    else:
+        vision_prompt = VISION_CHECKING_PROMPT.format(news_caption=news_caption)
+    vision_prompt += VISION_CHECKING_OUTPUT
     return vision_prompt
 
 def get_final_prompt(
