@@ -23,15 +23,17 @@ result_dir2 = 'result_4o_gemini_94'
 result_json_list = os.listdir(result_dir)
 
 incorrect_index = []
+empty_evidence_count = 0
 for item in result_json_list:
     try:
         result_json_dir = os.path.join(result_dir, item)
         with open(result_json_dir, 'r', encoding='utf-8') as f:
             result_json = json.load(f)
             
-            # if result_json['external_check']['text_evidences'] == []:
-            #     # print(result_json_dir)
-            #     continue
+            if result_json['external_check']['text_evidences'] == []:
+                # print(result_json_dir)
+                empty_evidence_count += 1
+                # continue
             
             captions.append(result_json['caption'])
             ground_truth.append(result_json['ground_truth'])
@@ -59,6 +61,7 @@ for item in result_json_list:
 #     for index in incorrect_index:
 #         f.write(str(index) + '\n')
 
+print(f"Empty evidence count: {empty_evidence_count}")
 print(len(captions))
 print(len(ground_truth))
 print(len(predicted))
