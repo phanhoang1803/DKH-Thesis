@@ -46,20 +46,20 @@ for item in result_json_list:
                 print(result_json_dir)
                 # print(os.path.join(result_dir2, item))
                 
-                # # extract index from result_json_dir
-                # index = result_json_dir.split('_')[-1].split('.')[0]
-                # incorrect_index.append(int(index))
+                # extract index from result_json_dir
+                index = result_json_dir.split('_')[-1].split('.')[0]
+                incorrect_index.append(int(index))
     except Exception as e:
         print(item)
         print(f"ERROR: {e}")
         raise
 
 # save incorrect_index to a file
-# incorrect_index.sort()
-# print(incorrect_index)
-# with open('src/incorrect_index.txt', 'w') as f:
-#     for index in incorrect_index:
-#         f.write(str(index) + '\n')
+incorrect_index.sort()
+print(incorrect_index)
+with open('src/incorrect_index.txt', 'w') as f:
+    for index in incorrect_index:
+        f.write(str(index) + '\n')
 
 print(f"Empty evidence count: {empty_evidence_count}")
 print(len(captions))

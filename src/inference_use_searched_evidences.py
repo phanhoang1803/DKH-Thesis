@@ -227,8 +227,11 @@ def main():
     end_idx = args.end_idx if args.end_idx >= 0 else len(dataset) - 1
     
     # Load random 1000 index from file
-    with open(args.random_index_path, "r") as f:
-        random_index = [int(line.strip()) for line in f.readlines()]
+    try:
+        with open(args.random_index_path, "r") as f:
+            random_index = [int(line.strip()) for line in f.readlines()]
+    except FileNotFoundError:
+        random_index = list(range(start_idx, end_idx))
     
     # Select indices in random_index which are between start_idx and end_idx
     indices = [idx for idx in random_index if start_idx <= idx <= end_idx]

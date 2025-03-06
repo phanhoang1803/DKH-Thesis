@@ -304,6 +304,9 @@ def main():
         result = google_search(text_query, args.google_api_key, args.google_cse_id, 
                              how_many_queries=args.how_many_queries)
         
+        print(result)
+        return
+        
         direct_search_results = get_direct_search_annotation(result, new_folder_path)
         
         # Save results
