@@ -38,7 +38,7 @@ for item in result_json_list:
             captions.append(result_json['caption'])
             ground_truth.append(result_json['ground_truth'])
             predicted.append(1 if result_json['final_result']['OOC'] else 0)
-            confidence_scores.append(result_json['final_result']['confidence_score'])
+            # confidence_scores.append(result_json['final_result']['confidence_score'])
             inference_time_list.append(result_json['inference_time'])
             # candidates.append(result_json['external_check']['text_evidences'])
             # entities.append(result_json['internal_check']['visual_entities'])

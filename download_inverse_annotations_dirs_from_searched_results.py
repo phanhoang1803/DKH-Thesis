@@ -5,8 +5,10 @@ import argparse
 import os
 import json
 import io
+
+from bs4 import BeautifulSoup
 # import fasttext
-from utils import get_captions_from_page, save_html
+from utils import extract_page_content, get_captions_from_page, save_html
 import concurrent.futures as cf
 from collections import defaultdict
 import tqdm
@@ -70,6 +72,15 @@ def process_url_pair(args):
         if title is None:
             title = ''
         
+        # Extract content from the page
+        page_content = ""
+        if req and req.content:
+            try:
+                soup = BeautifulSoup(req.content.decode('utf-8'), "html.parser")
+                page_content = extract_page_content(soup)
+            except Exception as content_error:
+                print(f"Error extracting content: {str(content_error)}")
+        
         saved_html_flag = save_html(req, os.path.join(save_folder_path, f"{counter}.txt"))
         html_path = os.path.join(save_folder_path, f"{counter}.txt") if saved_html_flag else ''
         
@@ -77,7 +88,8 @@ def process_url_pair(args):
             'page_link': page_url,
             'image_link': img_url,
             'html_path': html_path,
-            'title': title
+            'title': title,
+            'content': page_content
         }
         
         if caption:

@@ -459,3 +459,65 @@ def get_captions_from_page(src_img_link, url, req_res=None, cutoff=20):
             break
     title = process_titles_or_captions(title)
     return caption, title, code, r
+
+def extract_page_content(soup):
+    """Extract main content from a parsed web page"""
+    # Start with a basic content extraction approach
+    content = ""
+    
+    # Try to find the main content container
+    # Common content containers to check
+    content_selectors = [
+        "article", 
+        "main",
+        ".main-content", 
+        "#main-content",
+        ".article-content", 
+        "#article-content",
+        ".post-content",
+        ".entry-content",
+        ".body-content",
+        ".story-content",
+        ".content-body",
+        ".blog-post", 
+        ".news-article", 
+        "#content", 
+        ".post", 
+        ".text-content",
+        "section", 
+        "maincontent"
+        "article-body",
+        "ArticleBody"
+    ]
+    
+    # Try each selector to find content
+    for selector in content_selectors:
+        content_element = None
+        try:
+            if selector.startswith("."):
+                content_element = soup.find(class_=selector[1:])
+            elif selector.startswith("#"):
+                content_element = soup.find(id=selector[1:])
+            else:
+                content_element = soup.find(selector)
+        except:
+            continue
+            
+        if content_element:
+            # Extract text from paragraphs within the content element
+            paragraphs = content_element.find_all('p')
+            if paragraphs:
+                content = "\n\n".join([p.get_text().strip() for p in paragraphs if p.get_text().strip()])
+                if content:
+                    break
+
+    # Fallback: if no content found using selectors, try to get all paragraphs
+    if not content:
+        paragraphs = soup.find_all('p')
+        # Filter out short paragraphs that might be navigation/ads
+        meaningful_paragraphs = [p.get_text().strip() for p in paragraphs 
+                               if len(p.get_text().strip()) > 50]
+        if meaningful_paragraphs:
+            content = "\n\n".join(meaningful_paragraphs)
+    
+    return content

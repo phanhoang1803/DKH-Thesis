@@ -91,7 +91,8 @@ def inference(entities_module: EntitiesModule,
     # visual_entities = entities_module.get_entities_by_index(idx)
     visual_entities = image_evidences_module.get_entities_by_index(idx)
     image_evidences = image_evidences_module.get_evidence_by_index(idx)
-    text_evidences = text_evidences_module.get_evidence_by_index(index=idx, query=data["caption"], min_results=0, max_results=2)
+    # text_evidences = text_evidences_module.get_evidence_by_index(index=idx, query=data["caption"], min_results=0, max_results=2)
+    text_evidences = []
     
     # Get extracted reference images from web results
     reference_images = [evidence.image_data for evidence in text_evidences if evidence.image_data]

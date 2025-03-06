@@ -18,7 +18,7 @@ import io
 import os
 from bs4 import NavigableString
 import json
-from utils import get_captions_from_page, save_html
+from utils import get_captions_from_page, save_html, extract_page_content
 import concurrent.futures as cf
 from collections import defaultdict
 import tqdm
@@ -87,6 +87,15 @@ def process_page_task(task):
         page_title = page.page_title if page.page_title else ''
         if len(title) < len(page_title.lstrip().rstrip()):
             title = page_title
+        
+        # Extract content from the page
+        page_content = ""
+        if req and req.content:
+            try:
+                soup = BeautifulSoup(req.content.decode('utf-8'), "html.parser")
+                page_content = extract_page_content(soup)
+            except Exception as content_error:
+                print(f"Error extracting content: {str(content_error)}")
             
         # Save HTML content
         saved_html_flag = save_html(req, os.path.join(save_folder_path, str(file_save_counter) + '.txt'))     
@@ -97,14 +106,27 @@ def process_page_task(task):
             
         # Process entry based on caption availability
         if caption:
-            new_entry = {'page_link': page_url, 'image_link': img_url, 'title': title, 'caption': caption, 'html_path': html_path}  
+            new_entry = {'page_link': page_url, 
+                         'image_link': img_url, 
+                         'title': title, 
+                         'caption': caption, 
+                         'html_path': html_path,
+                         'content': page_content}  
         else:
             # Try again with hashing if no caption found
             caption, title, code, req = get_captions_from_page(img_url, page_url, req, hashing_cutoff)
             if caption:
-                new_entry = {'page_link': page_url, 'image_link': img_url, 'caption': caption, 'html_path': html_path, 'matched_image': 1}
+                new_entry = {'page_link': page_url, 
+                             'image_link': img_url, 
+                             'title': title, 
+                             'caption': caption, 
+                             'html_path': html_path,
+                             'content': page_content}
             else:            
-                new_entry = {'page_link': page_url, 'image_link': img_url, 'html_path': html_path}  
+                new_entry = {'page_link': page_url, 
+                             'image_link': img_url, 
+                             'html_path': html_path,
+                             'content': page_content}  
         
         if title: 
             new_entry['title'] = title    
@@ -153,7 +175,7 @@ def get_inverse_search_annotation(web_annotations, id_in_clip, save_folder_path,
     # Process pages in parallel using ThreadPoolExecutor
     results = []
     if page_tasks:
-        with cf.ThreadPoolExecutor(max_workers=max_workers) as executor:
+        with cf.ThreadPoolExecutor() as executor:
             futures = {
                 executor.submit(process_page_task, task): task
                 for task in page_tasks
