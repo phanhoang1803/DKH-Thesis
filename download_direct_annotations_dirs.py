@@ -87,6 +87,41 @@ def parse_arguments():
     return args
 
 def google_search(search_term, api_key, cse_id, how_many_queries, **kwargs):
+    ALLOWED_DOMAIN = [
+            # Major News Organizations
+            "theguardian.com", "usatoday.com", "bbc.com", "bbc.co.uk", "cnn.com", 
+            "edition.cnn.com", "latimes.com", "independent.co.uk", "nbcnews.com", 
+            "npr.org", "aljazeera.com", "apnews.com", "cbsnews.com", "abcnews.go.com", 
+            "pbs.org", "abc.net.au", "vox.com", "euronews.com",
+            
+            # Newspapers
+            "denverpost.com", "tennessean.com", "thetimes.com", "sandiegouniontribune.com",
+            "nytimes.com", "washingtontimes.com",
+            
+            # Magazines/Long-form Journalism
+            "magazine.atavist.com", "newyorker.com", "theatlantic.com", "vanityfair.com",
+            "economist.com", "ffxnow.com", "laist.com", "hudson.org", "rollcall.com",
+            "nps.gov", "reuters.com"
+        ]
+    
+    EXCLUDE_KEYWORDS = [
+        'stock photography',
+        'stock photo',
+        'stock photos',
+        'stock photo images',
+        'stock photo images',
+        'gallery',
+        'archive',
+        'wallpaper',
+        'collection',
+        'photo',
+        'photos'
+    ]
+    
+    # domains = " site:" + " OR site:".join(ALLOWED_DOMAIN)
+    # exclude_keywords = " OR ".join([f'"{keyword}"' for keyword in EXCLUDE_KEYWORDS])
+    # search_term = search_term + domains + " -" + exclude_keywords
+    
     service = build("customsearch", "v1", developerKey=api_key)
     res_list = []
     for i in range(0,how_many_queries):
@@ -303,10 +338,6 @@ def main():
         # Process single query
         result = google_search(text_query, args.google_api_key, args.google_cse_id, 
                              how_many_queries=args.how_many_queries)
-        
-        print(result)
-        return
-        
         direct_search_results = get_direct_search_annotation(result, new_folder_path)
         
         # Save results

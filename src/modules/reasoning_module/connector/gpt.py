@@ -63,11 +63,15 @@ EXTERNAL_RESPONSE_SCHEMA = {
 
 FINAL_RESPONSE_SCHEMA = {
     "type": "object",
-    "required": ["OOC", "validation_summary", "explanation", "confidence_score"],
+    "required": ["OOC", "confidence_score", "validation_summary", "explanation"],
     "properties": {
         "OOC": {
             "type": "boolean",
             "description": "Indicates whether the content is out of context"
+        },
+        "confidence_score": {
+            "type": "integer",
+            "description": "Final confidence score"
         },
         "validation_summary": {
             "type": "string",
@@ -76,10 +80,6 @@ FINAL_RESPONSE_SCHEMA = {
         "explanation": {
             "type": "string",
             "description": "Final explanation of the validation"
-        },
-        "confidence_score": {
-            "type": "integer",
-            "description": "Final confidence score"
         }
     }
 }

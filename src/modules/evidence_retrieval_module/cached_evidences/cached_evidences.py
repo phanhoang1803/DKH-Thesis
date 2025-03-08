@@ -10,6 +10,14 @@ from sentence_transformers import SentenceTransformer
 import torch
 from urllib.parse import urlparse
 
+import numpy as np
+from skimage.metrics import structural_similarity as ssim
+from PIL import Image
+import io
+
+import io
+from transformers import AutoImageProcessor, AutoModel
+
 @dataclass
 class Evidence:
     domain: str
@@ -19,7 +27,16 @@ class Evidence:
     caption: str
     content: str
     
-    def _clean_text(self, text: str) -> str:
+    def __init__(self, domain="", image_path="", image_data="", title="", caption="", content=""):
+        self.domain = domain
+        self.image_path = image_path
+        self.image_data = image_data
+        self.title = title
+        self.caption = caption
+        self.content = content
+        self.similarity_score = 0.0
+    
+    def _clean_text(self, text: str):
         """Clean text by removing/replacing problematic characters."""
         if not text:
             return ""
@@ -90,7 +107,8 @@ class BaseEvidencesModule:
         self.EXCLUDED_DOMAINS = [
             "mdpi.com", "yumpu.com", "scmp.com", "pinterest.com", "imdb.com",
             "movieweb.com", "shutterstock.com", "reddit.com", "alamy.com",
-            "alamy.it", "alamyimages.fr", "planetcricket.org"
+            "alamy.it", "alamyimages.fr", "planetcricket.org",
+            "www.cnnbrasil.com.br", "www.infomoney.com.br"
         ]
     
     def _load_and_encode_image(self, image_path: str, max_size: int = 1024) -> str:
@@ -228,7 +246,15 @@ class BaseEvidencesModule:
             # Skip bot verification pages
             if evidence.title == 'Bot Verification':
                 continue
-                
+            
+            if (evidence.title == "" or evidence.caption == "") and evidence.content == "":
+                print(f"Skipping evidence: {evidence.title} {evidence.caption} {evidence.content}")
+                continue
+            
+            if evidence.title == "" and evidence.caption == "":
+                print(f"Skipping evidence: {evidence.title} {evidence.caption} {evidence.content}")
+                continue
+            
             # Create a key from domain and title
             key = (evidence.domain, evidence.title)
             
@@ -262,9 +288,26 @@ class BaseEvidencesModule:
         """
         raise NotImplementedError("Subclasses must implement get_evidence_by_index")
 
-
 class TextEvidencesModule(BaseEvidencesModule):
     """Evidences retrieved by using text search on Google"""
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Initialize the ViT model and processor
+        self._initialize_vit_model()
+        
+    def _initialize_vit_model(self, model_ckpt="google/vit-base-patch16-224"):
+        """Initialize the Vision Transformer model for semantic image similarity."""
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        try:
+            self.image_processor = AutoImageProcessor.from_pretrained(model_ckpt)
+            self.vit_model = AutoModel.from_pretrained(model_ckpt).to(self.device)
+            self.vit_model.eval()
+            self.vit_initialized = True
+            print(f"ViT model initialized successfully on {self.device}")
+        except Exception as e:
+            print(f"Error initializing ViT model: {str(e)}")
+            self.vit_initialized = False
     
     def get_evidence_by_index(self, index: Union[int, str], query: str = "",
                             max_results: int = 5, threshold: float = 0.7,
@@ -330,11 +373,9 @@ class TextEvidencesModule(BaseEvidencesModule):
             return []
         
         # Filter by domain first, then exclude certain domains
-        filtered_evidence_list = self.filter_evidence_by_domain(evidence_list, self.NEWS_DOMAINS)
-        
-        # Filter by unique domain+title combinations
-        filtered_evidence_list = self.filter_unique_by_domain_title(filtered_evidence_list)
-        
+        # filtered_evidence_list = self.filter_evidence_by_domain(evidence_list, self.NEWS_DOMAINS)
+        filtered_evidence_list = self.filter_evidence_by_excluding_domains(evidence_list, self.EXCLUDED_DOMAINS)
+                
         # Filter by image similarity if reference image is provided
         if reference_image:
             filtered_evidence_list = self.filter_evidence_by_image_similarity(
@@ -344,6 +385,9 @@ class TextEvidencesModule(BaseEvidencesModule):
                 is_base64=True
             )
         
+        # Filter by unique domain+title combinations
+        filtered_evidence_list = self.filter_unique_by_domain_title(filtered_evidence_list)
+        
         # Filter to max_evidences based on unique titles
         final_evidence = self.filter_evidences(max_results, filtered_evidence_list)
         
@@ -352,8 +396,8 @@ class TextEvidencesModule(BaseEvidencesModule):
     def filter_evidence_by_image_similarity(self, evidence_list: List[Evidence], 
                                           reference_image: str, 
                                           threshold: float = 0.6,
-                                          is_base64: bool = False) -> List[Evidence]:
-        """Filter evidence by image similarity to a reference image.
+                                          is_base64: bool = False):
+        """Filter evidence by semantic image similarity to a reference image using ViT.
         
         Args:
             evidence_list: List of Evidence objects to filter
@@ -364,6 +408,163 @@ class TextEvidencesModule(BaseEvidencesModule):
         Returns:
             Filtered list of Evidence objects
         """
+        if not evidence_list or not reference_image:
+            return evidence_list
+            
+        # Check if ViT model was initialized successfully
+        if not hasattr(self, 'vit_initialized') or not self.vit_initialized:
+            print("ViT model not initialized. Falling back to basic similarity.")
+            # Fallback to the original implementation
+            return self._filter_evidence_by_image_similarity_basic(
+                evidence_list, reference_image, threshold, is_base64
+            )
+        
+        # Extract embeddings from reference image
+        if is_base64:
+            reference_embeddings = self._extract_embeddings_from_base64(reference_image)
+        else:
+            reference_embeddings = self._extract_embeddings(reference_image)
+            
+        if reference_embeddings is None:
+            print(f"Failed to extract embeddings from reference image")
+            return evidence_list
+        
+        similar_evidence = []
+        
+        # For visualization purposes if needed
+        try:
+            if is_base64:
+                reference_pil_image = Image.open(io.BytesIO(base64.b64decode(str(reference_image))))
+            else:
+                reference_pil_image = Image.open(reference_image)
+        except Exception as e:
+            print(f"Warning: Could not open reference image for visualization: {e}")
+            reference_pil_image = None
+        
+        for evidence in evidence_list:
+            # Extract embeddings from evidence image
+            evidence_embeddings = self._extract_embeddings_from_base64(evidence.image_data)
+            if evidence_embeddings is None:
+                continue
+            
+            # Calculate semantic similarity score
+            similarity = self._calculate_image_similarity(reference_embeddings, evidence_embeddings)
+            
+            print(f"Semantic Similarity: {similarity}")
+            
+            # Optional: Show comparison images for debugging
+            # if similarity > threshold and reference_pil_image is not None:
+            #     try:
+            #         evidence_image = Image.open(io.BytesIO(base64.b64decode(str(evidence.image_data))))
+                    
+            #         # Create a new image with both images side by side
+            #         comparison_image = Image.new('RGB', (reference_pil_image.width + evidence_image.width, 
+            #                                           max(reference_pil_image.height, evidence_image.height)))
+            #         comparison_image.paste(reference_pil_image, (0, 0))
+            #         comparison_image.paste(evidence_image, (reference_pil_image.width, 0))
+                    
+            #         # Show the comparison image
+            #         comparison_image.show()
+            #     except Exception as e:
+            #         print(f"Warning: Could not show comparison image: {e}")
+            
+            # Add evidence if similarity is above threshold
+            if similarity >= threshold:
+                # Add similarity score to evidence for debugging/sorting
+                evidence.similarity_score = similarity
+                similar_evidence.append(evidence)
+        
+        # Sort by similarity score (highest first)
+        similar_evidence.sort(key=lambda x: x.similarity_score, reverse=True)
+        return similar_evidence
+    
+    def _calculate_image_similarity(self, embeddings1, embeddings2):
+        """Calculate cosine similarity between two embedding vectors.
+        
+        Args:
+            embeddings1: First embedding vector
+            embeddings2: Second embedding vector
+            
+        Returns:
+            Similarity score (0.0 to 1.0)
+        """
+        # Compute cosine similarity between the embeddings
+        dot_product = np.dot(embeddings1, embeddings2)
+        norm1 = np.linalg.norm(embeddings1)
+        norm2 = np.linalg.norm(embeddings2)
+        
+        if norm1 == 0 or norm2 == 0:
+            return 0.0
+        
+        similarity = dot_product / (norm1 * norm2)
+        
+        # Ensure similarity is between 0 and 1
+        return max(0.0, min(1.0, similarity))
+
+    def _extract_embeddings(self, image_path):
+        """Extract semantic embeddings from an image file using ViT.
+        
+        Args:
+            image_path: Path to the image file
+            
+        Returns:
+            Image embeddings or None if extraction failed
+        """
+        try:
+            # Load image
+            image = Image.open(image_path).convert('RGB')
+            
+            # Process image for ViT model
+            inputs = self.image_processor(images=image, return_tensors="pt", use_fast=True).to(self.device)
+            
+            # Extract embeddings
+            with torch.no_grad():
+                outputs = self.vit_model(**inputs)
+                # Use CLS token as image embedding
+                embeddings = outputs.last_hidden_state[:, 0].cpu().numpy()[0]
+            
+            return embeddings
+        except Exception as e:
+            print(f"Error extracting embeddings from image {image_path}: {str(e)}")
+            return None
+        
+    def _extract_embeddings_from_base64(self, base64_string):
+        """Extract semantic embeddings from a base64-encoded image string using ViT.
+        
+        Args:
+            base64_string: Base64-encoded image string
+            
+        Returns:
+            Image embeddings or None if extraction failed
+        """
+        try:
+            # Handle data URI format if present
+            if isinstance(base64_string, str) and base64_string.startswith('data:image/'):
+                base64_string = base64_string.split(';base64,', 1)[1]
+                    
+            # Decode base64 string to bytes
+            image_data = base64.b64decode(base64_string)
+            
+            # Load image from bytes
+            image = Image.open(io.BytesIO(image_data)).convert('RGB')
+            
+            # Process image for ViT model
+            inputs = self.image_processor(images=image, return_tensors="pt").to(self.device)
+            
+            # Extract embeddings
+            with torch.no_grad():
+                outputs = self.vit_model(**inputs)
+                # Use CLS token as image embedding
+                embeddings = outputs.last_hidden_state[:, 0].cpu().numpy()[0]
+            
+            return embeddings
+        except Exception as e:
+            print(f"Error extracting embeddings from base64 image: {str(e)}")
+            return None
+    
+    # Keeping the original methods as fallback
+    def _filter_evidence_by_image_similarity_basic(self, evidence_list, reference_image, threshold=0.6, is_base64=False):
+        """Original pixel-based image similarity as fallback."""
         if not evidence_list or not reference_image:
             return evidence_list
         
@@ -385,7 +586,9 @@ class TextEvidencesModule(BaseEvidencesModule):
                 continue
             
             # Calculate similarity score
-            similarity = self._calculate_image_similarity(reference_features, evidence_features)
+            similarity = self._calculate_basic_similarity(reference_features, evidence_features)
+            
+            print(f"Basic Similarity: {similarity}")
             
             # Add evidence if similarity is above threshold
             if similarity >= threshold:
@@ -394,22 +597,29 @@ class TextEvidencesModule(BaseEvidencesModule):
                 similar_evidence.append(evidence)
         
         return similar_evidence
-    
-    def _extract_image_features(self, image_path: str):
-        """Extract features from an image file.
         
-        Args:
-            image_path: Path to the image file
-            
-        Returns:
-            Image features or None if extraction failed
-        """
+    def _calculate_basic_similarity(self, features1, features2):
+        """Calculate similarity using cosine similarity (fallback method)."""
         try:
-            # You can use various methods to extract features
-            # Example using PIL and a simple approach:
-            from PIL import Image
-            import numpy as np
+            # Use cosine similarity
+            dot_product = np.dot(features1, features2)
+            norm1 = np.linalg.norm(features1)
+            norm2 = np.linalg.norm(features2)
             
+            if norm1 == 0 or norm2 == 0:
+                return 0.0
+            
+            similarity = dot_product / (norm1 * norm2)
+        except Exception as e:
+            print(f"Error calculating basic similarity: {e}")
+            similarity = 0.0
+        
+        # Ensure similarity is between 0 and 1
+        return max(0.0, min(1.0, similarity))
+
+    def _extract_image_features(self, image_path: str):
+        """Extract basic features from an image file (fallback method)."""
+        try:
             # Load image
             img = Image.open(image_path)
             
@@ -423,26 +633,13 @@ class TextEvidencesModule(BaseEvidencesModule):
         except Exception as e:
             print(f"Error extracting features from image {image_path}: {str(e)}")
             return None
-            
-    def _extract_image_features_from_base64(self, base64_string):
-        """Extract features from a base64-encoded image string.
         
-        Args:
-            base64_string: Base64-encoded image string
-            
-        Returns:
-            Image features or None if extraction failed
-        """
+    def _extract_image_features_from_base64(self, base64_string):
+        """Extract basic features from a base64-encoded image string (fallback method)."""
         try:
-            import base64
-            import io
-            from PIL import Image
-            import numpy as np
-            
-            # Remove header if present (e.g., "data:image/jpeg;base64,")
-            if ',' in base64_string:
-                base64_string = base64_string.split(',', 1)[1]
-                
+            if isinstance(base64_string, str) and base64_string.startswith('data:image/'):
+                base64_string = base64_string.split(';base64,', 1)[1]
+                    
             # Decode base64 string to bytes
             image_data = base64.b64decode(base64_string)
             
@@ -459,31 +656,6 @@ class TextEvidencesModule(BaseEvidencesModule):
         except Exception as e:
             print(f"Error extracting features from base64 image: {str(e)}")
             return None
-    
-    def _calculate_image_similarity(self, features1, features2):
-        """Calculate similarity between two feature vectors.
-        
-        Args:
-            features1: First feature vector
-            features2: Second feature vector
-            
-        Returns:
-            Similarity score (0.0 to 1.0)
-        """
-        import numpy as np
-        
-        # Calculate cosine similarity
-        dot_product = np.dot(features1, features2)
-        norm1 = np.linalg.norm(features1)
-        norm2 = np.linalg.norm(features2)
-        
-        if norm1 == 0 or norm2 == 0:
-            return 0.0
-        
-        similarity = dot_product / (norm1 * norm2)
-        
-        # Ensure similarity is between 0 and 1
-        return max(0.0, min(1.0, similarity))
 
 class ImageEvidencesModule(BaseEvidencesModule):
     """Evidences for image search without loading actual images"""
@@ -491,6 +663,7 @@ class ImageEvidencesModule(BaseEvidencesModule):
     def get_entities_by_index(self, index: Union[int, str]) -> List[str]:
         """Retrieve entities for a specific image index."""
         folder_path = self.get_item_folder_path(index)
+        print(f"Folder path: {folder_path}")
         if not folder_path:
             return []
         
@@ -549,7 +722,7 @@ class ImageEvidencesModule(BaseEvidencesModule):
                 'all_fully_matched_captions',
                 'all_partially_matched_captions',
                 'fully_matched_no_text',
-                'all_match_captions',
+                'all_matched_captions',
                 'partially_matched_no_text',
                 'matched_no_text'
             ]
@@ -569,11 +742,13 @@ class ImageEvidencesModule(BaseEvidencesModule):
             print(f"Error loading inverse annotation file for index {index}: {str(e)}")
             return []
         
-        filtered_evidence = self.filter_evidence_by_domain(evidence_list, self.NEWS_DOMAINS)
+        # filtered_evidence = self.filter_evidence_by_domain(evidence_list, self.NEWS_DOMAINS)
         
         # Filter by excluding domains
-        # filtered_evidence = self.filter_evidence_by_excluding_domains(evidence_list, self.EXCLUDED_DOMAINS)
+        filtered_evidence = self.filter_evidence_by_excluding_domains(evidence_list, self.EXCLUDED_DOMAINS)
         # filtered_evidence = evidence_list
+        
+        print(len(filtered_evidence))
         
         # Filter evidences with the same domain and title
         filtered_evidence = self.filter_unique_by_domain_title(filtered_evidence)

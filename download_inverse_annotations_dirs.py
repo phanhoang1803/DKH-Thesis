@@ -329,7 +329,7 @@ def parse_arguments():
     parser.add_argument('--sub_split', type=str, default='test',
                         help='which split to use from train,val,test splits')
                         
-    parser.add_argument('--how_many_queries', type=int, default=10,
+    parser.add_argument('--how_many_queries', type=int, default=15,
                         help='how many query to issue for each item - each query is 10 images')
     parser.add_argument('--continue_download', type=int, default=1,
                         help='whether to continue download or start from 0 - should be 0 or 1')
@@ -625,6 +625,8 @@ def main():
             
             # Detect web annotations
             result = detect_web(image_path, how_many_queries=args.how_many_queries)
+            
+            print(result)
             
             # Process annotations in parallel
             inverse_search_results = get_inverse_search_annotation(

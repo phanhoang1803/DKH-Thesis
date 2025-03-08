@@ -3,54 +3,53 @@
 from typing import Optional
 
 
-INTERNAL_CHECKING_PROMPT_WITH_EVIDENCE = """TASK: Assess whether internet-sourced images provide reasonable visual support for the given news caption and verify the accuracy of claims based on visual evidence.
+INTERNAL_CHECKING_PROMPT_WITH_EVIDENCE = """TASK: Determine if the visual elements in the image provide enough evidence that the caption accurately represents what the image shows.
 
 INPUT:
-- News Caption: {caption}
-- News Content: {content}
-- Detected Visual Entities: {visual_entities}
-- Image Evidences: {image_evidences}
+- Caption: {caption}
+- Visual Elements Found: {visual_entities}
+- Visual Descriptions: {visual_candidates}
 
 INSTRUCTIONS:
-1. Cross-Verification: Compare the news caption/content with the sourced image evidence to identify consistencies or contradictions.
-2. Image Source Assessment: Evaluate the credibility of image sources (domains) and the context in which these images appear.
-3. Timeline Consistency: Verify that the image evidence matches the temporal aspects mentioned in the news.
-4. Entity Verification: Confirm whether visual entities detected in internet images align with those mentioned in the news text.
-5. Context Analysis: Determine if the sourced images are being used in their original context or potentially repurposed.
-6. Contradiction Detection: Identify specific elements in the image evidence that contradict claims made in the news text.
-7. Completeness Evaluation: Assess whether critical elements of the news narrative are supported by the available image evidence.
-8. Visual Manipulation Assessment: Note any signs that sourced images may have been altered or manipulated.
+1. Evidence Matching: Check if the descriptions of visual elements support key details mentioned in the caption.
+2. Authenticity Check: Look for signs in the descriptions that might suggest the image has been altered or misrepresented.
+3. Source Assessment: Consider how reliable the description sources are and if they show the image in its proper context.
+4. Time and Setting Alignment: Verify that the described visuals match when and where the caption suggests the image was taken.
+5. People and Object Confirmation: Make sure the people and objects described match those mentioned in the caption.
+6. Evidence-Based Decision: Use the visual descriptions to determine if they support what the caption claims.
+7. Inconsistency Identification: Note any differences between what the caption states and what the visual descriptions show.
+8. Relevance Check: Assess whether the described visuals show the main subject of the caption rather than unrelated elements.
 
-NOTE: Consider both what is present and what is absent in the visual evidence. Images from different sources may show different perspectives of the same event or entirely different events.
+NOTE: Consider both what is directly described and what might be missing from the descriptions. Different sources may describe the same image differently.
 """
 
-INTERNAL_CHECKING_PROMPT_WITHOUT_EVIDENCE = """TASK: Assess whether the news caption accurately represents the visual content based on the detected visual entities in the image.
+INTERNAL_CHECKING_PROMPT_WITHOUT_EVIDENCE = """TASK: Assess if the detected visual elements in the image align with the caption.
 
 INPUT:
-- News Caption: {caption}
-- News Content: {content}
-- Detected Visual Entities: {visual_entities}
+Caption: {caption}
+Visual Elements Found: {visual_entities}
 
 INSTRUCTIONS:
-1. Entity Verification: Confirm whether visual entities detected in the image align with those mentioned in the news caption and content.
-2. Consistency Analysis: Check if the relationships, quantities, and descriptions in the caption match what is detected in the image.
-3. Context Evaluation: Determine if the context implied by the caption matches the visual scene represented by the detected entities.
-4. Completeness Assessment: Identify if any critical elements mentioned in the caption are missing from the detected visual entities.
-5. Contradiction Detection: Note any specific elements in the detected visual entities that directly contradict claims in the caption.
-6. Confidence Evaluation: Consider the reliability of the entity detection and how it affects verification confidence.
+1. Match Check: Verify if the visual elements correspond to key components of the caption.
+2. Consistency Check: Assess if the visual elements align with the caption’s descriptions.
+3. Missing Details: Identify any essential elements in the caption that are absent among the detected visuals.
+4. Misleading Elements: Highlight any detected elements that could mislead or contradict the caption.
+5. Conclusion: Decide if the visual elements support or do not support the caption’s accuracy.
 
-NOTE: Focus solely on the relationship between the caption and the detected visual entities in the image. Base your assessment only on what can be objectively determined from this comparison.
+NOTE: Base your evaluation solely on the detected visual elements and the caption without additional context.
 """
 
 INTERNAL_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
 - "verdict": True/False
-- "confidence_score": 0-10
-- "explanation": A concise, evidence-based analysis (max 1000 words)
+- "confidence": 0-10
+- "explanation": A clear, evidence-based analysis (500 words maximum)
+- "supporting_evidences": list of evidence that supports the verdict
 
 Where:
-- verdict: "True" if the caption reasonably aligns with the visual entities and image evidences, "False" otherwise.
-- confidence_score: A confidence level (0-10) indicating certainty in the verdict.
-- explanation: A detailed assessment highlighting matches, inconsistencies, and reasoning between the news text and sourced images. Avoid assumptions and speculation.
+- verdict: "True" if the visual evidence confirms the caption accurately represents the image without manipulation; "False" otherwise.
+- confidence: A score from 0 (no confidence) to 10 (complete confidence) indicating how certain the verdict is.
+- explanation: A detailed explanation based on specific visual evidence and how it relates to the caption.
+- supporting_evidences: List of specific evidence that supports the verdict
 """
 
 # Modified to incorporate direct image analysis with internal check results
@@ -59,25 +58,22 @@ FINAL_CHECKING_PROMPT = """TASK: Verify whether the news caption provides a symb
 INPUT:
 - News Image: The image you are viewing directly
 - News Caption: {news_caption}
-- News Content: {news_content} (for context only)
-- Internal Check Result: {internal_result}
+- News Content: {news_content} (for context only, **do not base the final decision solely on this content**)
+- Visual Check Result (Result of checking the caption with the detected visual candidates): {visual_check_result}
 
 INSTRUCTIONS:
-1. Visual Analysis: Describe key visual elements present in the image (objects, people, locations, actions, text, etc.).
-2. Claim Verification: Identify the key claims or implications made by the caption in representing the overall news content, not just the literal image.
-3. Internal Check Review: Examine the internal check result, paying close attention to the confidence score and explanation.
-    - Prioritize internal check results with high confidence scores (8-10).
-    - If the confidence score is below 5, conduct a more independent visual analysis.
-4. Symbolic Consistency: Determine if the image, as a symbolic or representative visual, aligns with the broader context of the news content without introducing misleading interpretations.
-5. Misleading Content Detection: Identify if the caption:
-    - Overstates or distorts what the image represents in the context of the whole news content.
+1. Visual Analysis: Describe key visual elements present in the image (objects, people, locations, actions, text, etc.), and identify any specific evidence that confirms or refutes elements of the caption. Base your analysis primarily on the visual content of the image.
+2. Caption Claim Extraction: Identify the key claims or implications made by the caption about the broader news content. Summarize these claims in a clear and concise manner.
+3. Visual Check Review: Examine the visual check result, prioritizing explanations with high confidence scores (7-10). If the confidence score is below 5, conduct an independent visual analysis without relying on the visual check result.
+4. Symbolic Consistency: Assess if the image serves as a symbolic or representative visual that aligns with the broader context of the news content. The image does not need to show the exact event but should not create a misleading impression.
+5. Misleading Content Detection: Determine if the caption:
+    - Overstates or distorts what the image represents.
     - Selectively emphasizes certain aspects while omitting critical elements.
-    - Uses the image in a way that creates a false impression, even if factually related.
-6. Contradiction Analysis: Highlight any direct inconsistencies between the visual content and the caption, particularly if the caption creates a false impression of the overall news narrative.
-7. Evidence Integration: Cross-reference visual analysis with the internal check result, especially when findings align or diverge.
-8. Final Judgment: Conclude whether the caption serves as a reasonable symbolic representation of the news content without misleading viewers.
-
-NOTE: The news content provides essential context for the caption's symbolic meaning. Focus on whether the caption conveys a truthful impression of the broader news narrative rather than a literal match with the image.
+    - Uses the image in a way that creates a false impression, even if the details are factually correct.
+6. Contradiction Analysis: Highlight any direct inconsistencies between the visual content and the caption, especially where the caption’s implications conflict with the image evidence.
+7. Evidence Integration: Cross-reference the visual analysis with the visual check result, noting where the findings align or diverge to strengthen your evaluation.
+8. Final Judgment: Conclude whether the caption serves as a reasonable symbolic representation of the broader news content without misleading viewers. Clearly state if the caption is misleading or not misleading, along with a brief explanation.
+NOTE: The news content serves only as **background context** to understand the broader news narrative. The primary basis for your evaluation should be the **visual analysis of the image and the internal check result**.
 """
 
 FINAL_CHECKING_OUTPUT = """\nOUTPUT REQUIRED:
@@ -94,17 +90,17 @@ Where:
 """
 
 
-def get_internal_prompt(caption: str, content: str, visual_entities: str, image_evidences: list) -> str:
-    if image_evidences == []:
+def get_internal_prompt(caption: str, content: str, visual_entities: str, visual_candidates: list) -> str:
+    if visual_candidates == []:
         internal_prompt = INTERNAL_CHECKING_PROMPT_WITHOUT_EVIDENCE.format(
             caption=caption,
-            content=content,
+            # content=content,
             visual_entities=visual_entities
         )
     else:
         results_str = ""
-        for i, result in enumerate(image_evidences, 1):
-            results_str += f"\Evidence {i}:\n"
+        for i, result in enumerate(visual_candidates, 1):
+            results_str += f"\nVisual Candidate {i}:\n"
             results_str += f"Title: {result.title}\n"
             results_str += f"Caption: {result.caption}\n"
             results_str += f"Content: {result.content}\n"
@@ -113,9 +109,9 @@ def get_internal_prompt(caption: str, content: str, visual_entities: str, image_
         
         internal_prompt = INTERNAL_CHECKING_PROMPT_WITH_EVIDENCE.format(
             caption=caption,
-            content=content,
+            # content=content,
             visual_entities=visual_entities,
-            image_evidences=results_str
+            visual_candidates=results_str
         )
     internal_prompt += INTERNAL_CHECKING_OUTPUT
     return internal_prompt
@@ -124,12 +120,12 @@ def get_internal_prompt(caption: str, content: str, visual_entities: str, image_
 def get_final_prompt(
     caption: str,
     content: str,
-    internal_result: dict
+    visual_check_result: dict
 ) -> str:
     final_prompt = FINAL_CHECKING_PROMPT.format(
         news_caption=caption,
         news_content=content,
-        internal_result=internal_result,
+        visual_check_result=visual_check_result,
     )
     final_prompt += FINAL_CHECKING_OUTPUT
     

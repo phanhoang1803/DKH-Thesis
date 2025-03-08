@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import argparse
+import gc
 import os
 import json
 import io
@@ -13,6 +14,7 @@ import concurrent.futures as cf
 from collections import defaultdict
 import tqdm
 import time
+from filelock import FileLock
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Process existing inverse search results')
@@ -53,9 +55,16 @@ def init_files_and_paths(args):
     
     # Initialize or load index file
     json_download_file_name = os.path.join(full_save_path, args.sub_split + '.json')
-    if os.path.isfile(json_download_file_name) and os.access(json_download_file_name, os.R_OK) and args.continue_download:
-        with open(json_download_file_name, 'r') as fp:
-            all_inverse_annotations_idx = json.load(fp)
+    if os.path.isfile(json_download_file_name) and args.continue_download:
+        if os.access(json_download_file_name, os.R_OK):
+            with open(json_download_file_name, 'r') as fp:
+                all_inverse_annotations_idx = json.load(fp)
+        else:
+            # wait until the file is not locked
+            while not os.access(json_download_file_name, os.R_OK):
+                time.sleep(1)
+            with open(json_download_file_name, 'r') as fp:
+                all_inverse_annotations_idx = json.load(fp)
     else:
         all_inverse_annotations_idx = {}
         with open(json_download_file_name, 'w') as db_file:
@@ -142,7 +151,7 @@ def process_one_item(item_id, result_data, save_folder_path, hashing_cutoff):
     # Process URL pairs in parallel
     results = []
     if url_pairs:
-        with cf.ProcessPoolExecutor() as executor:
+        with cf.ProcessPoolExecutor(max_workers=10) as executor:
             futures = {
                 executor.submit(process_url_pair, url_pair): url_pair
                 for url_pair in url_pairs
@@ -224,6 +233,15 @@ def main():
         
         # Process the item
         result_data = existing_results[str(item_id)]
+        
+        # # # Check if is there any bbc in the url_pairs
+        # bbc_in_url_pairs = any('bbc' in url[1] for url in result_data.get('links_inv_search', []))
+        # if bbc_in_url_pairs:
+        #     print(f"BBC found in url_pairs: {result_data.get('links_inv_search', [])}")
+        # else:
+        #     print("No BBC found in url_pairs, dont need to rerun with vpn")
+        #     continue
+        
         results = process_one_item(
             item_id, result_data, new_folder_path, 
             args.hashing_cutoff
@@ -250,23 +268,9 @@ def main():
             if processed_results['entities'] or processed_results['all_matched_captions']:
                 # Save to index file
                 new_entry = {str(item_id): {'folder_path': new_folder_path}}
-                # all_inverse_annotations_idx.update(new_entry)
-                # save_json_file(
-                #     json_download_file_name, 
-                #     all_inverse_annotations_idx, 
-                #     item_id, 
-                #     files_info['unsaved.txt'], 
-                #     all_inverse_annotations_idx
-                # )
                 
                 try:
-                    # with open(json_download_file_name, 'r') as f:
-                    #     current_data = json.load(f)
-                    # current_data.update(new_entry)
-                    # with open(json_download_file_name, 'w') as f:
-                    #     json.dump(current_data, f)
                     # WINDOWS
-                    from filelock import FileLock
                     lock_file = f"{json_download_file_name}.lock"
                     with FileLock(lock_file):
                         with open(json_download_file_name, 'r') as f:
@@ -291,7 +295,9 @@ def main():
             files_info['no_annotations.txt'].flush()
         
         print(f"Processed item {item_id} in {time.time() - start_time:.2f} seconds")
-    
+
+        gc.collect()
+
     # Cleanup
     for file_handle in files_info.values():
         file_handle.close()

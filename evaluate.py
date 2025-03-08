@@ -16,6 +16,7 @@ entities = []
 # result_dir = 'result_new_ic_dont_use_img_matched_tags'
 parser = argparse.ArgumentParser()
 parser.add_argument('--result_dir', type=str, default='result')
+parser.add_argument('--skip_non_candidates', '-s', action='store_true')
 args = parser.parse_args()
 result_dir = args.result_dir
 
@@ -30,20 +31,23 @@ for item in result_json_list:
         with open(result_json_dir, 'r', encoding='utf-8') as f:
             result_json = json.load(f)
             
-            if result_json['external_check']['text_evidences'] == []:
-                # print(result_json_dir)
+            if result_json['internal_check']['visual_candidates'] == []:
+                if args.skip_non_candidates:
+                    continue
+                if result_json['ground_truth'] != result_json['final_result']['OOC']:
+                    print(result_json_dir)
                 empty_evidence_count += 1
-                # continue
+
             
             captions.append(result_json['caption'])
             ground_truth.append(result_json['ground_truth'])
             predicted.append(1 if result_json['final_result']['OOC'] else 0)
-            # confidence_scores.append(result_json['final_result']['confidence_score'])
+            confidence_scores.append(result_json['final_result']['confidence_score'])
             inference_time_list.append(result_json['inference_time'])
             # candidates.append(result_json['external_check']['text_evidences'])
             # entities.append(result_json['internal_check']['visual_entities'])
             if result_json['ground_truth'] != result_json['final_result']['OOC']:
-                print(result_json_dir)
+                # print(result_json_dir)
                 # print(os.path.join(result_dir2, item))
                 
                 # extract index from result_json_dir
