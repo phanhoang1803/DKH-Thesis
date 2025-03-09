@@ -26,14 +26,16 @@ class Evidence:
     title: str
     caption: str
     content: str
+    source: Optional[str] = None
     
-    def __init__(self, domain="", image_path="", image_data="", title="", caption="", content=""):
+    def __init__(self, domain="", image_path="", image_data="", title="", caption="", content="", source=""):
         self.domain = domain
         self.image_path = image_path
         self.image_data = image_data
         self.title = title
         self.caption = caption
         self.content = content
+        self.source = source
         self.similarity_score = 0.0
     
     def _clean_text(self, text: str):
@@ -63,7 +65,8 @@ class Evidence:
                 "title": self._clean_text(self.title),
                 "content": self._clean_text(self.content),
                 "caption": self._clean_text(self.caption),
-                "domain": self._clean_text(self.domain)
+                "domain": self._clean_text(self.domain),
+                "source": self.source 
             }
         except Exception as e:
             return {
@@ -108,8 +111,22 @@ class BaseEvidencesModule:
             "mdpi.com", "yumpu.com", "scmp.com", "pinterest.com", "imdb.com",
             "movieweb.com", "shutterstock.com", "reddit.com", "alamy.com",
             "alamy.it", "alamyimages.fr", "planetcricket.org",
-            "www.cnnbrasil.com.br", "www.infomoney.com.br"
+            "www.cnnbrasil.com.br", "www.infomoney.com.br", "gettyimages.com", "gettyimages.co.uk",
+            
         ]
+    
+    def _initialize_vit_model(self, model_ckpt="google/vit-base-patch16-224"):
+        """Initialize the Vision Transformer model for semantic image similarity."""
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        try:
+            self.image_processor = AutoImageProcessor.from_pretrained(model_ckpt)
+            self.vit_model = AutoModel.from_pretrained(model_ckpt).to(self.device)
+            self.vit_model.eval()
+            self.vit_initialized = True
+            print(f"ViT model initialized successfully on {self.device}")
+        except Exception as e:
+            print(f"Error initializing ViT model: {str(e)}")
+            self.vit_initialized = False
     
     def _load_and_encode_image(self, image_path: str, max_size: int = 1024) -> str:
         """
@@ -148,251 +165,7 @@ class BaseEvidencesModule:
         except Exception as e:
             print(f"Error loading image {image_path}: {str(e)}")
             return ""
-        
-    def batch_similarity(self, query_text: str, texts: List[str]) -> torch.Tensor:
-        """Calculate similarities for multiple texts at once."""
-        if not texts:
-            return torch.tensor([])
-            
-        # Encode query and all texts
-        query_embedding = self.model.encode(query_text, convert_to_tensor=True)
-        text_embeddings = self.model.encode(texts, convert_to_tensor=True, batch_size=32)
-        
-        # Calculate similarities
-        return torch.nn.functional.cosine_similarity(
-            query_embedding.unsqueeze(0), 
-            text_embeddings
-        )
-
-    def filter_by_similarity(self, query: str, evidence_list: List[Evidence], 
-                             threshold: float = 0.7) -> List[Tuple[Evidence, float]]:
-        """Filter evidence based on similarity with query."""
-        if not evidence_list:
-            return []
-
-        # Prepare lists of titles and captions
-        titles = [ev.title for ev in evidence_list]
-        captions = [ev.caption if ev.caption else "" for ev in evidence_list]
-        
-        # Calculate similarities in batch
-        title_similarities = self.batch_similarity(query, titles)
-        caption_similarities = self.batch_similarity(query, captions)
-        
-        # Combine similarities and evidence
-        evidence_scores = []
-        for i, evidence in enumerate(evidence_list):
-            title_sim = float(title_similarities[i]) if i < len(title_similarities) else 0.0
-            caption_sim = float(caption_similarities[i]) if i < len(caption_similarities) else 0.0
-            similarity = max(title_sim, caption_sim)
-            
-            if similarity >= threshold:
-                evidence_scores.append((evidence, similarity))
-            
-        # Sort by similarity score
-        evidence_scores.sort(key=lambda x: x[1], reverse=True)
-        return evidence_scores
     
-    def _normalize_domain(self, domain: str) -> str:
-        """Normalize domain string by removing www. prefix and lowercasing."""
-        domain = domain.lower().strip()
-        if domain.startswith("www."):
-            domain = domain[4:]
-        return domain
-
-    def filter_evidence_by_domain(self, evidence_list: List[Evidence], 
-                                allowed_domains: List[str]) -> List[Evidence]:
-        """Filter evidence list by allowed domains."""
-        # Normalize allowed domains
-        normalized_domains = {self._normalize_domain(domain) for domain in allowed_domains}
-        
-        # Filter evidence list
-        return [ev for ev in evidence_list 
-                if self._normalize_domain(ev.domain) in normalized_domains]
-    
-    def filter_evidence_by_excluding_domains(self, evidence_list: List[Evidence], 
-                                           excluded_domains: List[str]) -> List[Evidence]:
-        """Filter evidence list by excluding domains."""
-        normalized_excluded = {self._normalize_domain(domain) for domain in excluded_domains}
-        
-        return [ev for ev in evidence_list 
-                if self._normalize_domain(ev.domain) not in normalized_excluded]
-    
-    def filter_evidences(self, max_evidences: int, evidence_list: List[Evidence]) -> List[Evidence]:
-        """Filter evidence list to maximum size while preserving uniqueness by title."""
-        filtered_evidence = []
-        seen_titles = set()
-        
-        # First pass: include unique titles
-        for evidence in evidence_list:
-            title = evidence.title.strip()
-            if title not in seen_titles and len(filtered_evidence) < max_evidences:
-                filtered_evidence.append(evidence)
-                seen_titles.add(title)
-        
-        # Second pass: if we still need more evidence, include duplicates
-        if len(filtered_evidence) < max_evidences:
-            for evidence in evidence_list:
-                if evidence not in filtered_evidence and len(filtered_evidence) < max_evidences:
-                    filtered_evidence.append(evidence)
-                    
-        return filtered_evidence
-        
-    def filter_unique_by_domain_title(self, evidences: List[Evidence]) -> List[Evidence]:
-        """Filter a list of evidence to keep only unique domain+title combinations."""
-        seen = set()
-        unique_evidences = []
-        
-        for evidence in evidences:
-            # Skip bot verification pages
-            if evidence.title == 'Bot Verification':
-                continue
-            
-            if (evidence.title == "" or evidence.caption == "") and evidence.content == "":
-                print(f"Skipping evidence: {evidence.title} {evidence.caption} {evidence.content}")
-                continue
-            
-            if evidence.title == "" and evidence.caption == "":
-                print(f"Skipping evidence: {evidence.title} {evidence.caption} {evidence.content}")
-                continue
-            
-            # Create a key from domain and title
-            key = (evidence.domain, evidence.title)
-            
-            # Only add if we haven't seen this combination before
-            if key not in seen:
-                seen.add(key)
-                unique_evidences.append(evidence)
-        
-        return unique_evidences
-    
-    def get_item_folder_path(self, index: Union[int, str]) -> Optional[str]:
-        """Get the folder path for an item by index."""
-        # Convert index to int if it's a string
-        idx = int(index) if isinstance(index, str) else index
-        
-        # For odd indices, use the preceding even index (TextEvidencesModule specific)
-        # Removed from base class as it's specific to TextEvidencesModule
-        
-        item = self.data.get(str(idx))
-        if not item:
-            return None
-            
-        return item.get("folder_path")
-
-    def get_evidence_by_index(self, index: Union[int, str], query: str = "",
-                            max_results: int = 5, threshold: float = 0.7,
-                            min_results: int = 1) -> List[Evidence]:
-        """
-        Get evidence for a specific index, filtered by similarity to query.
-        Base implementation to be overridden by subclasses.
-        """
-        raise NotImplementedError("Subclasses must implement get_evidence_by_index")
-
-class TextEvidencesModule(BaseEvidencesModule):
-    """Evidences retrieved by using text search on Google"""
-    
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        # Initialize the ViT model and processor
-        self._initialize_vit_model()
-        
-    def _initialize_vit_model(self, model_ckpt="google/vit-base-patch16-224"):
-        """Initialize the Vision Transformer model for semantic image similarity."""
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        try:
-            self.image_processor = AutoImageProcessor.from_pretrained(model_ckpt)
-            self.vit_model = AutoModel.from_pretrained(model_ckpt).to(self.device)
-            self.vit_model.eval()
-            self.vit_initialized = True
-            print(f"ViT model initialized successfully on {self.device}")
-        except Exception as e:
-            print(f"Error initializing ViT model: {str(e)}")
-            self.vit_initialized = False
-    
-    def get_evidence_by_index(self, index: Union[int, str], query: str = "",
-                            max_results: int = 5, threshold: float = 0.7,
-                            min_results: int = 1, reference_image: str = None,
-                            image_similarity_threshold: float = 0.7) -> List[Evidence]:
-        """Get evidence for a specific index, filtered by similarity to query."""
-        # Convert index to int if it's a string
-        idx = int(index) if isinstance(index, str) else index
-        
-        # For odd indices, use the preceding even index
-        if idx % 2 == 1:
-            idx -= 1
-        
-        folder_path = self.get_item_folder_path(idx)
-        if not folder_path:
-            return []
-        
-        evidence_list = []
-        try:
-            annotation_file = os.path.join(folder_path, "direct_annotation.json")
-            with open(annotation_file, 'r') as file:
-                annotation_data = json.load(file)
-            
-            # Helper function to extract caption from potentially nested structure
-            def extract_caption(caption_data):
-                if not caption_data:
-                    return ''
-                
-                if isinstance(caption_data, dict):
-                    caption_node = caption_data.get('caption_node', '')
-                    alt_node = caption_data.get('alt_node', '')
-                    if caption_node and alt_node:
-                        return caption_node + '|' + alt_node
-                    return caption_node or alt_node
-            
-            # Process all image categories
-            image_categories = [
-                'images_with_captions', 
-                'images_with_no_captions',
-                'images_with_caption_matched_tags'
-            ]
-            
-            for category in image_categories:
-                for item in annotation_data.get(category, []):
-                    image_path = item.get('image_path', '')
-                    image_data = self._load_and_encode_image(image_path)
-                    if not image_data:
-                        continue
-                    
-                    caption = extract_caption(item.get('caption', ''))
-                    
-                    evidence_list.append(Evidence(
-                        domain=item.get('domain', ''),
-                        image_path=image_path,
-                        image_data=image_data,
-                        title=item.get('page_title', ''),
-                        caption=caption,
-                        content=item.get('snippet', '')
-                    ))
-                
-        except (FileNotFoundError, json.JSONDecodeError) as e:
-            print(f"Error loading direct annotation file for index {idx}: {str(e)}")
-            return []
-        
-        # Filter by domain first, then exclude certain domains
-        # filtered_evidence_list = self.filter_evidence_by_domain(evidence_list, self.NEWS_DOMAINS)
-        filtered_evidence_list = self.filter_evidence_by_excluding_domains(evidence_list, self.EXCLUDED_DOMAINS)
-                
-        # Filter by image similarity if reference image is provided
-        if reference_image:
-            filtered_evidence_list = self.filter_evidence_by_image_similarity(
-                filtered_evidence_list, 
-                reference_image, 
-                image_similarity_threshold, 
-                is_base64=True
-            )
-        
-        # Filter by unique domain+title combinations
-        filtered_evidence_list = self.filter_unique_by_domain_title(filtered_evidence_list)
-        
-        # Filter to max_evidences based on unique titles
-        final_evidence = self.filter_evidences(max_results, filtered_evidence_list)
-        
-        return final_evidence
-
     def filter_evidence_by_image_similarity(self, evidence_list: List[Evidence], 
                                           reference_image: str, 
                                           threshold: float = 0.6,
@@ -656,10 +429,257 @@ class TextEvidencesModule(BaseEvidencesModule):
         except Exception as e:
             print(f"Error extracting features from base64 image: {str(e)}")
             return None
+            
+    def batch_similarity(self, query_text: str, texts: List[str]) -> torch.Tensor:
+        """Calculate similarities for multiple texts at once."""
+        if not texts:
+            return torch.tensor([])
+            
+        # Encode query and all texts
+        query_embedding = self.model.encode(query_text, convert_to_tensor=True)
+        text_embeddings = self.model.encode(texts, convert_to_tensor=True, batch_size=32)
+        
+        # Calculate similarities
+        return torch.nn.functional.cosine_similarity(
+            query_embedding.unsqueeze(0), 
+            text_embeddings
+        )
+
+    def filter_by_similarity(self, query: str, evidence_list: List[Evidence], 
+                             threshold: float = 0.7) -> List[Tuple[Evidence, float]]:
+        """Filter evidence based on similarity with query."""
+        if not evidence_list:
+            return []
+
+        # Prepare lists of titles and captions
+        titles = [ev.title for ev in evidence_list]
+        captions = [ev.caption if ev.caption else "" for ev in evidence_list]
+        
+        # Calculate similarities in batch
+        title_similarities = self.batch_similarity(query, titles)
+        caption_similarities = self.batch_similarity(query, captions)
+        
+        # Combine similarities and evidence
+        evidence_scores = []
+        for i, evidence in enumerate(evidence_list):
+            title_sim = float(title_similarities[i]) if i < len(title_similarities) else 0.0
+            caption_sim = float(caption_similarities[i]) if i < len(caption_similarities) else 0.0
+            similarity = max(title_sim, caption_sim)
+            
+            if similarity >= threshold:
+                evidence_scores.append((evidence, similarity))
+            
+        # Sort by similarity score
+        evidence_scores.sort(key=lambda x: x[1], reverse=True)
+        return evidence_scores
+    
+    def _normalize_domain(self, domain: str) -> str:
+        """Normalize domain string by removing www. prefix and lowercasing."""
+        domain = domain.lower().strip()
+        if domain.startswith("www."):
+            domain = domain[4:]
+        return domain
+
+    def filter_evidence_by_domain(self, evidence_list: List[Evidence], 
+                                allowed_domains: List[str]) -> List[Evidence]:
+        """Filter evidence list by allowed domains."""
+        # Normalize allowed domains
+        normalized_domains = {self._normalize_domain(domain) for domain in allowed_domains}
+        
+        # Filter evidence list
+        return [ev for ev in evidence_list 
+                if self._normalize_domain(ev.domain) in normalized_domains]
+    
+    def filter_evidence_by_excluding_domains(self, evidence_list: List[Evidence], 
+                                           excluded_domains: List[str]) -> List[Evidence]:
+        """Filter evidence list by excluding domains."""
+        normalized_excluded = {self._normalize_domain(domain) for domain in excluded_domains}
+        
+        return [ev for ev in evidence_list 
+                if self._normalize_domain(ev.domain) not in normalized_excluded]
+    
+    def filter_evidences(self, max_evidences: int, evidence_list: List[Evidence]) -> List[Evidence]:
+        """Filter evidence list to maximum size while preserving uniqueness by title."""
+        filtered_evidence = []
+        seen_titles = set()
+        
+        # First pass: include unique titles
+        for evidence in evidence_list:
+            title = evidence.title.strip()
+            if title not in seen_titles and len(filtered_evidence) < max_evidences:
+                filtered_evidence.append(evidence)
+                seen_titles.add(title)
+        
+        # Second pass: if we still need more evidence, include duplicates
+        if len(filtered_evidence) < max_evidences:
+            for evidence in evidence_list:
+                if evidence not in filtered_evidence and len(filtered_evidence) < max_evidences:
+                    filtered_evidence.append(evidence)
+                    
+        return filtered_evidence
+        
+    def filter_unique_by_domain_title(self, evidences: List[Evidence]) -> List[Evidence]:
+        """Filter a list of evidence to keep only unique domain+title combinations."""
+        seen = set()
+        unique_evidences = []
+        
+        for evidence in evidences:
+            # Skip bot verification pages
+            if evidence.title == 'Bot Verification':
+                continue
+            
+            if (evidence.title == "" or evidence.caption == "") and evidence.content == "":
+                print(f"Skipping evidence: {evidence.title} {evidence.caption} {evidence.content}")
+                continue
+            
+            if evidence.title == "" or evidence.caption == "" or evidence.content == "":
+                print(f"Skipping evidence: {evidence.title} {evidence.caption} {evidence.content}")
+                continue
+            
+            # Create a key from domain and title
+            key = (evidence.domain, evidence.title)
+            
+            # Only add if we haven't seen this combination before
+            if key not in seen:
+                seen.add(key)
+                unique_evidences.append(evidence)
+        
+        return unique_evidences
+    
+    def get_item_folder_path(self, index: Union[int, str]) -> Optional[str]:
+        """Get the folder path for an item by index."""
+        # Convert index to int if it's a string
+        idx = int(index) if isinstance(index, str) else index
+        
+        # For odd indices, use the preceding even index (TextEvidencesModule specific)
+        # Removed from base class as it's specific to TextEvidencesModule
+        
+        item = self.data.get(str(idx))
+        if not item:
+            return None
+            
+        return item.get("folder_path")
+
+    def get_evidence_by_index(self, index: Union[int, str], query: str = "",
+                            max_results: int = 5, threshold: float = 0.7,
+                            min_results: int = 1) -> List[Evidence]:
+        """
+        Get evidence for a specific index, filtered by similarity to query.
+        Base implementation to be overridden by subclasses.
+        """
+        raise NotImplementedError("Subclasses must implement get_evidence_by_index")
+
+class TextEvidencesModule(BaseEvidencesModule):
+    """Evidences retrieved by using text search on Google"""
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Initialize the ViT model and processor
+        self._initialize_vit_model()
+    
+    def get_evidence_by_index(self, index: Union[int, str], query: str = "",
+                            max_results: int = 5, threshold: float = 0.7,
+                            min_results: int = 1, reference_image: str = None,
+                            image_similarity_threshold: float = 0.7) -> List[Evidence]:
+        """Get evidence for a specific index, filtered by similarity to query."""
+        # Convert index to int if it's a string
+        idx = int(index) if isinstance(index, str) else index
+        
+        # For odd indices, use the preceding even index
+        if idx % 2 == 1:
+            idx -= 1
+        
+        folder_path = self.get_item_folder_path(idx)
+        if not folder_path:
+            return []
+        
+        evidence_list = []
+        try:
+            annotation_file = os.path.join(folder_path, "direct_annotation.json")
+            with open(annotation_file, 'r') as file:
+                annotation_data = json.load(file)
+            
+            # Helper function to extract caption from potentially nested structure
+            def extract_caption(caption_data):
+                if not caption_data:
+                    return ''
+                
+                if isinstance(caption_data, dict):
+                    caption_node = caption_data.get('caption_node', '')
+                    alt_node = caption_data.get('alt_node', '')
+                    if caption_node and alt_node:
+                        return caption_node + '|' + alt_node
+                    return caption_node or alt_node
+            
+            # Process all image categories
+            image_categories = [
+                'images_with_captions', 
+                'images_with_no_captions',
+                'images_with_caption_matched_tags'
+            ]
+            
+            for category in image_categories:
+                for item in annotation_data.get(category, []):
+                    image_path = item.get('image_path', '')
+                    image_data = self._load_and_encode_image(image_path)
+                    if not image_data:
+                        continue
+                    
+                    caption = extract_caption(item.get('caption', ''))
+                    
+                    evidence_list.append(Evidence(
+                        domain=item.get('domain', ''),
+                        image_path=image_path,
+                        image_data=image_data,
+                        title=item.get('page_title', ''),
+                        caption=caption,
+                        content=item.get('snippet', ''),
+                        source="TextEvidencesModule"
+                    ))
+                
+        except (FileNotFoundError, json.JSONDecodeError) as e:
+            print(f"Error loading direct annotation file for index {idx}: {str(e)}")
+            return []
+        
+        # Filter by domain first, then exclude certain domains
+        # filtered_evidence = self.filter_evidence_by_domain(evidence_list, self.NEWS_DOMAINS)
+        filtered_evidence = self.filter_evidence_by_excluding_domains(evidence_list, self.EXCLUDED_DOMAINS)
+                
+        # Filter by image similarity if reference image is provided
+        if reference_image:
+            filtered_evidence = self.filter_evidence_by_image_similarity(
+                filtered_evidence, 
+                reference_image, 
+                image_similarity_threshold, 
+                is_base64=True
+            )
+        
+        # Filter by similarity to query
+        if query != "":
+            evidence_scores = self.filter_by_similarity(query, evidence_list, threshold)
+            
+            # If we don't have enough results meeting the threshold, include top results
+            if len(evidence_scores) < min_results:
+                evidence_scores = self.filter_by_similarity(query, evidence_list, threshold=0.0)[:min_results]
+            
+            # Get just the evidence objects, scores no longer needed
+            filtered_evidence = [ev for ev, _ in evidence_scores]
+            
+        # Filter by unique domain+title combinations
+        filtered_evidence = self.filter_unique_by_domain_title(filtered_evidence)
+        
+        # Filter to max_evidences based on unique titles
+        final_evidence = self.filter_evidences(max_results, filtered_evidence)
+        
+        return final_evidence
 
 class ImageEvidencesModule(BaseEvidencesModule):
     """Evidences for image search without loading actual images"""
-    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Initialize the ViT model and processor
+        self._initialize_vit_model()
+        
     def get_entities_by_index(self, index: Union[int, str]) -> List[str]:
         """Retrieve entities for a specific image index."""
         folder_path = self.get_item_folder_path(index)
@@ -669,7 +689,7 @@ class ImageEvidencesModule(BaseEvidencesModule):
         
         try:
             annotation_file = os.path.join(folder_path, "inverse_annotation.json")
-            with open(annotation_file, 'r') as file:
+            with open(annotation_file, 'r', encoding='utf-8') as file:
                 annotation_data = json.load(file)
                 
             return annotation_data.get("entities", [])
@@ -679,7 +699,8 @@ class ImageEvidencesModule(BaseEvidencesModule):
             return []
     
     def get_evidence_by_index(self, index: Union[int, str], query: str = "",
-                             max_results: int = 5) -> List[Evidence]:
+                             max_results: int = 5, reference_image: str = None,
+                             image_similarity_threshold: float = 0.95) -> List[Evidence]:
         """
         Get evidence for a specific index.
         This version doesn't load actual image data.
@@ -691,7 +712,7 @@ class ImageEvidencesModule(BaseEvidencesModule):
         evidence_list = []
         try:
             annotation_file = os.path.join(folder_path, "inverse_annotation.json")
-            with open(annotation_file, 'r') as file:
+            with open(annotation_file, 'r', encoding='utf-8') as file:
                 annotation_data = json.load(file)
             
             # Helper function to extract caption from potentially nested structure
@@ -729,13 +750,18 @@ class ImageEvidencesModule(BaseEvidencesModule):
             
             for category in categories:
                 for item in annotation_data.get(category, []):
+                    image_data = self._load_and_encode_image(item.get("image_path", None))
+                    if not image_data:
+                        continue
+                    
                     evidence_list.append(Evidence(
                         domain=extract_domain(item.get('page_link', '')),
                         image_path=item.get('image_link', ''),
-                        image_data="",  # Empty image data
+                        image_data=image_data,  # Empty image data
                         title=item.get('title', ''),
                         caption=extract_caption(item.get('caption')),
-                        content=get_content(item)
+                        content=get_content(item),
+                        source="ImageEvidencesModule"
                     ))
             
         except (FileNotFoundError, json.JSONDecodeError) as e:
@@ -749,6 +775,14 @@ class ImageEvidencesModule(BaseEvidencesModule):
         # filtered_evidence = evidence_list
         
         print(len(filtered_evidence))
+        
+        if reference_image:
+            filtered_evidence = self.filter_evidence_by_image_similarity(
+                filtered_evidence, 
+                reference_image, 
+                image_similarity_threshold, 
+                is_base64=True
+            )
         
         # Filter evidences with the same domain and title
         filtered_evidence = self.filter_unique_by_domain_title(filtered_evidence)

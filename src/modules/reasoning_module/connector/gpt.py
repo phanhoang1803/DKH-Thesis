@@ -67,19 +67,19 @@ FINAL_RESPONSE_SCHEMA = {
     "properties": {
         "OOC": {
             "type": "boolean",
-            "description": "Indicates whether the content is out of context"
+            "description": "\"False\" if the caption provides a fair symbolic representation of the news content, \"True\" otherwise."
         },
         "confidence_score": {
             "type": "integer",
-            "description": "Final confidence score"
+            "description": "0-10 (reflecting overall certainty in the verdict based on combined analysis)."
         },
         "validation_summary": {
             "type": "string",
-            "description": "Summary of all validation results"
+            "description": "A brief (1-2 sentence) summary highlighting whether viewers would be misled about what they're seeing."
         },
         "explanation": {
             "type": "string",
-            "description": "Final explanation of the validation"
+            "description": "A detailed, evidence-based justification (max 500 words) that examines what's actually shown in the image versus what the caption claims or implies is shown."
         }
     }
 }

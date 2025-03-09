@@ -306,7 +306,7 @@ import io
 import os
 from bs4 import NavigableString
 import json
-from utils import get_captions_from_page, save_html, extract_page_content
+from utils import download_and_save_image, get_captions_from_page, save_html, extract_page_content
 import concurrent.futures as cf
 from collections import defaultdict
 import tqdm
@@ -391,7 +391,11 @@ def process_page_task(task):
             html_path = os.path.join(save_folder_path, str(file_save_counter) + '.txt')
         else:
             html_path = ''
-            
+        
+        image_path = ""
+        if download_and_save_image(img_url, save_folder_path, str(file_save_counter)):
+            image_path = os.path.join(save_folder_path, f"{file_save_counter}.jpg")
+        
         # Process entry based on caption availability
         if caption:
             new_entry = {'page_link': page_url, 
@@ -399,6 +403,7 @@ def process_page_task(task):
                          'title': title, 
                          'caption': caption, 
                          'html_path': html_path,
+                         'image_path': image_path,
                          'content': page_content}  
         else:
             # Try again with hashing if no caption found
@@ -409,11 +414,13 @@ def process_page_task(task):
                              'title': title, 
                              'caption': caption, 
                              'html_path': html_path,
+                             'image_path': image_path,
                              'content': page_content}
             else:            
                 new_entry = {'page_link': page_url, 
                              'image_link': img_url, 
                              'html_path': html_path,
+                             'image_path': image_path,
                              'content': page_content}  
         
         if title: 
@@ -566,9 +573,16 @@ def main():
     json_download_file_name = os.path.join(full_save_path, args.sub_split + '.json')
 
     # Continue using the current saved json file or start a new file
-    if os.path.isfile(json_download_file_name) and os.access(json_download_file_name, os.R_OK) and args.continue_download:
-        with open(json_download_file_name, 'r') as fp:
-            all_inverse_annotations_idx = json.load(fp)
+    if os.path.isfile(json_download_file_name) and args.continue_download:
+        if os.access(json_download_file_name, os.R_OK):
+            with open(json_download_file_name, 'r') as fp:
+                all_inverse_annotations_idx = json.load(fp)
+        else:
+            # wait until the file is not locked
+            while not os.access(json_download_file_name, os.R_OK):
+                time.sleep(1)
+            with open(json_download_file_name, 'r') as fp:
+                all_inverse_annotations_idx = json.load(fp)
     else:
         with io.open(json_download_file_name, 'w') as db_file:
             db_file.write(json.dumps({}))

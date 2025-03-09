@@ -32,11 +32,22 @@ for item in result_json_list:
             result_json = json.load(f)
             
             if result_json['internal_check']['visual_candidates'] == []:
+                empty_evidence_count += 1
                 if args.skip_non_candidates:
                     continue
                 if result_json['ground_truth'] != result_json['final_result']['OOC']:
                     print(result_json_dir)
-                empty_evidence_count += 1
+            # else:
+            #     continue
+            
+            # if result_json['external_check']['text_evidences'] == []:
+            #     empty_evidence_count += 1
+            #     if args.skip_non_candidates:
+            #         continue
+            #     if result_json['ground_truth'] != result_json['final_result']['OOC']:
+            #         print(result_json_dir)
+            # else:
+            #     continue
 
             
             captions.append(result_json['caption'])

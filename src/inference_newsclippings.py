@@ -76,8 +76,8 @@ def inference(entities_module: EntitiesModule,
     image_base64 = data["image_base64"]
     
     visual_entities = image_evidences_module.get_entities_by_index(idx)
-    image_evidences = image_evidences_module.get_evidence_by_index(idx, max_results=3)
-    text_evidences = text_evidences_module.get_evidence_by_index(idx, reference_image=image_base64, image_similarity_threshold=0.8, min_results=0)
+    image_evidences = image_evidences_module.get_evidence_by_index(idx, reference_image=image_base64, image_similarity_threshold=0.95, max_results=3)
+    text_evidences = text_evidences_module.get_evidence_by_index(idx, query= data["caption"], threshold=0.85, reference_image=image_base64, image_similarity_threshold=0.9, min_results=0)
     evidences = image_evidences + text_evidences
     print(len(evidences))
     

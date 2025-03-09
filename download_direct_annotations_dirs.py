@@ -37,7 +37,7 @@ import io
 import os
 from bs4 import NavigableString
 import json
-from utils import get_captions_from_page, save_html
+from utils import get_captions_from_page, save_html, download_and_save_image
 import time
 from concurrent.futures import ProcessPoolExecutor
 import os
@@ -77,7 +77,8 @@ def parse_arguments():
                         help='where to end, if not specified, will be inferred from how_many')    
     parser.add_argument('--start_idx', type=int, default=-1,
                         help='where to start, if not specified will be inferred from the current saved json or 0 otherwise')
-
+    parser.add_argument('--random_index_path', type=str, default=None,
+                        help='path to the file containing the random indices')
 
     parser.add_argument('--hashing_cutoff', type=int, default=15,
                         help='threshold used in hashing')
@@ -85,6 +86,35 @@ def parse_arguments():
     
     args = parser.parse_args()
     return args
+
+def merge_search_results(exact_res, broad_res):
+    # Start with a copy of the structure from the first response
+    merged = exact_res.copy()
+    
+    # Get existing image items
+    exact_items = exact_res.get('items', [])
+    broad_items = broad_res.get('items', [])
+    
+    # Create a set of URLs we've already seen to avoid duplicates
+    seen_urls = set(item.get('link') for item in exact_items)
+    
+    # Add unique items from the broad search
+    unique_broad_items = [item for item in broad_items if item.get('link') not in seen_urls]
+    
+    # Update the merged result's items
+    if 'items' in merged:
+        merged['items'].extend(unique_broad_items)
+    else:
+        merged['items'] = unique_broad_items
+    
+    # Update counts
+    if 'searchInformation' in merged:
+        # Update total results count (approximate)
+        exact_count = int(exact_res.get('searchInformation', {}).get('totalResults', 0))
+        broad_count = int(broad_res.get('searchInformation', {}).get('totalResults', 0))
+        merged['searchInformation']['totalResults'] = str(exact_count + broad_count)
+    
+    return merged
 
 def google_search(search_term, api_key, cse_id, how_many_queries, **kwargs):
     ALLOWED_DOMAIN = [
@@ -126,8 +156,35 @@ def google_search(search_term, api_key, cse_id, how_many_queries, **kwargs):
     res_list = []
     for i in range(0,how_many_queries):
         start = i*10 + 1
-        res = service.cse().list(q=search_term, searchType='image', lr='lang_en', num = 10, start=start, cx=cse_id, **kwargs).execute()
-        res_list.append(res)
+        # res = service.cse().list(q=f"\"{search_term}\"", searchType='image', lr='lang_en', num = 10, start=start, cx=cse_id, **kwargs).execute()
+        # res = service.cse().list(q=search_term, searchType='image', lr='lang_en', num = 10, start=start, cx=cse_id, **kwargs).execute()
+        
+        exact_res = service.cse().list(
+            q=f"\"{search_term}\"", 
+            searchType='image', 
+            lr='lang_en', 
+            num=10, 
+            start=start, 
+            cx=cse_id, 
+            **kwargs
+        ).execute()
+        
+        # Second query: search without quotes
+        broad_res = service.cse().list(
+            q=search_term, 
+            searchType='image', 
+            lr='lang_en', 
+            num=10, 
+            start=start, 
+            cx=cse_id, 
+            **kwargs
+        ).execute()
+        
+        # Merge the results
+        combined_results = merge_search_results(exact_res, broad_res)
+        res_list.append(combined_results)
+        
+        # res_list.append(res)
     return res_list
 
 def init_files_and_paths(args):
@@ -139,32 +196,22 @@ def init_files_and_paths(args):
     json_download_file_name = os.path.join(full_save_path, args.sub_split + '.json')
     
     # Initialize or load existing annotations
-    if os.path.isfile(json_download_file_name) and os.access(json_download_file_name, os.R_OK) and args.continue_download:
-        with open(json_download_file_name, 'r') as fp:
-            all_direct_annotations_idx = json.load(fp)
+    if os.path.isfile(json_download_file_name) and args.continue_download:
+        if os.access(json_download_file_name, os.R_OK):
+            with open(json_download_file_name, 'r') as fp:
+                all_direct_annotations_idx = json.load(fp)
+        else:
+            # wait until the file is not locked
+            while not os.access(json_download_file_name, os.R_OK):
+                time.sleep(1)
+            with open(json_download_file_name, 'r') as fp:
+                all_direct_annotations_idx = json.load(fp)
     else:
         all_direct_annotations_idx = {}
         with open(json_download_file_name, 'w') as db_file:
             json.dump({}, db_file)
     
     return full_save_path, json_download_file_name, all_direct_annotations_idx
-
-def download_and_save_image(image_url, save_folder_path, file_name):
-    try:
-        response = requests.get(image_url,stream = True,timeout=(60,60))
-        if response.status_code == 200:
-            response.raw.decode_content = True
-            image_path = os.path.join(save_folder_path,file_name+'.jpg')
-            with open(image_path,'wb') as f:
-                shutil.copyfileobj(response.raw, f)
-            if imghdr.what(image_path).lower() == 'png':
-                img_fix = Image.open(image_path)
-                img_fix.convert('RGB').save(image_path)
-            return 1 
-        else:
-            return 0
-    except:
-        return 0 
 
 def process_single_item(item_data):
     """Process a single search result item"""
@@ -313,10 +360,29 @@ def main():
                   else (start_counter + 2*args.how_many if args.how_many > 0 
                         else len(clip_data_annotations)))
     
+    try:
+        with open(args.random_index_path, 'r') as f:
+            random_indices = [int(line.strip()) for line in f.readlines()]
+    except FileNotFoundError:
+        random_indices = list(range(start_counter, end_counter))
+            
+    # Select even indices in random_indices which are between start_counter and end_counter
+    # If odd, then select the previous even number
+    # Prevent duplicate indices
+    indices = []
+    for idx in random_indices:
+        if idx % 2 == 0 and start_counter <= idx <= end_counter:
+            indices.append(idx)
+        elif idx % 2 == 1 and start_counter <= idx - 1 <= end_counter:
+            indices.append(idx - 1)
+            
+    # Remove duplicate indices
+    indices = list(set(indices))
+    
     print(f"Processing items from {start_counter} to {end_counter}")
     
     # Main processing loop
-    for i in tqdm.tqdm(range(start_counter, end_counter, 2)):
+    for i in tqdm.tqdm(indices):
         if args.skip_existing:
             if os.path.exists(os.path.join(full_save_path, str(i))):
                 # If the folder exists, and the direct_annotation.json file exists, skip the item

@@ -9,7 +9,7 @@ import io
 
 from bs4 import BeautifulSoup
 # import fasttext
-from utils import extract_page_content, get_captions_from_page, save_html
+from utils import download_and_save_image, extract_page_content, get_captions_from_page, save_html
 import concurrent.futures as cf
 from collections import defaultdict
 import tqdm
@@ -24,7 +24,7 @@ def parse_arguments():
                         help='which split to use in the NewsCLIP dataset')
     parser.add_argument('--sub_split', type=str, default='test',
                         help='which split to use from train,val,test splits')
-    parser.add_argument('--continue_download', type=int, default=0,
+    parser.add_argument('--continue_download', type=int, default=1,
                         help='whether to continue processing or start from 0')
     parser.add_argument('--how_many', type=int, default=-1,
                         help='how many items to process, -1 means process until the end')
@@ -93,10 +93,15 @@ def process_url_pair(args):
         saved_html_flag = save_html(req, os.path.join(save_folder_path, f"{counter}.txt"))
         html_path = os.path.join(save_folder_path, f"{counter}.txt") if saved_html_flag else ''
         
+        image_path = ""
+        if download_and_save_image(img_url, save_folder_path, str(counter)):
+            image_path = os.path.join(save_folder_path, f"{counter}.jpg")
+        
         new_entry = {
             'page_link': page_url,
             'image_link': img_url,
             'html_path': html_path,
+            'image_path': image_path,
             'title': title,
             'content': page_content
         }

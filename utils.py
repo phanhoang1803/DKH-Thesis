@@ -516,8 +516,25 @@ def extract_page_content(soup):
         paragraphs = soup.find_all('p')
         # Filter out short paragraphs that might be navigation/ads
         meaningful_paragraphs = [p.get_text().strip() for p in paragraphs 
-                               if len(p.get_text().strip()) > 50]
+                               if len(p.get_text().strip()) > 200]
         if meaningful_paragraphs:
             content = "\n\n".join(meaningful_paragraphs)
     
     return content
+
+def download_and_save_image(image_url, save_folder_path, file_name):
+    try:
+        response = requests.get(image_url,stream = True,timeout=(60,60))
+        if response.status_code == 200:
+            response.raw.decode_content = True
+            image_path = os.path.join(save_folder_path,file_name+'.jpg')
+            with open(image_path,'wb') as f:
+                shutil.copyfileobj(response.raw, f)
+            if imghdr.what(image_path).lower() == 'png':
+                img_fix = Image.open(image_path)
+                img_fix.convert('RGB').save(image_path)
+            return 1 
+        else:
+            return 0
+    except:
+        return 0 
