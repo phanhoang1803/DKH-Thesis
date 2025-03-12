@@ -2,61 +2,64 @@ from typing import Any, Dict, Optional
 import openai
 import json
 
-SYSTEM_PROMPT = """You are a highly accurate and logical fact-checking assistant. Your primary role is to evaluate the accuracy and contextual correctness of news captions using the provided information, including textual entities, external evidence, and any other relevant data. Your assessments must be objective, comprehensive, and clearly explained.
+SYSTEM_PROMPT = """You are a fact-checking assistant evaluating news captions against image content.
 
-### **Responsibilities**
-1. Analyze the input news caption in detail, considering both its textual content and extracted entities.
-2. Validate the caption against:
-   - **Textual Entities**: Check alignment for name accuracy, temporal consistency, and contextual correctness.
-   - **External Evidence**: Compare the caption with external sources to verify key facts, ensure consistency, and identify any contradictions.
-3. Address ambiguities or missing information explicitly. If sufficient evidence is not available, acknowledge the uncertainty and avoid speculative conclusions.
-4. Provide a comprehensive final evaluation, synthesizing all available information to determine the overall accuracy and contextual validity of the caption.
-
-### **Validation Criteria**
-- **Accuracy**: Confirm factual correctness by comparing the caption with the provided inputs and evidence.
-- **Consistency**: Ensure there are no contradictions, discrepancies, or temporal inconsistencies.
-- **Context**: Verify that the caption aligns contextually with the entities and evidence.
-- **Clarity**: Clearly highlight any uncertainties, gaps, or limitations in the available information.
+Your responsibilities:
+1. Analyze whether captions accurately represent their associated images
+2. Base determinations primarily on check results and image evidence
+3. Ensure consistency between your OOC determination and explanation
+4. For high confidence check results (7-10), defer to the check result
+5. Set OOC=false when captions correctly represent images, and OOC=true when they don't
 """
 
-INTERNAL_RESPONSE_SCHEMA = {
+VISUAL_RESPONSE_SCHEMA = {
     "type": "object",
-    "required": ["verdict", "explanation", "confidence_score"],
+    "required": ["verdict", "explanation", "confidence_score", "supporting_evidences"],
     "properties": {
         "verdict": {
             "type": "boolean",
-            "description": "Indicates whether the internal validation passed (True) or failed (False)"
+            "description": "True if the evidence confirms the caption accurately represents the image; False otherwise."
         },
         "explanation": {
             "type": "string",
-            "description": "Explanation of the internal validation decision"
+            "description": "A detailed explanation based on specific evidences and how it relates to the caption."
         },
         "confidence_score": {
             "type": "integer",
-            "description": "Confidence score for the internal validation"
+            "description": "A score from 0 (no confidence) to 10 (complete confidence) indicating how certain the verdict is."
+        },
+        "supporting_evidences": {
+            "type": "array",
+            "description": "List of specific evidence that supports the verdict",
+            'items': {
+                'type': 'string'
+            }
         }
     }
 }
 
-EXTERNAL_RESPONSE_SCHEMA = {
+TEXTUAL_RESPONSE_SCHEMA = {
     "type": "object",
-    "required": ["verdict", "explanation", "confidence_score", "supporting_points"],
+    "required": ["verdict", "explanation", "confidence_score", "supporting_evidences"],
     "properties": {
         "verdict": {
-            "type": "boolean",
-            "description": "Indicates whether the external validation passed (True) or failed (False)"
+            "type": "boolean", 
+            "description": "True if the combined visual and textual evidence confirms the caption accurately represents the image; False otherwise."
         },
         "explanation": {
             "type": "string",
-            "description": "Explanation of the external validation decision"
+            "description": "A detailed explanation based on analyzing both the image and textual evidence in relation to the caption."
         },
         "confidence_score": {
             "type": "integer",
-            "description": "Confidence score for the external validation"
+            "description": "A score from 0 (no confidence) to 10 (complete confidence) indicating how certain the verdict is."
         },
-        "supporting_points": {
-            "type": "string",
-            "description": "Supporting points from external validation"
+        "supporting_evidences": {
+            "type": "array",
+            "description": "List of specific evidence that supports the verdict",
+            'items': {
+                'type': 'string'
+            }
         }
     }
 }
@@ -67,7 +70,7 @@ FINAL_RESPONSE_SCHEMA = {
     "properties": {
         "OOC": {
             "type": "boolean",
-            "description": "\"False\" if the caption provides a fair symbolic representation of the news content, \"True\" otherwise."
+            "description": "false if the caption correctly represents the image (Not Out of Context), true if it misrepresents the image (Out of Context)"
         },
         "confidence_score": {
             "type": "integer",
@@ -95,13 +98,14 @@ class GPTConnector:
             prompt: str,
             schema: Dict[str, Any],
             image_base64: Optional[str] = None,
+            system_prompt: Optional[str] = SYSTEM_PROMPT
         ) -> Dict[str, Any]:
         """
         Call GPT with function-calling capabilities and directly use JSON schema
         """
         # Prepare the messages for GPT
         messages = [
-            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "system", "content": system_prompt},
             {"role": "user", "content": prompt}
         ]
 

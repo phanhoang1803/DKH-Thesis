@@ -55,11 +55,18 @@ class GeminiConnector:
             prompt: str,
             schema,
             image_base64: Optional[str] = None,
+            system_prompt: Optional[str] = None
         ) -> Dict[str, Any]:
             """
             Call Gemini with function calling capabilities
             """
-            json_schema = self.typeddict_to_json_schema(schema)
+            if system_prompt:
+                self.model = genai.GenerativeModel(model_name=self.model_name, system_instruction=system_prompt)
+            
+            if isinstance(schema, dict):
+                json_schema = schema
+            else:
+                json_schema = self.typeddict_to_json_schema(schema)
             
             if image_base64:
                 input = [{'mime_type':'image/jpeg', 'data': image_base64}, prompt]
@@ -70,7 +77,7 @@ class GeminiConnector:
                 input,
                 generation_config=genai.GenerationConfig(
                     response_mime_type="application/json", 
-                    response_schema=json_schema
+                    response_schema=json_schema,
                 )
             )
 

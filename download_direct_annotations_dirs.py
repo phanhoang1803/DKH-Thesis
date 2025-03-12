@@ -369,6 +369,7 @@ def main():
     # Select even indices in random_indices which are between start_counter and end_counter
     # If odd, then select the previous even number
     # Prevent duplicate indices
+    
     indices = []
     for idx in random_indices:
         if idx % 2 == 0 and start_counter <= idx <= end_counter:
@@ -378,8 +379,7 @@ def main():
             
     # Remove duplicate indices
     indices = list(set(indices))
-    
-    print(f"Processing items from {start_counter} to {end_counter}")
+    print(f"Processing items from {indices[0]} to {indices[-1]}")
     
     # Main processing loop
     for i in tqdm.tqdm(indices):

@@ -7,7 +7,7 @@ from dataloaders import cosmos_dataloader
 from mdatasets.newsclipping_datasets import MergedBalancedNewsClippingDataset
 from mdatasets.cosmos_datasets import CosmosDataset
 from src.modules.evidence_retrieval_module.scraper.scraper import Article
-from templates import get_internal_prompt, get_final_prompt, get_vision_prompt
+from templates import get_visual_prompt, get_final_prompt, get_vision_prompt
 import os
 from dotenv import load_dotenv
 import argparse
@@ -19,7 +19,7 @@ import json
 import time
 from src.config import NEWS_SITES, FACT_CHECKING_SITES
 from src.utils.utils import process_results, NumpyJSONEncoder, EvidenceCache
-from src.modules.reasoning_module.connector.gpt import INTERNAL_RESPONSE_SCHEMA, EXTERNAL_RESPONSE_SCHEMA, FINAL_RESPONSE_SCHEMA
+from src.modules.reasoning_module.connector.gpt import VISUAL_RESPONSE_SCHEMA, EXTERNAL_RESPONSE_SCHEMA, FINAL_RESPONSE_SCHEMA
 from src.modules.reasoning_module.connector.gpt_vision import VISION_FINAL_SCHEMA
 
 def arg_parser():
@@ -99,7 +99,7 @@ def inference(entities_module: EntitiesModule,
     reference_text = [f"Title: {evidence.title}. Caption: {evidence.caption}" for evidence in text_evidences]
     
     # 1: Internal Checking (Image Checking - Image Search)
-    internal_prompt = get_internal_prompt(
+    internal_prompt = get_visual_prompt(
         caption=data["caption"],
         content=data["content"],
         visual_entities=visual_entities,
@@ -107,7 +107,7 @@ def inference(entities_module: EntitiesModule,
     )
     internal_result = llm_connector.call_with_structured_output(
         prompt=internal_prompt,
-        schema=InternalResponse if isinstance(llm_connector, GeminiConnector) else INTERNAL_RESPONSE_SCHEMA,
+        schema=InternalResponse if isinstance(llm_connector, GeminiConnector) else VISUAL_RESPONSE_SCHEMA,
         # image_base64=image_base64
     )
     

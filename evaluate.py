@@ -24,19 +24,23 @@ result_dir2 = 'result_4o_gemini_94'
 result_json_list = os.listdir(result_dir)
 
 incorrect_index = []
+correct_index = []
 empty_evidence_count = 0
+unmatch_result_idx = []
+non_evidence_idx = []
 for item in result_json_list:
     try:
         result_json_dir = os.path.join(result_dir, item)
         with open(result_json_dir, 'r', encoding='utf-8') as f:
             result_json = json.load(f)
+            index = result_json_dir.split('_')[-1].split('.')[0]
             
-            if result_json['internal_check']['visual_candidates'] == []:
-                empty_evidence_count += 1
-                if args.skip_non_candidates:
-                    continue
-                if result_json['ground_truth'] != result_json['final_result']['OOC']:
-                    print(result_json_dir)
+            # if result_json['internal_check']['visual_candidates'] == []:
+            #     empty_evidence_count += 1
+            #     if args.skip_non_candidates:
+            #         continue
+            #     if result_json['ground_truth'] != result_json['final_result']['OOC']:
+            #         print(result_json_dir)
             # else:
             #     continue
             
@@ -49,6 +53,16 @@ for item in result_json_list:
             # else:
             #     continue
 
+            if result_json['check_result']['evidences'] == []:
+                empty_evidence_count += 1
+                non_evidence_idx.append(int(index))
+                if args.skip_non_candidates:
+                    continue
+                # if result_json['ground_truth'] != result_json['final_result']['OOC']:
+                #     print(result_json_dir)
+            
+            # if result_json['check_result']['check_type'] != 'context':
+            #     continue
             
             captions.append(result_json['caption'])
             ground_truth.append(result_json['ground_truth'])
@@ -57,13 +71,19 @@ for item in result_json_list:
             inference_time_list.append(result_json['inference_time'])
             # candidates.append(result_json['external_check']['text_evidences'])
             # entities.append(result_json['internal_check']['visual_entities'])
+            
+            if result_json['final_result']['OOC'] == result_json['check_result']['result']['verdict'] and result_json['ground_truth'] != result_json['final_result']['OOC']:
+                unmatch_result_idx.append(int(index))
+            
             if result_json['ground_truth'] != result_json['final_result']['OOC']:
                 # print(result_json_dir)
                 # print(os.path.join(result_dir2, item))
+
                 
                 # extract index from result_json_dir
-                index = result_json_dir.split('_')[-1].split('.')[0]
                 incorrect_index.append(int(index))
+            else:
+                correct_index.append(int(index))
     except Exception as e:
         print(item)
         print(f"ERROR: {e}")
@@ -74,6 +94,24 @@ incorrect_index.sort()
 print(incorrect_index)
 with open('src/incorrect_index.txt', 'w') as f:
     for index in incorrect_index:
+            f.write(str(index) + '\n')
+
+correct_index.sort()
+print(correct_index)
+with open('src/correct_index.txt', 'w') as f:
+    for index in correct_index:
+        f.write(str(index) + '\n')
+
+unmatch_result_idx.sort()
+print(unmatch_result_idx)
+with open('src/unmatch_result_idx.txt', 'w') as f:
+    for index in unmatch_result_idx:
+        f.write(str(index) + '\n')
+
+non_evidence_idx.sort()
+print(non_evidence_idx)
+with open('src/non_evidence_idx.txt', 'w') as f:
+    for index in non_evidence_idx:
         f.write(str(index) + '\n')
 
 print(f"Empty evidence count: {empty_evidence_count}")

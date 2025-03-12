@@ -329,7 +329,7 @@ def parse_arguments():
     parser.add_argument('--sub_split', type=str, default='test',
                         help='which split to use from train,val,test splits')
                         
-    parser.add_argument('--how_many_queries', type=int, default=15,
+    parser.add_argument('--how_many_queries', type=int, default=10,
                         help='how many query to issue for each item - each query is 10 images')
     parser.add_argument('--continue_download', type=int, default=1,
                         help='whether to continue download or start from 0 - should be 0 or 1')
@@ -350,6 +350,8 @@ def parse_arguments():
     
     parser.add_argument('--skip_existing', action="store_true",
                         help='skip processing if output files already exist')
+    parser.add_argument('--rerun_none_candidates', '-r', action="store_true",
+                        help='rerun the process for none candidates')
     
     return parser.parse_args()
 
@@ -366,6 +368,16 @@ def detect_web(path, how_many_queries):
 def process_page_task(task):
     """Process a single page task with error handling"""
     match_type, img_url, page_url, page, save_folder_path, file_save_counter, hashing_cutoff = task
+    
+    # Excluded domains
+    EXCLUDED_DOMAINS = [
+        "youtube.com",
+        "instagram.com",
+        "tiktok.com",
+        "twitter.com",
+        "facebook.com",
+    ]
+    
     try:
         # Get captions and process the page
         caption, title, code, req = get_captions_from_page(img_url, page_url)
@@ -625,7 +637,31 @@ def main():
         if args.skip_existing:
             result_path = os.path.join(full_save_path, str(i), 'inverse_annotation.json')
             if os.path.exists(result_path):
-                continue
+                if not args.rerun_none_candidates:
+                    with open(result_path, 'r', encoding='utf-8') as f:
+                        result_json = json.load(f)
+                    
+                    ran_fields = [
+                        'partially_matched_no_text', 
+                        'fully_matched_no_text', 
+                        'all_fully_matched_captions', 
+                        'all_partially_matched_captions'
+                    ]
+                    # If json contain fields in ran_fields, then skip
+                    if any(field in result_json for field in ran_fields):
+                        print(f"Skipping item {i} because it already re-run")
+                        continue
+                    
+                    fields_to_check = [
+                        'all_matched_captions', 
+                        'matched_no_text', 
+                    ]   
+                        
+                    if all(result_json.get(field, []) == [] for field in fields_to_check):
+                        print(f"Re-running item {i} because it had no candidates")
+                    else:
+                        print(f"Skipping item {i} because it had candidates")
+                        continue
         
         start_time = time.time()
         
@@ -640,7 +676,7 @@ def main():
             # Detect web annotations
             result = detect_web(image_path, how_many_queries=args.how_many_queries)
             
-            print(result)
+            # print(result)
             
             # Process annotations in parallel
             inverse_search_results = get_inverse_search_annotation(

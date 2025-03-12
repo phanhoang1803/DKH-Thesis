@@ -199,8 +199,8 @@ class MergedBalancedNewsClippingDataset(Dataset):
         # Load caption
         try:
             result["caption"] = self.visualnews_data_mapping[str(item["id"])]["caption"]
-        except KeyError:
-            # print(f"Warning: Caption not found for item {item['id']}")
+        except KeyError as e:
+            # print(f"KeyError processing item {item['id']}: {e}")
             raise e
         
         # Load article content

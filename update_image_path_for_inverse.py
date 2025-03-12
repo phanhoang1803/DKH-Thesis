@@ -75,7 +75,7 @@ def process_folder(folder_path):
         if "all_matched_captions" in inverse_data:
             for i, caption in enumerate(inverse_data["all_matched_captions"]):
                 # Fixed the condition - was using 'item' instead of 'caption'
-                if "image_link" in caption:
+                if "image_link" in caption and 'image_path' not in caption:
                     # Get filename from html_path or use default
                     image_filename = get_image_filename(caption.get("html_path"))
                     
@@ -95,7 +95,7 @@ def process_folder(folder_path):
         # Process matched_no_text
         if "matched_no_text" in inverse_data:
             for i, item in enumerate(inverse_data["matched_no_text"]):
-                if "image_link" in item:
+                if "image_link" in item and 'image_path' not in item:
                     # Get filename from html_path or use default
                     image_filename = get_image_filename(item.get("html_path"))
                     
@@ -130,7 +130,14 @@ def process_folder(folder_path):
                     else:
                         inverse_data["matched_no_text"][task["index"]]["image_path"] = os.path.join(task["folder"], task["filename"])
                     changes_made = True
-        
+                else:
+                    # Add empty image_path to avoid re-downloading the image
+                    if task["type"] == "matched":
+                        inverse_data["all_matched_captions"][task["index"]]["image_path"] = ''
+                    else:
+                        inverse_data["matched_no_text"][task["index"]]["image_path"] = ''
+                    changes_made = True
+                    
         # Save the updated inverse file if changes were made
         if changes_made:
             with open(inverse_file, 'w', encoding='utf-8') as f:
