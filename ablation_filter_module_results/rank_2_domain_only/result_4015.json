@@ -1,0 +1,45 @@
+{
+  "caption": "In this production Polunin plays the hero Franz a simple country boy who falls in love with the dancing doll",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Sergei Polunin and the Stanislavsky Ballet backstage in Copplia  in pictures | Stage | The Guardian",
+        "content": "S e r g e i   P o l u n i n   a n d   t h e   S t a n i s l a v s k y   B a l l e t   b a c k s t a g e   i n   C o p p  l i a   . . .",
+        "caption": "Coppelia: Sergei Polunin (Franz) and Kristina Shapran (Swanhilda) ",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Sergei Polunin and the Stanislavsky Ballet backstage in Copplia ...",
+        "content": "S e r g e i   P o l u n i n   a n d   t h e   S t a n i s l a v s k y   B a l l e t   b a c k s t a g e   i n   C o p p  l i a   . . .",
+        "caption": "Coppelia: Sergei Polunin (Franz) and Anton Domashev (Dr Coppelius) ",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is low in both cases, so the images are not a match. Also, the text similarity score is low in both cases, so the captions are not a match. Based on the first candidate, the caption mentions \"Polunin plays the hero Franz,\" and the candidate caption mentions \"Coppelia: Sergei Polunin (Franz)\" which matches the person and role. The original caption mentions \"falls in love with the dancing doll\" but the candidate does not mention this. Based on the second candidate, the caption mentions \"Polunin plays the hero Franz,\" and the candidate caption mentions \"Coppelia: Sergei Polunin (Franz)\" which matches the person and role. The original caption mentions \"falls in love with the dancing doll\" but the candidate does not mention this. Therefore, I cannot verify the entire caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a person dressed in a costume holding a dress with another person and a painting in the background. The caption states that the production has Polunin playing the hero Franz, who falls in love with the dancing doll. The image check result indicates a low image similarity and text similarity. The image doesn't explicitly show someone 'falling in love' with a doll, but someone holding a dress, suggesting a costume or performance scene. Since the image doesn't directly depict the love aspect and the image check result has a low image similarity, it is out of context.",
+    "validation_summary": "The caption's claim about 'falling in love with the dancing doll' is not visually supported by the image, making it misleading. While the person and role seem accurate, the 'falling in love' aspect is not discernible from the image alone."
+  },
+  "inference_time": 5.418522834777832,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

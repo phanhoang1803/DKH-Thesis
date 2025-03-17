@@ -1,0 +1,62 @@
+{
+  "caption": "Brown Panther trainer Tom Dascombe part owner Michael Owen and jockey Richard Kingscote take part in the 2013 Melbourne Cup Parade",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Car",
+      "Supercar",
+      "Performance car",
+      "Classic car",
+      "Convertible",
+      "Pride (LGBTQ culture)",
+      "Parade",
+      "City",
+      "Classic"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Melbourne Cup: share your memories | Melbourne Cup | The Guardian",
+        "content": "M e l b o u r n e   C u p :   s h a r e   y o u r   m e m o r i e s   |   M e l b o u r n e   C u p   |   T h e   G u a r d i a n",
+        "caption": "Brown Panther trainer Tom Dascombe, part owner Michael Owen and jockey Richard Kingscote take part in the 2013 Melbourne Cup Parade. Photograph: Matt King/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9953373670578003,
+        "text_similarity_score": 0.9443313479423523
+      },
+      {
+        "title": "Melbourne Cup: share your memories | Melbourne Cup | The Guardian",
+        "content": "e 7 d 2 c f e 9 - f e 1 2 - 4 0 5 1 - 8 c 2 b -   . . .",
+        "caption": "Brown Panther trainer Tom Dascombe, part owner Michael Owen and jockey Richard Kingscote take part in the 2013 Melbourne Cup Parade. Photograph: Matt King/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7662297487258911,
+        "text_similarity_score": 0.9443313479423523
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the provided instructions and the candidate data, I will determine if the caption is in context. \n\nCandidate 1:\nImage Similarity Score: 0.9953373670578003\nText Similarity Score: 0.9443313479423523\n\nSince the Image Similarity Score is greater than or equal to 0.85 AND the Text Similarity Score is greater than or equal to 0.7, according to the instructions, the verdict should be True. The high image similarity indicates the images match, and the high text similarity suggests the captions are highly similar.\n\nCandidate 2:\nImage Similarity Score: 0.7662297487258911\nText Similarity Score: 0.9443313479423523\n\nSince the Image Similarity Score is less than 0.85 AND the Text Similarity Score is greater than or equal to 0.7, according to the instructions, the verdict should be False. The low image similarity indicates the images do not match, even though the text similarity is high.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score >= 0.85 and Text Similarity Score >= 0.7",
+        "Candidate 2: Image Similarity Score < 0.85 and Text Similarity Score >= 0.7"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 10, which is in the range of 7-10. Therefore, I must base my final determination on the image check result. The image check result indicates that the verdict is True, which means the caption provides a correct representative summary of the image content. The high image similarity indicates the images match, and the high text similarity suggests the captions are highly similar.",
+    "validation_summary": "The caption accurately represents the image content, as confirmed by high image and text similarity scores in the image check result. Viewers would not be misled about what they are seeing because the caption corresponds with the visual content of the image and the individuals featured in it, including Brown Panther trainer Tom Dascombe, part-owner Michael Owen, and jockey Richard Kingscote participating in the 2013 Melbourne Cup Parade, are all identifiable in the image."
+  },
+  "inference_time": 6.648123502731323,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

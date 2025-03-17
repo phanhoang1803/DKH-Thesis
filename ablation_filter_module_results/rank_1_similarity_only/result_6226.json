@@ -1,0 +1,51 @@
+{
+  "caption": "Alex OxladeChamberlain centre was hugely impressive in Arsenal s 21 FA Cup defeat of Liverpool",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Alex Oxlade-Chamberlain",
+      "Arsenal F.C.",
+      "Liverpool F.C.",
+      "Liverpool 0–2 Arsenal",
+      "Gaelic football",
+      "Player",
+      "Tackle",
+      "Ball",
+      "Footballer"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 8,
+      "confidence_score": 9,
+      "explanation": "The provided caption states that Alex Oxlade-Chamberlain was impressive in Arsenal's 2-1 FA Cup defeat of Liverpool. The context confirms that Oxlade-Chamberlain is shown in the image wearing an Arsenal kit and celebrating after scoring a goal against Liverpool in an FA Cup match. It also mentions that Arsenal won the match 2-0, which means there is a slight discrepancy in the caption, since it states that arsenal won 2-1. However, the overall context aligns with the caption, since the image does show Oxlade-Chamberlain playing for Arsenal against Liverpool in an FA Cup match.",
+      "supporting_evidences": [
+        "The image shows Alex Oxlade-Chamberlain in an Arsenal kit.",
+        "The image shows Oxlade-Chamberlain celebrating after scoring a goal.",
+        "The context states that the match was an FA Cup match between Arsenal and Liverpool.",
+        "The caption mentions Alex Oxlade-Chamberlain, Arsenal, Liverpool and FA Cup."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image depicts Alex Oxlade-Chamberlain, a young footballer prominently shown in an Arsenal football kit. He is celebrating after scoring a goal during a match against Liverpool, which ended with a score of Liverpool 0–2 Arsenal, marking a significant victory for Arsenal in the FA Cup. The background shows a packed stadium, indicating a high-stakes game with enthusiastic fans. Chamberlain's expression reflects triumph and excitement, highlighting the importance of this goal and performance. Other players from both teams can be seen engaged in the game, with Liverpool defenders looking dejected while Arsenal teammates celebrate. The atmosphere is charged, emphasizing the competitive nature of the match.",
+      "caption": "Alex Oxlade-Chamberlain celebrating after scoring a goal during Arsenal's 2-0 FA Cup victory over Liverpool.",
+      "context": "The image captures a pivotal moment in football history, showcasing Alex Oxlade-Chamberlain's remarkable performance in an FA Cup match where Arsenal triumphed over Liverpool with a 2-0 scoreline. This match occurred against the backdrop of Arsenal's attempts to secure their position in the tournament, a significant achievement given Liverpool's reputation as formidable opponents. Oxlade-Chamberlain's celebration is indicative of not just personal achievement, but also a collective morale boost for Arsenal, particularly as they head into challenging fixtures later. His contribution included a spectacular goal and assisting his team, which offers a glimpse into his potential as a key player moving forward. The image encapsulates the spirit of sport, showcasing the joy of victory in front of passionate fans, while also addressing the wider narrative of competitive football where individual efforts can lead to collective success. With Liverpool's defeat, the image serves to underline the unpredictability and excitement characteristic of football, making a lasting impression on fans and analysts alike."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a high alignment and confidence score of 8 and 9, respectively, suggesting the caption is generally accurate. However, it notes a discrepancy: the caption states Arsenal had a 2-1 defeat of Liverpool, while the article mentions that Arsenal won the match 2-0. The image shows Alex Oxlade-Chamberlain playing for Arsenal against Liverpool. Since there is a numerical mismatch regarding the defeat of Arsenal against Liverpool, the caption is out of context.",
+    "validation_summary": "Although the caption correctly identifies the players and match, it misrepresents the outcome of the game, stating it as a defeat when it was a win, which could mislead viewers about the actual event depicted in the image and article. Therefore, the image is out of context due to the incorrect score information in the caption about the soccer game outcome between Liverpool and Arsenal. The correct score was 2-0 to Arsenal and not a 2-1 defeat as claimed in the caption of the image. This makes the caption incorrect and the image therefore out of context. The Image Check Result also recognizes the error in the claim of a defeat. The article clearly states that Arsenal won 2-0, and also references the defeat being attributed to Bayern Munich, not Liverpool, further supporting the fact that the caption has misleading information. Thus, the caption has a misleading claim based on the available information, resulting in the incorrect designation of the image's true context. In consideration of all these elements, the image, when linked with the provided caption, is deemed to be out of context (OOC=True). The caption provides an incorrect game outcome which renders it misleading, thus the label OOC=TRUE is to be designated based on this finding. Therefore it can be designated as OOC=TRUE despite the high scores for other aspects that validate the image check result otherwise. The final verdict is OOC=TRUE and not NOOC/OOC=FALSE as that would have been indicated if all the factors validated without any caveats or misleading content. Because the image's caption is misleading and does not depict the true events, as well as considering the image check result, the caption cannot accurately reflect the image and therefore, it's OOC = True. In conclusion, the final ruling remains unchanged as OOC=TRUE, since there is a verifiable incongruity between the details and the caption's content, thus causing a significant change in the interpretation of the image's meaning, as such the final verdict of the image check is OOC = TRUE."
+  },
+  "inference_time": 7.334892272949219,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

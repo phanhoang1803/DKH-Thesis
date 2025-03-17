@@ -1,0 +1,55 @@
+{
+  "caption": "Former Massachusetts governor Mitt Romney delivers his preemptive rebuttal to President Obama s State of the Union Speech Tuesday in Tampa Fla",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "United States",
+      "Politics",
+      "Mitt Romney 2012 presidential campaign",
+      "Campaign advertising",
+      "Political campaign",
+      "Getty Images",
+      "Image",
+      "Stephen M. Caliendo"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "The Washington Post - The Pulitzer Prizes",
+        "content": "T h e   W a s h i n g t o n   P o s t   -   T h e   P u l i t z e r   P r i z e s",
+        "caption": "",
+        "domain": "www.pulitzer.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are all 0.0, indicating that the images in the candidates do not match the image described by the news caption. The caption similarity scores are also 0.0, meaning the captions do not match either. Without any matching content, it's impossible to verify if the news caption accurately represents any of the candidate images. None of the candidates provide any textual information that can be used to assess the caption's correctness.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the candidate images and captions do not match the provided image, thus it is not possible to confirm the caption's accuracy. The primary image shows Mitt Romney speaking at a podium in front of an 'OBAMA ISN'T WORKING' banner and an American flag. The provided caption states that this is Romney delivering a 'preemptive rebuttal' to Obama's 'State of the Union Speech' in 'Tampa, Fla'. The visual elements in the image support aspects of the caption (Romney speaking, presence of an American flag), but without further information, such as explicit confirmation of the location or context of the speech from the image, it's difficult to verify. Due to the low similarity scores and absence of supporting evidence in the image, it is not possible to confirm the context provided by the caption. Therefore, the caption is out of context.",
+    "validation_summary": "The image check result indicates no match between image and caption. Without a match, the caption's claims are not verifiable based on the image's content."
+  },
+  "inference_time": 4.189049243927002,
+  "ablation_type": "no_filters"
+}

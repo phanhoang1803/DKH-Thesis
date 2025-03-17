@@ -46,6 +46,7 @@ from multiprocessing import Manager
 import tqdm
 import concurrent
 import concurrent.futures as cf
+from utils import merge_search_results
 
 # os.chdir("/media02/taduy03/khanhhoang/DKH-Thesis")
 
@@ -77,7 +78,8 @@ def parse_arguments():
                         help='where to end, if not specified, will be inferred from how_many')    
     parser.add_argument('--start_idx', type=int, default=-1,
                         help='where to start, if not specified will be inferred from the current saved json or 0 otherwise')
-
+    parser.add_argument('--random_index_path', type=str, default=None,
+                        help='path to the file containing the random indices')
 
     parser.add_argument('--hashing_cutoff', type=int, default=15,
                         help='threshold used in hashing')
@@ -91,8 +93,32 @@ def google_search(search_term, api_key, cse_id, how_many_queries, **kwargs):
     res_list = []
     for i in range(0,how_many_queries):
         start = i*10 + 1
-        res = service.cse().list(q=search_term, searchType='image', lr='lang_en', num = 10, start=start, cx=cse_id, **kwargs).execute()
-        res_list.append(res)
+        
+        exact_res = service.cse().list(
+            q=f"\"{search_term}\"", 
+            searchType='image', 
+            lr='lang_en', 
+            num=10, 
+            start=start, 
+            cx=cse_id, 
+            **kwargs
+        ).execute()
+        
+        # Second query: search without quotes
+        broad_res = service.cse().list(
+            q=search_term, 
+            searchType='image', 
+            lr='lang_en', 
+            num=10, 
+            start=start, 
+            cx=cse_id, 
+            **kwargs
+        ).execute()
+        
+        # Merge the results
+        combined_results = merge_search_results(exact_res, broad_res)
+        res_list.append(combined_results)
+        
     return res_list
 
 def init_files_and_paths(args):
@@ -218,16 +244,6 @@ def get_direct_search_annotation(search_results_lists, save_folder_path):
             for item_data in items_to_process
         }
         
-        # for future in cf.as_completed(futures, timeout=60):
-        #     try:
-        #         result = future.result(timeout=30)
-        #         if result:
-        #             category, image = result
-        #             results[category].append(image)
-        #     except Exception as e:
-        #         item_data = futures[future]
-        #         print(f'Failed to process item {item_data[1]}: {str(e)}')
-        
         try:
             for future in cf.as_completed(futures, timeout=60):  # Global timeout
                 try:
@@ -276,10 +292,30 @@ def main():
                   else (start_counter + 2*args.how_many if args.how_many > 0 
                         else len(cosmos_data)))
     
-    print(f"Processing items from {start_counter} to {end_counter}")
+    if args.random_index_path:
+        try:
+            with open(args.random_index_path, 'r') as f:
+                random_indices = [int(line.strip()) for line in f.readlines()]
+        except Exception as e:
+            print(f"Error in reading random indices file: {str(e)}")
+    else:
+        random_indices = list(range(start_counter, end_counter))
+    
+    # indices = []
+    # for idx in random_indices:
+    #     if idx % 2 == 0 and start_counter <= idx <= end_counter:
+    #         indices.append(idx)
+    #     elif idx % 2 == 1 and start_counter <= idx - 1 <= end_counter:
+    #         indices.append(idx - 1)
+            
+    # # Remove duplicate indices
+    # indices = list(set(indices))
+    # indices.sort()
+    
+    print(f"Processing items from {random_indices[0]} to {random_indices[-1]}")
     
     # Main processing loop
-    for i in tqdm.tqdm(range(start_counter, end_counter, 1)):
+    for i in tqdm.tqdm(random_indices):
         if args.skip_existing:
             if os.path.exists(os.path.join(full_save_path, str(i))):
                 # If the folder exists, and the direct_annotation.json file exists, skip the item
@@ -301,6 +337,8 @@ def main():
         # Process single query
         result = google_search(text_query, args.google_api_key, args.google_cse_id, 
                              how_many_queries=args.how_many_queries)
+        
+        print(result)
         
         direct_search_results = get_direct_search_annotation(result, new_folder_path)
         

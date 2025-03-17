@@ -1,0 +1,50 @@
+{
+  "caption": "Adam Lallana prepares to kick off with Philippe Coutinho",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Goalkeeper stops shot",
+      "Ball",
+      "Ball",
+      "Stadium",
+      "International rules football",
+      "Footballer",
+      "Goalkeeper",
+      "Kick"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Premier League: Liverpool v Arsenal  in pictures | Football | The Guardian",
+        "content": "P r e m i e r   L e a g u e :   L i v e r p o o l   v   A r s e n a l      i n   p i c t u r e s   |   F o o t b a l l   |   T h e   . . .",
+        "caption": "Adam Lallana prepares to kick off with Philippe Coutinho",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Liverpools Adam Lallana to miss at least two months due to thigh injury | Liverpool | The Guardian",
+        "content": "L i v e r p o o l ' s   A d a m   L a l l a n a   t o   m i s s   ' a t   l e a s t   t w o   m o n t h s '   d u e   t o   . . .",
+        "caption": "Adam Lallana was replaced at half-time against Atltico Madrid as a precaution on Wednesday.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have very low image and text similarity scores, indicating that they are not strongly related to the news caption. However, Candidate 1 contains an identical caption ('Adam Lallana prepares to kick off with Philippe Coutinho') as the news caption. Though the image similarity is 0, the matching caption provides some weak support. Due to low image similarity, it is difficult to confirm if the caption accurately represents the image. Therefore, I am conservatively assigning a 'False' verdict.",
+      "supporting_evidences": [
+        "Candidate 1: Caption matches the news caption verbatim."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "validation_summary": "The caption likely misrepresents the image due to low similarity between the image content and the claims of the caption, despite a match in wording.",
+    "explanation": "The image check result indicates a low image and text similarity score, with an identical caption appearing in the image candidates. However, this alone does not confirm that the caption accurately represents the image context. Given the low image similarity score of 0, it is challenging to ascertain if the caption correlates with the visual content. Furthermore, without direct evidence from the image, which might suggest another scenario or context unrelated to Lallana or Coutinho, the caption is thus deemed ‘Out of Context’ (OOC). Therefore, the relationship between the image and the caption raises enough uncertainty to assign an OOC determination."
+  },
+  "inference_time": 6.167048692703247,
+  "ablation_type": "no_filters"
+}

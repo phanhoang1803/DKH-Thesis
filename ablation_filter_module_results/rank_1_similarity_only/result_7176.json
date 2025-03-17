@@ -1,0 +1,44 @@
+{
+  "caption": "Star Wars screenwriter Lawrence Kasdan attends the premiere of The Force Awakens",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Photo: Lawrence Kasdan attends the premiere of \"Star Wars: The Force Awakens\" in Hollywood - LAP20151214120 - UPI.com",
+        "content": "P h o t o :   L a w r e n c e   K a s d a n   a t t e n d s   t h e   p r e m i e r e   o f   \" S t a r   W a r s :   T h e   . . .",
+        "caption": "Lawrence Kasdan attends the premiere of \"Star Wars: The Force Awakens\" in Hollywood",
+        "domain": "www.upi.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.791628897190094,
+        "text_similarity_score": 0.9187841415405273
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.791628897190094, which is less than 0.85. The text similarity score is 0.9187841415405273, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.791628897190094",
+        "Caption Similarity Score: 0.9187841415405273",
+        "The image similarity score is less than 0.85"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image similarity score is 0.791628897190094, which is less than 0.85. Although the text similarity score is 0.9187841415405273, which is greater than 0.7, the instructions dictate that if the image similarity score is below 0.85, the caption should be considered out-of-context. Thus, the caption is deemed not to accurately represent the image content.",
+    "validation_summary": "The image check's low similarity score indicates the image and caption are not well-aligned, thus using this image may mislead viewers about the event being described in the news content. The caption is therefore out of context for the image provided, despite high text similarity between the caption and news article content about Star Wars: The Force Awakens breaking records because the image similarity is low and this must overrule the high text similarity. The image does, however, depict Lawrence Kasdan at the premiere, as the caption suggests, but the image similarity is lower than 0.85, meaning it must be considered out of context."
+  },
+  "inference_time": 8.783611059188843,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

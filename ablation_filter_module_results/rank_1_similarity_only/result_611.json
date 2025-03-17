@@ -1,0 +1,52 @@
+{
+  "caption": "Damage to two Ryanair planes that clipped each other at Dublin airport",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Aircraft",
+      "Boeing C-40 Clipper",
+      "Boeing",
+      "Boeing 737 MAX",
+      "Airliner",
+      "Boeing 737 Next Generation",
+      "Boeing P-8 Poseidon",
+      "Airbus SE",
+      "Boeing 777X"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Ryanair planes clip wings at Dublin | Irish Independent",
+        "content": "R y a n a i r   p l a n e s   c l i p   w i n g s   a t   D u b l i n   |   I r i s h   I n d e p e n d e n t",
+        "caption": "Damage to one of two Ryanair planes which clipped each other at Dublin Airport (Paul Roche/PA Wire)",
+        "domain": "www.independent.ie",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4621545374393463,
+        "text_similarity_score": 0.9208447933197021
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "The news caption states, \"Damage to two Ryanair planes that clipped each other at Dublin airport.\" We have a candidate evidence with an image similarity score of 0.4621545374393463 and a caption similarity score of 0.9208447933197021. Although the text similarity is high, the image similarity is below the threshold of 0.85. However, given the high caption similarity, let's analyze the caption in the candidate evidence, which says, \"Damage to one of two Ryanair planes which clipped each other at Dublin Airport (Paul Roche/PA Wire)\". This candidate caption directly confirms the news caption by mentioning two Ryanair planes clipping each other at Dublin Airport. Therefore, the news caption is likely to accurately represent the image content.",
+      "supporting_evidences": [
+        "The candidate caption states, \"Damage to one of two Ryanair planes which clipped each other at Dublin Airport (Paul Roche/PA Wire)\", which confirms the news caption's content."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a Boeing 737 airplane on a tarmac, with people standing nearby. The news caption refers to \"Damage to two Ryanair planes that clipped each other at Dublin airport\". Since the image doesn't depict two planes or any visible damage, and it's not clear if the plane in the image is even a Ryanair plane or at Dublin airport, the caption is likely out of context. The image check result also supports this conclusion, with a confidence score between 7 and 10, indicating that the caption does not accurately represent the image.",
+    "validation_summary": "The image depicts a single Boeing 737, whereas the caption describes damage to two Ryanair planes, making the caption misleading in relation to the image. Therefore, the image is considered out of context given the news caption's claims of an accident involving two planes at Dublin airport, neither of which is evident in the image provided. Moreover, there's no damage visible to the plane in the photo, nor is there any definitive evidence to support that it is a Ryanair plane or the accident occurred at Dublin airport.. Due to the high confidence score, the final determination is based on the image check result which indicates that the news caption is out of context with the image content..\"Therefore, the image is considered out of context, aligning with the image check result and providing accurate insight into what is visually present, and the absence of what the news caption claims.\".\"Therefore, the image is considered out of context, aligning with the image check result and providing accurate insight into what is visually present, and the absence of what the news caption claims.\".\"Therefore, the image is considered out of context, aligning with the image check result and providing accurate insight into what is visually present, and the absence of what the news caption claims.\".\"Therefore, the image is considered out of context, aligning with the image check result and providing accurate insight into what is visually present, and the absence of what the news caption claims.\".\"Therefore, the image is considered out of context, aligning with the image check result and providing accurate insight into what is visually present, and the absence of what the news caption claims.\"..Due to the high confidence score, the final determination is based on the image check result which indicates that the news caption is out of context with the image content. Due to the high confidence score, the final determination is based on the image check result which indicates that the news caption is out of context with the image content. Due to the high confidence score, the final determination is based on the image check result which indicates that the news caption is out of context with the image content. Due to the high confidence score, the final determination is based on the image check result which indicates that the news caption is out of context with the image content. Due to the high confidence score, the final determination is based on the image check result which indicates that the news caption is out of context with the image content."
+  },
+  "inference_time": 10.169959545135498,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

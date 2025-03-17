@@ -1,0 +1,69 @@
+{
+  "caption": "This twofooted tackle on Morgan Schneiderlin meant that Mathieu Flamini was heading for an early bath Final score Cardiff City v Arsenal",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Morgan Schneiderlin",
+      "St Mary's Stadium",
+      "Southampton F.C.",
+      "Premier League",
+      "Arsenal F.C.",
+      "Manchester United F.C.",
+      "UEFA Europa League",
+      "Fulham F.C.",
+      "Liverpool F.C.",
+      "Mathieu Flamini"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8902594447135925,
+        "text_similarity_score": 0.04480579495429993
+      },
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8902594447135925,
+        "text_similarity_score": 0.04480579495429993
+      },
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.in",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8902594447135925,
+        "text_similarity_score": 0.04480579495429993
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores for all candidates are high (>= 0.85), but the text similarity scores are low (< 0.7). According to the instructions, if the image similarity score is >= 0.85 AND the text similarity score is < 0.7, the verdict should be 'False'. Because the captions are missing in all candidates, it's impossible to confirm any details about the news caption, 'This twofooted tackle on Morgan Schneiderlin meant that Mathieu Flamini was heading for an early bath Final score Cardiff City v Arsenal'. Due to the lack of information, I will mark the caption as out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result provides a confidence score of 10, indicating a strong certainty. The image check determines the image is out of context. The explanation is: \"The image similarity scores for all candidates are high (>= 0.85), but the text similarity scores are low (< 0.7). According to the instructions, if the image similarity score is >= 0.85 AND the text similarity score is < 0.7, the verdict should be 'False'. Because the captions are missing in all candidates, it's impossible to confirm any details about the news caption, 'This twofooted tackle on Morgan Schneiderlin meant that Mathieu Flamini was heading for an early bath Final score Cardiff City v Arsenal'. Due to the lack of information, I will mark the caption as out-of-context.\"",
+    "validation_summary": "The image check result indicates a mismatch between the image and caption, likely misleading viewers about the context of the image. Therefore, the image is out of context."
+  },
+  "inference_time": 9.471810817718506,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

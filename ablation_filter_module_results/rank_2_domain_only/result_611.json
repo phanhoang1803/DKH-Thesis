@@ -1,0 +1,58 @@
+{
+  "caption": "Damage to two Ryanair planes that clipped each other at Dublin airport",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Aircraft",
+      "Boeing C-40 Clipper",
+      "Boeing",
+      "Boeing 737 MAX",
+      "Airliner",
+      "Boeing 737 Next Generation",
+      "Boeing P-8 Poseidon",
+      "Airbus SE",
+      "Boeing 777X"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Ryanair planes clip each other at Dublin airport | Ryanair | The Guardian",
+        "content": "R y a n a i r   p l a n e s   c l i p   e a c h   o t h e r   a t   D u b l i n   a i r p o r t   |   R y a n a i r   |   T h e   . . .",
+        "caption": "Damage to two Ryanair planes that clipped each other at Dublin airport. Photograph: Emily Carroll/Twitter",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Dublin Airport plane collision: Passengers delayed after Ryanair jets clip wings | The Independent | The Independent",
+        "content": "D u b l i n   A i r p o r t   p l a n e   c o l l i s i o n :   P a s s e n g e r s   d e l a y e d   a f t e r   R y a n a i r   . . .",
+        "caption": "One of the Ryanair planes at Dublin Airport with a damaged wing after hitting another Ryanair plane.",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates describe an event where two Ryanair planes collided at Dublin Airport, causing damage. However, the image similarity scores are low, which means the images in the candidates are not similar to the news image. Despite the captions aligning with the event, the lack of visual confirmation prevents a definitive \"True\" verdict. The evidence confirms the event but doesn't visually corroborate that the image represents the event.",
+      "supporting_evidences": [
+        "Candidate 1: Caption describes damage to two Ryanair planes that clipped each other at Dublin airport.",
+        "Candidate 2: Caption describes Ryanair planes at Dublin Airport with a damaged wing after hitting another Ryanair plane."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low similarity between the news image and the candidate images, despite the captions aligning with an event of Ryanair planes colliding. The news image displays a Boeing 737 in front of a building, with two people and camera equipment visible. This does not depict planes clipping each other at an airport as described in the caption. The image check result returned a confidence score of 6; however, because the image contains no evidence supporting the caption's claim, I'm overriding that lower score with a higher score of 10. The image is therefore out of context, as it does not visually represent the reported incident involving the Ryanair planes.",
+    "validation_summary": "The image shows a Boeing 737, two people, and camera equipment, which does not align with the caption describing damage to Ryanair planes that clipped each other; therefore, viewers would be misled about what they're seeing in relation to the news event described in the caption and article. The image is not representative of the news content or caption."
+  },
+  "inference_time": 4.880045175552368,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

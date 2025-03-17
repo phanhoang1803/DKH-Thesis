@@ -1,0 +1,38 @@
+{
+  "caption": "Group G Cristiano Ronaldo reacts during Portugal s loss to Germany",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "U.S. fans happy despite loss to Germany | CNN",
+        "content": "U . S .   f a n s   h a p p y   d e s p i t e   l o s s   t o   G e r m a n y   |   C N N",
+        "caption": "Fans watch from Dupont Circle in Washington.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. This means that the candidate caption is completely different from the news caption, and the candidate image is completely different from the image in the news. Therefore, the candidate does not provide any information that proves the caption accurately represents what the news image shows and what the image is about.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Cristiano Ronaldo in a Real Madrid jersey on a soccer field, attempting to score against a goalkeeper. The caption mentions Cristiano Ronaldo reacting during Portugal's loss to Germany. The image check result shows a low similarity score between the image and the caption. Therefore, the caption does not accurately represent the image, making it out of context.",
+    "validation_summary": "The caption incorrectly associates Cristiano Ronaldo with a Portugal vs. Germany match, while the image depicts him playing for Real Madrid. This mismatch misrepresents the visual content to the viewer, leading to a false impression of the scene and context."
+  },
+  "inference_time": 3.5665855407714844,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

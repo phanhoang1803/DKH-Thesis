@@ -1,0 +1,39 @@
+{
+  "caption": "Crow at the Durham Miners Gala calling for the creation of a new party of labour",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 1,
+      "confidence_score": 10,
+      "explanation": "The caption describes the crow at the Durham Miners Gala. The image context describes a crow with a rectangular object strapped to its body. The caption and context are completely unrelated; therefore, the caption does not align with the image context.",
+      "supporting_evidences": [
+        "The caption talks about a political event, the Durham Miners Gala, which is not present in the image.",
+        "The image shows a crow with an object strapped to it, which is not mentioned in the caption."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "A black crow with an object strapped to its body.",
+      "context": "The image shows a black crow with a rectangular object attached to its body using tape and elastic bands. The crow is perched on what appears to be a tree branch. The background is blurred, suggesting an outdoor setting with trees and possibly buildings in the distance. The presence of the object strapped to the bird raises questions about its purpose and who might have attached it. Without additional information, it is difficult to determine the exact nature of the object or the reason for its attachment.",
+      "information": "The image features a black crow with an unidentified object strapped to its body."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a crow with a rectangular object duct-taped to its body. The caption states the crow is at the Durham Miners Gala and is calling for the creation of a new party of labour. These are two completely different contexts. Therefore, the caption does not align with the image context. Because the confidence score is 10, the final determination is based on the image check result.",
+    "validation_summary": "The image shows a crow with an unusual object attached to it, while the caption describes a political event involving a crow. The caption would mislead viewers about what is depicted in the image."
+  },
+  "inference_time": 3.738926410675049,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

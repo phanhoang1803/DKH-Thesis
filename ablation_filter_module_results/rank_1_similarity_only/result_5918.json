@@ -1,0 +1,40 @@
+{
+  "caption": "Arizona Cardinals free safety Tyrann Mathieu celebrates with cornerback Patrick Peterson after a 26yard interception against the Kansas City Chiefs",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "- YouTube",
+        "content": "",
+        "caption": "",
+        "domain": "www.youtube.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9398137331008911,
+        "text_similarity_score": 0.15491969883441925
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is high (0.9398137331008911), suggesting the images are visually similar. However, the text similarity score is low (0.15491969883441925), indicating that the captions are not similar. Since the text similarity score is below 0.7, the candidate does not provide sufficient textual evidence to confirm the accuracy of the news caption. Thus, I'm marking it as False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows two football players wearing Arizona Cardinals uniforms celebrating on a football field. The caption claims the players are Tyrann Mathieu and Patrick Peterson celebrating after an interception against the Kansas City Chiefs. The news content discusses Michael Vick signing with the Pittsburgh Steelers. The image check result shows a high image similarity score but a low text similarity score, suggesting the caption is not accurate. Since the image does not relate to the news content, the caption misrepresents the image's context.",
+    "validation_summary": "The image does not relate to the news content about Michael Vick signing with the Pittsburgh Steelers, and the text similarity is low, making the image out of context and potentially misleading to viewers. The image check result further supports this by showing a high image similarity score but a low text similarity score."
+  },
+  "inference_time": 6.533680438995361,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

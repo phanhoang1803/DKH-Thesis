@@ -1,0 +1,60 @@
+{
+  "caption": "Sunset in Lahaina on Maui Hawaii",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Canoe",
+      "Kayak",
+      "Sea",
+      "Sea kayak",
+      "Skiff",
+      "Dinghy",
+      "Personal watercraft",
+      "Watercraft",
+      "Sunset",
+      "0"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Lahaina Sunset - Cesere Brothers",
+        "content": "L a h a i n a   S u n s e t   -   C e s e r e   B r o t h e r s",
+        "caption": "Lahaina Sunset",
+        "domain": "www.ceserebrothers.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.39491692185401917,
+        "text_similarity_score": 0.8354654908180237
+      },
+      {
+        "title": "Lahaina Maui Sunset Photograph by Glen Thuncher - Pixels",
+        "content": "L a h a i n a   M a u i   S u n s e t   P h o t o g r a p h   b y   G l e n   T h u n c h e r   -   P i x e l s",
+        "caption": "Sunset Photograph - Lahaina Maui Sunset by Glen Thuncher",
+        "domain": "pixels.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5304397940635681,
+        "text_similarity_score": 0.8249236345291138
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are below 0.85, indicating that the images in the candidates do not closely match the news image. Although the text similarity scores are above 0.7, suggesting some similarity in the captions, the low image similarity necessitates a 'False' verdict. The captions mention 'Lahaina Sunset' which aligns with the news caption, but without strong image similarity, it's not possible to confirm that the news image accurately represents the content described in the candidate captions.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low image similarity between the provided image and the candidate images associated with captions mentioning 'Lahaina Sunset.' Despite some textual similarity, the lack of visual corroboration leads to the conclusion that the news caption is not an accurate representation of the image content. The image depicts a sunset scene with people kayaking, but there's no concrete evidence within the image to specifically tie it to Lahaina, Maui, Hawaii. Given the high confidence score from the image check result, I am prioritizing the image check's verdict. Therefore, the caption does not correctly represent the image.",
+    "validation_summary": "Without visual confirmation that the image is in Lahaina, Maui, Hawaii, the news caption would mislead viewers, making assumptions about the location based on text alone. The image itself displays a sunset and kayakers, but does not contain any distinguishing landmarks or features that would support the caption's claim of location."
+  },
+  "inference_time": 5.591617107391357,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

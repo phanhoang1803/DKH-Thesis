@@ -1,0 +1,52 @@
+{
+  "caption": "The Chinese lawyer Chen Guangcheng who has been held under house arrest for more than a year",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Plaza M",
+      "Courthouse"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Chinese activist flees house arrest | Chen Guangcheng | The Guardian",
+        "content": "C h i n e s e   a c t i v i s t   f l e e s   h o u s e   a r r e s t   |   C h e n   G u a n g c h e n g   |   T h e   G u a r d i a n",
+        "caption": "Chen Guangcheng: the activist and lawyer was under house arrest until fleeing on Sunday.  Photograph: AP",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.16716104745864868,
+        "text_similarity_score": 0.8282948136329651
+      },
+      {
+        "title": "Chen Guangcheng's nephew jailed after snap trial | Chen Guangcheng | The Guardian",
+        "content": "C h e n   G u a n g c h e n g ' s   n e p h e w   j a i l e d   a f t e r   s n a p   t r i a l   |   C h e n   G u a n g c h e n g   . . .",
+        "caption": "Chen Guangcheng, the Chinese activist who fled house arrest in April. Photograph: AP",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1956157386302948,
+        "text_similarity_score": 0.7304706573486328
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "Both candidates have low image similarity scores (less than 0.85). According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Since both candidates have image similarity scores below 0.85, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a man in a suit standing in what appears to be Washington D.C., with government buildings in the background. The caption describes the Chinese lawyer Chen Guangcheng who has been held under house arrest for more than a year. The image check result has a confidence score of 3 and states that the image similarity score is below 0.85, leading to the determination that the caption is out-of-context. Therefore, the caption is OOC because the image doesn't depict the person mentioned in the caption or anything related to house arrest or China.",
+    "validation_summary": "The caption is misleading because the image does not show the person mentioned in the caption, nor does it depict anything related to China or house arrest. The image is clearly taken in Washington D.C., featuring a man in a suit near government buildings, which contrasts with the caption's subject matter of a Chinese lawyer under house arrest."
+  },
+  "inference_time": 5.296942710876465,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

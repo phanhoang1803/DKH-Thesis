@@ -1,0 +1,50 @@
+{
+  "caption": "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Crime",
+      "Thames Valley Police",
+      "United Kingdom",
+      "Law enforcement in the United Kingdom",
+      "Police dog",
+      "Attempted murder",
+      "Image",
+      "Murder–suicide"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Three arrested after raid on slave factory in Rochdale | Manchester | The Guardian",
+        "content": "T h r e e   a r r e s t e d   a f t e r   r a i d   o n   ' s l a v e '   f a c t o r y   i n   R o c h d a l e   . . .",
+        "caption": "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever. Photograph: Christopher Furlong/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate provides strong evidence supporting the news caption. The caption in the candidate is identical to the news caption, and it originates from a reputable news source (The Guardian). This suggests that the news caption accurately reflects the image's content.",
+      "supporting_evidences": [
+        "Caption: Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever. Photograph: Christopher Furlong/Getty Images",
+        "Domain: www.theguardian.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows police tape with the words \"POLICE LINE DO NOT CROSS\". While the news content discusses a police raid on a factory in Rochdale, the image itself doesn't provide any specific details or evidence related to the location (Rochdale), the factory, or the arrests. The image of police tape is commonly associated with crime scenes, but it lacks specific context to support the caption's claim about a particular raid. Therefore, the image is used in a generic manner and could potentially mislead viewers into thinking they are seeing the actual raid when they are not. Based on the image check result, the caption is accurate, but the image is not representative.",
+    "validation_summary": "The image, showing generic police tape, doesn't provide specific details about the Rochdale factory raid and could mislead viewers. While the caption is factually accurate, the image itself does not show any evidence to support it."
+  },
+  "inference_time": 5.234787940979004,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

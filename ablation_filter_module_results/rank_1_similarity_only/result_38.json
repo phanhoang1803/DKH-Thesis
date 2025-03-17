@@ -1,0 +1,51 @@
+{
+  "caption": "The MyNameIs coalition will demonstrate Sunday at 11am across the street from Facebook s Menlo Park headquarters in California",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Page not found  Test Star",
+        "content": "",
+        "caption": "",
+        "domain": "teststar.in",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9720841646194458,
+        "text_similarity_score": 0.149132639169693
+      },
+      {
+        "title": "Facebook users plan protest against site's 'real name' policy at headquarters | Facebook | The Guardian",
+        "content": "7 a e 2 d c 8 5 - c a d e - 4 e 8 9 - 8 d b 8 -   . . .",
+        "caption": "The #MyNameIs coalition will demonstrate Sunday at 11am across the street from Facebooks Menlo Park headquarters in California.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9905239343643188,
+        "text_similarity_score": 0.965168833732605
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 2 has a high image similarity score of 0.9905239343643188 and a high caption similarity score of 0.965168833732605. This strongly suggests that the caption accurately represents the image content. Thus, it confirms the caption's accuracy in representing the image.",
+      "supporting_evidences": [
+        "The #MyNameIs coalition will demonstrate Sunday at 11am across the street from Facebook’s Menlo Park headquarters in California."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result shows a high confidence score of 10, and the explanation indicates that the caption accurately represents the image content. The image shows a person looking at a Facebook page on a laptop. The news content discusses a planned demonstration outside Facebook's headquarters. The supporting evidence confirms the connection between the demonstration and Facebook, aligning with the visual representation in the image.",
+    "validation_summary": "The caption accurately reflects the image content, showing a person using Facebook in relation to a demonstration at Facebook's headquarters, thus not misleading viewers about the image's context within the news article. The image accurately portrays the user interface of Facebook aligning with the article's content about Facebook's policies being demonstrated against, supporting the image's context to the news story."
+  },
+  "inference_time": 12.109062433242798,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

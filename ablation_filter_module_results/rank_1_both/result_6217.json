@@ -1,0 +1,50 @@
+{
+  "caption": "Screenshot from a Xi Jinping fan site on Sina Weibo",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Jang Song-thaek",
+      "South Korea",
+      "Pyongyang",
+      "Supreme Leader of North Korea",
+      "United States",
+      "Korean People's Army",
+      "National Defence Commission",
+      "Korean Central News Agency",
+      "On-the-spot guidance"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 9,
+      "confidence_score": 10,
+      "explanation": "The caption 'Screenshot from a Xi Jinping fan site on Sina Weibo' accurately describes the image context, which involves online discussions among supporters of Xi Jinping on a microblogging platform (Sina Weibo). The image features social media posts indicative of enthusiasm for Xi Jinping's leadership. The caption does not misrepresent the image content and aligns well with the provided information.",
+      "supporting_evidences": [
+        "The image context confirms the presence of social media posts related to Xi Jinping.",
+        "The context describes the microblogging platform (Sina Weibo) as a place where fans discuss and support Xi Jinping.",
+        "The image content revolves around supporters and fans of Xi Jinping."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image in question depicts an online discussion involving fans and supporters of Xi Jinping, the current General Secretary of the Communist Party of China. It features social media posts and interactions that are visually layered to imply enthusiasm and support for Xi Jinping's leadership style, often referred to affectionately as \"Pingping\" by his followers. The background prominently includes various logos and emblems associated with the Communist Party and its activities in China, reinforcing the political context of the image.",
+      "caption": "Online supporters engage in discussions and share content praising Xi Jinping.",
+      "context": "The current image relates to a news event focusing on Xi Jinping, China's General Secretary, as he embarks on his public engagements and emerges as a more approachable leader. The discussions in the image reflect the emergent phenomenon of social media fans who have rallied in support of Xi, particularly through a microblogging platform. The context centers around the analysis of how this microblog known as the 'Learning from Xi Fan Club' has become a tool for promoting his image and transmitting news ahead of the official state media, illustrating a shift towards a more interactive and popular approach to political communication in China. This microblog has garnered considerable attention for its early reporting on Xi's public appearances, steering the narrative in favor of his leadership style and aligning with broader themes of propaganda within the Chinese political landscape."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts Kim Jong-un inspecting a factory with other officials, not content from a Xi Jinping fan site on Sina Weibo. The image check result indicates a high alignment score, but since the image shows a factory inspection scene, it does not align with the caption's claim of being a screenshot from a Xi Jinping fan site on Sina Weibo. Therefore, the caption is out of context.",
+    "validation_summary": "The image shows a factory inspection, not a screenshot from a Xi Jinping fan site, making the caption misleading and out of context for this image. Viewers would be misled about the content of the image if they were to interpret it as a screenshot from the specified fan site."
+  },
+  "inference_time": 4.402688264846802,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

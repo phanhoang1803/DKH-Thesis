@@ -1,0 +1,41 @@
+{
+  "caption": "Obama pointed to the success in California as a positive signal during a trip to San Francisco",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "official",
+      "Event"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "What Happened to San Francisco, Really? | The New Yorker",
+        "content": "W h a t   H a p p e n e d   t o   S a n   F r a n c i s c o ,   R e a l l y ?   |   T h e   N e w   Y o r k e r",
+        "caption": "People walk through a San Francisco street.",
+        "domain": "www.newyorker.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0, and the text similarity score is 0.0. The candidate caption describes a general scene in San Francisco, while the news caption mentions Obama and a positive signal in California. There is no mention of Obama or any success in California in the candidate caption. Therefore, the candidate does not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 2 and a verdict of False, indicating the caption does not accurately represent the image. The image shows Obama speaking at a podium with other people behind him. The caption states Obama pointed to the success in California. The image shows Obama, who is mentioned in the caption, but it does not show anything about \"success in California\". The image check result is accurate, so the caption is out of context.",
+    "validation_summary": "The caption mentions Obama and California's success, while the image only shows Obama speaking and provides no visual evidence of success, misleading viewers about the context of the event depicted in the image; therefore, the image is OOC (Out of Context). In addition, the Image Check Result is negative and supports the conclusion that the caption does not accurately reflect the image."
+  },
+  "inference_time": 4.333150386810303,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

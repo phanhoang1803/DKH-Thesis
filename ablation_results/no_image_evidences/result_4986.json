@@ -1,0 +1,46 @@
+{
+  "caption": "Dana White president of UFC speaks during the 2016 Republican National Convention",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "UFC president Dana White stumps for Trump at Republican convention | UFC | The Guardian",
+        "content": "U F C   p r e s i d e n t   D a n a   W h i t e   s t u m p s   f o r   T r u m p   a t   R e p u b l i c a n   c o n v e n t i o n   . . .",
+        "caption": "UFC president Dana White speaks during the Republican National Convention in Cleveland on Tuesday night.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2798139452934265,
+        "text_similarity_score": 0.9118791222572327
+      },
+      {
+        "title": "UFC's Dana White tells RNC Donald Trump 'will fight for this country' - Los Angeles Times",
+        "content": "U F C ' s   D a n a   W h i t e   t e l l s   R N C   D o n a l d   T r u m p   ' w i l l   f i g h t   f o r   t h i s   . . .",
+        "caption": "UFC President Dana White speaks on the second day of the 2016 Republican National Convention on Tuesday.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.34894561767578125,
+        "text_similarity_score": 0.8928732872009277
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have low image similarity scores (less than 0.85). However, both candidates have high caption similarity scores (greater than 0.7). Since the image similarity scores are low, the captions must be marked as out-of-context. Therefore, the news caption does not accurately represent what the image shows and what the image is about. The candidates captions indicates that Dana White spoke at the Republican National Convention in Cleveland on Tuesday night.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: UFC president Dana White speaks during the Republican National Convention in Cleveland on Tuesday night.",
+        "Candidate 2: Caption: UFC President Dana White speaks on the second day of the 2016 Republican National Convention on Tuesday."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the news caption does not accurately represent what the image shows and what the image is about. The high caption similarity and low image similarity scores confirm this. The candidates captions indicate that Dana White spoke at the Republican National Convention in Cleveland on Tuesday night. Therefore, the image is out of context.",
+    "validation_summary": "The image is out of context because the visual content does not align with the caption's claim, potentially misleading viewers about the event and speaker depicted. The image check results confirm that the caption does not accurately represent the image content."
+  },
+  "inference_time": 4.743811845779419,
+  "ablation_type": "no_image_evidences"
+}

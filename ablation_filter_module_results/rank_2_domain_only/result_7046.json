@@ -1,0 +1,48 @@
+{
+  "caption": "Matthew McConaughey accepts the Oscar for best actor for his role in Dallas Buyers Club",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Matthew McConaughey wins best actor Oscar for Dallas Buyers Club | Dallas Buyers Club | The Guardian",
+        "content": "M a t t h e w   M c C o n a u g h e y   w i n s   b e s t   a c t o r   O s c a r   f o r   D a l l a s   B u y e r s   C l u b   . . .",
+        "caption": "Matthew McConaughey has won the best actor Oscar for his performance in Dallas Buyers Club. Photograph: Anne Marie Fox",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Matthew McConaughey: Twitter reacts to Best Actor Oscar-winner thanking himself in acceptance speech | The Independent | The Independent",
+        "content": "M a t t h e w   M c C o n a u g h e y :   T w i t t e r   r e a c t s   t o   B e s t   A c t o r   O s c a r - w i n n e r   . . .",
+        "caption": "Matthew McConaughey accepts the Best Performance by an Actor in a Leading Role award for 'Dallas Buyers Club' onstage during the Oscars at the Dolby Theatre in Hollywood",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity scores are below 0.85 for both candidates. The text similarity scores are also below 0.7. Thus, I need to analyze the captions and candidate to give the final decision.\n\nBoth candidates confirm that Matthew McConaughey won the best actor Oscar for his performance in Dallas Buyers Club at the Oscars. Therefore, the caption is likely accurate.\n\nHowever, it is not explicitly confirmed that Matthew McConaughey is accepting the award in the image. Therefore, I cannot give a definitive True verdict.",
+      "supporting_evidences": [
+        "Matthew McConaughey has won the best actor Oscar for his performance in Dallas Buyers Club.",
+        "Matthew McConaughey accepts the Best Performance by an Actor in a Leading Role award for 'Dallas Buyers Club' onstage during the Oscars at the Dolby Theatre in Hollywood"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 7. The image shows Matthew McConaughey holding an Oscar statue and standing at a microphone. The caption claims he is accepting the Oscar for best actor for his role in Dallas Buyers Club. Although the image check states that it is not explicitly confirmed that Matthew McConaughey is accepting the award in the image, his appearance at the microphone while holding the statue suggests that he is making a speech and therefore likely accepting the award. However, because it is not definitively shown in the image, the claim that he is accepting the award cannot be fully verified. Therefore, I must mark this as potentially misleading and OOC = True.",
+    "validation_summary": "While the image shows Matthew McConaughey holding an Oscar statue, it is not explicitly confirmed he is accepting the award, making the caption potentially misleading. Viewers might assume the image directly shows him accepting the award, which isn't definitively evident."
+  },
+  "inference_time": 4.057236909866333,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

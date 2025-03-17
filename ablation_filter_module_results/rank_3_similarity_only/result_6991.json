@@ -1,0 +1,58 @@
+{
+  "caption": "Charles Woodson climbs the stairs to the roof to give a tour of Woodley Park Tower Woodson who is called Mr Charles by residents knows every inch of the building",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Soompi",
+        "content": "",
+        "caption": "",
+        "domain": "www.soompi.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9326431751251221,
+        "text_similarity_score": 0.10452932119369507
+      },
+      {
+        "title": "Soompi",
+        "content": "",
+        "caption": "",
+        "domain": "www.soompi.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9326431751251221,
+        "text_similarity_score": 0.10452932119369507
+      },
+      {
+        "title": "Environmental and Urban Economics: Would Dennis Rodman Be a Good Dean of the Fletcher School?",
+        "content": "",
+        "caption": "",
+        "domain": "greeneconomics.blogspot.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8800936937332153,
+        "text_similarity_score": 0.10452932119369507
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for all candidates are high (>= 0.85), suggesting a visual match. However, the text similarity scores are low (< 0.7), indicating that the captions of the candidates do not closely align with the news caption. Since there is no content provided within any of the candidates, and based on the low text similarity, I cannot confirm if the news caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a high visual match between the provided image and candidate images (scores >= 0.85) but low text similarity (scores < 0.7) between the news caption and the captions of the candidate images. The news caption claims that Charles Woodson is climbing stairs to the roof to give a tour of Woodley Park Tower and is called Mr. Charles by residents. The image shows a Black man, possibly Charles Woodson, surrounded by reporters and microphones, suggesting he's giving a statement or being interviewed. The scene does not depict a tour of Woodley Park Tower or him climbing stairs. The image check results suggest a disconnect between the visual content and the caption's specific claims. Thus, the caption is misleading because it does not accurately represent the scene in the image.",
+    "validation_summary": "The news caption does not accurately reflect the image, which depicts a man surrounded by reporters, not giving a tour of a building. The caption creates a false impression of the image's content."
+  },
+  "inference_time": 8.010128498077393,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

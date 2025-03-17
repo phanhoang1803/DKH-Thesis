@@ -1,0 +1,38 @@
+{
+  "caption": "May 5 Montreal Canadiens right wing Brandon Prust was fined 5000 for publicly criticizing referee Brad Watson after a Game 2 loss Hockey operations handed down the fine",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "2014-15 NHL suspension tracker",
+        "content": "2 0 1 4 - 1 5   N H L   s u s p e n s i o n   t r a c k e r",
+        "caption": "Stephane Quintal is in his second full season as head of the NHL's player safety department. There have been 10 suspensions (61 games total) and 10 players fined for a total of $747,182.14 in lost pay. A closer look:",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, I need to base my decision on the text of the caption and the content of the candidate evidence. However, the candidate evidence does not provide any information that supports the caption. The caption discusses a fine given to Brandon Prust for criticizing a referee, while the candidate evidence discusses Stephane Quintal and NHL player safety.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows two hockey players fighting on the ice, one in a Montreal Canadiens jersey and the other in a Tampa Bay Lightning jersey. A referee is attempting to break up the fight. The caption discusses a fine given to Brandon Prust for criticizing a referee. Since the image shows a fight and the caption talks about a fine for criticizing a referee, it is highly misleading to associate the image with the caption. The image check confirms that the caption is not representative of the image.",
+    "validation_summary": "The image depicts a hockey fight, while the caption describes a fine for criticizing a referee, misleading viewers about the image's context and content. The image check confirms this misalignment, indicating the caption is not representative of the image content."
+  },
+  "inference_time": 3.6375153064727783,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

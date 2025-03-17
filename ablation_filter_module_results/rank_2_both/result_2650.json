@@ -1,0 +1,54 @@
+{
+  "caption": "Mitchell Johnson is congratulated after taking the wicket of Kohli",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Test cricket",
+      "Cricket",
+      "First-class cricket",
+      "Limited overs cricket",
+      "One Day International",
+      "Team",
+      "Over",
+      "referee"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Virat Kohli recovers to make hundred after being hit on helmet by Mitchell Johnson | Mitchell Johnson | The Guardian",
+        "content": "V i r a t   K o h l i   r e c o v e r s   t o   m a k e   h u n d r e d   a f t e r   b e i n g   h i t   o n   h e l m e t   b y   . . .",
+        "caption": "Mitchell Johnson is congratulated after taking the wicket of Kohli.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9929074048995972,
+        "text_similarity_score": 0.9906731247901917
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate evidence has a high image similarity score (0.9929074048995972) and a high text similarity score (0.9906731247901917). This indicates that the image and caption in the candidate evidence closely match the image and caption in the news article. The caption from www.theguardian.com states 'Mitchell Johnson is congratulated after taking the wicket of Kohli,' which exactly matches the news caption.",
+      "supporting_evidences": [
+        "Caption: Mitchell Johnson is congratulated after taking the wicket of Kohli.",
+        "Image Similarity Score: 0.9929074048995972",
+        "Caption Similarity Score: 0.9906731247901917",
+        "Domain: www.theguardian.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high image similarity score (0.9929074048995972) and a high text similarity score (0.9906731247901917), which confirms that the image and caption in the candidate evidence closely match the news image and caption. The caption from www.theguardian.com states 'Mitchell Johnson is congratulated after taking the wicket of Kohli,' which exactly matches the news caption. The image depicts Mitchell Johnson being congratulated, supporting the caption's claim.",
+    "validation_summary": "The image accurately depicts Mitchell Johnson being congratulated, which aligns with the caption. Therefore, viewers would not be misled about what they're seeing in the image."
+  },
+  "inference_time": 4.953635931015015,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

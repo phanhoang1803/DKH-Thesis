@@ -1,0 +1,52 @@
+{
+  "caption": "Ted Cruz drops out of race We left it all on the field in Indiana",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Ted Cruz",
+      "Thailand",
+      "The Others",
+      "Helmet",
+      "Text",
+      "Public speaking",
+      "Thai",
+      "Motorcycle",
+      "Manifesto"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Ted Cruz Drops Out Of Presidential Race After Indiana Loss",
+        "content": "T e d   C r u z   D r o p s   O u t   O f   P r e s i d e n t i a l   R a c e   A f t e r   I n d i a n a   L o s s",
+        "caption": "Ted Cruz Drops Out Of Presidential Race After Indiana Loss",
+        "domain": "www.newson6.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Cruz Ending Campaign After Indiana Loss to Trump | The Texas Tribune",
+        "content": "C r u z   E n d i n g   C a m p a i g n   A f t e r   I n d i a n a   L o s s   t o   T r u m p   |   T h e   T e x a s   T r i b u n e",
+        "caption": "Texas Sen. Ted Cruz announces his withdrawal from the presidential campaign in Indianapolis, Indiana on May 3, 2016.",
+        "domain": "www.texastribune.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption mentions Ted Cruz dropping out of the race after Indiana. Candidate 1 explicitly states 'Ted Cruz Drops Out Of Presidential Race After Indiana Loss'. This confirms the event. Candidate 2 confirms 'Texas Sen. Ted Cruz announces his withdrawal from the presidential campaign in Indianapolis, Indiana on May 3, 2016.'. This provides additional context, including the location and date. However, neither candidate explicitly quotes or directly refers to the phrase 'We left it all on the field in Indiana,' which is part of the news caption. Therefore, the entire caption is not fully supported.",
+      "supporting_evidences": [
+        "Ted Cruz Drops Out Of Presidential Race After Indiana Loss",
+        "Texas Sen. Ted Cruz announces his withdrawal from the presidential campaign in Indianapolis, Indiana on May 3, 2016."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "validation_summary": "The caption suggests a specific moment of competitive spirit and camaraderie which may not be directly depicted in the image.",
+    "explanation": "The news caption states that 'Ted Cruz drops out of the race' and adds the phrase 'We left it all on the field in Indiana.' The accompanying image check confirms that the event of Ted Cruz dropping out of the presidential race occurred after his loss in Indiana. However, while it mentions Cruz leaving it all in the field, this phrase implies a sense of combativeness and camaraderie not visually represented in the image itself. The overall context of Cruz's statement may evoke strong emotion, but without an image that illustrates this sentiment, the precise representation is questionable. The supporting evidences from the image check affirm that Cruz's withdrawal is accurate, but there is ambiguity regarding the emotional weight conveyed in the caption as it does not visually correlate with what is seen in the image."
+  },
+  "inference_time": 6.028946399688721,
+  "ablation_type": "no_filters"
+}

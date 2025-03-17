@@ -1,0 +1,42 @@
+{
+  "caption": "Republican presidential candidates from left Marco Rubio Jeb Bush and Ben Carson talk during a break during the first Republican presidential debate",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Jon Stewart, the GOP debate and the great suit divide - Los Angeles Times",
+        "content": "J o n   S t e w a r t ,   t h e   G O P   d e b a t e   a n d   t h e   g r e a t   s u i t   d i v i d e   -   L o s   . . .",
+        "caption": "Republican presidential candidates from left, Marco Rubio, Jeb Bush and Ben Carson talk Thursday during a break in the first Republican presidential debate.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3219121992588043,
+        "text_similarity_score": 0.9580883383750916
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.3219121992588043, which is less than 0.85. The text similarity score is 0.9580883383750916, which is greater than 0.7. Based on the instructions, since the image similarity score is below 0.85, the caption should be marked as out-of-context, even though the text similarity score is high. The candidate caption includes the names 'Marco Rubio', 'Jeb Bush', and 'Ben Carson' and specifies they are 'Republican presidential candidates' talking during a break in the first Republican presidential debate. This aligns with the news caption, which mentions the same candidates and event. However, due to the low image similarity, a definitive 'True' verdict is not possible.",
+      "supporting_evidences": [
+        "The candidate caption mentions 'Marco Rubio', 'Jeb Bush', and 'Ben Carson' as 'Republican presidential candidates' talking during a break in the first Republican presidential debate, mirroring the news caption."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result provides a confidence score of 7, which requires the final determination to be based on the image check result. The image similarity score is 0.3219121992588043, which is less than 0.85. The text similarity score is 0.9580883383750916, which is greater than 0.7. According to the instructions, since the image similarity score is below 0.85, the caption should be marked as out-of-context, even though the text similarity score is high. The individuals shown in the image are not at a debate; they appear to be interacting with children in what seems to be a camp or temporary settlement. Thus, the caption implying a debate setting is misleading. Therefore, the image is out of context.",
+    "validation_summary": "The image does not show Republican candidates at a debate; instead, they are interacting with children in what appears to be a camp, so the caption is misleading and out of context. The low image similarity score confirms this determination."
+  },
+  "inference_time": 5.858534574508667,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "caption": "Kansas City Chiefs running back Peyton Hillis takes the ball to head coach Romeo Crennel after scoring a touchdown against the Carolina Panthers in the first half at Arrowhead Stadium",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Chiefs' emotional win",
+        "content": "C h i e f s '   e m o t i o n a l   w i n",
+        "caption": "Kansas City Chiefs running back Peyton Hillis (40) takes the ball to head coach Romeo Crennel after scoring a touchdown against the Carolina Panthers in the first half at Arrowhead Stadium.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7389915585517883,
+        "text_similarity_score": 0.9803224205970764
+      },
+      {
+        "title": "Chiefs win even as they grieve over murder-suicide",
+        "content": "C h i e f s   w i n   e v e n   a s   t h e y   g r i e v e   o v e r   m u r d e r - s u i c i d e",
+        "caption": "Chiefs head coach Romeo Crennel was given a football by Peyton Hillis after the running back scored a touchdown.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4870057702064514,
+        "text_similarity_score": 0.8767485618591309
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "We have two candidates. Candidate 1 has an image similarity score of 0.7389915585517883 and a text similarity score of 0.9803224205970764. Candidate 2 has an image similarity score of 0.4870057702064514 and a text similarity score of 0.8767485618591309. Both image similarity scores are below 0.85, so according to the instructions, the caption is out-of-context. However, since the caption from candidate 1 is almost identical to the news caption, it is very likely that the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "Kansas City Chiefs running back Peyton Hillis (40) takes the ball to head coach Romeo Crennel after scoring a touchdown against the Carolina Panthers in the first half at Arrowhead Stadium."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a football game with players in black and yellow uniforms tackling players in white and blue uniforms. The image check result indicates that the caption is out of context because the image similarity scores are below 0.85. The news caption describes Peyton Hillis scoring a touchdown for the Kansas City Chiefs against the Carolina Panthers, while the image shows players from different teams. Therefore, the caption does not accurately represent the image content.",
+    "validation_summary": "The provided caption is out of context as it describes a football game with specific teams and players that do not match the teams and action depicted in the image, potentially misleading viewers about the context of the photo. The image shows a football game but not the game described in the caption."
+  },
+  "inference_time": 5.834866285324097,
+  "ablation_type": "no_image_evidences"
+}

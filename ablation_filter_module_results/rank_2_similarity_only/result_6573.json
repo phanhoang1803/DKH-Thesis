@@ -1,0 +1,70 @@
+{
+  "caption": "David Weiss of FischliWeiss in the Swiss Pavilion at the Venice Biennale in 1995",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "varuta.info",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9948300123214722,
+        "text_similarity_score": 0.10717722773551941
+      },
+      {
+        "title": "Loading...",
+        "content": "",
+        "caption": "",
+        "domain": "aldaketahamasei.info",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9948300123214722,
+        "text_similarity_score": 0.10717722773551941
+      },
+      {
+        "title": "David Weiss obituary | Art | The Guardian",
+        "content": "D a v i d - W e i s s - 0 0 8 . j p g ? w i d t h = 1 2 0 0   . . .",
+        "caption": "David Weiss of Fischli/Weiss in the Swiss Pavilion at the Venice Biennale in 1995. Photograph: Galerie Eva Presenhuber",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1579233705997467,
+        "text_similarity_score": 0.8784986734390259
+      },
+      {
+        "title": "David Weiss obituary | Art | The Guardian",
+        "content": "D a v i d   W e i s s   o b i t u a r y   |   A r t   |   T h e   G u a r d i a n",
+        "caption": "David Weiss of Fischli/Weiss in the Swiss Pavilion at the Venice Biennale in 1995. Photograph: Galerie Eva Presenhuber",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.15762965381145477,
+        "text_similarity_score": 0.8784986734390259
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Candidate 3 and 4 have a text similarity score of 0.87, which indicates a strong similarity between the caption of the news and the captions of the candidates. The captions of candidates 3 and 4 are 'David Weiss of Fischli/Weiss in the Swiss Pavilion at the Venice Biennale in 1995. Photograph: Galerie Eva Presenhuber'. This caption is very similar to the news caption, 'David Weiss of FischliWeiss in the Swiss Pavilion at the Venice Biennale in 1995'. The image similarity scores of candidates 3 and 4 are low (0.1579233705997467 and 0.15762965381145477 respectively), indicating that the images themselves do not match. However, since the captions align well, I can assume that the news image is likely related to the event described in the captions of Candidates 3 and 4. Candidates 1 and 2 have very high image similarity score but very low text similarity score, therefore, these candidates does not provide useful information.",
+      "supporting_evidences": [
+        "Candidate 3",
+        "Candidate 4"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a strong similarity between the news caption and the captions of candidates 3 and 4, which state 'David Weiss of Fischli/Weiss in the Swiss Pavilion at the Venice Biennale in 1995'. Despite the low image similarity scores between the news image and those candidates, the alignment of the captions suggests that the news image is likely related to the event described, and thus, the caption provides a correct representative summary of the image content.",
+    "validation_summary": "The caption aligns with other instances of the image online, suggesting it correctly represents the image content despite a low image similarity score during the image check. Therefore, viewers would not be misled about what they're seeing."
+  },
+  "inference_time": 6.932004451751709,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

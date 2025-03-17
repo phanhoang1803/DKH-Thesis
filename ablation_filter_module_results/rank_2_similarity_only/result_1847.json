@@ -1,0 +1,59 @@
+{
+  "caption": "Ed Miliband campaigning in Oldham East and Saddleworth before Christmas",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Ed Balls",
+      "Labour Party",
+      "Shadow Chancellor of the Exchequer",
+      "Shadow Home Secretary of the United Kingdom",
+      "front",
+      "Leader of the Labour Party of the United Kingdom",
+      "past",
+      "Resonant Chord",
+      "side"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Miliband raises the stakes as the battle for Oldham East intensifies | Ed Miliband | The Guardian",
+        "content": "O l d h a m - E a s t - a n d - S a d d l e w o r - 0 0 7 .   . . .",
+        "caption": "Ed Miliband campaigning in Oldham East and Saddleworth before Christmas. Photograph: Anna Gowthorpe/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4132268726825714,
+        "text_similarity_score": 0.8511050939559937
+      },
+      {
+        "title": "Miliband raises the stakes as the battle for Oldham East intensifies | Ed Miliband | The Guardian",
+        "content": "O l d h a m - E a s t - a n d - S a d d l e w o r - 0 0 7 .   . . .",
+        "caption": "Ed Miliband campaigning in Oldham East and Saddleworth before Christmas. Photograph: Anna Gowthorpe/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.40335091948509216,
+        "text_similarity_score": 0.8511050939559937
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are below 0.85 (0.4132268726825714 and 0.40335091948509216). According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image similarity scores are below 0.85, which suggests that the caption doesn't accurately represent the image content. The image shows Ed Miliband speaking at a podium with a red background and text that reads \"A better plan. A better future.\" The caption mentions \"Ed Miliband campaigning in Oldham East and Saddleworth before Christmas.\" Although the image does feature Ed Miliband, there's no visual evidence that it specifically relates to a campaign event in Oldham East and Saddleworth or that it took place before Christmas. Since the image check verdict is of high confidence, its determination is used, and the caption is marked as OOC.",
+    "validation_summary": "The caption inaccurately represents the image content because there is no visual evidence linking the image to the specified location and time mentioned in the caption, and the image check confirms this discrepancy with high confidence. Viewers may be misled to believe the image captures a specific campaign event when the image provides no such indication."
+  },
+  "inference_time": 5.47073769569397,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "caption": "Armstrong behind eventual 2009 Tour winner Alberto Contador",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Lance Armstrong on Tour de France spat with Contador: The best man won | Cyclingnews",
+        "content": "L a n c e   A r m s t r o n g   o n   T o u r   d e   F r a n c e   s p a t   w i t h   C o n t a d o r :   T h e   b e s t   m a n   . . .",
+        "caption": "Alberto Contador and Lance Armstrong on the 2009 Tour de France podium in Paris ",
+        "domain": "www.cyclingnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6528075337409973,
+        "text_similarity_score": 0.8374923467636108
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.6528075337409973 and the text similarity score is 0.8374923467636108. Since the image similarity score is less than 0.85, the caption is considered out-of-context despite the high text similarity score. The candidate caption mentions Alberto Contador and Lance Armstrong on the 2009 Tour de France podium, which aligns with the news caption mentioning Armstrong behind Alberto Contador. The key point is to verify if the image corresponds to the 2009 Tour de France. While the text aligns well, the low image similarity prevents confirmation, as it cannot be determined if the image is indeed of that event.",
+      "supporting_evidences": [
+        "The candidate caption mentions Alberto Contador and Lance Armstrong on the 2009 Tour de France podium, which aligns with the news caption.",
+        "Image Similarity Score: 0.6528075337409973",
+        "Text Similarity Score: 0.8374923467636108"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the caption is out of context. The image similarity score is 0.6528075337409973, which is less than 0.85, suggesting the image content does not strongly support the caption's claim about Armstrong being behind Alberto Contador in the 2009 Tour de France. Although the text similarity score is high (0.8374923467636108), the low image similarity prevents confirmation. The image shows a close-up of a cyclist with sunglasses and sweat, but it doesn't provide sufficient information to confirm the individuals involved or the specific event. Therefore, viewers would be misled about what they're seeing in relation to the caption.",
+    "validation_summary": "The low image similarity score suggests that the image content doesn't strongly support the caption's claim about Armstrong being behind Alberto Contador in the 2009 Tour de France, leading to a misleading representation. Although text aligns, image similarity is low."
+  },
+  "inference_time": 6.752729654312134,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

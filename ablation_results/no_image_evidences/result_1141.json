@@ -1,0 +1,34 @@
+{
+  "caption": "Mars as seen from Earth in 1999 the last time the two planets were similarly placed",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Starwatch: Mars at its closest | Mars | The Guardian",
+        "content": "S t a r w a t c h :   M a r s   a t   i t s   c l o s e s t   |   M a r s   |   T h e   G u a r d i a n",
+        "caption": "Mars as seen from Earth in 1999  the last time the two planets were similarly placed. Photograph: NASA/STScI",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5709537267684937,
+        "text_similarity_score": 0.9047856330871582
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.5709537267684937 and the text similarity score is 0.9047856330871582. Since the image similarity score is less than 0.85, the caption is automatically determined to be out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption is misleading as it inaccurately suggests that the image depicts Mars as viewed from Earth in 1999.",
+    "explanation": "The caption states 'Mars as seen from Earth in 1999' which implies that the image is a representation of Mars from that particular date. However, the image could be a more recent or different depiction not specifically tied to the time frame mentioned in the caption, especially as the image similarity scores indicate a lack of alignment with the claim made. The context around the Red Planet's viewing is also specifically tied to events in April 2016, which diverges from the assertion that it represents a view from 1999. This disparity indicates that the caption doesn't accurately represent the content and timing of the image, leading to potential confusion for viewers."
+  },
+  "inference_time": 5.927570343017578,
+  "ablation_type": "no_image_evidences"
+}

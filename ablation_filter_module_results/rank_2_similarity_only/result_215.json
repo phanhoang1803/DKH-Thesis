@@ -1,0 +1,70 @@
+{
+  "caption": "Apple unveiled new AirPods wireless headphones for its new iPhone 7",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Hurricane Sandy",
+      "Seaside Heights Boardwalk",
+      "Beach",
+      "Storm",
+      "Tropical Cyclone",
+      "Dune",
+      "Coast",
+      "Storm surge",
+      "2012",
+      "Sand"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Images before and after Hurricane Sandy",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8728152513504028,
+        "text_similarity_score": 0.019218238070607185
+      },
+      {
+        "title": "Images before and after Hurricane Sandy",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8728152513504028,
+        "text_similarity_score": 0.019218238070607185
+      },
+      {
+        "title": "Apple bets big on a wireless world  The Denver Post",
+        "content": "A p p l e   b e t s   b i g   o n   a   w i r e l e s s   w o r l d      T h e   D e n v e r   P o s t",
+        "caption": "A new Apple iPhone 7 is seen during a launch event on September 7, 2016 in San Francisco, California. Apple Inc. unveiled the latest iterations of its smart phone, the iPhone 7 and 7 Plus, the Apple Watch Series 2, as well as AirPods, the tech giant's first wireless headphones.  ",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule",
+        "text_similarity_score": 0.7141135931015015
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Candidate 1 and 2 have high image similarity scores (0.8728152513504028), but low caption similarity scores (0.019218238070607185). This indicates that while the images might be visually similar, the captions are not. Therefore, candidates 1 and 2 do not confirm the news caption. Candidate 3 has a low image similarity score (0.0), so the images don't match. However, candidate 3 has a text similarity score of 0.7141135931015015. The caption in candidate 3 states 'Apple Inc. unveiled the latest iterations of its smart phone, the iPhone 7 and 7 Plus, the Apple Watch Series 2, as well as AirPods, the tech giant's first wireless headphones'. This caption mentions the iPhone 7 and AirPods which is what the news caption is about. Although the image similarity score is low, the information in the caption and the news caption aligns.",
+      "supporting_evidences": [
+        "Candidate 3"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a high confidence score of 7. According to the instructions, when the confidence score is 7 or higher, the final determination must be based on the image check result. The image check result indicates that although the image similarity score between the news image and candidate 3 is low, the text similarity score is high (0.7141135931015015). The caption in candidate 3 states 'Apple Inc. unveiled the latest iterations of its smart phone, the iPhone 7 and 7 Plus, the Apple Watch Series 2, as well as AirPods, the tech giant's first wireless headphones'. This caption mentions the iPhone 7 and AirPods which is what the news caption is about. Therefore, the news caption is related to the news content and the image is out of context because the image shows an aerial view of a pier before and after a hurricane, and it does not depict anything about Apple or their products.",
+    "validation_summary": "The image shows a pier, not Apple products, so the caption is misleading as it relates to Apple's new AirPods and iPhone 7 and would mislead viewers about the image content and its connection to the news story about Apple products. Therefore, the caption is out of context."
+  },
+  "inference_time": 11.098569869995117,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

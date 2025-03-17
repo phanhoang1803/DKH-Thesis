@@ -1,0 +1,34 @@
+{
+  "caption": "It is quite astonishing how much of what is described in Mein Kampf was later realised a procession in memory of Holocaust victims at Auschwitz 70 years after its liberation",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Mein Kampf shows where ideologies can lead: the case for republishing Hitler | Adolf Hitler | The Guardian",
+        "content": "M e i n   K a m p f   s h o w s   w h e r e   i d e o l o g i e s   c a n   l e a d ' :   t h e   c a s e   f o r   . . .",
+        "caption": "It is quite astonishing how much of what is described in Mein Kampf was later realised  a procession in memory of Holocaust victims at Auschwitz 70 years after its liberation.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2665807604789734,
+        "text_similarity_score": 0.9639425277709961
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.2665807604789734 and the text similarity score is 0.9639425277709961. Since the image similarity score is less than 0.85, the image content does not match with the candidate evidence, thus the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows the Olympic rings hanging between two towers with a stadium in the background, set against a blue sky with the sun shining. The caption talks about 'Mein Kampf', Holocaust victims, and Auschwitz. The image does not contain any elements related to the text. The image check result confirms that the image content does not match the caption's topic, indicating it is used out of context. Therefore, the caption misrepresents the image content.",
+    "validation_summary": "The image shows an Olympic stadium scene, while the caption discusses historical events and literature unrelated to the image content. The caption is therefore misleading as it does not accurately reflect the visual content of the image."
+  },
+  "inference_time": 4.896520614624023,
+  "ablation_type": "no_image_evidences"
+}

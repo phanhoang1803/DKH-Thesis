@@ -1,0 +1,45 @@
+{
+  "caption": "Matthew McConaughey accepts the Oscar for best actor for his role in Dallas Buyers Club",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Oscars 2014: Matthew McConaughey wins for 'Dallas Buyers Club' - Los Angeles Times",
+        "content": "O s c a r s   2 0 1 4 :   M a t t h e w   M c C o n a u g h e y   w i n s   f o r   ' D a l l a s   B u y e r s   C l u b   . . .",
+        "caption": "Matthew McConaughey accepts the Oscar for lead actor for his role in 'Dallas Buyers Club.'",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6075649261474609,
+        "text_similarity_score": 0.9753327369689941
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption states, \"Matthew McConaughey accepts the Oscar for best actor for his role in Dallas Buyers Club.\" The candidate evidence has a high caption similarity score of 0.975, indicating a strong match between the captions. However, the image similarity score is 0.607, which is below the threshold of 0.85. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than 0.7, the caption should be marked as out-of-context. Therefore, the verdict is False. The candidate evidence confirms that Matthew McConaughey won an Oscar for the movie mentioned in the caption of the news. However, because the images are not highly similar, there is no direct verification that the news image actually shows this event.",
+      "supporting_evidences": [
+        "Caption: Matthew McConaughey accepts the Oscar for lead actor for his role in 'Dallas Buyers Club.'",
+        "Image Similarity Score: 0.6075649261474609",
+        "Caption Similarity Score: 0.9753327369689941",
+        "Domain: www.latimes.com"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a high caption similarity (0.975) between the provided caption and the candidate evidence. However, the image similarity score is only 0.607, which is below the set threshold of 0.85. The caption states that Matthew McConaughey is accepting an Oscar for his role in Dallas Buyers Club, and while the evidence confirms that he won an Oscar for this movie, the image itself does not strongly confirm this specific event. The image shows him holding an Oscar at a podium, but doesn't irrefutably link this to the specific moment described in the caption. Because the image similarity is low despite textual similarity, it is determined to be out of context.",
+    "validation_summary": "Although the caption refers to Matthew McConaughey winning an Oscar for Dallas Buyers Club, the image doesn't provide strong visual confirmation of this specific event, potentially misleading viewers about the image's direct relevance to the caption's claim. The image check result confirms that the low image similarity, despite textual similarity, indicates the image is out of context with the caption's implication of showing McConaughey's acceptance speech for that specific Oscar win."
+  },
+  "inference_time": 5.880215883255005,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

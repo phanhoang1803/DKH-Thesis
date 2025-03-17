@@ -1,0 +1,51 @@
+{
+  "caption": "Travellers face possible strikes at Heathrow and other BAA airports in a pay dispute with the Unite union",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Flight",
+      "Airplane",
+      "Airport",
+      "Heathrow Airport",
+      "Baggage",
+      "Airline ticket",
+      "Travel",
+      "Passenger",
+      "Due",
+      "check"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Airport staff vote to strike over BAA pay offer | Heathrow Airports Authority | The Guardian",
+        "content": "A i r p o r t   s t a f f   v o t e   t o   s t r i k e   o v e r   B A A   p a y   o f f e r   |   H e a t h r o w   . . .",
+        "caption": "Heathrow airport may be forced to close after BAA staff voted to strike later this month. Photograph: David Levene for the Guardian",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The news caption mentions possible strikes at Heathrow and other BAA airports due to a pay dispute with the Unite union. The provided candidate evidence confirms a potential strike at Heathrow airport by BAA staff. However, it does not provide explicit information about strikes at other BAA airports or the specifics of the pay dispute. Therefore, while there is partial alignment, key details are missing for full verification.",
+      "supporting_evidences": [
+        "Heathrow airport may be forced to close after BAA staff voted to strike later this month. Photograph: David Levene for the Guardian"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a traveler sleeping on their luggage near a luggage cart at an airport. The caption discusses potential strikes at Heathrow and other BAA airports due to a pay dispute, which is unrelated to the image. The image check result confirms a low alignment between the image and caption; while the caption alludes to events at airports, the image depicts a traveler's experience, which is a weak connection. Therefore, the caption is out of context, as it does not accurately represent what is happening in the image and could mislead viewers about its content.",
+    "validation_summary": "The caption discusses potential airport strikes, while the image shows a traveler sleeping at an airport, which would mislead viewers about the image's content and context of any news associated to it. The image is unrelated to strikes or pay disputes and the caption implies that is what is being shown in the image."
+  },
+  "inference_time": 3.868985652923584,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

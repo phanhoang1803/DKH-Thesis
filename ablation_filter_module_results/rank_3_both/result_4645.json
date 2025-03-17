@@ -1,0 +1,52 @@
+{
+  "caption": "Coming back for more Bradford Bulls hero from their glory years James Lowes is now head coach as they bid for promotion from the Championship",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Ian McCourt | The Guardian",
+        "content": "I a n   M c C o u r t   i s   a   f o r m e r   G u a r d i a n   s u b e d i t o r   a n d   w r i t e r",
+        "caption": "Bobby Zamora",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9246280789375305,
+        "text_similarity_score": 0.22528839111328125
+      },
+      {
+        "title": "Bradford Bulls aim to mount charge for swift return to Super League | Bradford Bulls | The Guardian",
+        "content": "J a m e s - L o w e s - 0 0 5 . j p g ? q u a l i t y = 8 5   . . .",
+        "caption": "Coming back for more, Bradford Bulls hero from their glory years, James Lowes, is now head coach as they bid for promotion from the Championship. Photograph: Mike Mayhew/Sportsphoto Ltd.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.42354512214660645,
+        "text_similarity_score": 0.9560022950172424
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1 has a high image similarity score (0.9246280789375305) but a low text similarity score (0.22528839111328125). This suggests the image might be related, but the caption is not. Therefore, based on the instructions, it is immediately false. \nCandidate 2 has an image similarity score of 0.42354512214660645, which is below the threshold of 0.85. Additionally, the text similarity score is high (0.9560022950172424), but this is not relevant since the image similarity score is low. Therefore, based on the instructions, it is immediately false. \n\nBased on the strict decision rules provided, given that at least one of the candidates has a low image similarity score (< 0.85) and the other candidate also have the image similarity score (< 0.85), the caption is deemed out-of-context.",
+      "supporting_evidences": [
+        "Candidate 1 has a high image similarity score (0.9246280789375305) but a low text similarity score (0.22528839111328125).",
+        "Candidate 2 has an image similarity score of 0.42354512214660645 and the text similarity score is 0.9560022950172424"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is out of context. Candidate 1 has a high image similarity score (0.9246280789375305) but a low text similarity score (0.22528839111328125), suggesting the image might be related, but the caption is not. Candidate 2 has an image similarity score of 0.42354512214660645, which is below the threshold of 0.85. The text similarity score is high (0.9560022950172424), but this is not relevant since the image similarity score is low. Therefore, based on the instructions, the caption is deemed out-of-context.",
+    "validation_summary": "The image depicts two soccer players in a celebratory embrace, while the caption discusses James Lowes and the Bradford Bulls rugby team, which is completely unrelated and misleading. The image check confirms this discrepancy."
+  },
+  "inference_time": 6.604450941085815,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

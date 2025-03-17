@@ -1,0 +1,46 @@
+{
+  "caption": "A building burns after an explosion on Second Avenue on March 26 2015 in New York City",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Blast, fire erupt in NYC's East Village; 19 hurt",
+        "content": "6 3 5 6 2 9 8 5 0 5 7 2 4 7 3 4 6 4 - G T Y -   . . .",
+        "caption": "A building burns after an explosion on Second Avenue on March 26, 2015, in New York City.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9461617469787598,
+        "text_similarity_score": 0.9828755855560303
+      },
+      {
+        "title": "Explosion, fire rips building in NYC's East Village",
+        "content": "E x p l o s i o n ,   f i r e   r i p s   b u i l d i n g   i n   N Y C ' s   E a s t   V i l l a g e",
+        "caption": "A building burns after an explosion on Second Avenue on March 26, 2015, in New York City.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9456583857536316,
+        "text_similarity_score": 0.9828755855560303
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both candidates have high image similarity scores (>= 0.85) and high text similarity scores (>= 0.7). Specifically, the image similarity scores are 0.9461617469787598 and 0.9456583857536316, and the caption similarity scores are 0.9828755855560303 for both. These scores, combined with the fact that the captions are identical to the news caption, strongly suggest that the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.9461617469787598, Caption Similarity Score: 0.9828755855560303",
+        "Candidate 2: Image Similarity Score: 0.9456583857536316, Caption Similarity Score: 0.9828755855560303"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "validation_summary": "The caption accurately represents the image, depicting a burning building following an explosion, aligned with the events described in the news content.",
+    "explanation": "The image in question clearly shows a building engulfed in flames, which directly correlates with the news caption stating, 'A building burns after an explosion on Second Avenue on March 26, 2015 in New York City.' The image matches the details provided in both the image check result and the news content, which describes a significant fire and explosion incident on the specified date and location. With a high image similarity score and the fact that the caption matches the content depicted in the image, it can be confidently asserted that the caption is not out of context."
+  },
+  "inference_time": 7.940531969070435,
+  "ablation_type": "no_image_evidences"
+}

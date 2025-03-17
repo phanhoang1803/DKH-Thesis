@@ -1,0 +1,49 @@
+{
+  "caption": "Seeking larger living quarters Lincicome and Flota bought 15 acres in 2010 with the idea of tearing down a flooddamaged dwelling and building a larger contemporary house for retirement",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Master Bathroom - Contemporary - Bathroom - Baltimore - by Ernesto Santalla PLLC | Houzz AU",
+        "content": "",
+        "caption": "",
+        "domain": "www.houzz.com.au",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9529438614845276,
+        "text_similarity_score": 0.05256064981222153
+      },
+      {
+        "title": "Master Bedroom with Built-In Headboard and Storage - Contemporary - Bedroom - Baltimore - by Ernesto Santalla PLLC | Houzz AU",
+        "content": "",
+        "caption": "",
+        "domain": "www.houzz.com.au",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9529438614845276,
+        "text_similarity_score": 0.05256064981222153
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are high (0.9529438614845276), suggesting that the images in the candidates are very similar to the news image. However, the caption similarity scores for both candidates are low (0.05256064981222153), indicating that the captions in the candidates are not similar to the news caption. Since the text similarity scores are below 0.7, the captions are considered out-of-context. Since no candidates provide relevant information to confirm the news caption, I cannot confirm that the news caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a high image similarity between the candidates and the news image. However, the caption similarity is low, and the text similarity scores are below 0.7, indicating that the captions are out of context. Therefore, based on the image check result, the caption does not accurately represent the image. The image depicts a well-furnished sunroom with comfortable seating, large windows offering views of the outdoors, and a ceiling fan. The caption discusses a couple buying land to build a retirement home, but does not relate to the depiction in the picture. Without corresponding elements in the image, the caption's claims cannot be confirmed, leading to the conclusion that the caption is out of context.",
+    "validation_summary": "The caption discusses a couple buying land to build a house for retirement, while the image shows the interior of a sunroom, thus viewers would be misled about the image content. The image and caption do not align, indicating the caption is out of context."
+  },
+  "inference_time": 5.739189386367798,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

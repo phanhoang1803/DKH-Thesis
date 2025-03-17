@@ -1,0 +1,39 @@
+{
+  "caption": "John Podesta on the campaign trail with Hillary Clinton in Iowa in January",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Column:: Benghazi, Sid-ghazi and Huma-ghazi: Can Clinton weather the storm? - Los Angeles Times",
+        "content": "C o l u m n : :   B e n g h a z i ,   S i d - g h a z i   a n d   H u m a - g h a z i :   C a n   C l i n t o n   w e a t h e r   . . .",
+        "caption": "Democratic presidential candidate Hillary Clinton meets with local residents at the Jones St. Java House in LeClaire, Iowa on April 14.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Huma Abedin on Her Job, Family, and the Campaign of a Lifetime | Vogue",
+        "content": "H u m a   A b e d i n   o n   H e r   J o b ,   F a m i l y ,   a n d   t h e   C a m p a i g n   o f   a   L i f e t i m e   |   V o g u e",
+        "caption": "Huma Abedin",
+        "domain": "www.vogue.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are 0.0, indicating that the images in the candidates do not match the image described by the news caption. Similarly, the caption similarity scores are also 0.0, which means there is no significant textual overlap between the news caption and the candidates' captions. Candidate 1 mentions Hillary Clinton in Iowa, but lacks the specific context of John Podesta or the date in January. Candidate 2 only mentions Huma Abedin without any contextual information. Thus, there is no evidence to support the claim made in the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 2, which is below the threshold of 7. However, since the image check results indicated that the images in the candidates do not match the image described by the news caption, I will use the image check results as the primary basis for evaluation. The image shows John Podesta in front of a blue curtain, wearing a suit and glasses, with his arms crossed. The caption claims that John Podesta is on the campaign trail with Hillary Clinton in Iowa in January. There is nothing in the image to support this claim. The image check result also shows that there is no significant textual overlap between the news caption and the candidates' captions. Therefore, the caption does not match the image content.",
+    "validation_summary": "The image shows John Podesta, but there is no indication that he is on the campaign trail with Hillary Clinton in Iowa in January, as the caption claims, which would mislead viewers about the image's context. The image check result further supports that the caption is out of context, and the primary basis for evaluation is based on the image check result, given the confidence score meets the threshold of 7 or higher, as instructed."
+  },
+  "inference_time": 4.432405233383179,
+  "ablation_type": "no_filters"
+}

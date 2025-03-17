@@ -1,0 +1,73 @@
+{
+  "caption": "Kit Harington as Jon Snow and Sophie Turner as Sansa Stark in HBO s Game of Thrones",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Indochinese rhesus macaque",
+      "Japanese macaque",
+      "Sea otter",
+      "Otters",
+      "Chimpanzee",
+      "Walrus",
+      "Sloths",
+      "Japan",
+      "Sea",
+      "Marmoset"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Sophie Turner: Kit Harington deserves more money than me on 'Game of Thrones'",
+        "content": "S o p h i e   T u r n e r :   K i t   H a r i n g t o n   d e s e r v e s   m o r e   m o n e y   t h a n   m e   o n   ' G a m e   . . .",
+        "caption": "Sophie Turner as Sansa Stark and Kit Harington as Jon Snow in Game of Thrones (Credit: HBO)",
+        "domain": "uk.news.yahoo.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2038564682006836,
+        "text_similarity_score": 0.9541661143302917
+      },
+      {
+        "title": "The Jon Snow Sequel Could Just End Up Being Game Of Thrones Season 9",
+        "content": "T h e   J o n   S n o w   S e q u e l   C o u l d   J u s t   E n d   U p   B e i n g   G a m e   O f   T h r o n e s   S e a s o n   9",
+        "caption": "Kit Harington as Jon Snow and Sophie Turner as Sansa Stark in Game of Thrones season 8",
+        "domain": "screenrant.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2068948745727539,
+        "text_similarity_score": 0.9471392035484314
+      },
+      {
+        "title": "New HBO video teases key meeting from &#8216;Game of Thrones&#8217;",
+        "content": "N e w   H B O   v i d e o   t e a s e s   k e y   m e e t i n g   f r o m   & # 8 2 1 6 ; G a m e   o f   T h r o n e s & # 8 2 1 7 ;",
+        "caption": "The new footage of Game of Thrones, which features three pivotal figures -- Jon Snow (Kit Harington), Daenerys Targaryen (Emilia Clarke) and Sansa Stark (Sophie Turner) -- of the series, was unveiled in a combined teaser of HBO&#8217;s 2019 lineup. Photo: Reuters",
+        "domain": "www.livemint.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.08453206717967987,
+        "text_similarity_score": 0.764775812625885
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption describes a scene from HBO's Game of Thrones featuring Kit Harington as Jon Snow and Sophie Turner as Sansa Stark. Candidate 1 has a high caption similarity score (0.954) but a low image similarity score (0.204). The caption mentions the same actors and characters in Game of Thrones. Candidate 2 also shows a high caption similarity score (0.947) but low image similarity score (0.207), reinforcing that it features Kit Harington as Jon Snow and Sophie Turner as Sansa Stark in Game of Thrones season 8. Candidate 3 presents a lower image similarity score (0.085) and a caption similarity score of 0.765, mentioning Jon Snow (Kit Harington) and Sansa Stark (Sophie Turner) in the context of Game of Thrones. Although the image similarity scores are low across all candidates, the high text similarity scores and descriptions that align with the news caption suggests the caption is likely accurately representing the image. However, due to the low image similarity, there is some uncertainty.",
+      "supporting_evidences": [
+        "Candidate 1: Caption similarity score of 0.954, featuring Sophie Turner and Kit Harington in Game of Thrones.",
+        "Candidate 2: Caption similarity score of 0.947, mentioning Kit Harington and Sophie Turner in Game of Thrones season 8.",
+        "Candidate 3: Caption similarity score of 0.765, mentioning Jon Snow (Kit Harington) and Sansa Stark (Sophie Turner) from Game of Thrones."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The news caption states the image features Kit Harington as Jon Snow and Sophie Turner as Sansa Stark in HBO's Game of Thrones. However, the image shows a person partially buried in the snow. Because the image shows neither Kit Harington nor Sophie Turner, and does not show a scene from Game of Thrones, the caption misrepresents the content of the image. The image check result supports this conclusion with a confidence score of 7. Though the caption similarity scores are high in the image check results, the image similarity scores are low, so the caption is likely inaccurate.",
+    "validation_summary": "The provided caption identifies actors and characters from Game of Thrones, but the image shows a person in the snow, misleading viewers about its actual content. Given the discrepancy between the caption and the image, the image is out of context with the provided caption, therefore OOC=True and the associated confidence score is 8."
+  },
+  "inference_time": 7.486697673797607,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

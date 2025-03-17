@@ -1,0 +1,79 @@
+{
+  "caption": "A man clears snow from his car in the Chinatown neighborhood of New York",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Calhan",
+      "Ford Crown Victoria Police Interceptor",
+      "Ford Motor Company",
+      "Denver Metropolitan Area",
+      "Snow",
+      "Car",
+      "Blowing snow",
+      "National Weather Service"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Spring snowstorm hits Colorado - USA Today",
+        "content": "",
+        "caption": "Calhan Police Sgt. Josh Morrision stands by his car as he blocks traffic on Highway 24 outside of Calhan, Colo., as blowing snow and slick roads closed the highway.",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9412471055984497,
+        "text_similarity_score": 0.44119152426719666
+      },
+      {
+        "title": "Spring snowstorm hits Colorado - USA Today",
+        "content": "",
+        "caption": "Calhan Police Sgt. Josh Morrision stands by his car as he blocks traffic on Highway 24 outside of Calhan, Colo., as blowing snow and slick roads closed the highway.",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9412471055984497,
+        "text_similarity_score": 0.44119152426719666
+      },
+      {
+        "title": "Snow's stopped on East Coast but piles going nowhere",
+        "content": "S n o w ' s   s t o p p e d   o n   E a s t   C o a s t   b u t   p i l e s   g o i n g   n o w h e r e",
+        "caption": "People cleared snow from parked cars in the Chinatown neighborhood of New York on Sunday, but there were other obstacles to overcome after a blizzard that set a new single-day snowfall record in Washington and New York City.",
+        "domain": "www.dallasnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.40443605184555054,
+        "text_similarity_score": 0.7684499025344849
+      },
+      {
+        "title": "Snow's stopped on East Coast but piles going nowhere",
+        "content": "S n o w ' s   s t o p p e d   o n   E a s t   C o a s t   b u t   p i l e s   g o i n g   n o w h e r e",
+        "caption": "People cleared snow from parked cars in the Chinatown neighborhood of New York on Sunday, but there were other obstacles to overcome after a blizzard that set a new single-day snowfall record in Washington and New York City.",
+        "domain": "www.dallasnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3582269549369812,
+        "text_similarity_score": 0.7684499025344849
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are below 0.85 for all candidates. Candidates 3 and 4 have a relatively high text similarity score (0.768), and their captions mention \"People cleared snow from parked cars in the Chinatown neighborhood of New York\", which aligns with the news caption \"A man clears snow from his car in the Chinatown neighborhood of New York\". However, because the image similarity scores are low (0.404 and 0.358), there isn't enough evidence to confirm that the candidate images are visually similar to the news image. Therefore, based on the strict decision rules, a 'False' verdict is appropriate since the image similarity scores are below the threshold of 0.85.",
+      "supporting_evidences": [
+        "Candidate 3 has a caption that mentions people clearing snow in Chinatown, New York, which aligns with the news caption.",
+        "Candidate 4 has a caption that mentions people clearing snow in Chinatown, New York, which aligns with the news caption."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a police officer standing next to a police car covered in snow during a snowstorm. The text on the car reads 'POLICE'. The caption describes a man clearing snow from his car in Chinatown, New York. This is a mismatch because the image clearly depicts a police vehicle and a police officer, not a civilian clearing snow from their car. Therefore, the caption misrepresents the content of the image, leading to an 'Out of Context' (OOC) determination. The image check result confirms the low image similarity scores and the inconsistency between the image and the caption, further supporting the OOC verdict.",
+    "validation_summary": "The image features a police officer and vehicle in snowy conditions, while the caption describes a man clearing snow from his car in Chinatown; this mismatch would mislead viewers about the image's actual content. The image check result confirms the caption is not representative of the image content, based on the low image similarity scores."
+  },
+  "inference_time": 7.429819583892822,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

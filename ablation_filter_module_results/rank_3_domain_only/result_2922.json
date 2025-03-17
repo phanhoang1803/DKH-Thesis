@@ -1,0 +1,48 @@
+{
+  "caption": "Cleveland Cavaliers forward LeBron James dunks the ball during against the Atlanta Hawks in Game 4 of the Eastern Conference Finals",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "NBA Eastern Conference Finals: Cavaliers vs. Hawks",
+        "content": "N B A   E a s t e r n   C o n f e r e n c e   F i n a l s :   C a v a l i e r s   v s .   H a w k s",
+        "caption": "Cleveland Cavaliers guard Kyrie Irving (2), guard J.R. Smith (5) and forward LeBron James (23) celebrates beating the Atlanta Hawks in game four of the Eastern Conference Finals of the NBA Playoffs at Quicken Loans Arena.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "With no Kyrie Irving, LeBron James hit another gear of greatness as ...",
+        "content": "6 3 5 6 7 9 4 3 8 4 6 4 2 2 9 3 4 4 - U S A T S I -   . . .",
+        "caption": "Cleveland Cavaliers forward LeBron James (23) shoots against Atlanta Hawks forward DeMarre Carroll (5) and forward Paul Millsap (4) during the second quarter in game two of the Eastern Conference Finals of the NBA Playoffs at Philips Arena.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates confirm that LeBron James played for the Cleveland Cavaliers during the Eastern Conference Finals against the Atlanta Hawks. However, neither candidate explicitly mentions James dunking the ball in Game 4, which is a key action described in the news caption. Although the candidates provide supporting context, they do not fully verify the specific event depicted in the image. Therefore, without direct confirmation of the dunk, a definitive 'True' verdict cannot be reached.",
+      "supporting_evidences": [
+        "Candidate 1: Cleveland Cavaliers guard Kyrie Irving (2), guard J.R. Smith (5) and forward LeBron James (23) celebrates beating the Atlanta Hawks in game four of the Eastern Conference Finals of the NBA Playoffs at Quicken Loans Arena.",
+        "Candidate 2: Cleveland Cavaliers forward LeBron James (23) shoots against Atlanta Hawks forward DeMarre Carroll (5) and forward Paul Millsap (4) during the second quarter in game two of the Eastern Conference Finals of the NBA Playoffs at Philips Arena."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image depicts LeBron James dunking a basketball while wearing a Cleveland Cavaliers jersey. An Atlanta Hawks player is visible in the foreground. The background shows a crowd of spectators. The image check result confirms LeBron James played for the Cleveland Cavaliers during the Eastern Conference Finals against the Atlanta Hawks. However, it does not explicitly mention James dunking the ball in Game 4, which is a key action described in the news caption. While the image supports elements of the caption (LeBron James, Cavaliers, Hawks), the specific action (dunking in Game 4) is not definitively confirmed by the image check result. Thus, based on the image check result, the caption is potentially misleading.",
+    "validation_summary": "The caption suggests a specific game and action (Game 4 dunk), which isn't explicitly verified, potentially misleading viewers. Although the image aligns with general details, a crucial element lacks direct confirmation."
+  },
+  "inference_time": 6.210046052932739,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

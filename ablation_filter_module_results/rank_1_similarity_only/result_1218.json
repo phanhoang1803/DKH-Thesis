@@ -1,0 +1,50 @@
+{
+  "caption": "20 Bengals One explanation for this heretofore disappointment The Bengals 30 conversion rate on third down is league s third worst",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Quarterback",
+      "Kirk Cousins",
+      "Andy Dalton",
+      "Dallas Cowboys",
+      "Washington Commanders",
+      "Six-man football",
+      "Eight-man football",
+      "American football",
+      "Canadian football"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "247sports.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9584840536117554,
+        "text_similarity_score": 0.15676742792129517
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is high (0.9584840536117554), suggesting the images are visually similar. However, the text similarity score is very low (0.15676742792129517), indicating that the caption in the candidate evidence does not match the news caption. Therefore, based on the instruction, the caption is determined to be out-of-context due to the low text similarity score despite the high image similarity.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high image similarity but a low text similarity between the image and the provided caption. The image depicts a football game, specifically a quarterback in the act of throwing a football, with other players around him. The players are wearing Bengals and Cowboys uniforms. The caption refers to the Bengals' third-down conversion rate, which is league's third worst, and one explanation for the Bengals' disappointment. Because of the very low text similarity score (0.15676742792129517), the caption is considered out of context even with the high image similarity (0.9584840536117554). The image check indicates that the caption is determined to be out-of-context.",
+    "validation_summary": "The image shows a football game, but the caption discusses the Bengals' third-down conversion rate, which is not visually represented. Therefore, viewers would be misled about the context of the image by the caption."
+  },
+  "inference_time": 6.3171045780181885,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

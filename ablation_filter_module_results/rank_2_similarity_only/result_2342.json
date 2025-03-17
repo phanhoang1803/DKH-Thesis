@@ -1,0 +1,50 @@
+{
+  "caption": "Daniel DayLewis wins the Oscar for best actor for his role in Lincoln",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Ben Affleck",
+      "85th Academy Awards",
+      "Argo",
+      "Academy Awards",
+      "Academy Award for Best Picture",
+      "Academy of Motion Picture Arts and Sciences",
+      "Academy Award for Best Actor in a Leading Role",
+      "Prize",
+      "Academy Award for Best Actress in a Leading Role"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Lincoln secures Daniel Day-Lewis a record third best actor Oscar | Film | The Guardian",
+        "content": "L i n c o l n   s e c u r e s   D a n i e l   D a y - L e w i s   a   r e c o r d   t h i r d   b e s t   a c t o r   O s c a r   . . .",
+        "caption": "Hat trick  Daniel Day-Lewis's portrayal of Lincoln wins him his third Oscar",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.49834054708480835,
+        "text_similarity_score": 0.7347850203514099
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.49834054708480835 and the text similarity score is 0.7347850203514099. According to the rule, if Image Similarity Score < 0.85 AND Text Similarity Score ≥ 0.7, the verdict should be 'False'. Therefore, the final verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image shows Daniel Day-Lewis holding an Oscar statue and wiping his eye, suggesting he might be emotional after winning an award. The news caption states he won the Oscar for best actor for his role in Lincoln. The image directly supports the caption's claim that Day-Lewis won an Oscar. The Image Check Result gives a verdict of False with a confidence score of 2, but it also shows that the text similarity score is 0.73, which is high. Due to the image showing Day Lewis holding the Oscar award and the text similarity being high, I will override the verdict. Therefore, the caption correctly represents the image.",
+    "validation_summary": "The caption accurately represents the image, showing Daniel Day-Lewis with his Oscar, supporting the claim that he won the award for Best Actor in Lincoln. Viewers would not be misled about the image's content based on the caption."
+  },
+  "inference_time": 6.15539288520813,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "caption": "Former secretary of state Hillary Clinton speaks to the media March 10 about recent allegations of an improperly used email account during her tenure at the State Department",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "AP sues State Dept. over Clinton e-mails",
+        "content": "6 3 5 6 1 6 6 9 7 5 6 5 7 6 0 8 4 7 - 1 - h i l l a r y .   . . .",
+        "caption": "Hillary Rodham Clinton speaks to the media about allegations of an improperly used e-mail account on March 10, 2015.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5331404805183411,
+        "text_similarity_score": 0.8151847720146179
+      },
+      {
+        "title": "Cyber security expert, strategists weigh in on the endless debate about Clinton emails | LAist",
+        "content": "C y b e r   s e c u r i t y   e x p e r t ,   s t r a t e g i s t s   w e i g h   i n   o n   t h e   e n d l e s s   d e b a t e   . . .",
+        "caption": "NEW YORK - MARCH 10: Former U.S. Secretary of State Hillary Clinton speaks to the media after keynoting a Women's Empowerment Event at the United Nations March 10, 2015 in New York City. Clinton answered questions about recent allegations of an improperly used email account during her tenure as secretary of state.  (Photo by Yana Paskova/Getty Images)",
+        "domain": "laist.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.35894066095352173,
+        "text_similarity_score": 0.8124892711639404
+      },
+      {
+        "title": "Hillary Clinton's email scandal, explained | Vox",
+        "content": "H i l l a r y   C l i n t o n ' s   e m a i l   s c a n d a l ,   e x p l a i n e d   |   V o x",
+        "caption": "Former Secretary of State Hillary Clinton speaks to the media after keynoting a Womens Empowerment Event at the United Nations on March 10, 2015 in New York City. Clinton answered questions about recent allegations of an improperly used",
+        "domain": "www.vox.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5918388962745667,
+        "text_similarity_score": 0.7180851697921753
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are all below 0.85. Additionally, the text similarity scores for the candidate captions exceed 0.7. According to the instructions, if the image similarity score is below 0.85 and the text similarity score is above 0.7, the caption must be marked as out-of-context. Therefore, the final verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is out of context, with a confidence score of 2. This low score suggests a significant mismatch between the image content and the caption's description. The image shows Hillary Clinton at a podium speaking, but the image check result indicates that the text similarity between the caption and other candidate captions is high, while the image similarity is low. This suggests that the caption is not representative of the image. Thus, the caption is out of context.",
+    "validation_summary": "The image check reveals a disconnect between the image and the caption, indicating the viewer would be misled; the caption is out of context, so the image is OOC=True with high confidence. Therefore, the caption does not accurately reflect the image content."
+  },
+  "inference_time": 6.798717498779297,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

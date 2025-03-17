@@ -1,0 +1,56 @@
+{
+  "caption": "Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond Calif",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "El Dorado Fire",
+      "Fire",
+      "King Fire",
+      "El Dorado County",
+      "California Department of Forestry and Fire Protection",
+      "Fire retardant",
+      "Stock photography",
+      "National Interagency Fire Center",
+      "Photography",
+      "Photograph"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Firefighters battle California wildfires",
+        "content": "F i r e f i g h t e r s   b a t t l e   C a l i f o r n i a   w i l d f i r e s",
+        "caption": "Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond, Calif.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9100207686424255,
+        "text_similarity_score": 0.9849346280097961
+      },
+      {
+        "title": "Ohio firefighters help with California blaze",
+        "content": "O h i o   f i r e f i g h t e r s   h e l p   w i t h   C a l i f o r n i a   b l a z e",
+        "caption": "Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond, Calif., yesterday.",
+        "domain": "www.dispatch.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4808104634284973,
+        "text_similarity_score": 0.9727512001991272
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the provided candidates, Candidate 1 has a high image similarity score (0.91) and a high text similarity score (0.98). This indicates that the candidate image is very similar to the news image, and the candidate caption is very similar to the news caption. According to the instructions, if both the Image Similarity Score ≥ 0.85 and Text Similarity Score ≥ 0.7, the verdict should be True. Candidate 2, although having a high text similarity score (0.97), has a low image similarity score (0.48), which makes it out-of-context. Therefore, the caption is in context.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.91, Caption Similarity Score: 0.98"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "validation_summary": "The caption accurately reflects the image content, depicting Cal Fire crews battling the King Fire in El Dorado County.",
+    "explanation": "The caption states that \"Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond, Calif.\" The high confidence score of 10 indicates that the image and the caption are closely aligned. The image likely depicts firefighting efforts with Cal Fire crews actively engaged in a wildfire scenario, specifically the King Fire, which is consistent with the news article and its claims. As both the image and the caption refer to the firefighting activities related to the King Fire in the specified location, viewers will not be misled about the content they are observing."
+  },
+  "inference_time": 6.5097715854644775,
+  "ablation_type": "no_image_evidences"
+}

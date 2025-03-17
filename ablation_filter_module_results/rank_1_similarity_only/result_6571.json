@@ -1,0 +1,49 @@
+{
+  "caption": "Obi a male pygmy hippo calf swims at the Melbourne zoo Australia Pygmy hippos are endangered in the wild",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Photo highlights of the day | News | The Guardian",
+        "content": "T h e   G u a r d i a n  s   p i c t u r e   e d i t o r s   b r i n g   y o u   a   s e l e c t i o n   o f   t h e   b e s t   p h o t o g r a p h s   f r o m   a r o u n d   t h e   w o r l d \n \n J o a n n a   R u c k \n \n T h u   2 7   F e b   2 0 1 4   1 2 . 1 4  G M T \n \n \n                         L a s t   m o d i f i e d   o n   T h u   2 7   F e b   2 0 1 4   2 2 . 4 9  G M T",
+        "caption": "The newest addition to Bristol Zoo Gardens is  Winnie, the three-week-old pygmy hippo.",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9464821219444275,
+        "text_similarity_score": 0.55014967918396
+      },
+      {
+        "title": "The week in wildlife  in pictures | Environment | The Guardian",
+        "content": "T h e   w e e k   i n   w i l d l i f e      i n   p i c t u r e s   |   E n v i r o n m e n t   |   T h e   G u a r d i a n",
+        "caption": ".Obi a male Pygmy Hippo calf swims with his mother Petre at the Melbourne Zoo, Melbourne, Thursday, June 18, 2015. Pygmy Hippos are endangered in the wild.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3492788076400757,
+        "text_similarity_score": 0.931571900844574
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Candidate 1 has a high image similarity score (0.9464821219444275) suggesting the images are very similar, but a low text similarity score (0.55014967918396). This indicates that while the images may be of similar content, the captions differ significantly. Candidate 2 has a low image similarity score (0.3492788076400757) but a high caption similarity score (0.931571900844574). According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, candidate 2 does not confirm the caption. Therefore, the caption is deemed out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates the caption is out of context. Candidate 1 has a high image similarity score (0.9464821219444275) suggesting the images are very similar, but a low text similarity score (0.55014967918396). This indicates that while the images may be of similar content, the captions differ significantly. Candidate 2 has a low image similarity score (0.3492788076400757) but a high caption similarity score (0.931571900844574). According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, candidate 2 does not confirm the caption. Therefore, the caption is deemed out-of-context.",
+    "validation_summary": "The image check indicates that the caption is out of context because the similarity score is below 0.85, so the caption is misleading about the image content."
+  },
+  "inference_time": 6.51606011390686,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

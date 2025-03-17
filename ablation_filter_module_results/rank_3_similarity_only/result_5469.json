@@ -1,0 +1,40 @@
+{
+  "caption": "Clip from The Washington Post Jan 14 1928",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "3littlebuttholes",
+        "content": "",
+        "caption": "an old newspaper article with the words, wicker witch of the belway?",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9913266897201538,
+        "text_similarity_score": 0.38695836067199707
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.99 which means the images are similar but the text similarity score is 0.38 which means the captions are not similar. The caption 'Clip from The Washington Post Jan 14 1928' refers to a specific date and publication, whereas the candidate caption 'an old newspaper article with the words, wicker witch of the belway?' describes the content of a newspaper article. Without further information about the content of the news image, it is difficult to confirm if the candidate caption accurately describes it. Therefore, I cannot confirm that the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows an overpass with the words \"SURRENDER DOROTHY\" spray-painted on it, and the caption is \"Clip from The Washington Post Jan 14 1928\". The image check confirms the image similarity is high, but the text similarity is low. The provided text discusses Calvin Coolidge's visit to Cuba in 1928 and does not mention anything related to the image content (an overpass with graffiti). Thus, the caption is unrelated to the image, making it out of context.",
+    "validation_summary": "The caption is about a presidential visit to Cuba in 1928, but the image shows an unrelated scene of graffiti on an overpass; a viewer would be misled about the image's relevance to the provided text, as the text and image are unrelated.. "
+  },
+  "inference_time": 5.749607801437378,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

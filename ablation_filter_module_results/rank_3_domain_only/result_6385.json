@@ -1,0 +1,48 @@
+{
+  "caption": "Donald Trump speaks at Saint Anselm College in Manchester New Hampshire on June 13",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Everything You Need to Know About the Republican Convention Committee Meetings - ABC News",
+        "content": "E v e r y t h i n g   Y o u   N e e d   t o   K n o w   A b o u t   t h e   R e p u b l i c a n   C o n v e n t i o n   . . .",
+        "caption": "In this June 13, 2016, file photo, Republican presidential candidate Donald Trump speaks at Saint Anselm College in Manchester, N.H.",
+        "domain": "abcnews.go.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Experts Weigh In on Trump's and Clinton's Plans to Stop Another Mass Shooting  - ABC News",
+        "content": "E x p e r t s   W e i g h   I n   o n   T r u m p ' s   a n d   C l i n t o n ' s   P l a n s   t o   S t o p   A n o t h e r   . . .",
+        "caption": "Donald Trump speaks during an event at St. Anselm College New Hampshire Institute of Politics in Manchester, N.H., June 13, 2016. Hillary Clinton speaks at the New Jersey primary night rally, June 7, 2016, in the Brooklyn Borough of New York. ",
+        "domain": "abcnews.go.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The provided candidates offer some support for the news caption but lack sufficient confirmation to confidently verify it. Candidate 1 includes the elements 'Donald Trump,' 'Saint Anselm College,' 'Manchester, N.H.,' and a date of 'June 13, 2016,' which matches the elements in the news caption 'Donald Trump speaks at Saint Anselm College in Manchester New Hampshire on June 13.' Candidate 2 also contains these elements and the date. However, without a high image similarity score and text similarity score, these elements by themselves are insufficient. Specifically, neither candidate explicitly confirms that Trump was 'speaking' at the college on that date as the news caption states. Therefore, due to the moderate confidence and the limited overlap between the provided evidence and the news caption, a conclusive determination cannot be made.",
+      "supporting_evidences": [
+        "In this June 13, 2016, file photo, Republican presidential candidate Donald Trump speaks at Saint Anselm College in Manchester, N.H.",
+        "Donald Trump speaks during an event at St. Anselm College New Hampshire Institute of Politics in Manchester, N.H., June 13, 2016."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a moderate confidence level (7) and determines that the news caption is out of context. According to the supporting evidences, the news caption and image are likely related. However, the image check explanation states, 'Specifically, neither candidate explicitly confirms that Trump was 'speaking' at the college on that date as the news caption states. Therefore, due to the moderate confidence and the limited overlap between the provided evidence and the news caption, a conclusive determination cannot be made.' Given this information, the news caption contains some elements that are related to the image, but does not provide an accurate summarization of what is happening in the image.",
+    "validation_summary": "Based on the image check results, the caption does not accurately represent what is happening in the image, despite some elements being related. Therefore, viewers may be misled about the image content."
+  },
+  "inference_time": 5.041065216064453,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

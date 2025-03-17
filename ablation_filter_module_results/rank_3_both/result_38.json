@@ -1,0 +1,42 @@
+{
+  "caption": "The MyNameIs coalition will demonstrate Sunday at 11am across the street from Facebook s Menlo Park headquarters in California",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Facebook users plan protest against site's 'real name' policy at headquarters | Facebook | The Guardian",
+        "content": "7 a e 2 d c 8 5 - c a d e - 4 e 8 9 - 8 d b 8 -   . . .",
+        "caption": "The #MyNameIs coalition will demonstrate Sunday at 11am across the street from Facebooks Menlo Park headquarters in California.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9905239343643188,
+        "text_similarity_score": 0.965168833732605
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate evidence has a high image similarity score (0.9905239343643188) and a high text similarity score (0.965168833732605). This confirms that the candidate's caption almost exactly matches the news caption, indicating the caption accurately represents the image's content. The domain, www.theguardian.com, adds to the reliability of the evidence.",
+      "supporting_evidences": [
+        "The #MyNameIs coalition will demonstrate Sunday at 11am across the street from Facebook’s Menlo Park headquarters in California."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a woman using a laptop, appearing to be on a social media site, possibly Facebook. There is also a mobile device next to the laptop. The caption discusses a demonstration against Facebook's policies. While the news content provides context for the demonstration, the image itself does not depict a demonstration or any of the specific elements mentioned in the caption (drag queens, protesters, Menlo Park headquarters, etc.). Therefore, the image is presented out of context, as it does not directly represent the subject matter described in the caption and article, and could mislead viewers to believe that the woman in the picture is related to the event.",
+    "validation_summary": "The image is out of context because it depicts a woman using a laptop, which is not directly related to the demonstration against Facebook's policies mentioned in the caption. This mismatch could mislead viewers about the content of the news story."
+  },
+  "inference_time": 4.980746746063232,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "caption": "President Obama makes a statement from the Rose Garden on Nov 6 2009 after ordering flags to fly at halfstaff following the attack at a Texas army base",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Helicopter",
+      "Boeing 767",
+      "Aerospace Engineering",
+      "Military helicopter",
+      "Aerospace",
+      "Boeing",
+      "Engineering",
+      "Boeing"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Donald Trump sworn in as president on Inauguration Day 2025 | NPR",
+        "content": "D o n a l d   T r u m p   s w o r n   i n   a s   p r e s i d e n t   o n   I n a u g u r a t i o n   D a y   2 0 2 5   |   N P R",
+        "caption": "President Trump signs an executive order regarding Department of Government Efficiency (DOGE), in the Oval Office of the White House in Washington, D.C., on Monday.",
+        "domain": "www.npr.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption describes President Trump signing an executive order. This does not match the news caption that describes President Obama making a statement from the Rose Garden. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result states that the image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption describes President Trump signing an executive order. This does not match the news caption that describes President Obama making a statement from the Rose Garden. The photo shows President Obama exiting a helicopter; this scene does not correspond with the caption. Therefore, the caption is out of context.",
+    "validation_summary": "The image does not depict President Obama making a statement from the Rose Garden; rather, it shows him exiting a helicopter, which is misrepresentative. The caption and the image content do not align, making the caption misleading."
+  },
+  "inference_time": 4.220013856887817,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

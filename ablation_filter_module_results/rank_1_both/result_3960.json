@@ -1,0 +1,47 @@
+{
+  "caption": "Game 5 in Washington Nationals third baseman Anthony Rendon catches a fly ball hit by Dodgers shortstop Corey Seager during the sixth inning",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Baseball",
+      "College baseball",
+      "Pitcher",
+      "Higher Education School",
+      "Ballpark"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 9,
+      "confidence_score": 10,
+      "explanation": "The caption accurately identifies Anthony Rendon catching a fly ball during a game between the Nationals and the Dodgers. The context confirms these details, including the specific game situation and the players involved. The caption correctly represents the key action depicted in the image, and there are no significant misrepresentations or omissions.",
+      "supporting_evidences": [
+        "The caption mentions Anthony Rendon, the Nationals' third baseman, which aligns with the context.",
+        "The caption refers to a fly ball hit by Corey Seager of the Dodgers, consistent with the context.",
+        "The caption indicates it's Game 5, which, while slightly different from the context mentioning Game 2, still captures the playoff series setting.",
+        "The context describes a tense moment in a game between the Nationals and Dodgers, aligning with the implied intensity of a play where Rendon catches a fly ball."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image depicts a tense moment from a Major League Baseball game, specifically featuring Anthony Rendon, the third baseman for the Washington Nationals, in a defensive position. Rendon is positioned to catch a fly ball that has been hit by Corey Seager, the shortstop for the Los Angeles Dodgers. The background shows a packed ballpark, indicative of the electrifying atmosphere typical in playoff games. The players are prominently displayed in their respective team uniforms, highlighting their team colors of red for the Nationals and blue for the Dodgers. The action is occurring during the sixth inning of a crucial playoff game where every play is critical. The crowd is visibly engaged, cheering passionately for their team, and the ambiance captures the essence of playoff intensity in baseball.",
+      "caption": "Washington Nationals third baseman Anthony Rendon prepares to catch a fly ball during Game 5 against the Dodgers.",
+      "context": "The image captures a pivotal moment from Game 2 of the National League Division Series between the Los Angeles Dodgers and the Washington Nationals held in Washington D.C. The event occurred as both teams were vying for control of the playoff series, with the game already reaching a critical juncture in the sixth inning. The Nationals managed to tie the series at 1-1 during this game, with Rendon's play being a significant part of the Nationals' defense against the Dodgers' offense. The series showcased intense competition as both teams strived for victory, with the Dodgers having initially held a 2-0 lead in the series prior to this game. The atmosphere is charged with excitement from a crowded stadium, emphasizing the significance of this matchup in the context of Major League Baseball's postseason."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result states that the caption accurately identifies Anthony Rendon catching a fly ball during a game between the Nationals and the Dodgers. However, it also notes a slight discrepancy: the caption says it's Game 5, while the provided context refers to Game 2. While the image does show Rendon catching a ball with another player nearby in a Nationals uniform and thus accurately represents what is happening in the image. However, given the context and information provided by the image check result, it misleads by implying it is Game 5 when context refers to Game 2. Therefore, I am overriding the initial 'verdict' to 'True'.",
+    "validation_summary": "While the image accurately depicts a baseball game scenario, the caption's reference to 'Game 5' when the article discusses 'Game 2' is misleading, potentially confusing viewers about the specific game being referenced. This inconsistency suggests the caption may be misrepresenting the actual context of the image within the news article, making it OOC = TRUE and lowering confidence."
+  },
+  "inference_time": 6.359853744506836,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

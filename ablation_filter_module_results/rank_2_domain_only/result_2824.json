@@ -1,0 +1,48 @@
+{
+  "caption": "Pope Francis kisses a young child with Down syndrome in Rome",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Pope",
+      "Infant",
+      "Down syndrome",
+      "Syndrome",
+      "Muscle",
+      "Family",
+      "Birth defect",
+      "Sick",
+      "Pontiff"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Pope Francis washes and kisses feet of prisoners in traditional ritual | News | Independent TV",
+        "content": "P o p e   F r a n c i s   w a s h e s   a n d   k i s s e s   f e e t   o f   p r i s o n e r s   i n   t r a d i t i o n a l   . . .",
+        "caption": "Pope Francis repeats Jesus foot-washing moment with inmates from Italian prison",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption describes Pope Francis washing the feet of inmates, which is different from the news caption that describes Pope Francis kissing a child with Down syndrome. Thus, the candidate does not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 2. Because this is below 7, I should provide my own analysis before making a determination. The image shows Pope Francis kissing a baby on the head. The news caption describes the image as Pope Francis kissing a young child with Down syndrome in Rome. Because the image check result indicates that the candidate caption does not support the news caption, I should use the original image for my assessment. The photograph clearly depicts Pope Francis kissing a baby, aligning with the caption's depiction of that action. However, the caption also asserts that the child has Down syndrome. Without additional information or visual cues directly discernible from the image, it is impossible to confirm this specific medical condition based solely on the visual evidence. In conclusion, while the image does support the action described in the caption (Pope Francis kissing a child), it does not independently confirm the assertion about the child having Down syndrome. Since I have to rely on external knowledge to verify one of the claims in the caption and the confidence score of the image check result is low, I will rely on the image check result and the associated negative image verification. Therefore, the image is out of context with the caption, indicating that the caption misrepresents the image content.",
+    "validation_summary": "The caption states that Pope Francis is kissing a child with Down syndrome, but this cannot be confirmed visually from the image alone, making the caption potentially misleading without additional context. Given the low image check result and reliance on external knowledge to verify, the image is deemed out of context with the caption's claims."
+  },
+  "inference_time": 5.126580238342285,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

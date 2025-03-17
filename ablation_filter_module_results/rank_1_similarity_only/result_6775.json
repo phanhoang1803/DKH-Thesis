@@ -1,0 +1,45 @@
+{
+  "caption": "Angus Campbell addresses mourners last year at a memorial service in Western Australia for Sergeant Blaine Diddams who was killed in action in Afghanistan",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Soldier"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Army deputy chief Angus Campbell to lead Operation Sovereign Borders | Australian immigration and asylum | The Guardian",
+        "content": "A r m y   d e p u t y   c h i e f   A n g u s   C a m p b e l l   t o   l e a d   O p e r a t i o n   S o v e r e i g n   . . .",
+        "caption": "Angus Campbell addresses mourners last year at a memorial service in Western Australia for Sergeant Blaine Diddams, who was killed in action in Afghanistan. Photograph: Chris Moore/ADF",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.572621762752533,
+        "text_similarity_score": 0.9665442705154419
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.572621762752533, which is less than 0.85. Therefore, according to the instructions, the caption must be marked as out-of-context. The text similarity score is 0.9665442705154419, which is greater than 0.7. However, since the image similarity score is less than 0.85, the caption is still marked as out-of-context. Therefore, the final verdict is False.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.572621762752533",
+        "Text Similarity Score: 0.9665442705154419"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows an elderly man in military attire with several medals, wearing a black beret with a Canadian emblem. He is seated and covered with a blanket that has the word 'LEGION' embroidered on it. The image check result indicates a confidence score of 7, with an image similarity score of 0.572621762752533, which is less than 0.85. This confirms that the image does not correlate with the caption, which describes Angus Campbell addressing mourners at a memorial service in Western Australia for Sergeant Blaine Diddams. The image depicts a different individual and a different setting than described in the caption. Therefore, the caption is out of context.",
+    "validation_summary": "The caption describes a memorial service and a different individual, while the image shows an elderly man in military attire at an unidentified event. The caption would mislead viewers about the content of the image."
+  },
+  "inference_time": 4.590735673904419,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

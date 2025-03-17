@@ -1,0 +1,47 @@
+{
+  "caption": "Game 5 in Washington Nationals third baseman Anthony Rendon catches a fly ball hit by Dodgers shortstop Corey Seager during the sixth inning",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Baseball",
+      "College baseball",
+      "Pitcher",
+      "Higher Education School",
+      "Ballpark"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 9,
+      "confidence_score": 10,
+      "explanation": "The caption accurately describes the image context. It mentions the key players, Anthony Rendon and Corey Seager, and the teams involved (Washington Nationals and Los Angeles Dodgers). It also correctly states that it is Game 5 and that Rendon is catching a fly ball. While it does not mention the inning, the overall alignment is very high.",
+      "supporting_evidences": [
+        "Caption mentions Anthony Rendon of the Washington Nationals.",
+        "Caption mentions Corey Seager of the Dodgers.",
+        "Caption describes Rendon catching a fly ball.",
+        "Caption mentions Game 5."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image depicts a tense moment from a Major League Baseball game, specifically featuring Anthony Rendon, the third baseman for the Washington Nationals, in a defensive position. Rendon is positioned to catch a fly ball that has been hit by Corey Seager, the shortstop for the Los Angeles Dodgers. The background shows a packed ballpark, indicative of the electrifying atmosphere typical in playoff games. The players are prominently displayed in their respective team uniforms, highlighting their team colors of red for the Nationals and blue for the Dodgers. The action is occurring during the sixth inning of a crucial playoff game where every play is critical. The crowd is visibly engaged, cheering passionately for their team, and the ambiance captures the essence of playoff intensity in baseball.",
+      "caption": "Washington Nationals third baseman Anthony Rendon prepares to catch a fly ball during Game 5 against the Dodgers.",
+      "context": "The image captures a pivotal moment from Game 2 of the National League Division Series between the Los Angeles Dodgers and the Washington Nationals held in Washington D.C. The event occurred as both teams were vying for control of the playoff series, with the game already reaching a critical juncture in the sixth inning. The Nationals managed to tie the series at 1-1 during this game, with Rendon's play being a significant part of the Nationals' defense against the Dodgers' offense. The series showcased intense competition as both teams strived for victory, with the Dodgers having initially held a 2-0 lead in the series prior to this game. The atmosphere is charged with excitement from a crowded stadium, emphasizing the significance of this matchup in the context of Major League Baseball's postseason."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows two baseball players wearing Washington Nationals uniforms on a field. One player, on the left, is in the process of catching a fly ball with his glove raised. The other player is standing nearby, also with a glove. The caption states that the game is Game 5 and that Anthony Rendon catches a fly ball hit by Corey Seager. The news content is about Game 2. Given the discrepancy in the game number (Game 5 vs. Game 2), this raises concerns. Also the image is sourced from an article about NLDS, which has only 5 games at most. Thus there must be a game earlier than game 5. Therefore, the caption is misleading.",
+    "validation_summary": "The news content refers to Game 2, while the caption mentions Game 5, creating a mismatch that could mislead viewers about the context of the image and its relevance to the news article. The caption incorrectly suggests the image is directly related to the game described in the news article."
+  },
+  "inference_time": 4.768368721008301,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "caption": "Photographs taken on Thursday showed Air Force Intelligence s bombdamaged headquarters in Aleppo",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Asian palmyra palm",
+      "Curb",
+      "Sidewalk",
+      "Apartment",
+      "Borassus",
+      "House"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Syria crisis: Iranian hostages, Aleppo battle, and defections - Tuesday 7 August 2012 | Syria | The Guardian",
+        "content": "S y r i a   c r i s i s :   I r a n i a n   h o s t a g e s ,   A l e p p o   b a t t l e ,   a n d   d e f e c t i o n s   . . .",
+        "caption": "A Syrian man shouts as residents gather at the scene of a bombed building hit during Syrian army shelling which in the Sheikh Najar area of Aleppo.  The target was a Free Syrian Army command centre but a residential area was hit.  Photo: Achilleas Zavallis AFP/Getty",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0, and the caption similarity score is 0.0. This indicates that the candidate image and caption do not closely match the news image and caption. The candidate caption mentions a 'bombed building hit during Syrian army shelling' in Aleppo, while the news caption references 'Air Force Intelligence’s bomb-damaged headquarters in Aleppo'. Although both captions refer to bombing in Aleppo, the details do not align strongly enough to confirm the news caption's accuracy. There is not enough supporting information in the candidate evidence to verify the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows two men in blue uniforms working on a traffic circle with buildings in the background. Some of the buildings in the background appear to be damaged. The caption states that the photograph depicts Air Force Intelligence's bomb-damaged headquarters in Aleppo. While there are damaged buildings in the background, there is no clear indication that the image is of the Air Force Intelligence headquarters, nor is there a definitive bomb. The focus of the image is on the men working on the traffic circle. The image check result also shows that the image and caption are not aligned. Therefore, based on the image and the image check result, the caption is misleading and the image is out of context.",
+    "validation_summary": "The caption incorrectly identifies the location depicted in the image, focusing on a bombed headquarters when the image shows men working near damaged buildings but provides no clear indication of the headquarters, making it misleading. The image check result confirms the inaccuracy of the caption based on image content and context."
+  },
+  "inference_time": 4.996847629547119,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

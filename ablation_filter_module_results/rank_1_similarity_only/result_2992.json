@@ -1,0 +1,53 @@
+{
+  "caption": "Mitt Romney speaks during a campaign rally at Westerville South High School in Westerville Ohio",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Coastal Forest Products",
+      "Speech",
+      "Flag",
+      "Flag of the United States",
+      "Public speaking",
+      "Flag Day",
+      "Flag Day",
+      "Presidential nominee",
+      "Bow"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Picture desk live: the best news pictures of the day | World news | The Guardian",
+        "content": "P i c t u r e   d e s k   l i v e :   t h e   b e s t   n e w s   p i c t u r e s   o f   t h e   d a y   |   W o r l d   n e w s   . . .",
+        "caption": "Peering through the crowd, Mitt Romney delivers a speech during a campaign rally at Westerville South High School in Westerville, Ohio, USA.  Photograph: Shawn Thew/EPA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3178142309188843,
+        "text_similarity_score": 0.871079683303833
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.3178142309188843, which is less than 0.85. The text similarity score is 0.871079683303833, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False. Although the captions are highly similar, the image similarity is too low to confirm the accuracy of the news caption based on the provided candidate.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.3178142309188843",
+        "Caption Similarity Score: 0.871079683303833"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 7. According to the instructions, the final determination must be based on the image check result. The image check result says that the image similarity score is 0.3178142309188843, which is less than 0.85. Therefore, the verdict is False (OOC=True).",
+    "validation_summary": "The image verification score is low and the image is therefore out of context with the caption. Viewers would be misled about the content of the image as it does not have enough supporting evidence to confirm the news caption based on the provided candidate."
+  },
+  "inference_time": 5.874191522598267,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

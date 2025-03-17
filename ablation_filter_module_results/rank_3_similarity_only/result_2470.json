@@ -1,0 +1,88 @@
+{
+  "caption": "Russian President Vladimir Putin speaks during a media forum in St Petersburg on April 7",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Access Denied",
+        "content": "",
+        "caption": "",
+        "domain": "indianexpress.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8235123753547668,
+        "text_similarity_score": 0.059374406933784485
+      },
+      {
+        "title": "Access Denied",
+        "content": "",
+        "caption": "",
+        "domain": "indianexpress.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8235123753547668,
+        "text_similarity_score": 0.059374380856752396
+      },
+      {
+        "title": "Access Denied",
+        "content": "",
+        "caption": "",
+        "domain": "indianexpress.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8235123753547668,
+        "text_similarity_score": 0.059374380856752396
+      },
+      {
+        "title": "Putin says Panama Papers part of U.S. plot to weaken Russia  Orange County Register",
+        "content": "P u t i n   s a y s   P a n a m a   P a p e r s   p a r t   o f   U . S .   p l o t   t o   w e a k e n   R u s s i a   . . .",
+        "caption": " Russian President Vladimir Putin, center, speaks during a media forum of the All-Russia People's Front in St.Petersburg, Russia, Thursday, April 7, 2016. Speaking Thursday at a media forum in St.Petersburg, Putin rejected links to offshore accounts, calling the leaks part of Western efforts to weaken Russia. ",
+        "domain": "www.ocregister.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9535107612609863,
+        "text_similarity_score": 0.8506742715835571
+      },
+      {
+        "title": "What did Putin say at Russias flagship economic forum? | Russia-Ukraine war News | Al Jazeera",
+        "content": "W h a t   d i d   P u t i n   s a y   a t   R u s s i a ' s   f l a g s h i p   e c o n o m i c   f o r u m ?   |   R u s s i a   . . .",
+        "caption": "Russian President Vladimir Putin speaks during a session of the St. Petersburg International Economic Forum (SPIEF) in Saint Petersburg, Russia",
+        "domain": "www.aljazeera.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3824784457683563,
+        "text_similarity_score": 0.8223845958709717
+      },
+      {
+        "title": "Putin says Panama Papers part of U.S. plot to weaken Russia",
+        "content": "P u t i n   s a y s   P a n a m a   P a p e r s   p a r t   o f   U . S .   p l o t   t o   w e a k e n   R u s s i a",
+        "caption": "Russian President Vladimir Putin during media forum of the All-Russia People's Front in St.Petersburg, Russia, Thursday, April 7, 2016. Speaking Thursday at a media forum in St.Petersburg, Putin rejected links to offshore accounts, calling the leaks part of Western efforts to weaken Russia. (AP Photo/Dmitri Lovetsky, Pool)",
+        "domain": "www.militarytimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3965905010700226,
+        "text_similarity_score": 0.7839555740356445
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "Based on the candidate evidences provided, Candidate 4 has a high image similarity score (0.9535) and a high caption similarity score (0.8506). The caption of Candidate 4 states: \"Russian President Vladimir Putin, center, speaks during a media forum of the All-Russia People's Front in St.Petersburg, Russia, Thursday, April 7, 2016. Speaking Thursday at a media forum in St.Petersburg, Putin rejected links to offshore accounts, calling the leaks part of Western efforts to weaken Russia.\" This caption aligns with the news caption, \"Russian President Vladimir Putin speaks during a media forum in St Petersburg on April 7,\" indicating that the news caption accurately represents what the image shows. Candidate 5 and 6 also have captions that confirm the event and the person in the image but the image similarity is low. Since candidate 4 satisfies both image and text similarity, the verdict is True.",
+      "supporting_evidences": [
+        "Candidate 4: Image Similarity Score: 0.9535107612609863, Caption Similarity Score: 0.8506742715835571",
+        "Candidate 4: Russian President Vladimir Putin, center, speaks during a media forum of the All-Russia People's Front in St.Petersburg, Russia, Thursday, April 7, 2016."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 9,
+    "explanation": "The image check result provides a high confidence score of 9, indicating the caption accurately represents the image content. Candidate 4, with a high image similarity score (0.9535) and caption similarity score (0.8506), states: \"Russian President Vladimir Putin, center, speaks during a media forum of the All-Russia People's Front in St.Petersburg, Russia, Thursday, April 7, 2016. Speaking Thursday at a media forum in St.Petersburg, Putin rejected links to offshore accounts, calling the leaks part of Western efforts to weaken Russia.\" This aligns with the provided news caption: \"Russian President Vladimir Putin speaks during a media forum in St Petersburg on April 7.\"",
+    "validation_summary": "The image accurately depicts Vladimir Putin speaking at a media forum in St. Petersburg on April 7, as stated in the caption, therefore viewers would not be misled. The high confidence score confirms the caption's accuracy based on image and caption similarity."
+  },
+  "inference_time": 4.561546564102173,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

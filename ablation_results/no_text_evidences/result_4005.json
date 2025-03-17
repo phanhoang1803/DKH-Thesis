@@ -1,0 +1,42 @@
+{
+  "caption": "Kentucky Wildcats guard Aaron Harrison is congratulated by teammates Dakari Johnson and Julius Randle after making the gamewinning basket against Michigan",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Murphy Holloway",
+      "Nashville",
+      "Basketball",
+      "University of Mississippi",
+      "Southeastern Conference",
+      "Mississippi River",
+      "Basketball Player",
+      "Florida"
+    ],
+    "ablation_type": "no_text_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 1,
+      "confidence_score": 10,
+      "explanation": "The caption mentions Kentucky Wildcats players Aaron Harrison, Dakari Johnson, and Julius Randle, and refers to a game against Michigan. However, the image context describes basketball players in Saint Louis jerseys on a court. These details contradict each other, indicating a significant misalignment between the caption and the image context. Therefore, the caption does not accurately describe the image.",
+      "supporting_evidences": [
+        "The caption refers to Kentucky Wildcats and a game against Michigan, while the image context describes Saint Louis jersey.",
+        "The players mentioned in the caption (Aaron Harrison, Dakari Johnson, Julius Randle) are not identifiable in the image context."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Three basketball players in Saint Louis jerseys stand on the court.",
+      "context": "The image features three basketball players wearing Saint Louis jerseys, standing on a basketball court. They are surrounded by a crowd, suggesting they are at a game or event. The players are wearing white jerseys with blue accents and the words \"Saint Louis\" across the chest, along with their respective numbers (3, 24, and 21). The crowd behind them is a mix of people, some wearing gold-colored clothing. The image appears to be taken during a game or event, capturing a moment of camaraderie among the players.",
+      "information": "The image shows three basketball players in Saint Louis jerseys on a court with a crowd in the background."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows three basketball players wearing Saint Louis jerseys. The caption describes Kentucky Wildcats players Aaron Harrison, Dakari Johnson, and Julius Randle after a game against Michigan. This contradicts the visual evidence of the image, making the caption an inaccurate representation of the image's content. The high confidence score is due to the clear mismatch between the teams mentioned in the caption and the team represented in the image.",
+    "validation_summary": "The caption incorrectly identifies the basketball players and the game context, misleading viewers about the actual content of the image. The image features players in Saint Louis jerseys, while the caption discusses Kentucky Wildcats and a game against Michigan."
+  },
+  "inference_time": 4.862155199050903,
+  "ablation_type": "no_text_evidences"
+}

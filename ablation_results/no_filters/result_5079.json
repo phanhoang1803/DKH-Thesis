@@ -1,0 +1,41 @@
+{
+  "caption": "Mr Whittle denied that deputy chair of UKIP Suzanne Evans would have made a stronger candidate",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "UKIP selects Peter Whittle as London mayoral candidate - BBC News",
+        "content": "U K I P   s e l e c t s   P e t e r   W h i t t l e   a s   L o n d o n   m a y o r a l   c a n d i d a t e   -   B B C   N e w s",
+        "caption": "Peter Whittle believes many in the City of London want to leave the EU",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "UKIP selects Peter Whittle as London mayoral candidate - BBC News",
+        "content": "U K I P   s e l e c t s   P e t e r   W h i t t l e   a s   L o n d o n   m a y o r a l   c a n d i d a t e   -   B B C   N e w s",
+        "caption": "Mr Whittle denied that deputy chair of UKIP Suzanne Evans would have made a stronger candidate",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The caption and candidate 2 are exactly the same and comes from a reliable source, bbc.com, so the caption is in context.",
+      "supporting_evidences": [
+        "Candidate 2"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 10 and states the caption is accurate and comes from a reliable source, bbc.com. However, the caption refers to Mr. Whittle and Suzanne Evans, but the image shows two other people. Therefore, the caption does not match the image content, making the image out of context.",
+    "validation_summary": "The caption discusses Mr. Whittle and Suzanne Evans, who are not present in the image, making the image out of context and potentially misleading to viewers about the content being discussed in relation to the people shown in the photo. The image is out of context because the people shown in the image are not directly referenced in the caption's claim about Mr. Whittle's statements regarding Suzanne Evans being a stronger candidate."
+  },
+  "inference_time": 3.145252227783203,
+  "ablation_type": "no_filters"
+}

@@ -1,0 +1,58 @@
+{
+  "caption": "The least expensive apartments in Lavasa now sell for between 17000 and 36000 out of reach for most middleclass Indians",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "John Brown's Public Diplomacy Press and Blog Review: February 14",
+        "content": "",
+        "caption": "",
+        "domain": "publicdiplomacypressandblogreview.blogspot.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9928366541862488,
+        "text_similarity_score": 0.005882438272237778
+      },
+      {
+        "title": "Alamy | Page not found",
+        "content": "",
+        "caption": "",
+        "domain": "www.alamy.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8860478401184082,
+        "text_similarity_score": 0.005882438272237778
+      },
+      {
+        "title": "Bullet proof windows hi-res stock photography and images - Alamy",
+        "content": "B u i l d   y o u r   s e a r c h   w i t h   w o r d s   a n d   p h r a s e s .   U s e   a n y   c o m b i n a t i o n   t o   r e f i n e   y o u r   s e a r c h . \n \n A l a m y   a n d   i t s   l o g o   a r e   t r a d e m a r k s   o f   A l a m y   L t d .   a n d   a r e   r e g i s t e r e d   i n   c e r t a i n   c o u n t r i e s .   C o p y r i g h t      0 7 / 0 3 / 2 0 2 5   A l a m y   L t d .   A l l   r i g h t s   r e s e r v e d .",
+        "caption": "",
+        "domain": "www.alamy.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8860478401184082,
+        "text_similarity_score": 0.005882429890334606
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores for all candidates are high (>= 0.85), but the text similarity scores are low (< 0.7). Therefore, according to the instructions, the verdict should be 'False'. The lack of captions in the candidate evidences further reduces confidence.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high image similarity score, but a low text similarity score. This suggests that while the image may depict the location mentioned in the article, the caption makes a specific claim about the cost of apartments that is not directly supported or refuted by the visual content of the image. The image shows apartment buildings, but provides no indication of their price range. Because of the high confidence score from the image check, the verdict should be 'False' according to the instructions.",
+    "validation_summary": "The caption discusses apartment prices, a detail not visually verifiable in the image, potentially misleading viewers about the image's direct relevance to the economic aspect of the news story. The image check result dictates the final determination."
+  },
+  "inference_time": 5.868204832077026,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

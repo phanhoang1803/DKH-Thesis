@@ -1,0 +1,34 @@
+{
+  "caption": "Palestinians flee their homes as Israel launched fresh air strikes on Gaza on Saturday",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Israel-Hamas war: Israel orders unprecedented evacuation of 1 million in Gaza",
+        "content": "I s r a e l - H a m a s   w a r :   I s r a e l   o r d e r s   u n p r e c e d e n t e d   e v a c u a t i o n   o f   1   . . .",
+        "caption": "Palestinians leave their houses following Israeli airstrikes in Rafah refugee camp, southern Gaza Strip, Thursday, Oct. 12, 2023.",
+        "domain": "whyy.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.29410845041275024,
+        "text_similarity_score": 0.748049259185791
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is low (0.29410845041275024), and the text similarity score is high (0.748049259185791). According to the instructions, since the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Thus, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 3,
+    "validation_summary": "The caption inaccurately represents the image, which does not depict Palestinians fleeing homes due to air strikes as implied.",
+    "explanation": "The caption states that \"Palestinians flee their homes as Israel launched fresh air strikes on Gaza on Saturday.\" However, the image does not show any fleeing individuals, but rather appears to show a different scene that does not support the claim of displacements due to air strikes. The image check result indicates a low similarity score with the caption suggesting a significant disconnect between what the caption claims and the visual content provided."
+  },
+  "inference_time": 8.235773801803589,
+  "ablation_type": "no_image_evidences"
+}

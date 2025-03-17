@@ -1,0 +1,50 @@
+{
+  "caption": "From left Al Gore Lorraine Bracco Kennedy and Cheryl Hines attend an award dinner at the Robert F Kennedy Center for Justice and Human Rights in 2011",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Behind the Candelabra",
+      "65th Primetime Emmy Awards",
+      "STX IT20 RISK.5RV NR EO",
+      "Emmy Awards",
+      "Primetime Emmy Award for Outstanding Lead Actor in a Limited or Anthology Series or Movie",
+      "Formal wear",
+      "Model M keyboard",
+      "USA Today",
+      "Michael Douglas"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 1,
+      "confidence_score": 10,
+      "explanation": "The provided caption describes Al Gore, Lorraine Bracco, Kennedy, and Cheryl Hines attending an award dinner. However, the image context depicts Zooey Deschanel and Kerry Washington presenting an award at the Primetime Emmy Awards. The caption does not align at all with the content of the image, as it mentions different people and a different event.",
+      "supporting_evidences": [
+        "The caption mentions Al Gore, Lorraine Bracco, Kennedy, and Cheryl Hines, while the image shows Zooey Deschanel and Kerry Washington.",
+        "The caption describes an award dinner at the Robert F Kennedy Center, while the image is from the Primetime Emmy Awards.",
+        "The context information explicitly states that the image features Zooey Deschanel and Kerry Washington at the 65th Primetime Emmy Awards."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Zooey Deschanel and Kerry Washington presenting the Primetime Emmy Award for Outstanding Lead Actor in a Limited or Anthology Series or Movie at the 65th Primetime Emmy Awards.",
+      "context": "This image shows actresses Zooey Deschanel and Kerry Washington together on stage, presenting an award at the 65th Primetime Emmy Awards. Both are wearing formal gowns. Deschanel is in a light blue dress with a draped design, while Washington is wearing a one-shoulder patterned dress. They are holding hands and walking towards the podium where a microphone is set up. The Emmy Awards recognize excellence in television programming. The news content provided discusses Robert Kennedy Jr.'s views on vaccines and autism, which is unrelated to the image content.",
+      "information": "The image features actresses Zooey Deschanel and Kerry Washington at the 65th Primetime Emmy Awards. They are presenting the Primetime Emmy Award for Outstanding Lead Actor in a Limited or Anthology Series or Movie. Both actresses are dressed in elegant gowns and are on stage at the awards ceremony."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result states a high alignment score (1) and confidence score (10), asserting that the caption is inaccurate. The image depicts Zooey Deschanel and Kerry Washington at the Primetime Emmy Awards. However, the caption mentions Al Gore, Lorraine Bracco, Kennedy, and Cheryl Hines attending an award dinner at the Robert F Kennedy Center for Justice and Human Rights. There's a complete mismatch in the people and event described by the caption versus what's shown in the image. Therefore, the image is out of context.",
+    "validation_summary": "The caption misrepresents the image by describing a completely different set of people and event, leading viewers to be misled about the image's content. The image clearly shows actresses at an award show, while the caption describes politicians at a justice and human rights event."
+  },
+  "inference_time": 7.457035541534424,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

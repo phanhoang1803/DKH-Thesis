@@ -1,0 +1,46 @@
+{
+  "caption": "Offering Communion Ben Lovett of Mumford Sons",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Behind The Scene: Mumford & Sons' Ben Lovett on Communion, The Orion and Sustaining The Third Place",
+        "content": "B e h i n d   T h e   S c e n e :   M u m f o r d   &   S o n s '   B e n   L o v e t t   o n   C o m m u n i o n ,   T h e   . . .",
+        "caption": "Behind The Scene: Mumford & Sons Ben Lovett on Communion, The Orion and Sustaining The Third Place",
+        "domain": "relix.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1920011192560196,
+        "text_similarity_score": 0.8387426137924194
+      },
+      {
+        "title": "Click to download: Bell X1's Facebook stream, Ben Lovett's folky Flowerpot | Downloads | The Guardian",
+        "content": "C l i c k   t o   d o w n l o a d :   B e l l   X 1 ' s   F a c e b o o k   s t r e a m ,   B e n   L o v e t t ' s   f o l k y   . . .",
+        "caption": "Offering Communion ... Ben Lovett of Mumford & Sons. Photograph: Henry S Dziekan III/Getty",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4449913501739502,
+        "text_similarity_score": 0.8121734857559204
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have low image similarity scores (0.192 and 0.445), indicating that the images in the candidates do not strongly match the news image. However, both candidates have high text similarity scores (0.839 and 0.812). Candidate 1's caption is 'Behind The Scene: Mumford & Sons’ Ben Lovett on Communion, The Orion and Sustaining The Third Place' and Candidate 2's caption is 'Offering Communion ... Ben Lovett of Mumford & Sons. Photograph: Henry S Dziekan III/Getty'. Both captions directly reference 'Offering Communion' and 'Ben Lovett of Mumford & Sons', which aligns with the news caption. Despite the title similarity, the low image similarity score prevents confirmation that the image is accurately represented by the caption.",
+      "supporting_evidences": [
+        "Candidate 1's caption: Behind The Scene: Mumford & Sons’ Ben Lovett on Communion, The Orion and Sustaining The Third Place",
+        "Candidate 2's caption: Offering Communion ... Ben Lovett of Mumford & Sons. Photograph: Henry S Dziekan III/Getty"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates low image similarity between the provided image and the candidates, despite the high text similarity in the captions. The image features a man with long, dark hair and a mustache, shirtless, holding a microphone, and making a gesture with his hand. The background includes stage lighting and another person in the lower left corner. Given the visual details, it's difficult to ascertain directly if the person is indeed Ben Lovett of Mumford & Sons or if the image relates to 'Communion'. The low image similarity score from the image check result strongly suggests that the image is not accurately represented by the news caption, which prominently mentions 'Ben Lovett of Mumford & Sons' and 'Communion'.",
+    "validation_summary": "Due to the low image similarity score, the image does not appear to be a good representation of the caption, which mentions Ben Lovett of Mumford & Sons and Communion. The visual content of the image does not align with the caption's claims, potentially misleading viewers about the connection between the image and the news content."
+  },
+  "inference_time": 5.863760709762573,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,55 @@
+{
+  "caption": "Democratic presidential candidate Bernie Sanders speaks at the Pennsylvania AFLCIO convention in Philadelphia on April 7 2016",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Concert",
+      "Orchestra",
+      "Pianist",
+      "Piano",
+      "5hy",
+      "Electrical conductor"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "It will take a miracle for Bernie Sanders to beat Hillary Clinton. And that's OK - Los Angeles Times",
+        "content": "I t   w i l l   t a k e   a   m i r a c l e   f o r   B e r n i e   S a n d e r s   t o   b e a t   H i l l a r y   C l i n t o n   . . .",
+        "caption": "Democratic presidential candidate Bernie Sanders speaks during a campaign stop at the Pennsylvania AFL-CIO Convention in Philadelphia on April 7.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Bernie Sanders to visit Vatican City days before NY primary | CNN Politics",
+        "content": "B e r n i e   S a n d e r s   t o   v i s i t   V a t i c a n   C i t y   d a y s   b e f o r e   N Y   p r i m a r y   |   C N N   . . .",
+        "caption": "Democratic presidential candidate Sen. Bernie Sanders (D-VT) speaks during the AFL-CIO Convention at the Downtown Sheraton Philadelphia on April 7, 2016 in Philadelphia, Pennsylvania. The Pennsylvania primaries will be held on April 26.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions confirm that Bernie Sanders spoke at the Pennsylvania AFL-CIO Convention in Philadelphia on April 7, 2016. Candidate 1 is from www.latimes.com and candidate 2 is from www.cnn.com, both reputable news sources, increasing the reliability of the information. The details in the news caption aligns with the details provided in the candidate captions.",
+      "supporting_evidences": [
+        "Democratic presidential candidate Bernie Sanders speaks during a campaign stop at the Pennsylvania AFL-CIO Convention in Philadelphia on April 7.",
+        "Democratic presidential candidate Sen. Bernie Sanders (D-VT) speaks during the AFL-CIO Convention at the Downtown Sheraton Philadelphia on April 7, 2016 in Philadelphia, Pennsylvania."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result confirms that the caption accurately represents the image content. The image shows Bernie Sanders speaking at the Pennsylvania AFL-CIO convention in Philadelphia on April 7, 2016, which aligns with the information provided in the caption and supporting evidence from reputable news sources.",
+    "validation_summary": "The caption correctly identifies Bernie Sanders speaking at the Pennsylvania AFL-CIO convention in Philadelphia, providing an accurate representation of the image content and avoiding any potential for viewer misinterpretation. The confidence score is high, as it is based on information from multiple reputable news sources and aligns with the image content."
+  },
+  "inference_time": 3.41671085357666,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

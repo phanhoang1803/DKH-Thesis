@@ -1,0 +1,43 @@
+{
+  "caption": "Neil McFerran and Aaron Davidson died from suspected carbon monoxide poisoning",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Man (60) dies from suspected carbon monoxide poisoning  | Irish Independent",
+        "content": "M a n   ( 6 0 )   d i e s   f r o m   s u s p e c t e d   c a r b o n   m o n o x i d e   p o i s o n i n g   |   I r i s h   . . .",
+        "caption": "Neil McFerran (left) and Aaron Davidson also died from carbon monoxide poisoning in 2010",
+        "domain": "www.independent.ie",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.09300399571657181,
+        "text_similarity_score": 0.9599334001541138
+      },
+      {
+        "title": "Tears as fumes tragedy fitter is jailed after deaths of Neil McFerran and Aaron Davidson  | BelfastTelegraph.co.uk",
+        "content": "T e a r s   a s   f u m e s   t r a g e d y   f i t t e r   i s   j a i l e d   a f t e r   d e a t h s   o f   N e i l   . . .",
+        "caption": "Neil McFerran who died in a house in Castlerock from suspected carbon monoxide",
+        "domain": "www.belfasttelegraph.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.00018025004828814417,
+        "text_similarity_score": 0.8277947902679443
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are significantly below the threshold of 0.85. This indicates that the images associated with the candidates do not match the image in the news article. Consequently, despite the relatively high text similarity scores (0.9599334001541138 and 0.8277947902679443), the caption must be marked as out-of-context. The low image similarity prevents us from confirming that the captions are accurately representing the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows mugshots of two young men. The caption states that two men, Neil McFerran and Aaron Davidson, died from suspected carbon monoxide poisoning. The image check result indicates a very low image similarity between the provided image and the images associated with the names in the caption. The image check result states that it prevents us from confirming that the captions are accurately representing the image, therefore, the caption is deemed as out of context.",
+    "validation_summary": "The image shows mugshots of two young men, whereas the caption describes two people who died; the image and caption do not align and would mislead viewers. Given the high confidence score from image check result, the final determination is based on it."
+  },
+  "inference_time": 5.231240749359131,
+  "ablation_type": "no_image_evidences"
+}

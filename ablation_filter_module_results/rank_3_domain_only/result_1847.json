@@ -1,0 +1,58 @@
+{
+  "caption": "Ed Miliband campaigning in Oldham East and Saddleworth before Christmas",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Ed Balls",
+      "Labour Party",
+      "Shadow Chancellor of the Exchequer",
+      "Shadow Home Secretary of the United Kingdom",
+      "front",
+      "Leader of the Labour Party of the United Kingdom",
+      "past",
+      "Resonant Chord",
+      "side"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Miliband raises the stakes as the battle for Oldham East intensifies | Ed Miliband | The Guardian",
+        "content": "M i l i b a n d   r a i s e s   t h e   s t a k e s   a s   t h e   b a t t l e   f o r   O l d h a m   E a s t   . . .",
+        "caption": "Ed Miliband campaigning in Oldham East and Saddleworth before Christmas. Photograph: Anna Gowthorpe/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Playing the long game: Ed Miliband shuns quick fixes in first 100 days | Ed Miliband | The Guardian",
+        "content": "P l a y i n g   t h e   l o n g   g a m e :   E d   M i l i b a n d   s h u n s   q u i c k   f i x e s   i n   f i r s t   1 0 0   . . .",
+        "caption": "Ed Miliband arriving in Oldham with Labour candidate Debbie Abrahams, left, before next weeks byelection in Oldham East and Saddleworth, where Phil Woolas was thrown out as MP by a court ruling. Photograph: Martin Rickett/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates refer to Ed Miliband campaigning in Oldham East and Saddleworth, which matches the news caption. However, there is no explicit confirmation of the 'before Christmas' part of the caption. Without this confirmation, a definitive 'True' verdict is not possible.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: Ed Miliband campaigning in Oldham East and Saddleworth before Christmas.",
+        "Candidate 2: Caption: Ed Miliband arriving in Oldham with Labour candidate Debbie Abrahams, left, before next week’s byelection in Oldham East and Saddleworth, where Phil Woolas was thrown out as MP by a court ruling."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a confidence score of 6. It states that while the caption mentions Ed Miliband campaigning in Oldham East and Saddleworth, there is no confirmation of the 'before Christmas' detail. Given this, and the lack of explicit visual evidence supporting the 'before Christmas' claim in the image, the caption is deemed to be out of context, as it adds information not verifiable from the image itself. A viewer may be misled into assuming the timing of the image based on the caption, without any visual confirmation.",
+    "validation_summary": "The caption includes the detail 'before Christmas,' which cannot be verified from the image alone, potentially misleading viewers about the timing of the event depicted, thus the image is out of context. The image check result also confirms this assessment."
+  },
+  "inference_time": 4.2450478076934814,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

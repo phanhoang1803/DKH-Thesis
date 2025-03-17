@@ -1,0 +1,43 @@
+{
+  "caption": "Irish vessel LE Niamh with the yacht Makayabella which was stormed by a naval team who found up to 40 bales of cocaine on board",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Irish navy intercepts massive cocaine shipment off coast of Cork | Ireland | The Guardian",
+        "content": "I r i s h   n a v y   i n t e r c e p t s   m a s s i v e   c o c a i n e   s h i p m e n t   o f f   c o a s t   o f   C o r k   . . .",
+        "caption": "Irish vessel L Niamh with the yacht Makayabella, which was stormed by a naval team who found up to 40 bales of cocaine on board. Photograph: Irish Defence Forces/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4109838306903839,
+        "text_similarity_score": 0.9454385638237
+      },
+      {
+        "title": "Armed naval team seize 100m in cocaine from yacht off Irish coast",
+        "content": "A r m e d   n a v a l   t e a m   s e i z e    1 0 0 m   i n   c o c a i n e   f r o m   y a c h t   o f f   I r i s h   c o a s t",
+        "caption": "Armed naval team seize 100m in cocaine from yacht off Irish coast",
+        "domain": "www.irishexaminer.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3798066973686218,
+        "text_similarity_score": 0.7297004461288452
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are below 0.85, indicating a low visual match between the candidate images and the news image. According to the instructions, when the image similarity score is below 0.85, the caption must be marked as out-of-context, regardless of the text similarity score. Since the image similarity is low, I mark it as false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption inaccurately describes the yacht's intercept operation due to a lack of matching visual elements in the image.",
+    "explanation": "The image check results indicate a very low similarity score (2 out of 10), evidencing that the image content does not represent what is described in the caption. The caption states, \"Irish vessel LE Niamh with the yacht Makayabella which was stormed by a naval team who found up to 40 bales of cocaine on board.\" However, the specific details of the vessels present in the image are not corroborated by visual content, leaving ambiguity around whether the image shows the LE Niamh or the yacht Makayabella. Furthermore, any visual evidence tied directly to the alleged drug operation, such as the presence of cocaine bales or naval personnel, is not apparent based on the image provided. Without clear identification of the ships or any operational context visually represented, viewers would be misled about the content of the image in relation to the caption."
+  },
+  "inference_time": 7.186445474624634,
+  "ablation_type": "no_image_evidences"
+}

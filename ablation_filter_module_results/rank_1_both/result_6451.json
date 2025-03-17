@@ -1,0 +1,43 @@
+{
+  "caption": "An El Al plane at Ben Gurion airport near Tel Aviv",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Israeli Airline With Missile Defenses Goes to Israel When US Carriers Wont - ABC News",
+        "content": "I s r a e l i   A i r l i n e   W i t h   M i s s i l e   D e f e n s e s   G o e s   t o   I s r a e l   W h e n   U S   . . .",
+        "caption": "Two Israeli El Al&nbsp; airplanes maneuver on the tarmac at Ben Gurion International airport near Tel Aviv, Israel, October 28, 2009.",
+        "domain": "abcnews.go.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5717087388038635,
+        "text_similarity_score": 0.8063474893569946
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.5717087388038635, which is less than 0.85. Also, the text similarity score is 0.8063474893569946, which is greater than 0.7. According to the instruction, the verdict should be false. The candidate caption 'Two Israeli El Al&nbsp; airplanes maneuver on the tarmac at Ben Gurion International airport near Tel Aviv, Israel, October 28, 2009' is similar to the news caption 'An El Al plane at Ben Gurion airport near Tel Aviv'. They both mention El Al planes at Ben Gurion airport near Tel Aviv. However, since the image similarity score is less than 0.85, I will mark the caption as out-of-context.",
+      "supporting_evidences": [
+        "The image similarity score is 0.5717087388038635, which is less than 0.85.",
+        "The text similarity score is 0.8063474893569946, which is greater than 0.7."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low image similarity score (0.5717087388038635, less than 0.85) despite a high text similarity score (0.8063474893569946, greater than 0.7). The image shows an airplane silhouetted against a red sunset, while the caption describes an El Al plane at Ben Gurion airport. Although the caption contains correct details, the visual content is not accurately represented by the caption. The image similarity not being above the threshold for similarity requires that the caption is deemed OOC.",
+    "validation_summary": "The image shows an airplane silhouetted against a setting sun, which is a misrepresentation of the claim that it is an El Al plane at Ben Gurion airport, thus making the caption misleading. The caption does not accurately reflect the specific content of the image."
+  },
+  "inference_time": 6.3280017375946045,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "caption": "Nigel Farage and Nick Clegg during the first debate",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Traffic sign",
+      "Traffic",
+      "Sign"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Nick Clegg aims to show emotional side in second debate with Nigel Farage | Nick Clegg | The Guardian",
+        "content": "N i c k   C l e g g   a i m s   t o   s h o w   e m o t i o n a l   s i d e   i n   s e c o n d   d e b a t e   w i t h   N i g e l   . . .",
+        "caption": "Nigel Farage and Nick Clegg during the first debate.  Photograph: Ian West/AFP/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Nick Clegg v Nigel Farage, round 2: getting the facts checked first | Brexit | The Guardian",
+        "content": "N i c k   C l e g g   v   N i g e l   F a r a g e ,   r o u n d   2 :   g e t t i n g   t h e   f a c t s   c h e c k e d   . . .",
+        "caption": "The first of the two debates was hosted by LBC radio presenter Nick Ferrari. Photograph: Ian West/AFP/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have low image and text similarity scores. However, candidate 1 has the exact same caption as the news caption from a reliable source (theguardian.com). This indicates that the caption accurately represents the image. Candidate 2 also describes the event as a debate hosted by LBC radio, which provides some supporting context, though not directly validating the presence of the specific individuals named in the news caption. Thus, there is no strong evidence to suggest that the caption is inaccurate.",
+      "supporting_evidences": [
+        "Nigel Farage and Nick Clegg during the first debate.  Photograph: Ian West/AFP/Getty Images",
+        "The first of the two debates was hosted by LBC radio presenter Nick Ferrari. Photograph: Ian West/AFP/Getty Images"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows Nigel Farage standing in front of a 'no right turn' sign. The caption states 'Nigel Farage and Nick Clegg during the first debate'. There is no evidence of Nick Clegg in the image, nor is there evidence that it is from the debate. The image check result shows that this caption has appeared on theguardian.com, with a confidence score of 6. While the caption is similar to captions from valid sources, the image itself does not contain enough information to support the caption. Thus, the image is out of context.",
+    "validation_summary": "The image does not show Nick Clegg or any indication of a debate, contradicting the caption's claim, thus misleading viewers about the content of the image and its context. Although the caption matches from theguardian.com with certain confidence, visual elements in the image does not match with the claim."
+  },
+  "inference_time": 4.6369616985321045,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

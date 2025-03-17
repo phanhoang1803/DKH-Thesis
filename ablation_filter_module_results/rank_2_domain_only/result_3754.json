@@ -1,0 +1,47 @@
+{
+  "caption": "The BBC s Helen Boaden was stateeducated",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Nicola Shindler",
+      "BBC Radio 4",
+      "Production company",
+      "Woman's Hour",
+      "BBC One",
+      "Channel 4",
+      "Television",
+      "Kanya King"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "MediaGuardian 100 shows influence of fee-paying schools in UK media | MediaGuardian 100 2014 | The Guardian",
+        "content": "M e d i a G u a r d i a n   1 0 0   s h o w s   i n f l u e n c e   o f   f e e - p a y i n g   s c h o o l s   i n   U K   . . .",
+        "caption": "Tim Cook: son of an engineer and drugstore worker.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, the strict decision rules do not apply. Based on the caption, the claim is that 'The BBC's Helen Boaden was stateeducated'. There is no information about Helen Boaden or BBC in the candidate evidence. Therefore, the verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low similarity between the image and the caption. The image depicts a woman, presumably Helen Boaden, but it doesn't provide any information about her education or BBC. The caption claims 'The BBC's Helen Boaden was stateeducated', however, there is no way to confirm this with the image itself, thus, the caption is not representative of the image's content.",
+    "validation_summary": "The caption makes a claim about the person in the image that cannot be verified by the image content, thus, the caption is misleading as it is out of context with the image provided. The image simply shows the person and gives no evidence of education or the BBC as an organization."
+  },
+  "inference_time": 3.4591071605682373,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

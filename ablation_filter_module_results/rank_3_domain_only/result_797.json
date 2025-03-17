@@ -1,0 +1,40 @@
+{
+  "caption": "A family make their way along a lane in Beijing Couples who violate China s onechild policy face hefty fines",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Chinese woman under pressure to choose between second child and husband's job | China | The Guardian",
+        "content": "C h i n e s e   w o m a n   u n d e r   p r e s s u r e   t o   c h o o s e   b e t w e e n   s e c o n d   c h i l d   a n d   . . .",
+        "caption": "A family make their way along a lane in Beijing. Couples who violate Chinas one-child policy face hefty fines.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0, which indicates that the images do not match. Also, the text similarity score is 0.0, which indicates that the captions do not match. However, the candidate confirms the elements in the caption: A family making their way along a lane in Beijing. Couples who violate China’s one-child policy face hefty fines. Therefore, the caption seems to accurately represents what the image shows and what the image is about.",
+      "supporting_evidences": [
+        "A family make their way along a lane in Beijing. Couples who violate China’s one-child policy face hefty fines."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the image similarity score is 0.0, which suggests that the image content does not match the caption. Similarly, the text similarity score is 0.0, indicating a mismatch between the text in the caption and the information provided. The caption talks about a family in Beijing facing hefty fines for violating China's one-child policy, while the image depicts a group of people covered in blankets, possibly seeking shelter or warmth. These elements do not correlate, suggesting the caption is misleading and does not accurately represent the image content. Therefore, the image is determined to be Out of Context.",
+    "validation_summary": "The caption discusses a family facing fines under China's one-child policy, while the image shows people wrapped in blankets, indicating that the caption is misleading about the image's content. Based on the image check result with a high confidence score, the image is out of context (OOC=True)."
+  },
+  "inference_time": 4.220074892044067,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

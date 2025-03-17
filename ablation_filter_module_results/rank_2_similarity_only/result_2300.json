@@ -1,0 +1,56 @@
+{
+  "caption": "Serena Williams serves to Carla Suarez Navarro",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Racketlon",
+      "Tennis",
+      "Racket",
+      "Soft tennis",
+      "Tennis player",
+      "Performance M"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "No.1 Serena Williams serves a 'double-bagel' in U.S. Open quarterfinal - Los Angeles Times",
+        "content": "N o . 1   S e r e n a   W i l l i a m s   s e r v e s   a   ' d o u b l e - b a g e l '   i n   U . S .   O p e n   . . .",
+        "caption": "Serena Williams serves during her quarterfinal victory over Carla Suarez Navarro at the U.S. Open on Tuesday.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8159042000770569,
+        "text_similarity_score": 0.8481364846229553
+      },
+      {
+        "title": "Serena Williams dominating winner in U.S. Open quarterfinals - Los Angeles Times",
+        "content": "S e r e n a   W i l l i a m s   d o m i n a t i n g   w i n n e r   i n   U . S .   O p e n   q u a r t e r f i n a l s   -   L o s   . . .",
+        "caption": "Serena Williams serves during her quarterfinal victory over Carl Suarez Navarro at the U.S. Open on Tuesday.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7996447086334229,
+        "text_similarity_score": 0.8266542553901672
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have image similarity scores below 0.85. Therefore, based on the instructions, the caption is out-of-context. While the text similarity scores are high, indicating the captions are similar, the image similarity being below the threshold dictates a 'False' verdict. The captions of the candidates confirm that Serena Williams was playing against Carla Suarez Navarro. Therefore, the caption is most likely correct, but following the instructions, a verdict of False is the correct one.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low image similarity score, which suggests that the caption is out of context. The confidence score is high, so the image check verdict should be followed. Although the caption likely reflects what is happening in the image, the image check indicates that the caption is out of context, which makes the final verdict 'true'.",
+    "validation_summary": "The image check results indicate the caption is out of context, suggesting viewers might be misled about the image's specific relevance despite the general description aligning with the sport depicted. The high confidence score warrants a verdict of 'Out of Context'. This decision is in accordance with the instructions that specify giving priority to evidence from the image check result when the confidence is high enough."
+  },
+  "inference_time": 5.512104749679565,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

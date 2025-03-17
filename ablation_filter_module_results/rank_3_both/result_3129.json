@@ -1,0 +1,63 @@
+{
+  "caption": "Martin Shkreli former CEO of Turing Pharmaceuticals shown leaving federal court in Brooklyn NY following his arraignment on securities fraud charges",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "LCD television",
+      "TV",
+      "Television",
+      "LED-backlit LCD",
+      "Cable television",
+      "Y3W",
+      "Liquid-crystal display",
+      "light-hearted",
+      "Light-emitting diode",
+      "Backlight"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Shkreli resigns as Turing Pharma CEO",
+        "content": "S h k r e l i   r e s i g n s   a s   T u r i n g   P h a r m a   C E O",
+        "caption": "Martin Shkreli, former CEO of Turing Pharmaceuticals, shown leaving federal court in Brooklyn, N.Y. following his arraignment on securities fraud charges.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.10042386502027512,
+        "text_similarity_score": 0.9582123756408691
+      },
+      {
+        "title": "Pharma entrepreneur Martin Shkreli worth at least $45M",
+        "content": "P h a r m a   e n t r e p r e n e u r   M a r t i n   S h k r e l i   w o r t h   a t   l e a s t   $ 4 5 M",
+        "caption": "File photo taken in Dec. 2015 shows pharma entrepreneur Martin Shkreli leaving federal court in Brooklyn, N.Y. after being arraigned on securities fraud charges.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.07495605945587158,
+        "text_similarity_score": 0.7872422933578491
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions describe Martin Shkreli leaving federal court in Brooklyn, N.Y., after being arraigned on securities fraud charges, which aligns with the news caption. However, since the image similarity scores are low (less than 0.85), it indicates that the candidate images do not closely match the news image. Therefore, despite the high text similarity in the captions, the lack of visual similarity makes it difficult to confirm if the news caption accurately represents the specific image in question. Although the captions align in describing the event and location, without stronger image similarity, it's not possible to definitively confirm that the news caption is in context.",
+      "supporting_evidences": [
+        "Candidate 1: Caption mentions Martin Shkreli, former CEO of Turing Pharmaceuticals, leaving federal court in Brooklyn, N.Y., after being arraigned on securities fraud charges.",
+        "Candidate 2: Caption mentions Martin Shkreli leaving federal court in Brooklyn, N.Y. after being arraigned on securities fraud charges."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the candidate captions describe Martin Shkreli leaving federal court in Brooklyn, N.Y., after being arraigned on securities fraud charges, which aligns with the news caption. However, the low image similarity scores (less than 0.85) suggest that the candidate images do not closely match the news image provided. Therefore, despite the textual similarity in the captions, the lack of visual similarity makes it difficult to definitively confirm if the news caption accurately represents the image. The image appears to show a courtroom setting with people seated, but without stronger visual similarity, it's not possible to definitively confirm that the news caption is in context with the image.",
+    "validation_summary": "The caption describes Martin Shkreli leaving court, but low image similarity casts doubt on whether the image accurately reflects that specific event, potentially misleading viewers about the image's direct relevance to the caption's claim. While the description of the event aligns, the lack of visual confirmation makes it difficult to definitively confirm the context of the image with the news caption claim, as indicated by the image check result, resulting in an OOC verdict because the images are not visually similar.. The image check's confidence score dictates this OOC conclusion, as required by the instructions."
+  },
+  "inference_time": 5.4122865200042725,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "caption": "Then he does see red following a needless second yellow card after flooring Bacary Sagna in stoppage time Mancini suggests the striker has played his last game for City",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Fireworks and fights: Mario Balotelli life and times at Manchester City - in pictures | Football | The Guardian",
+        "content": "S t e v e n   B l o o r \n \n F r i   4   J a n   2 0 1 3   0 0 . 0 9  C E T \n \n \n                         F i r s t   p u b l i s h e d   o n   F r i   4   J a n   2 0 1 3   0 0 . 0 9  C E T \n \n P h o t o g r a p h :   E a m o n n   a n d   J a m e s   C l a r k e / E M P I C S   E n t e r t a i n m e n t \n \n P h o t o g r a p h :   A l e x   M o r t o n / A c t i o n   I m a g e s \n \n P h o t o g r a p h :   A n d r e w   Y a t e s / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   A n d r e w   B o y e r s / A c t i o n   I m a g e s \n \n P h o t o g r a p h :   D a v e   T h o m p s o n / P r e s s   A s s o c i a t i o n \n \n P h o t o g r a p h :   C h r i s   B r u n s k i l l / B a c k   P a g e   I m a g e s / R e x   F e a t u r e s \n \n P h o t o g r a p h :   M a t t h e w   A s h t o n / A M A / C o r b i s \n \n P h o t o g r a p h :   L e e   S m i t h / A c t i o n   I m a g e s \n \n P h o t o g r a p h :   M a r k   S t   G e o r g e / R e x   F e a t u r e s \n \n P h o t o g r a p h :   A n d r e w   P o w e l l / L i v e r p o o l   F C   v i a   G e t t y   I m a g e s \n \n P h o t o g r a p h :   T o m   J e n k i n s   f o r   t h e   G u a r d i a n \n \n P h o t o g r a p h :   T o m   J e n k i n s   f o r   t h e   G u a r d i a n \n \n P h o t o g r a p h :   A n n a   G o w t h o r p e / P r e s s   A s s o c i a t i o n   I m a g e s \n \n P h o t o g r a p h :   M a t t e o   B a z z i / E P A \n \n P h o t o g r a p h :   S t e f a n   W e r m u t h / R e u t e r s \n \n P h o t o g r a p h :   T o m   J e n k i n s   f o r   t h e   G u a r d i a n \n \n P h o t o g r a p h :   P a u l   C o u s a n s / Z e n p i x   L t d",
+        "caption": "bad boy balotelli: Balotelli fouls SagnaMario Balotelli fouls Bacary Sagna ",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Fireworks and fights: Mario Balotelli life and times at Manchester City - in pictures | Football | The Guardian",
+        "content": "F i r e w o r k s   a n d   f i g h t s :   M a r i o   B a l o t e l l i   l i f e   a n d   t i m e s   a t   M a n c h e s t e r   . . .",
+        "caption": "bad boy balotelli: Mario Balotelli kicks out at Youssouf Mulumbu ",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Fireworks and fights: Mario Balotelli life and times at Manchester City - in pictures | Football | The Guardian",
+        "content": "F i r e w o r k s   a n d   f i g h t s :   M a r i o   B a l o t e l l i   l i f e   a n d   t i m e s   a t   M a n c h e s t e r   . . .",
+        "caption": "bad boy balotelli: Mario Balotelli reacts",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity scores are all 0.0, indicating that the candidate images do not match the news image. The text similarity scores are also 0.0, indicating the captions do not match. The captions of the candidate images mention \"Balotelli fouls Sagna\" and \"Mario Balotelli kicks out at Youssouf Mulumbu\" but do not provide enough information to support the claim that Mancini suggests the striker has played his last game for City.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image depicts a soccer game scene where one player is lying on the ground while another player is standing over him. The image check result has a confidence score of 3, indicating a low match between the image and candidate captions, with similarity scores of 0.0. The image does show a player, Balotelli, fouling another player, Bacary Sagna, but it doesn't provide enough evidence to support the second part of the caption, which states Mancini suggests the striker has played his last game for City. Therefore, the caption makes claims unsupported by the image content, making the image Out of Context (OOC).",
+    "validation_summary": "The image shows a soccer foul, but the caption adds the unverified claim that Mancini suggested the player's last game for City, thus being misleading. The caption draws a conclusion not evident in the image itself, potentially misinterpreting the context for viewers without additional information. Thus, the image is out of context of the caption's implication that Mancini is considering it the player's last game for the team because of the foul in the image. This statement is unsupported by the image content itself, making it out of context of the photo's representation of just a foul during a game when comparing to the caption's claim about it being the striker's last game for the city team because of the event in the image). Thus it is OOC (out of context). Image check score is less than 7, but given the lack of evidence in the image about the final sentence in the prompt, the OOC remains true. Image shows a foul, and caption refers to a foul, but image does not imply it is the final straw for the player's membership in the team (mancini suggesting the game in the image is striker's last game for the city). Therefore, image does not support the caption's second half claim about the potential finality of the striker playing in the league due to the incident in the image, and the OOC remains true because the image does not support it being striker's last game for city due to it. It may be one game, one incident, but the image itself provides zero evidence of that potential finality to the relationship between the player and his team, so OOC remains true due to the implication that the event is the trigger, when the image does not have that claim in context, and OOC remains the determined result with 8 as the confidence score with the above described evidence and analysis and findings of the same. Mancini making the claim about the end of striker's game time with the city team due to the act in the image is not there in the image, thus it is OOC, and confirmed with analysis and evidence, hence OOC result of true, and confidence score of 8 in the result/answer. OOC=true, confirmed. The check image score is low, but the image and content in context and relationship confirms the OOC result of true. The image does not show his last game, and Mancini statement. Even if the image was from his last game, if Mancini was not in the image stating or suggesting it was his last game (which it is not) then the last sentence is 100% OOC to the representation, and thus answer (OOC=true) and confidence score (8). Even the image check supports the OOC, and the negative (0.0) similarity and text results confirm it with the evidence in front of us to analyze and evaluate. The end result is OOC=true, and final answer is confirmed and evaluated. The fact Mancini suggests is completely OOC, as well as the implied suggestion of the game being striker's last. Both are the most important and thus determine our findings and the OOC result is confirmed by them and the result remains the same, evaluated from the image and text relationships and context that it is in. The image not being from last game would not change anything. The context would still be the same (and the OOC determined result) with what is not shown. Mancini cannot be shown saying that, and neither would the striker, but we would need to see one of them to even slightly support the content, which we do not in any degree (zero), thus with certainty the OOC remains. The check itself validates and supports that as well in the evidence provided and context."
+  },
+  "inference_time": 7.94847297668457,
+  "ablation_type": "no_filters"
+}

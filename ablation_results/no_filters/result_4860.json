@@ -1,0 +1,67 @@
+{
+  "caption": "Sheehan is one of at least 112 children in 34 states who have developed sudden severe muscle weakness officially known as acute flaccid myelitis since September according to the CDC",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Acute flaccid myelitis",
+      "Enterovirus",
+      "Polio",
+      "Muscle weakness",
+      "Flu",
+      "Influenza-like illness",
+      "light-hearted",
+      "Polio-like syndrome",
+      "Muscle",
+      "Centers for Disease Control and Prevention"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Seven-year-old Bailey Sheehan fights polio-like illness",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Seven-year-old Bailey Sheehan fights polio-like illness",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Seven-year-old Bailey Sheehan fights polio-like illness",
+        "content": "S e v e n - y e a r - o l d   B a i l e y   S h e e h a n   f i g h t s   p o l i o - l i k e   i l l n e s s",
+        "caption": "Sheehan is one of at least 112 children in 34 states who have developed sudden, severe muscle weakness, officially known as acute flaccid myelitis, since September, according to the CDC.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Seven-year-old Bailey Sheehan fights polio-like illness",
+        "content": "S e v e n - y e a r - o l d   B a i l e y   S h e e h a n   f i g h t s   p o l i o - l i k e   i l l n e s s",
+        "caption": "Bailey Sheehan works with her physical therapist Melissa Murray. Sheehan has undergone intensive physical therapy to cope with a sudden paralysis that affected her right arm and leg.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are all 0.0, meaning that the candidate images do not match the news image. The text similarity scores are also all 0.0, except for candidate 3 which has a score of 1.0 because it contains the exact news caption. Although the caption matches in candidate 3, the image similarity score is 0.0, thus, the caption is out-of-context. Candidate 4 provides more context by mentioning Bailey Sheehan and physical therapy, suggesting the image might depict a child undergoing treatment. However, the candidates do not provide enough information to confirm that the news caption accurately represents what the image shows. The candidate provides some details about the patient, but does not include all details described in the original caption. Therefore, the news caption is not completely verified.",
+      "supporting_evidences": [
+        "Candidate 3",
+        "Candidate 4"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a young girl using a gymnastic bar with the assistance of a woman. The caption states that \"Sheehan is one of at least 112 children in 34 states who have developed sudden severe muscle weakness officially known as acute flaccid myelitis since September according to the CDC\". While the news content mentions Bailey Sheehan, the image does not explicitly depict or confirm that the girl in the image is Sheehan or that she has acute flaccid myelitis. The Image Check Result's low image similarity scores confirm that the image is not accurately represented by the caption. The caption provides no context or accurate summary of the image content.",
+    "validation_summary": "The caption does not accurately represent the image, which shows a girl on a gymnastic bar, and would mislead viewers into thinking the image is explicitly related to acute flaccid myelitis, when it's more likely related to physical therapy for Bailey Sheehan, as the article describes later in the document. The caption does not provide any context for the image content, leading to a disconnect between the visual and the text."
+  },
+  "inference_time": 4.90221905708313,
+  "ablation_type": "no_filters"
+}

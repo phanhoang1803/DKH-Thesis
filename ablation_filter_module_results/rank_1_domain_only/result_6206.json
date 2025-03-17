@@ -1,0 +1,49 @@
+{
+  "caption": "2002 Angels 4 Giants 2 Rookie pitcher John Lackey pitched a gem to beat the Barry Bondsled Giants",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "John Lackey",
+      "Los Angeles Angels",
+      "Abilene High School",
+      "2002 World Series",
+      "Pitcher",
+      "Baseball",
+      "Catcher",
+      "College baseball",
+      "Softball",
+      "Infielder"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Recent Game 7s of the World Series",
+        "content": "R e c e n t   G a m e   7 s   o f   t h e   W o r l d   S e r i e s",
+        "caption": "2001 - Diamondbacks 3, Yankees 2:  Luis Gonzalez hit a walk-off RBI single off closer Mariano Rivera.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Thus, both image and caption do not match. The candidate evidence is about a Diamondbacks game and does not contain information about the Angels, Giants, John Lackey, or Barry Bonds, indicating the caption is not supported by this candidate.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a high confidence score of 1, and it states that both the image and the caption do not match. The supporting evidence is also not relevant to the Angels, Giants, John Lackey, or Barry Bonds, confirming the caption is not supported by the image content. Thus, the caption does not accurately represent the image content.",
+    "validation_summary": "The caption is misleading as it describes a specific game and players that are not visually represented in the image. The image shows a group of baseball players celebrating but lacks the details mentioned in the caption, making it out of context."
+  },
+  "inference_time": 4.06350302696228,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

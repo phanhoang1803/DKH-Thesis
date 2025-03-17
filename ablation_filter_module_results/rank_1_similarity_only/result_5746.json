@@ -1,0 +1,40 @@
+{
+  "caption": "Shannon Rae Green hosts USA NOW for July 31 covering the rise of TSA misconduct cases by 26 in the past three years",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "DIA Now Taking Reservations for TSA Screening Line",
+        "content": "D e n v e r   I n t e r n a t i o n a l   A i r p o r t   h a s   l a u n c h e d   a   p i l o t   p r o g r a m ,   w h i c h   i s   f r e e   t o   p a s s e n g e r s   w h o   a r e   c o n c e r n e d   a b o u t   h e a l t h   f a c t o r s   w h e n   f l y i n g . \n \n D I A   a n n o u n c e d   t h a t   t h e y   a r e   l o o k i n g   f o r   p a s s e n g e r s   t o   h e l p   t e s t   t h e i r   n e w   e x c l u s i v e   V e r i F L Y p r o g r a m   w h e r e   y o u   c a n   m a k e   a   r e s e r v a t i o n   t o   u s e   a   d e d i c a t e d   T S A   s c r e e n i n g   l i n e   a s   w e l l   a s   t r a v e l   o n   a   l i m i t e d - c a p a c i t y   t r a i n   c a r . \n \n F r o m   t h e i r   w e b s i t e : \n \n W i t h   V e r i F L Y ,   y o u   r e s e r v e   a   s p e c i f i c   t i m e   t o   e n t e r   t h e   V e r i F L Y   T S A   s c r e e n i n g   l a n e   ( s t a n d a r d   a n d   P r e C h e c k   l a n e s   a v a i l a b l e ) .   O n c e   y o u   z i p   t h r o u g h   t h e   s e c u r i t y   c h e c k p o i n t ,   V e r i F L Y   a l l o w s   y o u   t o   a c c e s s   a   r e s e r v e d   t r a i n   c a r   w i t h   a   l i m i t e d   n u m b e r   o f   V e r i F L Y   t r a v e l e r s      e n s u r i n g   a   s o c i a l l y   d i s t a n c e   r i d e   t o   t h e   c o n c o u r s e s   a m o n g   f e l l o w   h e a l t h - c o n s c i o u s   t r a v e l e r s . \n \n R i g h t   n o w   t h e   V e r i F L Y   a p p   i s   o n l y   a v a i l a b l e   f o r   i P h o n e   u s e r s ;   s o o n   i t   w i l l   b e   a v a i l a b l e   o n   A n d r o i d   d e v i c e s . \n \n G e t   m o r e   o n   V e r i F L Y   f r o m   D I A   H E R E .",
+        "caption": "DIA Now Taking Reservations for TSA Screening Line",
+        "domain": "retro1025.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.821360170841217,
+        "text_similarity_score": 0.3538235127925873
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The Image Similarity Score is low (0.821360170841217) and the Text Similarity Score is low (0.3538235127925873). The candidate caption refers to 'DIA Now Taking Reservations for TSA Screening Line' which is not related to the news caption 'Shannon Rae Green hosts USA NOW for July 31 covering the rise of TSA misconduct cases by 26 in the past three years'. There is no supporting evidence.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a scene at an airport security checkpoint, with TSA agents and passengers going through the screening process. The caption states, \"Shannon Rae Green hosts USA NOW for July 31 covering the rise of TSA misconduct cases by 26 in the past three years.\" The image check result indicates a low similarity between the image and caption. There's no evidence in the image to suggest it relates to a news segment about Shannon Rae Green or a report on TSA misconduct cases. The image simply depicts a routine airport security check. Therefore, the caption is misleading and out of context. The image check result also supports this conclusion with low similarity scores.",
+    "validation_summary": "The caption misleadingly suggests the image is directly related to a news report on TSA misconduct, when it simply shows an airport security checkpoint. Viewers would be misled into thinking the image illustrates a specific news story about TSA misconduct when it's a generic scene of airport security procedures, which is not representative of the news caption about TSA misconduct cases or the news content."
+  },
+  "inference_time": 6.356770992279053,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

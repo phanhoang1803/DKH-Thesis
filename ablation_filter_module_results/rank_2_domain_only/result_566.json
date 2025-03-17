@@ -1,0 +1,47 @@
+{
+  "caption": "People rush into Macy s as they open at midnight on Friday in NYC",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "A Journey from Homelessness to a Room of One's Own | The New Yorker",
+        "content": "A   J o u r n e y   f r o m   H o m e l e s s n e s s   t o   a   R o o m   o f   O n e ' s   O w n   |   T h e   N e w   Y o r k e r",
+        "caption": "A person wearing a sweatshirt is seen from behind looking out a window.",
+        "domain": "www.newyorker.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Why Black Friday shoppers endure the crush | CNN",
+        "content": "W h y   B l a c k   F r i d a y   s h o p p e r s   e n d u r e   t h e   c r u s h   |   C N N",
+        "caption": "Black Friday shoppers gleefully rush through the doors of the New York City Macy's after it opened its doors at midnight on November 25, 2011.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are both 0.0, and the text similarity scores are also 0.0. This means that no images are similar to the image in the news. Let's analyze based on the captions and candidate to give the final decision. The news caption is 'People rush into Macy s as they open at midnight on Friday in NYC'. Candidate 2 has the information: 'Black Friday shoppers gleefully rush through the doors of the New York City Macy's after it opened its doors at midnight on November 25, 2011.' Although the date is a little different, it is reasonable to infer that the two captions align with each other. The other candidate is unrelated to the news caption.",
+      "supporting_evidences": [
+        "Black Friday shoppers gleefully rush through the doors of the New York City Macy's after it opened its doors at midnight on November 25, 2011."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 6, and its verdict is true. This means that the caption is likely to be accurate. Moreover, the image shows a large crowd of people inside a store, with decorations suggesting a holiday shopping event. This aligns with the caption, which states that people are rushing into Macy's as they open at midnight on Friday in NYC, likely for Black Friday sales. Therefore, based on the image check result, the caption is a correct representative summary of the image content.",
+    "validation_summary": "The image shows a large crowd of people in a store, which aligns with the caption's description of people rushing into Macy's for Black Friday sales; thus, the caption is not misleading. The image check result also supports this alignment."
+  },
+  "inference_time": 4.7615063190460205,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

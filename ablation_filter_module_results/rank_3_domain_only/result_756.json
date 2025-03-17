@@ -1,0 +1,48 @@
+{
+  "caption": "The Regal Princess has 358 Deluxe Balcony cabins that are a larger version of the ship s standard balcony cabin",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Bedroom",
+      "Yacht",
+      "Bed",
+      "Interior design",
+      "Design",
+      "Bed Frame",
+      "Superyacht",
+      "M",
+      "Luxury goods"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Cruise ship tours: Princess Cruises' Regal Princess",
+        "content": "C r u i s e   s h i p   t o u r s :   P r i n c e s s   C r u i s e s '   R e g a l   P r i n c e s s",
+        "caption": "Princess Cruises' newest ship, the 3,560-passenger Regal Princess, debuted in May 2014 in the Mediterranean.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. The news caption mentions 'Deluxe Balcony cabins' and the candidate caption mentions '3,560-passenger Regal Princess' but not cabin details. Therefore, the evidence does not support the claim in the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 3. However, the news caption states: \"The Regal Princess has 358 Deluxe Balcony cabins that are a larger version of the ship s standard balcony cabin\", while the image shows a bedroom on a ship, but does not verify whether it is a deluxe cabin or whether it has a balcony. The image check result indicates the evidence does not support the claim in the news caption. Therefore, the caption is out of context.",
+    "validation_summary": "The image is of a bedroom on a cruise ship, but the news caption mentions specific details about the cabins of the Regal Princess which are not explicitly verifiable in the image, which misrepresents the content of the image. The image does not confirm if it's a balcony cabin or a deluxe cabin."
+  },
+  "inference_time": 3.554002523422241,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

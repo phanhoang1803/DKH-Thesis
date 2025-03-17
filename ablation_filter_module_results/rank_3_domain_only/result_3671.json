@@ -1,0 +1,38 @@
+{
+  "caption": "Supporters of Republican presidential candidate former Massachusetts governor Mitt Romney celebrate during a Super Tuesday night gathering in Boston",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Romney Captures Ohio, Super Tuesday's Big Prize : NPR",
+        "content": "R o m n e y   C a p t u r e s   O h i o ,   S u p e r   T u e s d a y ' s   B i g   P r i z e   :   N P R",
+        "caption": "Mitt Romney shakes hands with supporters at his primary election night rally in Boston. Romney won the race in Massachusetts.",
+        "domain": "www.npr.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. Therefore, I need to analyze the content of the captions. The news caption describes \"Supporters of Republican presidential candidate former Massachusetts governor Mitt Romney celebrate during a Super Tuesday night gathering in Boston\". The candidate caption describes \"Mitt Romney shakes hands with supporters at his primary election night rally in Boston. Romney won the race in Massachusetts.\" There is a weak association between the two captions. The candidate caption mentions Mitt Romney with his supporters at a rally in Boston. The news caption mentions the same. However, it is during super Tuesday night. The candidate evidence does not specify if it is super tuesday.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result suggests that the caption is weakly associated with the image content, with a confidence score of 2. However, since the confidence score is low, a more thorough analysis is necessary. The image shows several people, some wearing Romney campaign attire. People are looking up. Based on the image, the caption that \"Supporters of Republican presidential candidate former Massachusetts governor Mitt Romney celebrate during a Super Tuesday night gathering in Boston\" is potentially true. It is difficult to determine with 100% certainty whether it is Super Tuesday night without more context. However, the image check result indicates the caption is weakly associated, which suggests that the image and caption do not match. I am siding with the image check result here due to the weak association.",
+    "validation_summary": "The caption implies that the image shows supporters of Mitt Romney celebrating during a Super Tuesday night gathering in Boston, but the image does not explicitly confirm this event, leading to a potentially misleading association. Viewers might incorrectly assume the image directly represents a Super Tuesday celebration for Romney based solely on the caption."
+  },
+  "inference_time": 3.740873336791992,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

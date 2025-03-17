@@ -1,0 +1,49 @@
+{
+  "caption": "Sophie Bevan in Glyndebourne s current production of Saul",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Rock concert",
+      "Concert",
+      "Musical ensemble",
+      "Rock",
+      "Guitarist",
+      "Festival",
+      "5hy"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Handel in Italy Vol I CD review  a dazzling disc from the Bevan siblings | George Frideric Handel | The Guardian",
+        "content": "H a n d e l   i n   I t a l y   V o l   I   C D   r e v i e w      a   d a z z l i n g   d i s c   f r o m   t h e   B e v a n   . . .",
+        "caption": "Sophie Bevan in Glyndebourne's current production of Saul. Photograph: Bill Cooper",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Amazon.com: Handel: Saul : Bbc / Opus Arte: Movies & TV",
+        "content": "A m a z o n . c o m :   H a n d e l :   S a u l   :   B b c   /   O p u s   A r t e :   M o v i e s   &   T V",
+        "caption": "",
+        "domain": "www.amazon.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Candidate 1 has the exact same caption and comes from a reliable domain (www.theguardian.com). However, the image similarity score is 0, and the text similarity score is 0, which means the image is not similar to the news image and the captions are not similar. Candidate 2 has no information. Because the Image Similarity Score is below 0.85 and the Text Similarity Score is below 0.7, further analysis is required. The caption refers to \"Sophie Bevan in Glyndebourne's current production of Saul.\" Candidate 1 confirms this information (Sophie Bevan in Glyndebourne's current production of Saul) from a reliable source. Candidate 1 provides evidence that aligns with the claim in the caption. Therefore, the final verdict is True.",
+      "supporting_evidences": [
+        "Sophie Bevan in Glyndebourne's current production of Saul. Photograph: Bill Cooper"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 7, the image is considered OOC because the Image Similarity Score is below 0.85 and the Text Similarity Score is below 0.7. The caption states, \"Sophie Bevan in Glyndebourne's current production of Saul.\" Therefore, the final verdict is that the image is out of context because of low image and text similarities.",
+    "validation_summary": "The image is out of context because the image and captions are not similar, according to the image check result. The image check result indicates that the image similarity score is below 0.85 and the text similarity score is below 0.7, which is why further analysis is required."
+  },
+  "inference_time": 3.964055299758911,
+  "ablation_type": "no_filters"
+}

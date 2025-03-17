@@ -1,0 +1,43 @@
+{
+  "caption": "Novak Djokovic of Serbia celebrates his 67 76 63 62 victory against Andy Murray of Britain to capture his third consecutive Australian Open crown and fourth overall",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Soft tennis",
+      "Tennis",
+      "Racketlon",
+      "Tennis player"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Team USA rolls, Serbia comes back and Frances home court advantage: 6 takeaways from the mens basketball quarterfinals | CNN",
+        "content": "T e a m   U S A   r o l l s ,   S e r b i a   c o m e s   b a c k   a n d   F r a n c e ' s   h o m e   c o u r t   . . .",
+        "caption": "Team USA huddles after their victory against Brazil in Paris, on August 6.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Thus, both images and captions are not related. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Novak Djokovic playing tennis on a clay court. He is wearing a light blue shirt, white shorts, and a white hat. He is in the middle of a shot, with the ball just leaving his racket. The caption, however, describes Djokovic's victory against Andy Murray in the Australian Open final. This suggests that the image does not depict the specific event described in the caption, or the Australian Open in general, since the court surface is clay, not the hard court used at the Australian Open. The image check result also confirms that the image and caption are not related, with a similarity score of 0.0 for both images and text.",
+    "validation_summary": "The image shows Novak Djokovic playing on a clay court, which contradicts the caption describing his Australian Open victory. Thus, the caption misrepresents the image content."
+  },
+  "inference_time": 3.333320140838623,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

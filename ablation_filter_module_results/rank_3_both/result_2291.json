@@ -1,0 +1,40 @@
+{
+  "caption": "First Lady Michelle Obama with her daughters Malia and Sasha visit Museum of Terracotta Warriors on March 24 during a visit to the historic excavation site in Xian China",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Nato summit protests - in pictures | World news | The Guardian",
+        "content": "M o n   2 1   M a y   2 0 1 2   1 4 . 5 9  B S T \n \n \n                         F i r s t   p u b l i s h e d   o n   M o n   2 1   M a y   2 0 1 2   1 4 . 5 9  B S T \n \n P h o t o g r a p h :   A n d r e w   K e l l y / R e u t e r s \n \n P h o t o g r a p h :   S c o t t   O l s o n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   J o s h u a   L o t t / G e t t y   I m a g e s \n \n P h o t o g r a p h :   J o s h u a   L o t t / G e t t y   I m a g e s \n \n P h o t o g r a p h :   S p e n c e r   P l a t t / G e t t y   I m a g e s \n \n P h o t o g r a p h :   J o h n   S m i e r c i a k / E P A \n \n P h o t o g r a p h :   A n d r e w   K e l l y / R e u t e r s \n \n P h o t o g r a p h :   A d r e e s   L a t i f / R e u t e r s \n \n P h o t o g r a p h :   J o h n   S m i e r c i a k / E P A \n \n P h o t o g r a p h :   J o h n   S m i e r c i a k / E P A \n \n P h o t o g r a p h :   E r i c   T h a y e r / R e u t e r s \n \n P h o t o g r a p h :   J o e   C o m p e a n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   C h a r l e s   R e x   A r b o g a s t / A P \n \n P h o t o g r a p h :   T a s o s   K a t o p o d i s / A F P / G e t t y   I m a g e s",
+        "caption": "NATO summit protests: A protester stands at the Art Institute",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9886775016784668,
+        "text_similarity_score": 0.22373971343040466
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.9886775016784668 and the text similarity score is 0.22373971343040466. According to the instructions, if the image similarity score is greater than or equal to 0.85 and the text similarity score is less than 0.7, the verdict should be 'False'. The provided candidate discusses NATO summit protests, which has no relation to the First Lady Michelle Obama's visit to the Museum of Terracotta Warriors. Therefore, the candidate is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a group of police officers in riot gear facing a group of protestors. One protestor has his arms out in front of the police. The image does not show First Lady Michelle Obama with her daughters Malia and Sasha visiting the Museum of Terracotta Warriors on March 24 during a visit to the historic excavation site in Xian China. Therefore, the caption is completely unrelated to the image.",
+    "validation_summary": "The caption describes Michelle Obama's visit to a museum in China, while the image shows police facing protestors, which is entirely misleading. The caption would lead viewers to believe they are seeing a photo of the First Lady and her daughters, when in reality they are seeing a protest event."
+  },
+  "inference_time": 4.32689094543457,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

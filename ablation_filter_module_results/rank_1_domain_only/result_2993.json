@@ -1,0 +1,48 @@
+{
+  "caption": "Mitt Romney speaks during a campaign rally at Westerville South High School in Westerville Ohio",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "United States",
+      "Speech",
+      "Flag of the United States",
+      "Flag",
+      "Academic conference",
+      "Public speaking",
+      "Flag Day",
+      "Veterans Day",
+      "Convention"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Romney hammers Obama on national debt",
+        "content": "R o m n e y   h a m m e r s   O b a m a   o n   n a t i o n a l   d e b t",
+        "caption": "Republican presidential candidate Mitt Romney arrives at a campaign rally at Westerville South High School as a national debt clock runs in the background September 26, 2012 in Westerville, Ohio.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Thus, I need to analyze the content of the candidate. The candidate mentions that \"Republican presidential candidate Mitt Romney arrives at a campaign rally at Westerville South High School as a national debt clock runs in the background September 26, 2012 in Westerville, Ohio.\". Although it mentions Westerville South High School in Westerville, Ohio and Mitt Romney, it doesn't explicitly confirm that he is 'speaking' during the rally, but rather that he is 'arriving'. Thus, the provided evidence is not enough to support the caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low similarity between the image and the caption, with a confidence score of 6. The image shows Mitt Romney standing at a podium with American flags behind him, with a crowd of people in front of him. He has his hand over his heart. The caption claims he is \"speaking during a campaign rally at Westerville South High School in Westerville Ohio.\" Although the text mentions the location and Mitt Romney, it does not explicitly state that he is speaking. Because the evidence is weak and image check results are prioritize at high confidence, the image is OOC.",
+    "validation_summary": "The caption implies Mitt Romney is actively speaking at a rally, but the image only shows him standing at a podium, which does not sufficiently confirm that he is speaking. This could mislead viewers about the specific event taking place in the image."
+  },
+  "inference_time": 3.87613582611084,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

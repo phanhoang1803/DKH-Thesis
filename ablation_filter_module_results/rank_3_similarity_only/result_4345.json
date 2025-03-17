@@ -1,0 +1,67 @@
+{
+  "caption": "President Obama looks on as Polish President Bronislaw Komorowski gestures during a meeting with Polish and US soldiers at the military airport in Warsaw Poland on Tuesday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "United States presidential debates",
+      "United States",
+      "ready",
+      "Flag of the United States",
+      "Flag",
+      "Memorial Day",
+      "Debate",
+      "Veterans Day"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "President Obama Shakes Hands With Polish President Komorow | Flickr",
+        "content": "P r e s i d e n t   O b a m a   S h a k e s   H a n d s   W i t h   P o l i s h   P r e s i d e n t   K o m o r o w    |   F l i c k r",
+        "caption": "President Obama Shakes Hands With Polish President Komorowski After Speaking to U.S. and Polish Airmen | by U.S. Department of State",
+        "domain": "www.flickr.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.36472782492637634,
+        "text_similarity_score": 0.801120936870575
+      },
+      {
+        "title": "US to send more troops and equipment to eastern Europe | Daily Mail Online",
+        "content": "U S   t o   s e n d   m o r e   t r o o p s   a n d   e q u i p m e n t   t o   e a s t e r n   E u r o p e   |   D a i l y   . . .",
+        "caption": "Polish President Bronislaw Komorowski welcomes U.S. President Barack Obama at his Belweder residence in Warsaw, Poland",
+        "domain": "www.dailymail.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5405061841011047,
+        "text_similarity_score": 0.7870784401893616
+      },
+      {
+        "title": "In Poland, Obama Raps Belarus, Ukraine And Reaches Out To Russia",
+        "content": "I n   P o l a n d ,   O b a m a   R a p s   B e l a r u s ,   U k r a i n e   A n d   R e a c h e s   O u t   T o   R u s s i a",
+        "caption": "U.S. President Barack Obama at a welcoming ceremony at Poland's presidential palace in Warsaw on May 28, where he met with Polish President Bronislaw Komorowski.",
+        "domain": "www.rferl.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.37704917788505554,
+        "text_similarity_score": 0.7673014998435974
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity scores are all below 0.85. The text similarity scores are all above 0.7, but according to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Thus, the final verdict is false. The evidences talk about President Obama meeting with Polish President Bronislaw Komorowski in Warsaw, Poland, but they don't have enough information to confirm that the meeting was with Polish and US soldiers at the military airport in Warsaw Poland on Tuesday.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image similarity score (below 0.85) and therefore determines the caption to be out of context. The image shows several individuals in a room with flags of the USA and Ukraine visible. The caption describes a meeting between President Obama and Polish President Bronislaw Komorowski with Polish and US soldiers at a military airport in Warsaw, Poland. Without visual confirmation of Obama, Komorowski, soldiers, or a military airport, the caption's claims cannot be substantiated by the image. Thus, the caption is misleading and deemed out of context.",
+    "validation_summary": "The caption describes a specific meeting that isn't verifiable from the image, making it out of context. Viewers would be misled about the location and people present in the image based on the caption."
+  },
+  "inference_time": 6.034233808517456,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

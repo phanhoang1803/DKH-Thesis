@@ -1,0 +1,35 @@
+{
+  "caption": "John and Yoko pose with Andy Peebles and an unidentified woman",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_text_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 1,
+      "confidence_score": 10,
+      "explanation": "The caption describes a photo of John Lennon and Yoko Ono with Andy Peebles and an unidentified woman. However, the image context clearly describes a photo of Clint Eastwood embracing his daughter, Alison Eastwood. The caption and the context are completely different, indicating no alignment whatsoever. The names, individuals, and context of the image are entirely mismatched.",
+      "supporting_evidences": [
+        "The caption mentions 'John and Yoko' while the context mentions 'Clint Eastwood and Alison Eastwood'.",
+        "The caption describes a photo with Andy Peebles and an unidentified woman, while the image context focuses on Clint embracing Alison.",
+        "The image context describes Clint kissing the top of Alison's head, but this detail is not present in the caption.",
+        "The caption lacks any description of the individuals in the photo described in the image context."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Clint Eastwood embraces his daughter, Alison Eastwood.",
+      "context": "The image shows Clint Eastwood embracing his daughter, Alison Eastwood. Clint is wearing a brown jacket over a white shirt. He is kissing the top of Alison's head. Alison is wearing a black dress. The background is a dark, solid color, putting the focus on the two figures.",
+      "information": "The image features actor and director Clint Eastwood embracing his daughter, Alison Eastwood. Clint is kissing Alison, with both showing affection. The photo has a formal and intimate feel."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is entirely mismatched with the image content. The caption describes a photo of John Lennon and Yoko Ono with Andy Peebles and an unidentified woman, while the actual image depicts Clint Eastwood embracing his daughter, Alison Eastwood. The image shows Clint kissing Alison's head, which isn't mentioned in the caption. Therefore, the image is out of context.",
+    "validation_summary": "The caption completely misrepresents the image by describing different people and a different setting, leading viewers to believe they are seeing a photo of John Lennon and Yoko Ono instead of Clint and Alison Eastwood. This discrepancy renders the caption entirely out of context with the visual content of the image and could mislead viewers about the content of the image with the completely different context of the incorrect caption provided."
+  },
+  "inference_time": 4.866172790527344,
+  "ablation_type": "no_text_evidences"
+}

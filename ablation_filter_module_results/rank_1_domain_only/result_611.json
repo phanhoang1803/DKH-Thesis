@@ -1,0 +1,50 @@
+{
+  "caption": "Damage to two Ryanair planes that clipped each other at Dublin airport",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Aircraft",
+      "Boeing C-40 Clipper",
+      "Boeing",
+      "Boeing 737 MAX",
+      "Airliner",
+      "Boeing 737 Next Generation",
+      "Boeing P-8 Poseidon",
+      "Airbus SE",
+      "Boeing 777X"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Ryanair planes clip each other at Dublin airport | Ryanair | The Guardian",
+        "content": "R y a n a i r   p l a n e s   c l i p   e a c h   o t h e r   a t   D u b l i n   a i r p o r t   |   R y a n a i r   |   T h e   . . .",
+        "caption": "Damage to two Ryanair planes that clipped each other at Dublin airport. Photograph: Emily Carroll/Twitter",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate provides a caption that is identical to the news caption and comes from a reputable source (The Guardian). This confirms that the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "Damage to two Ryanair planes that clipped each other at Dublin airport. Photograph: Emily Carroll/Twitter"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts a Boeing 737 aircraft on a wet tarmac, with two individuals, one operating a camera, in the foreground. The caption describes damage to two Ryanair planes that clipped each other at Dublin airport. There is no visible damage on the plane in the image. Given that the image check provides a high confidence score, the caption is determined to be out of context.",
+    "validation_summary": "The image does not show any damage to a Ryanair plane, making the caption misleading to viewers about the content of the image. The image is out of context as it does not represent the caption's claim of plane damage at Dublin airport between two Ryanair planes during clipping incident, while the image provided shows a Boeing airplane on wet tarmac with no visible damage or the airline branding mentioned in caption's context, and the location does not seem to be an airport tarmac at Dublin airport to be the location in the image given wet road-like area and foliage on the horizon in the picture."
+  },
+  "inference_time": 4.107033729553223,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

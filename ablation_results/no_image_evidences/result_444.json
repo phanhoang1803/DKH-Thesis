@@ -1,0 +1,34 @@
+{
+  "caption": "Sri Lankan fishermen in the Ahangama sea",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "AHANGAMA, SRI LANKA-03 JANUARY 2012: The Local Fishermen Are Fishing In Unique Traditional Style. The Standing On The Single Timber Pole Or Stilt Can Only Found In This Indian Ocean. Stock Photo, Picture and Royalty Free Image. Image 138947665.",
+        "content": "A H A N G A M A ,   S R I   L A N K A - 0 3   J A N U A R Y   2 0 1 2 :   T h e   L o c a l   F i s h e r m e n   A r e   . . .",
+        "caption": "AHANGAMA, SRI LANKA-03 JANUARY 2012: The local fishermen are fishing in unique traditional style. The standing on the single timber pole or stilt can only found in this Indian ocean. - 138947665",
+        "domain": "www.123rf.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.62001633644104,
+        "text_similarity_score": 0.7875397801399231
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.62 which is less than 0.85 and the text similarity score is 0.78 which is greater than 0.7. Since the image similarity score is less than 0.85, I am marking the caption as out-of-context. The candidate caption discusses fishermen in Ahangama, Sri Lanka, fishing in a traditional style, which aligns with the news caption mentioning Sri Lankan fishermen in the Ahangama sea. However, the low image similarity score indicates that the images are not closely related.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 3,
+    "validation_summary": "The caption inaccurately suggests a strong connection to traditional fishing practices in Ahangama, while the image evidence does not closely align with these claims.",
+    "explanation": "The news caption states \"Sri Lankan fishermen in the Ahangama sea,\" which implies an image that depicts traditional fishing techniques, likely which are characteristic of this specific location. However, according to the image check result, the image's similarity score is low (0.62), indicating that it does not closely depict the traditional fishing scene one would expect from the caption. The text similarity score, while above 0.7 (0.78), suggests that while the caption may align with general ideas about Sri Lankan fishermen, it lacks specificity that would connect the image shown to traditional practices in Ahangama specifically. This discrepancy leads to the determination that the caption does not accurately represent what the image shows, thus marking it as out of context (OOC=true). The image could depict a generic scene; therefore, viewers might be misled to think they are viewing traditional fishermen from Ahangama when the image may not support this claim."
+  },
+  "inference_time": 8.04445195198059,
+  "ablation_type": "no_image_evidences"
+}

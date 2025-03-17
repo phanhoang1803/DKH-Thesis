@@ -1,0 +1,45 @@
+{
+  "caption": "This aerial image shows flooded areas on the campus of Louisiana State University on Aug 13 2016 in Baton Rouge",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "PHOTOS: Historic floods in Louisiana",
+        "content": "P H O T O S :   H i s t o r i c   f l o o d s   i n   L o u i s i a n a",
+        "caption": "This aerial image shows flooded areas on the campus of Louisiana State University on Aug. 13, 2016, in Baton Rouge. (Patrick Dennis, The",
+        "domain": "www.gosanangelo.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6099366545677185,
+        "text_similarity_score": 0.9417795538902283
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.6099366545677185, which is less than 0.85. The text similarity score is 0.9417795538902283, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. However, in this case the candidate confirms that the caption accurately represents the image. Therefore, the caption is in-context.",
+      "supporting_evidences": [
+        "Caption: This aerial image shows flooded areas on the campus of Louisiana State University on Aug. 13, 2016, in Baton Rouge.",
+        "Image Similarity Score: 0.6099366545677185",
+        "Caption Similarity Score: 0.9417795538902283",
+        "Domain: www.gosanangelo.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 10, and the result confirms that the caption accurately represents the image. However, the image does not depict Louisiana State University. The image depicts Boulder, Colorado, during the 2013 floods. Therefore, the caption is out of context.",
+    "validation_summary": "The caption incorrectly identifies the location in the image, leading viewers to believe the photo shows a different place than it actually does. This discrepancy would mislead viewers about the image's content and origin, thus, the image is out of context."
+  },
+  "inference_time": 7.258675575256348,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

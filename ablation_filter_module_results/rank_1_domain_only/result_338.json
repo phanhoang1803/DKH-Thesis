@@ -1,0 +1,40 @@
+{
+  "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Healthier chocolate and other incredible discoveries of the week",
+        "content": "6 3 5 6 3 1 2 6 7 1 4 0 4 5 0 7 5 3 - A P - D a r k -   . . .",
+        "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0, and the text similarity score is 0.0. Therefore, the automated rules do not provide any decision. However, the candidate caption completely matches the news caption, even though the source does not seem reliable.",
+      "supporting_evidences": [
+        "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result shows a low image similarity score of 0.0, and a low text similarity score of 0.0. The image depicts a person decorating chocolates that are in small paper cups on a wooden surface. The caption mentions 'Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York.' While the image shows chocolates being prepared, there is no visible indication that these chocolates are Japanese plum chocolates, contain dark chocolate ganache with plum wine, or are being prepared in New York. Without further information, it cannot be confirmed that the image content matches the caption's description. Therefore, the caption is considered out of context.",
+    "validation_summary": "The image shows chocolates being decorated, but it doesn't provide any information about the specific type of chocolates (Japanese plum chocolates) or their origin (New York), making the caption misleading. The caption is therefore out of context since it provides details not supported by the image."
+  },
+  "inference_time": 6.097160339355469,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

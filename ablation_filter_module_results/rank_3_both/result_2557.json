@@ -1,0 +1,62 @@
+{
+  "caption": "Pope Francis right gestures as he talks with journalists during his flight from Manila to Rome on Monday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Debate",
+      "Seminar",
+      "Academic conference",
+      "Public speaking",
+      "Convention",
+      "Academy",
+      "Speech",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Rabbit Breeder to Pope: You Don't Know Rabbits",
+        "content": "R a b b i t   B r e e d e r   t o   P o p e :   Y o u   D o n ' t   K n o w   R a b b i t s",
+        "caption": "Pope Francis, right, gestures as he talks with journalists during his flight from Manila to Rome, Monday, Jan. 19, 2015.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.25395405292510986,
+        "text_similarity_score": 0.9488624334335327
+      },
+      {
+        "title": "Pope: Catholics need not breed 'like rabbits'",
+        "content": "6 3 5 5 7 2 8 5 7 9 6 6 6 1 4 2 9 9 - E P A -   . . .",
+        "caption": "Pope Francis gestures as he talks with journalists on the plane during the flight from Manila to Rome, 19 January 2015.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.20818796753883362,
+        "text_similarity_score": 0.8528648614883423
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions describe Pope Francis gesturing while talking to journalists on a flight from Manila to Rome. The first candidate has a caption similarity score of 0.94 and the second candidate has a similarity score of 0.85, which are high. The news caption describes the same scenario, but since the image similarity scores are below 0.85, the caption is considered out-of-context.",
+      "supporting_evidences": [
+        "Candidate 1 has a caption similarity score of 0.94.",
+        "Candidate 2 has a caption similarity score of 0.85.",
+        "Both candidates describe Pope Francis gesturing while talking to journalists on a flight from Manila to Rome."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows Pope Francis seated at a table while someone speaks at a podium in front of a large green marble background. There is also a security guard standing in the background. The caption states that Pope Francis is talking with journalists on a flight from Manila to Rome, which is not what is depicted in the image. The image check result supports this conclusion. Therefore, the caption is out of context.",
+    "validation_summary": "The caption is misleading because it describes Pope Francis talking to journalists on a flight, while the image shows him seated in a formal setting listening to someone speak at a podium. Viewers would be misled about the context of the image."
+  },
+  "inference_time": 3.9595134258270264,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

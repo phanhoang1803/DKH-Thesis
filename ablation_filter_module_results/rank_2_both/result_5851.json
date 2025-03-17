@@ -1,0 +1,51 @@
+{
+  "caption": "The House at Tel Brak photographed during Christie s visit",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "House",
+      "President Lincoln's Cottage",
+      "United Kingdom",
+      "British royal family",
+      "Mansion",
+      "Window",
+      "Estate",
+      "North American fraternity and sorority housing",
+      "Desired"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 10,
+      "explanation": "The caption mentions 'The House at Tel Brak' and 'Christie's visit,' while the image context describes 'President Lincoln's Cottage' with people in formal attire. These details do not align at all, indicating the caption is entirely mismatched with the actual image content. The caption references a house related to Agatha Christie, while the image is of President Lincoln's Cottage.",
+      "supporting_evidences": [
+        "Caption mentions 'The House at Tel Brak,' which is not present in the image.",
+        "Caption refers to 'Christie's visit,' not depicted in the image.",
+        "Image shows 'President Lincoln's Cottage,' not mentioned in the caption.",
+        "Image depicts people in formal attire, context unconfirmed by caption."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "A group of people stand on the porch of President Lincoln's Cottage, a historic house with a white facade and green shutters.",
+      "context": "The image shows a group of people standing on the porch of what appears to be a historic house. The house, identified as President Lincoln's Cottage, features a white facade, multiple windows with green shutters, and a prominent porch area with dark wooden railings and support beams. The architectural style includes gabled roofs and chimneys. The people on the porch are dressed in formal or semi-formal attire, suggesting a special event or visit. Based on the news content, it is not directly related to the image. The news content focuses on Agatha Christie's travels and writings, particularly her memoir about archaeological trips to Syria and Iraq. The image in the news content is described as 'The House at Tel Brak, photographed during Christie’s visit.' Therefore, the provided news content is irrelevant to the image, and the context is based on the image itself.",
+      "information": "The image features a group of people on the porch of a two-story house. The house is white with green shutters and a dark wooden porch. The architecture includes gabled roofs and chimneys. The individuals are dressed in formal or semi-formal attire."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a complete mismatch between the image and the caption. The caption references 'The House at Tel Brak' and 'Christie's visit', while the image depicts 'President Lincoln's Cottage' with people in formal attire. These elements do not align, indicating that the caption is entirely out of context. The caption's reference to Agatha Christie's house contrasts sharply with the image of what is President Lincoln's Cottage. Therefore, the image is out of context.",
+    "validation_summary": "The caption incorrectly identifies the location and people in the image, leading to a completely misleading impression of the image's content. The image depicts President Lincoln's Cottage, not a location associated with Agatha Christie, making the caption entirely out of context."
+  },
+  "inference_time": 5.115412473678589,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

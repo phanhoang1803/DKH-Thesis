@@ -1,0 +1,46 @@
+{
+  "caption": "The Rev Al Sharpton waves to supporters before President Obama and others take a symbolic walk across the Edmund Pettus Bridge",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Car",
+      "Festival",
+      "Audience",
+      "Performance M"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "President Obama marks Selma civil rights milestone  Chicago Tribune",
+        "content": "P r e s i d e n t   O b a m a   m a r k s   S e l m a   c i v i l   r i g h t s   m i l e s t o n e      C h i c a g o   T r i b u n e",
+        "caption": "President Obama, First Lady Michelle Obama, right, and daughters Malia...",
+        "domain": "www.chicagotribune.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "President Obama marks Selma civil rights milestone  Chicago Tribune",
+        "content": "P r e s i d e n t   O b a m a   m a r k s   S e l m a   c i v i l   r i g h t s   m i l e s t o n e      C h i c a g o   T r i b u n e",
+        "caption": "The Rev. Al Sharpton waves to supporters before President Obama...",
+        "domain": "www.chicagotribune.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are both 0.0, indicating that the images in the candidates do not match the news image. The text similarity scores are also 0.0, indicating that the captions in the candidates do not match the news caption. However, the second candidate mentions \"The Rev. Al Sharpton waves to supporters before President Obama...\", which aligns with the news caption. The first candidate provides a vague description. Therefore, it's possible that the news caption is describing the image, but more evidence is needed for higher confidence.",
+      "supporting_evidences": [
+        "The Rev. Al Sharpton waves to supporters before President Obama..."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a large crowd of people with one man in the center with his arms raised as if waving. The image is blurry, so the faces of the people are not clear. Based on the image, there is no mention of Rev Al Sharpton, President Obama or the Edmund Pettus Bridge. According to the Image Check result, the similarity scores are very low. Therefore, the caption is out of context.",
+    "validation_summary": "The image does not show the people the caption claims it does, nor does it show the location mentioned, so viewers would be misled about the content of the image if they were to read the caption. The caption is out of context with the image provided."
+  },
+  "inference_time": 4.059038877487183,
+  "ablation_type": "no_filters"
+}

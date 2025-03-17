@@ -1,0 +1,38 @@
+{
+  "caption": "A building burns after an explosion on Second Avenue on March 26 2015 in New York City",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Blast, fire erupt in NYC's East Village; 19 hurt",
+        "content": "6 3 5 6 2 9 8 5 0 5 7 2 4 7 3 4 6 4 - G T Y -   . . .",
+        "caption": "A building burns after an explosion on Second Avenue on March 26, 2015, in New York City.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0, and the text similarity score is 0.0. Therefore, the caption is considered out of context because the available evidence does not support it. The evidence provided is just the caption itself, which is not sufficient to determine if it accurately represents the image, and I cannot confirm if the caption accurately represents the image without further evidence.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is out of context with a high confidence score of 1. The image depicts a building on fire, with flames and smoke visible, and emergency personnel present. The provided caption states \"A building burns after an explosion on Second Avenue on March 26 2015 in New York City.\" While the image does show a building on fire, the image check did not find evidence to connect it specifically to an explosion, Second Avenue, or the date mentioned. The image check verdict is false, indicating that the caption and the image do not align. Therefore, the caption is out of context.",
+    "validation_summary": "The caption mentions specific details (explosion, location, and date) that are not verifiable from the image, making it out of context and potentially misleading to viewers. The image check supports that the caption is out of context."
+  },
+  "inference_time": 4.084762334823608,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "caption": "Katie Ledecky waves to the crowd as the Spanish silver medalist Mireia Belmonte Garcia applauds during the medal ceremony for the 800 freestyle",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Olympics day seven  as it happened | Olympic Games 2012 | The Guardian",
+        "content": "O l y m p i c s   d a y   s e v e n      a s   i t   h a p p e n e d   |   O l y m p i c   G a m e s   2 0 1 2   |   T h e   . . .",
+        "caption": "Cuba's Leuris Pupo holds up his gold medal after winning the 25m rapid fire pistol final at the London 2012 Olympic Games.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0, and the text similarity score is 0.0. Therefore, the predefined rules do not give the final answer. The candidate caption describes a different event (Cuba's Leuris Pupo winning a gold medal in pistol) than the news caption (Katie Ledecky at a medal ceremony). There is no overlap in the people, event, or context described. Thus, the candidate provides no evidence to verify the accuracy of the news caption. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a high confidence score of 2 and determined that the caption is not an accurate representation of the image. According to the caption, the image depicts Katie Ledecky at the medal ceremony for the 800 freestyle while Mireia Belmonte Garcia applauds. The image shows Katie Ledecky on a podium and someone to her left applauding, but because the image check result is highly confident in its assessment, I must assume that the claim is false. This means that the image is out of context.",
+    "validation_summary": "The caption inaccurately describes the people and event depicted in the image, leading to a misunderstanding of its context. The image check result confirms that the caption is misleading."
+  },
+  "inference_time": 4.611307144165039,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "caption": "Venus Williams of the US serves during the women s doubles third round match",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Sunset at Montmajour",
+      "Amsterdam Museum",
+      "Painting",
+      "History",
+      "Museum",
+      "BASE jumping",
+      "Jumping",
+      "Stadium",
+      "Vincent van Gogh",
+      "Amsterdam"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Linda Noskov and Lucie Hradeck beat Serena and Venus Williams: US Open doubles  as it happened | US Open Tennis 2022 | The Guardian",
+        "content": "L i n d a   N o s k o v    a n d   L u c i e   H r a d e c k    b e a t   S e r e n a   a n d   V e n u s   W i l l i a m s   . . .",
+        "caption": "Serena and Venus Williams prepare to receive serve during their US Open doubles match against Linda Noskov and Lucie Hradeck.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2914733588695526,
+        "text_similarity_score": 0.7849866151809692
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is below 0.85 and text similarity score is high, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the caption is out of context with a confidence score of 2. According to the instructions, when the confidence score is 7-10, the final determination MUST be based on the image check result. The image check result states the caption is out of context. Therefore, the caption does not accurately describe the image.",
+    "validation_summary": "The image check determined the caption doesn't accurately describe the image and is out of context. The viewers would be misled about what they are seeing in the image."
+  },
+  "inference_time": 4.966654062271118,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

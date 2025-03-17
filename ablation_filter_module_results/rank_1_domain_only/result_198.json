@@ -1,0 +1,38 @@
+{
+  "caption": "Heavy rain brings traffic to a halt in Llandaff North in Cardiff",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "South Wales Metro: The train service that is mimicking London's Tube",
+        "content": "S o u t h   W a l e s   M e t r o :   T h e   t r a i n   s e r v i c e   t h a t   i s   m i m i c k i n g   L o n d o n ' s   T u b e",
+        "caption": "The new Transport for Wales valley lines map showing the new routes",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Based on the captions provided, there is no mention of heavy rain, traffic, or the specific location of Llandaff North in Cardiff. The provided candidate is about a new Transport for Wales valley lines map, which does not relate to the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image and text similarity score, with no support for the caption's claims. The image depicts cars driving through a flooded street, which aligns with the general theme of heavy rain causing disruption. However, the caption specifies 'Llandaff North in Cardiff,' and there's no specific visual evidence in the image to confirm this location. Without any locational indicators, or information, the image doesn't validate the caption's specificity, making it misleading to viewers. The image itself does show flooding and traffic, but the caption adds specific locational details not confirmed, thus misrepresenting the image's context.",
+    "validation_summary": "While the image shows cars in flood water, the caption's specific location claim ('Llandaff North in Cardiff') is not supported by any visual elements, potentially misleading viewers about where the image was taken. The low image and text similarity score from the image check confirms this mismatch."
+  },
+  "inference_time": 4.444823980331421,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

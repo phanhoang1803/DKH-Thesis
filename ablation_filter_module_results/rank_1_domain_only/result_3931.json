@@ -1,0 +1,40 @@
+{
+  "caption": "Herc Domenick Lombardozzi in his Baltimore days",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Wired into 24 | Television industry | The Guardian",
+        "content": "W i r e d   i n t o   2 4   |   T e l e v i s i o n   i n d u s t r y   |   T h e   G u a r d i a n",
+        "caption": "Herc: Domenick Lombardozzi in his Baltimore days. Photograph: Paul Schiraldi/FX",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0, and the text similarity score is 0.0. The candidate evidence includes the exact caption, suggesting the caption is accurate. However, without further confirmation from more reliable sources, it is difficult to be completely certain.",
+      "supporting_evidences": [
+        "Herc: Domenick Lombardozzi in his Baltimore days. Photograph: Paul Schiraldi/FX"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result has a confidence score of 6, which is below 7. But because of the presence of 'Herc: Domenick Lombardozzi in his Baltimore days' in the supporting evidence, which matches the news caption, and the high image and text similarity scores, the initial verdict is True. However, based on the image, the baseball player is Derek Jeter from the New York Yankees, which contradicts the claim in the caption. Therefore, the caption is inaccurate.",
+    "validation_summary": "The caption incorrectly identifies the baseball player in the image as Herc Domenick Lombardozzi in his Baltimore days, when the image actually shows Derek Jeter from the New York Yankees, misleading viewers about the subject of the photograph. Despite the existence of the same caption in the evidence, the image analysis takes precedence, and the final OOC decision is based on the actual content of the image."
+  },
+  "inference_time": 5.662566423416138,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

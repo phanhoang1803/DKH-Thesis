@@ -1,0 +1,49 @@
+{
+  "caption": "Senate GOP between a rock and a hard place",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "imdb2.freeforums.net",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9888454675674438,
+        "text_similarity_score": 0.13000400364398956
+      },
+      {
+        "title": "Attention Required! | Cloudflare",
+        "content": "",
+        "caption": "",
+        "domain": "alchetron.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9888454675674438,
+        "text_similarity_score": 0.13000400364398956
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "Both candidates have image similarity scores >= 0.85, indicating the images are likely the same. However, the text similarity scores are < 0.7, indicating the captions are not similar. Therefore, based on the strict decision rules, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that while the images are similar, the captions are not. The news caption is \"Senate GOP between a rock and a hard place,\" while the image depicts a woman in front of an ornate background. There is nothing in the image to suggest that the GOP or Senate is present. Therefore, the caption does not match the image content.",
+    "validation_summary": "The caption does not accurately reflect the image, as the image shows a woman and the caption refers to the Senate GOP. Viewers would be misled about the image content if they read the caption first."
+  },
+  "inference_time": 7.341524600982666,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

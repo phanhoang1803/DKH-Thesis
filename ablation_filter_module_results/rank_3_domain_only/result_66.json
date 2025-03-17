@@ -1,0 +1,52 @@
+{
+  "caption": "A Red Line train arrives at the Metro Center station last month in this file photo",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Regional taxes, longer I-66 toll hours on table for dedicated N. Va. transit funding | FFXnow",
+        "content": "R e g i o n a l   t a x e s ,   l o n g e r   I - 6 6   t o l l   h o u r s   o n   t a b l e   f o r   d e d i c a t e d   N   . . .",
+        "caption": "A train arrives at the Tysons Metro station (staff photo by Angela Woolsey)",
+        "domain": "www.ffxnow.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "LAPD officers 'overwhelmed' by homeless problem on Metro | LAist",
+        "content": "L A P D   o f f i c e r s   ' o v e r w h e l m e d '   b y   h o m e l e s s   p r o b l e m   o n   M e t r o   |   L A i s t",
+        "caption": "File: Red Line at 7th Street/Metro Center.",
+        "domain": "laist.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "The Death Of The Washington Metro | Hudson Institute",
+        "content": "T h e   D e a t h   O f   T h e   W a s h i n g t o n   M e t r o   |   H u d s o n   I n s t i t u t e",
+        "caption": "A WMATA Metro Red Line Metro train pulls into Metro Center in Washington on Tuesday, Sept. 27, 2016. (Bill Clark/CQ Roll Call)",
+        "domain": "www.hudson.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "Since all Image Similarity Scores are 0.0, the images are not similar. Also, all Text Similarity Scores are 0.0, the captions are not similar. The candidates mention 'Red Line', 'Metro Center', and 'train', but they do not confirm that 'A Red Line train arrives at the Metro Center station'. Hence, I cannot confirm the caption based on the evidences provided.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the image is not similar to the captions based on Image Similarity Scores and Text Similarity Scores. The caption makes the following claims: 'A Red Line train arrives at the Metro Center station last month'. The image depicts a metro station and a train. The image depicts the interior of a Washington DC metro station. Since the image check result has a confidence score of 3, the final determination must be based on the image check result which is negative.",
+    "validation_summary": "The caption suggests that the image is that of a Red Line train arriving at the Metro Center station, a claim unsupported by image analysis and specifically refuted by the image check, potentially misleading viewers about the image's content. Therefore, the caption does not match the image content, making it out of context (OOC = True)."
+  },
+  "inference_time": 3.7722301483154297,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "caption": "Kathmandu Nepal Women from the Gurung community dance during the Tamu Losar festival to celebrate new year",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Photo highlights of the day",
+        "content": "",
+        "caption": "the women are dressed in red and green costumes with headdresses on their heads",
+        "domain": "www.pinterest.co.uk",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9638195633888245,
+        "text_similarity_score": 0.24821516871452332
+      },
+      {
+        "title": "Ashin Gurung (gurungashin123) - Profile | Pinterest",
+        "content": "",
+        "caption": "",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9960669875144958,
+        "text_similarity_score": 0.05201001837849617
+      },
+      {
+        "title": "Gurungs Major socio-cultural  festivals - Explore city blog",
+        "content": "",
+        "caption": "",
+        "domain": "santoshgulloong.blogspot.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9570699334144592,
+        "text_similarity_score": 0.05201001837849617
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Candidate 1 has a high image similarity score (0.9638195633888245) but a low text similarity score (0.24821516871452332). The caption of candidate 1 mentions women dressed in red and green costumes with headdresses. This aligns with the news caption which describes women from the Gurung community dancing during the Tamu Losar festival. However, since the text similarity score is low, I cannot definitively confirm that the news caption is accurate. Candidates 2 and 3 have high image similarity scores (0.9960669875144958 and 0.9570699334144592 respectively) but no captions provided, meaning no text similarity can be determined for either candidate. Due to the lack of explicit confirmation of the events portrayed in the image with the context of the news caption, I cannot definitively confirm the news caption as accurate.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.9638195633888245, Caption Similarity Score: 0.24821516871452332",
+        "Candidate 2: Image Similarity Score: 0.9960669875144958, Caption Similarity Score: 0.05201001837849617",
+        "Candidate 3: Image Similarity Score: 0.9570699334144592, Caption Similarity Score: 0.05201001837849617"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image shows four women dressed in traditional attire, including red and green clothing and elaborate headdresses, consistent with the description of women from the Gurung community dancing during the Tamu Losar festival. The image check result supports this with a high image similarity score of 0.9638195633888245 for a similar image. Although the text similarity score is lower (0.24821516871452332), the visual elements align with the caption's claim, indicating that the caption accurately represents the image content. Therefore, the image is not out of context.",
+    "validation_summary": "The caption accurately describes the scene depicted in the image, showing women in traditional clothing and headdresses, dancing during a festival. This suggests the caption provides a correct representative summary of the image content."
+  },
+  "inference_time": 8.092312335968018,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

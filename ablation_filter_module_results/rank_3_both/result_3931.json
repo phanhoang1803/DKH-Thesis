@@ -1,0 +1,40 @@
+{
+  "caption": "Herc Domenick Lombardozzi in his Baltimore days",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Wired into 24 | Television industry | The Guardian",
+        "content": "W i r e d   i n t o   2 4   |   T e l e v i s i o n   i n d u s t r y   |   T h e   G u a r d i a n",
+        "caption": "Herc: Domenick Lombardozzi in his Baltimore days. Photograph: Paul Schiraldi/FX",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.014332087710499763,
+        "text_similarity_score": 0.7449833750724792
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.014332087710499763 and the text similarity score is 0.7449833750724792. Since the image similarity score is less than 0.85, the caption is out-of-context, even though the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is out of context with a confidence score of 2, so the image check determines the final verdict. The image shows Derek Jeter in a baseball uniform with the New York Yankees logo. The caption claims the image is of Herc Domenick Lombardozzi during his time with the Baltimore Police, but the image does not show the actor or anything related to Baltimore.",
+    "validation_summary": "The caption inaccurately identifies the person in the image, leading viewers to believe it is someone else entirely, making it out of context. The image check result strongly supports that the caption is out of context, which determines the final verdict."
+  },
+  "inference_time": 5.4669740200042725,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

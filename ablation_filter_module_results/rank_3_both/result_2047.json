@@ -1,0 +1,60 @@
+{
+  "caption": "Bernie Sanders and Hillary Clinton take the stage before the Democratic debate at the University of WisconsinMilwaukee on Feb 11 2016",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Awards ceremony",
+      "Talent show",
+      "5hy",
+      "Convention",
+      "Ceremony",
+      "X",
+      "Award"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Democratic debate: 5 takeaways | CNN Politics",
+        "content": "D e m o c r a t i c   d e b a t e :   5   t a k e a w a y s   |   C N N   P o l i t i c s",
+        "caption": "Democratic presidential candidate Senator Bernie Sanders (L) and Hillary Clinton participate in the PBS NewsHour Democratic presidential candidate debate at the University of Wisconsin-Milwaukee on February 11, 2016 in Milwaukee, Wisconsin.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3444485068321228,
+        "text_similarity_score": 0.8069748878479004
+      },
+      {
+        "title": "Economy to take center stage as Clinton, Sanders face off in Flint | PBS News",
+        "content": "E c o n o m y   t o   t a k e   c e n t e r   s t a g e   a s   C l i n t o n ,   S a n d e r s   f a c e   o f f   i n   F l i n t   . . .",
+        "caption": "Democratic presidential candidates Senator Bernie Sanders (L) and Hillary Clinton participate in the PBS NewsHour Democratic presidential candidate debate at the University of Wisconsin-Milwaukee on February 11, 2016 in Milwaukee, Wisconsin. The rivals will be meeting again on Sunday night in Flint, Mich. Win McNamee/Getty Images",
+        "domain": "www.pbs.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.45487895607948303,
+        "text_similarity_score": 0.7943359613418579
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates 1 and 2 have a high text similarity score (>=0.7). However, the image similarity scores are low (<0.85) for both candidates, meaning that the images do not match. Thus, the caption is out-of-context. In addition, both captions explicitly mention the debate between Bernie Sanders and Hillary Clinton at the University of Wisconsin-Milwaukee on February 11, 2016, which strongly supports the news caption. Thus, with a confidence level of 7, the caption accurately represents what the image shows and what the image is about.",
+      "supporting_evidences": [
+        "Democratic presidential candidate Senator Bernie Sanders (L) and Hillary Clinton participate in the PBS NewsHour Democratic presidential candidate debate at the University of Wisconsin-Milwaukee on February 11, 2016 in Milwaukee, Wisconsin.",
+        "Democratic presidential candidates Senator Bernie Sanders (L) and Hillary Clinton participate in the PBS NewsHour Democratic presidential candidate debate at the University of Wisconsin-Milwaukee on February 11, 2016 in Milwaukee, Wisconsin."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the caption accurately represents the image. The supporting evidences specifically mention the debate between Bernie Sanders and Hillary Clinton at the University of Wisconsin-Milwaukee on February 11, 2016, which strongly supports the news caption. Therefore, based on the image check result, the caption is deemed to be an accurate representation of the image content.",
+    "validation_summary": "The image and caption align with the provided information regarding the Democratic debate between Bernie Sanders and Hillary Clinton, thus it does not mislead viewers about the image content. The image check results corroborate this conclusion."
+  },
+  "inference_time": 6.079838991165161,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

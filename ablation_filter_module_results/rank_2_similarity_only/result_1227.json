@@ -1,0 +1,49 @@
+{
+  "caption": "Mobile phone pictiure of the Chinese consulate in San Francisco which was the subject of an arson attack",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Page not found - Showbiz Cheat Sheet",
+        "content": "",
+        "caption": "",
+        "domain": "www.cheatsheet.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9791575074195862,
+        "text_similarity_score": 0.03175199776887894
+      },
+      {
+        "title": "Page not found - Showbiz Cheat Sheet",
+        "content": "",
+        "caption": "",
+        "domain": "www.cheatsheet.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9791575074195862,
+        "text_similarity_score": 0.03175199776887894
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores are high (>= 0.85), but the text similarity scores are low (< 0.7). According to the instructions, if the image similarity score is greater than or equal to 0.85 and the text similarity score is less than 0.7, the verdict should immediately be 'False'. Therefore, the verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image is out of context. The high image similarity score (>= 0.85) suggests that the image might be related to the topic, but the low text similarity score (< 0.7) indicates that the caption does not accurately describe the content of the image. Therefore, based on the instructions, the final decision must be 'False'. The image shows a firefighter standing in front of a damaged building, while the caption refers to the Chinese consulate in San Francisco which was the subject of an arson attack. Although the image shows a building damaged by fire, there is no clear indication that it is the Chinese consulate in San Francisco, and the firefighter is the prominent aspect of the image.",
+    "validation_summary": "The image check result confirms that the caption does not accurately represent the image content, as the image shows a firefighter in front of a fire-damaged building, which doesn't clearly depict the Chinese consulate in San Francisco mentioned in the caption, thus misleading viewers about the location depicted in the image. The image check result provides strong evidence that the image is out of context."
+  },
+  "inference_time": 4.264191627502441,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

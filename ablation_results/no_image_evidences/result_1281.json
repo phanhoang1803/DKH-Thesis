@@ -1,0 +1,53 @@
+{
+  "caption": "Awardwinning gin from Australian distiller Four Pillars",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Wine",
+      "May wine",
+      "Burgundy wine",
+      "Glass bottle",
+      "Wine Bottle",
+      "Bottle",
+      "Glass",
+      "May",
+      "Burgundy"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Australia's gin revolution led by boutique distilleries | Food | The Guardian",
+        "content": "A u s t r a l i a ' s   g i n   r e v o l u t i o n   l e d   b y   b o u t i q u e   d i s t i l l e r i e s   |   F o o d   . . .",
+        "caption": "Award-winning gin from Australian distiller Four Pillars. Photograph: Anson Smart",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2518323063850403,
+        "text_similarity_score": 0.8995303511619568
+      },
+      {
+        "title": "Four Pillars Navy Strength Gin  My Store",
+        "content": "F o u r   P i l l a r s   N a v y   S t r e n g t h   G i n      M y   S t o r e",
+        "caption": "Four Pillars Navy Strength Gin",
+        "domain": "www.southernspirits.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1328829526901245,
+        "text_similarity_score": 0.7239922285079956
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity scores are low for both candidates (0.2518323063850403 and 0.1328829526901245, respectively). This indicates that the candidate images do not visually match the news image. Additionally, although Candidate 1 has a relatively high text similarity score (0.8995303511619568), the low image similarity score means that the caption is considered out-of-context. Therefore, I have low confidence that the provided candidates confirm that the news caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 3,
+    "validation_summary": "The caption claims that the image depicts award-winning gin from Australian distiller Four Pillars, but the image does not visually confirm this and does not directly represent the content of the caption.",
+    "explanation": "The caption states that it references 'award-winning gin from Australian distiller Four Pillars.' However, the image check results indicate a low similarity between the caption candidates and the image, leading to a confidence score of only 3. This suggests that the image does not effectively showcase the product mentioned in the caption, either due to a lack of clear branding or because the image might depict something entirely different than gin or specifically Four Pillars' gin. Viewers looking at the image will not necessarily associate it with the intended narrative of an award-winning Australian gin. Thus, the visual content does not align well with the claims made in the caption."
+  },
+  "inference_time": 7.840238571166992,
+  "ablation_type": "no_image_evidences"
+}

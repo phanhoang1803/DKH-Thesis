@@ -1,0 +1,59 @@
+{
+  "caption": "The England bowler Tim Bresnan right runs out Murali Vijay during the first day of the practice match in Mumbai",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Test cricket",
+      "Cricket",
+      "First-class cricket",
+      "One Day International"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Steven Finn gives England concern after limping out of India warm-up | England in India 2012-13 | The Guardian",
+        "content": "S t e v e n   F i n n   g i v e s   E n g l a n d   c o n c e r n   a f t e r   l i m p i n g   o u t   o f   I n d i a   w a r m   . . .",
+        "caption": "The England bowler Tim Bresnan, right, runs out Murali Vijay during the first day of the practice match in Mumbai. Photograph: Pal Pillai/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Samit Patel stakes claim as England's opening tour match of India meanders to draw | The Independent | The Independent",
+        "content": "S a m i t   P a t e l   s t a k e s   c l a i m   a s   E n g l a n d ' s   o p e n i n g   t o u r   m a t c h   o f   I n d i a   . . .",
+        "caption": "Samit Patel of England looks up after scoring a century during the final day of the first practice match between England and India 'A'",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Hungry Samit Patel makes weighty case for England Test selection with century",
+        "content": "H u n g r y   S a m i t   P a t e l   m a k e s   w e i g h t y   c a s e   f o r   E n g l a n d   T e s t   s e l e c t i o n   . . .",
+        "caption": "England cricketer Samit Patel plays a shot during the final day of a three day practice match between India A and England at The Cricket Club of India (CCI) ground in Mumbai on November 1, 2012. The England cricket team, who are to play a four Test series against India from November 15, will be playing three practice matches before the start of the test series.",
+        "domain": "www.thetimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity scores are all 0.0, and the text similarity scores are also all 0.0. Therefore, I need to evaluate the captions. \n\nCandidate 1 has the exact caption as the news article, and it comes from a reputable source (www.theguardian.com). It confirms that 'The England bowler Tim Bresnan, right, runs out Murali Vijay during the first day of the practice match in Mumbai.' Therefore, the news caption is likely accurate.",
+      "supporting_evidences": [
+        "The England bowler Tim Bresnan, right, runs out Murali Vijay during the first day of the practice match in Mumbai. Photograph: Pal Pillai/Getty Images"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a high confidence score of 7 and a True verdict. It indicates that the England bowler Tim Bresnan runs out Murali Vijay, based on information from a reputable source. However, looking at the image, the person shown in the picture is a batsman holding a bat. The individual is wearing a helmet, pads, and gloves. It does not show Tim Bresnan running out Murali Vijay. The caption describes a specific action involving two players, while the image depicts a batsman, therefore, the caption is out of context.",
+    "validation_summary": "The image depicts a batsman, not the described action of a bowler running out another player, making the caption misleading. Therefore, the image is out of context as it does not show the specific action described in the caption."
+  },
+  "inference_time": 3.739717483520508,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

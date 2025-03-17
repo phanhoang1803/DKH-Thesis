@@ -1,0 +1,50 @@
+{
+  "caption": "The Chinese lawyer Chen Guangcheng who has been held under house arrest for more than a year",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Plaza M",
+      "Courthouse"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Chinese activist flees house arrest | Chen Guangcheng | The Guardian",
+        "content": "C h i n e s e   a c t i v i s t   f l e e s   h o u s e   a r r e s t   |   C h e n   G u a n g c h e n g   |   T h e   G u a r d i a n",
+        "caption": "Chen Guangcheng: the activist and lawyer was under house arrest until fleeing on Sunday.  Photograph: AP",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.16716104745864868,
+        "text_similarity_score": 0.8282948136329651
+      },
+      {
+        "title": "Chen Guangcheng's nephew jailed after snap trial | Chen Guangcheng | The Guardian",
+        "content": "C h e n   G u a n g c h e n g ' s   n e p h e w   j a i l e d   a f t e r   s n a p   t r i a l   |   C h e n   G u a n g c h e n g   . . .",
+        "caption": "Chen Guangcheng, the Chinese activist who fled house arrest in April. Photograph: AP",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1956157386302948,
+        "text_similarity_score": 0.7304706573486328
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have low image similarity scores (less than 0.85). Therefore, based on the instruction, the caption is out-of-context. Both captions from the candidates mention Chen Guangcheng and his house arrest, aligning with the news caption. Candidate 1 has a caption similarity score of 0.828, and Candidate 2 has a score of 0.730, both indicating a strong textual resemblance to the news caption. The main topic discussed in the caption is about the 'Chinese lawyer Chen Guangcheng' and his 'house arrest,' which is reflected in both the candidates. However, since the image similarity scores are low, it's not possible to confirm if they represent the same images and are thus out-of-context.",
+      "supporting_evidences": [
+        "Candidate 1: Caption mentions Chen Guangcheng and his house arrest.",
+        "Candidate 2: Caption mentions Chen Guangcheng and his house arrest.",
+        "Image Similarity Score for both candidates are less than 0.85."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity scores for both candidate images are low (less than 0.85). The low image similarity suggests that the provided caption is out of context because the image it describes does not visually align with the image provided for analysis. While the text similarity scores are relatively high, the primary factor in determining context is the visual content, making the caption out of context.",
+    "validation_summary": "The caption discusses Chen Guangcheng and his house arrest, but the image does not depict these elements; therefore, viewers would be misled about what they're seeing in relation to the caption's claims, suggesting it's out of context as the image similarity is low. Since the image check confidence score is high, the final determination is primarily based on it."
+  },
+  "inference_time": 5.768696546554565,
+  "ablation_type": "no_image_evidences"
+}

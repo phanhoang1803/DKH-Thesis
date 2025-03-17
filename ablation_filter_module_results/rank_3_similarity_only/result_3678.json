@@ -1,0 +1,53 @@
+{
+  "caption": "President Rousseff Below that green and yellow jersey you represent a powerful legacy of the Brazilian people",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Brazil ready for football World Cup, says Rousseff  NevisPages.com",
+        "content": "B r a z i l i a n   P r e s i d e n t   D i l m a   R o u s s e f f   s a y s   h e r   c o u n t r y   i s   r e a d y ,   o n   a n d   o f f   t h e   p i t c h ,   f o r   t h e   f o o t b a l l   W o r l d   C u p   w h i c h   s t a r t s   o n   T h u r s d a y . \n \n I n   a   T V   a d d r e s s ,   s h e   s a i d    t h e   p e s s i m i s t s    h a d   b e e n   d e f e a t e d   b y   t h e   d e t e r m i n a t i o n   o f   t h e   B r a z i l i a n   p e o p l e . R e a d   M o r e   \n \n h t t p : / / w w w . b b c . c o m / n e w s / w o r l d - l a t i n - a m e r i c a - 2 7 7 8 9 7 7 5",
+        "caption": "",
+        "domain": "www.nevispages.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9648945331573486,
+        "text_similarity_score": 0.1273471564054489
+      },
+      {
+        "title": "Brazil 'ready' for football World Cup, says Rousseff - BBC News",
+        "content": "B r a z i l   ' r e a d y '   f o r   f o o t b a l l   W o r l d   C u p ,   s a y s   R o u s s e f f   -   B B C   N e w s",
+        "caption": "President Rousseff: \"Below that green and yellow jersey you represent a powerful legacy of the Brazilian people\"",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 1.0,
+        "text_similarity_score": 0.9686863422393799
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the provided candidates, Candidate 2 has a high image similarity score (1.0) and a high caption similarity score (0.9686863422393799). This strongly suggests that the candidate's caption is very similar to the news caption and that the image in the candidate is very similar to the news image. Candidate 2's caption also directly matches the news caption. Therefore, the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "Candidate 2: Image Similarity Score: 1.0",
+        "Candidate 2: Caption Similarity Score: 0.9686863422393799",
+        "Candidate 2: Caption: President Rousseff: \"Below that green and yellow jersey you represent a powerful legacy of the Brazilian people\""
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows two people with Brazilian flags draped over their backs, surrounded by other people in a public area under a blue sky. The caption refers to President Rousseff and the \"green and yellow jersey\" representing a legacy of the Brazilian people. While the image includes the Brazilian flag, which is green and yellow, it does not feature President Rousseff. Therefore, the caption misrepresents the image content by implying her presence when she is not visible, making it out of context.",
+    "validation_summary": "The caption incorrectly implies President Rousseff is depicted in the image, which solely features people with Brazilian flags, thus creating a false impression of the image's content and making it out of context. This mismatch between the visual content and the caption's implication would mislead viewers about what the image represents in relation to the news content about President Rousseff and the World Cup preparations in Brazil, as it relates to a direct visual representation of the president in the image."
+  },
+  "inference_time": 11.159039497375488,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "caption": "Senate GOP between a rock and a hard place",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Tea",
+      "Stock photography",
+      "Japanese tea ceremony",
+      "Alamy",
+      "Teahouse",
+      "Hamarikyu",
+      "Photograph",
+      "Photography",
+      "Image",
+      "garden tea house"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Japanese tea house hi-res stock photography and images - Page 4 - Alamy",
+        "content": "",
+        "caption": "",
+        "domain": "www.alamy.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Tea house tokyo hi-res stock photography and images - Alamy",
+        "content": "",
+        "caption": "",
+        "domain": "www.alamy.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Unable to stop Donald Trump, Democrats struggle to satisfy base",
+        "content": "U n a b l e   t o   s t o p   D o n a l d   T r u m p ,   D e m o c r a t s   s t r u g g l e   t o   s a t i s f y   b a s e",
+        "caption": "Congressional Democrats and Consumer Financial Protection Bureau workers protested the closing of the bureau outside its headquarters last week in Washington, D.C.",
+        "domain": "www.bostonglobe.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Jackie Kucinich - Alchetron, The Free Social Encyclopedia",
+        "content": "J a c k i e   K u c i n i c h   -   A l c h e t r o n ,   T h e   F r e e   S o c i a l   E n c y c l o p e d i a",
+        "caption": "",
+        "domain": "alchetron.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The news caption is \"Senate GOP between a rock and a hard place.\" The candidate captions do not contain information to support the news caption. The image similarity scores are all 0.0, meaning that the images are not similar. The text similarity scores are all 0.0, meaning that the captions are not similar. Therefore, the candidate captions do not confirm that the news caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption does not accurately represent the image content, leading to possible viewer confusion.",
+    "explanation": "The news caption \"Senate GOP between a rock and a hard place\" implies a metaphorical situation of political struggle or conflict within the Senate GOP, often relating to debates about funding or political tactics that could jeopardize the government functions; however, the image analysis shows no direct visual evidence related to this theme. The image lacks identifiable elements such as politicians, legislative environments, or visible indicators that would traditionally convey political conflict or discussions within the Senate. The confidence score of 2 further indicates a fundamental disconnect between the image and the notions presented in the caption, suggesting viewers may misinterpret the context as relevant to political strife or current events involving the Senate GOP. In this case, the image provides no concrete visual representation to support the metaphor suggested by the caption."
+  },
+  "inference_time": 6.2415502071380615,
+  "ablation_type": "no_filters"
+}

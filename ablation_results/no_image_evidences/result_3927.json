@@ -1,0 +1,36 @@
+{
+  "caption": "Cox won the 1995 World Series with the Braves five National League Pennants and had a streak of 14 straight division titles",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Hall of Fame Managers: Cox, La Russa and Torre",
+        "content": "H a l l   o f   F a m e   M a n a g e r s :   C o x ,   L a   R u s s a   a n d   T o r r e",
+        "caption": "Cox won the 1995 World Series with the Braves, five National League Pennants (1991-92, 1995-96, 1999) and had a streak of 14 straight division titles (1991-2005).",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1995398998260498,
+        "text_similarity_score": 0.9628227949142456
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption states that Cox won the 1995 World Series with the Braves, had five National League Pennants, and a streak of 14 straight division titles. The candidate caption also mentions that Cox won the 1995 World Series with the Braves, five National League Pennants (listing the years), and had a streak of 14 straight division titles (listing the years). While the image similarity score is low (0.1995398998260498), indicating the images might not match, the text similarity score is very high (0.9628227949142456), suggesting that the captions are almost identical. Based on the high text similarity, the candidate caption confirms the details provided in the news caption about Cox's achievements with the Braves. Thus, the original caption accurately represents the information. The low image similarity score prevents a higher confidence score.",
+      "supporting_evidences": [
+        "Candidate Caption: Cox won the 1995 World Series with the Braves, five National League Pennants (1991-92, 1995-96, 1999) and had a streak of 14 straight division titles (1991-2005)."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows Bobby Cox, a baseball manager, smiling and wearing a suit in front of a Hockey Hall of Fame backdrop. The news caption focuses on Cox's achievements, specifically the 1995 World Series win with the Braves, five National League Pennants, and a streak of 14 straight division titles. Although the news content is aligned with the caption, the image itself shows Cox in front of a Hockey Hall of Fame backdrop, which is contextually misleading because the caption focuses on baseball achievements, not hockey. The image check result confirms that the text similarity is high, but the image similarity is low. The candidate caption also mentions Cox's baseball achievements, reinforcing that the caption is about baseball, while the image is related to hockey. Therefore, using this image with the given caption is out of context.",
+    "validation_summary": "The image of Bobby Cox in front of the Hockey Hall of Fame is misleading when paired with a caption describing his baseball achievements, potentially confusing viewers about the context of the news. The image check confirms high text similarity but low image similarity, indicating that the caption's content is about baseball, while the image relates to hockey, making the pairing out of context."
+  },
+  "inference_time": 6.519423961639404,
+  "ablation_type": "no_image_evidences"
+}

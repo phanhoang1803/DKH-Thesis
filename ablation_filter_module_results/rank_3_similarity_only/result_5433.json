@@ -1,0 +1,49 @@
+{
+  "caption": "Richard s Poor Almanac by Richard Thompson The Washington Post",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Literary typecasting, the language of landscape and fun and games in Wolf Hall - in pictures | Books | The Guardian",
+        "content": "I l l u s t r a t o r   T o m   G a u l d   h a s   b e e n   c a p t u r i n g   t h e   c u l t u r e - l o v e r  s   s p r i n g   i n   w e e k l y   i l l u s t r a t i o n s   f o r   G u a r d i a n   R e v i e w .   F i n d   o u t   w h a t   h a s   c a u g h t   h i s   e y e   o v e r   t h e   l a s t   e i g h t   w e e k s \n \n    T o   b u y   o n e   o f   T o m   G a u l d  s   G u a r d i a n   i l l u s t r a t i o n s ,   c l i c k   h e r e \n \n T o m   G a u l d \n \n W e d   1 1   M a r   2 0 1 5   1 0 . 0 8  G M T \n \n \n                         L a s t   m o d i f i e d   o n   W e d   1 0   J u n   2 0 2 0   0 8 . 5 1  B S T \n \n I l l u s t r a t i o n :   T o m   G a u l d \n \n I l l u s t r a t i o n :   T o m   G a u l d \n \n I l l u s t r a t i o n :   T o m   G a u l d \n \n P h o t o g r a p h :   T o m   G a u l d \n \n P h o t o g r a p h :   T o m   G a u l d \n \n I l l u s t r a t i o n :   T o m   G a u l d \n \n I l l u s t r a t i o n :   T o m   G a u l d \n \n I l l u s t r a t i o n :   T o m   G a u l d",
+        "caption": "Tom Gauld illustration of poets",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9606282114982605,
+        "text_similarity_score": 0.24112211167812347
+      },
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9218712449073792,
+        "text_similarity_score": 0.08930908888578415
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Based on the analysis of the provided candidates, I assess whether they support the news caption: \"Richard s Poor Almanac by Richard Thompson The Washington Post.\" \n\nCandidate 1 presents a high image similarity score (0.9606282114982605) but a low text similarity score (0.24112211167812347). The caption of candidate 1 is \"Tom Gauld illustration of poets\". Given the high image similarity, the images are likely related, but the captions are dissimilar. Therefore, this evidence does not directly support the news caption about Richard Thompson's almanac.\n\nCandidate 2 has a high image similarity score (0.9218712449073792) but a very low text similarity score (0.08930908888578415) and has no caption. The absence of a caption and the low text similarity further reduce the likelihood of this candidate's direct support for the news caption.\n\nGiven that both candidates have image similarity scores above 0.85 but text similarity scores below 0.7, the automatic decision rule indicates that the caption is out-of-context. The content and title of the candidate are unknown, making a more thorough evaluation difficult. Therefore, based on the limited information and the rule, the news caption is not confirmed by the candidates.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low text similarity score between the news caption and the available candidates. The news caption is \"Richard s Poor Almanac by Richard Thompson The Washington Post\". The image displays a comic strip panel showing different suggestions for marking the anniversary of a poet's death, with ideas like a plaque on childhood home, annotated poems, a balloon parade, etc. Given the discrepancy between the caption mentioning a specific publication and the visual content displaying satirical suggestions, the caption does not accurately reflect the image content. The text similarity scores from the image check reinforce this assessment.",
+    "validation_summary": "The caption mentions a specific publication and author, while the image shows a more generic comic strip panel with satirical suggestions, leading to a mismatch and potentially misleading viewers about the image's context and content. Therefore, the image is out of context as the caption does not match the image content, so OOC=True. The confidence score is 7."
+  },
+  "inference_time": 8.752362251281738,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

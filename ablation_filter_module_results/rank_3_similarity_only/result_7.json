@@ -1,0 +1,47 @@
+{
+  "caption": "Photographs taken on Thursday showed Air Force Intelligence s bombdamaged headquarters in Aleppo",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Asian palmyra palm",
+      "Curb",
+      "Sidewalk",
+      "Apartment",
+      "Borassus",
+      "House"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 9,
+      "confidence_score": 10,
+      "explanation": "The caption accurately reflects the image context. It mentions the location (Aleppo), the type of damage (bomb-damaged), and the affected structure (Air Force Intelligence headquarters). The image information confirms the destruction in Aleppo due to military conflict and mentions the targeting of the Air Force Intelligence headquarters. The caption's details align well with the provided context, indicating a high degree of agreement.",
+      "supporting_evidences": [
+        "The image information mentions \"destruction in Aleppo, Syria, particularly near the Air Force Intelligence headquarters.\"",
+        "The image information refers to \"extensive damage to buildings, with visible debris scattered across the ground, suggesting a recent explosion or bombardment.\"",
+        "The caption mentions \"bomb-damaged headquarters in Aleppo\"."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image depicts a scene of destruction in an urban area, likely affected by military conflict. The foreground features extensive damage to buildings, with visible debris scattered across the ground, suggesting a recent explosion or bombardment. The setting appears to be residential, indicated by the presence of apartments and houses. There are remnants of a bomb-damaged structure, possibly the headquarters of a military or intelligence facility. The surrounding environment includes palm trees, specifically the Asian palmyra palm, which may be an unusual sight in such a war-torn area. Curb and sidewalk elements indicate this is a built environment, and they contrast with the chaos represented by the damage in the image. Visibility seems to be affected by dust or smoke, hinting at the aftermath of a recent attack, contributing to a somber and desolate atmosphere.",
+      "caption": "Destruction in Aleppo after recent air strikes near military headquarters.",
+      "context": "The image captures the devastating aftermath of recent conflicts in Aleppo, Syria, particularly near the Air Force Intelligence headquarters. On Wednesday, the facility was targeted in an attack believed to have involved the detonation of explosives, leading to heightened tensions and ongoing clashes in the city. Reports indicate that fierce fighting continues in the area, and there have been numerous casualties, including civilians. The scene illustrates the dire situation in Aleppo, where government forces and rebel groups, including the al-Nusra Front, are engaged in violent confrontations. Furthermore, ongoing airstrikes by the government allegedly result in indiscriminate bombings of civilian areas, intensifying the humanitarian crisis. The combination of significant destruction and the presence of previously intact residential structures underscores the conflict's toll on civilian life and infrastructure. Local activists and human rights organizations condemn the ongoing violence and call for immediate international intervention to alleviate the suffering of affected populations."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows two workers in blue uniforms clearing debris from a roundabout in a war-torn urban landscape. Damaged buildings are visible in the background. The caption states the image shows \"Air Force Intelligence s bombdamaged headquarters in Aleppo.\" The image shows bomb-damaged buildings, and the text mentions Aleppo which aligns, however the main subject of the photo is the two workers. The buildings are in the background, and they are not the main focus of the picture. The context provided about Aleppo and the Air Force Intelligence headquarters mentions fierce clashes and damage to the facility. This makes it seem that the picture is about the bombing and the destruction of the building, but the picture is actually about two workers cleaning the area. The focus of the picture is on the two workers which is why the image is OOC.",
+    "validation_summary": "The caption is misleading because while it mentions a location and damage relevant to the news story, the image primarily depicts workers cleaning debris rather than focusing on the bomb-damaged headquarters itself. Therefore, viewers may be misled about the primary subject of the image."
+  },
+  "inference_time": 7.490221738815308,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

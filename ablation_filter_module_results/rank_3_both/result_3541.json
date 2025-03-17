@@ -1,0 +1,51 @@
+{
+  "caption": "British Prime Minister David Cameron leaves 10 Downing Street before heading to Parliament on Sept 26 2014",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Journalist",
+      "Journalism",
+      "Reportage",
+      "The Guardian",
+      "Critical",
+      "Minister",
+      "long",
+      "Opinion piece",
+      "Prime minister",
+      "Current affairs"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Pressure on ISIS builds: French, Russian leaders confer | CNN",
+        "content": "P r e s s u r e   o n   I S I S   b u i l d s :   F r e n c h ,   R u s s i a n   l e a d e r s   c o n f e r   |   C N N",
+        "caption": "Britain's Prime Minister David Cameron leaves 10 Downing Street to attend Parliament in London, Thursday, Nov. 26, 2015. Prime Minister David Cameron says Britain must join airstrikes in Syria to deny the Islamic State group a \"safe haven\" from which to plot mass-casualty attacks around the world.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.735851526260376,
+        "text_similarity_score": 0.7183550596237183
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.735851526260376, which is less than 0.85. The text similarity score is 0.7183550596237183, which is greater than 0.7. According to the instructions, since the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Although the candidate caption describes David Cameron leaving 10 Downing Street to attend Parliament, similar to the news caption, the image similarity is not high enough to confirm that the images are of the same event or context. Therefore, based on the given information, I cannot definitively confirm that the news caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the caption is out-of-context (OOC = True) with a confidence score of 7. The image similarity score is below the threshold (0.735851526260376 < 0.85), therefore the caption is marked as out-of-context. Although the text similarity score is high (0.7183550596237183 > 0.7), the image similarity score takes precedence. The image features British Prime Minister David Cameron in front of 10 Downing Street wearing a suit with a poppy pin. The caption states that David Cameron is leaving 10 Downing Street before heading to Parliament. While the image does show him at 10 Downing Street, there's not enough evidence to confirm that he is heading to Parliament, and the image check suggests this is not a correct representation.",
+    "validation_summary": "The image and caption do not align based on the image check result; the image similarity is too low to confirm the events described in the caption are accurately represented in the image. Therefore, viewers may be misled about the specific event taking place."
+  },
+  "inference_time": 7.167384386062622,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "caption": "Game 5 in Washington Nationals third baseman Anthony Rendon catches a fly ball hit by Dodgers shortstop Corey Seager during the sixth inning",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Baseball",
+      "College baseball",
+      "Pitcher",
+      "Higher Education School",
+      "Ballpark"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Tommy Lasorda returns to Dodger Stadium, Dodgers offense does not in loss to Nationals  Orange County Register",
+        "content": "T o m m y   L a s o r d a   r e t u r n s   t o   D o d g e r   S t a d i u m ,   D o d g e r s '   o f f e n s e   d o e s   n o t   . . .",
+        "caption": "Washington Nationals third baseman Anthony Rendon (6) is congratulated by catcher Jose Lobaton (59) after Rendon hit a homer in the second inning during their MLB baseball game against the Los Angeles Dodgers at Dodger Stadium in Los Angeles, Monday, June 5, 2017. (Photo by Hans Gutknecht, Los Angeles Daily News/SCNG)",
+        "domain": "www.ocregister.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6792952418327332,
+        "text_similarity_score": 0.7489655017852783
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.6792952418327332, which is less than 0.85. The text similarity score is 0.7489655017852783, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the caption is out of context with a confidence score of 2. The image shows two baseball players in white uniforms with the Nationals logo. One player is catching a ball, while the other is standing nearby. The caption states that the player catching the ball is Anthony Rendon during the sixth inning of Game 5, catching a fly ball hit by Corey Seager. Without external context and based solely on visual evidence, it's impossible to verify the specific players or the game details mentioned in the caption, and because the image similarity score is low, the caption is out of context.",
+    "validation_summary": "The caption cannot be verified using the image content alone. Without additional information, viewers could be misled regarding the identities of the baseball players and the game they are participating in, making the caption out of context."
+  },
+  "inference_time": 5.717499494552612,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

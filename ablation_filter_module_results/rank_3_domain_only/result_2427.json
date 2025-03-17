@@ -1,0 +1,41 @@
+{
+  "caption": "Real Madrid s Cristiano Ronaldo the fastest man to 100 goals in La Liga scores his 101st his second against Real Sociedad",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Cristiano Ronaldo breaks scoring record as Real Madrid cruise to win | Cristiano Ronaldo | The Guardian",
+        "content": "C r i s t i a n o   R o n a l d o   b r e a k s   s c o r i n g   r e c o r d   a s   R e a l   M a d r i d   c r u i s e   t o   . . .",
+        "caption": "Real Madrid's Cristiano Ronaldo, the fastest man to 100 goals in La Liga, scores his 101st, his second against Real Sociedad. Photograph: Denis Doyle/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The caption in candidate 1 is identical to the news caption, and it comes from a reputable source (theguardian.com). This provides strong support that the caption accurately represents the image.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: Real Madrid's Cristiano Ronaldo, the fastest man to 100 goals in La Liga, scores his 101st, his second against Real Sociedad. Photograph: Denis Doyle/Getty Images",
+        "Candidate 1: Domain: www.theguardian.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image depicts Cristiano Ronaldo with his eyes closed and a somewhat distressed expression. He is wearing a red Portugal jersey, which contradicts the caption stating that he is playing for Real Madrid and scoring against Real Sociedad. The image check result indicates the caption comes from a reputable source but the image doesn't show what is described in the caption, therefore the image is out of context.",
+    "validation_summary": "The image shows Cristiano Ronaldo in a Portugal jersey, which is inconsistent with the caption describing him playing for Real Madrid, making the image misleading in the context of the caption. While the caption might be factually accurate about Ronaldo's accomplishments, the image doesn't represent the described event."
+  },
+  "inference_time": 3.6628096103668213,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

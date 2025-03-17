@@ -1,0 +1,37 @@
+{
+  "caption": "Policemen walk in front of the chalet Milky Way in the Swiss mountain resort of Gstaad where film director Roman Polanski remains under house arrest",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Roman Polanski sues French media for invasion of privacy | Roman Polanski | The Guardian",
+        "content": "R o m a n   P o l a n s k i   s u e s   F r e n c h   m e d i a   f o r   i n v a s i o n   o f   p r i v a c y   |   R o m a n   . . .",
+        "caption": "Policemen walk in front of the chalet 'Milky Way in the Swiss mountain resort of Gstaad where film director Roman Polanski remains under house arrest. Photograph: Arnd Wiegmann/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.37735915184020996,
+        "text_similarity_score": 0.9499182105064392
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score (0.377) is below the threshold of 0.85, indicating that the candidate image does not closely match the news image. Although the text similarity score (0.949) is high, suggesting a strong similarity between the captions, the low image similarity necessitates a 'False' verdict. This is because, according to the instructions, a high text similarity score cannot override a low image similarity score. The caption describes policemen walking in front of the chalet Milky Way in Gstaad, where Roman Polanski was under house arrest. While the candidate caption is very similar, the lack of visual confirmation due to the low image similarity prevents a confident 'True' verdict. Therefore, based on the strict decision rules, the final answer is 'False'.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.377",
+        "Caption Similarity Score: 0.949"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a high text similarity score (0.949) between the news caption and the candidate caption, but a low image similarity score (0.377). The confidence score is 7, and the instruction is to base the final determination on the image check result. The image check result concludes that the image is not representative of the caption, primarily due to the low image similarity. Therefore, based on the image check result, the caption provides a correct representative summary of the image content.",
+    "validation_summary": "The image check indicates that the caption provides a reasonable description of the image, although the visual similarity isn't very high. Therefore, viewers would likely not be misled about what they're seeing in the image, as a policeman is walking in front of a building in the image, which confirms the caption's content about policemen walking in front of a building where Roman Polanski was under house arrest. Polanski is not visible in the image, which is not required in the caption. Based on this information, the caption is considered appropriate to the image's content. Thus, the image and the caption's context correlate."
+  },
+  "inference_time": 5.486494541168213,
+  "ablation_type": "no_image_evidences"
+}

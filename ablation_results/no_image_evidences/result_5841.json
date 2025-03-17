@@ -1,0 +1,36 @@
+{
+  "caption": "Charttopper Lily Allen wore a Barbour jacket throughout her 2007 performance at Glastonbury",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Barbour: From farmers and fishermen to fashion royalty - BBC News",
+        "content": "B a r b o u r :   F r o m   f a r m e r s   a n d   f i s h e r m e n   t o   f a s h i o n   r o y a l t y   -   B B C   N e w s",
+        "caption": "Chart-topper Lily Allen wore a Barbour jacket throughout her 2007 performance at Glastonbury",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4312353730201721,
+        "text_similarity_score": 0.9659696817398071
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.4312353730201721 which is less than 0.85, and the text similarity score is 0.9659696817398071 which is greater than 0.7. According to the instructions, the verdict should be false because the image similarity score is less than 0.85. The candidate caption matches the news caption. However, the images are not similar.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.4312353730201721, Caption Similarity Score: 0.9659696817398071"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a female singer performing on stage, holding a microphone and wearing a t-shirt with a graphic print. The background shows a crowd of people. The provided caption states that Lily Allen wore a Barbour jacket during her 2007 performance at Glastonbury. Since there is no Barbour jacket visible in the image, the caption is not representative of the image content. According to the image check result, the image similarity score is 0.4312353730201721 which is less than 0.85, and the text similarity score is 0.9659696817398071 which is greater than 0.7. According to the instructions, the verdict should be false because the image similarity score is less than 0.85.",
+    "validation_summary": "The image shows a singer on stage without a jacket, contradicting the caption's claim about Lily Allen wearing a Barbour jacket at Glastonbury. Therefore, viewers would be misled about what the image depicts in relation to the news content about Barbour jackets and Lily Allen's performance at Glastonbury in 2007. Because the confidence score is 10, the final determination is based on the image check result: the image similarity score is low, therefore OOC is True (Out of Context). Based on the instructions, the primary basis for evaluation should be the image check result."
+  },
+  "inference_time": 5.744658470153809,
+  "ablation_type": "no_image_evidences"
+}

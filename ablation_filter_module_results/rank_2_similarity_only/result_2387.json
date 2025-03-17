@@ -1,0 +1,43 @@
+{
+  "caption": "Democratic presidential candidate Hillary Clinton last month in Reno Nev",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Clinton on foundation: Winding down some of these programs takes time",
+        "content": "C l i n t o n   o n   f o u n d a t i o n :   ' W i n d i n g   d o w n   s o m e   o f   t h e s e   p r o g r a m s   t a k e s   . . .",
+        "caption": "Democratic presidential candidate Hillary Clinton speaks at a campaign event at Truckee Meadows Community College, in Reno, Nev., Thursday, Aug. 25, 2016. (AP Photo/Carolyn Kaster)",
+        "domain": "abcnews4.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2318427860736847,
+        "text_similarity_score": 0.7452110648155212
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.2318427860736847, which is less than 0.85. The text similarity score is 0.7452110648155212, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than 0.7, the verdict should be False. The candidate caption mentions Hillary Clinton speaking at a campaign event at Truckee Meadows Community College in Reno, Nev., on August 25, 2016. The news caption mentions Hillary Clinton in Reno, Nev., last month. Therefore, the candidate caption supports the news caption, but because the image similarity score is low, the caption is out-of-context.",
+      "supporting_evidences": [
+        "The candidate caption mentions Hillary Clinton speaking at a campaign event at Truckee Meadows Community College in Reno, Nev., on August 25, 2016.",
+        "The news caption mentions Hillary Clinton in Reno, Nev., last month."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 7. According to the instructions, if the confidence score is between 7 and 10, the final determination must be based on the image check result. The image check result indicates that the image is out of context (OOC = True) because the image similarity score is low (0.2318427860736847), even though the text similarity score is high (0.7452110648155212). This is because the candidate caption mentions Hillary Clinton speaking at a campaign event at Truckee Meadows Community College in Reno, Nev., on August 25, 2016, while the news caption only mentions Hillary Clinton in Reno, Nev., last month, which supports the news caption, but the low image similarity score makes the caption out of context.",
+    "validation_summary": "The image is out of context because the image similarity is low, even though the text similarity is high. Viewers might be misled about the context of the image because the news caption lacks specifics found in the candidate caption."
+  },
+  "inference_time": 5.604724645614624,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

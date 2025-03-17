@@ -1,0 +1,47 @@
+{
+  "caption": "Ted Cruz speaks at the Republican presidential debate in Boulder Colo",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speech",
+      "Public speaking",
+      "Meter",
+      "Audience"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "The Brief: Cruz Re-Enters Debate Stage After Having His Moment | The Texas Tribune",
+        "content": "T h e   B r i e f :   C r u z   R e - E n t e r s   D e b a t e   S t a g e   A f t e r   H a v i n g   H i s   M o m e n t   . . .",
+        "caption": "Carly Fiorina and Ted Cruz took part in the third debate among Republican presidential candidates in Boulder, Colorado, on Oct. 28, 2015.",
+        "domain": "www.texastribune.org",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Cruz Tears into Moderators, Lights Up in Third Debate | The Texas Tribune",
+        "content": "C r u z   T e a r s   i n t o   M o d e r a t o r s ,   L i g h t s   U p   i n   T h i r d   D e b a t e   |   T h e   T e x a s   . . .",
+        "caption": "Sen. Ted Cruz at the third GOP presidential debate in Boulder, Colorado on Oct. 28, 2015.",
+        "domain": "www.texastribune.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidate captions mention Ted Cruz participating in a Republican presidential debate in Boulder, Colorado. Candidate 1 also mentions Carly Fiorina, which could be verified if the image also shows her. Both candidates mention the event occurred on Oct 28, 2015, adding a specific date. However, the image similarity scores are low, meaning the candidate images may not depict the same specific event or scene. The captions partially align with the news caption's elements (Ted Cruz, Republican presidential debate, Boulder, Colorado) but lack high image similarity for strong confirmation. Therefore, I mark the verdict as False, because of the low image similarity score.",
+      "supporting_evidences": [
+        "Candidate 1: Carly Fiorina and Ted Cruz took part in the third debate among Republican presidential candidates in Boulder, Colorado, on Oct. 28, 2015.",
+        "Candidate 2: Sen. Ted Cruz at the third GOP presidential debate in Boulder, Colorado on Oct. 28, 2015."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result has a confidence score of 6, which means that final determination is based on Image Analysis. \n\nThe image shows Ted Cruz holding a microphone and speaking. The news caption claims the image depicts Ted Cruz speaking at the Republican presidential debate in Boulder, Colorado. The image analysis does not show any details to confirm that the picture was taken at the Republican presidential debate in Boulder, Colorado. Although the image check result does provide supporting evidence that Sen. Ted Cruz attended the third GOP presidential debate in Boulder, Colorado on Oct. 28, 2015, the image itself does not verify this information. Therefore, the image does not support the news caption.",
+    "validation_summary": "Without additional information, viewers would be unable to confirm the caption that Ted Cruz spoke at the Republican presidential debate in Boulder, Colorado, using just the image alone. Therefore, viewers may be misled about the context of what they're seeing in the image."
+  },
+  "inference_time": 4.386614799499512,
+  "ablation_type": "no_filters"
+}

@@ -1,0 +1,38 @@
+{
+  "caption": "People wait in line before the Dr King Career Fair at the Empire State Plaza Convention Center in Albany NY in April this year",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Stocks surge on May jobs report, Dow up 207",
+        "content": "S t o c k s   s u r g e   o n   M a y   j o b s   r e p o r t ,   D o w   u p   2 0 7",
+        "caption": "People wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. This means the given candidate is not relevant to the image. Since the candidate provides the same caption as the news, without the image being similar, it is not possible to tell if the caption is correct.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low similarity between the image and the caption. The image shows a line of people, many holding documents, possibly waiting for something. The caption describes people waiting in line at the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, NY. Without a higher image similarity score, I must rely on the image check's judgment. The very low image similarity score suggests the image does not show the event described in the caption. Therefore, the caption is likely misleading.",
+    "validation_summary": "Due to the very low image similarity score, viewers would be misled into thinking the image shows the Dr. King Career Fair when it likely depicts a different event or location with people waiting in line, unrelated to a career fair at the Empire State Plaza Convention Center in Albany, NY. The caption is therefore misleading in its association with the image content."
+  },
+  "inference_time": 3.721639633178711,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

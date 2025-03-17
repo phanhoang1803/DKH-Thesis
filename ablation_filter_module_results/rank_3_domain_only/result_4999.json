@@ -1,0 +1,47 @@
+{
+  "caption": "Norbert Hofer addresses a news conference in Vienna Austria May 24 2016",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Debate"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Austrian chancellor's resignation reflects rise of right-wing party, migrant crisis - Los Angeles Times",
+        "content": "A u s t r i a n   c h a n c e l l o r ' s   r e s i g n a t i o n   r e f l e c t s   r i s e   o f   r i g h t - w i n g   . . .",
+        "caption": "Werner Faymann announces his resignation as Austrian chancellor and leader of the Social Democratic Party during a press conference on May 9, 2016, in Vienna.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Norbert Hofer steps down as leader of Austrian far-right party | Euronews",
+        "content": "N o r b e r t   H o f e r   s t e p s   d o w n   a s   l e a d e r   o f   A u s t r i a n   f a r - r i g h t   p a r t y   . . .",
+        "caption": "Norbert Hofer during a press conference in Vienna, Austria on May 20, 2019.",
+        "domain": "www.euronews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are low for both candidates, indicating that the images do not match. The text similarity scores are also low, suggesting that the captions are not similar. \n\nCandidate 1 describes Werner Faymann's resignation in Vienna on May 9, 2016, while the news caption describes Norbert Hofer at a news conference in Vienna on May 24, 2016. Although both events occur in Vienna in May 2016, they involve different people and events, so they do not match.\n\nCandidate 2 describes Norbert Hofer during a press conference in Vienna on May 20, 2019, while the news caption is from May 24, 2016. The candidate and news caption both refer to Norbert Hofer at a press conference in Vienna, but the years are different. Therefore, the evidence is not strong enough to confirm that the caption accurately represents the image. The evidence only partially supports the caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a man in a suit standing behind a podium, speaking to a crowd of people who are clapping. The news caption states that Norbert Hofer addressed a news conference in Vienna Austria May 24 2016. The image check result indicates that the evidence only partially supports the caption. The image could be a news conference, but without additional information, it cannot be definitively confirmed, and the image check confidence score is below 7. However, because the image check result showed two similar results, with one specifically stating that the candidate was Norbert Hofer, I am increasing the confidence score. Because the evidence is not conclusive and the image check results are conflicting, I am ruling that the image is out of context.",
+    "validation_summary": "Without more information, the image cannot be confirmed as a news conference with Norbert Hofer, potentially misleading viewers about the event depicted. The image check results conflict, increasing the uncertainty about the caption's accuracy."
+  },
+  "inference_time": 4.130388021469116,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

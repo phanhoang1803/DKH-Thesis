@@ -1,0 +1,41 @@
+{
+  "caption": "Kansas City Chiefs running back Peyton Hillis takes the ball to head coach Romeo Crennel after scoring a touchdown against the Carolina Panthers in the first half at Arrowhead Stadium",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Chiefs' emotional win",
+        "content": "C h i e f s '   e m o t i o n a l   w i n",
+        "caption": "Kansas City Chiefs running back Peyton Hillis (40) takes the ball to head coach Romeo Crennel after scoring a touchdown.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Chiefs' emotional win",
+        "content": "C h i e f s '   e m o t i o n a l   w i n",
+        "caption": "Kansas City Chiefs running back Peyton Hillis (40) takes the ball to head coach Romeo Crennel after scoring a touchdown against the Carolina Panthers in the first half at Arrowhead Stadium.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidate captions are very similar to the news caption, but the Image Similarity Score is 0.0 in both cases and the Text Similarity Score is also 0.0. Therefore, I will rely on the captions. Candidate 2 has the exact same caption as the news caption, mentioning 'Kansas City Chiefs running back Peyton Hillis (40) takes the ball to head coach Romeo Crennel after scoring a touchdown against the Carolina Panthers in the first half at Arrowhead Stadium.' which supports the news caption. However, since the similarity scores are low, the confidence is not very high.",
+      "supporting_evidences": [
+        "Kansas City Chiefs running back Peyton Hillis (40) takes the ball to head coach Romeo Crennel after scoring a touchdown against the Carolina Panthers in the first half at Arrowhead Stadium."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 6, but the image clearly shows a football player being tackled by multiple defenders. The players are wearing different jerseys than the ones mentioned in the caption. Therefore, the caption 'Kansas City Chiefs running back Peyton Hillis takes the ball to head coach Romeo Crennel after scoring a touchdown against the Carolina Panthers in the first half at Arrowhead Stadium' is inaccurate and does not represent the image content. Given the high degree of certainty that the caption is not descriptive of the image, the confidence score is adjusted to 9.",
+    "validation_summary": "The caption describes a specific football player and event that is not depicted in the image, misleading viewers about the image's actual content. The image shows a football player being tackled, with no indication of the specific player or teams mentioned in the caption."
+  },
+  "inference_time": 4.400050401687622,
+  "ablation_type": "no_filters"
+}

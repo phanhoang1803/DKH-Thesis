@@ -1,0 +1,40 @@
+{
+  "caption": "Rick Santorum won Iowa in 2012",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 7,
+      "confidence_score": 9,
+      "explanation": "The caption states that Rick Santorum won Iowa in 2012. The image context describes Santorum giving a speech, his appearance, and the significance of Iowa in his political journey. While the image context does refer to his 2012 Iowa victory, the caption focuses solely on that fact, without directly relating to the depicted action in the image. Therefore, it only \"almost\" aligns.",
+      "supporting_evidences": [
+        "The image context mentions Santorum's 2012 Iowa victory.",
+        "The caption accurately states Santorum won Iowa in 2012.",
+        "The image context describes Santorum speaking, but the caption does not describe that action."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image depicts Rick Santorum, a former United States Senator and Republican presidential candidate, possibly addressing an audience. He has a distinct moustache and is holding a microphone, engaging with those present. The focus is on his expression, indicating a moment of passion or emphasis during his speech.",
+      "caption": "Rick Santorum speaking passionately to an audience.",
+      "context": "In this image, Rick Santorum is likely presenting a speech or engaging with voters in Iowa, a state known for its critical role in the presidential nomination process. The caption mentions his victory in Iowa during the 2012 Republican caucuses, which was a pivotal moment in his campaign. The accompanying news content emphasizes the importance of Iowa in the political landscape and how past winners of the Iowa caucuses, including Santorum, did not always secure the party nomination. The photograph captures Santorum's commitment and energy in a setting that signifies another chapter in his political journey, reflecting not just nostalgia for his previous success, but also the ongoing significance of voter engagement in this key state."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a high level of confidence (confidence score of 9) in the assessment that the caption only 'almost' aligns with the image. The image shows Rick Santorum, and the caption states that he won Iowa in 2012. While the image context mentions his Iowa win, the caption focuses solely on that without relating to the depicted action in the image, therefore, the image is out of context.",
+    "validation_summary": "While the caption is factually correct that Rick Santorum won Iowa in 2012 and the image shows Rick Santorum, the image itself doesn't specifically depict or relate to that event, making the caption misleading by implying a direct connection where none is visually present, therefore, the image is out of context of the caption provided. Because of the high confidence score, the final determination is based on the image check result."
+  },
+  "inference_time": 4.612391471862793,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

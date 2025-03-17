@@ -1,0 +1,39 @@
+{
+  "caption": "A Red Line train arrives at the Metro Center station last month in this file photo",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Regional taxes, longer I-66 toll hours on table for dedicated N. Va. transit funding | FFXnow",
+        "content": "R e g i o n a l   t a x e s ,   l o n g e r   I - 6 6   t o l l   h o u r s   o n   t a b l e   f o r   d e d i c a t e d   N   . . .",
+        "caption": "A train arrives at the Tysons Metro station (staff photo by Angela Woolsey)",
+        "domain": "www.ffxnow.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "LAPD officers 'overwhelmed' by homeless problem on Metro | LAist",
+        "content": "L A P D   o f f i c e r s   ' o v e r w h e l m e d '   b y   h o m e l e s s   p r o b l e m   o n   M e t r o   |   L A i s t",
+        "caption": "File: Red Line at 7th Street/Metro Center.",
+        "domain": "laist.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity scores are both 0.0, indicating that the images in the candidate evidences do not match the image described in the news caption. The caption similarity scores are also 0.0, meaning the captions are not similar. Candidate 1 mentions a train arriving at the Tysons Metro station, and Candidate 2 mentions the Red Line at 7th Street/Metro Center. Neither candidate provides enough specific information to confirm that the news caption, which mentions a Red Line train arriving at Metro Center station, accurately represents the image. There isn't enough supporting evidence to make a confident decision.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 3,
+    "validation_summary": "The caption inaccurately summarizes the image content, leading viewers to incorrect conclusions about the scene depicted.",
+    "explanation": "The image check result indicates a low similarity score, suggesting that the image does not depict a Red Line train arriving at the Metro Center station. The caption claims this specific scene, which does not match what is visible in the image. Given the lack of alignment between the caption's claims and the actual content of the image, it suggests that viewers could be misled into believing they are seeing something that is not present. In conclusion, the caption misrepresents the image, making it Out Of Context."
+  },
+  "inference_time": 5.137138605117798,
+  "ablation_type": "no_filters"
+}

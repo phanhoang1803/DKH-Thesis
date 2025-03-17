@@ -1,0 +1,50 @@
+{
+  "caption": "Falcons linebacker Paul Worrilow brings down Jaguars quarterback Blake Bortles for a sack during the first quarter in Jacksonville",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Eight-man football",
+      "Six-man football",
+      "American football",
+      "Arena football",
+      "Canadian football",
+      "Kick american football",
+      "Sprint football",
+      "Canada",
+      "Gridiron football"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "2014 NFL preseason action",
+        "content": "2 0 1 4   N F L   p r e s e a s o n   a c t i o n",
+        "caption": "Jaguars defender Ryan Davis (59) brings down Falcons quarterback T.J. Yates (13) for a sack during the first half in Jacksonville.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7510971426963806,
+        "text_similarity_score": 0.7078717947006226
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.7510971426963806, which is less than 0.85. The text similarity score is 0.7078717947006226, which is greater than 0.7. Based on the instruction, the verdict should be false because the image similarity score is less than 0.85. The candidate caption mentions a sack during the first half in Jacksonville, similar to the news caption. However, the players are different (Falcons linebacker Paul Worrilow sacking Jaguars quarterback Blake Bortles in the news caption versus Jaguars defender Ryan Davis sacking Falcons quarterback T.J. Yates in the candidate caption). Due to the low image similarity score, I can't confirm the accuracy of the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 3 and a verdict of False. The caption describes Falcons linebacker Paul Worrilow sacking Jaguars quarterback Blake Bortles, while the image shows a different football game. I see a player in a red uniform with the number 4 being tackled by a player wearing a white and green uniform with the number 23. Based on the image alone, I cannot confirm that the caption is accurate, and the image check result confirms that the image and caption do not align. Therefore, the caption is out of context.",
+    "validation_summary": "The caption is misleading because it describes a different football game and players than what is shown in the image. The image check result also indicates a mismatch between the caption and the image content, further supporting the conclusion that the caption is out of context."
+  },
+  "inference_time": 4.959454536437988,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

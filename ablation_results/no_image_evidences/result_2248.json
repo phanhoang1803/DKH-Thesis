@@ -1,0 +1,37 @@
+{
+  "caption": "Feb 7 2016 Santa Clara CA USA Coldplay singer Chris Martin performs during halftime in Super Bowl 50 at Levi s Stadium Mandatory Credit Cary EdmondsonUSA TODAY Sports",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Halftime show at Super Bowl 50",
+        "content": "H a l f t i m e   s h o w   a t   S u p e r   B o w l   5 0",
+        "caption": "Feb 7, 2016; Santa Clara, CA, USA; Coldplay singer Chris Martin performs during halftime in Super Bowl 50 at Levi's Stadium. Mandatory Credit: Cary Edmondson-USA TODAY Sports ORG XMIT: USATSI-245820 ORIG FILE ID:  20160207_pjc_se9_188.JPG",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.33088749647140503,
+        "text_similarity_score": 0.9391211867332458
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.33, which is less than 0.85. The text similarity score is 0.93, which is greater than 0.7. Based on the instructions, since the image similarity score is below 0.85, the caption should be marked as out-of-context, even though the text similarity score is high. Therefore, the verdict is 'False'. The candidate caption describes the same event, but the low image similarity score suggests the images do not match, failing the strict decision rules.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.33088749647140503",
+        "Text Similarity Score: 0.9391211867332458"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates the image similarity score is low (0.33) while the text similarity is high (0.93). Despite the text referring to the correct event (Coldplay's halftime performance at Super Bowl 50), the low image similarity suggests the specific image in question doesn't match what the caption describes. Based on the instructions, I must prioritize the image check result which indicates the caption is OOC.",
+    "validation_summary": "While the caption mentions the correct event, the image shown is not representative, potentially misleading viewers about the specific visual context of the event described in the caption, per image check results. Therefore the image is out of context because the images do not match despite the text describing the same event (according to image check). Given that the confidence score of the image check is a 6 I will base my final judgement based on the image check result."
+  },
+  "inference_time": 5.0538341999053955,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,45 @@
+{
+  "caption": "Democratic presidential candidate Hillary Clinton talks about her counterterrorism strategy during a campaign stop in Minneapolis",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Event"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Hillary Clinton outlines plan to fight homegrown terrorism and Isis | Hillary Clinton | The Guardian",
+        "content": "H i l l a r y   C l i n t o n   o u t l i n e s   p l a n   t o   f i g h t   h o m e g r o w n   t e r r o r i s m   a n d   . . .",
+        "caption": "Democratic presidential candidate Hillary Clinton talks about her counterterrorism strategy during a campaign stop in Minneapolis.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5287879705429077,
+        "text_similarity_score": 0.9852915406227112
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.5287879705429077, which is less than 0.85. The text similarity score is 0.9852915406227112, which is greater than 0.7. According to the instructions, I should immediately return \"False\". Although the text similarity is high, the low image similarity indicates that the candidate image does not match the news image, making the caption out-of-context. Based on the candidate, Hillary Clinton is talking about her counterterrorism strategy during a campaign stop in Minneapolis. However, without a matching image, I can not confirm the context.",
+      "supporting_evidences": [
+        "The image similarity score is 0.5287879705429077, which is less than 0.85.",
+        "The text similarity score is 0.9852915406227112, which is greater than 0.7."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low image similarity score of 0.5287879705429077 (less than 0.85) and a high text similarity score of 0.9852915406227112 (greater than 0.7). Following the instructions, a confidence score between 7 and 10 directs me to base the final decision on the image check result, which in this case, due to the high text similarity despite a low image similarity, indicates that the caption is an adequate representation of the news content.",
+    "validation_summary": "Despite a low image similarity score, the high text similarity score indicates that the caption is still an adequate summary of the news content; therefore, viewers would not be misled about what they're seeing in the image in relation to the article's topic of Hillary Clinton discussing her counterterrorism strategy during a campaign stop in Minneapolis. Therefore, the image is NOT out of context."
+  },
+  "inference_time": 5.381362199783325,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

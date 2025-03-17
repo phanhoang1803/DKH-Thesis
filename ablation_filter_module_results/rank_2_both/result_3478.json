@@ -1,0 +1,51 @@
+{
+  "caption": "President Obama returns to the White House on July 17 2014",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Sikorsky Aircraft",
+      "Sikorsky S-76",
+      "Sikorsky S-92",
+      "Sikorsky S-70",
+      "Bell 212",
+      "Bell UH-1 Iroquois",
+      "Helicopter",
+      "Bell 214",
+      "Sikorsky UH-60 Black Hawk",
+      "Sikorsky S-64 Skycrane"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 9,
+      "explanation": "The provided caption discusses President Obama's return to the White House on a specific date. However, the image depicts a fleet of helicopters, specifically Sikorsky models, possibly at a showcase event. There's no direct visual connection between the image and President Obama's return. While the broader context mentions that the date coincides with the U.S.-Africa Leaders Summit, and the helicopters could potentially be related to governmental operations, the caption fails to reflect the primary subject of the image, which is the helicopters themselves. The caption misrepresents the image's content, focusing on a tangential event rather than the main subject.",
+      "supporting_evidences": [
+        "The image shows multiple helicopters, not President Obama.",
+        "The caption mentions President Obama's return, which is not visually represented in the image.",
+        "The context mentions the U.S.-Africa Leaders Summit, but the caption doesn't connect the helicopters to this event."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "information": "The image appears to depict a fleet of helicopters, prominently featuring Sikorsky models such as the S-76, S-92, S-70, UH-60 Black Hawk, and possibly including Bell helicopters like the 212, UH-1 Iroquois, and 214. The background suggests an outdoor or airport setting, likely during a function showcasing these aircraft. The aircraft are in pristine condition, possibly indicating a demonstration or an event meant to highlight their capabilities.",
+      "caption": "Helicopter fleet including Sikorsky S-76, S-92, and UH-60 Black Hawk at a showcase event.",
+      "context": "The image corresponds to a notable event on July 17, 2014, which marks President Obama’s return to the White House for his birthday and coincides with the inaugural U.S.-Africa Leaders Summit. While the news caption focuses on the president, the image highlights key helicopters associated with Sikorsky Aircraft, which may be used during presidential or governmental operations. These helicopters symbolize advanced aviation technology and perhaps reflect the strategic partnerships and discussions at the summit related to defense, safety, and cooperation in Africa. The event timing suggests a showcase of American innovation, possibly in the defense sector, relevant to discussions taking place at the summit."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image features Marine One on the lawn with the Washington Monument in the background. A man is walking away from the helicopter. The caption says 'President Obama returns to the White House on July 17 2014'. While the image shows Marine One, and possibly President Obama leaving it, the caption's specificity about the date is not verifiable from the image alone, however, the presence of Marine One suggests that it involves the president. The image check result has a high confidence score. Since the image check indicates that the caption misrepresents the image's content, focusing on a tangential event rather than the main subject, the image is out of context.",
+    "validation_summary": "The caption focuses on a specific event (President Obama's return) while the image shows a more general scene of Marine One at the White House, potentially misleading viewers about the image's primary subject. The image is therefore out of context as the caption does not provide a representative summary of the image content."
+  },
+  "inference_time": 7.841629981994629,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

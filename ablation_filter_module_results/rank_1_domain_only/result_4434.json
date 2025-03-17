@@ -1,0 +1,51 @@
+{
+  "caption": "Los Angeles Kings right wing Justin Williams celebrates with teammates after scoring a goal during the first period",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Ice hockey",
+      "College ice hockey",
+      "Floor hockey",
+      "Ringette",
+      "Rink bandy",
+      "Bandy",
+      "Hockey",
+      "Inline hockey",
+      "Goalkeeper",
+      "Higher Education School"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "LA playoff star Justin Williams wins Conn Smythe  San Diego Union-Tribune",
+        "content": "L A   p l a y o f f   s t a r   J u s t i n   W i l l i a m s   w i n s   C o n n   S m y t h e      S a n   D i e g o   U n i o n   . . .",
+        "caption": "Los Angeles Kings right wing Justin Williams, left, celebrates his goal against the New York Rangers with teammate Los Angeles Kings defenseman Slava Voynov (26), of Russia, during the first period in Game 5 of the NHL Stanley Cup Final series Friday, June 13, 2014, in Los Angeles. (AP Photo/Jae C. Hong)",
+        "domain": "www.sandiegouniontribune.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, a decision cannot be made based on the rules above. The news caption states 'Los Angeles Kings right wing Justin Williams celebrates with teammates after scoring a goal during the first period'. Candidate 1 states 'Los Angeles Kings right wing Justin Williams, left, celebrates his goal against the New York Rangers with teammate Los Angeles Kings defenseman Slava Voynov (26), of Russia, during the first period in Game 5 of the NHL Stanley Cup Final series Friday, June 13, 2014, in Los Angeles.' Although the candidate shares some information with the news caption, such as that Justin Williams is on the Los Angeles Kings and scored a goal during the first period, it is not fully confirmed. Therefore, the verdict is false.",
+      "supporting_evidences": [
+        "Los Angeles Kings right wing Justin Williams, left, celebrates his goal against the New York Rangers with teammate Los Angeles Kings defenseman Slava Voynov (26), of Russia, during the first period in Game 5 of the NHL Stanley Cup Final series Friday, June 13, 2014, in Los Angeles."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a confidence score of 6 and a verdict of False. The analysis provided by the image check result states that although the candidate shares some information with the news caption, such as that Justin Williams is on the Los Angeles Kings and scored a goal during the first period, it is not fully confirmed. I will agree with this because the image does show a group of Los Angeles Kings players celebrating, and the caption suggests Justin Williams is among them. However, the image doesn't provide a clear view of Justin Williams specifically, nor does it definitively confirm that the celebration is directly tied to a goal he scored. Given the lack of explicit confirmation within the image and the image check result indicating a false verdict, the caption is considered out of context.",
+    "validation_summary": "The caption claims Justin Williams is visibly celebrating a goal in the image, but this cannot be confirmed by visual inspection, misleading viewers about the specific context of the celebration depicted. The image shows a group of players celebrating, which only vaguely aligns with the news caption."
+  },
+  "inference_time": 5.1393842697143555,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

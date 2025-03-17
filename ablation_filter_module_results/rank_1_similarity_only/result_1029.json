@@ -1,0 +1,40 @@
+{
+  "caption": "Leaked images of Apple s new trackpad for desktop Macs Images by Engadget",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Channel Master Introduces $10 Antenna With Free Shipping",
+        "content": "",
+        "caption": "",
+        "domain": "www.globenewswire.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.995646595954895,
+        "text_similarity_score": 0.07080495357513428
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is very high (0.995646595954895) suggesting that the images are almost identical. However, the text similarity score is very low (0.07080495357513428), suggesting that the captions are not similar. Given that the image similarity is high, there is a good chance that the image is of the apple trackpad. However, because the caption similarity is low, it is not clear that the candidate caption adequately supports the news caption, 'Leaked images of Apple s new trackpad for desktop Macs Images by Engadget.' Therefore, I cannot confirm that the candidate provides sufficient evidence to support the claim.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a black antenna. The caption describes \"Leaked images of Apple s new trackpad for desktop Macs Images by Engadget\" which does not relate to the image of an antenna. The image check result shows a very high image similarity score (0.995646595954895) suggesting that the images are almost identical. However, the text similarity score is very low (0.07080495357513428), suggesting that the captions are not similar. Therefore, because the caption similarity is low, it is not clear that the candidate caption adequately supports the news caption, 'Leaked images of Apple s new trackpad for desktop Macs Images by Engadget.' Therefore, I confirm that the candidate provides sufficient evidence to not support the claim.",
+    "validation_summary": "The image shows a black antenna, while the caption discusses an Apple trackpad, leading to a mismatch and potential confusion for viewers. Thus, the image is considered out of context with the caption provided, and it is misleading about the content it represents or illustrates to the viewers about the Apple product described in the caption text alone because the image is entirely unrelated to it.. It is an antenna instead of a trackpad Apple product, which is described in the caption. This makes it out of context completely and highly misleading."
+  },
+  "inference_time": 7.694157361984253,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

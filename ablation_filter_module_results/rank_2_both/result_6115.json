@@ -1,0 +1,40 @@
+{
+  "caption": "John and Yoko pose with Andy Peebles and an unidentified woman",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Photographs of John Lennon's final interview to be auctioned  in pictures | Music | The Guardian",
+        "content": "P h o t o g r a p h s   o f   J o h n   L e n n o n ' s   f i n a l   i n t e r v i e w   t o   b e   a u c t i o n e d      i n   . . .",
+        "caption": "John and Yoko pose with Andy Peebles and an unidentified woman.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.36051440238952637,
+        "text_similarity_score": 0.9907565712928772
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is low (0.36). The text similarity score is high (0.99), which means the caption in the candidate is very similar to the news caption. However, since the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. The candidate confirms the presence of 'John and Yoko' and 'Andy Peebles and an unidentified woman' mentioned in the caption. Thus, I am marking this as false with low confidence because the images are not similar enough to confirm the caption. The low confidence is because the text similarity is high, suggesting the description might be accurate even if the image doesn't match.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The provided image depicts Clint Eastwood embracing a woman. The news caption describes John Lennon and Yoko Ono with Andy Peebles and an unidentified woman. Since the people in the image do not match the people in the caption, the caption is out of context. The image check result also strongly supports this conclusion.",
+    "validation_summary": "The caption and image do not match. The caption describes John Lennon, Yoko Ono, and Andy Peebles, while the image shows Clint Eastwood and a woman, which would mislead viewers about the image's content."
+  },
+  "inference_time": 4.5184197425842285,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

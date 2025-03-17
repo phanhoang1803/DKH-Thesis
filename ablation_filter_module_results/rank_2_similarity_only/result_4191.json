@@ -1,0 +1,62 @@
+{
+  "caption": "Hannah Marriott wearing the fish skintrimmed Rodor blazer on sale for 400 in July",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Ygritte Widescreen Wallpapers 41488 - Baltana",
+        "content": "A d v e r t i s e m e n t s \n \n A d v e r t i s e m e n t s",
+        "caption": "Ygritte HD Wallpapers 41484",
+        "domain": "www.baltana.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9551388025283813,
+        "text_similarity_score": 0.1998186558485031
+      },
+      {
+        "title": "Ygritte High Definition Wallpaper 41485 - Baltana",
+        "content": "A d v e r t i s e m e n t s \n \n A d v e r t i s e m e n t s",
+        "caption": "Ygritte HD Wallpapers 41484",
+        "domain": "www.baltana.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9551388025283813,
+        "text_similarity_score": 0.1998186558485031
+      },
+      {
+        "title": "Would you swap leather for fish skin  and does it smell? | Fashion | The Guardian",
+        "content": "W o u l d   y o u   s w a p   l e a t h e r   f o r   f i s h   s k i n      a n d   d o e s   i t   s m e l l   . . .",
+        "caption": "Hannah Marriott wearing the fish skin-trimmed Rodor blazer, on sale for 400 in July.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1395190805196762,
+        "text_similarity_score": 0.9460259675979614
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Candidate 1 and 2 have high image similarity scores (0.955), but low caption similarity scores (0.199). This indicates that while the images themselves may be visually similar to the news image, the captions associated with them are not related to the news caption. Therefore, they do not provide supporting evidence. Candidate 3 has a low image similarity score (0.139), meaning the image is not very similar to the news image, but a high caption similarity score (0.946), indicating a strong match between the captions. Based on the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the final verdict is 'False'.",
+      "supporting_evidences": [
+        "Candidate 1 has high image similarity but low caption similarity.",
+        "Candidate 2 has high image similarity but low caption similarity.",
+        "Candidate 3 has low image similarity score"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates an out-of-context scenario. Candidate 1 and 2 have high image similarity scores but low caption similarity scores, meaning that although the images are visually similar, the captions do not match the news caption. Candidate 3 has a low image similarity score but a high caption similarity score. According to the instructions, since the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the final verdict is 'False'.",
+    "validation_summary": "The image check indicates a mismatch between the image and caption, suggesting viewers would be misled about the content's context. Based on image check results, the caption is out of context."
+  },
+  "inference_time": 5.8432395458221436,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

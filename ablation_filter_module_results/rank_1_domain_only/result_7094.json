@@ -1,0 +1,47 @@
+{
+  "caption": "Palace made it mighty difficult for Arsenal who needed victory to move to the top of the table",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Gaelic football",
+      "International rules football",
+      "Rugby union",
+      "Stadium",
+      "Tackle",
+      "Rugby football",
+      "Team",
+      "Irish"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Sam Taggart's Hard Sell | The New Yorker",
+        "content": "S a m   T a g g a r t ' s   H a r d   S e l l   |   T h e   N e w   Y o r k e r",
+        "caption": "Every salesman has an arsenal of ploys to gain an advantage. Sam Taggart likes to rely on the Grandson Effect.",
+        "domain": "www.newyorker.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. This indicates that the provided candidate is not relevant to the news caption. The candidate discusses sales tactics, while the news caption is about an Arsenal soccer game. Therefore, the news caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the provided candidate is not relevant to the news caption. The news caption describes a soccer match between Arsenal and Crystal Palace, stating that 'Palace made it mighty difficult for Arsenal, who needed victory to move to the top of the table.' However, the image check result explicitly mentions a mismatch in context, confirmed by a similarity score of 0.0 between the image and caption. This suggests that the image depicts something different than what the caption describes, leading to a conclusion that the image is out of context.",
+    "validation_summary": "The image does not accurately represent the caption's claim about the Arsenal vs. Crystal Palace match, and viewers would be misled about the game's details by associating the image with the caption. Therefore, the image is out of context because the text and visual information do not align and are therefore misleading to a viewer about the content of the image in context of the caption provided. The image check confirms that the caption is out of context with a high confidence score of 10, based on the extracted information."
+  },
+  "inference_time": 4.61469030380249,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

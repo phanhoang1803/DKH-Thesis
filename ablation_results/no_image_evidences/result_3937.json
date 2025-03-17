@@ -1,0 +1,44 @@
+{
+  "caption": "I ve got a few hairs but I m not Ryan Giggs hairy Kelly Jones of Stereophonics",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Roque Santa Cruz",
+      "Blackburn Rovers F.C.",
+      "Manchester City F.C.",
+      "Premier League",
+      "EFL Cup",
+      "Footballer",
+      "Goal",
+      "2007–08 Blackburn Rovers F.C. season",
+      "Forward"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Kelly Jones: 'I got caught peeing in the street. They gave me an 80 fine' | Stereophonics | The Guardian",
+        "content": "K e l l y   J o n e s :   ' I   g o t   c a u g h t   p e e i n g   i n   t h e   s t r e e t .   T h e y   g a v e   m e   a n   . . .",
+        "caption": "'Ive got a few hairs, but Im not Ryan Giggs hairy'  Kelly Jones of Stereophonics. Photograph: Danny Payne/Rex Features",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.21019601821899414,
+        "text_similarity_score": 0.8214614391326904
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.21019601821899414 and the text similarity score is 0.8214614391326904. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. The caption is about Kelly Jones of Stereophonics mentioning Ryan Giggs, which is mentioned in the candidate caption, however the image similarity is too low to determine if it is accurate.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a soccer player in a white and blue uniform, celebrating a goal, with the text 'bet 24' visible on the jersey. The caption is about Kelly Jones of Stereophonics and refers to Ryan Giggs' hairiness, which has nothing to do with the image of a soccer player. The image check result indicates a low image similarity score (0.21019601821899414) and a high text similarity score (0.8214614391326904). According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the caption is out of context.",
+    "validation_summary": "The caption discusses Kelly Jones of Stereophonics and Ryan Giggs' hair, while the image features a soccer player; this mismatch makes the caption misleading. The image check confirms that the caption does not accurately represent the image's content, as the image similarity score is below the threshold for accurate representation despite the text similarity score."
+  },
+  "inference_time": 5.756824970245361,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,49 @@
+{
+  "caption": "Devyani Khobragade India s deputy consul general in New York",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Second Lady Usha Vance to head U.S. delegation at Special Olympics Winter Games in Italy",
+        "content": "I t   l o o k s   l i k e   n o t h i n g   w a s   f o u n d   a t   t h i s   l o c a t i o n .   M a y b e   t r y   a   s e a r c h ?",
+        "caption": "",
+        "domain": "diyatvusa.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9113435745239258,
+        "text_similarity_score": 0.15084105730056763
+      },
+      {
+        "title": "India: US Diplomat Underpaid Filipina Maid and School Teachers Evaded Taxes | IBTimes UK",
+        "content": "I n d i a :   U S   D i p l o m a t   U n d e r p a i d   F i l i p i n a   M a i d   a n d   S c h o o l   T e a c h e r s   . . .",
+        "caption": "India's Deputy Consul General in New York, Devyani Khobragade,",
+        "domain": "www.ibtimes.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.25703874230384827,
+        "text_similarity_score": 0.9793429374694824
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Candidate 1 has a high image similarity score (0.9113435745239258) but a low text similarity score (0.15084105730056763). According to the instructions, this means the caption is out-of-context. Candidate 2 has a low image similarity score (0.25703874230384827) and a high text similarity score (0.9793429374694824). According to the instructions, this means the caption is out-of-context. Since the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the caption is out of context with a confidence score of 7. Candidate 1 has a high image similarity score (0.9113435745239258) but a low text similarity score (0.15084105730056763). Candidate 2 has a low image similarity score (0.25703874230384827) and a high text similarity score (0.9793429374694824). Since the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the caption does not accurately represent the content of the image.",
+    "validation_summary": "The image check results indicate that the caption is out of context, suggesting the viewer could be misled about what the image represents. Since the image similarity score is below 0.85, the caption must be marked as out-of-context."
+  },
+  "inference_time": 7.652633190155029,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

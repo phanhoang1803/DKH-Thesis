@@ -1,0 +1,45 @@
+{
+  "caption": "At a rally to protest against his conviction Silvio Berlusconi appeared with his girlfriend Francesca Pascale",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Berlusconi's girlfriend, 28, tells press she wants to marry him",
+        "content": "B e r l u s c o n i ' s   g i r l f r i e n d ,   2 8 ,   t e l l s   p r e s s   s h e   w a n t s   t o   m a r r y   h i m",
+        "caption": "Former Italian Prime Minister Silvio Berlusconi waves to supporters as his girlfriend Francesca Pascale looks on during a rally to protest his tax fraud conviction, outside his palace in central Rome August 4, 2013. REUTERS/Alessandro Bianchi/Files",
+        "domain": "sg.news.yahoo.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5162516832351685,
+        "text_similarity_score": 0.8672871589660645
+      },
+      {
+        "title": "Former Italian PM Silvio Berlusconi breaks up with longtime girlfriend to date even younger woman | Fox News",
+        "content": "F o r m e r   I t a l i a n   P M   S i l v i o   B e r l u s c o n i   b r e a k s   u p   w i t h   l o n g t i m e   . . .",
+        "caption": "Former Italian Prime Minister Silvio Berlusconi waves to supporters as his girlfriend Francesca Pascale looks on during a rally to protest his tax fraud conviction, outside his palace in central Rome August 4, 2013. Tensions in Italy's squabbling coalition heightened ahead of a rally by supporters of Silvio Berlusconi in Rome on Sunday in protest at a tax fraud conviction that threatens his future in politics and the fragile government. REUTERS/Alessandro Bianchi (ITALY - Tags: POLITICS CIVIL UNREST) - GM1E98503SQ01",
+        "domain": "www.foxnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.826994001865387,
+        "text_similarity_score": 0.8381041884422302
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates describe Silvio Berlusconi and Francesca Pascale at a rally protesting his tax fraud conviction. Candidate 2 has a higher image similarity score (0.826994001865387) and a high text similarity score (0.8381041884422302). This candidate specifically mentions \"Silvio Berlusconi waves to supporters as his girlfriend Francesca Pascale looks on during a rally to protest his tax fraud conviction\". While the image similarity isn't above 0.85, the textual description strongly supports the news caption. However, without a higher image similarity, I cannot be entirely certain the images are the same. Thus, the verdict is negative.",
+      "supporting_evidences": [
+        "Candidate 2: Caption mentions Silvio Berlusconi and Francesca Pascale at a rally to protest his tax fraud conviction, aligning with the news caption."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that while the caption mentions the key figures present in the image (Silvio Berlusconi and Francesca Pascale) and the rally setting, the image similarity score isn't high enough to definitively confirm the images are the same. Therefore, I trust the Image Check result and conclude that the caption is OOC.",
+    "validation_summary": "Due to a lack of definitive image similarity, viewers may be misled about the specific context or event depicted in the image, despite the caption mentioning the individuals and general setting, I trust the Image Check result to conclude that the caption is OOC. Therefore, viewers may be misled by the caption's association with the image content and the verdict is OOC = True, as there is no perfect match between the caption and the image content based on the image check result analysis alone."
+  },
+  "inference_time": 5.502672433853149,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "Rick Santorum won Iowa in 2012",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 7,
+      "confidence_score": 9,
+      "explanation": "The image context describes Rick Santorum giving a speech. The caption mentions he won Iowa in 2012. While the image could be from that time, the caption isn't directly descriptive of the image content itself. It provides related information but doesn't describe what is depicted. Thus, the alignment is only partial.",
+      "supporting_evidences": [
+        "The image depicts Rick Santorum speaking.",
+        "The caption mentions his 2012 Iowa win.",
+        "The caption adds context but doesn't describe the visual content of the image directly."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "information": "The image depicts Rick Santorum, a former United States Senator and Republican presidential candidate, possibly addressing an audience. He has a distinct moustache and is holding a microphone, engaging with those present. The focus is on his expression, indicating a moment of passion or emphasis during his speech.",
+      "caption": "Rick Santorum speaking passionately to an audience.",
+      "context": "In this image, Rick Santorum is likely presenting a speech or engaging with voters in Iowa, a state known for its critical role in the presidential nomination process. The caption mentions his victory in Iowa during the 2012 Republican caucuses, which was a pivotal moment in his campaign. The accompanying news content emphasizes the importance of Iowa in the political landscape and how past winners of the Iowa caucuses, including Santorum, did not always secure the party nomination. The photograph captures Santorum's commitment and energy in a setting that signifies another chapter in his political journey, reflecting not just nostalgia for his previous success, but also the ongoing significance of voter engagement in this key state."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the caption is not directly descriptive of the image content. The image shows Rick Santorum, while the caption states that he won Iowa in 2012. This is related information but does not describe what is visually depicted. Therefore, the image is considered out of context because the caption provides contextual information that is not directly represented in the image.",
+    "validation_summary": "The caption provides related information about Rick Santorum's win in Iowa but does not accurately describe the visual content of the image, which shows him speaking, potentially misleading viewers about what the image depicts. Therefore, it is out of context. It gives information that may or may not be related to the contents of the image so the image should be considered as 'Out of context'. It does not provide enough evidence to suggest that the image is aligned with the news or caption to the point where the image is not out of context or misleading with the caption provided. The image is out of context given the description of the image from the news or caption provided and that the description is not directly represented in the image. Also since there is a description about the image already, the summary suggests that the image is only partially aligned with the news, caption and the image check which supports that the image does not directly relate to the contents of the image, news and caption and does not suggest that the image directly related to the information provided in the image, news, caption and the image check, supporting that the image is in context with the news, caption, image and image check summarization. Instead, the image check results suggest that there is not a high enough alignment of the information across the summary to be able to validate that the image is within context of the news, caption and the image itself which suggest that the image is out of context to the news, caption and image and does not suggest the image is in context of the information it provides. Thus, the reason the confidence score is still relatively high is because it supports that the image is still out of context regardless of the information being provided because the image is not related with the information it provides. In summary, the image provides some evidence for the caption and claim about the image but the lack of direct connection and alignment for the summary validates that the image is out of context to the news, caption and image and does not validate that the image is in context with the image itself, news and caption provided which gives it a high confidence score for being out of context and the claim as well as the caption itself."
+  },
+  "inference_time": 5.89104700088501,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

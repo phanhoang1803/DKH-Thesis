@@ -1,0 +1,47 @@
+{
+  "caption": "GOP presidential nominee Donald Trump speaks at a rally in West Bend rally last month",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Footballer",
+      "Fan"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Donald Trump reaches out to African Americans, says Democrats take black vote for granted - Los Angeles Times",
+        "content": "D o n a l d   T r u m p   r e a c h e s   o u t   t o   A f r i c a n   A m e r i c a n s ,   s a y s   D e m o c r a t s   t a k e   . . .",
+        "caption": "Republican presidential candidate Donald Trump speaks at a campaign rally in West Bend, Wis., on Tuesday.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2914695143699646,
+        "text_similarity_score": 0.8735129833221436
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score (0.29) is below the threshold of 0.85, indicating that the images are not similar. Although the text similarity score (0.87) is above the threshold of 0.7, the low image similarity score suggests that the candidate image does not match the news image. Therefore, the caption is considered out-of-context. The candidate caption mentions Donald Trump speaking at a campaign rally in West Bend, Wisconsin, which aligns with the news caption about Donald Trump speaking at a rally in West Bend. However, without a matching image, I cannot definitively confirm the accuracy of the news caption.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.2914695143699646",
+        "Caption Similarity Score: 0.8735129833221436",
+        "Candidate caption mentions Donald Trump speaking at a campaign rally in West Bend, Wisconsin."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image similarity score (0.29) is below the threshold of 0.85, indicating that the images are not similar. Although the text similarity score (0.87) is above the threshold of 0.7, the low image similarity score suggests that the candidate image does not match the news image. Therefore, the caption is considered out-of-context. The candidate caption mentions Donald Trump speaking at a campaign rally in West Bend, Wisconsin, which aligns with the news caption about Donald Trump speaking at a rally in West Bend. However, without a matching image, I cannot definitively confirm the accuracy of the news caption. Therefore, the caption is out of context.",
+    "validation_summary": "The image check indicates the image and candidate image do not match despite the text similarity, leading to a determination that viewers would be misled about the image's context. Therefore, the image is determined to be out of context."
+  },
+  "inference_time": 4.8917317390441895,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

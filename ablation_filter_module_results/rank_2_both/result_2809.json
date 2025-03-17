@@ -1,0 +1,49 @@
+{
+  "caption": "The Clintons on stage in Las Vegas Nevada",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speech",
+      "Academic conference",
+      "Seminar",
+      "Public speaking",
+      "Convention",
+      "Orator",
+      "Academy",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "God, guns and dirty tricks: Republicans trade shots as Democrats divide on race | US elections 2016 | The Guardian",
+        "content": "G o d ,   g u n s   a n d   d i r t y   t r i c k s :   R e p u b l i c a n s   t r a d e   s h o t s   a s   D e m o c r a t s   . . .",
+        "caption": "The Clintons on stage in Las Vegas, Nevada.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.439980685710907,
+        "text_similarity_score": 0.9600189328193665
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is below 0.85, which indicates that the images do not match. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Bill Clinton speaking at a podium with a \"Fighting for us\" sign. Given that the image check has a confidence score of 3 and a verdict of false, it indicates a mismatch between the image and caption, so the caption is out of context. I must rely on the image check result for confidence scores 7-10.",
+    "validation_summary": "The caption inaccurately suggests an image of 'The Clintons' together on stage in Las Vegas, while the image only shows Bill Clinton at a podium. Therefore, the caption misrepresents the image content."
+  },
+  "inference_time": 5.608678340911865,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

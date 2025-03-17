@@ -1,0 +1,50 @@
+{
+  "caption": "Presidential candidate Donald Trump speaks on foreign policy at the Mayflower Hotel in Washington on April 27",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "United States",
+      "Foreign policy",
+      "General election",
+      "Memorial Day",
+      "Foreign policy of the first Donald Trump administration",
+      "Veterans Day",
+      "International affairs",
+      "Policy",
+      "Flag"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "It's Official: Men Don't Listen - Roll Call",
+        "content": "I t ' s   O f f i c i a l :   M e n   D o n ' t   L i s t e n   -   R o l l   C a l l",
+        "caption": "Republican presidential candidate Donald Trump speaks about his foreign policy positions during an event sponsored by The Center for the National Interest, at The Mayflower Hotel, in Washington, Wednesday, April 27, 2016. (Photo By Al Drago/CQ Roll Call)",
+        "domain": "rollcall.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption states that \"Presidential candidate Donald Trump speaks on foreign policy at the Mayflower Hotel in Washington on April 27\". The candidate evidence states \"Republican presidential candidate Donald Trump speaks about his foreign policy positions during an event sponsored by The Center for the National Interest, at The Mayflower Hotel, in Washington, Wednesday, April 27, 2016.\" The candidate evidence confirms all the key elements in the news caption: Donald Trump speaking on foreign policy at the Mayflower Hotel in Washington on April 27. Although the image similarity score is low, I am relying on the text match between the news caption and the candidate evidence to determine the accuracy of the news caption.",
+      "supporting_evidences": [
+        "Republican presidential candidate Donald Trump speaks about his foreign policy positions during an event sponsored by The Center for the National Interest, at The Mayflower Hotel, in Washington, Wednesday, April 27, 2016."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The news caption states that \"Presidential candidate Donald Trump speaks on foreign policy at the Mayflower Hotel in Washington on April 27\". The candidate evidence states \"Republican presidential candidate Donald Trump speaks about his foreign policy positions during an event sponsored by The Center for the National Interest, at The Mayflower Hotel, in Washington, Wednesday, April 27, 2016.\" The candidate evidence confirms all the key elements in the news caption: Donald Trump speaking on foreign policy at the Mayflower Hotel in Washington on April 27. Although the image similarity score is low, I am relying on the text match between the news caption and the candidate evidence to determine the accuracy of the news caption.",
+    "validation_summary": "The news caption accurately describes the image content, depicting Donald Trump speaking on foreign policy at the Mayflower Hotel in Washington on April 27, as confirmed by candidate evidence, so viewers would not be misled. The text in the image also aligns with the candidate evidence and news caption."
+  },
+  "inference_time": 4.368472337722778,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

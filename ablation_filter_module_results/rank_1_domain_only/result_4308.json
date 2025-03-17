@@ -1,0 +1,40 @@
+{
+  "caption": "Amanda Seyfried after the Les Miserables musical number",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Photos: Backstage and behind the scenes at the Oscars",
+        "content": "P h o t o s :   B a c k s t a g e   a n d   b e h i n d   t h e   s c e n e s   a t   t h e   O s c a r s",
+        "caption": "Amanda Seyfried after the 'Les Miserables' musical number.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The provided evidence contains an identical caption, but the low image similarity score suggests that the image associated with the candidate evidence is likely different from the news image in question. Without a matching image, it is difficult to confirm the accuracy of the caption.",
+      "supporting_evidences": [
+        "Amanda Seyfried after the 'Les Miserables' musical number."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a low image similarity score, suggesting the image associated with the provided caption is different from the news image. The image shows Amanda Seyfried in a red gown, possibly at a premiere or event. Without a matching image, the accuracy of the caption is questioned. Because the image check has a confidence score of 8, I must base my final determination on that result.",
+    "validation_summary": "Given the image check results, the caption misrepresents the image, potentially misleading viewers about the context of the image. The image check similarity score is low, suggesting the image associated with the candidate evidence is likely different from the news image in question."
+  },
+  "inference_time": 3.7362735271453857,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

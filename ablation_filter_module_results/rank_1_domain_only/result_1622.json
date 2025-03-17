@@ -1,0 +1,49 @@
+{
+  "caption": "Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond Calif",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "El Dorado Fire",
+      "Fire",
+      "King Fire",
+      "El Dorado County",
+      "California Department of Forestry and Fire Protection",
+      "Fire retardant",
+      "Stock photography",
+      "National Interagency Fire Center",
+      "Photography",
+      "Photograph"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Firefighters battle California wildfires",
+        "content": "F i r e f i g h t e r s   b a t t l e   C a l i f o r n i a   w i l d f i r e s",
+        "caption": "Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond, Calif.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. The only candidate evidence has the exact same caption as the news item. However, without a high image similarity score, I cannot confirm if the candidate matches the image and the location details. Therefore, the caption is not verified.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "explanation": "The image shows two firefighters in yellow uniforms and helmets, standing in a smoky environment. The caption states that Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond, Calif. While the image does show firefighters, the image check result has a low confidence score and does not verify the location details. The lack of a high image similarity score prevents confirming that the firefighters are specifically battling the King Fire in the described location, making the caption potentially misleading. Therefore, based on the available evidence, the caption is considered OOC.",
+    "validation_summary": "The caption is potentially misleading as it cannot be verified that the firefighters in the image are specifically battling the King Fire in El Dorado County, due to the low image similarity score from the image check result. Without location confirmation, viewers might incorrectly associate the image with the specific event mentioned in the caption, resulting in a misinterpretation of the image's context."
+  },
+  "inference_time": 4.503023624420166,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "caption": "Former secretary of state Hillary Clinton greets supporters in Miami",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Super Tuesday",
+      "Republican party presidential primaries, 2016",
+      "United States presidential primary",
+      "2024 Democratic Party presidential primaries",
+      "Caucus",
+      "Presidential nominee",
+      "Primary election",
+      "General election",
+      "Chris Christie",
+      "Marco Rubio"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Democratic National Convention's Star-Studded Guest List Includes Lady Gaga, Demi Lovato, Lenny Kravitz - ABC News",
+        "content": "D e m o c r a t i c   N a t i o n a l   C o n v e n t i o n ' s   S t a r - S t u d d e d   G u e s t   L i s t   I n c l u d e s   . . .",
+        "caption": "Democratic presidential candidate former Secretary of State Hillary Clinton greets supporters during her Super Tuesday evening gathering Stage One Ice Studios on March 1, 2016 in Miami, Fla.",
+        "domain": "abcnews.go.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Hillary Clinton Greets Supporters | Kid Reporters' Notebook | Scholastic Inc.",
+        "content": "H i l l a r y   C l i n t o n   G r e e t s   S u p p o r t e r s   |   K i d   R e p o r t e r s '   N o t e b o o k   . . .",
+        "caption": "Ben outside Ice Palace Film Studios in Miami",
+        "domain": "kpcnotebook.scholastic.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are below 0.85 for both candidates and the text similarity scores are also below 0.7. Candidate 1 mentions \"Democratic presidential candidate former Secretary of State Hillary Clinton greets supporters during her Super Tuesday evening gathering Stage One Ice Studios on March 1, 2016 in Miami, Fla.\" This confirms that Hillary Clinton was greeting supporters in Miami. However, it mentions the date and event, which are not available in the news caption. Candidate 2 does not provide sufficient information. Because of the absence of a specific date or event in the news caption, I am marking this as potentially true but lacking sufficient confirming details. It's not definitively false, but without further confirmation, I can only assign a moderate confidence score.",
+      "supporting_evidences": [
+        "Candidate 1: Democratic presidential candidate former Secretary of State Hillary Clinton greets supporters during her Super Tuesday evening gathering Stage One Ice Studios on March 1, 2016 in Miami, Fla."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "explanation": "The image check result indicates that the news caption is potentially true but lacks sufficient confirming details, assigning a moderate confidence score. The caption states Hillary Clinton greeted supporters in Miami, which aligns with the image showing her interacting with a crowd. However, the absence of a specific date or event in the news caption, which are included in one of the candidate summaries in the image check result, marks this as potentially out of context. The image could be misleading if it is not specified that this event occurred on March 1, 2016, during her Super Tuesday evening gathering in Miami.",
+    "validation_summary": "While the image does depict Hillary Clinton interacting with supporters, the lack of specific details such as the date and event in the caption makes it potentially misleading. The caption fails to provide the full context of when and where the image was taken, making it potentially out of context."
+  },
+  "inference_time": 4.66613507270813,
+  "ablation_type": "no_filters"
+}

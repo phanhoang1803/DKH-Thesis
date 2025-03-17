@@ -1,0 +1,42 @@
+{
+  "caption": "WR Eric Decker Signed with Jets",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Notable NFL players changing teams in 2017",
+        "content": "N o t a b l e   N F L   p l a y e r s   c h a n g i n g   t e a m s   i n   2 0 1 7",
+        "caption": "WR Eric Decker: Signed by Titans (previous team: Jets)",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8242476582527161,
+        "text_similarity_score": 0.8985944986343384
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.8242476582527161, which is less than 0.85. The text similarity score is 0.8985944986343384, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. In this case, the image similarity score is below 0.85, so the caption is out-of-context. However, the candidate evidence indicates that Eric Decker signed with the Titans after previously being with the Jets, aligning with the news caption. Therefore, despite the low image similarity, the caption is considered to be in context.",
+      "supporting_evidences": [
+        "Caption: WR Eric Decker: Signed by Titans (previous team: Jets)"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates an image similarity score of 0.8242476582527161, which is less than 0.85. This automatically flags the image as out of context. The image shows Eric Decker in his Broncos uniform. The news caption states that Eric Decker signed with the Jets. This implies he is in the Jets uniform. Because the image shows Decker in a Broncos uniform, the caption does not match the image, making the caption out of context. While the caption is factually correct, it is still out of context for the image that is provided.",
+    "validation_summary": "The image is out of context, as the caption refers to Eric Decker signing with the Jets, while the image shows him in a Broncos uniform, misleading viewers about the visual context of the news. Even though Decker signed with the Jets at one point, he is not shown in that uniform in the picture, making it out of context with the caption provided. The image similarity score is less than 0.85, so it is automatically marked as out of context by the instructions provided to me. I am using the image check results to make my final determination, as the instructions state to do so for confidence scores from 7-10. As such, the primary basis for my evaluation is the image check result, which means I determine whether the caption correctly represents the image content based on that, which in this case, it does not due to the image similarity being less than 0.85 as the instructions specify. Therefore, I mark the caption as out of context based on these results and instructions."
+  },
+  "inference_time": 5.028618812561035,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

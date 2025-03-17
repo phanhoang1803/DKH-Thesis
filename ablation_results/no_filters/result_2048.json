@@ -1,0 +1,46 @@
+{
+  "caption": "From left Speaker of the House Paul Ryan former president George W Bush former vice president Dick Cheney and Sen Roy Blunt",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Paul Davis Ryan Profile photos | SuccessStory",
+        "content": "",
+        "caption": "Paul Rayn With Bush",
+        "domain": "successstory.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "VP Cheney Bust Dedication | house.gov",
+        "content": "V P   C h e n e y   B u s t   D e d i c a t i o n   |   h o u s e . g o v",
+        "caption": "The bust of former Vice President Dick Cheney",
+        "domain": "www.house.gov",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "VP Cheney Bust Dedication | house.gov",
+        "content": "V P   C h e n e y   B u s t   D e d i c a t i o n   |   h o u s e . g o v",
+        "caption": "Former Vice President Dick Cheney standing behind a podium",
+        "domain": "www.house.gov",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are all 0.0, which means the images in the candidates do not match the image described by the news caption. The caption similarity scores are also 0.0, indicating that the captions in the candidates do not match the news caption. The candidates mention some of the people mentioned in the caption, but they do not provide explicit confirmation that all the people in the caption are in the image. Therefore, based on the provided information, I cannot confirm the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption inaccurately describes the image content, leading to possible confusion among viewers about the individuals present.",
+    "explanation": "The news caption claims that the image depicts \"Speaker of the House Paul Ryan, former president George W Bush, former vice president Dick Cheney, and Sen Roy Blunt,\" which sets a specific expectation for the viewers about the identities of the people in the image. However, the image check result indicates a complete lack of match between the candidates and the actual image. Specifically, the similarity scores of the image and the candidate descriptions are 0.0, meaning that either none of the individuals mentioned are present, or the context of their appearance does not align with the image. Thus, given the lack of matching outputs and the potential for misrepresentation regarding the identities of the individuals shown in the image, it can be justified that the caption is out of context. Consequently, viewers relying on the caption for a correct identification of the figures shown would indeed be misled."
+  },
+  "inference_time": 8.927288293838501,
+  "ablation_type": "no_filters"
+}

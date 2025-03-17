@@ -1,0 +1,39 @@
+{
+  "caption": "Ann Romney flanked by sons Ben left and Matt before the presidential candidates answer questions during their townhall style debate",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "billbeuttler.com - Welcome",
+        "content": "b i l l b e u t t l e r . c o m   -   W e l c o m e",
+        "caption": "",
+        "domain": "www.billbeuttler.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "George W. Bush - Wikipedia",
+        "content": "G e o r g e   W .   B u s h   -   W i k i p e d i a",
+        "caption": "Bush's official presidential portrait, 2003",
+        "domain": "en.wikipedia.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores for both candidates are 0.0, indicating that the images are not related to the news image. Additionally, the caption similarity scores are also 0.0, suggesting no correlation between the captions. Therefore, based on the available evidence, there is no support for the news caption. The candidate captions are irrelevant to the news caption, and the lack of image similarity further weakens any potential connection.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a confidence score of 10 and states that the image is out of context. The image similarity scores for both candidates are 0.0, indicating that the images are not related to the news image. Additionally, the caption similarity scores are also 0.0, suggesting no correlation between the captions. Therefore, based on the available evidence, there is no support for the news caption. The candidate captions are irrelevant to the news caption, and the lack of image similarity further weakens any potential connection. Given the high confidence score, the final determination must be based on the image check result, confirming that the image is out of context.",
+    "validation_summary": "The image check determined a lack of similarity between the provided image and the news caption, so the news caption is not representative of the image's contents. Therefore, viewers would be misled about the context of the image in relation to the news article content if the image and news caption were paired together .Based on the image check, this is Out of Context and the confidence score is 10, making this a high-confidence determination based on the image check results."
+  },
+  "inference_time": 3.9435787200927734,
+  "ablation_type": "no_filters"
+}

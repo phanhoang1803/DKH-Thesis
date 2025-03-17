@@ -1,0 +1,54 @@
+{
+  "caption": "Ed Miliband campaigning in Oldham East and Saddleworth before Christmas",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Ed Balls",
+      "Labour Party",
+      "Shadow Chancellor of the Exchequer",
+      "Shadow Home Secretary of the United Kingdom",
+      "front",
+      "Leader of the Labour Party of the United Kingdom",
+      "past",
+      "Resonant Chord",
+      "side"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Miliband raises the stakes as the battle for Oldham East intensifies | Ed Miliband | The Guardian",
+        "content": "O l d h a m - E a s t - a n d - S a d d l e w o r - 0 0 7 .   . . .",
+        "caption": "Ed Miliband campaigning in Oldham East and Saddleworth before Christmas. Photograph: Anna Gowthorpe/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4132268726825714,
+        "text_similarity_score": 0.8511050939559937
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.4132268726825714, which is less than 0.85. Thus, the caption is out-of-context. The text similarity score is 0.8511050939559937, which is greater than 0.7. However, because the image similarity score is less than 0.85, the caption is still considered out-of-context. The candidate caption and news caption are highly similar, which indicates that the captions are related and the event is related to Ed Miliband campaigning in Oldham East and Saddleworth before Christmas. However, because the image similarity is low, it is not possible to prove that the image in the news is about Ed Miliband campaigning in Oldham East and Saddleworth before Christmas.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.4132268726825714",
+        "Text Similarity Score: 0.8511050939559937",
+        "Caption: Ed Miliband campaigning in Oldham East and Saddleworth before Christmas. Photograph: Anna Gowthorpe/PA"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image and caption do not align well, with a low image similarity score of 0.4132268726825714, which is less than 0.85. Despite a high text similarity score of 0.8511050939559937, the low image similarity leads to the conclusion that the caption is out of context. This suggests that while the text of the caption is related to the news content and references Ed Miliband's activities in Oldham East and Saddleworth, the image itself does not clearly depict or support the captioned event.",
+    "validation_summary": "The image doesn't strongly support the caption's claim, making it potentially misleading to viewers. The mismatch between the image and caption suggests that the image does not provide direct visual evidence of Ed Miliband campaigning in Oldham East and Saddleworth before Christmas."
+  },
+  "inference_time": 5.121022939682007,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

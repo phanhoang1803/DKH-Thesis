@@ -1,0 +1,60 @@
+{
+  "caption": "Mars as seen from Earth in 1999 the last time the two planets were similarly placed",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Full Moon - Atmospheric Phenomenon - Ball Beige Transparent PNG",
+        "content": "",
+        "caption": "Earth Supermoon Lunar Eclipse Full Moon - Atmosphere Transparent PNG",
+        "domain": "pnghut.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9244297742843628,
+        "text_similarity_score": 0.17130473256111145
+      },
+      {
+        "title": "Full Moon Drawing - Atmosphere - Hd Transparent PNG",
+        "content": "",
+        "caption": "Earth Supermoon Lunar Eclipse Full Moon - Atmosphere Transparent PNG",
+        "domain": "pnghut.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9244297742843628,
+        "text_similarity_score": 0.17130473256111145
+      },
+      {
+        "title": "Starwatch: Mars at its closest | Mars | The Guardian",
+        "content": "S t a r w a t c h :   M a r s   a t   i t s   c l o s e s t   |   M a r s   |   T h e   G u a r d i a n",
+        "caption": "Mars as seen from Earth in 1999  the last time the two planets were similarly placed. Photograph: NASA/STScI",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5709537267684937,
+        "text_similarity_score": 0.9047856330871582
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 3 has a low image similarity score (0.5709537267684937) but a high caption similarity score (0.9047856330871582). This indicates that while the image itself may not be a perfect match, the caption is highly similar to the news caption. The caption of candidate 3, \"Mars as seen from Earth in 1999 – the last time the two planets were similarly placed. Photograph: NASA/STScI\", directly confirms the news caption: \"Mars as seen from Earth in 1999 the last time the two planets were similarly placed.\" This close match in caption strongly suggests that the news caption accurately represents the image content related to Mars's appearance from Earth in 1999. Since the text similarity score is very high between the candidate and the news, it strongly indicates that the caption accurately represents the image's content. Therefore, I can confidently confirm that the news caption is accurate.",
+      "supporting_evidences": [
+        "Candidate 3: Caption 'Mars as seen from Earth in 1999 – the last time the two planets were similarly placed. Photograph: NASA/STScI' and Text Similarity Score: 0.9047856330871582"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high degree of similarity between the news caption and the caption of a candidate image. Specifically, candidate 3 has a caption 'Mars as seen from Earth in 1999 – the last time the two planets were similarly placed. Photograph: NASA/STScI' and a high text similarity score of 0.9047856330871582. Since the candidate image caption directly confirms the news caption \"Mars as seen from Earth in 1999 the last time the two planets were similarly placed.\", I can confidently confirm that the news caption accurately represents the image content. Therefore, the image is not out of context.",
+    "validation_summary": "The image depicts Mars as seen from Earth in 1999, which is accurately described by the caption, so viewers would not be misled. The image check confirms the accuracy of the caption."
+  },
+  "inference_time": 8.301723003387451,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

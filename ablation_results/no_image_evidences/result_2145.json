@@ -1,0 +1,45 @@
+{
+  "caption": "Ariana Grande introduces The Weeknd during the 58th Grammy Awards at the Staples Center",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Uptown Funk, Taylor Swift triumph at 58th annual Grammys - WTOP News",
+        "content": "U p t o w n   F u n k , '   T a y l o r   S w i f t   t r i u m p h   a t   5 8 t h   a n n u a l   G r a m m y s   -   W T O P   N e w s",
+        "caption": "Ariana Grande introduces a performance by The Weeknd at the 58th annual Grammy Awards on Monday, Feb. 15, 2016, in Los Angeles. \n(Photo by Matt Sayles/Invision/AP)",
+        "domain": "wtop.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3525010645389557,
+        "text_similarity_score": 0.8592624664306641
+      },
+      {
+        "title": "Pop superstar Ariana Grande over the years",
+        "content": "P o p   s u p e r s t a r   A r i a n a   G r a n d e   o v e r   t h e   y e a r s",
+        "caption": "Ariana Grande arrives at the 56th Annual Grammy Awards at the Staples Center in Los Angeles on Jan. 26, 2014.",
+        "domain": "www.tennessean.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.26091545820236206,
+        "text_similarity_score": 0.7606082558631897
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption describes Ariana Grande introducing The Weeknd at the 58th Grammy Awards. Candidate 1 has a text similarity score of 0.859, which indicates high similarity, and an image similarity score of 0.353. The caption confirms that Ariana Grande introduced a performance by The Weeknd at the 58th annual Grammy Awards. Candidate 2 has a text similarity score of 0.761 and an image similarity score of 0.261. The caption mentions Ariana Grande arriving at the 56th Annual Grammy Awards, which is different from the event described in the news caption (58th Grammy Awards featuring The Weeknd). Since the image similarity scores are below 0.85 for both candidates, and considering candidate 1 closely aligns with the event in the news caption, the verdict is determined based on the lower image similarity but higher caption similarity.",
+      "supporting_evidences": [
+        "Candidate 1: Caption mentions Ariana Grande introducing The Weeknd at the 58th Grammy Awards, aligning with the news caption."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 7, so the final determination must be based on it. The image check result states that the news caption describes Ariana Grande introducing The Weeknd at the 58th Grammy Awards. Candidate 1 has a text similarity score of 0.859 and an image similarity score of 0.353, which aligns with the news caption. Candidate 2 mentions Ariana Grande arriving at the 56th Annual Grammy Awards. Since the image similarity scores are below 0.85, and considering candidate 1 closely aligns with the event in the news caption, the verdict is determined based on the lower image similarity but higher caption similarity, marking the statement as OOC.",
+    "validation_summary": "The image shows Ariana Grande, but the low image similarity scores and the fact that the image could be from a different event than the one described in the caption suggest that viewers could be misled about the context of the image, as the image does not clearly depict her introducing The Weeknd at the 58th Grammy Awards, it is OOC. The image does not show The Weeknd."
+  },
+  "inference_time": 6.3252434730529785,
+  "ablation_type": "no_image_evidences"
+}

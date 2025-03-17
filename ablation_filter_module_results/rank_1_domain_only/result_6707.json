@@ -1,0 +1,38 @@
+{
+  "caption": "Kansas City Chiefs running back Peyton Hillis takes the ball to head coach Romeo Crennel after scoring a touchdown against the Carolina Panthers in the first half at Arrowhead Stadium",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Chiefs' emotional win",
+        "content": "C h i e f s '   e m o t i o n a l   w i n",
+        "caption": "Kansas City Chiefs running back Peyton Hillis (40) takes the ball to head coach Romeo Crennel after scoring a touchdown.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 which is less than 0.85 and the text similarity score is 0.0 which is less than 0.7. Therefore, further analysis needs to be done. The candidate caption mentions \"Kansas City Chiefs running back Peyton Hillis (40) takes the ball to head coach Romeo Crennel after scoring a touchdown.\" which is similar to the news caption. However, the candidate doesn't provide sufficient information to prove that the caption accurately represents the image. Therefore, the verdict is \"False\".",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 3, which is less than 7, so I needed to do a more thorough analysis. The image shows football players in a game, one of whom is carrying the ball and is being tackled. The caption states that the image is of 'Kansas City Chiefs running back Peyton Hillis takes the ball to head coach Romeo Crennel after scoring a touchdown against the Carolina Panthers in the first half at Arrowhead Stadium'. The players' uniforms in the image do not match the uniforms of the Kansas City Chiefs or the Carolina Panthers. The image check result also indicates that the caption is not accurate. Therefore, the caption is out of context.",
+    "validation_summary": "The caption incorrectly identifies the players and teams in the image, leading viewers to believe the image depicts something it does not. The image is therefore out of context due to misrepresentation."
+  },
+  "inference_time": 3.8636345863342285,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

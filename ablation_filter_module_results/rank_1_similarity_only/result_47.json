@@ -1,0 +1,58 @@
+{
+  "caption": "The BBC s newsroom at New Broadcasting House",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "The Venetian Las Vegas",
+      "Image",
+      "Stock photography",
+      "Getty Images",
+      "Flag",
+      "Politics"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.907398521900177,
+        "text_similarity_score": 0.15719354152679443
+      },
+      {
+        "title": "BBC - The Editors",
+        "content": "B B C   -   T h e   E d i t o r s",
+        "caption": "The Newsroom in New Broadcasting House, pictured before the big move",
+        "domain": "www.bbc.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.34143513441085815,
+        "text_similarity_score": 0.7967345118522644
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "We evaluate whether the provided candidates support the news caption: \"The BBC's newsroom at New Broadcasting House.\" \n\nCandidate 1 has a high image similarity score (0.907) suggesting visual similarity with the news image, but a low text similarity score (0.157). This suggests the candidate image is of a similar newsroom, but the caption differs significantly. Therefore, candidate 1 alone cannot confirm the news caption is accurate.\n\nCandidate 2 has a low image similarity score (0.341) but a high text similarity score (0.796). This indicates the image is not very similar, but the caption is highly similar to the news caption. The caption \"The Newsroom in New Broadcasting House, pictured before the big move\" strongly supports that the BBC has a newsroom located in New Broadcasting House. This evidence strengthens the likelihood that the news caption is accurate.\n\nCombining the analysis, Candidate 2 directly supports the news caption, while Candidate 1, despite having a high image similarity, has a dissimilar caption and thus is not used to support the verdict directly. Based on this evidence, we conclude that the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "Candidate 2: Caption: The Newsroom in New Broadcasting House, pictured before the big move; Image Similarity Score: 0.34143513441085815; Caption Similarity Score: 0.7967345118522644; Domain: www.bbc.co.uk"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts a room decorated with Republican party symbols and the word 'VOTE' in large block letters. People are gathered in the background, some working at desks. The caption states 'The BBC s newsroom at New Broadcasting House'. This is a clear mismatch between the visual content and the caption's description. The image check result strongly supports that the caption does not represent the image.",
+    "validation_summary": "The image shows a Republican party event, while the caption describes the BBC newsroom, which is misleading and inaccurate. Viewers would be completely misled about the image's content."
+  },
+  "inference_time": 9.340254306793213,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

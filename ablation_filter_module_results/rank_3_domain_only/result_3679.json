@@ -1,0 +1,65 @@
+{
+  "caption": "President Rousseff Below that green and yellow jersey you represent a powerful legacy of the Brazilian people",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Katinka Hosszú",
+      "Rio de Janeiro",
+      "just",
+      "Swimming",
+      "Olympic Games",
+      "Kuwait",
+      "Swimming",
+      "Human",
+      "SAT",
+      "Fun"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Brazils politicians banking on World Cup victory to help soothe unrest | Brazil | The Guardian",
+        "content": "B r a z i l ' s   p o l i t i c i a n s   b a n k i n g   o n   W o r l d   C u p   v i c t o r y   t o   h e l p   s o o t h e   . . .",
+        "caption": "Former President and avid football fan Luiz Incio Lula da Silva with a shirt of his beloved Corinthians. Photograph: News Free/CON/LatinContent/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Brazil's 2018 elections, explained | Vox",
+        "content": "B r a z i l ' s   2 0 1 8   e l e c t i o n s ,   e x p l a i n e d   |   V o x",
+        "caption": "A demonstrator protesting against former Brazilian President Luiz Incio Lula da Silva in Sao Paulo, Brazil, on January 24, 2018.",
+        "domain": "www.vox.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Brazil 'ready' for football World Cup, says Rousseff - BBC News",
+        "content": "B r a z i l   ' r e a d y '   f o r   f o o t b a l l   W o r l d   C u p ,   s a y s   R o u s s e f f   -   B B C   N e w s",
+        "caption": "President Rousseff: \"Below that green and yellow jersey you represent a powerful legacy of the Brazilian people\"",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 3 has the exact caption as the news caption and is from a reliable domain (BBC). This confirms the accuracy of the news caption.",
+      "supporting_evidences": [
+        "Candidate 3: President Rousseff: \"Below that green and yellow jersey you represent a powerful legacy of the Brazilian people\""
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (10) that the provided caption accurately represents the image. However, upon further review, the image shows a beach volleyball player giving a fan a high five. The fan is wearing a green wig and yellow jersey. The news caption references President Dilma Rousseff. The news caption is completely unrelated to the image. Therefore, the image is out of context.",
+    "validation_summary": "The caption is not related to the image and thus it will mislead viewers about the news story being presented. The image shows a beach volleyball player while the caption is related to President Dilma Rousseff and the Brazilian people's legacy, making the image out of context."
+  },
+  "inference_time": 3.768444299697876,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

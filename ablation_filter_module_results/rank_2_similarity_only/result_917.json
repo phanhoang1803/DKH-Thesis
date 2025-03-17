@@ -1,0 +1,60 @@
+{
+  "caption": "Senate GOP between a rock and a hard place",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Tea",
+      "Stock photography",
+      "Japanese tea ceremony",
+      "Alamy",
+      "Teahouse",
+      "Hamarikyu",
+      "Photograph",
+      "Photography",
+      "Image",
+      "garden tea house"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Tea house tokyo hi-res stock photography and images - Alamy",
+        "content": "",
+        "caption": "",
+        "domain": "www.alamy.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7870405912399292,
+        "text_similarity_score": 0.13000400364398956
+      },
+      {
+        "title": "Japanese tea house hi-res stock photography and images - Page 4 - Alamy",
+        "content": "",
+        "caption": "",
+        "domain": "www.alamy.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7870405912399292,
+        "text_similarity_score": 0.13000400364398956
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are below 0.85 and the caption similarity scores are below 0.7 for both candidates. This indicates that the images in the candidates do not closely match the news image, and the captions are also not similar. Without additional information or substantial similarity, it is not possible to confirm the accuracy of the news caption based on the provided candidates. Therefore, I cannot verify the caption's accuracy.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image features Prince William sitting in a traditional Japanese room, engaging in conversation with a woman kneeling before him. She is dressed in traditional Japanese clothing. The caption is about Senate Republicans and the looming government shutdown. There is nothing in the image that relates to Senate Republicans, a government shutdown, or even American politics. Therefore, the caption is completely unrelated to the image and is out of context.",
+    "validation_summary": "The image depicts a scene in Japan featuring Prince William, which has absolutely no connection to the caption describing US political issues. The caption is misleading and would give viewers a false impression of the image's content."
+  },
+  "inference_time": 7.197483062744141,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "caption": "Greek prime minister Alexis Tsipras is applauded by lawmakers before addressing his parliamentary group meeting in Athens",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Convention"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Greek debt crisis: Country on course to sealing historic rescue deal as Alexis Tsipras shrugs off No vote | The Independent | The Independent",
+        "content": "G r e e k   d e b t   c r i s i s :   C o u n t r y   o n   c o u r s e   t o   s e a l i n g   h i s t o r i c   r e s c u e   . . .",
+        "caption": "Greek prime minister Alexis Tsipras is applauded by lawmakers before addressing his parliamentary group meeting at the Greek Parliament in Athens",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.499764621257782,
+        "text_similarity_score": 0.9928475022315979
+      },
+      {
+        "title": "Eurozone crisis: Greek austerity plans meet warm but cautious response | Eurozone crisis | The Guardian",
+        "content": "E u r o z o n e   c r i s i s :   G r e e k   a u s t e r i t y   p l a n s   m e e t   w a r m   b u t   c a u t i o u s   . . .",
+        "caption": "Greek prime minister Alexis Tsipras is applauded by lawmakers before addressing his parliamentary group meeting in Athens.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5690215229988098,
+        "text_similarity_score": 0.9475236535072327
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions describe Greek prime minister Alexis Tsipras being applauded by lawmakers before addressing a parliamentary group meeting in Athens. The image similarity scores, 0.499 and 0.569, are low, but the caption similarity scores, 0.992 and 0.947, are very high. Despite the low image similarity, the captions are nearly identical, suggesting they refer to the same event. Given the high text similarity and the context of the captions, it's likely the news caption accurately describes the image.",
+      "supporting_evidences": [
+        "Candidate 1 Caption: Greek prime minister Alexis Tsipras is applauded by lawmakers before addressing his parliamentary group meeting at the Greek Parliament in Athens",
+        "Candidate 2 Caption: Greek prime minister Alexis Tsipras is applauded by lawmakers before addressing his parliamentary group meeting in Athens."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a high confidence that the news caption accurately represents the image. The candidate captions are very similar to the news caption, suggesting they all refer to the same event. The high text similarity supports the conclusion that the news caption correctly describes the image content.",
+    "validation_summary": "The news caption accurately describes the image content, portraying Greek prime minister Alexis Tsipras being applauded by lawmakers, so viewers would not be misled by the caption in relation to the image. Thus, the image is not out of context (NOOC).  Given a confidence score of 7, the final decision is based on the image check result, which strongly supports the news caption accurately representing the image content. Therefore, the image is determined to be NOOC (Not Out of Context). OOC=False means the caption does not misrepresent the image's content, providing a correct and representative summary of what's shown."
+  },
+  "inference_time": 4.921885251998901,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

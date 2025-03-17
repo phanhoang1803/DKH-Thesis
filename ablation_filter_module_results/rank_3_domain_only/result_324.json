@@ -1,0 +1,40 @@
+{
+  "caption": "Tokyo Japan People stand in a line to buy the iPad at an Apple store",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Apple iPad worldwide launch | Technology | The Guardian",
+        "content": "A p p l e   i P a d   w o r l d w i d e   l a u n c h   |   T e c h n o l o g y   |   T h e   G u a r d i a n",
+        "caption": "ipad launch: Tokyo, Japan: People stand in a line to purchase Apple's iPad",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. The candidate caption mentions \"ipad launch: Tokyo, Japan: People stand in a line to purchase Apple's iPad\" which matches the news caption's description of people standing in line to buy the iPad at an Apple store in Tokyo, Japan. However, due to the low image and caption similarity scores, I cannot confidently confirm the caption's accuracy.",
+      "supporting_evidences": [
+        "ipad launch: Tokyo, Japan: People stand in a line to purchase Apple's iPad"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates low similarity between the image and the caption. The image shows a group of people on a sidewalk, some using umbrellas, with buildings in the background. Some people are sitting on small chairs. The caption states that the image shows people standing in line to buy the iPad at an Apple store in Tokyo, Japan. While the image does show people and could possibly be in Tokyo, there's no definitive indication that they are lining up to buy an iPad or that they are even at an Apple store. Given this lack of supporting evidence and the low scores from the image check, the caption is likely out of context.",
+    "validation_summary": "The caption suggests the image depicts people lining up for an iPad at an Apple store, but the image lacks any clear evidence to support this claim, potentially misleading viewers about the context of the photograph. Without more information, viewers could incorrectly assume the people are related to an Apple product launch."
+  },
+  "inference_time": 4.194476842880249,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

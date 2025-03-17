@@ -1,0 +1,43 @@
+{
+  "caption": "GOP presidential nominee Donald Trump speaks at a rally in West Bend rally last month",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Footballer",
+      "Fan"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Donald Trump reaches out to African Americans, says Democrats take black vote for granted - Los Angeles Times",
+        "content": "D o n a l d   T r u m p   r e a c h e s   o u t   t o   A f r i c a n   A m e r i c a n s ,   s a y s   D e m o c r a t s   t a k e   . . .",
+        "caption": "Republican presidential candidate Donald Trump speaks at a campaign rally in West Bend, Wis., on Tuesday.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0, so the automated rules do not apply. The candidate caption describes Donald Trump speaking at a campaign rally in West Bend, Wisconsin. The news caption describes Donald Trump speaking at a rally in West Bend. The candidate evidence confirms the presence of Donald Trump at a rally in West Bend. However, it does not confirm the month of the rally, which is mentioned as 'last month' in the original caption. Therefore, the caption is not fully verified.",
+      "supporting_evidences": [
+        "Republican presidential candidate Donald Trump speaks at a campaign rally in West Bend, Wis., on Tuesday."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows Donald Trump at a rally, interacting with supporters and signing autographs. The caption states, \"GOP presidential nominee Donald Trump speaks at a rally in West Bend rally last month.\" While the image confirms Trump's presence at a rally, the caption's reference to 'last month' adds a temporal specificity that cannot be validated solely from the image. The image check also gave a negative result due to the caption containing a temporal element that can't be verified from the image. Therefore, without additional information confirming the timing of the event, the temporal element makes the caption out of context.",
+    "validation_summary": "The caption accurately describes the image of Trump at a rally, but it is not fully verified due to the 'last month' temporal aspect. Viewers could be misled about the rally's recentness because the image itself doesn't confirm when it took place."
+  },
+  "inference_time": 4.335897922515869,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

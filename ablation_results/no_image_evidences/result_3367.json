@@ -1,0 +1,57 @@
+{
+  "caption": "Zoe Kazan and Paul Dano on the red carpet",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Zoe Kazan",
+      "Paul Dano",
+      "Swiss Army Man",
+      "31st Independent Spirit Awards",
+      "Independent Spirit Awards",
+      "Actor",
+      "Image",
+      "Photograph",
+      "Photography",
+      "Getty Images"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Paul Dano Is Ready to Join Zoe Kazan on the WGA Strike Picket Line",
+        "content": "P a u l   D a n o   I s   R e a d y   t o   J o i n   Z o e   K a z a n   o n   t h e   W G A   S t r i k e   P i c k e t   L i n e",
+        "caption": "Zoe Kazan and Paul Dano attend the red carpet event for \"She Said\"",
+        "domain": "www.indiewire.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6838245391845703,
+        "text_similarity_score": 0.8150396943092346
+      },
+      {
+        "title": "Paul Dano & Zoe Kazan Are Picture Perfect on Emmys Red Carpet: Photo 3466650 | Paul Dano Photos | Just Jared: Celebrity News and Gossip | Entertainment",
+        "content": "P a u l   D a n o   &   Z o e   K a z a n   A r e   P i c t u r e   P e r f e c t   o n   E m m y s   R e d   C a r p e t   . . .",
+        "caption": "paul dano zoe kazan emmys awards 013466650",
+        "domain": "www.justjared.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6874831914901733,
+        "text_similarity_score": 0.7034565210342407
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions feature Zoe Kazan and Paul Dano, aligning with the news caption. The image similarity scores (0.6838 and 0.6875) are below the 0.85 threshold, indicating the images may not be an exact match, but close enough to determine the context. However, because both image similarity scores are less than 0.85, it is not possible to confirm that the news image is what the caption claims. Thus, it is marked as 'False'.",
+      "supporting_evidences": [
+        "Candidate 1 Caption: Zoe Kazan and Paul Dano attend the red carpet event for \"She Said\"",
+        "Candidate 2 Caption: paul dano zoe kazan emmys awards 013466650"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a confidence score of 7. According to the instructions, a final determination must be based on the image check result when the confidence score is between 7 and 10. The image check result stated that due to both image similarity scores being less than 0.85, it is not possible to confirm that the news image is what the caption claims. Therefore, the verdict is OOC = True.",
+    "validation_summary": "The image check indicates the image may not accurately represent what is claimed in the caption, potentially misleading viewers about the actual content of the image. The similarity scores were below the threshold required to confirm the caption's claim."
+  },
+  "inference_time": 4.547008752822876,
+  "ablation_type": "no_image_evidences"
+}

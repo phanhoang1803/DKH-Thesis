@@ -1,0 +1,48 @@
+{
+  "caption": "I m ready to relish the opportunity says US Open champion Justin Rose before this week s Open Championship",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Ryder Cup",
+      "Europe",
+      "Stadium",
+      "Scoreboard",
+      "USA Today",
+      "Phil Mickelson",
+      "Justin Rose"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 10,
+      "explanation": "The image is about a golf tournament, specifically the Ryder Cup, featuring players like Justin Rose. The caption mentions Justin Rose and an upcoming Open Championship. While both relate to golf, the specific event (Ryder Cup vs. Open Championship) differs, and the image context doesn't support the caption's focus on Rose's anticipation for the Open Championship.",
+      "supporting_evidences": [
+        "The image context describes the Ryder Cup, not the Open Championship.",
+        "The image context highlights the presence of Justin Rose within the context of the Ryder Cup, while the caption speaks about his anticipation for the Open Championship, which is a different event.",
+        "The atmosphere described in the context relates to team competition (Team USA vs. Team Europe) at the Ryder Cup, which is not reflected in the caption."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "information": "The image most likely depicts a golf tournament related to the Ryder Cup, showcasing a vibrant stadium atmosphere filled with spectators. The scoreboard indicates a competition between teams, likely Team USA and Team Europe, featuring famous players such as Phil Mickelson and Justin Rose. The environment is electric, filled with fans dressed in golf attire, waving flags that represent their respective teams. There might be promotional visible texts indicating the event and featuring sponsors such as USA Today or leading golf brands.",
+      "caption": "Excitement fills the air as spectators cheer for their teams during the Ryder Cup at the stadium.",
+      "context": "The Ryder Cup is a prominent golf tournament where Team USA faces off against Team Europe, generating excitement among golf fans globally. Players like Phil Mickelson and Justin Rose are central figures in the match, contributing to the competitive spirit of the event. A vibrant atmosphere is captured in the image, showcasing the camaraderie and enthusiasm of the crowd supporting their teams. This particular tournament is infused with stakes and rich tradition, making it a highlight within the sport, as every stroke can lead to triumph or disappointment both for the players and attendees. The tournament is not merely a competition but a festivity that unites fans and celebrates the sport of golf."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a golfer at the Ryder Cup, with a scoreboard displaying results for Team USA and Team Europe. The caption refers to Justin Rose's anticipation for the Open Championship. The image check result confirms that the image context focuses on the Ryder Cup, a team golf event, not the Open Championship, which is an individual competition. The image does not support the caption's claim about Justin Rose and the Open Championship, making the caption out of context.",
+    "validation_summary": "The caption incorrectly associates Justin Rose with the Open Championship, while the image clearly depicts the Ryder Cup, leading viewers to believe that the image represents Rose at or preparing for the Open, which is false. Therefore, using this image with the given caption would mislead viewers regarding the context and event portrayed."
+  },
+  "inference_time": 11.558119773864746,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

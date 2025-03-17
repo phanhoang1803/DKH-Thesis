@@ -1,0 +1,52 @@
+{
+  "caption": "Apple unveiled new AirPods wireless headphones for its new iPhone 7",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Apple",
+      "iPhone 7",
+      "Smartphone",
+      "Apple",
+      "LED-backlit LCD",
+      "Water",
+      "Projector Screen",
+      "Liquid-crystal display",
+      "Light-emitting diode"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Apple bets big on a wireless world  The Denver Post",
+        "content": "A p p l e   b e t s   b i g   o n   a   w i r e l e s s   w o r l d      T h e   D e n v e r   P o s t",
+        "caption": "A new Apple iPhone 7 is seen during a launch event on September 7, 2016 in San Francisco, California. Apple Inc. unveiled the latest iterations of its smart phone, the iPhone 7 and 7 Plus, the Apple Watch Series 2, as well as AirPods, the tech giant's first wireless headphones.  ",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.10868614912033081,
+        "text_similarity_score": 0.7141135931015015
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption mentions \"Apple unveiled new AirPods wireless headphones for its new iPhone 7\". The candidate caption also confirms this by stating, \"Apple Inc. unveiled the latest iterations of its smart phone, the iPhone 7 and 7 Plus, the Apple Watch Series 2, as well as AirPods, the tech giant's first wireless headphones.\" Although the image similarity score is low (0.10868614912033081), the caption similarity is high (0.7141135931015015). Since the image similarity is low, the captions cannot be confirmed to be in context.",
+      "supporting_evidences": [
+        "Candidate caption: A new Apple iPhone 7 is seen during a launch event on September 7, 2016 in San Francisco, California. Apple Inc. unveiled the latest iterations of its smart phone, the iPhone 7 and 7 Plus, the Apple Watch Series 2, as well as AirPods, the tech giant's first wireless headphones."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity score is low (0.10868614912033081), while the caption similarity is high (0.7141135931015015). This suggests that although the caption is related to the image content, the image itself doesn't fully correspond to what the caption describes. The image shows the AirPods, and the caption mentions the unveiling of AirPods for the new iPhone 7. However, the low image similarity suggests the specific visual context might be different. Therefore, since the image similarity is low, the captions cannot be confirmed to be in context.",
+    "validation_summary": "While the caption discusses the unveiling of AirPods, the image similarity is not high enough to definitively confirm they are shown in the context described, which could mislead viewers about the specifics of the unveiling event and the role of the iPhone 7 in the image itself. The image shows the airpods but may not be showing the iphone 7 as described in the caption, potentially creating a mismatch between what is seen and what is implied about the iphone 7's role in the image event/context . The caption implies that the airpods are connected to the iphone 7 debut, but the image doesn't verify that relationship."
+  },
+  "inference_time": 6.344066858291626,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

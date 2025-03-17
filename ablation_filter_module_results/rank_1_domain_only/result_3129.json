@@ -1,0 +1,49 @@
+{
+  "caption": "Martin Shkreli former CEO of Turing Pharmaceuticals shown leaving federal court in Brooklyn NY following his arraignment on securities fraud charges",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "LCD television",
+      "TV",
+      "Television",
+      "LED-backlit LCD",
+      "Cable television",
+      "Y3W",
+      "Liquid-crystal display",
+      "light-hearted",
+      "Light-emitting diode",
+      "Backlight"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Pharma Bro Martin Shkreli arrested for securities fraud  The Denver Post",
+        "content": "P h a r m a   B r o    M a r t i n   S h k r e l i   a r r e s t e d   f o r   s e c u r i t i e s   f r a u d      T h e   . . .",
+        "caption": "Martin Shkreli leaves the court after Thursday's arraignment.",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and text similarity score is 0.0. The candidate caption mentions 'Martin Shkreli leaves the court after Thursday's arraignment.' This is a very basic overlap with the news caption, which also mentions Martin Shkreli and a court appearance. However, the lack of specifics and the low similarity scores suggest a weak connection. There is not enough evidence to confirm the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a low similarity score (0.0) between the image and news caption. The image shows a courtroom scene with a wall that has 2 pictures on it and a row of people sitting down below. One picture seems to be a picture of Martin Shkreli on a television screen, while the other appears to be a historical image. The news caption provided states, \"Martin Shkreli former CEO of Turing Pharmaceuticals shown leaving federal court in Brooklyn NY following his arraignment on securities fraud charges\". The news caption states that Martin Shkreli is \"leaving federal court in Brooklyn NY,\" however, the picture appears to be a photo of a monitor displaying Shkreli, not Shkreli himself leaving the courthouse. Therefore, the image does not provide enough evidence to confirm the news caption, and the news caption does not accurately reflect what is being shown in the image. The image does not seem to correspond to the claim in the news caption.",
+    "validation_summary": "The image shows a courtroom setting with a screen displaying Martin Shkreli, not Shkreli physically leaving the court, so the caption is misleading. The caption implies Shkreli is shown leaving the courthouse, which is not reflected in the image's content, indicating a mismatch between the caption and the visual representation, thus misrepresenting the context to viewers."
+  },
+  "inference_time": 4.390768766403198,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

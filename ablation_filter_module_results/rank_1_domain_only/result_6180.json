@@ -1,0 +1,49 @@
+{
+  "caption": "Venus Williams of the US serves during the women s doubles third round match",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Sunset at Montmajour",
+      "Amsterdam Museum",
+      "Painting",
+      "History",
+      "Museum",
+      "BASE jumping",
+      "Jumping",
+      "Stadium",
+      "Vincent van Gogh",
+      "Amsterdam"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Linda Noskov and Lucie Hradeck beat Serena and Venus Williams: US Open doubles  as it happened | US Open Tennis 2022 | The Guardian",
+        "content": "L i n d a   N o s k o v    a n d   L u c i e   H r a d e c k    b e a t   S e r e n a   a n d   V e n u s   W i l l i a m s   . . .",
+        "caption": "Serena and Venus Williams prepare to receive serve during their US Open doubles match against Linda Noskov and Lucie Hradeck.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate mentions Serena and Venus Williams playing doubles, but doesn't state that Venus is serving. Therefore, the candidate does not support the caption of the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a low similarity score for both the image and text, indicating a mismatch between the image and caption. The candidate from the news content mentions Venus and Serena Williams playing doubles, but it doesn't confirm that Venus is serving. Although the image depicts a tennis player serving in a stadium, there's no concrete evidence to confirm that it is Venus Williams. The image's key elements—the tennis court, stadium, crowd, and player serving—while related to tennis, don't specifically align with the caption's claim. Based on this mismatch and the image check result, the image is out of context.",
+    "validation_summary": "The image shows a tennis player serving at a match, but there is nothing to confirm that the player is Venus Williams, or that she is playing a doubles match, leading to an out of context result. Viewers would be misled into thinking the image specifically depicts Venus Williams serving during a women's doubles match."
+  },
+  "inference_time": 4.075827360153198,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

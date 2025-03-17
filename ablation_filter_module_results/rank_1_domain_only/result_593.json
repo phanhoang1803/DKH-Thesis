@@ -1,0 +1,47 @@
+{
+  "caption": "Fiat has scooped up booming demand for construction equipment in Latin America and Asia",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Commercial vehicle",
+      "Tow truck",
+      "Truck",
+      "rig",
+      "Towing",
+      "Bulldozer",
+      "Trailer",
+      "Commerce"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "story Archives - Page 4 of 7 - The Atavist Magazine",
+        "content": "s t o r y   A r c h i v e s   -   P a g e   4   o f   7   -   T h e   A t a v i s t   M a g a z i n e",
+        "caption": "Captain Fritz Duquesne",
+        "domain": "magazine.atavist.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, the strict decision rules cannot be applied. The caption \"Fiat has scooped up booming demand for construction equipment in Latin America and Asia\" is not supported by the provided candidate because the candidate caption is \"Captain Fritz Duquesne\". The candidate does not provide any information about Fiat, construction equipment, Latin America, or Asia. Therefore, the verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 10, indicating high reliability. According to the image check, the caption is not supported by the image, leading to a verdict of false. The image shows a row of yellow trucks, likely snowplows, with a pile of dirt or gravel in the background. There is no indication of Fiat, construction equipment demand in Latin America or Asia. Therefore the caption is out of context.",
+    "validation_summary": "The caption claims Fiat is experiencing high demand for construction equipment in Latin America and Asia, which the image of snowplow trucks does not support. Viewers would be misled by the mismatch between the caption's claims and the image's content, indicating an out-of-context scenario."
+  },
+  "inference_time": 4.311730146408081,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

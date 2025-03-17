@@ -1,0 +1,65 @@
+{
+  "caption": "A man clears snow from his car in the Chinatown neighborhood of New York",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Calhan",
+      "Ford Crown Victoria Police Interceptor",
+      "Ford Motor Company",
+      "Denver Metropolitan Area",
+      "Snow",
+      "Car",
+      "Blowing snow",
+      "National Weather Service"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Spring snowstorm hits Colorado - USA Today",
+        "content": "",
+        "caption": "Calhan Police Sgt. Josh Morrision stands by his car as he blocks traffic on Highway 24 outside of Calhan, Colo., as blowing snow and slick roads closed the highway.",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Spring snowstorm hits Colorado - USA Today",
+        "content": "",
+        "caption": "Calhan Police Sgt. Josh Morrision stands by his car as he blocks traffic on Highway 24 outside of Calhan, Colo., as blowing snow and slick roads closed the highway.",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Blizzard of 2016 ranks 4th on all-time list of Northeast snowstorms  Delco Times",
+        "content": "B l i z z a r d   o f   2 0 1 6   r a n k s   4 t h   o n   a l l - t i m e   l i s t   o f   N o r t h e a s t   . . .",
+        "caption": "People clear snow from parked cars on Henry Street in the Chinatown neighborhood in New York on Sunday, Jan. 24, 2016. Millions of Americans began digging out Sunday from a mammoth blizzard that set a new single-day snowfall record in Washington and New York City. (AP Photo/Peter Morgan)",
+        "domain": "www.delcotimes.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "After a wild winter weekend, a difficult commute awaits",
+        "content": "A f t e r   a   w i l d   w i n t e r   w e e k e n d ,   a   d i f f i c u l t   c o m m u t e   a w a i t s",
+        "caption": "Peter Morgan/The Associated PressPeople clear snow from parked cars on Henry Street in the Chinatown neighborhood of New York on Sunday.",
+        "domain": "www.savannahnow.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Candidate 3 and 4 captions are highly relevant. Specifically, candidate 3 mentions \"People clear snow from parked cars on Henry Street in the Chinatown neighborhood in New York on Sunday, Jan. 24, 2016.\" Candidate 4 mentions \"People clear snow from parked cars on Henry Street in the Chinatown neighborhood of New York on Sunday.\" These captions support the news caption that \"A man clears snow from his car in the Chinatown neighborhood of New York\".",
+      "supporting_evidences": [
+        "People clear snow from parked cars on Henry Street in the Chinatown neighborhood in New York on Sunday, Jan. 24, 2016.",
+        "People clear snow from parked cars on Henry Street in the Chinatown neighborhood of New York on Sunday."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a police officer standing next to a police car covered in snow. The police car is labeled \"Police\". The background shows a snowy scene. However, the provided caption mentions \"A man clears snow from his car in the Chinatown neighborhood of New York\". While the news content also talks about a snowstorm and New York, the image itself does not show Chinatown or a man clearing snow. The image check result also says that the caption is relevant based on similar captions from other candidates. However, looking at the image, it depicts a scene with a police car, not just a generic car, which the caption fails to capture. Therefore, the image is out of context.",
+    "validation_summary": "The image is misleading because it shows a police car in a snowy scene, whereas the caption describes a man clearing snow from his car in Chinatown, New York, without mentioning the police car or a police context. This mismatch in detail makes the image out of context with the caption's specific claim, despite the common theme of snow."
+  },
+  "inference_time": 4.362784147262573,
+  "ablation_type": "no_filters"
+}

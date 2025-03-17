@@ -1,0 +1,38 @@
+{
+  "caption": "Ariana Grande introduces The Weeknd during the 58th Grammy Awards at the Staples Center",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Grammys 2016: Inside the show",
+        "content": "G r a m m y s   2 0 1 6 :   I n s i d e   t h e   s h o w",
+        "caption": "Bruno Mars accepts Record of the year for Uptown Funk during the 58th Grammy Awards at the Staples Center.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 which indicates that the image in the candidate and the image in the news do not match. The caption similarity score is 0.0 which indicates that the captions do not match. Since both the image and caption similarity scores are low, I will base my final decision on the captions and candidate provided. The news caption is \"Ariana Grande introduces The Weeknd during the 58th Grammy Awards at the Staples Center.\" The candidate caption is \"Bruno Mars accepts Record of the year for Uptown Funk during the 58th Grammy Awards at the Staples Center.\" There is no confirmation of Ariana Grande or The Weeknd being at the event.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 10, which means I must base my final decision on the image check result. The image similarity score is 0.0 which indicates that the image in the candidate and the image in the news do not match. The caption similarity score is 0.0 which indicates that the captions do not match. The news caption is \"Ariana Grande introduces The Weeknd during the 58th Grammy Awards at the Staples Center.\" The candidate caption is \"Bruno Mars accepts Record of the year for Uptown Funk during the 58th Grammy Awards at the Staples Center.\" There is no confirmation of Ariana Grande or The Weeknd being at the event. Therefore, the caption does not match the image.",
+    "validation_summary": "The image features Ariana Grande, but the caption claims she is introducing The Weeknd at the Grammy Awards, which is unsupported and misleading based on the image itself. The image check result confirms the caption is out of context."
+  },
+  "inference_time": 4.466289758682251,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

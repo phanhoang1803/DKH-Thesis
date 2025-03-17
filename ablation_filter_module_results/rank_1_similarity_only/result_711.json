@@ -1,0 +1,40 @@
+{
+  "caption": "This original design of the London Velopark does look like a Pringle Other potato snacks are available",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Toyo Ito's designs - in pictures | Art and design | The Guardian",
+        "content": "M o n   1 8   M a r   2 0 1 3   0 1 . 5 1  C E T \n \n \n                         F i r s t   p u b l i s h e d   o n   M o n   1 8   M a r   2 0 1 3   0 1 . 5 1  C E T \n \n P h o t o g r a p h :   A R U P \n \n P h o t o g r a p h :   A R U P \n \n P h o t o g r a p h :   C h r i s t i a n   K o b e r / C o r b i s \n \n P h o t o g r a p h :   T o m i o   O h a s h i / A P \n \n P h o t o g r a p h :   T o m i o   O h a s h i / A P \n \n P h o t o g r a p h :   N a c a s a   a n d   P a r t n e r s   I n c . / A P \n \n P h o t o g r a p h :   H i r o s h i   U e d a \n \n P h o t o g r a p h :   F u   T s u   C o n s t r u c t i o n   C o . ,   L t d . / A P \n \n P h o t o g r a p h :   C h r i s t i a n   R i c h t e r s / V I E W / C o r b i s \n \n P h o t o g r a p h :   D a i c i   A n o / A P \n \n P h o t o g r a p h :   D a i c i   A n o / A P \n \n P h o t o g r a p h :   E d m u n d   S u m n e r / V I E W / C o r b i s \n \n P h o t o g r a p h :   M i k i o   K a m a y a \n \n P h o t o g r a p h :   P R \n \n P h o t o g r a p h :   A P",
+        "caption": "Toyo Ito designs: Toyo Ito designs in pictures",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9953814744949341,
+        "text_similarity_score": 0.2513478398323059
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is high (0.9953814744949341), but the text similarity score is low (0.2513478398323059). According to the instructions, I must return \"False\" immediately, which indicates that the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is out-of-context, with a high image similarity score but a low text similarity score. The image shows an architectural building with a curved roof, possibly the London Velopark as the caption suggests, but without additional context, viewers might not be able to verify if the building is indeed the velopark. Moreover, mentioning the 'Pringle' without visually connecting it to the building can also be misleading. Thus, based on the image check and analysis of the image content, the caption is determined to be out of context.",
+    "validation_summary": "The caption is out of context because while the building might be the London Velopark, the lack of visual confirmation and connection to the \"Pringle\" reference makes it misleading. Viewers are likely to be confused about the relationship between the image and the caption's claim without specific information."
+  },
+  "inference_time": 14.0766019821167,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

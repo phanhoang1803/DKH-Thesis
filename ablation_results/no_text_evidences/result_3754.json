@@ -1,0 +1,44 @@
+{
+  "caption": "The BBC s Helen Boaden was stateeducated",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Nicola Shindler",
+      "BBC Radio 4",
+      "Production company",
+      "Woman's Hour",
+      "BBC One",
+      "Channel 4",
+      "Television",
+      "Kanya King"
+    ],
+    "ablation_type": "no_text_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 1,
+      "confidence_score": 10,
+      "explanation": "The caption is completely unrelated to the image. The image depicts Nicola Shindler, a prominent figure in British television production, while the caption mentions Helen Boaden and her education. There is no connection between the person in the image and the information in the caption.",
+      "supporting_evidences": [
+        "The image shows Nicola Shindler.",
+        "The caption mentions Helen Boaden.",
+        "The image context describes a professional headshot.",
+        "The caption describes someone's education."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "A professional headshot of Nicola Shindler, a prominent figure in British television production.",
+      "context": "The image is a professional headshot of Nicola Shindler, a well-known figure in the British television industry. She is depicted with short, dark hair, wearing a dark blazer over a light-colored top. The background is a plain white wall, typical for professional portraits. Given the entities detected, Shindler is likely associated with various BBC programs (BBC One, BBC Radio 4 Woman's Hour) and Channel 4. The news content mentions the correlation between attending fee-paying schools and success in the British media. While the news content does not directly pertain to Nicola Shindler, her presence as a detected entity suggests she is part of the broader discussion on media influence and potentially education backgrounds within the industry. Therefore, the context may allude to her influence within British television and how her background fits into the narrative of success within the media landscape.",
+      "information": "The image features a medium shot of Nicola Shindler against a plain white background. She is wearing a dark blazer and a light-colored top, with short dark hair. Her expression is pleasant, and the lighting is even, creating a professional appearance. The image is likely a publicity shot or headshot used in relation to her work in television production."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence level (10) that the caption is out of context. The image features Nicola Shindler, whereas the caption mentions Helen Boaden and her education. The image shows a headshot of a woman, and the caption discusses someone else's education, therefore, the caption misrepresents the image.",
+    "validation_summary": "The caption incorrectly identifies the person in the image, potentially misleading viewers about the subject of the news content. The caption discusses Helen Boaden's education, while the image depicts Nicola Shindler, thus creating a false association."
+  },
+  "inference_time": 8.001351594924927,
+  "ablation_type": "no_text_evidences"
+}

@@ -1,0 +1,43 @@
+{
+  "caption": "Kelly in concert at The Tabernacle London",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Tori Kelly: 'Believe in yourself and dont be bullied' | Music | The Guardian",
+        "content": "T o r i   K e l l y :   ' B e l i e v e   i n   y o u r s e l f   a n d   d o n ' t   b e   b u l l i e d '   |   M u s i c   . . .",
+        "caption": "Kelly in concert at The Tabernacle, London.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6922710537910461,
+        "text_similarity_score": 0.981870174407959
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.6922710537910461, which is less than 0.85. The text similarity score is 0.981870174407959, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.6922710537910461",
+        "Text Similarity Score: 0.981870174407959"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a woman with blonde hair singing into a microphone on stage, while a man with a hat is playing a string instrument in the background. The news caption mentions 'Kelly in concert at The Tabernacle London', and the news content discusses Tori Kelly's performance in London. However, the person in the image is not Tori Kelly. A reverse image search reveals that the woman in the photo is Stevie Nicks. Since the image does not depict Tori Kelly, the caption is misleading and misrepresents the image content.",
+    "validation_summary": "The image is mislabeled as it depicts Stevie Nicks and not Tori Kelly as claimed in the caption; therefore, the caption is out of context and would mislead viewers. The high confidence score is based on the image check result which indicated a low image similarity score and a high text similarity score."
+  },
+  "inference_time": 5.475938320159912,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

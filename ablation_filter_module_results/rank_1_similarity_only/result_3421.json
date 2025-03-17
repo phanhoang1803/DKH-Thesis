@@ -1,0 +1,48 @@
+{
+  "caption": "Sophie Bevan in Glyndebourne s current production of Saul",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Rock concert",
+      "Concert",
+      "Musical ensemble",
+      "Rock",
+      "Guitarist",
+      "Festival",
+      "5hy"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Handel in Italy Vol I CD review  a dazzling disc from the Bevan siblings | George Frideric Handel | The Guardian",
+        "content": "H a n d e l   i n   I t a l y   V o l   I   C D   r e v i e w      a   d a z z l i n g   d i s c   f r o m   t h e   B e v a n   . . .",
+        "caption": "Sophie Bevan in Glyndebourne's current production of Saul. Photograph: Bill Cooper",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.24948562681674957,
+        "text_similarity_score": 0.8408170938491821
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.24948562681674957 and the text similarity score is 0.8408170938491821. Since the image similarity score is below 0.85, the caption is out-of-context, even if the text similarity score is high.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result shows a low image similarity score (0.24948562681674957) and a high text similarity score (0.8408170938491821). The image check result indicates that the caption is out-of-context since the image similarity score is below 0.85, even if the text similarity score is high. The image shows Sophie Bevan on stage holding a doll in a theatrical setting with musicians in the background, while the caption claims she is in Glyndebourne's production of 'Saul.' Without evidence directly linking this specific image to that production, the caption's claim cannot be confirmed. Therefore, the image is out of context.",
+    "validation_summary": "The image does not provide enough evidence to confirm it is from the Glyndebourne production of Saul, potentially misleading viewers about the context of the image. Therefore, the image is out of context as the similarity score is low as mentioned in the image check result provided to verify the credibility of the caption and the image in question is deemed not to be a match, making it misleading to the user with the caption provided. Hence, the decision of determining it out of context is chosen."
+  },
+  "inference_time": 4.836234092712402,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

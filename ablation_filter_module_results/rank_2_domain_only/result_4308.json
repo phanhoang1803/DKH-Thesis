@@ -1,0 +1,40 @@
+{
+  "caption": "Amanda Seyfried after the Les Miserables musical number",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Photos: Backstage and behind the scenes at the Oscars",
+        "content": "P h o t o s :   B a c k s t a g e   a n d   b e h i n d   t h e   s c e n e s   a t   t h e   O s c a r s",
+        "caption": "Amanda Seyfried after the 'Les Miserables' musical number.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption does match the news caption, mentioning Amanda Seyfried and 'Les Miserables'. While the source is potentially reliable (www.usatoday.com), the lack of image match and the reliance on a single, simple confirmation limits confidence. The candidate confirms the people and event mentioned in the caption.",
+      "supporting_evidences": [
+        "Amanda Seyfried after the 'Les Miserables' musical number."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result has a confidence score of 6, so I will now base my analysis on the image check result. The image check result states the image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption does match the news caption, mentioning Amanda Seyfried and 'Les Miserables'. While the source is potentially reliable (www.usatoday.com), the lack of image match and the reliance on a single, simple confirmation limits confidence. The candidate confirms the people and event mentioned in the caption. Because the image similarity is 0.0, the image is out of context.",
+    "validation_summary": "The image doesn't match the caption, so it's likely that viewers would be misled about the context of the image in relation to the news article. The image doesn't correspond to the individuals or event named in the caption, leading to a misunderstanding."
+  },
+  "inference_time": 4.278575897216797,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

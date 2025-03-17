@@ -1,0 +1,47 @@
+{
+  "caption": "Australia rugby player Kurtley Beale",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Athlete"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Kurtley Beales Wallabies comeback in doubt due to serious injury | Australia rugby union team | The Guardian",
+        "content": "K u r t l e y   B e a l e ' s   W a l l a b i e s   c o m e b a c k   i n   d o u b t   d u e   t o   s e r i o u s   i n j u r y   . . .",
+        "caption": "Kurtley Beale has been dealt a blow days after being recalled to the Wallabies squad after suffering a suspected Achilles injury.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Australia's Kurtley Beale may miss Lions series after team bus fracas | Rugby union | The Guardian",
+        "content": "A u s t r a l i a ' s   K u r t l e y   B e a l e   m a y   m i s s   L i o n s   s e r i e s   a f t e r   t e a m   b u s   . . .",
+        "caption": "Australia's Kurtley Beale faces discipline over allegations that he punched a fellow Melbourne Rebels player on the team bus. Photograph: David Rogers/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity scores are 0.0 for both candidates, indicating that the images in the candidates do not match the news image. Additionally, the caption similarity scores are also 0.0 for both candidates, meaning the captions are not similar. The candidates mention Kurtley Beale, but the context of the candidates (injury and disciplinary issues) does not explicitly confirm that the image accurately represents him. The evidences do not provide sufficient support to confirm the accuracy of the news caption with the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result strongly indicates that the caption 'Australia rugby player Kurtley Beale' does not accurately represent the image. The image similarity scores are 0.0, suggesting that the images in the candidates are unrelated to the news image. The caption similarity scores are also 0.0, meaning that the captions are not similar either. Although the candidates mention Kurtley Beale, the context of the candidates doesn't explicitly confirm the accuracy of the news caption with the image. Based on these results, it's highly likely the caption is not an accurate representation of the image. Therefore, the image is out of context.",
+    "validation_summary": "The image check result indicates that the caption does not accurately represent the image, making the image out of context. Viewers would be misled about the identity of the people in the image and its relevance to the news article about Jonah Lomu's death, as the image appears to show Kurtley Beale and another rugby player and not Jonah Lomu himself. This could be confusing for viewers seeking information about the news article's content, as the image and caption are unrelated to the topic of the news content which is about Jonah Lomu's passing. As the confidence score is greater than 7, this final answer is based on the image check result."
+  },
+  "inference_time": 4.448359251022339,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

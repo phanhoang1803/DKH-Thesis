@@ -1,0 +1,52 @@
+{
+  "caption": "Chiefs K Ryan Succop signs autographs July 24 2014 in St Joseph Mo",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Picket fence",
+      "Team",
+      "Fence",
+      "Picketing"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 10,
+      "explanation": "The image context is about Dallas Cowboys training camp, featuring players and fans interacting. However, the caption mentions Chiefs K Ryan Succop signing autographs in St Joseph Mo. This indicates a complete mismatch in teams, location, and activity, suggesting no alignment between the caption and the image context.",
+      "supporting_evidences": [
+        "Caption refers to 'Chiefs K Ryan Succop' while the image context is about 'Dallas Cowboys'.",
+        "The caption mentions 'St Joseph Mo' as the location, whereas the context only specifies 'Dallas Cowboys training camp'.",
+        "The caption describes 'signing autographs', while the context describes 'interaction between players and fans'."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "information": "The image depicts an outdoor training camp scene where a group of football players from the Dallas Cowboys and fans are present. In the foreground, a cornerback is seen interacting with a fan, which occurs near a picket fence that separates the players from the spectators. The image captures a moment during a training camp, indicating a lively sports environment with fans engaging with players.",
+      "caption": "Dallas Cowboys training camp interaction between players and fans.",
+      "context": "In this image, captured at the Dallas Cowboys' training camp, we see a cornerback engaging with a fan by the picket fence, illustrating the close interaction between players and their supporters. This context aligns with the ongoing training camp practices where fan involvement is encouraged. Notably, the image reflects a significant event leading up to the Cowboys’ preparation for their upcoming season, where such camps are crucial for team-building and fan interaction.",
+      "key elements": [
+        "Dallas Cowboys",
+        "football players",
+        "training camp",
+        "fan interaction",
+        "picket fence"
+      ]
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image features a group of people, including a football player wearing a jersey with the name 'SUCCOP' and the number '6', standing behind a white picket fence. The surrounding context suggests an outdoor event. However, the caption specifies that 'Chiefs K Ryan Succop signs autographs July 24 2014 in St Joseph Mo'. This mismatch indicates a discrepancy between the image content and the caption's claim. The image check result confirms this misalignment, citing differences in teams, locations, and activities, further supporting the conclusion that the image is out of context.",
+    "validation_summary": "The image depicts a football player, potentially Ryan Succop, but the caption's claim of him signing autographs at a specific time and place is not supported by the image and is therefore misleading. The image context does not align with the caption's description of the event involving Ryan Succop signing autographs in St. Joseph, MO, making it out of context."
+  },
+  "inference_time": 5.477809906005859,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

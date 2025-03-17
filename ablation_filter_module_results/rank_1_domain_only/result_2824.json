@@ -1,0 +1,48 @@
+{
+  "caption": "Pope Francis kisses a young child with Down syndrome in Rome",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Pope",
+      "Infant",
+      "Down syndrome",
+      "Syndrome",
+      "Muscle",
+      "Family",
+      "Birth defect",
+      "Sick",
+      "Pontiff"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Pope Francis washes and kisses feet of prisoners in traditional ritual | News | Independent TV",
+        "content": "P o p e   F r a n c i s   w a s h e s   a n d   k i s s e s   f e e t   o f   p r i s o n e r s   i n   t r a d i t i o n a l   . . .",
+        "caption": "Pope Francis repeats Jesus foot-washing moment with inmates from Italian prison",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, the caption is out-of-context and does not accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Pope Francis kissing a baby. The caption says \"Pope Francis kisses a young child with Down syndrome in Rome\". While the image does show Pope Francis kissing a child, there is no way to verify from the image alone that the child has Down syndrome. The image check result also indicates a low similarity between the image and the text. Since the primary basis for evaluation should be the image check result, I will set the OOC to true.",
+    "validation_summary": "The caption is misleading because it states that the child has Down syndrome, which cannot be verified from the image alone. Viewers could be misled into thinking the image confirms the child's condition, when it doesn't provide any such evidence."
+  },
+  "inference_time": 3.6720473766326904,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "A female tourist in the Skydeck at the now Willis Tower observation floor in Chicago",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Burj Khalifa: from foundations to finished product | Art and design | The Guardian",
+        "content": "M o n   4   J a n   2 0 1 0   1 3 . 0 0  G M T \n \n \n                         F i r s t   p u b l i s h e d   o n   M o n   4   J a n   2 0 1 0   1 3 . 0 0  G M T \n \n P h o t o g r a p h :   A l i   H a i d e r / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   K a m r a n   J e b r e i l i / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   C h r i s   J a c k s o n / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   D a n   C h u n g / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   R a b i h   M o g h r a b i / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   K a m r a n   J e b r e i l i / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   K a r i m   S a h i b / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   K a m r a n   J e b r e i l i / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   I m r e   S o l t / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   A h m e d   J a d a l l a h / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   A l i   H a i d e r / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   A h m e d   J a d a l l a h / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   B l o o m b e r g / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   A h m e d   J a d a l l a h / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   A l i   H a i d e r / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   M a r t i n   R o s e / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   H a i d e r   S h a h / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   K a m r a n   J e b r e i l i / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   g u a r d i a n . c o . u k",
+        "caption": "Burj Dubai: Members of the media look at the view of Dubai city from the 124th floor",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9759055972099304,
+        "text_similarity_score": 0.23956957459449768
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.9759055972099304, which is greater than 0.85, but the text similarity score is 0.23956957459449768, which is less than 0.7. Therefore, the caption is out-of-context based on the pre-defined rules. The candidate caption mentions \"Burj Dubai\" and a view of \"Dubai city\", while the news caption mentions \"Willis Tower\" in \"Chicago\". These are different locations, suggesting that the candidate caption does not accurately represent the image described in the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 2. However, the image similarity score is 0.9759055972099304, which is greater than 0.85, but the text similarity score is 0.23956957459449768, which is less than 0.7. Therefore, the caption is out-of-context based on the pre-defined rules. The candidate caption mentions \"Burj Dubai\" and a view of \"Dubai city\", while the news caption mentions \"Willis Tower\" in \"Chicago\". These are different locations, suggesting that the candidate caption does not accurately represent the image described in the news caption.\n\nThe image shows three men looking out of a high building at the city view. Based on the news caption, the image should have been of a female tourist in the Skydeck at Willis Tower in Chicago. Since the image and the news caption do not match, it is out of context.",
+    "validation_summary": "The caption describes a female tourist at the Willis Tower in Chicago, but the image shows three men looking at a city view from a high building. This discrepancy would mislead viewers about the content related to the news story, making the image out of context."
+  },
+  "inference_time": 5.2843616008758545,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

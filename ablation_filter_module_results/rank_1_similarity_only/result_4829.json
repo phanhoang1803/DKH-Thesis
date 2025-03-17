@@ -1,0 +1,63 @@
+{
+  "caption": "Oakland Raiders linebacker Rod Martin",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Eugene Monroe",
+      "247Sports",
+      "Baltimore Ravens",
+      "Six-man football",
+      "Eight-man football",
+      "Tackle",
+      "College football recruiting",
+      "American football",
+      "College Football",
+      "High school football"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "247sports.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9285848736763,
+        "text_similarity_score": 0.18016259372234344
+      },
+      {
+        "title": "Raiders, Rod Martin and the record that might stand the test of time | Raiders News | Sports",
+        "content": "R a i d e r s ,   R o d   M a r t i n   a n d   t h e   r e c o r d   t h a t   m i g h t   s t a n d   t h e   t e s t   o f   . . .",
+        "caption": "Oakland Raiders linebacker Rod Martin (53) intercepts a pass and runs upfield during Super Bowl ...",
+        "domain": "www.reviewjournal.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8318765163421631,
+        "text_similarity_score": 0.7675589323043823
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "We have two candidate evidences to evaluate whether the news caption, 'Oakland Raiders linebacker Rod Martin,' accurately represents the image. \n\nCandidate 1 has a high image similarity score (0.9285), indicating a strong match between the candidate image and the news image. However, the caption similarity score is low (0.1801), suggesting that the candidate's caption doesn't align well with the news caption. Because the text similarity is low, the evidence is not strong.\n\nCandidate 2 has an image similarity score of 0.8318, which is below the 0.85 threshold. Also, the caption similarity score is 0.7675, which is higher than 0.7. However, because the image similarity score is below the threshold of 0.85, it is not a sufficient evidence. \n\nBased on the combination of information, both evidences show that the images match and contain 'Oakland Raiders linebacker Rod Martin.' However, the caption similarity score for the first evidence is low, making the evidence insufficient. The second evidence's image similarity score is below 0.85 and therefore, the second evidence also isn't sufficient. I give a confidence score of 8 as more evidences is required for 100% confirmation.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.9285, Caption Similarity Score: 0.1801, Domain: 247sports.com",
+        "Candidate 2: Image Similarity Score: 0.8318, Caption Similarity Score: 0.7675, Domain: www.reviewjournal.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "Based on the image check results, the caption 'Oakland Raiders linebacker Rod Martin' does not accurately represent the image. The supporting evidences indicate image similarity, but discrepancies in caption similarity suggest the caption is misleading. The image depicts a football player in a black and white jersey with the number 60, while the caption mentions Rod Martin.",
+    "validation_summary": "The caption incorrectly identifies the football player in the image, potentially misleading viewers about the content. The image shows a player wearing a jersey with the number '60' and the Oakland Raiders linebacker is named Rod Martin."
+  },
+  "inference_time": 8.990342855453491,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

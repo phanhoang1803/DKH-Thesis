@@ -1,0 +1,54 @@
+{
+  "caption": "Republican presidential candidate former Pennsylvania senator Rick Santorum pauses as he addresses supporters at his Iowa caucus victory party Tuesday in Johnston Iowa",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Rick Santorum feels like Rocky Balboa | CNN Politics",
+        "content": "R i c k   S a n t o r u m   f e e l s   l i k e   R o c k y   B a l b o a   |   C N N   P o l i t i c s",
+        "caption": "GOP presidential hopeful Rick Santorum addresses a crowd of supporters Tuesday night in Johnston, Iowa.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Inside the Iowa caucuses",
+        "content": "I n s i d e   t h e   I o w a   c a u c u s e s",
+        "caption": "romney-iowa_caucus-AP12010302402.JPG ",
+        "domain": "www.cbsnews.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Romney And Santorum Split The Spoils In Iowa : NPR",
+        "content": "R o m n e y   A n d   S a n t o r u m   S p l i t   T h e   S p o i l s   I n   I o w a   :   N P R",
+        "caption": "Ron Paul (center) and his wife, Carol, greet supporters during a rally in Ankeny.",
+        "domain": "www.npr.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity scores are all 0.0, indicating that none of the candidate images match the news image. Therefore, I will analyze the captions to determine if they support the news caption. Candidate 1's caption, 'GOP presidential hopeful Rick Santorum addresses a crowd of supporters Tuesday night in Johnston, Iowa,' is the most relevant. It mentions Rick Santorum, supporters, Tuesday night, Johnston, Iowa, which aligns with the news caption 'Republican presidential candidate former Pennsylvania senator Rick Santorum pauses as he addresses supporters at his Iowa caucus victory party Tuesday in Johnston Iowa.' Although the text similarity score is 0.0, the content overlap is significant. The news caption specifies 'Iowa caucus victory party,' while the candidate caption states 'addresses a crowd of supporters.' These are contextually similar, suggesting Santorum is speaking to supporters at a campaign event in Iowa. Candidate 2's caption is a file name and is not helpful. Candidate 3 mentions Ron Paul, not Rick Santorum. The most relevant information is from Candidate 1, suggesting the news caption is likely accurate, but because the images do not match, and the text similarity scores are low, I cannot be entirely confident.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: GOP presidential hopeful Rick Santorum addresses a crowd of supporters Tuesday night in Johnston, Iowa."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity scores are all 0.0, suggesting no match between the news image and candidate images. Although the candidate captions contain overlapping content with the news caption (e.g., 'Rick Santorum,' 'supporters,' 'Tuesday night,' 'Johnston, Iowa'), the low text similarity scores and mismatched images lead to a verdict of False from the image check. Given the confidence score is 7, I must adhere to the image check result, thus concluding that the caption does not accurately represent the image.",
+    "validation_summary": "The image check indicates the news caption is not representative of the image; therefore, the caption is considered out of context, potentially misleading viewers about the actual content of the image in relation to the news event described in the caption. The image check confidence score necessitates adherence to its verdict, reinforcing this determination of 'Out of Context'. Because the confidence score is 7-10, my final answer will be from the image check result alone, despite my reasoning being different had the score been lower than 7. My analysis would be different if the confidence score were lower than 7. If that were the case, the picture shows Rick Santorum speaking at a podium. He is wearing a suit and tie. In the background, there is a blue curtain and a star. The caption claims he is addressing supporters at his Iowa caucus victory party. While the image does show Santorum speaking, there is nothing to indicate it is specifically at his Iowa caucus victory party. Therefore, the caption cannot be fully verified based on the image alone. Since I must adhere to the image check's result with a score between 7 and 10, I must choose that the caption is out of context, despite the image showing Rick Santorum speaking at what appears to be a political event, which is the general idea presented by the caption. This also means the confidence score is 7 due to me having to adhere to the image check result, despite my analysis."
+  },
+  "inference_time": 6.159538745880127,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

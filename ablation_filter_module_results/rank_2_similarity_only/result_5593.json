@@ -1,0 +1,52 @@
+{
+  "caption": "Actors Kieran Culkin Tavi Gevinson and Michael Cera attend the This Is Our Youth cast photo call",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Page not found  Test Star",
+        "content": "",
+        "caption": "",
+        "domain": "teststar.in",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7815834283828735,
+        "text_similarity_score": 0.09228242933750153
+      },
+      {
+        "title": "This is Our Youth review: an anthem for stewed youth | Broadway | The Guardian",
+        "content": "T h i s   i s   O u r   Y o u t h   r e v i e w :   a n   a n t h e m   f o r   s t e w e d   y o u t h   |   B r o a d w a y   . . .",
+        "caption": "This Is Our Youth cast, Kieran Culkin, Tavi Gevinson and Michael Cera,  at Cort Theatre in New York City",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.457926481962204,
+        "text_similarity_score": 0.8153412342071533
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have image similarity scores below 0.85. Candidate 2 has a higher caption similarity score (0.815) and explicitly mentions the names of the actors (Kieran Culkin, Tavi Gevinson, and Michael Cera) and the name of the play, 'This Is Our Youth,' which is consistent with the news caption. It also mentions that they were at the Cort Theatre in New York City. However, the image similarity score is too low to confirm a match based on the automated rules. Therefore, while the textual content aligns, the lack of strong image similarity leads to a cautious approach. Due to the image similarity, I cannot be completely confident that the caption accurately represents the image, but the content aligns with the cast and play name.",
+      "supporting_evidences": [
+        "Candidate 2: Caption mentions 'This Is Our Youth cast, Kieran Culkin, Tavi Gevinson and Michael Cera' which aligns with the news caption.",
+        "Candidate 2: Caption mentions 'Cort Theatre in New York City' providing context for the photo call."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the actors mentioned in the caption do align with the play 'This Is Our Youth'. However, the low image similarity score suggests that the people in the image are not Kieran Culkin, Tavi Gevinson and Michael Cera and therefore the caption is out of context. The individuals in the image do not match the actors stated in the caption.",
+    "validation_summary": "The caption is misleading because the image does not depict the actors listed in the caption, even though the play mentioned aligns with their work, leading to a false association for viewers. The individuals in the image are not Kieran Culkin, Tavi Gevinson and Michael Cera, hence the caption is out of context."
+  },
+  "inference_time": 8.173916816711426,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

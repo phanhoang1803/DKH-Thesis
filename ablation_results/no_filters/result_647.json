@@ -1,0 +1,39 @@
+{
+  "caption": "This aerial image shows flooded areas on the campus of Louisiana State University on Aug 13 2016 in Baton Rouge",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Thousands of people rescued from Louisiana flooding",
+        "content": "T h o u s a n d s   o f   p e o p l e   r e s c u e d   f r o m   L o u i s i a n a   f l o o d i n g",
+        "caption": "This aerial image shows flooded areas of North Baton Rouge, La., on Aug. 13, 2016.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Thousands of people rescued from Louisiana flooding",
+        "content": "T h o u s a n d s   o f   p e o p l e   r e s c u e d   f r o m   L o u i s i a n a   f l o o d i n g",
+        "caption": "In this aerial photo over Robert, La., Army National Guard vehicles drive on flooded U.S. Route 190 after heavy rains inundated the region on Aug. 13, 2016.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "Both candidate captions have low image and text similarity scores. Candidate 1 mentions flooded areas in North Baton Rouge, La., on Aug. 13, 2016, which aligns with the news caption regarding flooded areas in Baton Rouge on the same date. However, it doesn't explicitly confirm that the flooded area is on the campus of Louisiana State University. Candidate 2 mentions flooded U.S. Route 190 in Robert, La., on Aug. 13, 2016. This does not align with the news caption about LSU. Since neither candidate fully supports all details in the news caption, the caption is not fully verified. Key details are missing.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 5,
+    "validation_summary": "The caption incorrectly identifies the flooded location as being on the campus of Louisiana State University, while the image does not provide sufficient evidence to confirm this specific detail.",
+    "explanation": "The image, described by the caption as showing flooded areas on the campus of Louisiana State University in Baton Rouge on August 13, 2016, lacks clear visual indicators that confirm this claim. While both the image and caption reference flooding around Baton Rouge on the same date, the image's content does not explicitly depict locations that can be identified as part of the university campus. The image check result indicates a lack of strong association between the detailed claims made in the caption and the evidence presented in the image. Hence, the caption is deemed misleading as it imposes a specific assumption about the location that cannot be confirmed."
+  },
+  "inference_time": 6.421006679534912,
+  "ablation_type": "no_filters"
+}

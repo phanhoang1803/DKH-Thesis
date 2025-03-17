@@ -1,0 +1,45 @@
+{
+  "caption": "People light candles at the Malaysian embassy in Kiev Ukraine",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Night",
+      "5hy",
+      "Performance M"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 9,
+      "confidence_score": 10,
+      "explanation": "The caption accurately describes the scene depicted in the image, mentioning people lighting candles at the Malaysian embassy in Kiev, Ukraine. The image context confirms this, detailing a gathering of people holding candles in memory of the victims of the Malaysian Airlines Flight 17 disaster. The caption aligns well with the image context.",
+      "supporting_evidences": [
+        "People are indeed lighting candles as a memorial.",
+        "The location is confirmed as the Malaysian embassy in Kiev, Ukraine.",
+        "The event is related to the Malaysian Airlines Flight 17 disaster.",
+        "The gathering's purpose is to express solidarity and mourning."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image depicts a scene outside the Malaysian embassy in Kiev, Ukraine, during the night. It shows a gathering of people, some of whom are holding candles, expressing solidarity and mourning for the victims of the Malaysian Airlines Flight 17 disaster. The participants appear somber and are organized in a way that conveys a sense of community and grief. The environment is dimly lit, enhancing the somber mood of the event.",
+      "caption": "People gather outside the Malaysian embassy in Kiev, Ukraine, holding candles in memory of the victims of the Malaysian Airlines Flight 17 crash.",
+      "context": "This image captures a poignant moment in the aftermath of the downing of Malaysia Airlines Flight 17 over Ukraine, which resulted in the tragic loss of nearly 300 lives from multiple countries. The candlelight vigil symbolizes the collective mourning of those affected by this catastrophe, as individuals come together to express their sorrow and solidarity for the victims and their families. The event at the embassy reflects a broader international reaction to the tragedy, highlighting the global impact of the incident amid ongoing geopolitical tensions in the region. The gathering serves not only as a memorial but also as a reminder of the fragility of human life amid conflict. This scene is crucial in understanding the emotional aftermath of the event as communities worldwide grapple with grief and seek to find meaning in such senseless tragedy."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "Although the image check result indicates that the caption aligns well with the image context, after careful examination, the image shows people gathered around candles and French flags, with signs that say 'Pray for Paris'. This indicates that the event is related to the Paris attacks, not the Malaysian embassy in Kiev, Ukraine. The high confidence score from the image check is contradictory to the actual content of the image, which points towards the Paris attacks. Therefore, the caption is misleading.",
+    "validation_summary": "The image shows a memorial for the Paris attacks, not an event at the Malaysian embassy in Kiev, Ukraine as claimed by the caption. The caption misrepresents the location and event depicted in the image, thus creating a false impression of the image's content and its relevance to the news article it accompanies. The viewer would be misled about the image's content and origin if only reading the news caption and not scrutinizing the image itself to see Paris flags, writing on the signs, and more information."
+  },
+  "inference_time": 4.681306838989258,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

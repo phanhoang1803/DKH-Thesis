@@ -1,0 +1,50 @@
+{
+  "caption": "Alex OxladeChamberlain centre was hugely impressive in Arsenal s 21 FA Cup defeat of Liverpool",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Alex Oxlade-Chamberlain",
+      "Arsenal F.C.",
+      "Liverpool F.C.",
+      "Liverpool 0–2 Arsenal",
+      "Gaelic football",
+      "Player",
+      "Tackle",
+      "Ball",
+      "Footballer"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 9,
+      "confidence_score": 10,
+      "explanation": "The original caption states \"Alex OxladeChamberlain centre was hugely impressive in Arsenal s 21 FA Cup defeat of Liverpool\". While the context confirms Oxlade-Chamberlain's presence and Arsenal's victory in the FA Cup against Liverpool, the scoreline is incorrect. The context indicates the score was 2-0, not 2-1. Given this significant factual error regarding the match score, and although other elements are correct, the caption contains a notable misrepresentation.",
+      "supporting_evidences": [
+        "The image shows Alex Oxlade-Chamberlain in an Arsenal kit.",
+        "The context describes Arsenal defeating Liverpool in the FA Cup.",
+        "The original caption gives the score as 2-1 but image context confirms it was 2-0."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "information": "The image depicts Alex Oxlade-Chamberlain, a young footballer prominently shown in an Arsenal football kit. He is celebrating after scoring a goal during a match against Liverpool, which ended with a score of Liverpool 0–2 Arsenal, marking a significant victory for Arsenal in the FA Cup. The background shows a packed stadium, indicating a high-stakes game with enthusiastic fans. Chamberlain's expression reflects triumph and excitement, highlighting the importance of this goal and performance. Other players from both teams can be seen engaged in the game, with Liverpool defenders looking dejected while Arsenal teammates celebrate. The atmosphere is charged, emphasizing the competitive nature of the match.",
+      "caption": "Alex Oxlade-Chamberlain celebrating after scoring a goal during Arsenal's 2-0 FA Cup victory over Liverpool.",
+      "context": "The image captures a pivotal moment in football history, showcasing Alex Oxlade-Chamberlain's remarkable performance in an FA Cup match where Arsenal triumphed over Liverpool with a 2-0 scoreline. This match occurred against the backdrop of Arsenal's attempts to secure their position in the tournament, a significant achievement given Liverpool's reputation as formidable opponents. Oxlade-Chamberlain's celebration is indicative of not just personal achievement, but also a collective morale boost for Arsenal, particularly as they head into challenging fixtures later. His contribution included a spectacular goal and assisting his team, which offers a glimpse into his potential as a key player moving forward. The image encapsulates the spirit of sport, showcasing the joy of victory in front of passionate fans, while also addressing the wider narrative of competitive football where individual efforts can lead to collective success. With Liverpool's defeat, the image serves to underline the unpredictability and excitement characteristic of football, making a lasting impression on fans and analysts alike."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is misleading. The caption states that the score was 2-1, while the context indicates it was 2-0. The image itself depicts Alex Oxlade-Chamberlain in an Arsenal kit during a soccer match with Liverpool players also visible. While the image confirms Oxlade-Chamberlain's presence and the Arsenal-Liverpool match, the incorrect score in the caption constitutes a misrepresentation. Therefore, the caption is out of context.",
+    "validation_summary": "The caption misrepresents the score of the Arsenal vs. Liverpool match, which would mislead viewers about the outcome of the game. While the image accurately shows players from both teams, the factual error in the caption makes it out of context."
+  },
+  "inference_time": 4.997331619262695,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

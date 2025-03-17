@@ -1,0 +1,51 @@
+{
+  "caption": "An early live shot from Jim Reid s collection with Douglas Hart centre",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Robert Smith",
+      "Zilker Metropolitan Park",
+      "Zilker",
+      "Austin City Limits Music Festival",
+      "Toyota Sports 800",
+      "The Cure",
+      "Car",
+      "Sports car",
+      "SEAT 600",
+      "Festival"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "The Jesus and Mary Chain on Psychocandy: It was a little miracle | Jesus and Mary Chain | The Guardian",
+        "content": "T h e   J e s u s   a n d   M a r y   C h a i n   o n   P s y c h o c a n d y :   ' I t   w a s   a   l i t t l e   m i r a c l e   . . .",
+        "caption": "An early live shot from Jim Reids collection, with Douglas Hart centre.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.27556756138801575,
+        "text_similarity_score": 0.9805857539176941
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is low (0.27556756138801575), and the text similarity score is high (0.9805857539176941). According to the instructions, when the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is out of context with a low image similarity score of 0.27556756138801575 despite the high text similarity score of 0.9805857539176941. According to the instructions, for confidence scores of 7-10, final determination 'MUST' be based on the image check result. Therefore, the caption is deemed out of context because the image similarity is low.",
+    "validation_summary": "The image check's low image similarity score definitively indicates that the caption is out of context. Viewers would be misled because the image doesn't accurately represent the caption's claim."
+  },
+  "inference_time": 8.348814964294434,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

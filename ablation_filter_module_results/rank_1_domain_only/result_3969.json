@@ -1,0 +1,38 @@
+{
+  "caption": "Macaulay Culkin and Elijah Wood in controversial thriller The Good Son",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Disaster movies: what happens when real-life pre-empts Hollywood? | Film | The Guardian",
+        "content": "D i s a s t e r   m o v i e s :   w h a t   h a p p e n s   w h e n   r e a l - l i f e   p r e - e m p t s   H o l l y w o o d   . . .",
+        "caption": "Macaulay Culkin and Elijah Wood in controversial thriller The Good Son.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 which is less than 0.85 and the text similarity score is 0.0 which is less than 0.7. The only candidate has the exact same caption as the news caption. However, given the low image similarity score (0.0), it's unlikely the image is of Macaulay Culkin and Elijah Wood in the thriller The Good Son. There is no other supporting evidence.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a high confidence score of 10 and it suggests the image is out of context. The image features a band of five men in casual attire, posing against a backdrop with the text 'The Coral' visible. The caption claims the image depicts Macaulay Culkin and Elijah Wood in the movie 'The Good Son'. These details contradict each other, as the people in the picture are not the actors mentioned in the caption and the setting does not appear to be a movie scene. The band name 'The Coral' further suggests it is unrelated to the claimed actors or film. Thus, the caption is misleading.",
+    "validation_summary": "The image shows a band called 'The Coral,' not Macaulay Culkin and Elijah Wood, so the caption misrepresents the content of the image and would mislead viewers. The image check confirms this mismatch with a high confidence score of 10."
+  },
+  "inference_time": 4.378909111022949,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "caption": "In the Harajuku area of Tokyo young people prefer wearing more modern clothes kimonos are out of fashion",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "The decline and fall of the kimono  in pictures | Life and style | The Guardian",
+        "content": "M o n   8   O c t   2 0 1 2   2 0 . 0 0  B S T \n \n \n                         F i r s t   p u b l i s h e d   o n   M o n   8   O c t   2 0 1 2   2 0 . 0 0  B S T \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   R o l a n d   B u e r k \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   R u t h   E v a n s \n \n P h o t o g r a p h :   R o l a n d   B u e r k \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   R u t h   E v a n s \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   R u t h   E v a n s \n \n P h o t o g r a p h :   R u t h   E v a n s \n \n P h o t o g r a p h :   P a m   S k i n n e r",
+        "caption": "Kimono gallery: young people prefer wearing fashionable clothes to kimonos.",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9699680805206299,
+        "text_similarity_score": 0.7887131571769714
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.9699680805206299 and the text similarity score is 0.7887131571769714. According to the instructions, if the image similarity score is greater than or equal to 0.85 and the text similarity score is greater than or equal to 0.7, the verdict should be True. The candidate caption 'Kimono gallery: young people prefer wearing fashionable clothes to kimonos' closely matches the news caption 'In the Harajuku area of Tokyo young people prefer wearing more modern clothes kimonos are out of fashion'. The candidate evidence supports the news caption.",
+      "supporting_evidences": [
+        "Kimono gallery: young people prefer wearing fashionable clothes to kimonos."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 10, indicating a high level of certainty in its assessment. The image check result states that the image similarity score is 0.9699680805206299 and the text similarity score is 0.7887131571769714. The image check result claims the candidate caption 'Kimono gallery: young people prefer wearing fashionable clothes to kimonos' closely matches the news caption 'In the Harajuku area of Tokyo young people prefer wearing more modern clothes kimonos are out of fashion' and that the candidate evidence supports the news caption. However, the image shows a person with bright yellow hair riding a highly customized bicycle. The caption and supporting evidence focus on the preference of young people in Harajuku for modern clothing over kimonos, but the image does not depict people wearing modern clothes. It mainly features the person's hair and bicycle. Because the content of the image doesn't align with the claim made by the caption, the caption is out of context.",
+    "validation_summary": "The caption states that in Harajuku young people prefer modern clothes over kimonos, but the image mainly features a person's hair and bicycle, making the caption misleading. The image is therefore out of context."
+  },
+  "inference_time": 8.494298458099365,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

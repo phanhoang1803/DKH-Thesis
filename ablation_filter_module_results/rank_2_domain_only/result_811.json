@@ -1,0 +1,47 @@
+{
+  "caption": "Protesters shout next to a bus carrying some members of Brazil s national team The sign reads in Portuguese There will be not Cup There will be a strike",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Public pessimism reigns in Brazil as World Cup looms",
+        "content": "P u b l i c   p e s s i m i s m   r e i g n s   i n   B r a z i l   a s   W o r l d   C u p   l o o m s",
+        "caption": "Protesters shout next to a bus carrying some members of Brazil's national team The sign reads in Portuguese \"There will be not Cup. There will be a strike.\"",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Bosnia's plan to play football friendly with Russia causes furore, calls for boycott | Euronews",
+        "content": "B o s n i a ' s   p l a n   t o   p l a y   f o o t b a l l   f r i e n d l y   w i t h   R u s s i a   c a u s e s   f u r o r e   . . .",
+        "caption": "Edin Dzeko gestures during the Champions League, Group D soccer match between Inter Milan and Shakhtar Donetsk at the San Siro stadium, 24 November 2021",
+        "domain": "www.euronews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1 has the exact caption as the news caption. The domain is also a reliable one.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: Protesters shout next to a bus carrying some members of Brazil's national team The sign reads in Portuguese \"There will be not Cup. There will be a strike.\"\nImage Similarity Score: 0.0\nCaption Similarity Score: 0.0\nDomain: www.usatoday.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a collection of international flags waving in front of a mountainous landscape. The provided caption, \"Protesters shout next to a bus carrying some members of Brazil s national team The sign reads in Portuguese There will be not Cup There will be a strike\" describes a scene involving protesters, a bus with Brazil's national team, and a sign with a message about a strike and the cup. The image does not contain any of these elements. Therefore, the caption does not match the content of the image.",
+    "validation_summary": "The caption is completely unrelated to the visual content; viewers would be significantly misled about what the image depicts. The image shows flags and mountains, while the caption refers to a protest scene involving a bus and the Brazilian national team."
+  },
+  "inference_time": 4.40024733543396,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

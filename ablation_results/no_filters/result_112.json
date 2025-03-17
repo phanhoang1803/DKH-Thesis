@@ -1,0 +1,41 @@
+{
+  "caption": "A refugee with a child waits for Slovenian police to escort the group to a registration center in Dobova",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Sitting"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Europe Migration Crisis | Sergey Ponomarev | Prix Pictet",
+        "content": "E u r o p e   M i g r a t i o n   C r i s i s   |   S e r g e y   P o n o m a r e v   |   P r i x   P i c t e t",
+        "caption": "",
+        "domain": "prix.pictet.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Europe Migration Crisis | Sergey Ponomarev | Prix Pictet",
+        "content": "E u r o p e   M i g r a t i o n   C r i s i s   |   S e r g e y   P o n o m a r e v   |   P r i x   P i c t e t",
+        "caption": "",
+        "domain": "prix.pictet.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are 0.0, which indicates that the images in the candidates do not match the image described in the news caption. Furthermore, the caption similarity scores are also 0.0, meaning there's no match between the text of the news caption and the candidates' captions. Without any similarity in either images or captions, it is impossible to verify if the news caption accurately represents the image. The candidates do not offer any information to confirm or deny the accuracy of the news caption. Therefore, based on the lack of evidence, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption does not accurately represent the image as there are no matching elements between the caption and the image content.",
+    "explanation": "The image check result indicates a strong mismatch between the news caption and the image content, with both image and caption similarity scores at 0.0. This suggests that the elements described in the caption—that a refugee with a child is waiting for Slovenian police—are not present or identifiable in the image. Without confirming visuals or context to support the claims made in the caption, it is clear that viewers would be misled regarding what they are witnessing in the image."
+  },
+  "inference_time": 5.2114105224609375,
+  "ablation_type": "no_filters"
+}

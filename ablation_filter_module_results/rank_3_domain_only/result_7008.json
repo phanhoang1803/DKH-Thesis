@@ -1,0 +1,48 @@
+{
+  "caption": "San Jose Sharks defenseman Jason Demers gets called for boarding on Los Angeles Kings defenseman Robyn Regehr in the second period of Game 5 at the Staples Center",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Honda Logo",
+      "Honda",
+      "Honda Motor Company",
+      "Car",
+      "Honda NSX",
+      "Honda Ridgeline",
+      "Motorcycle",
+      "Sticker",
+      "Honda Civic Type R"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Top images from NHL second round",
+        "content": "T o p   i m a g e s   f r o m   N H L   s e c o n d   r o u n d",
+        "caption": "The Blackhawks mob Brent Seabrook after his series-winning overtime goal defeated the Red Wings in Game 7 in Chicago. Seabrook's winner gave Chicago a 2-1 win and clinched a 4-3 series victory.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption is about a hockey game between the Blackhawks and the Red Wings, while the news caption is about a game between the San Jose Sharks and the Los Angeles Kings. The two captions do not share any information. Thus, the candidate is not relevant to the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 10, indicating a high level of certainty. According to the image check, the candidate caption discusses a hockey game between the Blackhawks and the Red Wings, while the news caption refers to a game between the San Jose Sharks and the Los Angeles Kings. Given that the image check result confirms that the two captions do not share any information, and thus the image is not accurately described by the provided news caption, the image is out of context.",
+    "validation_summary": "The news caption describes a game between the San Jose Sharks and the Los Angeles Kings, while the image depicts a hockey game action that is not described in the news caption, making the caption out of context. Viewers would be misled about the content of the image."
+  },
+  "inference_time": 4.392124652862549,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "caption": "Pitlochry Dam in Perthshire Scotland",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Global Positioning System",
+      "Design",
+      "Vantaa",
+      "Waze",
+      "Tunnel",
+      "GPS signals",
+      "Beacons",
+      "Planning",
+      "Installation"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Pitlochry Dam & Fish Ladder: Visitors Guide & History",
+        "content": "P i t l o c h r y   D a m   &   F i s h   L a d d e r :   V i s i t o r s   G u i d e   &   H i s t o r y",
+        "caption": "Pitlochry Dam in Perthshire, Scotland",
+        "domain": "ellamckendrick.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.15487737953662872,
+        "text_similarity_score": 0.9951887130737305
+      },
+      {
+        "title": "Scenic View Of River Tummel, Pitlochry Dam As Part Of Perth And Kinross. Scotland, United Kingdom Stock Photo, Picture and Royalty Free Image. Image 118444542.",
+        "content": "S c e n i c   V i e w   O f   R i v e r   T u m m e l ,   P i t l o c h r y   D a m   A s   P a r t   O f   P e r t h   A n d   . . .",
+        "caption": "Scenic view of River Tummel, Pitlochry Dam as part of Perth and Kinross. Scotland, United Kingdom - 118444542",
+        "domain": "www.123rf.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1611812263727188,
+        "text_similarity_score": 0.7339687943458557
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are below 0.85, indicating that the images do not strongly match. Although candidate 1 has a high caption similarity score (0.995), the low image similarity prevents a determination that the caption accurately represents the image. Therefore, the verdict is 'False'. The final decision is based on the low image similarity scores, and the fact that without visual confirmation of the match, the caption cannot be verified to be in context.",
+      "supporting_evidences": [
+        "Candidate 1 Image Similarity Score: 0.15487737953662872",
+        "Candidate 2 Image Similarity Score: 0.1611812263727188"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption inaccurately represents what is depicted in the image, leading viewers to potentially misinterpret the content.",
+    "explanation": "The caption states \"Pitlochry Dam in Perthshire Scotland,\" which implies a specific location that viewers may associate with a particular historical or structural significance of the dam. However, the image does not clearly depict the Pitlochry Dam or provide definitive visual cues associated with it, such as the recognizable structural features of the dam itself, the surrounding landscape of Perthshire, or any identifiable landmarks. The image check result shows low similarity scores, indicating a significant mismatch between the image and the caption. Without visual evidence confirming the depiction of Pitlochry Dam, the caption's specific claim is misleading, suggesting that the image represents this known landmark when it might not. Therefore, viewers could be led to an incorrect assumption about the image's content."
+  },
+  "inference_time": 7.359849691390991,
+  "ablation_type": "no_image_evidences"
+}

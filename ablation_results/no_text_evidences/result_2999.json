@@ -1,0 +1,43 @@
+{
+  "caption": "Mitt Romney and President Obama meet during a town hallstyle debate at Hofstra University",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "United States",
+      "Politics",
+      "Political campaign",
+      "Mitt Romney 2012 presidential campaign",
+      "Campaign advertising",
+      "Getty Images",
+      "Political science",
+      "Stephen M. Caliendo"
+    ],
+    "ablation_type": "no_text_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 10,
+      "explanation": "The caption describes a debate between Mitt Romney and President Obama, while the image context depicts Mitt Romney at a campaign event with a banner that says \"Obama Isn't Working\". These are completely different events. The caption and context are not aligned, as the caption describes a debate while the image shows a campaign rally.",
+      "supporting_evidences": [
+        "The caption refers to a town hall-style debate featuring both Mitt Romney and President Obama.",
+        "The image context describes Mitt Romney at a campaign rally with a banner that says \"Obama Isn't Working\".",
+        "The presence of the banner \"Obama Isn't Working\" indicates a campaign event, not a debate."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Mitt Romney is seen speaking at a podium with a banner that says \"Obama Isn't Working\".",
+      "context": "The image features Mitt Romney speaking at a podium. Behind him, a banner reads \"Obama Isn't Working.\" An American flag is visible in the background. The setting appears to be a campaign rally or political event during the 2012 presidential campaign, using the slogan \"Obama Isn't Working\" which was a slogan used by Ronald Reagan in the 1980 presidential campaign against Jimmy Carter.",
+      "information": "The image shows Mitt Romney at a campaign event during the 2012 presidential election."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts Mitt Romney speaking at a podium with a banner behind him that reads \"OBAMA ISN'T WORKING.\" An American flag is also visible in the background. This scene contrasts with the caption, which describes a town hall-style debate between Mitt Romney and President Obama at Hofstra University. The presence of the campaign slogan and the overall setting suggest a campaign event or rally rather than a debate format. Therefore, the caption misrepresents the image's context, as it describes a debate that is not visually supported by the image. The image check result supports this conclusion.",
+    "validation_summary": "The image shows Mitt Romney at a campaign event with a political slogan, while the caption incorrectly describes a debate between Romney and Obama, misleading viewers about the image's true context. The image does not depict a debate setting or both candidates together as the caption suggests."
+  },
+  "inference_time": 5.602023363113403,
+  "ablation_type": "no_text_evidences"
+}

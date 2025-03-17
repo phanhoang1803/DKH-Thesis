@@ -1,0 +1,46 @@
+{
+  "caption": "Cheerleaders celebrate the University of Alabama s national championship wins in January",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "SlamBall",
+      "Basketball",
+      "Slam dunk",
+      "Basketball Player",
+      "Stadium"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 8,
+      "confidence_score": 9,
+      "explanation": "The caption mentions cheerleaders celebrating the University of Alabama's national championship wins in January. The image context describes a celebratory scene with cheerleaders at a University of Alabama basketball game, reflecting a moment of victory. While the caption specifies 'national championship wins' and the context mentions 'basketball success' and 'athletic events,' the core elements of cheerleaders and celebration align well. The caption accurately conveys the image's subject matter. The slight discrepancy lies in the generality of 'national championship wins' versus the more specific context of a basketball game, but the overall theme remains consistent.",
+      "supporting_evidences": [
+        "Cheerleaders are present in both the caption and image context.",
+        "The University of Alabama is identified in both the caption and image context.",
+        "Celebratory atmosphere is consistent between the caption and the image context."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image depicts a celebratory scene likely related to basketball. In the foreground, there are cheerleaders in colorful uniforms performing a routine, while in the background, a crowd can be seen cheering in a stadium setting. The atmosphere is lively and energetic, emphasizing a moment of triumph or victory, possibly in a sporting context such as a championship game. The branding and colors suggest a connection to the University of Alabama, likely coinciding with their athletic events.",
+      "caption": "Cheerleaders celebrate amidst a vibrant crowd at a University of Alabama basketball game, embodying the spirit of victory.",
+      "context": "This image is situated within the recent events surrounding the University of Alabama's basketball success, specifically highlighting their national championship wins. The cheerleaders' celebration in the image aligns with the reported enthusiasm and pride of the university community following the success of their sports teams. The news content discusses broader issues within the university, including investigations related to sorority pledging practices and issues of race on campus. However, the image focuses solely on the joyous atmosphere of athletic achievement, particularly celebrating basketball victories. The cheerleaders represent school spirit, emphasizing the positive aspects of community and teamwork in sports, contrasting with the more serious discussions surrounding inclusion and equity occurring within the university's social structures."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a basketball player cutting down the net after winning a championship. The background suggests that this game is at Stephen F Austin. The caption says that cheerleaders celebrate Alabama's national championship wins in January. Since the image is not of cheerleaders and not of an Alabama national championship, the caption does not match the image.",
+    "validation_summary": "The image shows a basketball team winning, while the caption is about cheerleaders celebrating Alabama's championship; the caption is misleading as it does not represent the image content. The image shows SFA basketball celebration, not Alabama cheerleaders celebrating a championship, the caption is therefore out of context of the image's contents and the viewers are misled about what they are seeing and what happened in the image shown to them. The caption is completely unrelated to the image content, leading to a high confidence level in the OOC assessment. The reference to cheerleaders and Alabama's championship celebration clearly contrasts with the scene depicted in the image, making the context mismatch evident."
+  },
+  "inference_time": 6.238849878311157,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

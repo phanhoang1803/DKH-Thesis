@@ -1,0 +1,54 @@
+{
+  "caption": "Oscar Pistorius passes family members of the late Reeva Steenkamp on his arrival in court to await the verdict",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Court",
+      "Crime",
+      "Culpable homicide",
+      "Criminal justice",
+      "Guilt",
+      "Judge",
+      "Sentence",
+      "Conviction",
+      "Appeal",
+      "Oscar Pistorius"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Oscar Pistorius verdict  in pictures | World news | The Guardian",
+        "content": "O s c a r   P i s t o r i u s   v e r d i c t      i n   p i c t u r e s   |   W o r l d   n e w s   |   T h e   G u a r d i a n",
+        "caption": "Oscar Pistorius passes family members of the late Reeva Steenkamp on his arrival in court to await the verdict.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6766767501831055,
+        "text_similarity_score": 0.9705376625061035
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The candidate has a high caption similarity score (0.9705376625061035), which indicates that the text of the caption is very similar to the news caption. However, the image similarity score is 0.6766767501831055, which is below the threshold of 0.85. Therefore, based on the instructions, the verdict is False because the images do not match, despite the high text similarity.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.6766767501831055",
+        "Candidate 1: Caption Similarity Score: 0.9705376625061035"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a high caption similarity score (0.9705376625061035) but a low image similarity score (0.6766767501831055). The image shows a man in a suit sitting at a table in what appears to be a courtroom. He is looking down at something in his hands. The caption claims that he is passing family members of Reeva Steenkamp on his arrival in court. Based on the image alone, it's impossible to confirm this claim. However, given the low image similarity score provided by the image check result, the caption is deemed out of context because the images do not match, despite the high text similarity.",
+    "validation_summary": "Although the caption text is similar to the news content, the image does not visually support the claim that the man is passing family members of Reeva Steenkamp, making the caption misleading. The image check confirms this discrepancy with a low image similarity score, indicating a mismatch between the visual content and the caption's claim."
+  },
+  "inference_time": 5.842999458312988,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

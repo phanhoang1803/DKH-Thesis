@@ -1,0 +1,49 @@
+{
+  "caption": "Pittsburgh Steelers quarterback Ben Roethlisberger hands the ball off to running back LeGarrette Blount in the second quarter at Bank of America Stadium",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Eight-man football",
+      "Six-man football",
+      "American football",
+      "Canadian football",
+      "Arena football",
+      "Kick american football",
+      "Sprint football",
+      "Canada",
+      "Tackle",
+      "Defensive tackle"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Best of NFL Week 3",
+        "content": "B e s t   o f   N F L   W e e k   3",
+        "caption": "Steelers running back LeGarrette Blount (27) leaps over a Panthers defender on a fourth-quarter run.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption describes LeGarrette Blount leaping over a Panthers defender, which only shares the player name with the news caption, but no further information is shared to make the decision.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Pittsburgh Steelers quarterback Ben Roethlisberger handing the ball off. The news caption states that Ben Roethlisberger hands the ball off to running back LeGarrette Blount. However, the running back pictured in the image is not LeGarrette Blount, but number 27. The image check result also found a low image similarity and text similarity. Therefore, the caption is incorrect and misrepresents the image content.",
+    "validation_summary": "The news caption incorrectly identifies the running back who receives the handoff from Ben Roethlisberger, misrepresenting the individuals present in the image. Viewers would be misled about which player is involved in the play."
+  },
+  "inference_time": 3.511014699935913,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "caption": "President Obama makes a statement from the Rose Garden on Nov 6 2009 after ordering flags to fly at halfstaff following the attack at a Texas army base",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Helicopter",
+      "Boeing 767",
+      "Aerospace Engineering",
+      "Military helicopter",
+      "Aerospace",
+      "Boeing",
+      "Engineering",
+      "Boeing"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 9,
+      "confidence_score": 10,
+      "explanation": "The caption and the image context align well. The caption mentions President Obama making a statement in the Rose Garden on Nov 6 2009, following an attack at a Texas army base, which corresponds with the image context describing Obama delivering a statement in the Rose Garden, likely related to a national tragedy after he ordered flags to be flown at half-staff to honor the victims of a tragic event at a Texas military base.",
+      "supporting_evidences": [
+        "Both caption and context mention President Obama.",
+        "Both refer to the Rose Garden as the location.",
+        "Both indicate a statement related to an event at a Texas army base/national tragedy.",
+        "Both relate to the event happened on Nov 6 2009"
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image depicts President Barack Obama delivering a statement in the Rose Garden of the White House. He is standing at a podium adorned with the Presidential Seal, making an important announcement, likely related to a national tragedy. The background features well-maintained gardens and a clear blue sky, typical of a press briefing setup. There is also a group of reporters and officials visible in the foreground, suggesting that this is a formal press event where the president addresses the nation.",
+      "caption": "President Obama delivers a statement in the Rose Garden regarding national mourning on November 6, 2009.",
+      "context": "The image captures President Obama in the Rose Garden after he ordered flags to be flown at half-staff to honor the victims of a tragic event at a Texas military base. This moment highlights a significant aspect of his presidency, noted for the frequency of mourning proclamations. The context suggests a solemn atmosphere as the nation was grieving, reflecting on Obama's role as a comforter in chief during periods of national sorrow. His administration faced numerous tragedies that required such proclamations, emphasizing the emotional connection he aimed to establish with the public. The visual elements, including the setting in the iconic Rose Garden, serve to reinforce the formality and gravity of the occasion."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "Although the image check result indicates a high alignment score (9) and confidence score (10) and claims a strong alignment between the caption and the image context (mentioning President Obama, the Rose Garden, and a Texas army base-related statement), a closer examination reveals a discrepancy. The image clearly shows President Obama disembarking from Marine One, the presidential helicopter. This visual information contradicts the caption's assertion that Obama is 'making a statement from the Rose Garden'. While the statement might be related to the Texas army base incident, the image itself depicts a different scenario. Therefore, the caption, while potentially related, does not accurately represent the scene in the image. Thus the image is out of context.",
+    "validation_summary": "The caption states President Obama is making a statement from the Rose Garden, while the image shows him disembarking from Marine One, which inaccurately represents what's shown in the image and would likely mislead viewers about what they are seeing. Therefore, the image is out of context."
+  },
+  "inference_time": 7.700790882110596,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

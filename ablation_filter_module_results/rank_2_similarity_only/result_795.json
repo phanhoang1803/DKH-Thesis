@@ -1,0 +1,57 @@
+{
+  "caption": "WikiLeaks has been parthosted by OVH a small web hosting company based in northern France",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Computer",
+      "Computer program",
+      "Screenshot",
+      "Web page",
+      "Icon",
+      "Meter",
+      "World Wide Web"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "WikiLeaks: France adds to US pressure to ban website | WikiLeaks | The Guardian",
+        "content": "W i k i L e a k s :   F r a n c e   a d d s   t o   U S   p r e s s u r e   t o   b a n   w e b s i t e   |   W i k i L e a k s   . . .",
+        "caption": "WikiLeaks has been part-hosted by OVH, a small web hosting company based in northern France. Photograph: Joe Raedle/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7478142380714417,
+        "text_similarity_score": 0.9431127309799194
+      },
+      {
+        "title": "WikiLeaks: France adds to US pressure to ban website | WikiLeaks | The Guardian",
+        "content": "W i k i L e a k s :   F r a n c e   a d d s   t o   U S   p r e s s u r e   t o   b a n   w e b s i t e   |   W i k i L e a k s   . . .",
+        "caption": "WikiLeaks has been part-hosted by OVH, a small web hosting company based in northern France. Photograph: Joe Raedle/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7096686959266663,
+        "text_similarity_score": 0.9431127309799194
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are below 0.85 for both candidates (0.7478142380714417 and 0.7096686959266663). According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Thus, I return False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a screenshot of tweets between Carwyn Jones and Arriva Trains Wales regarding English only announcements at Cardiff Queen Street station. The caption discusses WikiLeaks being hosted by a web hosting company based in northern France. This is completely unrelated to the image content. The image check also confirms that the caption is out of context.",
+    "validation_summary": "The caption is completely unrelated to the image and would mislead viewers about the content of the image, which displays a conversation between a Twitter user and a train company regarding announcements at a train station. Therefore, the caption is out of context with the image content and implies something totally different to what is portrayed in the visual depiction. In other words, the image and caption are unrelated and would cause confusion."
+  },
+  "inference_time": 4.8092732429504395,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

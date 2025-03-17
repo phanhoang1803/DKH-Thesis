@@ -1,0 +1,38 @@
+{
+  "caption": "San Francisco 49ers quarterback Colin Kaepernick centre believes Jarryd Hayne is a phenomenal athlete",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "NFC West preview: Seahawks will need breaks to make it to third Super Bowl | NFL | The Guardian",
+        "content": "N F C   W e s t   p r e v i e w :   S e a h a w k s   w i l l   n e e d   b r e a k s   t o   m a k e   i t   t o   t h i r d   . . .",
+        "caption": "Russell Wilson may find himself without a strong offensive line for protection.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. This indicates the candidate is not relevant to the news item. The candidate discusses Russell Wilson and his offensive line, while the news caption is about Colin Kaepernick and Jarryd Hayne. There is no overlap in the people discussed or the context, making it impossible to verify the news caption with this candidate.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image is not related to the news item. The image shows two football players in uniforms (likely college players based on the uniforms and stadium backdrop), while the news caption and article are about Colin Kaepernick and Jarryd Hayne of the San Francisco 49ers. Therefore, the caption misrepresents the image content by associating it with individuals and a context that are not visually present. The image is OOC because the content of the image and the content of the caption do not match.",
+    "validation_summary": "The image shows college football players, while the caption refers to Colin Kaepernick and Jarryd Hayne of the San Francisco 49ers, leading to a mismatch between the visual and textual content and thus a misrepresentation of the image's context. Viewers would be misled into thinking the image is related to the 49ers when it is not."
+  },
+  "inference_time": 3.7008934020996094,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

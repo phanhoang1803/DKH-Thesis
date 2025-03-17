@@ -1,0 +1,46 @@
+{
+  "caption": "Miami Dolphins quarterback Ryan Tannehill looks to pass as San Diego Chargers outside linebacker Kyle Emanuel rushes during the first quarter at Qualcomm Stadium",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Kick american football",
+      "Eight-man football",
+      "Six-man football",
+      "American football",
+      "Sprint football",
+      "Kick"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Best of NFL Week 15",
+        "content": "B e s t   o f   N F L   W e e k   1 5",
+        "caption": "New Orleans Saints quarterback Drew Brees (9) runs from a tackle attempt by Detroit Lions defensive end Ezekiel Ansah (94) while Saints fullback Austin Johnson (35) blocks in the second quarter of the game at the Mercedes-Benz Superdome.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Best of NFL Week 15",
+        "content": "B e s t   o f   N F L   W e e k   1 5",
+        "caption": "Washington Redskins tight end Jordan Reed (86) celebrates with tackle Trent Williams (71) after scoring a touchdown against the Buffalo Bills during the first half at FedEx Field.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores are 0.0 for both candidates, which indicates that the images in the candidates do not match the image described in the news caption. Also, the text similarity scores are 0.0 for both candidates, meaning the captions are dissimilar. Without matching images or captions, it is impossible to verify the news caption. Therefore, the verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result states a confidence score of 1 for both candidates. It mentions that the image similarity scores are 0.0, which indicates that the images in the candidates do not match the image described in the news caption. Similarly, the text similarity scores are also 0.0, meaning the captions are dissimilar. Therefore, it's impossible to verify the news caption as the image does not match the caption or the candidates provided. The image shows two football players in red jerseys and helmets, one handing the ball to the other. The caption describes Ryan Tannehill and Kyle Emanuel. Therefore, the image is out of context.",
+    "validation_summary": "The news caption is completely unrelated to the image; the people and action in the image do not match those described in the caption, leading to a high probability of misleading viewers. The image check result confirms that the image is OOC (Out of Context)."
+  },
+  "inference_time": 3.972140312194824,
+  "ablation_type": "no_filters"
+}

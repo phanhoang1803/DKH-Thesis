@@ -1,0 +1,38 @@
+{
+  "caption": "Ryan Seacrest and contestant LaPorsha Renae on the final season of Idol",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Goodbye to 'American Idol': Why the Groundbreaking Fox Talent Show Will Be Missed - The Atlantic",
+        "content": "G o o d b y e   t o   ' A m e r i c a n   I d o l ' :   W h y   t h e   G r o u n d b r e a k i n g   F o x   T a l e n t   S h o w   . . .",
+        "caption": "(",
+        "domain": "www.theatlantic.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The Image Similarity Score is 0.0 and the Caption Similarity Score is 0.0, so I need to do analysis based on the captions and candidate to give the final decision. The candidate doesn't contain any information about 'Ryan Seacrest' or 'LaPorsha Renae' or 'Idol'. Thus, the candidate does not confirm the elements (e.g., people, event, location, date) AND the specific claims in the caption. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low similarity between the caption and the image content. The caption mentions 'Ryan Seacrest' and 'LaPorsha Renae' on 'Idol,' but the image check determined that the candidate (news content) doesn't support these elements. Based on the image analysis, the picture shows Ryan Seacrest and LaPorsha Renae hugging. Given that the image check has a low confidence score, further analysis is required. Since the image clearly shows the people and the event mentioned in the caption, the caption provides some accurate information, but ultimately fails as the candidate information did not mention the same elements.",
+    "validation_summary": "The caption identifies the people in the image and the show they are associated with, however the low similarity score indicates the content of the article fails to mention these elements. Thus, a viewer would be mislead as the candidate information fails to mention the subjects in the image."
+  },
+  "inference_time": 4.279164552688599,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "caption": "The original 21 members launched the AIIB in Beijing in October",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "China",
+      "Asian Infrastructure Investment Bank",
+      "Bank",
+      "France",
+      "International Monetary Fund (IMF)",
+      "Belt and Road Initiative",
+      "Finance",
+      "China Development Bank",
+      "Development bank"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Australia on brink of joining China's Asian Infrastructure Investment Bank | Australia news | The Guardian",
+        "content": "A u s t r a l i a   o n   b r i n k   o f   j o i n i n g   C h i n a ' s   A s i a n   I n f r a s t r u c t u r e   . . .",
+        "caption": "Chinas President Xi Jinping (fourth from right) meets with the guests at the Asian Infrastructure Investment Bank (AIIB) launch ceremony at the Great Hall of the People in Beijing in October 2014.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Taiwan and Norway sign up to AIIB - BBC News",
+        "content": "T a i w a n   a n d   N o r w a y   s i g n   u p   t o   A I I B   -   B B C   N e w s",
+        "caption": "Asian developments: the US fears the Asian Infrastructure Investment Bank could undercut American influence in the region",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The news caption states that the original 21 members launched the AIIB in Beijing in October. Candidate 1 mentions China’s President Xi Jinping meeting guests at the Asian Infrastructure Investment Bank (AIIB) launch ceremony at the Great Hall of the People in Beijing in October 2014. This confirms the launch of AIIB in Beijing in October. However, it does not explicitly confirm that there were 21 original members or that this was the original launch. Candidate 2 discusses the US fears regarding the AIIB, which provides context but does not confirm the specific details in the original caption. Since neither candidate fully verifies the details in the news caption, I cannot confidently confirm that the caption accurately represents the image.",
+      "supporting_evidences": [
+        "China’s President Xi Jinping (fourth from right) meets with the guests at the Asian Infrastructure Investment Bank (AIIB) launch ceremony at the Great Hall of the People in Beijing in October 2014."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a group of people, seemingly officials or representatives, posing for a photo. The news caption states, \"The original 21 members launched the AIIB in Beijing in October\". While the image check result confirms the launch of AIIB in Beijing in October, it doesn't explicitly confirm the presence of only the 21 original members in the photo or that this photo specifically represents the launch event itself. Therefore, without explicit confirmation from the image that these are the original 21 members at the launch, the caption's claim is not fully supported by the image content. Given the information, the image fails to accurately represent all aspects of the caption, making the caption out of context.",
+    "validation_summary": "The caption's claim about the original 21 members at the launch of AIIB is not verifiable from the image, which shows a group photo without specific details. This discrepancy could mislead viewers to believe the image directly represents the AIIB launch with only the original members present, which is not confirmed."
+  },
+  "inference_time": 4.968442916870117,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

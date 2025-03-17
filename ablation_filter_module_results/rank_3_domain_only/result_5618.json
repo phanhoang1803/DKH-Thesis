@@ -1,0 +1,58 @@
+{
+  "caption": "A man clears snow from his car in the Chinatown neighborhood of New York",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Snow",
+      "Blizzard",
+      "Snowdrift",
+      "Storm",
+      "wet",
+      "Mountaineering",
+      "Snowboarding",
+      "past",
+      "used",
+      "just"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Massive winter storm packs snowy punch | CNN",
+        "content": "M a s s i v e   w i n t e r   s t o r m   p a c k s   s n o w y   p u n c h   |   C N N",
+        "caption": "A man clears snow off his car in West Reading, Pennsylvania, on Tuesday, February 2.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Winter Storm Shuts Northeast; South Still Reeling : The Two-Way : NPR",
+        "content": "W i n t e r   S t o r m   S h u t s   N o r t h e a s t ;   S o u t h   S t i l l   R e e l i n g   :   T h e   T w o - W a y   :   N P R",
+        "caption": "A man clears snow in front of DC Meat Market in the Chinatown neighborhood of New York City.",
+        "domain": "www.npr.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption describes a man clearing snow from his car in the Chinatown neighborhood of New York. Candidate 2's caption states, 'A man clears snow in front of DC Meat Market in the Chinatown neighborhood of New York City.' Although the image similarity scores are low, Candidate 2 provides supporting evidence for the location and activity described in the news caption, specifically mentioning 'Chinatown neighborhood of New York City' and a man clearing snow. Candidate 1 is about a similar activity in a different location. Due to the low image similarity and lack of stronger confirmation, the verdict is set to False with moderate confidence.",
+      "supporting_evidences": [
+        "Candidate 2: A man clears snow in front of DC Meat Market in the Chinatown neighborhood of New York City."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates the news caption describes a man clearing snow from his car in the Chinatown neighborhood of New York. One of the candidates provides some evidence by stating, 'A man clears snow in front of DC Meat Market in the Chinatown neighborhood of New York City.' Although the image similarity scores are low, the candidate does provide some supporting evidence of the location and activity. Due to the low image similarity and lack of stronger confirmation, the image is considered out of context, which aligns with the original image check result.",
+    "validation_summary": "While the caption describes an activity depicted in the image, the lack of strong evidence from the image check result suggests the caption is not an accurate or representative summary of the image's specific context, potentially misleading viewers about the exact location and situation. Therefore, the image is out of context because the caption could be more precise in reflecting what's visible in the image or known from reliable sources linked to the image itself, given the lack of stronger confirmation about the location from the image check result."
+  },
+  "inference_time": 4.702541351318359,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

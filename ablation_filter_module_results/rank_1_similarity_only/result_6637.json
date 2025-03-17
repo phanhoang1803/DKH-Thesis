@@ -1,0 +1,49 @@
+{
+  "caption": "New York City mayor Bill de Blasio is trying to reduce the number of traffic fatalities",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Chicago PD Street Stops Down 80%",
+        "content": "",
+        "caption": "cheats/2016/01/13/chicago-pd-street-stops-down-80/160103-chicago-mayor-cheat_pfu4nu",
+        "domain": "www.thedailybeast.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.96558678150177,
+        "text_similarity_score": 0.29754573106765747
+      },
+      {
+        "title": "Mayor de Blasio Signs New Law Lowering New York City's Default Speed Limit to 25 MPH | City of New York",
+        "content": "M a y o r   d e   B l a s i o   S i g n s   N e w   L a w   L o w e r i n g   N e w   Y o r k   C i t y ' s   D e f a u l t   . . .",
+        "caption": "Mayor de Blasio Signs New Law Lowering New York City's Default Speed Limit to 25 MPH",
+        "domain": "www.nyc.gov",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1408938616514206,
+        "text_similarity_score": 0.7272002696990967
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Candidate 1 has a high image similarity score (0.96558678150177), but a low text similarity score (0.29754573106765747). According to the instructions, this results in a 'False' verdict. Candidate 2 has both low image and text similarity scores. Since the image similarity scores are below 0.85, the caption must be marked as out-of-context, even if the text similarity score were high.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a 'False' verdict due to a high image similarity score but a low text similarity score. The image shows a man, Rahm Emanuel, standing in front of the Chicago city flag. The caption refers to New York City mayor Bill de Blasio, so it is not representative of the image.",
+    "validation_summary": "The caption describes the actions of New York City mayor Bill de Blasio, but the image shows Rahm Emanuel, the former mayor of Chicago, misleading viewers about the subject of the news item."
+  },
+  "inference_time": 7.234515428543091,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "caption": "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Three arrested after raid on slave factory in Rochdale | Manchester | The Guardian",
+        "content": "T h r e e   a r r e s t e d   a f t e r   r a i d   o n   ' s l a v e '   f a c t o r y   i n   R o c h d a l e   . . .",
+        "caption": "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever. Photograph: Christopher Furlong/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3113730847835541,
+        "text_similarity_score": 0.9473894834518433
+      },
+      {
+        "title": "Three arrested after raid on slave factory in Rochdale | Manchester | The Guardian",
+        "content": "T h r e e   a r r e s t e d   a f t e r   r a i d   o n   ' s l a v e '   f a c t o r y   i n   R o c h d a l e   . . .",
+        "caption": "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever. Photograph: Christopher Furlong/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.31105008721351624,
+        "text_similarity_score": 0.9473894834518433
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are below 0.85 (0.3113730847835541 and 0.31105008721351624). According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Although the text similarity scores are high (0.9473894834518433 for both), the low image similarity prevents a determination that the captions accurately represent the image context. Without a high image similarity score, there is not enough evidence to suggest the candidate images are related to the news image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts a police officer with a K-9 unit at a stadium. The caption discusses a police raid on a factory in Rochdale and arrests related to human trafficking. The image does not show any elements related to the described raid, factory, or arrests. The image check confirms that the image similarity between the candidate images and the news image is low, indicating a mismatch between the image content and the caption. Therefore, the caption is out of context with the image.",
+    "validation_summary": "The image shows a police officer and a dog in a stadium, while the caption describes a police raid on a factory; this mismatch would mislead viewers about the connection between the image and the news story it accompanies. The image content does not align with the context provided in the caption, making the caption out of context."
+  },
+  "inference_time": 5.666326999664307,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

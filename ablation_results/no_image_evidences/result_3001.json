@@ -1,0 +1,43 @@
+{
+  "caption": "Outstanding performance Andrew Scott in Sea Wall at the Traverse theatre",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Sea Wall/Heaven | Edinburgh festival | The Guardian",
+        "content": "S e a   W a l l / H e a v e n   |   E d i n b u r g h   f e s t i v a l   |   T h e   G u a r d i a n",
+        "caption": "'Outstanding performance' ... Andrew Scott in Sea Wall at the Traverse theatre. Photograph: Murdo Macleod",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.22530995309352875,
+        "text_similarity_score": 0.863817572593689
+      },
+      {
+        "title": "The best online theatre: What Do We Need to Talk About?; Dear ...",
+        "content": "T h e   b e s t   o n l i n e   t h e a t r e :   W h a t   D o   W e   N e e d   t o   T a l k   A b o u t ? ;   D e a r   . . .",
+        "caption": "Andrew Scott performing Sea Wall at the Traverse theatre in 2009. A new version is now available to buy online.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2058878242969513,
+        "text_similarity_score": 0.838452935218811
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are below 0.85, at 0.2253 and 0.2059 respectively. This indicates that the images in the candidates do not closely match the news image. Furthermore, although the caption similarity scores are high (0.8638 and 0.8385), the low image similarity prevents a conclusive match. Without a strong match between the images, it's not possible to confirm that the caption accurately represents the news image. Therefore, the verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a low image similarity between the news image and the candidates, with scores of 0.2253 and 0.2059. Despite high caption similarity scores (0.8638 and 0.8385), the mismatch in image content prevents confirmation that the caption accurately represents the news image. The provided news caption mentions 'Andrew Scott in Sea Wall at the Traverse theatre'. While the image features a theatrical performance with a central figure resembling Andrew Scott, the visual context does not definitively confirm it is 'Sea Wall' or at the 'Traverse theatre'. Given the low image similarity and reliance on caption content, the image cannot be confirmed as accurately represented by the caption, therefore the image is out of context.",
+    "validation_summary": "Due to low image similarity scores, the image cannot be confirmed as accurately represented by the caption; thus, viewers would likely be misled about the true context of the image based on the caption provided. The image's content does not definitively match the caption's claims, rendering it out of context without strong visual evidence to support the caption's accuracy. Therefore it is determined OOC = True and the confidence_score is 8 due to the Image Check resulting a False verdict from the start. The final determination is based on this initial result according to instructions. Since confidence score is 8 it must be true to the image check results verdict of False which means OOC = True. . This determination is prioritized over the initial image analysis."
+  },
+  "inference_time": 6.333633661270142,
+  "ablation_type": "no_image_evidences"
+}

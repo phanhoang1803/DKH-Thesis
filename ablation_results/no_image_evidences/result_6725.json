@@ -1,0 +1,36 @@
+{
+  "caption": "Spain s Garbine Muguruza reacts as she plays Australia s Samantha Stosur",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Serena Williams to meet Muguruza in final of French Open  San Diego Union-Tribune",
+        "content": "S e r e n a   W i l l i a m s   t o   m e e t   M u g u r u z a   i n   f i n a l   o f   F r e n c h   O p e n      S a n   . . .",
+        "caption": "epa05343839 Garbine Muguruza of Spain reacts after winning against Samantha Stosur of Australia during their women's single semi final match at the French Open tennis tournament at Roland Garros in Paris, France, 03 June 2016. EPA/ETIENNE LAURENT",
+        "domain": "www.sandiegouniontribune.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6775951981544495,
+        "text_similarity_score": 0.7277646660804749
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is less than 0.85, but the text similarity score is greater than 0.7, so I will give the final decision based on the captions and candidate. The news caption mentions \"Spain's Garbine Muguruza reacts as she plays Australia's Samantha Stosur.\" The candidate caption mentions \"Garbine Muguruza of Spain reacts after winning against Samantha Stosur of Australia during their women's single semi final match at the French Open tennis tournament at Roland Garros in Paris, France, 03 June 2016.\" Both captions mention Garbine Muguruza and Samantha Stosur, as well as Garbine Muguruza reacting. Therefore, the candidate confirms the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "Candidate 1 caption mentions Garbine Muguruza of Spain reacts after winning against Samantha Stosur of Australia during their women's single semi final match at the French Open tennis tournament at Roland Garros in Paris, France, 03 June 2016."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score between 7 and 10, so the final decision must be based on that result. The image check result says that the image is not out of context, because the image similarity score is less than 0.85, but the text similarity score is greater than 0.7. However, the current image shows Serena Williams appearing upset and being attended to by medical staff, whereas the news caption describes a tennis match between Garbine Muguruza and Samantha Stosur. These details do not match, so the caption is out of context.",
+    "validation_summary": "The image shows Serena Williams looking distressed with medical personnel nearby, which doesn't match the caption's description of a tennis match between Garbine Muguruza and Samantha Stosur, misleading viewers about the image's content and context. Therefore, the image is out of context."
+  },
+  "inference_time": 4.342851877212524,
+  "ablation_type": "no_image_evidences"
+}

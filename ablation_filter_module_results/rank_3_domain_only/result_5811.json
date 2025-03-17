@@ -1,0 +1,48 @@
+{
+  "caption": "A woman suspected of suffering from the Ebola virus sits in an ambulance in Kenema in Sierra Leone",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Ebola  as seen through the eyes of a 13-year-old from Sierra Leone | Bintu Sannoh | The Guardian",
+        "content": "E b o l a      a s   s e e n   t h r o u g h   t h e   e y e s   o f   a   1 3 - y e a r - o l d   f r o m   S i e r r a   . . .",
+        "caption": "A healthcare worker sprays disinfectant in the area they found a man suspected of suffering from the Ebola virus in Kenema, Sierra Leone.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "First confirmed Ebola patient in UK being treated at Glasgow hospital - Los Angeles Times",
+        "content": "F i r s t   c o n f i r m e d   E b o l a   p a t i e n t   i n   U K   b e i n g   t r e a t e d   a t   G l a s g o w   . . .",
+        "caption": "Healthcare workers load a man suspected of contracting the Ebola virus into an ambulance in Kenema, Sierra Leone, on Sept. 24.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are both 0.0, indicating that the images do not match. Additionally, the text similarity scores are also 0.0, suggesting that the captions are dissimilar. However, both candidate captions mention \"Kenema, Sierra Leone\" and \"Ebola virus\", aligning with the news caption. Both also mention that a healthcare worker interacts with a person suspected of being infected and that the person is being put into an ambulance. Thus, I will say this is likely what the image shows, however, I cannot verify it as the images do not match.",
+      "supporting_evidences": [
+        "A healthcare worker sprays disinfectant in the area they found a man suspected of suffering from the Ebola virus in Kenema, Sierra Leone.",
+        "Healthcare workers load a man suspected of contracting the Ebola virus into an ambulance in Kenema, Sierra Leone, on Sept. 24."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 6. The images in the supporting evidence show health workers loading a man suspected of suffering from the Ebola virus onto an ambulance and disinfecting the area where a man was suspected of suffering from the Ebola virus. The provided image shows two women who appear to be comforting each other against a wall. The news caption describes a woman suspected of suffering from the Ebola virus sitting in an ambulance in Kenema in Sierra Leone. Since the two women in the image are not in an ambulance nor are they obviously suffering from a virus, the caption does not match the image. Thus, I will say that the image is out of context.",
+    "validation_summary": "The image shows two women comforting each other, but the caption describes a woman in an ambulance suspected of having Ebola. This mismatch would likely mislead viewers about the image's content and the situation it depicts, as the image does not portray a woman in an ambulance and there is no evidence of ebola in the picture..  Therefore, the image is out of context with the caption's claims and implications, especially with a confidence score of 7 or above from the Image Check Result, indicating an incongruity that would likely mislead viewers about what's being seen.The caption does not accurately describe what the picture depicts."
+  },
+  "inference_time": 4.927621603012085,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

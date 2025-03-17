@@ -1,0 +1,53 @@
+{
+  "caption": "President Obama addresses the Righteous Among the Nations Award Ceremony at the Israeli Embassy in Washington Wednesday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speech",
+      "Texas",
+      "past",
+      "US President",
+      "Orator",
+      "Public speaking",
+      "Mercedes-Benz W460",
+      "Affordable Care Act",
+      "Spokesperson"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "'I, too, am a Jew': Obama warns of growing anti-Semitism",
+        "content": "I ,   t o o ,   a m   a   J e w ' :   O b a m a   w a r n s   o f   g r o w i n g   a n t i - S e m i t i s m",
+        "caption": "President Obama addresses the Righteous Among the Nations Award Ceremony at the Israeli Embassy in Washington Wednesday.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6254122257232666,
+        "text_similarity_score": 0.9866868257522583
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.6254122257232666, which is less than 0.85. The text similarity score is 0.9866868257522583, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.6254122257232666",
+        "Caption Similarity Score: 0.9866868257522583"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows President Obama speaking at a podium with a \"Health\" banner in the background. The caption states that President Obama is addressing the Righteous Among the Nations Award Ceremony at the Israeli Embassy in Washington Wednesday. The image similarity score is 0.6254122257232666, which is less than 0.85. The text similarity score is 0.9866868257522583, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+    "validation_summary": "The image shows President Obama with a \"Health\" banner in the background, which is unrelated to the Righteous Among the Nations Award Ceremony. This discrepancy makes the caption misleading about the image's content, leading to an out-of-context determination."
+  },
+  "inference_time": 5.908689498901367,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

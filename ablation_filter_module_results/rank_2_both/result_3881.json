@@ -1,0 +1,44 @@
+{
+  "caption": "Compensation expert Kenneth Feinberg on Monday announces details of the General Motors Ignition Compensation Program in Washington DC",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Feinberg announces how GM switch victims will be paid",
+        "content": "F e i n b e r g   a n n o u n c e s   h o w   G M   s w i t c h   v i c t i m s   w i l l   b e   p a i d",
+        "caption": "Compensation expert Kenneth Feinberg on Monday announces details of the General Motors Ignition Compensation Program in Washington, D.C.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7182465195655823,
+        "text_similarity_score": 0.9872593879699707
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.7182465195655823 and the text similarity score is 0.9872593879699707. Since the image similarity score is less than 0.85, the caption is out-of-context, even though the text similarity score is high. Based on the candidate evidence, the candidate caption is the same as the news image caption. Therefore, the news caption accurately represents what the news image shows and what the image is about.",
+      "supporting_evidences": [
+        "The image similarity score is 0.7182465195655823",
+        "The text similarity score is 0.9872593879699707",
+        "The candidate caption is the same as the news image caption"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image similarity score is 0.7182465195655823, which is less than 0.85. This suggests that the image and caption are not closely related. Therefore, the caption is out of context. The image depicts a man speaking in front of a World Economic Forum backdrop, while the caption describes Kenneth Feinberg announcing details of the General Motors Ignition Compensation Program. These are different events and contexts.",
+    "validation_summary": "The image shows a man speaking at the World Economic Forum, but the caption describes a different event with Kenneth Feinberg, leading to a mismatch and potential misunderstanding for viewers about the image's context and content. Therefore, the caption is misleading and out of context, despite the high text similarity score from the Image Check Result. Because the image similarity score is low, the news caption does not accurately represent what the news image shows or what the image is about, despite the high text similarity score and the candidate caption being the same as the news image caption. Because the Image Check Result is over 7 confidence, the conclusion is based on the Image Check Result decision, despite conflicting details in the news article."
+  },
+  "inference_time": 6.273086786270142,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

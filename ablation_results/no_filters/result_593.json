@@ -1,0 +1,48 @@
+{
+  "caption": "Fiat has scooped up booming demand for construction equipment in Latin America and Asia",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Commercial vehicle",
+      "Tow truck",
+      "Truck",
+      "rig",
+      "Towing",
+      "Bulldozer",
+      "Trailer",
+      "Commerce"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Earthmovers &amp; Excavators #377",
+        "content": "E a r t h m o v e r s   & a m p ;   E x c a v a t o r s   # 3 7 7",
+        "caption": "Earthmovers & Excavators #377",
+        "domain": "www.yumpu.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Past Center Sponsored Events | UCLA Anderson School of Management",
+        "content": "P a s t   C e n t e r   S p o n s o r e d   E v e n t s   |   U C L A   A n d e r s o n   S c h o o l   o f   M a n a g e m e n t",
+        "caption": "Speaker thumbnail",
+        "domain": "www.anderson.ucla.edu",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores and text similarity scores are low for both candidates. Candidate 1 mentions 'Earthmovers & Excavators,' which could relate to construction equipment, but there is no mention of Latin America, Asia, or Fiat. Candidate 2 is irrelevant, referring to a 'Speaker thumbnail.' Therefore, there is no evidence to support the caption, and the verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption misrepresents the image content significantly, as there is no relevant evidence to link the image with Fiat's construction equipment demand in Latin America and Asia.",
+    "explanation": "The news caption claims that Fiat has experienced increased demand for construction equipment in Latin America and Asia, implying a positive business development and growth related to specific geographic markets. However, the image checked did not provide any relevant context or visual evidence to support this claim. The image's similarity scores and textual references (Candidate 1 mentioning 'Earthmovers & Excavators') are too vague and general; they do not directly connect to Fiat or the specified regions (Latin America and Asia). Furthermore, Candidate 2 was irrelevant, focusing on a different subject altogether. Therefore, the lack of specific evidence in the image results in a misalignment with the caption's claims, indicating that viewers could easily be misled by the headline without any corresponding visual support."
+  },
+  "inference_time": 5.922904968261719,
+  "ablation_type": "no_filters"
+}

@@ -1,0 +1,47 @@
+{
+  "caption": "Mr McGinlay was attacked on St Georges Road",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Human"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Man arrested over 'horrific' murder of Stephen McGinlay - BBC News",
+        "content": "M a n   a r r e s t e d   o v e r   ' h o r r i f i c '   m u r d e r   o f   S t e p h e n   M c G i n l a y   -   B B C   N e w s",
+        "caption": "Stephen McGinlay",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Erith shooting: Kai McGinley named as murder victim",
+        "content": "E r i t h   s h o o t i n g :   K a i   M c G i n l e y   n a m e d   a s   m u r d e r   v i c t i m",
+        "caption": "Police were called to Pembroke Road on Thursday evening after gunshots were heard",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The provided candidates do not contain any information that supports the news caption 'Mr McGinlay was attacked on St Georges Road'. Both candidates have low image and text similarity scores. Candidate 1 only mentions the name Stephen McGinlay, and Candidate 2 discusses a police incident on Pembroke Road, which is unrelated to the news caption. Therefore, there is no evidence to confirm the accuracy of the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the image is out of context because the candidates had low image and text similarity scores with the caption, and didn't provide supporting information. The image shows a person with makeup that resembles injuries, like cuts and stitches on their face and neck, likely for a costume or special effects. The caption states that Mr. McGinlay was attacked on St Georges Road, which the image does not depict. Therefore, the image does not match the caption's claim about an actual attack and person. Given the high confidence score, the image check result is prioritized.",
+    "validation_summary": "The image does not depict an actual attack as the caption suggests, but instead shows a person with injury makeup, making the caption misleading. The image is therefore out of context."
+  },
+  "inference_time": 3.5889339447021484,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

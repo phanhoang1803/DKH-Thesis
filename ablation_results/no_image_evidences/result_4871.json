@@ -1,0 +1,34 @@
+{
+  "caption": "Lawrence Weschler and a bust of his grandfather composer Ernst Toch Image courtesy L Weschler",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Ernst Toch - my grandfather the forgotten composer who fled the Nazis | Classical music | The Guardian",
+        "content": "E r n s t   T o c h   -   m y   g r a n d f a t h e r   t h e   f o r g o t t e n   c o m p o s e r   w h o   f l e d   t h e   . . .",
+        "caption": "Lawrence Weschler and a bust of his grandfather composer Ernst Toch. Image courtesy L Weschler",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2314399927854538,
+        "text_similarity_score": 0.9498217105865479
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.2314399927854538 which is less than 0.85. The text similarity score is 0.9498217105865479 which is greater than 0.7. According to the instructions, the caption must be marked as out-of-context, even if the text similarity score is high. The image similarity score is low, which indicates that the images do not match. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is out of context with a confidence score of 2. Specifically, the image similarity score is 0.2314399927854538, which is less than 0.85. Therefore, the caption is out-of-context.",
+    "validation_summary": "The image check result indicated that the images are dissimilar, thus the caption does not accurately represent the content of the image and would mislead viewers. The low image similarity score confirms this assessment."
+  },
+  "inference_time": 5.083568096160889,
+  "ablation_type": "no_image_evidences"
+}

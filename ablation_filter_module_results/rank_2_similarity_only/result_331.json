@@ -1,0 +1,52 @@
+{
+  "caption": "People wait in line before the Dr King Career Fair at the Empire State Plaza Convention Center in Albany NY in April this year",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Stocks surge on May jobs report, Dow up 207",
+        "content": "S t o c k s   s u r g e   o n   M a y   j o b s   r e p o r t ,   D o w   u p   2 0 7",
+        "caption": "People wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5605645179748535,
+        "text_similarity_score": 0.9602746963500977
+      },
+      {
+        "title": "US employers add 165K jobs; rate falls to 7.5 percent",
+        "content": "U S   e m p l o y e r s   a d d   1 6 5 K   j o b s ;   r a t e   f a l l s   t o   7 . 5   p e r c e n t",
+        "caption": "In this Thursday, April 11, 2013 photo, people wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y.",
+        "domain": "www.capecodtimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5245456099510193,
+        "text_similarity_score": 0.9468958973884583
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions have high text similarity scores (above 0.9) with the news caption. However, the image similarity scores are below 0.85. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is 'False'.",
+      "supporting_evidences": [
+        "Candidate 1: Caption Similarity Score: 0.9602746963500977, Image Similarity Score: 0.5605645179748535",
+        "Candidate 2: Caption Similarity Score: 0.9468958973884583, Image Similarity Score: 0.5245456099510193"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is out of context because the image similarity scores are below 0.85, even though the text similarity is high. The image shows people waiting in line, seemingly at a polling station or registration event. The caption describes people waiting in line for the Dr King Career Fair at the Empire State Plaza Convention Center in Albany NY. The image content does not depict a career fair at the Empire State Plaza Convention Center.",
+    "validation_summary": "The image does not show a career fair as the caption suggests, therefore the caption is misleading and out of context. The image check result confirms that the image and the caption do not align, leading to the determination that the caption is out of context."
+  },
+  "inference_time": 5.271746635437012,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

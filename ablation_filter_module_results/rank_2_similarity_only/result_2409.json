@@ -1,0 +1,52 @@
+{
+  "caption": "Republican presidential candidate former Pennsylvania senator Rick Santorum pauses as he addresses supporters at his Iowa caucus victory party Tuesday in Johnston Iowa",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Rick Santorum feels like Rocky Balboa | CNN Politics",
+        "content": "R i c k   S a n t o r u m   f e e l s   l i k e   R o c k y   B a l b o a   |   C N N   P o l i t i c s",
+        "caption": "GOP presidential hopeful Rick Santorum addresses a crowd of supporters Tuesday night in Johnston, Iowa.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.665317952632904,
+        "text_similarity_score": 0.7582464218139648
+      },
+      {
+        "title": "Romney And Santorum Split The Spoils In Iowa : NPR",
+        "content": "R o m n e y   A n d   S a n t o r u m   S p l i t   T h e   S p o i l s   I n   I o w a   :   N P R",
+        "caption": "Rick Santorum addresses supporters at his caucus party in Johnston.",
+        "domain": "www.npr.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3490901291370392,
+        "text_similarity_score": 0.7157442569732666
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "Both candidate captions refer to Rick Santorum addressing supporters in Johnston, Iowa. The news caption also describes Rick Santorum addressing supporters at his Iowa caucus victory party in Johnston, Iowa. Candidate 1 has a text similarity score of 0.758, and Candidate 2 has a text similarity score of 0.716, indicating that the captions are highly similar. Although the image similarity scores are below the 0.85 threshold (Candidate 1: 0.665, Candidate 2: 0.349), the core information about the event, the person involved, and the location are consistent across all captions. Therefore, based on the available evidence, the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "Candidate 1 caption: GOP presidential hopeful Rick Santorum addresses a crowd of supporters Tuesday night in Johnston, Iowa.",
+        "Candidate 2 caption: Rick Santorum addresses supporters at his caucus party in Johnston."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the news caption accurately represents the image. The image shows Rick Santorum speaking at a podium with a microphone. The background includes a blue curtain and a star. The caption describes Santorum addressing supporters at his Iowa caucus victory party in Johnston, Iowa, which is consistent with the image and the provided candidate captions. The supporting evidence from the candidate captions confirms that Santorum was addressing supporters in Johnston, Iowa. The high text similarity scores between the news caption and the candidate captions further support the accuracy of the news caption. Therefore, the image is not out of context.",
+    "validation_summary": "The news caption accurately describes the image of Rick Santorum addressing supporters in Johnston, Iowa, and it aligns with the provided candidate captions, so viewers would not be misled about what they're seeing in the image. Based on a high confidence score from the image check, this is not out of context."
+  },
+  "inference_time": 6.341467618942261,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

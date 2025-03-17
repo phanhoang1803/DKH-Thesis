@@ -1,0 +1,58 @@
+{
+  "caption": "Pope Francis right gestures as he talks with journalists during his flight from Manila to Rome on Monday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Debate",
+      "Seminar",
+      "Academic conference",
+      "Public speaking",
+      "Convention",
+      "Academy",
+      "Speech",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Rabbit Breeder to Pope: You Don't Know Rabbits",
+        "content": "R a b b i t   B r e e d e r   t o   P o p e :   Y o u   D o n ' t   K n o w   R a b b i t s",
+        "caption": "Pope Francis, right, gestures as he talks with journalists during his flight from Manila to Rome, Monday, Jan. 19, 2015.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.25395405292510986,
+        "text_similarity_score": 0.9488623738288879
+      },
+      {
+        "title": "Pope: Catholics need not breed 'like rabbits'",
+        "content": "6 3 5 5 7 2 8 5 7 9 6 6 6 1 4 2 9 9 - E P A -   . . .",
+        "caption": "Pope Francis gestures as he talks with journalists on the plane during the flight from Manila to Rome, 19 January 2015.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.20818796753883362,
+        "text_similarity_score": 0.8528649806976318
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are below 0.85, indicating that the images in the candidates do not closely match the news image. Although the text similarity scores are high (above 0.7), according to the instructions, a low image similarity score automatically results in a 'False' verdict. Thus, because the images are dissimilar, the caption is considered out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result returned a verdict of 'False', indicating that the provided caption does not accurately represent the image content. The image shows Pope Francis seated in a room, with another person speaking at a podium in the background. The caption describes Pope Francis talking with journalists during a flight. Therefore, the caption and the image do not align. The high confidence score (based on instructions) reinforces the image check result.",
+    "validation_summary": "The caption is misleading because it describes Pope Francis talking with journalists on a flight, which is not depicted in the image; the image shows him seated in a room listening to someone at a podium, suggesting a formal event rather than an informal conversation on a plane. Viewers would be misled by the caption's implication of the image's content."
+  },
+  "inference_time": 5.132097482681274,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

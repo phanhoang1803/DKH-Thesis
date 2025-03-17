@@ -1,0 +1,40 @@
+{
+  "caption": "Thousands gather on the Mall for the Justice or Else rally",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Access to this page has been denied",
+        "content": "",
+        "caption": "",
+        "domain": "www.texasmonthly.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9706926345825195,
+        "text_similarity_score": 0.17404793202877045
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.97, which is high, indicating a strong match between the images. However, the text similarity score is only 0.17, which is low, suggesting that the caption of the candidate evidence does not match the news caption. Given that the text similarity score is below 0.7, the caption is considered out-of-context. Therefore, the candidate evidence does not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high image similarity (0.97) between the provided image and the candidate evidence image, but a very low text similarity (0.17). This confirms that while the images might share some visual elements, the caption associated with the candidate evidence is drastically different from the given news caption. The image shows a large crowd of people gathered outdoors with a blue airplane in the background. The news caption claims the image depicts 'Thousands gather on the Mall for the Justice or Else rally'. Based on the image content, there is no indication of 'Justice or Else rally' or the 'Mall' in Washington DC. Therefore, the caption is misleading and does not accurately represent the content of the image.",
+    "validation_summary": "The provided caption is misleading because the image does not depict a Justice or Else rally on the Mall, misrepresenting what viewers are seeing. The high image similarity paired with low text similarity from the image check definitively proves that the provided caption is out of context."
+  },
+  "inference_time": 7.340752124786377,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

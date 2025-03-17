@@ -1,0 +1,44 @@
+{
+  "caption": "People wait in line before the Dr King Career Fair at the Empire State Plaza Convention Center in Albany NY in April this year",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Stocks surge on May jobs report, Dow up 207",
+        "content": "S t o c k s   s u r g e   o n   M a y   j o b s   r e p o r t ,   D o w   u p   2 0 7",
+        "caption": "People wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7431338429450989,
+        "text_similarity_score": 0.9602746367454529
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.7431338429450989, which is less than 0.85. Therefore, according to the instructions, the caption is out-of-context. The text similarity score is 0.9602746367454529, which is greater than 0.7, but because the image similarity score is less than 0.85, the caption is still out-of-context. The caption of the candidate evidence is 'People wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year.', which is highly similar to the news caption 'People wait in line before the Dr King Career Fair at the Empire State Plaza Convention Center in Albany NY in April this year'. The domain of the candidate evidence is www.usatoday.com. Since the image similarity score is below 0.85, it indicates that the images do not match, leading to the determination that the caption is out-of-context.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.7431338429450989",
+        "Text Similarity Score: 0.9602746367454529",
+        "Caption: People wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is out of context. The image similarity score is 0.7431338429450989, which is less than 0.85. While the text similarity score is high at 0.9602746367454529, the low image similarity score suggests that the image does not accurately represent the event described in the caption, leading to the conclusion that the caption is misleading and therefore out of context.",
+    "validation_summary": "The image and caption do not match, suggesting the image is being used in a misleading way. Therefore, the caption is determined to be out of context based on image check result and instruction guidelines."
+  },
+  "inference_time": 4.524264812469482,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "caption": "A man clears snow from his car in the Chinatown neighborhood of New York",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Calhan",
+      "Ford Crown Victoria Police Interceptor",
+      "Ford Motor Company",
+      "Denver Metropolitan Area",
+      "Snow",
+      "Car",
+      "Blowing snow",
+      "National Weather Service"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Snow's stopped on East Coast but piles going nowhere",
+        "content": "S n o w ' s   s t o p p e d   o n   E a s t   C o a s t   b u t   p i l e s   g o i n g   n o w h e r e",
+        "caption": "People cleared snow from parked cars in the Chinatown neighborhood of New York on Sunday, but there were other obstacles to overcome after a blizzard that set a new single-day snowfall record in Washington and New York City.",
+        "domain": "www.dallasnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.40443605184555054,
+        "text_similarity_score": 0.7684499025344849
+      },
+      {
+        "title": "Winter Storm Shuts Northeast; South Still Reeling : The Two-Way : NPR",
+        "content": "W i n t e r   S t o r m   S h u t s   N o r t h e a s t ;   S o u t h   S t i l l   R e e l i n g   :   T h e   T w o - W a y   :   N P R",
+        "caption": "A man clears snow in front of DC Meat Market in the Chinatown neighborhood of New York City.",
+        "domain": "www.npr.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.28655487298965454,
+        "text_similarity_score": 0.75870281457901
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions mention people clearing snow in the Chinatown neighborhood of New York, which aligns with the news caption. Although the image similarity scores are below the threshold of 0.85, the text similarity scores are above 0.7, suggesting a reasonable match in content. Based on the available evidence, it is likely the news caption accurately describes the image, but the lower image similarity prevents a higher confidence level.",
+      "supporting_evidences": [
+        "Candidate 1: Caption mentions people clearing snow in the Chinatown neighborhood of New York.",
+        "Candidate 2: Caption mentions a man clearing snow in the Chinatown neighborhood of New York City."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a police officer standing next to a police car in snowy conditions, which starkly contrasts with the provided caption describing a man clearing snow from his car in the Chinatown neighborhood of New York. The presence of a police car, a police officer, and snowy conditions, none of which are mentioned in the caption, clearly indicates a mismatch between the image content and the caption's description. The news content discusses a snowstorm affecting the East Coast, but the specific details in the image do not align with the caption, leading to the conclusion that the image is out of context. The image check also supports the verdict.",
+    "validation_summary": "The image shows a police car and officer in the snow, completely misrepresenting the claim of a man clearing snow in Chinatown. Viewers would be significantly misled by this mismatch between the visual content and the caption's description, as supported by the image check result and the actual image content."
+  },
+  "inference_time": 5.728126287460327,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,51 @@
+{
+  "caption": "President Rousseff Below that green and yellow jersey you represent a powerful legacy of the Brazilian people",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Katinka Hosszú",
+      "Rio de Janeiro",
+      "just",
+      "Swimming",
+      "Olympic Games",
+      "Kuwait",
+      "Swimming",
+      "Human",
+      "SAT",
+      "Fun"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Brazil 'ready' for football World Cup, says Rousseff - BBC News",
+        "content": "B r a z i l   ' r e a d y '   f o r   f o o t b a l l   W o r l d   C u p ,   s a y s   R o u s s e f f   -   B B C   N e w s",
+        "caption": "President Rousseff: \"Below that green and yellow jersey you represent a powerful legacy of the Brazilian people\"",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.29890456795692444,
+        "text_similarity_score": 0.9686863422393799
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is low (0.29890456795692444), which indicates that the image in the candidate is not similar to the image in the news. Although the text similarity score is high (0.9686863422393799), which indicates that the captions are highly similar, this is not sufficient to confirm that the caption accurately represents the image. The low image similarity score suggests that the images do not match, and therefore the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a man in a USA volleyball jersey giving a high five to a fan wearing a green wig and holding a Brazilian flag. The news caption reads, \"President Rousseff Below that green and yellow jersey you represent a powerful legacy of the Brazilian people\", while the news content is about Brazilian President Dilma Rousseff discussing Brazil's readiness for the World Cup and defending the spending on the tournament. The image and news caption do not match the news content. The image check result also confirms that the images do not match, and therefore the caption is out-of-context.",
+    "validation_summary": "The caption associates a man in a volleyball jersey with President Rousseff, which is misleading as the image does not depict her or relate to the news article about the World Cup preparations. The image is unrelated to the caption and news content, therefore it's out of context."
+  },
+  "inference_time": 6.91247820854187,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

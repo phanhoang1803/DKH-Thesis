@@ -1,0 +1,52 @@
+{
+  "caption": "Elected mayor scheme opposed by the community secretary Eric Pickles and Tory local council leaders",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Leader of Wiltshire council: 'The cuts have been manageable' | Local government | The Guardian",
+        "content": "J a n e - S c o t t - l e a d e r - o f - W i l t - 0 0 6 .   . . .",
+        "caption": "Wiltshire council leader, Jane Scott: 'We haven't closed one library.' Photograph: Sam Frost for the Guardian",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Eric Pickles: Public enemy number one? | Eric Pickles | The Guardian",
+        "content": "E r i c   P i c k l e s :   P u b l i c   e n e m y   n u m b e r   o n e ?   |   E r i c   P i c k l e s   |   T h e   G u a r d i a n",
+        "caption": "Hes a wily old fox ... Eric Pickles, the secretary of state for communities and local government. Photograph: Eddie Mulholland / Rex Features",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Eric Pickles takes over rotten Tower Hamlets | Eric Pickles | The Guardian",
+        "content": "E r i c   P i c k l e s   t a k e s   o v e r   ' r o t t e n '   T o w e r   H a m l e t s   |   E r i c   P i c k l e s   . . .",
+        "caption": "Eric Pickles, secretary of state for communities, says his direct intervention in Tower Hamlets contradicts everything he believes in. Photograph: PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The news caption mentions \"Eric Pickles\" and his opposition to an \"elected mayor scheme\" along with \"Tory local council leaders\". While candidate 2 and 3 mention \"Eric Pickles\" and his position as \"secretary of state for communities and local government\", they do not provide information about his stance on elected mayor schemes or any involvement of Tory local council leaders. Candidate 1 is irrelevant as it talks about Wiltshire council leader Jane Scott and library closures. Because none of the candidates provide explicit confirmation about all the elements in the caption, I can't confirm the caption's accuracy.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a person wearing a ceremonial chain of office. The caption mentions Eric Pickles, the community secretary, opposing an elected mayor scheme and Tory local council leaders. While the image shows someone who might be a local official, there is nothing in the image to confirm that the person depicted is Eric Pickles or that the image is related to the political claims made in the caption. The image provides no evidence to support the caption's claims about Eric Pickles or the elected mayor scheme. Therefore, the image is used out of context, potentially misleading viewers by associating the image with unrelated political issues.",
+    "validation_summary": "The image of a person wearing a ceremonial chain of office is used in connection with a news caption about Eric Pickles and political schemes, but the image does not offer any support for the news caption. This makes it misleading and out of context to the news content provided and could cause confusion."
+  },
+  "inference_time": 4.131998300552368,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

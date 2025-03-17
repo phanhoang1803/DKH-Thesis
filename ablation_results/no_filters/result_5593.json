@@ -1,0 +1,56 @@
+{
+  "caption": "Actors Kieran Culkin Tavi Gevinson and Michael Cera attend the This Is Our Youth cast photo call",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "regrese.info",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "brainstudy.info",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "This is Our Youth review: an anthem for stewed youth | Broadway | The Guardian",
+        "content": "T h i s   i s   O u r   Y o u t h   r e v i e w :   a n   a n t h e m   f o r   s t e w e d   y o u t h   |   B r o a d w a y   . . .",
+        "caption": "This Is Our Youth cast, Kieran Culkin, Tavi Gevinson and Michael Cera,  at Cort Theatre in New York City",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Quick Notes On The TimesTalk with Michael Cera, Tavi Gevinson & Kieran Culkin  Twenties / Collective",
+        "content": "Q u i c k   N o t e s   O n   T h e   T i m e s T a l k   w i t h   M i c h a e l   C e r a ,   T a v i   G e v i n s o n   . . .",
+        "caption": "\"This Is Our Youth\" Cast Photo Call",
+        "domain": "twentiescollective.wordpress.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The available candidates provide some support for the caption, but the low image similarity scores indicate that none of the candidates are showing the same image. However, Candidate 3 mentions \"This Is Our Youth cast, Kieran Culkin, Tavi Gevinson and Michael Cera, at Cort Theatre in New York City\", while Candidate 4 mentions \"'This Is Our Youth' Cast Photo Call\". These candidates mention the names of the actors and the play mentioned in the news caption, but without a matching image, the details of the photo call cannot be verified. Thus, the verdict is 'False'.",
+      "supporting_evidences": [
+        "This Is Our Youth cast, Kieran Culkin, Tavi Gevinson and Michael Cera,  at Cort Theatre in New York City",
+        "\"This Is Our Youth\" Cast Photo Call"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a low confidence score due to lack of matching images, but supporting evidence mentions the actors and the play from the caption. However, the image depicts a cast of young actors, none of whom are Kieran Culkin, Tavi Gevinson, or Michael Cera. The image shows a group of young people, but it is a photo from the TV series \"Freaks and Geeks\" and includes actors such as Seth Rogen, James Franco, and Linda Cardellini. Therefore, the caption is misleading, as it does not accurately represent the content of the image.",
+    "validation_summary": "The caption falsely claims the image shows actors from \"This Is Our Youth\", while the image actually shows the cast of \"Freaks and Geeks\", misleading viewers about the content they're seeing. The caption does not accurately represent the image content and would mislead viewers about the image's content and context, as the actors and production referenced are incorrect."
+  },
+  "inference_time": 4.624743223190308,
+  "ablation_type": "no_filters"
+}

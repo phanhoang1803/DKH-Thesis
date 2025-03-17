@@ -1,0 +1,38 @@
+{
+  "caption": "May 5 Montreal Canadiens right wing Brandon Prust was fined 5000 for publicly criticizing referee Brad Watson after a Game 2 loss Hockey operations handed down the fine",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "2014-15 NHL suspension tracker",
+        "content": "2 0 1 4 - 1 5   N H L   s u s p e n s i o n   t r a c k e r",
+        "caption": "Stephane Quintal is in his second full season as head of the NHL's player safety department. There have been 10 suspensions (61 games total) and 10 players fined for a total of $747,182.14 in lost pay. A closer look:",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. Therefore, the strict decision rules are not met. The candidate does not provide any information about Brandon Prust being fined $5000 for publicly criticizing referee Brad Watson after a Game 2 loss. Therefore, there is no evidence to support that the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a hockey fight between two players, one wearing a Montreal Canadiens jersey and the other wearing a Tampa Bay Lightning jersey. A referee is attempting to break up the fight. The caption describes Brandon Prust being fined for criticizing a referee. This does not align with the visual content of the image, as there's no indication in the image about fines or criticism. The image check result confirms the mismatch with a low similarity score. Therefore, the image is out of context.",
+    "validation_summary": "The image depicts a hockey fight, while the caption discusses a fine for criticizing a referee, thus misleading viewers about the image's actual content and context. The image and caption are unrelated, leading to a false impression."
+  },
+  "inference_time": 4.063302755355835,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

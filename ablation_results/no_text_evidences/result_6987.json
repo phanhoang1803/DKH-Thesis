@@ -1,0 +1,37 @@
+{
+  "caption": "Texas Health Presbyterian Hospital Dallas staff line the drive that exits the emergency room as they wait for an ambulance carrying Pham to depart on Oct 16",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "light-hearted",
+      "Ceremony"
+    ],
+    "ablation_type": "no_text_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 9,
+      "explanation": "The image context describes a press conference related to the Ebola outbreak. The caption describes hospital staff lining up for an ambulance carrying Pham. These contexts don't align. Therefore, the caption is not aligned with the image context.",
+      "supporting_evidences": [
+        "The context describes a press conference related to a health issue (Ebola outbreak).",
+        "The caption describes hospital staff lining up for an ambulance carrying Pham.",
+        "The events described in the caption and context are different."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "A press conference featuring officials and medical personnel, likely discussing a health-related issue.",
+      "context": "The image shows a press conference or public address, likely related to the Ebola outbreak given the news content. A woman, presumably a medical professional or official, is speaking to a crowd of reporters, with microphones visible in front of her. An authority figure, wearing what appears to be a police or sheriff's uniform, stands to her left. Other individuals, possibly medical staff or family members, are also present. The setting appears to be outdoors, with tents in the background. Given the news context, it is possible the speakers are discussing Nina Pham's recovery from Ebola, and addressing the public. The overall atmosphere is serious, with a focus on communicating important information to the public.",
+      "information": "The image captures a press conference featuring a woman speaking to reporters, surrounded by officials and medical personnel, against an outdoor backdrop with tents."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a press conference or media event with a woman speaking to reporters holding microphones. In the background, there are tents and other individuals. The caption describes Texas Health Presbyterian Hospital staff lining up for an ambulance carrying Pham. This does not align with the image's content, which depicts a press event. Therefore, the caption misrepresents the image content.",
+    "validation_summary": "The caption is misleading because it describes a hospital event, while the image shows a press conference or media event, potentially misinforming viewers about the context of the image. The image check result confirms that the caption does not accurately represent what the image shows, leading to the conclusion that the image is used out of context."
+  },
+  "inference_time": 5.316344499588013,
+  "ablation_type": "no_text_evidences"
+}

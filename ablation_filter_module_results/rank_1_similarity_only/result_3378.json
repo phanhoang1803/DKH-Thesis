@@ -1,0 +1,52 @@
+{
+  "caption": "Washington s Bryce Harper hits a homer to right field during the first inning in his first atbat of the season",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Baseball",
+      "College baseball",
+      "Solid swing+hit",
+      "Catcher",
+      "Pitcher",
+      "Ball",
+      "Higher Education School",
+      "Ballpark"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Phillies slugger Bryce Harper homers for his first 3 hits of the season",
+        "content": "P h i l l i e s   s l u g g e r   B r y c e   H a r p e r   h o m e r s   f o r   h i s   f i r s t   3   h i t s   o f   t h e   . . .",
+        "caption": "Phillies slugger Bryce Harper homers for his first 2 hits of the season",
+        "domain": "www.thestar.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8420395851135254,
+        "text_similarity_score": 0.7167591452598572
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score between the news image and the candidate image is 0.8420395851135254, which is less than 0.85. The text similarity score between the news caption and the candidate caption is 0.7167591452598572, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.8420395851135254",
+        "Text Similarity Score: 0.7167591452598572"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity score between the news image and the candidate image is 0.8420395851135254, which is less than 0.85. The text similarity score between the news caption and the candidate caption is 0.7167591452598572, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False, meaning that the caption is out of context.",
+    "validation_summary": "The image check result determines the image is out of context because the image similarity score is below 0.85, indicating a mismatch between the image and caption despite a high text similarity score. This suggests viewers could be misled about the event depicted."
+  },
+  "inference_time": 5.893118858337402,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

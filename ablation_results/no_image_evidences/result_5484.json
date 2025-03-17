@@ -1,0 +1,37 @@
+{
+  "caption": "This undated photo provided by the Wood family shows Philip Wood an IBM executive who was aboard the Malaysia Airlines flight that went missing on March 8 2014",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Father of missing plane victim leans on faith, family",
+        "content": "F a t h e r   o f   m i s s i n g   p l a n e   v i c t i m   l e a n s   o n   f a i t h ,   f a m i l y",
+        "caption": "This undated photo provided by the Wood family shows Philip Wood, an IBM executive who was aboard the Malaysia Airlines flight that went missing on March 8, 2014.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5711709856987,
+        "text_similarity_score": 0.9631156325340271
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.5711709856987, which is less than 0.85. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. However, the text similarity score is 0.9631156325340271, which is greater than 0.7, indicating that the captions are highly similar. The candidate caption states, \"This undated photo provided by the Wood family shows Philip Wood, an IBM executive who was aboard the Malaysia Airlines flight that went missing on March 8, 2014.\" This is highly similar to the news caption: \"This undated photo provided by the Wood family shows Philip Wood an IBM executive who was aboard the Malaysia Airlines flight that went missing on March 8 2014\". The content of the caption matches the content of the news caption, but I must still return False because the image similarity is too low.",
+      "supporting_evidences": [
+        "The image similarity score is 0.5711709856987, which is less than 0.85.",
+        "The text similarity score is 0.9631156325340271, which is greater than 0.7."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity score is 0.5711709856987, which is less than 0.85. Therefore, according to the instructions, the caption must be marked as out-of-context. The caption does describe the man in the image as Philip Wood, an IBM executive who was aboard the Malaysia Airlines flight. Because the image similarity score is too low, the caption is OOC.",
+    "validation_summary": "The low image similarity score between the provided image and the news story dictates that the image is out of context, regardless of textual similarity in the captions; the image does not appropriately represent the news content it accompanies."
+  },
+  "inference_time": 6.060549259185791,
+  "ablation_type": "no_image_evidences"
+}

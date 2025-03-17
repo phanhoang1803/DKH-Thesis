@@ -1,0 +1,34 @@
+{
+  "caption": "Sandy and Oscar are pals Here she is in 2014",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 7,
+      "confidence_score": 9,
+      "explanation": "The original caption mentions 'Sandy and Oscar are pals' which does not align with the image context describing Sandra Bullock with her son Louis. The caption also includes 'Here she is in 2014' which is relevant because the image was taken in 2014, as described by the image context. Because most of the caption is about unrelated people, I'm marking this as FALSE.",
+      "supporting_evidences": [
+        "The caption mentions 'Sandy and Oscar' which are not in the image.",
+        "The image context describes Sandra Bullock and her son Louis.",
+        "The caption contains the text 'Here she is in 2014' which relates to the image context"
+      ],
+      "verdict": false
+    },
+    "context": {
+      "information": "The image depicts Sandra Bullock smiling warmly, seated comfortably next to her son Louis. Both appear relaxed and happy. Bullock is dressed casually, showcasing her maternal side while conversing with her son, who is also smiling. The background is softly blurred, suggesting a domestic setting that conveys a sense of warmth and intimacy. Bullock has loose hair and a gentle expression, reinforcing the loving bond between mother and child. Louis, who is about five years old, is also leaning towards her, embodying a typical scene of a mother and son sharing a moment together.",
+      "caption": "Sandra Bullock with her son Louis, capturing a warm mother-son moment in 2014.",
+      "context": "The context of the image aligns well with the provided news content, which highlights Sandra Bullock's response to being named the Most Beautiful Woman of 2015. In her interview, she expresses that her son Louis represents true beauty in her life. The image vividly captures this sentiment by showcasing Bullock in a relaxed and loving manner with her son. The essence of the news revolves around appreciating inner beauty and family connections rather than superficial standards; Bullock emphasizes that real beauty is about kindness and being a good person, values she presumably strives to instill in her son. The image complements this narrative perfectly, portraying a candid moment that reflects a nurturing relationship."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "validation_summary": "The caption misrepresents the image by mentioning 'Oscar', while the image features Sandra Bullock with her son Louis, not Oscar.",
+    "explanation": "The caption states, 'Sandy and Oscar are pals Here she is in 2014,' suggesting that the image depicts Sandra Bullock with someone named Oscar. However, the image actually shows Sandra Bullock with her son, Louis, at a public event in 2014. This misrepresentation is significant because it introduces a fictional character (Oscar) into the context of the image, which could mislead viewers into thinking they are viewing a relationship or event involving Oscar, rather than the actual familial interaction present in the photo. Therefore, the caption does not accurately reflect the content of the image, making it out of context."
+  },
+  "inference_time": 20.28048086166382,
+  "ablation_type": "no_image_evidences"
+}

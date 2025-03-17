@@ -1,0 +1,58 @@
+{
+  "caption": "Mitt Romney speaks during a campaign rally at Westerville South High School in Westerville Ohio",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Coastal Forest Products",
+      "Speech",
+      "Flag",
+      "Flag of the United States",
+      "Public speaking",
+      "Flag Day",
+      "Flag Day",
+      "Presidential nominee",
+      "Bow"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Romney hammers Obama on national debt",
+        "content": "R o m n e y   h a m m e r s   O b a m a   o n   n a t i o n a l   d e b t",
+        "caption": "Republican presidential candidate Mitt Romney arrives at a campaign rally at Westerville South High School as a national debt clock runs in the background September 26, 2012 in Westerville, Ohio.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Picture desk live: the best news pictures of the day | World news | The Guardian",
+        "content": "P i c t u r e   d e s k   l i v e :   t h e   b e s t   n e w s   p i c t u r e s   o f   t h e   d a y   |   W o r l d   n e w s   . . .",
+        "caption": "Peering through the crowd, Mitt Romney delivers a speech during a campaign rally at Westerville South High School in Westerville, Ohio, USA.  Photograph: Shawn Thew/EPA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "Both candidates describe Mitt Romney delivering a speech at a campaign rally at Westerville South High School in Westerville, Ohio. Candidate 1 specifies a date (September 26, 2012) which could be used to further confirm the details, but this detail is not required to confirm the caption.",
+      "supporting_evidences": [
+        "Republican presidential candidate Mitt Romney arrives at a campaign rally at Westerville South High School as a national debt clock runs in the background September 26, 2012 in Westerville, Ohio.",
+        "Peering through the crowd, Mitt Romney delivers a speech during a campaign rally at Westerville South High School in Westerville, Ohio, USA."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 9,
+    "explanation": "The image check result provides strong evidence that the caption accurately describes the image. The image depicts Mitt Romney speaking at a campaign rally at Westerville South High School in Westerville, Ohio, as confirmed by the supporting evidences. Therefore, the caption is not out of context.",
+    "validation_summary": "The caption correctly describes the image of Mitt Romney speaking at a campaign rally in Westerville, Ohio, and would not mislead viewers about the image content or context. The image check result confirms this assessment with a high confidence score."
+  },
+  "inference_time": 3.546895742416382,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

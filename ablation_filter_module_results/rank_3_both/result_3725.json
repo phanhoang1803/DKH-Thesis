@@ -1,0 +1,40 @@
+{
+  "caption": "Climate activists stage a protest outside the Louvre pyramid in Paris where negotiations are taking place to agree a global deal on greenhouse gas emissions",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Will the Paris climate deal spell out the end of the fossil fuel era? | Environment | The Guardian",
+        "content": "W i l l   t h e   P a r i s   c l i m a t e   d e a l   s p e l l   o u t   t h e   e n d   o f   t h e   f o s s i l   f u e l   . . .",
+        "caption": "Climate activists stage a protest outside the Louvre pyramid in Paris where negotiations are taking place to agree a global deal on greenhouse gas emissions<br>",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1913502961397171,
+        "text_similarity_score": 0.9951797127723694
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.1913502961397171, which is less than 0.85. The text similarity score is 0.9951797127723694, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts a \"Je Suis Charlie\" balloon against a cloudy sky, with a monument visible in the background. This imagery is related to the Charlie Hebdo attack. The caption describes \"Climate activists stage a protest outside the Louvre pyramid in Paris where negotiations are taking place to agree a global deal on greenhouse gas emissions\". The image does not show any climate activists, the Louvre pyramid, or any indication of climate change negotiations. The image check result confirms a low image similarity score (0.1913502961397171) and a high text similarity score (0.9951797127723694), indicating the caption is out of context despite the potential topical relevance of \"Paris\". Therefore, the caption is not representative of the image content.",
+    "validation_summary": "The caption is about climate activists protesting in Paris, while the image shows a \"Je Suis Charlie\" balloon, making it misleading and out of context. Viewers would be misled about the image's content if they were to read the caption."
+  },
+  "inference_time": 5.978713035583496,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

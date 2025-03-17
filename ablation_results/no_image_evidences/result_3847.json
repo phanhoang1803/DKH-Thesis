@@ -1,0 +1,37 @@
+{
+  "caption": "Vladimir Putin s government is following Argentina s in wanting to limit the number of online purchases residents can make from international sites",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Russia considering 30% import tax on foreign online retailers | Russia | The Guardian",
+        "content": "R u s s i a   c o n s i d e r i n g   3 0 %   i m p o r t   t a x   o n   f o r e i g n   o n l i n e   r e t a i l e r s   . . .",
+        "caption": "Vladimir Putin's government is following Argentina's in wanting to limit the number of online purchases residents can make from international sites. Photograph: Mikhail Metzel/AFP/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.31529414653778076,
+        "text_similarity_score": 0.9630900621414185
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.31529414653778076, which is less than 0.85. The text similarity score is 0.9630900621414185, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than 0.7, the verdict should be 'False'. The candidate caption almost aligns with the news caption but the image similarity score is low. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.31529414653778076",
+        "Candidate 1: Caption Similarity Score: 0.9630900621414185"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows a man in front of a red background with the text \"RUSSIA 2018-2022\" visible. The news caption discusses Vladimir Putin's government considering limiting online purchases from international sites, which does not directly relate to the visual content of the image. The image check result indicates a low image similarity score (0.31529414653778076) and a high text similarity score (0.9630900621414185). Based on the image check result and the discrepancy between the visual content and the caption's topic, the image is out of context.",
+    "validation_summary": "The image shows a man in front of a banner related to Russia, while the caption discusses online purchase restrictions, misleading viewers about the image's relevance to the news article. The image check result confirms the image is used out of context, despite some overlap in topic between the caption and the news content itself which isn't actually represented in the image."
+  },
+  "inference_time": 6.260477781295776,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,52 @@
+{
+  "caption": "People wait in line before the Dr King Career Fair at the Empire State Plaza Convention Center in Albany NY in April this year",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Stocks surge on May jobs report, Dow up 207",
+        "content": "S t o c k s   s u r g e   o n   M a y   j o b s   r e p o r t ,   D o w   u p   2 0 7",
+        "caption": "People wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7431338429450989,
+        "text_similarity_score": 0.9602746963500977
+      },
+      {
+        "title": "Your comments on unemployment benefits: 'Help is necessary sometimes for any of us' - syracuse.com",
+        "content": "Y o u r   c o m m e n t s   o n   u n e m p l o y m e n t   b e n e f i t s :   ' H e l p   i s   n e c e s s a r y   . . .",
+        "caption": "In this Thursday, April 11, 2013 photo, people wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y.",
+        "domain": "www.syracuse.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9621492028236389,
+        "text_similarity_score": 0.9468958973884583
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the provided candidates, both have high image similarity scores (0.7431 and 0.9621, respectively) and text similarity scores (0.9603 and 0.9469, respectively). Candidate 2 meets the condition of image similarity score >= 0.85 AND text similarity score >= 0.7, so the caption is deemed in-context. Both candidate captions explicitly mention 'People wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year,' which closely aligns with the news caption.",
+      "supporting_evidences": [
+        "Candidate 1: Caption similarity score: 0.9603, Image similarity score: 0.7431",
+        "Candidate 2: Caption similarity score: 0.9469, Image similarity score: 0.9621"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption provides a correct representative summary of the image content. Both candidate captions explicitly mention 'People wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year,' which closely aligns with the news caption. The confidence score is high, the final determination is based on the image check result.",
+    "validation_summary": "The image accurately depicts people waiting in line, consistent with the caption's description of the Dr. King Career Fair in Albany, NY, so viewers would not be misled. Based on the image check result, the caption is in context with the image, accurately describing the event and location depicted in the image."
+  },
+  "inference_time": 6.921151161193848,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

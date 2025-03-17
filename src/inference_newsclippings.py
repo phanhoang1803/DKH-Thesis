@@ -95,25 +95,6 @@ def inference(entities_module: EntitiesModule,
         check_info['result'] = visual_check_result
         check_info["check_type"] = "high quality evidences"
     else:
-        # Although we will get only one evidence, we still need to do the similarity check
-        # because need to sort based on the similarity score to get the most similar evidence
-        # image_evidences = image_evidences_module.get_evidence_by_index(idx, 
-        #                                                                query=data["caption"], 
-        #                                                                threshold=0.7,
-        #                                                                reference_image=image_base64, 
-        #                                                                image_similarity_threshold=0.0, 
-        #                                                                min_results=0, 
-        #                                                                max_results=1, 
-        #                                                                use_filter_by_unique_domain_title=False) # Sorted by text similarity score
-        # text_evidences = text_evidences_module.get_evidence_by_index(idx, 
-        #                                                              query=data["caption"],
-        #                                                              threshold=0.7,
-        #                                                              reference_image=image_base64,
-        #                                                              image_similarity_threshold=0.0,
-        #                                                              min_results=0, 
-        #                                                              max_results=1, 
-        #                                                              use_filter_by_domain=True,
-        #                                                              use_filter_by_unique_domain_title=False) # Sorted by text similarity score
         image_evidences = image_evidences_module.get_evidence_by_index(idx, 
                                                                        query=data["caption"], 
                                                                        threshold=0.0,
@@ -268,6 +249,7 @@ def main():
     entities_module = EntitiesModule(args.entities_path)
     image_evidences_module = ImageEvidencesModule(args.image_evidences_path)
     text_evidences_module = TextEvidencesModule(args.text_evidences_path)
+    
     # Process data and save results
     results = []
     error_items = []
@@ -349,18 +331,5 @@ def main():
                 
     total_time = time.time() - total_start_time
     
-    # Add total processing time to results
-    final_results = {
-        "results": results,
-        "total_processing_time": total_time,
-        "average_inference_time": total_time / len(results)
-    }
-    
-    # Uncomment if you want to save the aggregate results
-    # with open(os.path.join(args.output_dir_path, "final_results.json"), "w") as f:
-    #     json.dump(final_results, f, indent=2, cls=NumpyJSONEncoder, ensure_ascii=False)
-    # with open(os.path.join(args.errors_dir_path, "error_items.json"), "w") as f:
-    #     json.dump(error_items, f, indent=2, cls=NumpyJSONEncoder, ensure_ascii=False)
-
 if __name__ == "__main__":
     main()

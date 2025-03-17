@@ -1,0 +1,59 @@
+{
+  "caption": "Los Angeles Kings right wing Justin Williams celebrates with teammates after scoring a goal during the first period",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Ice hockey",
+      "College ice hockey",
+      "Floor hockey",
+      "Ringette",
+      "Rink bandy",
+      "Bandy",
+      "Hockey",
+      "Inline hockey",
+      "Goalkeeper",
+      "Higher Education School"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "LA playoff star Justin Williams wins Conn Smythe  San Diego Union-Tribune",
+        "content": "L A   p l a y o f f   s t a r   J u s t i n   W i l l i a m s   w i n s   C o n n   S m y t h e      S a n   D i e g o   U n i o n   . . .",
+        "caption": "Los Angeles Kings right wing Justin Williams, left, celebrates his goal against the New York Rangers with teammate Los Angeles Kings defenseman Slava Voynov (26), of Russia, during the first period in Game 5 of the NHL Stanley Cup Final series Friday, June 13, 2014, in Los Angeles. (AP Photo/Jae C. Hong)",
+        "domain": "www.sandiegouniontribune.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Kings top Sharks in Game 7",
+        "content": "K i n g s   t o p   S h a r k s   i n   G a m e   7",
+        "caption": "Los Angeles Kings right wing Justin Williams (14) celebrates with teammates Trevor Lewis (22) and Dustin Brown (23) after scoring a goal against the San Jose Sharks in the second period.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates confirm that Justin Williams plays for the Los Angeles Kings and is celebrating a goal with teammates. The first candidate mentions the Stanley Cup Final series. While the candidates support the main elements of the caption (Justin Williams, Los Angeles Kings, celebrating a goal with teammates), the low image similarity scores indicate that the images themselves may not directly correspond. The lack of direct confirmation of the specific game context and the period of the game contributes to a lower confidence score. Without visual confirmation of the exact scene and the specific game, a definitive 'True' verdict cannot be provided. Therefore, the verdict is negative.",
+      "supporting_evidences": [
+        "Candidate 1: Caption mentions Justin Williams, Los Angeles Kings, and celebrating a goal with a teammate.",
+        "Candidate 2: Caption mentions Justin Williams, Los Angeles Kings, and celebrating a goal with teammates."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image shows a group of Los Angeles Kings players celebrating together on the ice, wearing their team jerseys and helmets. The caption states that Justin Williams, a right wing for the Los Angeles Kings, is celebrating with teammates after scoring a goal. The image does depict Kings players celebrating, which aligns with the general idea of celebrating a goal. Although the photo doesn't explicitly confirm Justin Williams specifically or the act of scoring a goal, the overall scene is consistent with the caption's description. Based on the image check result, the confidence score is high enough to trust the image check's determination.",
+    "validation_summary": "The image displays Los Angeles Kings players celebrating, supporting the caption's claim of Justin Williams celebrating with teammates, so it is not misleading. Although the image does not show the specific goal being scored, the celebration aligns with the caption's general context."
+  },
+  "inference_time": 5.127801895141602,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

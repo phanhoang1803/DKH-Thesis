@@ -1,0 +1,40 @@
+{
+  "caption": "Children watch Bozie The 38yearold elephant is originally from Sri Lanka At right is Shanthi also from Sri Lanka",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "A Lonely Elephants Happy Ending - WTOP News",
+        "content": "W T O P   S t a f f     |   W T O P _ W e b _ T e a m @ w t o p . c o m \n \n M a y   2 2 ,   2 0 1 3 ,   8 : 1 3   P M",
+        "caption": "",
+        "domain": "wtop.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.974854588508606,
+        "text_similarity_score": 0.05292975902557373
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.974854588508606, while the text similarity score is 0.05292975902557373. According to the instructions, if the Image Similarity Score is greater than or equal to 0.85 AND the Text Similarity Score is less than 0.7, the verdict must be False. Therefore, the caption is out-of-context, and the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image similarity score is high (0.974854588508606), but the text similarity score is low (0.05292975902557373). This suggests that while the image contains elements described in the caption (elephants), the details and overall context of the image do not align well with the caption's summary. The image depicts children observing elephants in an enclosure at the zoo. The caption mentions specific elephants (Bozie and Shanthi) and their origins. Since the confidence score is high, the final determination must be based on the image check result, thus the caption is out-of-context.",
+    "validation_summary": "The caption is out of context, as it refers to specific elephants, Bozie and Shanthi, which may not be readily identifiable in the image and does not accurately reflect what's happening in the scene. The low text similarity score and high image similarity score confirm this assessment."
+  },
+  "inference_time": 4.127685546875,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

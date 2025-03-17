@@ -1,0 +1,49 @@
+{
+  "caption": "This aerial image shows flooded areas on the campus of Louisiana State University on Aug 13 2016 in Baton Rouge",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "PHOTOS: Historic floods in Louisiana",
+        "content": "P H O T O S :   H i s t o r i c   f l o o d s   i n   L o u i s i a n a",
+        "caption": "This aerial image shows flooded areas on the campus of Louisiana State University on Aug. 13, 2016, in Baton Rouge. (Patrick Dennis, The",
+        "domain": "www.gosanangelo.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6099366545677185,
+        "text_similarity_score": 0.9417795538902283
+      },
+      {
+        "title": "Send Relief to Louisana Flood Victims | KTTZ",
+        "content": "S e n d   R e l i e f   t o   L o u i s a n a   F l o o d   V i c t i m s   |   K T T Z",
+        "caption": "This aerial image shows flooded areas on and near the campus of Louisiana State University (LSU), Saturday, Aug. 13, 2016, in Baton Rouge, La. (Patrick Dennis/The Advocate via AP)",
+        "domain": "radio.kttz.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4572584629058838,
+        "text_similarity_score": 0.929038941860199
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions describe an aerial image showing flooded areas on the campus of Louisiana State University on Aug. 13, 2016, in Baton Rouge. However, the image similarity scores are below 0.85 for both candidates (0.6099366545677185 and 0.4572584629058838). According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, I will mark the caption as false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is out of context because the image similarity scores are below 0.85, even though the text similarity score may be high. The image check result states that both candidate captions describe an aerial image showing flooded areas on the campus of Louisiana State University on Aug. 13, 2016, in Baton Rouge. The image appears to show a river running through a city with flooded areas. There are buildings and roads visible, but it's impossible to verify if it's LSU campus without additional information. Therefore, based on the image check result, the caption is considered out of context.",
+    "validation_summary": "The caption is misleading as it claims the image depicts Louisiana State University, which cannot be confirmed from the image and the image check result confirms it to be out of context due to low similarity score with the image content.. Therefore, viewers would be misled."
+  },
+  "inference_time": 8.47942590713501,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

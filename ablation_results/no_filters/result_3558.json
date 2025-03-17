@@ -1,0 +1,39 @@
+{
+  "caption": "Hillary Clinton greets fans at a signing for her book Hard Choices at the Tattered Cover bookstore in Denver in 2014",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Hillary Clinton visiting Denver on Dec. 11",
+        "content": "H i l l a r y   C l i n t o n   v i s i t i n g   D e n v e r   o n   D e c .   1 1",
+        "caption": "First lady Hillary Rodham Clinton, left, ...",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Hillary Clinton visiting Denver on Dec. 11",
+        "content": "H i l l a r y   C l i n t o n   v i s i t i n g   D e n v e r   o n   D e c .   1 1",
+        "caption": "Today, in an alternate universe where Hillary Clinton actually occupies...",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidate captions have low image and text similarity scores, indicating they do not closely match the news caption. The captions do not confirm the specific details of Hillary Clinton's book signing at the Tattered Cover bookstore in Denver in 2014. The candidates provide no evidence to support the accuracy of the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates that the image and the news caption do not closely match, as reflected by low image and text similarity scores. The caption claims that Hillary Clinton is greeting fans at a signing for her book 'Hard Choices' at the Tattered Cover bookstore in Denver in 2014. While the image shows Hillary Clinton interacting with what appears to be fans, the evidence provided by the image check result does not support the claim. There is nothing in the image to confirm the specific event, location, or book title mentioned in the caption. Because of this lack of supporting evidence, the caption cannot be verified against the image content, the image is out of context with the news caption.",
+    "validation_summary": "The image does not provide enough information to confirm the specifics of the book signing event as stated in the caption, the news caption is likely misleading as the event and location cannot be verified with the image provided. Viewers may be misled into thinking the image specifically shows the event described."
+  },
+  "inference_time": 3.8757596015930176,
+  "ablation_type": "no_filters"
+}

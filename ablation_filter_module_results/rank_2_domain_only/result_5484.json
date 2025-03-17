@@ -1,0 +1,47 @@
+{
+  "caption": "This undated photo provided by the Wood family shows Philip Wood an IBM executive who was aboard the Malaysia Airlines flight that went missing on March 8 2014",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Father of missing plane victim leans on faith, family",
+        "content": "F a t h e r   o f   m i s s i n g   p l a n e   v i c t i m   l e a n s   o n   f a i t h ,   f a m i l y",
+        "caption": "This undated photo provided by the Wood family shows Philip Wood, an IBM executive who was aboard the Malaysia Airlines flight that went missing on March 8, 2014.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Flight 370: Philip Wood's Girlfriend Sarah Bajc Got Death Threat",
+        "content": "F l i g h t   3 7 0 :   P h i l i p   W o o d ' s   G i r l f r i e n d   S a r a h   B a j c   G o t   D e a t h   T h r e a t",
+        "caption": "Sarah Bajc and her boyfriend Philip Wood, who was a passenger aboard the missing Malaysia Airlines jet.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates refer to Philip Wood being on the Malaysia Airlines flight that went missing on March 8, 2014. Candidate 1's caption is an exact match to the news caption. However, image similarity scores are low, indicating the images might be different. Due to the low image similarity scores, the verdict is 'False'.",
+      "supporting_evidences": [
+        "This undated photo provided by the Wood family shows Philip Wood, an IBM executive who was aboard the Malaysia Airlines flight that went missing on March 8, 2014."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 6, so initially, a manual check is required. However, the image check result states that the image similarity scores are low, indicating that the images might be different. The news caption describes the image as being \"provided by the Wood family\" and showing \"Philip Wood an IBM executive who was aboard the Malaysia Airlines flight that went missing on March 8 2014\". The image shows a man in jeans and a jacket standing next to a motorcycle. There is nothing in the image to suggest that the man is Philip Wood, an IBM executive, or that he was aboard the Malaysia Airlines flight. Because the image similarity scores are low and because there is no evidence in the image to support the claim that the man in the image is Philip Wood, the image is out of context. Therefore, I am overriding the initial confidence score of 6 and proceeding with a higher confidence score.",
+    "validation_summary": "The caption claims to show Philip Wood but there is nothing in the image to support that the man is Philip Wood, therefore viewers are being misled. The image appears unrelated to the events described in the news content, making the caption misleading and out of context."
+  },
+  "inference_time": 5.454908609390259,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "caption": "The modern world suffers from a great lack of the capacity to cry Pope Francis told a crowd of thousands at the University of Santo Tomas in Manila on Sunday",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Record 6 million attend pope's Mass, line route, officials say - Los Angeles Times",
+        "content": "R e c o r d   6   m i l l i o n   a t t e n d   p o p e ' s   M a s s ,   l i n e   r o u t e ,   o f f i c i a l s   s a y   . . .",
+        "caption": "Pope in the Philippines",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0, which is less than 0.85. Also, the text similarity score is 0.0, which is less than 0.7. Therefore, I need to analyze the captions and candidates to give the final decision. The news caption talks about Pope Francis telling a crowd of thousands at the University of Santo Tomas in Manila on Sunday that the modern world suffers from a great lack of the capacity to cry. The candidate caption only mentions 'Pope in the Philippines'. This candidate does not provide any information that confirms the news caption, such as the location (University of Santo Tomas in Manila), the specific date (Sunday), or the message Pope Francis delivered. The only element it shares is the presence of the Pope in the Philippines. Therefore, the caption is not verified.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows Pope Francis speaking at a podium. He is wearing a white robe with a yellow lanyard, sitting in a highly decorated chair. The news caption describes Pope Francis speaking to a crowd of thousands at the University of Santo Tomas in Manila on Sunday, saying that the modern world suffers from a great lack of the capacity to cry. While the image does show Pope Francis, it doesn't visually confirm the location (University of Santo Tomas in Manila), the specific date (Sunday), or the specific message he delivered about the capacity to cry. Since these specific details of the news caption cannot be verified by the image, it is out of context.",
+    "validation_summary": "The image does not confirm the specific location, date, or the message from the news caption, which makes the image misleading to viewers about the context of the news story. Thus, the image is out of context because key elements of the caption cannot be verified by the image content alone."
+  },
+  "inference_time": 5.259795427322388,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

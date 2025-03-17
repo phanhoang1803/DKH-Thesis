@@ -1,0 +1,53 @@
+{
+  "caption": "Lindsey Vonn competes during the Audi FIS Alpine Ski World Cup Women s Downhill training on Dec 13 2012 in ValdIsere France",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Slalom skiing",
+      "2014 Winter Olympics",
+      "Julia Mancuso",
+      "Freestyle skiing",
+      "Alpine skiing",
+      "Nordic skiing",
+      "Para alpine skiing",
+      "Ski",
+      "Skiing",
+      "Telemark skiing"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Vail skier Lindsey Vonn reveals battle with depression  The Denver Post",
+        "content": "V a i l   s k i e r   L i n d s e y   V o n n   r e v e a l s   b a t t l e   w i t h   d e p r e s s i o n      T h e   . . .",
+        "caption": "VAL-D'ISERE, FRANCE - DECEMBER 13: (FRANCE OUT) Lindsey Vonn of USA competes during the Audi FIS Alpine Ski World Cup Women's Downhill training on December 13, 2012 in Val-d'Isere, France. ",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7172822952270508,
+        "text_similarity_score": 0.8418251276016235
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.7172822952270508, which is less than 0.85. The text similarity score is 0.8418251276016235, which is greater than 0.7. However, because the image similarity score is less than 0.85, I must mark the caption as out-of-context. The candidate's caption, 'VAL-D'ISERE, FRANCE - DECEMBER 13: (FRANCE OUT) Lindsey Vonn of USA competes during the Audi FIS Alpine Ski World Cup Women's Downhill training on December 13, 2012 in Val-d'Isere, France,' is very similar to the news caption, 'Lindsey Vonn competes during the Audi FIS Alpine Ski World Cup Women s Downhill training on Dec 13 2012 in ValdIsere France'. Both captions mention Lindsey Vonn competing in the Audi FIS Alpine Ski World Cup Women's Downhill training on December 13, 2012, in Val-d'Isere, France. Therefore, the evidence does support the caption, although the images aren't similar enough to meet the strict requirements.",
+      "supporting_evidences": [
+        "The candidate's caption and the news caption are very similar, both describing Lindsey Vonn competing in the same event at the same location and date."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is out of context because the image similarity score is below the threshold (0.717 < 0.85), even though the text similarity score is above the threshold (0.841 > 0.7). According to the image check result, the candidate's caption and the news caption are similar, both describing Lindsey Vonn competing in the same event at the same location and date. However, the image similarity score is not high enough. Therefore, the image does not accurately represent what the caption claims, making it out of context.",
+    "validation_summary": "The image check determined that the image is out of context due to low image similarity, despite the captions being similar in describing the same event. Therefore, viewers would be misled by the image given the caption's claim."
+  },
+  "inference_time": 5.889814853668213,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

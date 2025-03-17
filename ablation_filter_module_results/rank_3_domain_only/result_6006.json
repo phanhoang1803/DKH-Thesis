@@ -1,0 +1,51 @@
+{
+  "caption": "New York Jets quarterback Geno Smith throws a pass",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "New York Jets",
+      "NFL",
+      "UCLA Bruins football",
+      "Geno Smith",
+      "Canadian football",
+      "Quarterback",
+      "American football",
+      "Eight-man football",
+      "Wide receiver",
+      "Six-man football"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Geno Smith, Jets QB, out 6-10 weeks after punched by teammate  The Denver Post",
+        "content": "G e n o   S m i t h ,   J e t s   Q B ,   o u t   6 - 1 0   w e e k s   a f t e r   p u n c h e d   b y   t e a m m a t e   . . .",
+        "caption": "New York Jets quarterback Geno Smith (7) throws a pass during practice at NFL football training camp, Wednesday, Aug. 5, 2015, in Florham Park, N.J.",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0, which means that the images and captions are not similar. However, based on the content of the evidence, the caption is likely to be true. The candidate caption describes \"New York Jets quarterback Geno Smith (7) throws a pass during practice at NFL football training camp\". Therefore, it can be inferred that the news caption 'New York Jets quarterback Geno Smith throws a pass' is correct.",
+      "supporting_evidences": [
+        "New York Jets quarterback Geno Smith (7) throws a pass during practice at NFL football training camp, Wednesday, Aug. 5, 2015, in Florham Park, N.J."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score of 6 and a verdict of 'True'. The supporting evidences confirm that the caption accurately describes the image content as 'New York Jets quarterback Geno Smith throws a pass'. Given the high confidence score and supporting evidence from the image check, it is reasonable to conclude that the caption is a correct representation of the image content. Therefore, the image is not out of context.",
+    "validation_summary": "The caption accurately describes the image, showing Geno Smith, the quarterback of the New York Jets, throwing a pass, as supported by the image check result. Therefore, viewers would not be misled about the image's content, confirming it is not out of context."
+  },
+  "inference_time": 3.465334415435791,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

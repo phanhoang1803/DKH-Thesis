@@ -1,0 +1,47 @@
+{
+  "caption": "Mitchell Johnson is congratulated after taking the wicket of Kohli",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Test cricket",
+      "Cricket",
+      "First-class cricket",
+      "Limited overs cricket",
+      "One Day International",
+      "Team",
+      "Over",
+      "referee"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Virat Kohli recovers to make hundred after being hit on helmet by Mitchell Johnson | Mitchell Johnson | The Guardian",
+        "content": "V i r a t   K o h l i   r e c o v e r s   t o   m a k e   h u n d r e d   a f t e r   b e i n g   h i t   o n   h e l m e t   b y   . . .",
+        "caption": "Australias Mitchell Johnson sends down a short-pitched delivery and hits Virat Kohli on the helmet during the first Test. Photograph: Michael Dodge/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0, and the caption similarity score is 0.0. The candidate caption mentions Mitchell Johnson and Virat Kohli but describes a different action (hitting Kohli on the helmet) than the news caption (Mitchell Johnson is congratulated after taking the wicket of Kohli). The available evidence does not support the news caption. Therefore, the verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low similarity between the image and the news caption. Specifically, the image shows two players congratulating each other, while the caption describes Mitchell Johnson being congratulated after taking the wicket of Kohli. Given the high confidence score (3), the primary basis for evaluation is the image check result. Therefore, the image is out of context as the caption does not match what the image shows. The image check's verdict is 'False', meaning the available evidence does not support the news caption.",
+    "validation_summary": "The caption suggests a specific event (Mitchell Johnson being congratulated after taking Kohli's wicket), but the image depicts a more general scene of players congratulating each other, misleading viewers about the context of the image in relation to the news article. Therefore, the image is out of context, potentially confusing viewers about the specific moment captured in the photograph in relation to the news story about the test match and Kohli's innings..Based on the image check, it seems the primary error is in the action and person involved. The available evidence doesn't directly show that it is indeed Mitchell Johnson congratulating after taking the wicket of Kohli, instead it is just a general image of Mitchell being congratulated by a team member. Therefore, making it out of context.)"
+  },
+  "inference_time": 4.138124227523804,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

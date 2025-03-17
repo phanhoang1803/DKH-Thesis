@@ -1,0 +1,47 @@
+{
+  "caption": "Mitt Romney holds a campaign rally Friday at Canton Hoover High School in North Canton Ohio",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Flag",
+      "Flag Day",
+      "Flag Day"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Obama, Romney campaign with eye on storm forecast",
+        "content": "O b a m a ,   R o m n e y   c a m p a i g n   w i t h   e y e   o n   s t o r m   f o r e c a s t",
+        "caption": "Mitt Romney holds a campaign rally Friday at Canton Hoover High School in North Canton, Ohio.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3809208571910858,
+        "text_similarity_score": 0.9909824132919312
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.3809208571910858, which is less than 0.85. The text similarity score is 0.9909824132919312, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Thus, the verdict is False.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.3809208571910858",
+        "Text Similarity Score: 0.9909824132919312"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity score (0.38) is below the threshold of 0.85, while the text similarity score (0.99) is above the threshold of 0.7. According to the instructions, when the image similarity score is below 0.85, the caption must be marked as out-of-context, regardless of the text similarity score. The image features Mitt Romney and other individuals in front of a bus with campaign slogans. Without more context, it's difficult to verify all details of the caption, but the low image similarity score suggests a mismatch between the image and the caption's specific claims.",
+    "validation_summary": "The image check suggests the caption does not accurately represent the content of the image, indicating a potential mismatch between the visual and the claim. Viewers might be misled about the specific event or location depicted."
+  },
+  "inference_time": 4.931722164154053,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

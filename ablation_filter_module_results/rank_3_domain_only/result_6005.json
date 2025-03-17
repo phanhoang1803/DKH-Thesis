@@ -1,0 +1,55 @@
+{
+  "caption": "Democratic presidential candidate Bernie Sanders speaks at an event sponsored by Institute of Politics at the University of Chicago recently",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "This is the best indication yet that Bernie Sanders is serious about winning | Vox",
+        "content": "T h i s   i s   t h e   b e s t   i n d i c a t i o n   y e t   t h a t   B e r n i e   S a n d e r s   i s   s e r i o u s   . . .",
+        "caption": "Democratic presidential candidate Senator Bernie Sanders (I-VT) speaks to guests at an event sponsored by Institute of Politics at the University of Chicago on September 28, 2015, in Chicago, Illinois.",
+        "domain": "www.vox.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Iowa Democrats worry Bernie Sanders couldnt win a general election or tame Washington | Vox",
+        "content": "I o w a   D e m o c r a t s   w o r r y   B e r n i e   S a n d e r s   c o u l d n ' t   w i n   a   g e n e r a l   . . .",
+        "caption": "Democratic presidential candidate Senator Bernie Sanders (I-VT) speaks to guests at an event sponsored by Institute of Politics at the University of Chicago on September 28, 2015, in Chicago, Illinois.",
+        "domain": "www.vox.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Bernie Sanders courts black voters in Ebony interview | CNN Politics",
+        "content": "B e r n i e   S a n d e r s   c o u r t s   b l a c k   v o t e r s   i n   E b o n y   i n t e r v i e w   |   C N N   P o l i t i c s",
+        "caption": "Democratic presidential candidate Senator Bernie Sanders (I-VT) speaks to guests at an event sponsored by Institute of Politics at the University of Chicago on September 28, 2015 in Chicago, Illinois.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are all 0.0, and the caption similarity scores are also 0.0. This means that the images in the candidates do not match the image in the news, and the captions also do not match. However, the captions of the candidates confirm that Bernie Sanders spoke at an event sponsored by the Institute of Politics at the University of Chicago. The news caption states 'Democratic presidential candidate Bernie Sanders speaks at an event sponsored by Institute of Politics at the University of Chicago recently'. The candidate captions confirm the same information, but also add the date 'September 28, 2015'. As such, the main entities and events described in the news caption align with those in the candidate captions. The word 'recently' in the news caption is vague, as the event in the candidate captions took place in 2015. The candidate captions confirm the main elements of the news caption, so I will mark this as True. However, there is a question of whether the photo is recent, which means my confidence is relatively low.",
+      "supporting_evidences": [
+        "Democratic presidential candidate Senator Bernie Sanders (I-VT) speaks to guests at an event sponsored by Institute of Politics at the University of Chicago on September 28, 2015, in Chicago, Illinois.",
+        "Democratic presidential candidate Senator Bernie Sanders (I-VT) speaks to guests at an event sponsored by Institute of Politics at the University of Chicago on September 28, 2015 in Chicago, Illinois."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows Barack Obama speaking in front of an American flag, not Bernie Sanders. The caption says the image is of Bernie Sanders. Therefore, the caption is incorrect. The image check result has a confidence score of 6, but this is clearly a case where the image does not match the caption, leading to a higher confidence score.",
+    "validation_summary": "The caption identifies the person in the image as Bernie Sanders, but the image clearly shows Barack Obama. Viewers would be misled about who is in the picture if they rely on the caption only; the caption is out of context since it incorrectly identifies the person in the image, which is a core element of the image's content and meaning. Therefore, the caption is out of context and misrepresents the image content, as it is describing the wrong individual featured in the image. Given that the person is clear, a high confidence score is justified. As such, this overrides the initial confidence_score of 6 from the image check result, and a score of 9 is assigned due to high confidence in the incorrect identification of the individual in the image. The primary entity in the image is incorrectly identified, meaning the news caption is false and the image is OOC (Out of Context). Note that it's possible the source article actually featured Obama as related to Sanders, but the news caption should describe the contents of the image, not necessarily the contents of the article itself, especially if the article is about Bernie Sanders and the image depicts Barack Obama. Thus, the image caption should identify Obama, not Sanders, for the caption to correctly and representatively summarize the image content. The mismatch is easily and immediately identifiable, adding to my confidence that this is OOC, contrary to what was initially reported by the image check result. The candidate captions contained text relating to Bernie Sanders, so the image check result said the captions aligned, but the image does not contain Bernie Sanders so the caption is misleading. Given the clarity with which the primary entity is misidentified, the OOC verdict is clear and the confidence score should be high to reflect that clarity (a '9' is assigned). The core issue is the specific misidentification of the subject of the image, with the caption claiming 'Bernie Sanders' when it clearly depicts Barack Obama. This makes the caption fundamentally out of context with the image. Thus, the initial Image Check Result must be overridden, based on the instruction to prioritize the image evidence when there is a discrepancy between the image content and image check results (this instruction applies for confidence scores below 7, although it has a confidence score of 6.)"
+  },
+  "inference_time": 6.960677146911621,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

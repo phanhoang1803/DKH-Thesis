@@ -1,0 +1,50 @@
+{
+  "caption": "Pope Francis kisses a young child with Down syndrome in Rome",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Pope",
+      "Infant",
+      "Down syndrome",
+      "Syndrome",
+      "Muscle",
+      "Family",
+      "Birth defect",
+      "Sick",
+      "Pontiff"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Pope's prayer: Change of mentality about differently abled",
+        "content": "P o p e ' s   p r a y e r :   C h a n g e   o f   m e n t a l i t y   a b o u t   d i f f e r e n t l y   a b l e d",
+        "caption": "A girl with down syndrome kisses Pope Francis",
+        "domain": "aleteia.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.212637260556221,
+        "text_similarity_score": 0.8705379366874695
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.212637260556221 which is less than 0.85 and the text similarity score is 0.8705379366874695 which is greater than 0.7. According to the instruction, the caption must be marked as out-of-context, even if the text similarity score is high. Thus, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates the image is out of context (OOC = True). The confidence score is 2, which would typically require a deeper analysis. However, given that the image check result is negative, the final determination MUST be based on it, according to the instructions. The image similarity score is 0.212637260556221, which is less than 0.85, and the text similarity score is 0.8705379366874695, which is greater than 0.7. Despite the high text similarity score, the instructions specify that the caption should be marked as out-of-context because the image similarity score is low. Therefore, I will abide by the image check results. The caption claims that Pope Francis is kissing a child with Down syndrome, but the image does not conclusively confirm that the child has Down syndrome. Therefore the image is out of context.",
+    "validation_summary": "The image check determined that the caption is out of context due to the image similarity score being low, overriding the high text similarity score. Therefore, the caption misrepresents the content of the image, because the image is not sufficient to prove the caption claim."
+  },
+  "inference_time": 5.792581081390381,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

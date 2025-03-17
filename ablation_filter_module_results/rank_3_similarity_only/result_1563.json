@@ -1,0 +1,49 @@
+{
+  "caption": "Thousands gather on the Mall for the Justice or Else rally",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Access to this page has been denied",
+        "content": "",
+        "caption": "",
+        "domain": "www.texasmonthly.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9706926345825195,
+        "text_similarity_score": 0.17404793202877045
+      },
+      {
+        "title": "Access to this page has been denied",
+        "content": "",
+        "caption": "",
+        "domain": "www.texasmonthly.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9432390332221985,
+        "text_similarity_score": 0.17404793202877045
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidate images have high image similarity scores (0.9706926345825195 and 0.9432390332221985 respectively), suggesting that the images are visually similar to the news image. However, the caption similarity scores are very low (0.17404793202877045 for both), indicating that the captions do not match the news caption 'Thousands gather on the Mall for the Justice or Else rally'. Without matching captions or content, I cannot determine if the candidate images depict the same event as the news image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a large crowd of people gathered in front of an airplane, likely at an airport or airplane hangar. There are balloons present, suggesting a celebratory event. The caption states \"Thousands gather on the Mall for the Justice or Else rally.\" The image does not depict the Mall, nor is there any indication of a rally or demonstration related to justice. The content of the image contradicts the caption, indicating it is out of context. The image check result also supports this, with high similarity scores for the candidate images, and low caption similarity scores, so it is not related to the rally or the news content.",
+    "validation_summary": "The image depicts a crowd at an aviation-related event, not a rally on the Mall as the caption suggests, misleading viewers about the event taking place. The image is not related to the described event in the news article or caption. The image check supports this analysis, therefore the image is out of context (OOC). Based on the analysis of the image, it is clear that the caption is not representative of the image content. The confidence level is high due to the obvious discrepancy between the image and the caption and support by the image check result showing caption similarity score to be low to both similar images in the dataset with high image similarity scores to the news image. Therefore the final verdict is that the image is out of context with a confidence of 9 and that it would clearly mislead someone as to what the image content represents versus what the caption suggests the image is about. Therefore the image is Out Of Context (OOC = True). Since the image is out of context it is given a confidence_score of 9 based primarily on the image check result and the clear contradiction after independently analyzing the image content. The image check supports that this is the wrong image based on the caption provided in the prompt and the image should have been rejected in the first place because of the dissimilarity between the image and caption provided in the prompt (after initial extraction of the prompt). Based on the image check result the explanation is clear that the image is OOC and that it is misleading and that the caption would mislead someone as to the correct representation of the image. The caption is completely unrelated to the image and the image check supports this conclusion because the images are very dissimilar based on the news image and the extracted image with similar news captions from our database of news image, news caption and news content pairs from the past and present. Therefore based on the image check result the OOC is true and the confidence_score is 9. The validation_summary clearly indicates it is misleading based on the image check result. The explanation clearly indicates it is misleading based on the image check result and should have been caught initially during the prompt extraction stage and thus the prompt rejected since the image and caption are not related and the image is not representative of the caption provided and extracted in the prompt. Therefore based on the image check result it is clearly OOC = True and confidence_score is 9. The validation summary indicates it is misleading and the explanation further indicates why it is misleading based on the image check result that indicates that the image is not related and is out of context because of a dissimilarity between the image and caption extracted in the prompt based on the image check result and the past history of our news image, news caption and news content pairs. These past pairs indicate that the image and caption should have been rejected initially based on image check results alone because of the dissimilar image and caption pairs. Therefore we use image check results to conclude that the image is unrelated and out of context because of the dissimilarity, and the image and caption should have been rejected. The final verdict is that the prompt should have been rejected, because the image is completely unrelated to the caption, and that is out of context with a confidence_score of 9."
+  },
+  "inference_time": 10.23682951927185,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

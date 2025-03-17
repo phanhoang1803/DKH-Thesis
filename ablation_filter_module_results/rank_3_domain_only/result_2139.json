@@ -1,0 +1,60 @@
+{
+  "caption": "Clinton takes selfies with voters as New Hampshire polls open",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Anthony Weiner",
+      "Chelsea Clinton",
+      "United States",
+      "Democratic National Convention",
+      "Clinton Foundation",
+      "Politics",
+      "Concession"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Bill Clinton digs into Sanders in last-ditch pitch before New Hampshire vote | Bill Clinton | The Guardian",
+        "content": "B i l l   C l i n t o n   d i g s   i n t o   S a n d e r s   i n   l a s t - d i t c h   p i t c h   b e f o r e   N e w   . . .",
+        "caption": "Bill Clinton on Bernie Sanders campaign: When youre making a revolution, you cant be too careful with the facts.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Clinton fights back to take New Hampshire | World news | The Guardian",
+        "content": "C l i n t o n   f i g h t s   b a c k   t o   t a k e   N e w   H a m p s h i r e   |   W o r l d   n e w s   |   T h e   G u a r d i a n",
+        "caption": "Hillary Clinton waves as she arrives for a visit to a polling site at a school in Concord,  New Hampshire. Photograph: Justin Lane/EPA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Hillary Clinton attacks Scott Brown for 'dismissing' women's rights in New Hampshire | US midterm elections 2014 | The Guardian",
+        "content": "H i l l a r y   C l i n t o n   a t t a c k s   S c o t t   B r o w n   f o r   ' d i s m i s s i n g '   w o m e n ' s   . . .",
+        "caption": "The former US secretary of state Hillary Clinton, joins US senator Jeanne Shaheen, left, and the New Hampshire governor, Maggie Hassan, at a rally in Nashua on Sunday.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are all 0.0, and the text similarity scores are all 0.0. Thus, the automated rules cannot be applied. After a manual analysis of the captions provided, none of them provides any information about Clinton taking selfies with voters in New Hampshire polls. Therefore, the evidences do not provide any information to verify if the caption accurately represents what the news image shows.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 2, indicating a low confidence in the initial analysis. However, the manual analysis confirms that the image does not show any explicit evidence of Clinton taking selfies with voters in New Hampshire polls. The image depicts a crowded scene with many people, including what appears to be Hillary Clinton, but the action of taking selfies, the location in New Hampshire, and the context of polls opening are not visually verifiable within the image itself. Although the image does show Clinton interacting with a crowd, the caption makes specific claims that cannot be confirmed by the visual evidence, making the image out of context. The image does not show the detail of Clinton taking selfies; people in the image are holding up phones, but it's not clear who is taking the photos.",
+    "validation_summary": "The image does not visually confirm the caption's claim of Clinton taking selfies with voters at New Hampshire polls, potentially misleading viewers about the image's content and context. The high confidence score is due to the consistency of evidence."
+  },
+  "inference_time": 4.339454650878906,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

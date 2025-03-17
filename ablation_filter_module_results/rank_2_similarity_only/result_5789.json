@@ -1,0 +1,60 @@
+{
+  "caption": "The Stone Bridge at the Manassas National Battlefield Park is the backdrop for this photo of bluebells April 19 2014",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Bluebonnet",
+      "Fredericksburg",
+      "Texas bluebonnet",
+      "April Showers",
+      "2015",
+      "Bring May Flowers",
+      "Bring May Flowers",
+      "Split-rail fence",
+      "April Showers Bring May Flowers",
+      "Picket fence"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Happy May 1st: April showers bring May flowers - USA Today",
+        "content": "",
+        "caption": "Bluebonnet season arrives in Fredericksburg, Texas on April 4, 2015.",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8991184234619141,
+        "text_similarity_score": 0.33631449937820435
+      },
+      {
+        "title": "Your Take: Readers' #100beautifuldays - USA Today",
+        "content": "",
+        "caption": "Bluebonnet season arrives in Fredericksburg, Texas on April 4, 2015.",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8991184234619141,
+        "text_similarity_score": 0.33631449937820435
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidates have low image similarity scores (< 0.85) and text similarity scores (< 0.7). The captions of the candidates are about bluebonnet season in Fredericksburg, Texas, while the news caption describes bluebells at the Manassas National Battlefield Park. There is no match between the news caption and the candidate captions, indicating that the news caption is out-of-context based on the provided evidences.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates low similarity between the provided image and the news caption. The image depicts a field of blue and red wildflowers (likely bluebonnets and poppies) with a wooden fence and trees in the background, whereas the news caption describes 'bluebells' at the 'Manassas National Battlefield Park'. The image does not show evidence of a stone bridge, as mentioned in the caption. The negative image check result, combined with the visual analysis, supports the conclusion that the caption is out of context.",
+    "validation_summary": "The caption describes a scene of bluebells and a stone bridge at Manassas National Battlefield Park, while the image shows a field of different wildflowers and a wooden fence, leading to a mismatch that would mislead viewers about the image content. The image check result also supports this conclusion that the caption is out of context. Therefore, the news caption is out of context for the provided image.. OOC = True with high confidence score (9). "
+  },
+  "inference_time": 4.6191911697387695,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

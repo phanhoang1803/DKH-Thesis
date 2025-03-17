@@ -1,0 +1,41 @@
+{
+  "caption": "WalMart employs 13 million people in the US making it the country s largest employer",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 10,
+      "explanation": "The caption mentions Walmart being the largest employer in the US with 1.3 million employees. However, the image shows a crowded Walmart store with customers shopping. While the context mentions Walmart's announcement of ending health insurance for part-time employees, it doesn't directly relate to the image of a store with customers. The caption is not adequately conveying what the image is about. The caption does not align with the image context.",
+      "supporting_evidences": [
+        "The image shows a crowded Walmart store with customers.",
+        "The caption focuses on Walmart's employment numbers.",
+        "The image context describes the store's retail environment and customer engagement.",
+        "The news context mentions changes in employee benefits."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "information": "The image depicts a crowded Walmart store with several customers shopping. Various aisles are visible, showcasing a variety of products ranging from groceries to household items. The bright fluorescent lighting and typical Walmart signage can also be observed, highlighting the retail environment. There appears to be a diverse group of people, including families, individuals, and elderly shoppers, each engaging in their shopping experience.",
+      "caption": "Busy Walmart store illustrating the retail giant's operation and customer engagement.",
+      "context": "The image captures the essence of Walmart as the largest employer in the US, employing approximately 1.3 million people. The news context is centered around Walmart's recent announcement of ending health insurance for about 30,000 part-time employees, which aligns with the ongoing discussions about healthcare costs affecting both employees and employers. These shifts in employee benefits reflect the broader challenges faced by major corporations like Walmart amidst rising healthcare expenses. The visible customer traffic in the image signifies Walmart's significant role in the retail space and the impact of such decisions on its workforce. Given that Walmart is known for its extensive reach in the retail market, the image serves as a visual representation of both the operational scale of Walmart and the implications of its corporate decisions on its vast employee base."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image displays a Homebase store sign, but the caption discusses Walmart's employment figures and healthcare policies. This discrepancy makes the caption misleading, as it fails to accurately represent the visual content of the image. The image check result supports this conclusion, indicating a mismatch between the caption and the image's content.",
+    "validation_summary": "The image shows a Homebase store, while the caption is about Walmart's employment policies, thus creating a false impression about the image's subject matter and misleading viewers. The caption is out of context with the image."
+  },
+  "inference_time": 4.339372158050537,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

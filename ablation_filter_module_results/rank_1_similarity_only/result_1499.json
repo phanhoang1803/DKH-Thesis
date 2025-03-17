@@ -1,0 +1,40 @@
+{
+  "caption": "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Three arrested after raid on slave factory in Rochdale | Manchester | The Guardian",
+        "content": "T h r e e   a r r e s t e d   a f t e r   r a i d   o n   ' s l a v e '   f a c t o r y   i n   R o c h d a l e   . . .",
+        "caption": "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever. Photograph: Christopher Furlong/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3113730847835541,
+        "text_similarity_score": 0.9473894834518433
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.3113730847835541, which is less than 0.85. The text similarity score is 0.9473894834518433, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a police officer with a K-9 unit at what appears to be a baseball stadium. The caption describes a police raid on a factory in Rochdale and arrests related to human trafficking. The image does not show any elements related to the caption, such as a factory, a raid, arrests, or victims of human trafficking. The image check result confirms the low image similarity score and the high text similarity score, reinforcing the determination that the caption is out of context. Based on the image and the image check result, the caption does not accurately represent what is shown in the image.",
+    "validation_summary": "The image shows a police officer and a dog in a stadium, which is completely unrelated to the caption's description of a police raid on a factory related to human trafficking, misleading viewers about the image's content. The high confidence score is due to the strong evidence from the image and the image check result."
+  },
+  "inference_time": 5.7787699699401855,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

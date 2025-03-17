@@ -1,0 +1,45 @@
+{
+  "caption": "People wave flags at the official Olympic Games handover party outside Buckingham Palace",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "With almost a roar, capital puts on a very British handover party | Olympic Games 2012 | The Guardian",
+        "content": "W i t h   a l m o s t   a   r o a r ,   c a p i t a l   p u t s   o n   a   v e r y   B r i t i s h   h a n d o v e r   p a r t y   . . .",
+        "caption": "London Mayor Boris Johnson, centre, waves the Olympic flag alongside, from left to right, Lord Colin Moynihan, London 2012 Chairman Lord Sebastian Coe, British Prime Minister Gordon Brown, football player David Beckham and Olympics Minister Tessa Jowell. Photograph: Elizabeth Dalziel/AP",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Olympics closing ceremony | Sport | The Guardian",
+        "content": "O l y m p i c s   c l o s i n g   c e r e m o n y   |   S p o r t   |   T h e   G u a r d i a n",
+        "caption": "Beijing Olympics closing ceremony",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidates have very low image and text similarity scores, indicating they do not depict the same event or contain similar captions. Candidate 1 describes a scene with Boris Johnson, Lord Colin Moynihan, Lord Sebastian Coe, Gordon Brown, David Beckham, and Tessa Jowell with the Olympic flag. Candidate 2 simply mentions the Beijing Olympics closing ceremony. Neither candidate provides information related to people waving flags at an official Olympic Games handover party outside Buckingham Palace. Therefore, there is no evidence to support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows two Union Jack flags being waved against a blue sky with some clouds. The image check result has a confidence score of 2 and the supporting evidence did not provide information related to people waving flags at an official Olympic Games handover party outside Buckingham Palace. The caption references people waving flags at the official Olympic Games handover party outside Buckingham Palace. The image shows flags being waved but no evidence of the specific event or location. Therefore, the caption is considered out of context because the image does not show evidence of the claims made in the caption.",
+    "validation_summary": "The image depicts people waving Union Jack flags, but lacks any visual evidence of the specific event or location described in the caption, suggesting it's used out of context. The caption is misleading as it implies the image is of the official Olympic Games handover party outside Buckingham Palace, when the image does not provide any evidence to support this claim."
+  },
+  "inference_time": 4.790821552276611,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

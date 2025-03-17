@@ -1,0 +1,51 @@
+{
+  "caption": "Alex Corbisiero right on his debut faces up to Martin Castrogiovanni for the first scrum",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Rugby league",
+      "Rugby sevens",
+      "Rugby league sevens",
+      "Rugby tens",
+      "Rugby league nines",
+      "Touch",
+      "Rugby football",
+      "Touch football",
+      "Rugby union",
+      "Tackle"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Six Nations 2011:  England v Italy - in pictures | Sport | The Guardian",
+        "content": "S i x   N a t i o n s   2 0 1 1 :   E n g l a n d   v   I t a l y   -   i n   p i c t u r e s   |   S p o r t   |   T h e   G u a r d i a n",
+        "caption": "England v Italy: Alex Corbisiero faces up to Martin Castrogiovanni for the first scrum",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0, so the strict decision rules do not apply. I will proceed with analyzing the text. The caption \"Alex Corbisiero right on his debut faces up to Martin Castrogiovanni for the first scrum\" describes a rugby match scenario. The candidate caption \"England v Italy: Alex Corbisiero faces up to Martin Castrogiovanni for the first scrum\" mentions the same players and action. Although the candidate confirms some elements (players and action), it lacks explicit confirmation that it's Alex Corbisiero's debut. Without such confirmation, the caption is only partially verified.",
+      "supporting_evidences": [
+        "England v Italy: Alex Corbisiero faces up to Martin Castrogiovanni for the first scrum"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows a rugby player running with the ball during a practice session. Other players and coaches are present on the field. The caption states, \"Alex Corbisiero right on his debut faces up to Martin Castrogiovanni for the first scrum.\" However, the image does not depict a scrum, nor does it provide visual evidence that it is Alex Corbisiero's debut or that he is facing Martin Castrogiovanni. The image check result had a score of 6, but since the score is not that far away from 7, I will use the stricter rules that apply to scores 7-10 and will use the image check result to make my decision.",
+    "validation_summary": "The caption misrepresents the image by describing a specific scenario (a scrum) that is not visible in the image, leading viewers to believe something that is not supported by the visual evidence. The image shows a practice and not a face-off between specific players as described in the caption, thus, the image is out of context based on the caption provided.. Given the image check result, I am marking this as OOC and increasing the confidence score to 7, reflecting the stronger influence of the image check result, even though that result itself had a lower score initially."
+  },
+  "inference_time": 5.113975286483765,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

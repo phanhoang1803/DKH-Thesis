@@ -1,0 +1,65 @@
+{
+  "caption": "Libyan men protesting against Ansar alSharia in Benghazi Libya last month",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Benghazi",
+      "United States",
+      "Ansar al-Sharia",
+      "Ambassador",
+      "Diplomat",
+      "Demonstration",
+      "Rebellion",
+      "Photograph",
+      "Death"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Unarmed people power drums Libya's jihadists out of Benghazi | Libya | The Guardian",
+        "content": "U n a r m e d   p e o p l e   p o w e r   d r u m s   L i b y a ' s   j i h a d i s t s   o u t   o f   B e n g h a z i   . . .",
+        "caption": "A Libyan man gestures as thousands of people march in Benghazi during a protest against militias on 21 September, 2012.  Photograph: Abdullah Doma/AFP/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Libyan army blockades Islamist militia suspected of killing US ambassador | Libya | The Guardian",
+        "content": "L i b y a n   a r m y   b l o c k a d e s   I s l a m i s t   m i l i t i a   s u s p e c t e d   o f   k i l l i n g   U S   . . .",
+        "caption": "Libyan men protesting against Ansar al-Sharia in Benghazi, Libya, last month. Photograph: Mohammad Hannon/AP",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Libya Benghazi: Group blamed for 2012 attack on US mission disbands - BBC News",
+        "content": "L i b y a   B e n g h a z i :   G r o u p   b l a m e d   f o r   2 0 1 2   a t t a c k   o n   U S   m i s s i o n   . . .",
+        "caption": "Supporters and members of hard-line Islamist group of Ansar al-Sharia shout slogans during a demonstration against a film mocking Islam in Benghazi (24 September 2012)",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Based on the provided candidates, candidate 2 has the exact caption as the news caption. This confirms that the news caption is an accurate representation of the image. However, all Image Similarity Scores are 0.0 and Text Similarity Scores are 0.0, which means there is no automated match between the news and candidate captions, except the content of the caption being the same as Candidate 2. This reduces overall confidence. Also, since candidate 2 is also from a reliable source, theguardian.com, it further strengthens the case for verification. All the key elements mentioned in the news caption (Libyan men, protesting, Ansar al-Sharia, Benghazi, Libya, last month) are confirmed by the candidate caption.",
+      "supporting_evidences": [
+        "Candidate 2: Caption: Libyan men protesting against Ansar al-Sharia in Benghazi, Libya, last month. Photograph: Mohammad Hannon/AP",
+        "Domain: www.theguardian.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a confidence score of 7, based on the caption provided by Candidate 2 which accurately describes the image content: \"Libyan men protesting against Ansar al-Sharia in Benghazi, Libya, last month.\" Despite the lack of automated similarity scores, the manual matching of the news and candidate captions, alongside the candidate's reliable source (theguardian.com), reinforces the image's accuracy in depicting the described event. Therefore, the image is not out of context.",
+    "validation_summary": "The caption accurately describes the image as Libyan men protesting against Ansar al-Sharia in Benghazi, Libya, last month, aligning with the details present in the image and a reliable source. Therefore, the image is not out of context."
+  },
+  "inference_time": 4.705204248428345,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

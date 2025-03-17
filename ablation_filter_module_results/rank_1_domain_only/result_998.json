@@ -1,0 +1,45 @@
+{
+  "caption": "A Sikh worker on the assembly line at Ford s Dagenham plant in 1970",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Asian Britain: A Photographic History - in pictures | Society | The Guardian",
+        "content": "S a r a h   G i l b e r t \n \n W e d   6   N o v   2 0 1 3   1 9 . 1 1  C E T \n \n \n                         F i r s t   p u b l i s h e d   o n   W e d   6   N o v   2 0 1 3   1 9 . 1 1  C E T \n \n P h o t o g r a p h :   L o n d o n   S t e r e o s c o p i c   C o m p a n y / G e t t y   I m a g e s \n \n P h o t o g r a p h :   P a u l   P o p p e r / P o p p e r f o t o / G e t t y   I m a g e s \n \n P h o t o g r a p h :   T o p i c a l   P r e s s   A g e n c y / G e t t y   I m a g e s \n \n P h o t o g r a p h :   G e n e r a l   P h o t o g r a p h i c   A g e n c y / G e t t y   I m a g e s \n \n P h o t o g r a p h :   A .   R .   T a n n e r / G e t t y   I m a g e s \n \n P h o t o g r a p h :   C e n t r a l   P r e s s / G e t t y   I m a g e s \n \n P h o t o g r a p h :   P o p p e r f o t o / G e t t y   I m a g e s \n \n P h o t o g r a p h :   E v e n i n g   S t a n d a r d / G e t t y   I m a g e s \n \n P h o t o g r a p h :   E v e n i n g   S t a n d a r d / G e t t y   I m a g e s \n \n P h o t o g r a p h :   E v e n i n g   S t a n d a r d / G e t t y   I m a g e s \n \n P h o t o g r a p h :   J o h n   D o w n i n g / G e t t y   I m a g e s \n \n P h o t o g r a p h :   T e r r y   S m i t h / T i m e   &   L i f e   P i c t u r e s / G e t t y   I m a g e",
+        "caption": "Asian Britain: Assembly Line Worker",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Asian Britain: A Photographic History - in pictures | Society | The Guardian",
+        "content": "A s i a n   B r i t a i n :   A   P h o t o g r a p h i c   H i s t o r y   -   i n   p i c t u r e s   |   S o c i e t y   . . .",
+        "caption": "Asian Britain: Assembly Line Worker",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity scores for both candidates are 0.0, which means that the images in the candidates do not match the image described by the news caption. Additionally, the caption similarity scores are also 0.0, indicating that the captions in the candidates do not match the news caption. Since the image and text similarity scores are low, and after analyzing the candidates, there is not enough information to determine if the caption accurately represents the image. The candidates only mention 'Asian Britain: Assembly Line Worker' and do not provide specific details about a Sikh worker at the Ford Dagenham plant in 1970.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result provides a confidence score of 3 and indicates that the image doesn't match the caption. The image shows a group of workers on an assembly line, working on a car frame. While it may be plausible that one of the workers is Sikh, there is no definitive evidence in the image to confirm this, nor is there any indication of the Ford Dagenham plant or the year 1970. The low confidence score from the image check result suggests that the image may not accurately represent the caption, and it's safer to consider the caption as potentially misleading without further corroboration. Given the image check score is less than 7, I analyzed the image and caption. The caption's claims are specific to the identity and workplace of a worker. The image does not contain any specific information about the identity of the worker (Sikh) or workplace (Ford Dagenham in 1970). Thus, the caption's claims go beyond the image evidence.",
+    "validation_summary": "The caption provides details not explicitly visible in the image, specifically the worker's religious affiliation (Sikh) and the location (Ford Dagenham in 1970), potentially misleading viewers by assuming information not directly supported by the visual content, which the image check result corroborates with its assessment of low similarity between image and caption claims and content from the news article. Because the confidence score of the image check is 7 or higher, I made my final determination based on the image check results."
+  },
+  "inference_time": 4.809429407119751,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "caption": "In the Harajuku area of Tokyo young people prefer wearing more modern clothes kimonos are out of fashion",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "The decline and fall of the kimono  in pictures | Life and style | The Guardian",
+        "content": "M o n   8   O c t   2 0 1 2   2 0 . 0 0  B S T \n \n \n                         F i r s t   p u b l i s h e d   o n   M o n   8   O c t   2 0 1 2   2 0 . 0 0  B S T \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   R o l a n d   B u e r k \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   R u t h   E v a n s \n \n P h o t o g r a p h :   R o l a n d   B u e r k \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   R u t h   E v a n s \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   R u t h   E v a n s \n \n P h o t o g r a p h :   R u t h   E v a n s \n \n P h o t o g r a p h :   P a m   S k i n n e r",
+        "caption": "Kimono gallery: young people prefer wearing fashionable clothes to kimonos.",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Lolita style, explained: Why the Japanese-born, Victorian-inspired street style enchants women around the world | CNN",
+        "content": "L o l i t a   s t y l e ,   e x p l a i n e d :   W h y   t h e   J a p a n e s e - b o r n ,   V i c t o r i a n - i n s p i r e d   . . .",
+        "caption": "Lauren, Bianca, Nghi, and Ella wait outside the Lovejoy's Tea Room in San Francisco, California, on September 10, 2023.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidates have low image and text similarity scores, indicating they do not match the news item. The first candidate discusses a 'Kimono gallery' and young people preferring fashionable clothes to kimonos, which has some thematic overlap with the news caption but doesn't offer specific corroboration. The second candidate is completely unrelated, depicting people outside a tea room in San Francisco. The news caption is about Harajuku, Tokyo, and the trend of young people preferring modern clothes over kimonos. Since neither candidate provides direct support and their similarity scores are low, I must conclude the caption's accuracy cannot be verified.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a person with bright yellow hair riding a gold-colored bicycle in what appears to be a street in Japan. The person is wearing a light blue, patterned jacket or dress. The caption claims that in the Harajuku area of Tokyo, young people prefer modern clothes and that kimonos are out of fashion. While the image may have been taken in the Harajuku area, the person's clothing is not necessarily representative of 'modern clothes' and does not provide any information about the popularity or lack thereof of kimonos. The person's outfit is quite eccentric and doesn't allow for a conclusion about general fashion trends. The image check result also indicates that the caption's accuracy cannot be verified and the text similarity score between the image and the caption is low.",
+    "validation_summary": "The image shows a person in non-traditional attire on a bicycle, which does not directly support the claim that kimonos are out of fashion in Harajuku, making the caption misleading. The image and caption lack a clear connection, as the person's attire cannot be considered representative of general fashion trends or the decline of kimonos."
+  },
+  "inference_time": 4.8555028438568115,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

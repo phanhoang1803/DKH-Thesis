@@ -1,0 +1,53 @@
+{
+  "caption": "Coming back for more Bradford Bulls hero from their glory years James Lowes is now head coach as they bid for promotion from the Championship",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Ian McCourt | The Guardian",
+        "content": "I a n   M c C o u r t   i s   a   f o r m e r   G u a r d i a n   s u b e d i t o r   a n d   w r i t e r",
+        "caption": "Bobby Zamora",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9246280789375305,
+        "text_similarity_score": 0.22528839111328125
+      },
+      {
+        "title": "Bradford Bulls aim to mount charge for swift return to Super League | Bradford Bulls | The Guardian",
+        "content": "J a m e s - L o w e s - 0 0 5 . j p g ? q u a l i t y = 8 5   . . .",
+        "caption": "Coming back for more, Bradford Bulls hero from their glory years, James Lowes, is now head coach as they bid for promotion from the Championship. Photograph: Mike Mayhew/Sportsphoto Ltd.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.42354512214660645,
+        "text_similarity_score": 0.9560022950172424
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1 has a high image similarity score (0.9246280789375305), but its text similarity score is low (0.22528839111328125). Therefore, based on the instructions, this is not sufficient to prove that the caption accurately represents the image. Candidate 2 has an image similarity score of 0.42354512214660645, which is below the threshold of 0.85. However, its text similarity score is 0.9560022950172424, which is above 0.7. Based on the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. However, in this case, candidate 2 has a high caption similarity score and states: \"Coming back for more, Bradford Bulls’ hero from their glory years, James Lowes, is now head coach as they bid for promotion from the Championship.\" The news caption is: \"Coming back for more Bradford Bulls hero from their glory years James Lowes is now head coach as they bid for promotion from the Championship.\" The high text similarity score and evidence provided in candidate 2 confirms that the caption accurately represents the image.",
+      "supporting_evidences": [
+        "Candidate 2: Caption: Coming back for more, Bradford Bulls’ hero from their glory years, James Lowes, is now head coach as they bid for promotion from the Championship. Photograph: Mike Mayhew/Sportsphoto Ltd.",
+        "Candidate 2: Image Similarity Score: 0.42354512214660645",
+        "Candidate 2: Caption Similarity Score: 0.9560022950172424"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (10) and confirms that the caption accurately represents the image. Candidate 2 provides evidence supporting this conclusion with a high caption similarity score (0.9560022950172424) and relevant caption information. The image shows two soccer players in uniform hugging each other. The caption refers to James Lowes returning to the Bradford Bulls as head coach, which is supported by the candidate's caption. Given the high confidence score and the supporting evidence from the image check, the image is not out of context.",
+    "validation_summary": "The image check result confirms that the caption accurately represents the image, indicating that viewers would not be misled about what they're seeing. The high confidence score and supporting evidence from candidate 2 confirm the accurate representation."
+  },
+  "inference_time": 6.968193769454956,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

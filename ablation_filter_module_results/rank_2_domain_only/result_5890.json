@@ -1,0 +1,40 @@
+{
+  "caption": "A Koala called Mullaya keeps on munching during the annual inventory at Dresden zoo Germany",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Photo highlights of the day | News | The Guardian",
+        "content": "P h o t o   h i g h l i g h t s   o f   t h e   d a y   |   N e w s   |   T h e   G u a r d i a n",
+        "caption": "A Koala called Mullaya keeps on munching during the annual inventory at Dresden zoo, Germany.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate evidence has a very similar caption to the news caption. The candidate caption states: 'A Koala called Mullaya keeps on munching during the annual inventory at Dresden zoo, Germany.' This matches the news caption almost exactly. Therefore, the news caption is likely in context.",
+      "supporting_evidences": [
+        "Candidate 1"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (10) and a verdict of True, meaning the caption accurately represents the image content. The supporting evidence confirms that the caption aligns with the image, specifically mentioning 'A Koala called Mullaya keeps on munching during the annual inventory at Dresden zoo, Germany.' which is almost exactly the same as the news caption. Therefore, based on the image check result, the image is not out of context.",
+    "validation_summary": "The image check confirms that the news caption accurately represents the image content, depicting a Koala in a zoo setting. Therefore, viewers would not be misled about the image content."
+  },
+  "inference_time": 3.852571725845337,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

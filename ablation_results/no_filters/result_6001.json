@@ -1,0 +1,43 @@
+{
+  "caption": "Max Hess from Germany takes part in the Red Bull Airlines freestyle slackline championship in downtown Naples",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Kitesurfing",
+      "Extreme sport",
+      "Sea"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Pictures of the Week: June 14  June 21 | TIME",
+        "content": "P i c t u r e s   o f   t h e   W e e k :   J u n e   1 4      J u n e   2 1   |   T I M E",
+        "caption": "June 15, 2013. Chinese authorities display bear paws after 213 were seized from two Russian smugglers in the Chinese region of Inner Mongolia. Some in China consider the paws a delicacy.",
+        "domain": "time.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Polaris 1994 USAF Academy Yearbook by USAFA Association of Graduates - Issuu",
+        "content": "P o l a r i s   1 9 9 4   U S A F   A c a d e m y   Y e a r b o o k   b y   U S A F A   A s s o c i a t i o n   o f   . . .",
+        "caption": "",
+        "domain": "issuu.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores are 0.0 for both candidates, indicating that the images do not match the news image. The caption similarity scores are also low (0.0 for both), meaning there's no match between the news caption and the candidate captions. Since no evidence supports the caption, the verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a person kitesurfing with a city skyline in the background. The caption states \"Max Hess from Germany takes part in the Red Bull Airlines freestyle slackline championship in downtown Naples\". The image shows kitesurfing and not slacklining and the background seems like a city skyline and not downtown Naples. The image check result also returns a verdict of 'False'. Therefore, the caption is completely unrelated to the image content, making it out of context.",
+    "validation_summary": "The caption describes a slackline championship, while the image depicts kitesurfing, creating a completely misleading impression of the image content. The image check result confirms that the provided caption is false and not supported by any evidence."
+  },
+  "inference_time": 3.2216837406158447,
+  "ablation_type": "no_filters"
+}

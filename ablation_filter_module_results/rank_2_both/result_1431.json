@@ -1,0 +1,51 @@
+{
+  "caption": "A California Highway Patrol officer and a passerby assist a stranded motorist in the flooded 14th Street underpass in Riverside Calif following a brief downpour on July 19",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Goldsboro",
+      "Lenoir County",
+      "Neuse River",
+      "Hurricane Matthew",
+      "Flood",
+      "Reuters",
+      "Car",
+      "connect",
+      "Storm"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 9,
+      "confidence_score": 10,
+      "explanation": "The caption accurately describes the scene depicted in the image, identifying the location, the presence of a California Highway Patrol officer, and the stranded motorist. The caption also mentions the flooding caused by a recent downpour, which aligns with the context provided. The phrase 'a passerby assists' is correct, but a minor detail. Therefore, the caption almost aligns with the image context.",
+      "supporting_evidences": [
+        "The caption mentions the California Highway Patrol officer assisting a stranded motorist, which is consistent with the image information.",
+        "The caption accurately identifies the location as the flooded 14th Street underpass in Riverside, California.",
+        "The caption mentions the downpour that led to the flooding.",
+        "The caption correctly conveys the core elements of the image content."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image depicts a flooded street scene with a California Highway Patrol officer assisting a stranded motorist stuck in floodwater at the 14th Street underpass in Riverside, California. The scene captures the aftermath of heavy rainfall, with water levels prominently rising and obstructing vehicles.",
+      "caption": "A California Highway Patrol officer assists a stranded motorist in the flooded 14th Street underpass in Riverside, California.",
+      "context": "The image is related to a significant weather event in Riverside, California, where a sudden downpour on July 19 led to severe flash flooding. This flooding resulted in road closures and stranded motorists, as evidenced by the interaction between the Highway Patrol officer and the stranded driver. The captured moment highlights the impact of the rainfall amidst the ongoing drought conditions affecting California, illustrating both the challenges of emergency response in flood situations and the broader impact of erratic weather patterns on local communities. The officer's presence in the image symbolizes the state's effort to manage such emergencies and provide assistance to affected citizens during unexpected weather phenomena."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts several vehicles submerged in floodwater. The caption describes a California Highway Patrol officer and a passerby assisting a stranded motorist in the flooded 14th Street underpass in Riverside, Calif. However, the image doesn't show a California Highway Patrol officer or a passerby assisting anyone. The picture simply depicts several cars partially or fully underwater. The claim in the caption is not visible in the image, it cannot be verified that there are people in or around the car. Because the image check results indicate the caption is representative, the error is overridden.",
+    "validation_summary": "The caption claims to show a CHP officer and a passerby assisting a motorist, which isn't visible in the image, leading to a misrepresentation of the scene's context and making the image OOC with the caption. Although the image check results indicated the caption is representative, the error is overridden."
+  },
+  "inference_time": 4.082506418228149,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

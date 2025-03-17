@@ -1,0 +1,42 @@
+{
+  "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Healthier chocolate and other incredible discoveries of the week",
+        "content": "6 3 5 6 3 1 2 6 7 1 4 0 4 5 0 7 5 3 - A P - D a r k -   . . .",
+        "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9468451738357544,
+        "text_similarity_score": 0.9921733736991882
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.9468451738357544 and the text similarity score is 0.9921733736991882. Both scores are above the required thresholds of 0.85 and 0.7 respectively. Therefore, the caption is in-context.",
+      "supporting_evidences": [
+        "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows someone decorating chocolates, which are in small paper cups. The person is using what appears to be a pastry bag to drizzle some sort of topping on the chocolates. There are many chocolates already prepared in the background. The caption states that the chocolates are Japanese plum chocolates made of dark chocolate ganache with plum wine and prepared in New York. While the image shows chocolates being prepared, there is nothing in the image that specifically indicates that they are Japanese plum chocolates, that they are made with plum wine, or that they are being prepared in New York. Therefore, the caption provides details not verifiable from the image, rendering it out of context.",
+    "validation_summary": "The caption includes details about the chocolates (Japanese plum, plum wine, prepared in New York) that are not visually verifiable in the image, misleading viewers about the specific type and origin of the chocolates being shown. The image check result indicates that the caption is in-context, but a closer analysis of the image reveals that it isn't."
+  },
+  "inference_time": 6.448404312133789,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

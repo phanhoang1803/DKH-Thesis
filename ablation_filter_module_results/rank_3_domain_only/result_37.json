@@ -1,0 +1,58 @@
+{
+  "caption": "Gambling tables at Venetian Macau Queensland wants some Asian highrollers too",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Pachinko",
+      "Gambling",
+      "Pinball",
+      "Japan",
+      "Maruhan",
+      "Casino",
+      "Arcade video game",
+      "Pachi-Slo",
+      "Amusement arcade",
+      "Koreans in Japan"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Japanese pachinko  in pictures | Travel | The Guardian",
+        "content": "P a c h i n k o ,   a   g a m e   s i m i l a r   t o   p i n b a l l ,   i s   a   f a d i n g   n a t i o n a l   o b s e s s i o n   i n   J a p a n .   T h e   o n c e - b o o m i n g   i n d u s t r y   i s   a d o p t i n g   a   s o f t e r   t o u c h   a n d   s m o k e - f r e e   z o n e s   t o   l u r e   a   n e w   g e n e r a t i o n   o f   p l a y e r s \n \n I s s e i   K a t o   /   R e u t e r s \n \n W e d   2 0   A u g   2 0 1 4   0 8 . 0 6  B S T",
+        "caption": "People are seen through windows at a Dynam pachinko parlour in Honjo, north of Tokyo",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Campbell Newman plans three new casinos in Queensland | Gambling | The Guardian",
+        "content": "C a m p b e l l   N e w m a n   p l a n s   t h r e e   n e w   c a s i n o s   i n   Q u e e n s l a n d   |   G a m b l i n g   . . .",
+        "caption": "Gambling tables at Venetian Macau: Queensland wants some Asian high-rollers too. Photograph: Kin Cheung/AP",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The image similarity scores for both candidates are 0.0, indicating that the images in the candidates do not match the image associated with the news caption. The text similarity scores are also 0.0, meaning the captions do not match. However, Candidate 2 has the exact caption as the news caption, suggesting that this caption is likely accurate, at least in describing the topic. Due to the absence of visual confirmation (image match), I can only offer a low confidence level.",
+      "supporting_evidences": [
+        "Candidate 2: Caption: Gambling tables at Venetian Macau: Queensland wants some Asian high-rollers too. Photograph: Kin Cheung/AP"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image depicts a gambling room featuring rows of slot machines and individuals engaged in gambling activities. The caption states, \"Gambling tables at Venetian Macau Queensland wants some Asian highrollers too\". While the image does show gambling, the caption specifically mentions 'gambling tables at Venetian Macau'. As the image check confirms, the similarity of images is 0, which indicates that the image does not match what's mentioned in the caption. Therefore, although the image is relevant to the broader topic of gambling, it is out of context because it does not clearly depict gambling tables at Venetian Macau. The visual information presented does not directly correspond with the specific location referred to in the caption.",
+    "validation_summary": "The image shows a generic gambling room, but the caption specifies 'Venetian Macau,' which isn't verifiable from the image, making it potentially misleading. The image check result further supports this by indicating a lack of similarity between the image and the caption's claim."
+  },
+  "inference_time": 4.074569225311279,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

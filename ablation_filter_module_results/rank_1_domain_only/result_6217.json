@@ -1,0 +1,48 @@
+{
+  "caption": "Screenshot from a Xi Jinping fan site on Sina Weibo",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Jang Song-thaek",
+      "South Korea",
+      "Pyongyang",
+      "Supreme Leader of North Korea",
+      "United States",
+      "Korean People's Army",
+      "National Defence Commission",
+      "Korean Central News Agency",
+      "On-the-spot guidance"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Chinas most censored social media giant is fined for not censoring enough | CNN Business",
+        "content": "C h i n a ' s   m o s t   c e n s o r e d   s o c i a l   m e d i a   g i a n t   i s   f i n e d   f o r   n o t   . . .",
+        "caption": "Weibo, China's heavily censored version of Twitter, has been fined millions of dollars for not censoring enough.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. This means that the candidate evidence does not contain any information related to the news caption. Therefore, I am unable to verify the news caption with the provided evidence.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low confidence score (2) and states that it's unable to verify the news caption with the provided evidence due to low similarity scores. The image shows Kim Jong-un accompanied by several older men, likely officials, inspecting what appears to be machinery or equipment within a factory setting. They are dressed in similar attire, suggesting a formal or official visit. The news caption describes a \"Learning from Xi Fan Club\" and Xi Jinping's travels in China, discussing how his image is being cultivated through social media. There is no visual connection between the image of Kim Jong-un in a factory and the textual description of Xi Jinping's fan club and media coverage. The image does not provide any evidence to support the claim that it is related to the fan site mentioned in the caption, indicating that the image is being used out of context.",
+    "validation_summary": "The image of Kim Jong-un inspecting machinery is unrelated to a fan site dedicated to Xi Jinping, making the image's use in this context misleading. Viewers would be confused about the connection between the image and the content of the news article."
+  },
+  "inference_time": 4.651214122772217,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

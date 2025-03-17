@@ -1,0 +1,43 @@
+{
+  "caption": "Armed Swiss police officers stand guard on the roof of a hotel the day before the opening of the annual meeting of the World Economic Forum in Davos Switzerland",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Can science be the solution if it is part of the problem? |  | The Guardian",
+        "content": "C a n   s c i e n c e   b e   t h e   s o l u t i o n   i f   i t   i s   p a r t   o f   t h e   p r o b l e m ?   |   |   T h e   . . .",
+        "caption": "Armed Swiss police officers stand guard on the roof of a hotel the day before the opening of the annual meeting of the World Economic Forum in Davos, Switzerland. (AP Photo/Michel Euler, File).",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2873433232307434,
+        "text_similarity_score": 0.9695761203765869
+      },
+      {
+        "title": "Melanie Smallman | The Guardian",
+        "content": "M e l a n i e   S m a l l m a n   |   T h e   G u a r d i a n",
+        "caption": "Armed Swiss police officers stand guard on the roof of a hotel the day before the opening of the annual meeting of the World Economic Forum in Davos, Switzerland. (AP Photo/Michel Euler, File).",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.28093233704566956,
+        "text_similarity_score": 0.9695761203765869
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidate captions have high text similarity scores (0.9695761203765869) with the news caption. However, the image similarity scores are low (0.2873433232307434 and 0.28093233704566956). According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption inaccurately describes the image, as there is no clear indication of armed Swiss police officers guarding a hotel in Davos.",
+    "explanation": "The provided caption states that \"armed Swiss police officers stand guard on the roof of a hotel the day before the opening of the annual meeting of the World Economic Forum in Davos, Switzerland.\" However, upon analyzing the image, it becomes evident that there is a lack of visual evidence supporting this claim. The image does not show any armed police officers or indicate any sort of security presence on a hotel rooftop. Furthermore, the low confidence score from the initial image check suggests significant discrepancies between the caption and the visual content of the image. Therefore, this caption is misleading as it constructs a narrative that is not supported visually."
+  },
+  "inference_time": 7.043766975402832,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,43 @@
+{
+  "caption": "GOP presidential nominee Donald Trump speaks at a rally in West Bend rally last month",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Footballer",
+      "Fan"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Donald Trump reaches out to African Americans, says Democrats take black vote for granted - Los Angeles Times",
+        "content": "D o n a l d   T r u m p   r e a c h e s   o u t   t o   A f r i c a n   A m e r i c a n s ,   s a y s   D e m o c r a t s   t a k e   . . .",
+        "caption": "Republican presidential candidate Donald Trump speaks at a campaign rally in West Bend, Wis., on Tuesday.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. The candidate caption mentions \"Republican presidential candidate Donald Trump speaks at a campaign rally in West Bend, Wis., on Tuesday.\" This aligns with the news caption \"GOP presidential nominee Donald Trump speaks at a rally in West Bend rally last month\" as both refer to Donald Trump speaking at a rally in West Bend. However, the lack of image similarity and low text similarity suggest that the images may not be of the same event, and the precise date ('last month' vs 'Tuesday') cannot be confirmed, reducing confidence.",
+      "supporting_evidences": [
+        "Republican presidential candidate Donald Trump speaks at a campaign rally in West Bend, Wis., on Tuesday."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows Donald Trump signing an autograph for a young supporter at a rally. The supporter is wearing a 'Trump' shirt and glasses. Based on the image check, the confidence score is 6, which suggests the candidate caption \"Republican presidential candidate Donald Trump speaks at a campaign rally in West Bend, Wis., on Tuesday.\" and the news caption \"GOP presidential nominee Donald Trump speaks at a rally in West Bend rally last month\" align because they both refer to Donald Trump speaking at a rally in West Bend. However, due to the image check result the images are not of the same event. Therefore, the image is out of context.",
+    "validation_summary": "The image shows Donald Trump interacting with a supporter at a rally, while the caption broadly refers to a rally in West Bend. The caption may mislead viewers into thinking this specific interaction was part of the West Bend rally."
+  },
+  "inference_time": 4.218354940414429,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

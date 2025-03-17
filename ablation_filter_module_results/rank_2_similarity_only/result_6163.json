@@ -1,0 +1,49 @@
+{
+  "caption": "A signpost in the Golan Heights Israel",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Contact  Nesbitt Restorations",
+        "content": "W i l l i a m   N e s b i t t \n \n S p r i n g f i e l d \n \n N a u n t o n ,   N r .   C h e l t e n h a m \n \n G L O S ,   G L 5 4   3 A A \n \n T e l :   0 7 9 7 3   7 1 0   5 7 8 \n \n E m a i l :   n e s b i t t r e s t o r a t i o n s @ g m a i l . c o m",
+        "caption": "",
+        "domain": "nesbittrestorations.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9969220757484436,
+        "text_similarity_score": 0.219177708029747
+      },
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "brainstudy.info",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.996339738368988,
+        "text_similarity_score": 0.219177708029747
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidates have high image similarity scores (above 0.99) but low caption similarity scores (below 0.7). Therefore, based on the strict decision rules, the caption is considered out-of-context. There are no titles and content to provide further evaluation. Since image similarity score is greater than 0.85 and text similarity score is less than 0.7, the caption is out-of-context and the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high image similarity score (above 0.99) but a low caption similarity score (below 0.7). Therefore, the caption is considered out-of-context. The image shows a signpost with directions to various towns: Cornwell, Kingham, Chastleton, Adlestrop, Stow-on-the-Wold, Rollright, and Chipping Norton, along with road number A436. The caption mentions \"a signpost in the Golan Heights Israel\", which is not supported by the image content. The signpost provides directions to towns in England, not the Golan Heights in Israel. Therefore, the caption is factually incorrect and misleading.",
+    "validation_summary": "The image shows a signpost with directions to towns in England, not the Golan Heights in Israel, making the caption factually incorrect and misleading. Viewers would be misled into thinking the image is related to the Golan Heights when it is not."
+  },
+  "inference_time": 7.566051721572876,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

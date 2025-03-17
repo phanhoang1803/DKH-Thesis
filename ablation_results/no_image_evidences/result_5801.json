@@ -1,0 +1,47 @@
+{
+  "caption": "John Cage photographed in Wayzata Minnesota 1973 All images James Klosty",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "John Cage Was ... photographs and introduction by James Klosty | Music | The Guardian",
+        "content": "J o h n   C a g e   W a s   . . .   p h o t o g r a p h s   a n d   i n t r o d u c t i o n   b y   J a m e s   K l o s t y   . . .",
+        "caption": "Photo of American composer John Cage, Wayzata, Minnesota 1973. Copyright JAMES KLOSTY.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1141878291964531,
+        "text_similarity_score": 0.7880057692527771
+      },
+      {
+        "title": "John Cage Was: Images, Poetry and Nocturnes | Mixtapes | WQXR",
+        "content": "J o h n   C a g e   W a s :   I m a g e s ,   P o e t r y   a n d   N o c t u r n e s   |   M i x t a p e s   |   W Q X R",
+        "caption": "John Cage in Amherst, Massachusetts, February 1970",
+        "domain": "www.wqxr.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1109299585223198,
+        "text_similarity_score": 0.7050141096115112
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions refer to John Cage, and one of them mentions Wayzata, Minnesota, in 1973, matching the news caption. However, the image similarity scores are low, indicating that the images in the candidates do not closely resemble the news image. Because the image similarity scores are low, it indicates a mismatch between the images, regardless of caption similarity. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [
+        "Candidate 1 Caption: Photo of American composer John Cage, Wayzata, Minnesota 1973.",
+        "Candidate 1 Image Similarity Score: 0.1141878291964531",
+        "Candidate 2 Image Similarity Score: 0.1109299585223198"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the provided caption is out of context. The image similarity scores between the given image and the images associated with the candidate captions are low, suggesting a mismatch. Although the candidate captions refer to John Cage and one mentions Wayzata, Minnesota, the low image similarity overrides the relevance of the caption text. Therefore, the image and the caption do not align, making the caption out of context.",
+    "validation_summary": "The image does not correspond to the caption's description of John Cage in Wayzata, Minnesota, potentially misleading viewers about the image's content. Given the low image similarity scores from the image check result, the caption is deemed out of context despite mentioning relevant names and locations."
+  },
+  "inference_time": 5.7376933097839355,
+  "ablation_type": "no_image_evidences"
+}

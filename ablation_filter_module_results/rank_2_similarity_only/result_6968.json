@@ -1,0 +1,40 @@
+{
+  "caption": "Since leaving Congress former House majority leader Eric Cantor has become a lobbyist",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "brainstudy.info",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9794493317604065,
+        "text_similarity_score": 0.00936613604426384
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is high (0.9794493317604065), but the text similarity score is low (0.00936613604426384). Therefore, the caption is out-of-context. The current evidence doesn't provide any information about Eric Cantor becoming a lobbyist after leaving Congress. Without additional information, I cannot confirm the caption's accuracy.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Eric Cantor and other men in suits walking down a hallway. The caption states, \"Since leaving Congress former House majority leader Eric Cantor has become a lobbyist\". While the image features Eric Cantor, it doesn't provide any visual evidence to support the claim that he is now a lobbyist. There are no elements within the image that show him engaging in lobbying activities or that indicate his current profession. The image check result has a low text similarity score and high image similarity score, meaning that the image is of the person mentioned in the caption, but there is nothing to support that he is a lobbyist. Because the caption makes a claim not directly supported by the image, it is out of context.",
+    "validation_summary": "The caption makes a claim about Eric Cantor's current profession (lobbyist) that isn't visually supported by the image, making it out of context. The image doesn't depict any activities or elements that would indicate lobbying."
+  },
+  "inference_time": 4.660686254501343,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

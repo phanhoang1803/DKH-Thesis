@@ -1,0 +1,52 @@
+{
+  "caption": "Bradford s Bombay Stores new Yorkshiremen and women from the Asian subcontinent have filled the city with bright colours",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "twitter.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.989834189414978,
+        "text_similarity_score": 0.07385367155075073
+      },
+      {
+        "title": "My love affair with Bollywood in Bradford | Bradford | The Guardian",
+        "content": "M y   l o v e   a f f a i r   w i t h   B o l l y w o o d   i n   B r a d f o r d   |   B r a d f o r d   |   T h e   G u a r d i a n",
+        "caption": "Bradford's Bombay Stores - new Yorkshiremen and women from the Asian subcontinent have filled the city with bright colours. Photograph: Christopher Thomond for the Guardian",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3429185450077057,
+        "text_similarity_score": 0.9671623110771179
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1 has a high image similarity score (0.989834189414978), but a low text similarity score (0.07385367155075073). According to the instructions, if the image similarity score is >= 0.85 AND the text similarity score is < 0.7, the verdict is immediately False. Candidate 2 has a low image similarity score (0.3429185450077057) and a high text similarity score (0.9671623110771179). According to the instructions, if the image similarity score is < 0.85, the verdict is immediately False.",
+      "supporting_evidences": [
+        "Candidate 1 has a high image similarity score (0.989834189414978), but a low text similarity score (0.07385367155075073).",
+        "Candidate 2 has a low image similarity score (0.3429185450077057) and a high text similarity score (0.9671623110771179)."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a mismatch between the image and the caption. Candidate 1 has a high image similarity score (0.989834189414978) but a low text similarity score (0.07385367155075073), leading to a 'False' verdict because the text doesn't align with the image's content. Candidate 2 has a low image similarity score (0.3429185450077057) and a high text similarity score (0.9671623110771179), also resulting in a 'False' verdict because the image doesn't align with the text. Given the image check's confidence score of 10, the final decision is based on this result. The caption is therefore out of context.",
+    "validation_summary": "The image and caption do not align according to the image check. The caption's claims are not accurately reflected in the image's content, leading to a potentially misleading impression for viewers."
+  },
+  "inference_time": 9.30899167060852,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

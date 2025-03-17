@@ -1,0 +1,48 @@
+{
+  "caption": "Shout out to Andy Murray who cruised into the third round with a commanding 61 61 64 victory over a disappointing Robin Haase",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Table tennis",
+      "Racketlon",
+      "Tennis",
+      "Soft tennis",
+      "Racket",
+      "Tennis player"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 7,
+      "confidence_score": 8,
+      "explanation": "The provided caption discusses Andy Murray's victory over Robin Haase in a tennis match, which aligns with the image context describing a competitive tennis match featuring players on a grass court, likely at Wimbledon. Although the caption includes specific details about the match's outcome (61 61 64 victory), the core theme of a tennis match in progress is consistent between the caption and the image context. The caption does convey what the image is about, though it focuses more on the specific match result than the general scene. Overall, there are no significant misrepresentations or omissions that would completely disqualify the alignment, but the generality of the image context does not directly correspond to the specificity of the caption.",
+      "supporting_evidences": [
+        "The caption mentions a tennis match involving Andy Murray and Robin Haase.",
+        "The image context describes a competitive tennis match with players in action.",
+        "Both caption and context refer to tennis and tennis players.",
+        "The image context suggests a setting resembling a major tennis tournament like Wimbledon, which is consistent with the kind of match the caption describes."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image likely depicts a moment from a competitive tennis match, featuring players engaged in action on a grass court, possibly at a renowned tournament like Wimbledon. Key elements visible include players in tennis attire, their rackets, the ball, and a lively crowd in the background, illustrating the intensity of the game and the atmosphere of a major sporting event. The focus may be on the competitors and their athleticism, highlighting techniques and movements associated with tennis play.",
+      "caption": "Tennis match in action, highlighting two competing players during a high-stakes game.",
+      "context": "The image correlates with a recent news event from Wimbledon, a prestigious tennis tournament held annually in London. The news caption specifically mentions Andy Murray's victory over Robin Haase, framing the match as a commanding performance showcasing Murray’s dominance. The context of Murray's success supports the visual narrative of athletes striving for excellence in the championship setting, with cheers from the crowd enhancing the competitive atmosphere of the sport. The detected entities, including 'table tennis', 'racketlon', and 'tennis', reflect the broader tennis context, with an emphasis on the specific nuances of professional-level tennis depicted in the image."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image depicts a tennis player, possibly in action during a match. However, the caption specifically mentions Andy Murray's victory over Robin Haase with a precise scoreline. While the image aligns with the general theme of tennis, it doesn't provide explicit details confirming it's Andy Murray, Robin Haase, or the mentioned match. Without specific identifiers in the image, it's impossible to verify the accuracy of the caption's claims about the players and match outcome. Therefore, the caption is considered OOC because it provides details that are not verifiable from the image itself.",
+    "validation_summary": "The image shows a tennis player, but the caption names specific players and match details not visible in the image, leading to a mismatch and making the caption out of context. The viewer could be misled into thinking the image is of Andy Murray playing Robin Haase specifically."
+  },
+  "inference_time": 4.9355621337890625,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

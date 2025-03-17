@@ -1,0 +1,40 @@
+{
+  "caption": "The 2013 Beetle TDI is part of the Volkswagen line affected",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "2011 Chevrolet Camaro Convertible debuts next month in LA",
+        "content": "C h e v r o l e t   h a s   a n n o u n c e d   o f f i c i a l l y   t h a t   i t s   l o n g   a n t i c i p a t e d   a l l - n e w ,   2 0 1 1   C h e v r o l e t   C a m a r o   C o n v e r t i b l e   i s   p a c k e d - a n d - r e a d y   f o r   i t s   g r a n d   d e b u t   a t   t h e   u p c o m i n g   L o s   A n g e l e s   I n t e r n a t i o n a l   A u t o   S h o w   o n   N o v e m b e r   1 7 t h . \n \n A s   s t a n d a r d ,   t h e   2 0 1 1   C h e v r o l e t   C a m a r o   w i l l   b e   f i t t e d   w i t h   a   3 1 2   h o r s e p o w e r   D i r e c t   I n j e c t i o n   V 6   p o w e r p l a n t   m a t e d   t o   a   s i x - s p e e d   a u t o m a t i c   a n d   d e l i v e r i n g   2 9   m i l e s   p e r   g a l l o n   o n   t h e   h i g h w a y .   I t s   t o p - p e r f o r m a n c e   S S   v e r s i o n   w i l l   b e   e q u i p p e d   w i t h   a   6 . 2 - l i t e r   V 8   b l o c k   t h a t   s p o r t s   t h e   b r e a t h - t a k i n g   4 2 6   h o r s e p o w e r . \n \n T h e   o p e n   a i r   C a m a r o   i s   e x p e c t e d   t o   h i t   t h e   b r a n d ' s   s h o w r o o m s   f r o m   F e b r u a r y   2 0 1 1   w i t h   a   s t a r t i n g   p r i c e   o f   3 0 , 0 0 0   U S D ,   i n c l u d i n g   8 5 0   U S D   d e s t i n a t i o n   t a x . \n \n C h e v r o l e t   C a m a r o   C o n v e r t i b l e   ( 2 0 1 1 ) \n \n Y o u   m a y   a l s o   l i k e : \n \n C h e v r o l e t   r e l e a s e s   C a m a r o   C o n v e r t i b l e   N e i m a n   M a r c u s   E d i t i o n \n \n T o p   C o n v e r t i b l e s   2 0 1 1 \n \n C h e v r o l e t   C a m a r o   C o n v e r t i b l e   H o t   W h e e l s   E d i t i o n \n \n 2 0 1 4   C h e v r o l e t   C a m a r o   C o n v e r t i b l e   -   E U   P r i c e    4 4 , 9 9 0 \n \n C u s t o m e r s   T a i l o r i n g   T h e i r   2 0 1 6   C h e v r o l e t   C a m a r o   f o r   t h e   F i r s t   T i m e   [ P r i c i n g   R e v e a l e d ]",
+        "caption": "Chevrolet Camaro Convertible (2011) - picture 8 of 11",
+        "domain": "www.automobilesreview.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9438486099243164,
+        "text_similarity_score": 0.19993267953395844
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is high (0.9438486099243164), which suggests the images are visually similar. However, the text similarity score is low (0.19993267953395844), meaning the captions are not similar. The news caption mentions \"2013 Beetle TDI\" and \"Volkswagen,\" while the candidate caption mentions \"Chevrolet Camaro Convertible (2011).\" Because the captions are not similar, and the model names are entirely different, I would rate this candidate as out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high similarity between the images but a low similarity between the captions. The image clearly shows a Chevrolet Camaro Convertible, while the caption mentions a '2013 Beetle TDI' and 'Volkswagen.' These are different car models from different manufacturers. Therefore, the caption does not accurately represent the image content. The image check confidence score is 2, but based on clear evidence the confidence score is increased.",
+    "validation_summary": "The caption refers to a Volkswagen Beetle, but the image shows a Chevrolet Camaro, misleading viewers about the car being discussed. The image is therefore out of context in relation to the caption's claim."
+  },
+  "inference_time": 7.9581873416900635,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "Boys from the Mandari tribe wait by the Nile in September 2012 for boats with the day s catch to arrive in Terekeka a fishing community in South Sudan",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "LightBox | Time | Pictures of the week, Nile river, River",
+        "content": "",
+        "caption": "three men are standing on the side of a boat in muddy water with bananas and other items",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.948432981967926,
+        "text_similarity_score": 0.28823721408843994
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.948432981967926, but the text similarity score is 0.28823721408843994. The images are similar, but the captions are not. Based on the news caption, the image shows boys from the Mandari tribe waiting by the Nile in September 2012 for boats with the day's catch to arrive in Terekeka, a fishing community in South Sudan. The candidate caption describes three men standing on the side of a boat in muddy water with bananas and other items. These details don't match the description in the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result provides a strong indication that the caption is out of context due to a low text similarity score (0.28823721408843994) despite a relatively high image similarity score (0.948432981967926). This discrepancy suggests that while the image might thematically align with the news content about South Sudan, the specific details described in the caption are not accurately reflected in the image. The caption mentions 'boys from the Mandari tribe waiting by the Nile in September 2012 for boats with the day's catch to arrive in Terekeka, a fishing community in South Sudan.' However, the image features details that conflict with this description, such as 'three men standing on the side of a boat in muddy water with bananas and other items'. Since the details don't align, the image is likely out of context.",
+    "validation_summary": "The caption describes a specific scene of boys waiting for the day's catch, but the image shows details that contradict this description, making the caption misleading. Viewers would likely be misled about the specific context of the image based on the caption's details."
+  },
+  "inference_time": 7.224279165267944,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

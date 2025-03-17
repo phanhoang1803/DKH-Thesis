@@ -1,0 +1,36 @@
+{
+  "caption": "Antoine Griezmann has played his entire career in Spain having joined Real Sociedad at the age of just 14",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Antoine Griezmann happy at Atltico: I dont feel need to play in England | Atltico Madrid | The Guardian",
+        "content": "A n t o i n e   G r i e z m a n n   h a p p y   a t   A t l  t i c o :   ' I   d o n ' t   f e e l   n e e d   t o   p l a y   i n   . . .",
+        "caption": "Antoine Griezmann has played his entire career in Spain having joined Real Sociedad at the age of just 14.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.98965984582901,
+        "text_similarity_score": 0.9906675815582275
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate provides a high image similarity score (0.98965984582901) and a high text similarity score (0.9906675815582275). This means the candidate's image is highly similar to the news image, and the candidate's caption is highly similar to the news caption. The caption 'Antoine Griezmann has played his entire career in Spain having joined Real Sociedad at the age of just 14' is repeated verbatim in the candidate evidence. This strong match confirms that the caption accurately represents the image and its context.",
+      "supporting_evidences": [
+        "Antoine Griezmann has played his entire career in Spain having joined Real Sociedad at the age of just 14."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Antoine Griezmann in a red and white jacket, standing in front of a blue backdrop with the Champions League logo. The caption states that 'Antoine Griezmann has played his entire career in Spain having joined Real Sociedad at the age of just 14'. Although this statement may be factually correct, it doesn't accurately represent what's happening in the image. The image shows him possibly at a press conference or media event related to the Champions League, which is not reflected in the caption. The image check confirms this mismatch, as the text discusses his career start in Spain rather than the context of the image (Champions League appearance). Thus, the caption fails to provide a representative summary of the image content, making it out of context.",
+    "validation_summary": "The caption focuses on Griezmann's career in Spain but the image shows him possibly at a Champions League event. This mismatch could mislead viewers about the actual context of the photo, making it out of context."
+  },
+  "inference_time": 5.146477460861206,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,53 @@
+{
+  "caption": "Edith Windsor waves to supporters in front of the Supreme Court in Washington March 27 2013 after the court heard arguments on the Defense of Marriage Act case",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Pope",
+      "Pope emeritus",
+      "Hitler Youth",
+      "History",
+      "Germans",
+      "History of Poland",
+      "Friday",
+      "Abdication",
+      "residenz"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "For Love and For Life, LGBTQ People Are Not Going Back | ACLU",
+        "content": "F o r   L o v e   a n d   F o r   L i f e ,   L G B T Q   P e o p l e   A r e   N o t   G o i n g   B a c k   |   A C L U",
+        "caption": "Plaintiff Edith Windsor waves to supporters in front of the Supreme Court in Washington, Wednesday, March 27, 2013, after the court heard arguments on her Defense of Marriage Act (DOMA) case. (Credit: AP Photo/Carolyn Kaster)",
+        "domain": "www.aclu.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.29560455679893494,
+        "text_similarity_score": 0.9209702014923096
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.29560455679893494, which is less than 0.85. Therefore, the caption is out-of-context. However, the text similarity score is 0.9209702014923096, which is greater than 0.7, suggesting high similarity between the captions. The candidate caption describes \"Plaintiff Edith Windsor waves to supporters in front of the Supreme Court in Washington, Wednesday, March 27, 2013, after the court heard arguments on her Defense of Marriage Act (DOMA) case.\" This aligns with the news caption, \"Edith Windsor waves to supporters in front of the Supreme Court in Washington March 27 2013 after the court heard arguments on the Defense of Marriage Act case.\" Although the texts are similar, the low image similarity score requires me to mark it as out-of-context.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.29560455679893494",
+        "Text Similarity Score: 0.9209702014923096"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result dictates the final decision because the confidence score is 7. The image similarity score is 0.29560455679893494, which is less than 0.85. Therefore, the image is out-of-context. Although the text similarity score is high (0.9209702014923096), indicating similarity between the captions, the low image similarity score necessitates marking it as out-of-context.",
+    "validation_summary": "The image does not depict the described scene of Edith Windsor in front of the Supreme Court, making the caption misleading. The image check confirms that the image is not related to the provided caption, despite some textual similarity in the descriptions of the event and person."
+  },
+  "inference_time": 6.6821558475494385,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

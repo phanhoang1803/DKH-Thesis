@@ -1,0 +1,45 @@
+{
+  "caption": "Rapper Kanye West and his wife Kim KardashianWest attend the Rihanna party at The New York Edition in New York City",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Kanye West show causes New York Fashion Week schedule chaos | The Independent | The Independent",
+        "content": "K a n y e   W e s t   s h o w   c a u s e s   N e w   Y o r k   F a s h i o n   W e e k   s c h e d u l e   c h a o s   |   T h e   . . .",
+        "caption": "Kim Kardashian West and Kanye West on the front row of the Balmain fashion show in Paris, September 2014",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Beyonce, Jay Z attend Kanye West's NYFW show - Los Angeles Times",
+        "content": "B e y o n c e ,   J a y   Z   a t t e n d   K a n y e   W e s t ' s   N Y F W   s h o w   -   L o s   A n g e l e s   T i m e s",
+        "caption": "Beyonce, left, Kim Kardashian West with daughter North and Anna Wintour attend the Adidas Originals x Kanye West Yeezy Season 1 fashion show.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are 0.0, which indicates that the images in the candidates do not match the image described by the news caption. Furthermore, the caption similarity scores are also 0.0, indicating that the captions do not match. The first candidate features Kim Kardashian West and Kanye West at a Balmain fashion show in Paris in September 2014, while the second candidate shows them at the Adidas Originals x Kanye West Yeezy Season 1 fashion show with Beyonce and Anna Wintour. Neither of these candidates confirms that Kanye West and Kim Kardashian West attended a Rihanna party at The New York Edition in New York City. Therefore, based on the provided candidates, the news caption is not verified.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 2 and indicates that the provided candidates do not match the image described by the news caption. The image shows Kim Kardashian and Kanye West on a red carpet, likely at a formal event. The caption states they are attending a Rihanna party at The New York Edition in New York City. Because the image check result indicates the caption is not verified, and because there's no clear indication from the image itself that it's a Rihanna party specifically at the New York Edition, the caption is determined to be out of context. The image analysis supports the image check result that the caption is inaccurate.",
+    "validation_summary": "The caption claims the image shows Kim Kardashian and Kanye West at a Rihanna party, but the image check and visual analysis do not support this claim. Viewers would be misled about the context of the image."
+  },
+  "inference_time": 3.837528705596924,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "caption": "Unwavering gaze Maxine Peake as Dana in How to Hold Your Breath",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "How to Hold Your Breath review  magnetic Maxine Peake is bedevilled in morality play | Theatre | The Guardian",
+        "content": "H o w   t o   H o l d   Y o u r   B r e a t h   r e v i e w      m a g n e t i c   M a x i n e   P e a k e   i s   . . .",
+        "caption": "Unwavering gaze  Maxine Peake as Dana in How to Hold Your Breath.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.19659456610679626,
+        "text_similarity_score": 0.9651609659194946
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.19659456610679626, which is less than 0.85. The text similarity score is 0.9651609659194946, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.19659456610679626",
+        "Text Similarity Score: 0.9651609659194946"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image similarity score (0.19659456610679626) despite a high text similarity score (0.9651609659194946). According to the instructions, a low image similarity score necessitates marking the caption as out-of-context. The image features a woman with short hair, wearing a white shirt and dark trousers, holding her hand over a small dish on a stand. While the caption correctly identifies the person as Maxine Peake in \"How to Hold Your Breath,\" the visual context of the image is not strongly aligned with the caption's summarization of the scene, primarily due to the low image similarity score. Therefore, the image is considered out of context.",
+    "validation_summary": "The image check indicates a low image similarity score, leading to a determination that the caption misrepresents the image's content. Viewers might be misled about the specific scene or action taking place based on the image alone."
+  },
+  "inference_time": 5.441788196563721,
+  "ablation_type": "no_image_evidences"
+}

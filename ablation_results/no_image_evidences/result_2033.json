@@ -1,0 +1,43 @@
+{
+  "caption": "Adam Lallana prepares to kick off with Philippe Coutinho",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Goalkeeper stops shot",
+      "Ball",
+      "Ball",
+      "Stadium",
+      "International rules football",
+      "Footballer",
+      "Goalkeeper",
+      "Kick"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Premier League: Liverpool v Arsenal  in pictures | Football | The Guardian",
+        "content": "P r e m i e r   L e a g u e :   L i v e r p o o l   v   A r s e n a l      i n   p i c t u r e s   |   F o o t b a l l   |   T h e   . . .",
+        "caption": "Adam Lallana prepares to kick off with Philippe Coutinho",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5398562550544739,
+        "text_similarity_score": 1.0000001192092896
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score (0.5398562550544739) is below the threshold of 0.85. Additionally, while the text similarity score (1.0000001192092896) is high, the low image similarity automatically indicates that the caption is out-of-context. Therefore, the caption is considered out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is out of context with a confidence score of 2. The image shows Adam Lallana celebrating, kneeling on the grass in a yellow Liverpool kit. The caption says \"Adam Lallana prepares to kick off with Philippe Coutinho\", which does not match the image content. Therefore, the caption misrepresents the image.",
+    "validation_summary": "The caption describes Adam Lallana preparing to kick off with Philippe Coutinho, but the image shows Lallana celebrating a goal, making it out of context and misleading to viewers about the actual scene depicted in the image. The high text similarity score is not indicative of an accurate representation because the image similarity score is low."
+  },
+  "inference_time": 5.043244361877441,
+  "ablation_type": "no_image_evidences"
+}

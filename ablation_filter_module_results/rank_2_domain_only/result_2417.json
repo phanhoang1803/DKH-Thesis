@@ -1,0 +1,47 @@
+{
+  "caption": "Paceman Mitchell Johnson looks skywards as he celebrates claiming the wicket of Kane Williamson caught and bowled as Australia take early control of the match",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Test cricket",
+      "Cricket",
+      "First-class cricket",
+      "Limited overs cricket",
+      "One Day International",
+      "Team",
+      "Over",
+      "referee"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Cricket World Cup 2015: Australia v New Zealand final  in pictures | Sport | The Guardian",
+        "content": "C r i c k e t   W o r l d   C u p   2 0 1 5 :   A u s t r a l i a   v   N e w   Z e a l a n d   f i n a l      i n   . . .",
+        "caption": "Michael Clarke and the Australian cricket team celebrate with the trophy.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption is about the Australian cricket team celebrating with a trophy, while the news caption is about Mitchell Johnson celebrating a wicket. There is no match between these two, therefore, the verdict is negative.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption does not match the content of the image. The image shows Mitchell Johnson with another player. They are both smiling and wearing the Australian cricket uniform. The other player is touching Johnson's head. The caption states that Johnson is celebrating claiming the wicket of Kane Williamson, which is not evident from the image. Given that the image check has a high confidence score, the image is considered to be out of context.",
+    "validation_summary": "The caption describes Johnson celebrating a wicket, which isn't visually supported by the image of him smiling with a teammate. This mismatch makes the caption misleading regarding the image's actual content and context, as the image depicts general celebration, not a specific dismissal of a player, Kane Williamson, as stated by the caption. Therefore, the image and the caption do not correlate with each other, making the image out of context. The image check result has a confidence score of 1, which should be trusted, and as such is the basis for my decision to indicate the image is OOC (Out of Context). Therefore, the image does not accurately reflect the news caption description because the image shows no sign of what is said in the caption provided. The image and news caption do not correlate with each other, making the image out of context and thus misleading to viewers who are unaware of the actual image content being displayed alongside it (in tandem) when reading whatever the user is viewing which includes both the image and provided/related-to news caption. Hence, the image is misleading to viewers in this instance and is categorized as Out Of Context (OOC = True). Therefore, because the image does not accurately reflect and correlate with any portion of information of news caption/content provided, the image is (OOC = True). Since information displayed/provided to readers includes BOTH image AND news caption, the image by itself will thus mislead viewers since both items will be viewed in tandem (at the same time); in this case, the image IS (OOC = True). Since the (image similarity score = 0.0) in the image check result AND the (text similarity score = 0.0) also in the image check result AND the image check result has been evaluated to carry a 'high' confidence score (e.g. 7,8,9,10), final determination MUST be based on the image check result (as per the Instructions listed in the prompt). Since the image check result states (verdict = False) due to (image and text) differences being (very) dissimilar to one another, therefore, the news image is (OOC = True). This statement summarizes key findings such that viewers can understand if they would be mislead about what they're seeing; that is, yes indeed, viewers would be misled since whatever is said in caption (doesn't match/correlate) with what the image actually displays/portrays/shows. This conclusion is further proven when looking at/analyzing similarity checks using visual and text analysis, where both checks revealed/proved the lack of content correlation/similarity between image and caption texts. Therefore, viewers will likely be mislead regarding the contents of the news image (when/if) displayed alongside said caption."
+  },
+  "inference_time": 6.64952826499939,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

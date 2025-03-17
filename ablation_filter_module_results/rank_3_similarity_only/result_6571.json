@@ -1,0 +1,70 @@
+{
+  "caption": "Obi a male pygmy hippo calf swims at the Melbourne zoo Australia Pygmy hippos are endangered in the wild",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Photo highlights of the day | News | The Guardian",
+        "content": "T h e   G u a r d i a n  s   p i c t u r e   e d i t o r s   b r i n g   y o u   a   s e l e c t i o n   o f   t h e   b e s t   p h o t o g r a p h s   f r o m   a r o u n d   t h e   w o r l d \n \n J o a n n a   R u c k \n \n T h u   2 7   F e b   2 0 1 4   1 2 . 1 4  G M T \n \n \n                         L a s t   m o d i f i e d   o n   T h u   2 7   F e b   2 0 1 4   2 2 . 4 9  G M T",
+        "caption": "The newest addition to Bristol Zoo Gardens is  Winnie, the three-week-old pygmy hippo.",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9464821219444275,
+        "text_similarity_score": 0.55014967918396
+      },
+      {
+        "title": "Bristol zoo gardens hi-res stock photography and images - Alamy",
+        "content": "",
+        "caption": "",
+        "domain": "www.alamy.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7127418518066406,
+        "text_similarity_score": 0.15177816152572632
+      },
+      {
+        "title": "Pygmy hippo hi-res stock photography and images - Page 3 - Alamy",
+        "content": "",
+        "caption": "",
+        "domain": "www.alamy.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7127418518066406,
+        "text_similarity_score": 0.15177816152572632
+      },
+      {
+        "title": "The week in wildlife  in pictures | Environment | The Guardian",
+        "content": "T h e   w e e k   i n   w i l d l i f e      i n   p i c t u r e s   |   E n v i r o n m e n t   |   T h e   G u a r d i a n",
+        "caption": ".Obi a male Pygmy Hippo calf swims with his mother Petre at the Melbourne Zoo, Melbourne, Thursday, June 18, 2015. Pygmy Hippos are endangered in the wild.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3492788076400757,
+        "text_similarity_score": 0.931571900844574
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "We analyze the provided candidates to determine if they support the news caption: \"Obi a male pygmy hippo calf swims at the Melbourne zoo Australia Pygmy hippos are endangered in the wild\".\n\nCandidate 1 has an image similarity score of 0.9464821219444275 (High) and a caption similarity score of 0.55014967918396 (Low). The caption is \"The newest addition to Bristol Zoo Gardens is Winnie, the three-week-old pygmy hippo.\" Since the image similarity is high but the text similarity is low, this candidate is likely showing a pygmy hippo, but the details don't align with the news caption about Obi at Melbourne Zoo. Thus, it does not confirm the news caption.\n\nCandidate 4 has an image similarity score of 0.3492788076400757 (Low) and a caption similarity score of 0.931571900844574 (High). The caption is \".Obi a male Pygmy Hippo calf swims with his mother Petre at the Melbourne Zoo, Melbourne, Thursday, June 18, 2015. Pygmy Hippos are endangered in the wild.\" Even though the text similarity score is high, the image similarity score is low. Therefore, this is considered out-of-context.\n\nCandidates 2 and 3 has similarity scores below 0.85 and text similarity scores below 0.7. Therefore, they do not contain enough information to confirm the news caption.\n\nBased on the candidate analysis, only candidate 4 contains information that supports the news caption. However, due to the low image similarity score (0.3492788076400757), the caption is deemed out-of-context. Therefore, the final verdict is False.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.9464821219444275, Caption Similarity Score: 0.55014967918396",
+        "Candidate 4: Image Similarity Score: 0.3492788076400757, Caption Similarity Score: 0.931571900844574"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result, with a confidence score of 7, indicates that the caption is not a correct representative summary of the image content. The check result shows that while one candidate caption had high text similarity, the image similarity was low, deeming it out of context. This suggests that, though the caption may accurately describe certain pygmy hippo scenarios, it does not align with the specific image provided. Therefore, the image is out of context.",
+    "validation_summary": "The caption does not accurately depict the image, as confirmed by the image check, suggesting viewers may be misled about the context of the image. The low image similarity score in the check indicates a mismatch between the image and the caption's context."
+  },
+  "inference_time": 9.46969223022461,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

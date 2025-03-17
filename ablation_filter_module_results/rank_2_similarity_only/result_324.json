@@ -1,0 +1,61 @@
+{
+  "caption": "Tokyo Japan People stand in a line to buy the iPad at an Apple store",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Just a moment...",
+        "content": "",
+        "caption": "",
+        "domain": "www.quora.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8240458369255066,
+        "text_similarity_score": 0.05080922320485115
+      },
+      {
+        "title": "Apple iPad worldwide launch | Technology | The Guardian",
+        "content": "A p p l e   i P a d   w o r l d w i d e   l a u n c h   |   T e c h n o l o g y   |   T h e   G u a r d i a n",
+        "caption": "ipad launch: Tokyo, Japan: People stand in a line to purchase Apple's iPad",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9039887189865112,
+        "text_similarity_score": 0.9116852879524231
+      },
+      {
+        "title": "Apple fans wait in line to buy new iPads",
+        "content": "A p p l e   f a n s   w a i t   i n   l i n e   t o   b u y   n e w   i P a d s",
+        "caption": "Tadashi Nagatani, left, and Nobuhiko Matsuba pose with mock-ups of iPad as customers stand in line near an Apple store before the latest iPad goes on sale, in Tokyo Friday. Sales of the third version of Apple's iPad began Friday morning in the country. (AP Photo/Koji Sasahara)",
+        "domain": "www.heraldtribune.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.24283376336097717,
+        "text_similarity_score": 0.7195860147476196
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the candidate evidences provided, the news caption \"Tokyo Japan People stand in a line to buy the iPad at an Apple store\" is highly likely to be accurate. Candidate 2 has a high image similarity score of 0.9039887189865112 and a high caption similarity score of 0.9116852879524231, directly mentioning \"ipad launch: Tokyo, Japan: People stand in a line to purchase Apple's iPad.\" This strongly supports the news caption. Although Candidate 3 has a lower image similarity score of 0.24283376336097717, its caption further corroborates the news caption by stating \"customers stand in line near an Apple store before the latest iPad goes on sale, in Tokyo Friday.\" Even though Candidate 1 has a high image similarity score of 0.8240458369255066, the text similarity score is low (0.05080922320485115) and does not provide additional supporting information, but it doesn't contradict the other evidences.",
+      "supporting_evidences": [
+        "Candidate 2: Image Similarity Score: 0.9039887189865112, Caption Similarity Score: 0.9116852879524231, Domain: www.theguardian.com, Caption: ipad launch: Tokyo, Japan: People stand in a line to purchase Apple's iPad",
+        "Candidate 3: Image Similarity Score: 0.24283376336097717, Caption Similarity Score: 0.7195860147476196, Domain: www.heraldtribune.com, Caption: Tadashi Nagatani, left, and Nobuhiko Matsuba pose with mock-ups of iPad as customers stand in line near an Apple store before the latest iPad goes on sale, in Tokyo Friday. Sales of the third version of Apple's iPad began Friday morning in the country. (AP Photo/Koji Sasahara)"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result, with a confidence score of 10, indicates that the news caption \"Tokyo Japan People stand in a line to buy the iPad at an Apple store\" accurately represents the image content. Candidate evidence from the image check reveals substantial support, with high image and caption similarity scores affirming that the image depicts people lining up to purchase the iPad at an Apple store in Tokyo. This evidence aligns directly with the caption, confirming its accuracy and representativeness.",
+    "validation_summary": "The image check result confirms that the caption accurately represents the image, showing people lining up to buy iPads at an Apple store in Tokyo. Therefore, viewers would not be misled about the image content."
+  },
+  "inference_time": 7.2678821086883545,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

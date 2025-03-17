@@ -1,0 +1,54 @@
+{
+  "caption": "An egret flies at sunset on the bank of the Poyang Lake in Duchang County east China s Jiangxi Province",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "The week in wildlife  in pictures | Environment | The Guardian",
+        "content": "F r i   8   N o v   2 0 1 3   1 8 . 2 7  C E T \n \n P h o t o g r a p h :   G u i d o   J .   P a r r a / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   s t r i n g e r / E P A \n \n P h o t o g r a p h :   J e f f r e y   A r g u e d a s / E P A \n \n P h o t o g r a p h :   N i a l l   C a r s o n / P A \n \n P h o t o g r a p h :   M i k e   B l a k e / R e u t e r s \n \n P h o t o g r a p h :   X i n h u a / L a n d o v / B a r c r o f t   M e d i a \n \n P h o t o g r a p h :   S t r i n g e r / E P A \n \n P h o t o g r a p h :   N a t e   C h a p p e l l / B a r c r o f t   M e d i a \n \n P h o t o g r a p h :   F r a n c k   R o b i c h o n / E P A \n \n P h o t o g r a p h :   G a r e t h   F u l l e r / P A \n \n P h o t o g r a p h :   Z h a n g   J u n / X i n h u a   P r e s s / C o r b i s \n \n P h o t o g r a p h :   B u l e n t   K i l i c / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   P a u l   G o l d s t e i n / E x o d u s / R e x   F e a t u r e s \n \n P h o t o g r a p h :   M a r i n a   C a n o   /   B a r c r o f t   M e d i a \n \n P h o t o g r a p h :   B e n   B i r c h a l l / P A \n \n P h o t o g r a p h :   T h e   A s a h i   S h i m b u n   v i a   G e t t y   I m a g",
+        "caption": "Week in wildlife: Week in wildlife",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Top animal photos of 2013",
+        "content": "B y \n                                                 \n                             A l i s s a   A m b r o s e \n \n D e c e m b e r   2 6 ,   2 0 1 3   /   8 : 1 1   A M   E S T \n                     /   C B S   N e w s",
+        "caption": "006_RTX14X5A.jpg ",
+        "domain": "www.cbsnews.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "The week in wildlife  in pictures | Environment | The Guardian",
+        "content": "T h e   w e e k   i n   w i l d l i f e      i n   p i c t u r e s   |   E n v i r o n m e n t   |   T h e   G u a r d i a n",
+        "caption": "An egret flies at sunset on the bank of the Poyang Lake in Duchang County, east China's Jiangxi Province, Aug. 2, 2015.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity scores are all 0.0, so I cannot use the automatic rules. Candidate 3 has the exact same caption as the news caption and is from a reputable source (theguardian.com). Therefore, I believe the caption accurately describes the image.",
+      "supporting_evidences": [
+        "Candidate 3: Caption: An egret flies at sunset on the bank of the Poyang Lake in Duchang County, east China's Jiangxi Province, Aug. 2, 2015."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts multiple silhouettes of birds flying during a sunset, not a single egret. The caption specifies an egret at Poyang Lake, while the image lacks specifics about location and type of birds. The image check result indicates that the news caption has a confidence score of 7 and states it accurately represents the image. While there is supporting evidence pointing towards the caption potentially being accurate, the confidence score has been increased and verdict reversed due to the visual evidence contradicting the caption's details. Therefore, the caption is misleading, suggesting something different from what is directly observable in the image. The key mismatch lies in the generic flock of birds versus the specific 'egret' mentioned in the caption, leading to an inaccurate representation.",
+    "validation_summary": "The caption is misleading because it specifies an egret at a particular location, while the image shows a generic flock of birds during sunset, which could easily misrepresent the actual content and purpose of the image to viewers, creating a false impression of the bird and location being depicted in the image. This difference is crucial and impacts the overall understanding of the image's subject matter, leading to the verdict of OOC being true and an associated high confidence score indicating a strong degree of certainty."
+  },
+  "inference_time": 4.62811803817749,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "Ray Rice arrives with his wife Janay Palmer whom he was recorded on video knocking unconscious in a New Jersey casino in",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Ray Rice settles with Baltimore Ravens for dropping him after assault video | Ray Rice | The Guardian",
+        "content": "2 0 0 0 . j p g ? w i d t h = 4 6 5 & d p r = 1 & s =   . . .",
+        "caption": "Ray Rice arrives with his wife Janay Palmer, whom he was recorded on video knocking unconscious in a New Jersey casino in",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.45018425583839417,
+        "text_similarity_score": 0.9961666464805603
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The Image Similarity Score is 0.45018425583839417 and the Text Similarity Score is 0.9961666464805603. According to the instructions, if Image Similarity Score < 0.85 AND Text Similarity Score >= 0.7, the verdict is \"False\". The image similarity is low, which means the images don't match, so the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows Ray Rice, his wife, and several other people including reporters. The caption says 'Ray Rice arrives with his wife Janay Palmer whom he was recorded on video knocking unconscious in a New Jersey casino in', which does describe the people in the image, but the image is not a representation of that event, making it out of context. The image check confirms this by saying the image similarity is low.",
+    "validation_summary": "The caption correctly identifies the people in the image, but the image does not represent the specific event described, making it out of context. The low image similarity score confirms this."
+  },
+  "inference_time": 4.865706443786621,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

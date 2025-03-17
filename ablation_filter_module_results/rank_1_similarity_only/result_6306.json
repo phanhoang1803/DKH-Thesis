@@ -1,0 +1,40 @@
+{
+  "caption": "Syrian doctors try to save the life of a boy shot by a Syrian Army sniper at Dar alShifa hospital",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "contest.photojournalism.org",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9553119540214539,
+        "text_similarity_score": 0.011208856478333473
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.9553119540214539, and the text similarity score is 0.011208856478333473. According to the instructions, if the image similarity score is greater than or equal to 0.85, and the text similarity score is less than 0.7, the verdict should be immediately marked as 'False'. Additionally, the provided evidence does not contain enough information to confirm or deny the accuracy of the caption. Therefore, based on the algorithm and the limited information available, the caption is considered out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts a young boy lying on a medical examination table. He is surrounded by medical personnel in green scrubs who appear to be attending to him. The boy is covered in what appears to be blood and other injuries. Medical equipment, including an IV drip, is also visible. The image check result indicates a high image similarity (0.955) but a low text similarity (0.011). The image shows a boy being treated in a hospital, but there is no way to independently verify that the boy was shot by a Syrian Army sniper as the caption claims. Based on the image check result and the inability to verify the specific details of the caption from the image alone, the caption is considered out of context.",
+    "validation_summary": "While the image accurately portrays a child receiving medical treatment in a hospital setting, the caption's claim of the child being shot by a Syrian Army sniper cannot be verified and thus misrepresents the specific circumstances of the image. This discrepancy leads to the determination that the caption is out of context."
+  },
+  "inference_time": 6.1044158935546875,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

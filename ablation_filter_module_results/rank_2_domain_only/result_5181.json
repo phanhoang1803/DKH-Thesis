@@ -1,0 +1,43 @@
+{
+  "caption": "Barry Hitchings 40 was working in a retro computer game shop in Hammersmith London when he was headhunted",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Machine",
+      "Vending"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Video Game On: The man who spent 13 years travelling with Pong and Pac-Man - BBC News",
+        "content": "_ 8 7 2 2 5 5 4 2 _ 0 0 2 4 . j p g",
+        "caption": "Barry Hitchings, 40, was working in a retro computer game shop in Hammersmith, London when he was headhunted",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption almost exactly matches the news caption. The candidate evidence comes from a reliable domain, bbc.com. Given these reasons, the caption is likely in context.",
+      "supporting_evidences": [
+        "Barry Hitchings, 40, was working in a retro computer game shop in Hammersmith, London when he was headhunted"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a man standing in what appears to be a room filled with filing cabinets and shelves filled with books and other items. He is holding a drumstick and wearing a t-shirt. The news caption states \"Barry Hitchings 40 was working in a retro computer game shop in Hammersmith London when he was headhunted\". While the text does mention Barry Hitchings, the image does not depict a retro computer game shop in Hammersmith, London. Based on the image check result and the image analysis, the caption is not representative of the image content.",
+    "validation_summary": "The caption mentions a retro computer game shop, but the image displays a man in a room filled with cabinets and books, which would mislead viewers about the context of the image. Thus, the caption does not accurately represent the image."
+  },
+  "inference_time": 3.6060519218444824,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

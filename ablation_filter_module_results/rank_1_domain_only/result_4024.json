@@ -1,0 +1,49 @@
+{
+  "caption": "Game 5 Blackhawks defenseman Brent Seabrook takes down Ducks wing Jiri Sekac to thwart a secondperiod scoring chance",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Ice hockey",
+      "College ice hockey",
+      "Floor hockey",
+      "Rink bandy",
+      "Hockey",
+      "Inline hockey",
+      "Bandy",
+      "Goaltender",
+      "Higher Education School",
+      "Floor"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Best of the Stanley Cup playoffs: Conference finals",
+        "content": "B e s t   o f   t h e   S t a n l e y   C u p   p l a y o f f s :   C o n f e r e n c e   f i n a l s",
+        "caption": "Game 7: Members of the Chicago Blackhawks pose with the Clarence S. Campbell Bowl after a 5-3 win.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The Image Similarity Score is 0.0 and the Text Similarity Score is 0.0. Therefore, the automated rules do not apply. Since the candidate discusses a Chicago Blackhawks game, but does not provide any specific details about the players or the game as described in the news caption, the caption is not confirmed.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low similarity between the news caption and the image content. The caption mentions 'Game 5 Blackhawks defenseman Brent Seabrook takes down Ducks wing Jiri Sekac', implying a specific hockey game scene. The image shows a hockey game with players in action, the provided details about who is taking down who and the specific teams cannot be confirmed through visual inspection alone, thus making it impossible to confirm that the caption accurately describes the image. Since the confidence score is 1, the final decision must be based on the image check result, and therefore, the image is determined to be out of context.",
+    "validation_summary": "Without specific visual evidence confirming the players and teams mentioned in the caption, the viewer would be misled into assuming the image accurately depicts the described scene. The image lacks sufficient detail to verify the caption's claims."
+  },
+  "inference_time": 3.9587182998657227,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

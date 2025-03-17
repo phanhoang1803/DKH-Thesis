@@ -1,0 +1,72 @@
+{
+  "caption": "Mitt Romney speaks during a campaign rally at Westerville South High School in Westerville Ohio",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "United States",
+      "Speech",
+      "Flag of the United States",
+      "Flag",
+      "Academic conference",
+      "Public speaking",
+      "Flag Day",
+      "Veterans Day",
+      "Convention"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Picture desk live: the best news pictures of the day | World news | The Guardian",
+        "content": "P i c t u r e   d e s k   l i v e :   t h e   b e s t   n e w s   p i c t u r e s   o f   t h e   d a y   |   W o r l d   n e w s   . . .",
+        "caption": "Peering through the crowd, Mitt Romney delivers a speech during a campaign rally at Westerville South High School in Westerville, Ohio, USA.  Photograph: Shawn Thew/EPA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.375462144613266,
+        "text_similarity_score": 0.871079683303833
+      },
+      {
+        "title": "Election 2012: Swing state polls and the GOP battle for the Senate | LAist",
+        "content": "E l e c t i o n   2 0 1 2 :   S w i n g   s t a t e   p o l l s   a n d   t h e   G O P   b a t t l e   f o r   t h e   S e n a t e   . . .",
+        "caption": "Republican U.S. presidential candidate Mitt Romney arrives at a campaign rally at Westerville South High School September 26, 2012 in Westerville, Ohio. Romney continued his two-day \"Romney Plan For A Stronger Middle Class\" bus tour in the state of Ohio.",
+        "domain": "laist.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.32054635882377625,
+        "text_similarity_score": 0.7616237998008728
+      },
+      {
+        "title": "Romney hammers Obama on national debt",
+        "content": "R o m n e y   h a m m e r s   O b a m a   o n   n a t i o n a l   d e b t",
+        "caption": "Republican presidential candidate Mitt Romney arrives at a campaign rally at Westerville South High School as a national debt clock runs in the background September 26, 2012 in Westerville, Ohio.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4827454388141632,
+        "text_similarity_score": 0.7399553060531616
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption states that \"Mitt Romney speaks during a campaign rally at Westerville South High School in Westerville Ohio\".\n\nCandidate 1 has an image similarity score of 0.375 and a text similarity score of 0.871. The caption states: \"Peering through the crowd, Mitt Romney delivers a speech during a campaign rally at Westerville South High School in Westerville, Ohio, USA\". This candidate supports the news caption.\n\nCandidate 2 has an image similarity score of 0.321 and a text similarity score of 0.762. The caption states: \"Republican U.S. presidential candidate Mitt Romney arrives at a campaign rally at Westerville South High School September 26, 2012 in Westerville, Ohio.\" This candidate supports the news caption.\n\nCandidate 3 has an image similarity score of 0.483 and a text similarity score of 0.740. The caption states: \"Republican presidential candidate Mitt Romney arrives at a campaign rally at Westerville South High School as a national debt clock runs in the background September 26, 2012 in Westerville, Ohio.\" This candidate supports the news caption.\n\nSince all candidates have image similarity scores below 0.85, I cannot definitively confirm the news caption. However, the captions of the candidates and their text similarity scores indicate that the news caption is likely true. Therefore, I mark it as false.",
+      "supporting_evidences": [
+        "Candidate 1 has an image similarity score of 0.375 and a text similarity score of 0.871. The caption states: \"Peering through the crowd, Mitt Romney delivers a speech during a campaign rally at Westerville South High School in Westerville, Ohio, USA\".",
+        "Candidate 2 has an image similarity score of 0.321 and a text similarity score of 0.762. The caption states: \"Republican U.S. presidential candidate Mitt Romney arrives at a campaign rally at Westerville South High School September 26, 2012 in Westerville, Ohio.\"",
+        "Candidate 3 has an image similarity score of 0.483 and a text similarity score of 0.740. The caption states: \"Republican presidential candidate Mitt Romney arrives at a campaign rally at Westerville South High School as a national debt clock runs in the background September 26, 2012 in Westerville, Ohio.\""
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the news caption is likely true. The captions of the candidates and their text similarity scores suggest that the news caption is accurate. Therefore, the image is not out of context.",
+    "validation_summary": "The caption accurately describes the image content, as confirmed by the image check results, suggesting the scene depicted is a campaign rally featuring Mitt Romney speaking at Westerville South High School in Westerville, Ohio. Therefore, viewers would not be misled."
+  },
+  "inference_time": 7.41216254234314,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

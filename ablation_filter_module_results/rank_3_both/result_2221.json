@@ -1,0 +1,41 @@
+{
+  "caption": "Prime Minister David Cameron visited the Commonwealth Games centre at the Emirates Arena in Glasgow",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 10,
+      "explanation": "The provided context describes an image of David Cameron and Nick Clegg, while the caption mentions David Cameron visiting the Commonwealth Games centre in Glasgow. These two descriptions don't align. The image context focuses on a close-up of the two politicians, not on a visit to a specific location. Therefore, the caption does not align with the image context.",
+      "supporting_evidences": [
+        "The image context specifies that the image is a close-up of David Cameron and Nick Clegg, smiling and relaxed.",
+        "The caption states that David Cameron visited the Commonwealth Games centre at the Emirates Arena in Glasgow.",
+        "The image context does not mention any visit to a specific location like the Commonwealth Games centre.",
+        "The caption fails to mention Nick Clegg who is present in the image."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Close-up of David Cameron and Nick Clegg, smiling and appearing relaxed.",
+      "context": "The image shows a close-up of two men, identified as David Cameron and Nick Clegg, standing side by side. Both men are smiling with their eyes closed, possibly enjoying a moment of sunshine or a shared joke. They are dressed in formal attire, suggesting they are attending a formal event or performing official duties. The background is blurred, focusing the viewer's attention on the two figures. Given the news content provided, this photo may have been taken during a period when Cameron and Clegg were in a coalition government, possibly around the time of preparations for the 2014 Commonwealth Games in Glasgow. However, the image itself does not provide specific details about the event or the exact time it was taken.",
+      "information": "The image features David Cameron and Nick Clegg, both prominent political figures, standing in close proximity. They are smiling with their eyes closed. Both individuals appear to be in suits. The picture is taken in a well-lit outdoor setting, with a blurred background."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows David Cameron and Nick Clegg standing next to each other, with their eyes closed and a slight smile. The caption states that David Cameron visited the Commonwealth Games centre at the Emirates Arena in Glasgow. The image doesn't show anything related to the Commonwealth Games or the Emirates Arena. The caption is therefore misleading as it implies the image is of Cameron at the games centre, when it is just a picture of him with Clegg.",
+    "validation_summary": "The caption misleadingly suggests the image depicts David Cameron at the Commonwealth Games centre, while the image actually shows him with Nick Clegg. This would misinform viewers about the image's context and content, creating a false impression of the events depicted."
+  },
+  "inference_time": 5.473191499710083,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

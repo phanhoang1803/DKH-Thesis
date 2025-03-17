@@ -1,0 +1,40 @@
+{
+  "caption": "Petraeus left and Central Command commander Adm William J Fallon right welcome President George W Bush as he arrives in Iraq s Anbar province for a surprise visit",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Paul Davis Ryan Profile photos | SuccessStory",
+        "content": "",
+        "caption": "Paul Rayn With Bush",
+        "domain": "successstory.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9658777713775635,
+        "text_similarity_score": 0.2801215946674347
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is high (0.9658777713775635), but the caption similarity score is low (0.2801215946674347). This means that while the images may be visually similar, the captions describe different things. Therefore, I cannot confirm that the candidate evidence supports the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result shows a high image similarity score (0.9658777713775635) but a low caption similarity score (0.2801215946674347). This discrepancy indicates that while the visual elements of the images might be similar, the captions do not align in their description of the events or individuals depicted. Therefore, I can not confirm that the candidate evidence supports the news caption. The image shows Paul Ryan, George W Bush, and others; the caption claims that the image is of Petraeus and Adm William J Fallon welcoming President George W Bush as he arrives in Iraq. Since there is no Petraeus, William J Fallon, and Iraq visible in the picture the caption is incorrect.",
+    "validation_summary": "The caption incorrectly identifies the individuals and location in the image, leading to a false impression of the depicted event. Viewers would be misled about who and where this photo was taken."
+  },
+  "inference_time": 6.072657346725464,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

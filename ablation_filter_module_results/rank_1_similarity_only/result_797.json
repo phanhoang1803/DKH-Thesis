@@ -1,0 +1,52 @@
+{
+  "caption": "A family make their way along a lane in Beijing Couples who violate China s onechild policy face hefty fines",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "www.kare11.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8784511089324951,
+        "text_similarity_score": 0.04375434294342995
+      },
+      {
+        "title": "Chinese woman under pressure to choose between second child and husband's job | China | The Guardian",
+        "content": "C h i n e s e   w o m a n   u n d e r   p r e s s u r e   t o   c h o o s e   b e t w e e n   s e c o n d   c h i l d   a n d   . . .",
+        "caption": "A family make their way along a lane in Beijing. Couples who violate Chinas one-child policy face hefty fines.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3108885586261749,
+        "text_similarity_score": 0.9731615781784058
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the provided candidates, I can confidently determine whether the news caption accurately represents the image. Candidate 1 has a high image similarity score (0.8784511089324951), indicating that the images are visually similar. However, the text similarity score is low (0.04375434294342995), suggesting the captions do not align. According to the strict decision rules, if the image similarity is high (≥ 0.85) and the text similarity is low (< 0.7), the verdict should be 'False'. Candidate 2 has a low image similarity score (0.3108885586261749) and a high text similarity score (0.9731615781784058). According to the strict decision rules, if the image similarity is low (< 0.85) and the text similarity is high (≥ 0.7), the verdict should be 'False'. Additionally, the news caption and candidate 2 are exactly the same, reinforcing the fact that candidate 1's image similarity is high. Consequently, the final verdict is 'False,' because candidate 1's image is similar enough that it might be the image, however, the captions do not match. This highlights a potential problem with the news caption.",
+      "supporting_evidences": [
+        "Candidate 1 has a high image similarity score (0.8784511089324951) but a low text similarity score (0.04375434294342995).",
+        "Candidate 2 has a low image similarity score (0.3108885586261749) and a high text similarity score (0.9731615781784058)."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 10, indicating a high level of certainty. The image similarity between the news image and candidate 1 is high (0.8784511089324951), suggesting they are visually similar. However, the text similarity score is low (0.04375434294342995), indicating the captions do not match. The news caption describes a 'family make their way along a lane in Beijing Couples who violate China s onechild policy face hefty fines', while the image shows four people, presumably women, wrapped in blankets and sitting on the ground. There is no visual evidence of a family making their way along a lane or any direct indication related to China's one-child policy in the image. Based on the image check result, the caption does not accurately represent the image content.",
+    "validation_summary": "The image and caption do not correspond, as the caption describes a family and the one-child policy, while the image shows people wrapped in blankets. Viewers would be misled about what they are seeing because the image content is unrelated to the caption's description of a family and China's one-child policy implications. Therefore, the image is OOC (Out of Context). Based on the image check results, the image is OOC (Out of Context). Since the confidence score is 10, the image check result will be used to make a decision and the final verdict is 'True'. The caption is misleading."
+  },
+  "inference_time": 8.879220485687256,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

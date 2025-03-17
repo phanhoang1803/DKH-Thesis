@@ -1,0 +1,63 @@
+{
+  "caption": "Erik Lamela rounds Manchester City s Willy Caballero to score the fourth goal for Tottenham",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Steven Gerrard",
+      "Frank Lampard",
+      "Liverpool F.C.",
+      "UEFA Champions League",
+      "Anfield",
+      "Riath Al-Samarrai",
+      "PFC Ludogorets Razgrad",
+      "Gaelic football",
+      "other",
+      "just"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Harry Kane finally gets reward as Spurs  deepen Manchester Citys slump | Premier League | The Guardian",
+        "content": "H a r r y   K a n e   f i n a l l y   g e t s   r e w a r d   a s   S p u r s   d e e p e n   M a n c h e s t e r   C i t y ' s   . . .",
+        "caption": "Erik Lamela rounds Manchester City's Willy Caballero to score the fourth goal for Tottenham.\r Photograph: Tony O'Brien/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.704165518283844,
+        "text_similarity_score": 0.9133853912353516
+      },
+      {
+        "title": "Tottenham v Manchester City: Premier League  as it happened | Premier League | The Guardian",
+        "content": "T o t t e n h a m   v   M a n c h e s t e r   C i t y :   P r e m i e r   L e a g u e      a s   i t   h a p p e n e d   . . .",
+        "caption": "Erik Lamela celebrates after giving Tottenham a 4-1 lead over Manchester City. ",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6276482939720154,
+        "text_similarity_score": 0.729996383190155
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have image similarity scores below 0.85. Candidate 1 has a text similarity score above 0.7, while Candidate 2 has a text similarity score above 0.7. However, since the image similarity scores are below the threshold, the caption is determined to be out-of-context. Candidate 1 provides a caption that almost perfectly matches the news caption. It states, 'Erik Lamela rounds Manchester City's Willy Caballero to score the fourth goal for Tottenham.' This strongly supports the accuracy of the news caption. Candidate 2 provides additional context, mentioning that Lamela is celebrating after scoring the goal, which further supports that the image could be from the game described in the news caption. However, the image similarity being below 0.85 makes the caption ultimately out-of-context based on the strict rules.",
+      "supporting_evidences": [
+        "Candidate 1",
+        "Candidate 2"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity scores between the given image and the candidate images are below 0.85, which means the images are not similar enough to support the caption. Although the text similarity scores are high, the low image similarity scores suggest that the image does not accurately represent the caption's claim that Erik Lamela is rounding Manchester City's Willy Caballero to score a goal. The image shows a soccer player in a red jersey kicking a ball, while other players in white jerseys are nearby. The image's content doesn't explicitly show Lamela, Caballero, or the specific action of Lamela rounding Caballero to score, leading to the conclusion that the image is out of context.",
+    "validation_summary": "The image doesn't directly show the specific players or action described in the caption, making it out of context and potentially misleading to viewers about the event being depicted. Although there's a soccer game, the key detail about specific players and actions is missing from the image, as determined by image analysis scores from candidate images combined with the rules provided in the context of the task. Therefore, the caption cannot be considered representative of the image's content, rendering it out-of-context (OOC = True). The confidence score given is based on provided image check result of 7 or more, therefore following the instructions to use it as final determination of OOC = True. Because image similarity scores for candidate images are below the threshold provided in the rules, the caption must be considered OOC = True regardless of text similarity between the news caption and candidate captions. Given these rules, there are no other options and all the explanation and summary must indicate that the image is OOC = True because image similarity scores are below threshold and there is nothing else to add to this answer."
+  },
+  "inference_time": 6.14523458480835,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

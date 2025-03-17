@@ -1,0 +1,38 @@
+{
+  "caption": "High living standards and high taxfree salaries draw thousands of Britons to Qatar",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Good migrations: Britons moving abroad | Redundancy | The Guardian",
+        "content": "G o o d   m i g r a t i o n s :   B r i t o n s   m o v i n g   a b r o a d   |   R e d u n d a n c y   |   T h e   G u a r d i a n",
+        "caption": "Calgary in Canada, has a rising British population. Photograph: Dean Muz/Corbis",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption mentions 'Calgary in Canada, has a rising British population', while the news caption is about 'High living standards and high taxfree salaries draw thousands of Britons to Qatar'. The candidate does not provide any information to prove that the news caption accurately represents the image. Therefore, the verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image and the news caption are unrelated. The image shows a cityscape with tall buildings and a river, while the caption discusses high living standards in Qatar. The image doesn't provide any visual support for the caption's claim about Qatar, and without any connection shown in the picture, the caption is misleading.",
+    "validation_summary": "The image of a cityscape doesn't relate to the news caption about high living standards in Qatar, misleading viewers about the news story's content. The image check result confirms the mismatch, strengthening the conclusion."
+  },
+  "inference_time": 3.62109112739563,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

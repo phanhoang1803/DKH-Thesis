@@ -1,0 +1,49 @@
+{
+  "caption": "A man holds up a sign while waiting for Bernie Sanders at Sheboygan South High School on April 1 2016",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Immigration",
+      "Audience",
+      "Crowd",
+      "Presidential nominee",
+      "Candidate",
+      "Cheering",
+      "Convention",
+      "Speech",
+      "Fan"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 1,
+      "confidence_score": 10,
+      "explanation": "The caption describes an image of Bernie Sanders at a rally, while the image context describes Donald Trump at a rally. The two descriptions are entirely different, indicating no alignment between the caption and the context. The caption fails to convey what the image is about and misrepresents the subject of the image.",
+      "supporting_evidences": [
+        "The caption mentions Bernie Sanders, while the context describes Donald Trump.",
+        "The caption describes an event at Sheboygan South High School, while the context describes a political rally with a 'Trump Pence' sign."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Donald Trump waves to supporters at a rally, surrounded by a crowd of people.",
+      "context": "The image shows Donald Trump at a rally, surrounded by supporters. He is waving to the crowd with his right hand raised. The crowd appears dense, with many people trying to get closer to the candidate. One individual is holding a 'Trump Pence Make America Great Again' sign. The atmosphere suggests a campaign event with active participation from attendees. The overall scene captures the energy and enthusiasm typical of a political rally.",
+      "information": "The image features Donald Trump in the midst of a crowd, waving to supporters. A 'Trump Pence' sign is visible in the crowd."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a high confidence score (10) and indicates that the caption is not representative of the image content. The image shows Donald Trump surrounded by people, with a 'Trump Pence' sign visible, suggesting a rally or event related to his campaign. In contrast, the caption describes Bernie Sanders at Sheboygan South High School. Since the image check provides a definitive answer and has a high confidence, the verdict should follow its analysis. The caption misrepresents the image, placing it out of context.",
+    "validation_summary": "The caption incorrectly identifies the person in the image as Bernie Sanders and the event as being related to him, when the image clearly shows Donald Trump and a 'Trump Pence' sign, misleading viewers about the subject and context of the photo. The image check result confirms this discrepancy with high confidence, demonstrating the caption is out of context."
+  },
+  "inference_time": 4.249003171920776,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

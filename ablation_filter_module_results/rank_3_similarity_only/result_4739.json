@@ -1,0 +1,55 @@
+{
+  "caption": "Finland defenseman Sami Lepisto battles for the puck with Russia forward Alex Ovechkin on Wednesday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Ice hockey",
+      "College ice hockey",
+      "Hockey",
+      "Rink bandy",
+      "Inline hockey",
+      "Bandy",
+      "Skater hockey",
+      "Higher Education School",
+      "Rollerblade",
+      "Ice rink"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Who's to blame for Russian hockey team's ouster?",
+        "content": "W h o ' s   t o   b l a m e   f o r   R u s s i a n   h o c k e y   t e a m ' s   o u s t e r ?",
+        "caption": "Finland defenseman Sami Lepisto (18) battles for the puck with Russia forward Alex Ovechkin (8) on Wednesday.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8365335464477539,
+        "text_similarity_score": 0.980398952960968
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate evidence has a high image similarity score (0.8365335464477539) and a high text similarity score (0.980398952960968). This indicates that the candidate image is very similar to the news image and the candidate caption is highly similar to the news caption. The candidate caption explicitly mentions 'Finland defenseman Sami Lepisto (18) battles for the puck with Russia forward Alex Ovechkin (8) on Wednesday,' which directly confirms the accuracy of the news caption 'Finland defenseman Sami Lepisto battles for the puck with Russia forward Alex Ovechkin on Wednesday.' Therefore, the news caption accurately represents what the news image shows.",
+      "supporting_evidences": [
+        "Caption: Finland defenseman Sami Lepisto (18) battles for the puck with Russia forward Alex Ovechkin (8) on Wednesday.",
+        "Image Similarity Score: 0.8365335464477539",
+        "Text Similarity Score: 0.980398952960968"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (10) due to both high image similarity (0.8365) and text similarity (0.9804). The supporting evidence confirms that the candidate caption accurately describes the image, mentioning 'Finland defenseman Sami Lepisto battles for the puck with Russia forward Alex Ovechkin on Wednesday.' Given this strong evidence, the news caption accurately represents the content of the image.",
+    "validation_summary": "The image check confirms that the caption accurately represents the image, showing Finland's Sami Lepisto and Russia's Alex Ovechkin battling for the puck, thus there is no misleading information and the image is not out of context.. Therefore, viewers would not be misled by the caption in relation to the image content. The image is not out of context.)"
+  },
+  "inference_time": 8.535310983657837,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

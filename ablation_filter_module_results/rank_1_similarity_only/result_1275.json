@@ -1,0 +1,44 @@
+{
+  "caption": "People light candles at the Malaysian embassy in Kiev Ukraine",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Night",
+      "5hy",
+      "Performance M"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Gerakan's Kota Damansara youth chief and wife among Flight MH17 victims | Malay Mail",
+        "content": "G e r a k a n ' s   K o t a   D a m a n s a r a   y o u t h   c h i e f   a n d   w i f e   a m o n g   F l i g h t   M H 1 7   . . .",
+        "caption": "People light candles at the Malaysian embassy for victims of Malaysia Airlines MH17, which crashed in eastern Ukraine, in Kiev July 17, 2014. u00e2u20acu2022 Reuters pic",
+        "domain": "www.malaymail.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.586752712726593,
+        "text_similarity_score": 0.8308618664741516
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.586752712726593, which is less than 0.85. Therefore, the images do not match, and the caption is out-of-context. Although the caption similarity score is 0.8308618664741516, which is greater than 0.7, based on the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context even if the text similarity score is high. The candidate caption refers to people lighting candles at the Malaysian embassy in Kiev for victims of Malaysia Airlines MH17, which crashed in eastern Ukraine. This aligns with the news caption which mentions people lighting candles at the Malaysian embassy in Kiev Ukraine. However, due to the low image similarity score, I cannot confirm the news caption accurately represents what the news image shows.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low image similarity score of 0.586752712726593, which is less than 0.85. Therefore, the images do not match, suggesting the caption is out-of-context. Although the caption similarity score is 0.8308618664741516, which is greater than 0.7, based on the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context even if the text similarity score is high. The candidate caption refers to people lighting candles at the Malaysian embassy in Kiev for victims of Malaysia Airlines MH17, which crashed in eastern Ukraine. This aligns with the news caption which mentions people lighting candles at the Malaysian embassy in Kiev Ukraine. However, due to the low image similarity score, I cannot confirm the news caption accurately represents what the news image shows.",
+    "validation_summary": "The image similarity score is too low to verify the caption's accuracy, even though the text describes a similar event, making the caption potentially misleading regarding the specific location and event depicted in the image. Based on the image check result, the image and caption do not align so the caption is out of context because the image similarity is not high enough (0.58 < 0.85). Therefore, the caption is misleading to the news image based on the current image check result score of the images provided and the caption given by the prompt."
+  },
+  "inference_time": 7.195377826690674,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

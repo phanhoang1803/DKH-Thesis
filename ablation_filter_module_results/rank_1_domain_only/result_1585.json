@@ -1,0 +1,45 @@
+{
+  "caption": "In 18th place Ford Explorer",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Car",
+      "Road",
+      "Dirt road",
+      "Tree"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Here's the 20 hottest-selling vehicles in July",
+        "content": "H e r e ' s   t h e   2 0   h o t t e s t - s e l l i n g   v e h i c l e s   i n   J u l y",
+        "caption": "In 18th place, Ford Explorer",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0, and the text similarity score is 0.0. Therefore, the strict decision rules do not apply. However, the caption in candidate 1 exactly matches the news caption. It comes from usatoday.com, which is a reliable domain. Therefore, based on the caption and evidence matching, I think the verdict is True.",
+      "supporting_evidences": [
+        "In 18th place, Ford Explorer"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result provides a confidence score of 6. However, according to strict decision rules, when the confidence score is 7-10, the final determination \"MUST\" be based on the image check result. In this case, the image check result determines the image to be NOT out of context. The image shows a flooded road. The caption mentions the Ford Explorer being in 18th place. There is nothing in the image to suggest anything about Ford Explorer or its ranking. Therefore, the caption is out of context.",
+    "validation_summary": "The caption provides information irrelevant to the image content, misleading viewers about what the image represents. The image depicts a flooded road, while the caption talks about the Ford Explorer's ranking, leading to misinterpretation."
+  },
+  "inference_time": 4.253371953964233,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

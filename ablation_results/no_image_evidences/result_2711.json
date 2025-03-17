@@ -1,0 +1,46 @@
+{
+  "caption": "Pope Francis visits Our Lady Queen of Angels School in East Harlem in New York on Friday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Pope Francis takes his message of peace and renewal to East Harlem school - Los Angeles Times",
+        "content": "P o p e   F r a n c i s   t a k e s   h i s   m e s s a g e   o f   p e a c e   a n d   r e n e w a l   t o   E a s t   H a r l e m   . . .",
+        "caption": "Pope Francis, accompanied by Cardinal Timothy Dolan, left, and Joanne Walsh, principal of Our Lady Queen of Angels School, prays as he visits the school in East Harlem on Friday.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.33817258477211,
+        "text_similarity_score": 0.7794396877288818
+      },
+      {
+        "title": "Pope Francis At Our Lady Queen of Angels In Harlem",
+        "content": "P o p e   F r a n c i s   A t   O u r   L a d y   Q u e e n   o f   A n g e l s   I n   H a r l e m",
+        "caption": "Pope Francis visits Our Lady Queen of Angels elemntary school in Harlem, NY on September 25, 2015.",
+        "domain": "www.harlemworldmagazine.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.24925874173641205,
+        "text_similarity_score": 0.9337741732597351
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Both candidates have low image similarity scores (< 0.85). However, the text similarity scores for both candidates are high (>= 0.7). Despite the high text similarity, the low image similarity scores necessitate a 'False' verdict. Candidate 1 mentions 'Pope Francis visits the school in East Harlem on Friday,' aligning with the news caption. Candidate 2 states, 'Pope Francis visits Our Lady Queen of Angels elementary school in Harlem, NY on September 25, 2015,' which also supports the event described in the news caption. Therefore, the image does show the event described in the caption, but because the image similarity scores are low, the final decision is 'False'.",
+      "supporting_evidences": [
+        "Candidate 1: Caption mentions Pope Francis visiting the school in East Harlem on Friday.",
+        "Candidate 2: Caption mentions Pope Francis visits Our Lady Queen of Angels elementary school in Harlem, NY on September 25, 2015."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 8,
+    "validation_summary": "The caption accurately reflects Pope Francis's visit to Our Lady Queen of Angels School as depicted in the image, and there is no misleading information.",
+    "explanation": "The image corroborates the caption that states \"Pope Francis visits Our Lady Queen of Angels School in East Harlem in New York on Friday.\" The analysis shows that while there are some discrepancies in image similarity scores, the text details aligning with the event are high, indicating that the core claim regarding Pope Francis's visit is indeed evidenced by the image content. The image suggests that the event captured is directly related to the visit mentioned in the caption, affirming that the caption does not misrepresent the image."
+  },
+  "inference_time": 9.66391396522522,
+  "ablation_type": "no_image_evidences"
+}

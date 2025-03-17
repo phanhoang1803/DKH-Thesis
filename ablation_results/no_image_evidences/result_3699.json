@@ -1,0 +1,37 @@
+{
+  "caption": "Junot Diaz author of The Brief Wondrous Life of Oscar Wao",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Amazon.com: The Brief Wondrous Life of Oscar Wao (Pulitzer Prize Winner): 9781594483295: Daz, Junot: Books",
+        "content": "A m a z o n . c o m :   T h e   B r i e f   W o n d r o u s   L i f e   o f   O s c a r   W a o   ( P u l i t z e r   P r i z e   . . .",
+        "caption": "The Brief Wondrous Life of Oscar Wao (Pulitzer Prize Winner)",
+        "domain": "www.amazon.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.0815613716840744,
+        "text_similarity_score": 0.7501385807991028
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score between the news image and the candidate image is 0.0815613716840744, which is less than 0.85. Additionally, the caption similarity score is 0.7501385807991028, which is greater or equal to 0.7. Based on the instruction, the verdict should be false.",
+      "supporting_evidences": [
+        "The image similarity score is 0.0815613716840744.",
+        "The caption similarity score is 0.7501385807991028."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image is OOC. The image similarity score is 0.0815613716840744, which is less than 0.85. Additionally, the caption similarity score is 0.7501385807991028, which is greater or equal to 0.7. Therefore, based on the instruction, the verdict should be false.",
+    "validation_summary": "The image is out of context as the image similarity and caption similarity scores do not support that the caption is a correct representative summary of the image content. Viewers would be misled about the content of the image."
+  },
+  "inference_time": 4.461117267608643,
+  "ablation_type": "no_image_evidences"
+}

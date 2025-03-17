@@ -1,0 +1,59 @@
+{
+  "caption": "20 Bengals One explanation for this heretofore disappointment The Bengals 30 conversion rate on third down is league s third worst",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Quarterback",
+      "Kirk Cousins",
+      "Andy Dalton",
+      "Dallas Cowboys",
+      "Washington Commanders",
+      "Six-man football",
+      "Eight-man football",
+      "American football",
+      "Canadian football"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "247sports.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9584840536117554,
+        "text_similarity_score": 0.15676742792129517
+      },
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "247sports.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9584840536117554,
+        "text_similarity_score": 0.15676742792129517
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is high (>= 0.85), but the text similarity score is low (< 0.7). Therefore, the caption is out-of-context. The evidence does not provide explicit confirmation that the caption accurately represents the image. Therefore, the final verdict is negative.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts a football game, specifically showing a quarterback in the act of throwing the ball. Other players are visible in the background, wearing Bengals and Cowboys uniforms. The caption, however, refers to the Bengals' third-down conversion rate and makes a statement about the team's disappointment. The caption's text has no direct visual representation in the image; there's nothing in the picture to indicate the team's conversion rate or a sense of disappointment. Given the high image similarity score, the image accurately depicts a football game, but the caption introduces a topic not directly represented, leading to an out-of-context association. Because the image check result has a confidence score of 9, I am using the image check result to determine the final answer.",
+    "validation_summary": "The caption discusses the Bengals' performance metrics, while the image simply shows a game in progress, creating a mismatch between the textual information and visual content and misleading viewers about the specific context of the game depicted. The caption is out of context as it discusses the Bengals' third-down conversion rate, while the image simply depicts a football game without providing any information related to this statistic."
+  },
+  "inference_time": 6.8272011280059814,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

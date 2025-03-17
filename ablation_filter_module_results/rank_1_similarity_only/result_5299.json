@@ -1,0 +1,51 @@
+{
+  "caption": "Thanks to Twitter you can now snooze through the boring bits at Glastonbury",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Camp for Climate Action",
+      "Kingsnorth Power Station",
+      "Climate",
+      "Climate change",
+      "Natural environment",
+      "near",
+      "Blackheath",
+      "Direct action",
+      "Demonstration",
+      "Power station"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.dk",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8573488593101501,
+        "text_similarity_score": 0.17415352165699005
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is high (0.8573488593101501), but the text similarity score is low (0.17415352165699005). Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high image similarity score but a low text similarity score, leading to a verdict that the caption is out of context. The image shows a large gathering of tents in a field, presumably at a festival, with a power plant in the background. The caption refers to Glastonbury and Twitter, implying the image relates to live updates and avoiding boring parts of the festival. However, the image itself doesn't provide any visual evidence to support this connection, as it doesn't show screens, social media references, or any direct tie to Twitter or the content mentioned. Given the high confidence score from the image check (where a high score mandates a decision based on that result) the caption is out of context because it doesn't accurately represent the visual content of the image.",
+    "validation_summary": "The caption, referencing Glastonbury and Twitter, is misleading as the image depicts a field of tents at a festival without any explicit connection to social media or the specified event. Viewers would likely be misled about the image's context and its relationship to the provided caption."
+  },
+  "inference_time": 7.587017774581909,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

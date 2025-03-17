@@ -1,0 +1,47 @@
+{
+  "caption": "Kelly in concert at The Tabernacle London",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Tori Kelly: 'Believe in yourself and dont be bullied' | Music | The Guardian",
+        "content": "T o r i   K e l l y :   ' B e l i e v e   i n   y o u r s e l f   a n d   d o n ' t   b e   b u l l i e d '   |   M u s i c   . . .",
+        "caption": "Kelly in concert at The Tabernacle, London.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Tori Kelly review   a maverick in pop star's clothing | Music | The Guardian",
+        "content": "T o r i   K e l l y   r e v i e w      a   m a v e r i c k   i n   p o p   s t a r ' s   c l o t h i n g   |   M u s i c   . . .",
+        "caption": "Tori Kelly performs at Bush Hall on September 1, 2015 in London, England. ",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have a low image similarity score (<0.85) and low text similarity score (<0.7). Candidate 1 has a caption that is identical to the news caption: 'Kelly in concert at The Tabernacle, London.' However, without a high image similarity score, it is not possible to confirm the image matches. Candidate 2 mentions Tori Kelly performing in London, but at Bush Hall and on a different date. Thus, without image similarity, there's not enough support for the news caption.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: Kelly in concert at The Tabernacle, London."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "explanation": "The image check result has a low confidence score of 6. The image shows a female singer with long blonde hair singing into a microphone on a stage with a guitarist in the background. The caption claims \"Kelly in concert at The Tabernacle London\". Without a high image similarity score from the image check, it is not possible to confirm whether the person in the image is Kelly or whether the concert happened at The Tabernacle London. Therefore, the image is out of context because there is no concrete evidence that the image matches the caption.",
+    "validation_summary": "Without sufficient evidence to confirm the identity of the performer and the location of the concert, the image might mislead viewers about the event being described in the caption. Since the image check returned a low confidence score, the image is considered out of context."
+  },
+  "inference_time": 4.386379718780518,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

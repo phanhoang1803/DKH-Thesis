@@ -538,3 +538,32 @@ def download_and_save_image(image_url, save_folder_path, file_name):
             return 0
     except:
         return 0 
+    
+def merge_search_results(exact_res, broad_res):
+    # Start with a copy of the structure from the first response
+    merged = exact_res.copy()
+    
+    # Get existing image items
+    exact_items = exact_res.get('items', [])
+    broad_items = broad_res.get('items', [])
+    
+    # Create a set of URLs we've already seen to avoid duplicates
+    seen_urls = set(item.get('link') for item in exact_items)
+    
+    # Add unique items from the broad search
+    unique_broad_items = [item for item in broad_items if item.get('link') not in seen_urls]
+    
+    # Update the merged result's items
+    if 'items' in merged:
+        merged['items'].extend(unique_broad_items)
+    else:
+        merged['items'] = unique_broad_items
+    
+    # Update counts
+    if 'searchInformation' in merged:
+        # Update total results count (approximate)
+        exact_count = int(exact_res.get('searchInformation', {}).get('totalResults', 0))
+        broad_count = int(broad_res.get('searchInformation', {}).get('totalResults', 0))
+        merged['searchInformation']['totalResults'] = str(exact_count + broad_count)
+    
+    return merged

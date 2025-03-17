@@ -1,0 +1,40 @@
+{
+  "caption": "Australia rugby player Kurtley Beale",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Athlete"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Kurtley Beales Wallabies comeback in doubt due to serious injury | Australia rugby union team | The Guardian",
+        "content": "K u r t l e y   B e a l e ' s   W a l l a b i e s   c o m e b a c k   i n   d o u b t   d u e   t o   s e r i o u s   i n j u r y   . . .",
+        "caption": "Kurtley Beale has been dealt a blow days after being recalled to the Wallabies squad after suffering a suspected Achilles injury.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. The news caption mentions 'Australia rugby player Kurtley Beale'. The candidate caption mentions 'Kurtley Beale has been dealt a blow days after being recalled to the Wallabies squad after suffering a suspected Achilles injury.' While the candidate mentions Kurtley Beale, it discusses an injury and recall to the Wallabies squad, offering minimal direct support for the news caption. The candidate lacks information directly confirming the image's context. Therefore, I choose \"False\".",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows two men, one with a tattoo on his upper arm. The news caption states 'Australia rugby player Kurtley Beale'. According to the image check result, the image similarity score is 0.0 and the caption similarity score is 0.0. The image check result concludes the candidate lacks information directly confirming the image's context. Therefore, the news caption does not provide an accurate and representative summary of the image, leading to an Out of Context (OOC=True) verdict.",
+    "validation_summary": "The caption identifies Kurtley Beale but doesn't provide enough context, and the image check result provides low image and caption similarity scores, making the image out of context. Viewers would be misled about the content of the news and the image association to it, as the image depicts individuals who may not be related to the news story about Jonah Lomu's death."
+  },
+  "inference_time": 4.194151163101196,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

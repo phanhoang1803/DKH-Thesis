@@ -1,0 +1,50 @@
+{
+  "caption": "The secretary of defence Chuck Hagel and chairman of the joint chiefs of staff General Martin Dempsey",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Long Island",
+      "Columbia",
+      "Ceremony",
+      "left",
+      "Graduation",
+      "Funeral",
+      "Navy",
+      "Times Union",
+      "West Point",
+      "United States Military Academy"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 3,
+      "confidence_score": 10,
+      "explanation": "The caption mentions Chuck Hagel and General Martin Dempsey, but the image context describes Chuck Hagel shaking hands with a West Point cadet during a ceremony. General Martin Dempsey is not mentioned or visible in the image context. Therefore, the caption does not align well with the image context.",
+      "supporting_evidences": [
+        "The caption mentions General Martin Dempsey, who is not visible in the image or mentioned in the context.",
+        "The context describes Chuck Hagel shaking hands with a West Point cadet, which is not directly mentioned in the caption."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Chuck Hagel shaking hands with a West Point cadet during a ceremony.",
+      "context": "The image shows Chuck Hagel, likely during his tenure as Secretary of Defense, shaking hands with a West Point cadet. The setting appears to be a formal ceremony at the United States Military Academy, indicated by the presence of cadets in dress uniform and a stage. A podium with an emblem is visible, and numerous cadets are present in the foreground. Other individuals, possibly dignitaries or officials, are also on the stage. The presence of photographers and the official setting suggest a significant event, such as a graduation or an official visit.",
+      "information": "The image captures a formal event at West Point, featuring Chuck Hagel shaking hands with a cadet. Cadets in dress uniform and a podium are visible."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a mismatch between the image and the caption. The caption mentions both Chuck Hagel and General Martin Dempsey. The image shows Chuck Hagel shaking hands with a West Point cadet but makes no mention of General Martin Dempsey's presence. This omission and misrepresentation lead to the determination that the caption is Out of Context (OOC=True).",
+    "validation_summary": "The caption is misleading because it claims both Chuck Hagel and General Martin Dempsey are present, but the image only shows Chuck Hagel interacting with a cadet, creating an inaccurate impression of the scene. Viewers would be misled about who is in the picture and the context of the event by the inclusion of General Martin Dempsey, which isn't depicted in the image."
+  },
+  "inference_time": 3.98512864112854,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "caption": "Coming back for more Bradford Bulls hero from their glory years James Lowes is now head coach as they bid for promotion from the Championship",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Ian McCourt | The Guardian",
+        "content": "I a n   M c C o u r t   i s   a   f o r m e r   G u a r d i a n   s u b e d i t o r   a n d   w r i t e r",
+        "caption": "Bobby Zamora",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Bradford Bulls aim to mount charge for swift return to Super League | Bradford Bulls | The Guardian",
+        "content": "B r a d f o r d   B u l l s   a i m   t o   m o u n t   c h a r g e   f o r   s w i f t   r e t u r n   t o   S u p e r   . . .",
+        "caption": "Coming back for more, Bradford Bulls hero from their glory years, James Lowes, is now head coach as they bid for promotion from the Championship. Photograph: Mike Mayhew/Sportsphoto Ltd.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The image similarity scores are both 0.0, which means the images do not match. The text similarity scores are also low (0.0 and 0.0), so the captions do not match. Therefore, there is no compelling reason to support the caption. Candidate 2 has the same caption, which could be the source, but the image does not match.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a confidence score of 5 with a verdict of False, meaning that the caption does not accurately represent the image. The image shows two soccer players in lime green jerseys hugging each other. The news caption describes James Lowes as the head coach of the Bradford Bulls, which is a rugby team. The caption mentions that he is trying to get promotion from the Championship. The image is of soccer players hugging and celebrating, not a head coach for the Bradford Bulls rugby team. Due to the high image check confidence score, it's highly probable that the image is out of context.",
+    "validation_summary": "The image shows soccer players hugging, while the caption describes a rugby coach, misleading viewers about the image's content and relevance to the news article it accompanies. The image and caption do not align, indicating that the image is being used out of context in this news article, making the article misleading to viewers about what they are seeing in the image provided versus what is implied in the news caption provided . Therefore the image is out of context and misleading to the viewer in relation to the news article content. There is no overlap between what the caption states and what the image shows. The high confidence level image check further supports this conclusion."
+  },
+  "inference_time": 4.298656940460205,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

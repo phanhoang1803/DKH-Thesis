@@ -1,0 +1,34 @@
+{
+  "caption": "Margaret Thatcher here with French President Francois Mitterrand in 1985 was nominated by Charles Powell as greatest foreign secretary although nominally she never held the post",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 7,
+      "confidence_score": 9,
+      "explanation": "The caption mentions Margaret Thatcher with French President Francois Mitterrand in 1985, which aligns with the image showing Thatcher at a table with a man, likely at a formal event. However, the caption then deviates by mentioning Charles Powell's nomination and Thatcher never holding a certain post, which is not reflected or supported by the image context. Therefore, while the initial part aligns, the latter part introduces information unrelated to the image, leading to a partial misalignment.",
+      "supporting_evidences": [
+        "Image shows Margaret Thatcher and a man at a table with microphones.",
+        "Caption mentions Margaret Thatcher with French President Francois Mitterrand.",
+        "The latter part of the caption discusses nomination by Charles Powell which is not visually supported by the image."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "A black and white photograph shows Margaret Thatcher and a man sitting at a table with microphones in front of them, likely at a press conference or formal event.",
+      "context": "The image shows Margaret Thatcher alongside a man, both seated at a table equipped with microphones, suggesting they are participating in a press conference or public address. Thatcher is gesturing with her hand as if making a point or answering a question. The setting appears formal, indicated by their attire and the arrangement of microphones, hinting at an official event or announcement. The photograph's black and white format suggests it was taken some time ago, potentially during Thatcher's tenure as Prime Minister. The presence of another individual implies collaboration or discussion of shared interests or policies.",
+      "information": "The image is a black and white photograph featuring Margaret Thatcher and an unidentified man seated at a table with several microphones. Thatcher is positioned to the right, wearing a suit jacket and a brooch, and she is gesturing with her right hand. The man is wearing glasses, a suit jacket, and a tie, and he is looking towards Thatcher. The setting suggests a press conference or formal announcement, with microphones prominently displayed on the table. A black object, possibly a piece of equipment or a document holder, sits on the right side of the table."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows Margaret Thatcher seated at a table with another person, likely at a press conference or formal event. The caption correctly identifies Margaret Thatcher. However, the caption then introduces additional information about her nomination by Charles Powell as 'greatest foreign secretary,' and specifies that she never held that post. This information is unrelated to what's visually depicted in the image. The image does not provide any context to confirm or deny the claim about the nomination or Thatcher's career history. This leads to the conclusion that the caption is partially out of context, as it combines an accurate identification with unrelated information.",
+    "validation_summary": "While the caption correctly identifies Margaret Thatcher, it introduces irrelevant information about a nomination that is not visually supported by the image, misleading viewers about the image's context to some extent. Thus, the image is out of context since a portion of the caption does not correctly represent the image content."
+  },
+  "inference_time": 7.044500350952148,
+  "ablation_type": "no_image_evidences"
+}

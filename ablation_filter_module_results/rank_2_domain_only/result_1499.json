@@ -1,0 +1,40 @@
+{
+  "caption": "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Three arrested after raid on slave factory in Rochdale | Manchester | The Guardian",
+        "content": "T h r e e   a r r e s t e d   a f t e r   r a i d   o n   ' s l a v e '   f a c t o r y   i n   R o c h d a l e   . . .",
+        "caption": "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever. Photograph: Christopher Furlong/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate evidence comes from a reliable source (theguardian.com) and contains the exact caption as the news. However, the low image similarity score suggests that the image itself might be different. Thus, based on the strict decision rules, a decision cannot be determined. The candidate evidence is a caption from a reliable source, which gives some, but not complete confidence that the caption accurately represents the image.",
+      "supporting_evidences": [
+        "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever. Photograph: Christopher Furlong/Getty Images"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a police officer with a K-9 unit, standing near stadium seats, possibly at a sporting event. The caption describes a police raid on a factory in Rochdale related to human trafficking and arrests. The image is not depicting a factory raid. There is no visual connection between the image and the caption. The image check result also confirms this with a low image similarity score and supporting evidence that the candidate evidence contains the caption, indicating it's from a reliable source. Since the image is not related to the factory raid described in the caption, it would mislead viewers to associate the event with general police activity, rather than the specific context of a factory raid and human trafficking investigation.",
+    "validation_summary": "The image does not depict the events described in the caption, misleading viewers to associate a general police presence with a specific incident of human trafficking and a factory raid. The image of the police officer and dog at a sports stadium is entirely unrelated to the factory raid mentioned in the caption."
+  },
+  "inference_time": 4.127262353897095,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

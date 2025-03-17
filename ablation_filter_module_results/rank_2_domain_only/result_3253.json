@@ -1,0 +1,48 @@
+{
+  "caption": "Ian Brown and Mani seen on the big screen",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "The V festival in pictures | Music | The Guardian",
+        "content": "S u n   1 9   A u g   2 0 1 2   1 1 . 5 3  B S T \n \n \n                         F i r s t   p u b l i s h e d   o n   S u n   1 9   A u g   2 0 1 2   1 1 . 5 3  B S T \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   M a r k   H o l l o w a y / R e d f e r n s   v i a   G e t t y   I m a g e s \n \n P h o t o g r a p h :   S h i r l a i n e   F o r r e s t / W i r e I m a g e \n \n P h o t o g r a p h :   Y u i   M o k / P A \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   Y u i   M o k / P A \n \n P h o t o g r a p h :   C   B r a n d o n / R e d f e r n s   v i a   G e t t y   I m a g e s \n \n P h o t o g r a p h :   S h i r l a i n e   F o r r e s t / W i r e I m a g e \n \n P h o t o g r a p h :   Y u i   M o k / P A \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / W i r e I m a g e \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s",
+        "caption": "V Festival day 1: Ian Brown and Reni of The Stone Roses headline",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Stone Roses reunion gig in London  in pictures | Music | The Guardian",
+        "content": "S t o n e   R o s e s   r e u n i o n   g i g   i n   L o n d o n      i n   p i c t u r e s   |   M u s i c   |   T h e   G u a r d i a n",
+        "caption": "Stone Roses: Ian Brown and Mani seen on the big screen",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates refer to \"Ian Brown\" and \"Mani\" appearing in the same context, which aligns with the news caption. However, the image similarity scores are both 0.0, meaning the images are not similar. The text similarity scores are also 0.0, indicating the captions aren't similar enough to make a strong conclusion. Without stronger image or caption similarity, it's difficult to confirm the accuracy of the news caption. The candidates at least mention the presence of Ian Brown and Mani together, but this is not strong enough evidence.",
+      "supporting_evidences": [
+        "V Festival day 1: Ian Brown and Reni of The Stone Roses headline",
+        "Stone Roses: Ian Brown and Mani seen on the big screen"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image features Ian Brown holding maracas while performing on stage, and a drummer with lemon designs on the drum kit is visible in the background. The news caption mentions \"Ian Brown and Mani seen on the big screen\". While Ian Brown is clearly visible in the image, there is no indication that he or Mani are on a big screen, nor is Mani identifiable within the frame. The image check result has a confidence score of 6 and states that without stronger image or caption similarity, it's difficult to confirm the accuracy of the news caption. The statement in the news caption is not consistent with the content visible in the image.",
+    "validation_summary": "The caption incorrectly states that Ian Brown and Mani are seen on a big screen; the image shows Ian Brown performing on stage, but not on a screen, and Mani isn't clearly identifiable. This misrepresents the context of the image, making it out of context, with a higher confidence score of 7 because the image check result stated a need for stronger image or caption similarity to confirm the accuracy of the caption."
+  },
+  "inference_time": 4.228060007095337,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

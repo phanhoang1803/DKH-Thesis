@@ -1,0 +1,46 @@
+{
+  "caption": "Leith s antibiomass campaigners outside the Scottish parliament",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Leith biomass | The Guardian",
+        "content": "L e i t h   b i o m a s s   |   T h e   G u a r d i a n",
+        "caption": "Leith's anti-biomass campaigners outside the Scottish Parliament | picture: Michael MacLeod, guardian.co.uk",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3263034522533417,
+        "text_similarity_score": 0.7764818668365479
+      },
+      {
+        "title": "Why is the UK backing biomass power? | Biomass and bioenergy | The Guardian",
+        "content": "W h y   i s   t h e   U K   b a c k i n g   b i o m a s s   p o w e r ?   |   B i o m a s s   a n d   b i o e n e r g y   |   T h e   . . .",
+        "caption": "Leith's anti-biomass campaigners outside the Scottish parliament. Photograph: Michael MacLeod, guardian.co.uk",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3729219436645508,
+        "text_similarity_score": 0.7665306329727173
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidate captions have high text similarity scores (0.776 and 0.766) with the news caption. However, the image similarity scores are low (0.326 and 0.372, respectively). This indicates that while the captions are very similar in wording, the images themselves are not very similar. The decision rule specifies that if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, based on the image similarity scores, I must mark this as False. Although the captions are similar, the images are not and therefore the candidates do not confirm the accuracy of the caption in representing the image.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.3263034522533417, Caption Similarity Score: 0.7764818668365479",
+        "Candidate 2: Image Similarity Score: 0.3729219436645508, Caption Similarity Score: 0.7665306329727173"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image similarity score (0.326 and 0.372) despite high caption similarity scores (0.776 and 0.766). This discrepancy suggests that while the captions share similar wording, the actual image content differs significantly. The image shows a person holding a sign that reads \"Thank you for HELPING us KEEP BRISTOL SMOKE FREE.\" This scene doesn't align with the news caption referring to \"Leith's antibiomass campaigners outside the Scottish parliament.\" Therefore, the image does not accurately represent the provided caption and news content.",
+    "validation_summary": "The image depicts a sign promoting a smoke-free Bristol, which misrepresents the provided caption about antibiomass campaigners in Leith, Scotland. The image fails to accurately portray the described event or location, leading to a false impression of the news content to the viewers. The image is therefore out of context with the provided caption and article content. The image check result confirms that the image is out of context with the news caption as well, as the similarity score is low between the image and the candidate captions."
+  },
+  "inference_time": 6.335165500640869,
+  "ablation_type": "no_image_evidences"
+}

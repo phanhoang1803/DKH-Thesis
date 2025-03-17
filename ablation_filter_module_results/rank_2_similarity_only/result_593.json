@@ -1,0 +1,50 @@
+{
+  "caption": "Fiat has scooped up booming demand for construction equipment in Latin America and Asia",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Commercial vehicle",
+      "Tow truck",
+      "Truck",
+      "rig",
+      "Towing",
+      "Bulldozer",
+      "Trailer",
+      "Commerce"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 8,
+      "confidence_score": 9,
+      "explanation": "The caption mentions Fiat's increased demand for construction equipment in Latin America and Asia. The image shows a construction site with heavy machinery, supporting the idea of a construction boom. While the caption doesn't explicitly mention the location of the construction site in the image, the general context of increased demand aligns well with the visual depiction of a busy construction site with heavy machinery in operation.",
+      "supporting_evidences": [
+        "The image shows a construction site with heavy machinery.",
+        "The caption refers to increased demand for construction equipment.",
+        "The context information confirms Fiat's growth in the construction machinery sector in Latin America and Asia.",
+        "The image depicts a commercial vehicle and tow truck as described in the information."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image depicts a large construction site featuring various heavy machinery and vehicles. Prominently displayed are a commercial vehicle and a tow truck, with a bulldozer and trailer visible in the background. The site is busy, with construction materials scattered around, indicating active work on infrastructure. The machinery appears modern and robust, likely used for tasks such as site preparation or earthmoving. Workers can be seen operating these machines, contributing to the construction effort.",
+      "caption": "Construction boom at a site with heavy machinery in operation.",
+      "context": "This image captures a dynamic scene from a busy construction site, showcasing the thriving demand for construction equipment as reported by Fiat. The Italian industrial giant has experienced significant growth in its construction machinery sector, particularly in Latin America and Asia, as highlighted in recent financial reports. The image aligns with the news context about Fiat's increasing profits and optimistic business outlook, reflecting the rising demand for construction and industrial vehicles."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a fleet of yellow snowplow trucks parked in a lot. A worker is visible on one of the trucks. The caption states that Fiat has booming demand for construction equipment in Latin America and Asia. The image does not depict Fiat-branded equipment specifically, nor does it show any Latin American or Asian locations. The image is of snowplows, which are not construction equipment. Because the image shows snowplows and makes no reference to the location where Fiat experiences high construction equipment demand, the image does not support the caption. Therefore, the image is out of context.",
+    "validation_summary": "The image does not align with the caption; the image shows snowplow trucks, while the caption discusses Fiat's construction equipment demand in Latin America and Asia. This mismatch would mislead viewers about the news content."
+  },
+  "inference_time": 4.838503360748291,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "caption": "Presidential candidate Bernie Sanders speaks at a rally outside Qualcomm Stadium on Sunday June 5 2016 in San Diego Calif",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "2020 Democratic Party presidential primaries",
+      "United States presidential debates",
+      "Debate",
+      "Candidate",
+      "Presidential nominee",
+      "Associated Press",
+      "Bill de Blasio",
+      "Cory Booker",
+      "John Hickenlooper"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Sanders hits familiar themes in San Diego  San Diego Union-Tribune",
+        "content": "S a n d e r s   h i t s   f a m i l i a r   t h e m e s   i n   S a n   D i e g o      S a n   D i e g o   U n i o n - T r i b u n e",
+        "caption": "Presidential candidate Bernie Sanders speaks at a rally at Qualcomm Stadium.",
+        "domain": "www.sandiegouniontribune.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Thus, I need to rely on caption and candidate content to make the final decision. The provided candidate caption states that \"Presidential candidate Bernie Sanders speaks at a rally at Qualcomm Stadium.\" However, the original caption mentions \"Presidential candidate Bernie Sanders speaks at a rally outside Qualcomm Stadium on Sunday June 5 2016 in San Diego Calif\". The candidate caption does not mention the full date or location, and thus there is not enough information to determine if the original caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a large auditorium or theater set up for what appears to be a news event or political debate, featuring an 'NBC NEWS' logo prominently displayed on a stage backdrop with American flag imagery. The audience is seated in rows, and the overall setting suggests a formal, indoor event. The provided caption describes \"Presidential candidate Bernie Sanders speaks at a rally outside Qualcomm Stadium on Sunday June 5 2016 in San Diego Calif\". However, the image depicts an indoor event on a stage with NBC News branding, which contradicts the outdoor rally setting described in the caption. Therefore, the caption does not accurately represent the image content.",
+    "validation_summary": "The image depicts a news event or debate indoors, whereas the caption describes an outdoor rally. This discrepancy would significantly mislead viewers about the image's content."
+  },
+  "inference_time": 5.509099721908569,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

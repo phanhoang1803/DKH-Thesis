@@ -1,0 +1,39 @@
+{
+  "caption": "Angus Campbell addresses mourners last year at a memorial service in Western Australia for Sergeant Blaine Diddams who was killed in action in Afghanistan",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Soldier"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Army deputy chief Angus Campbell to lead Operation Sovereign Borders | Australian immigration and asylum | The Guardian",
+        "content": "A r m y   d e p u t y   c h i e f   A n g u s   C a m p b e l l   t o   l e a d   O p e r a t i o n   S o v e r e i g n   . . .",
+        "caption": "Angus Campbell addresses mourners last year at a memorial service in Western Australia for Sergeant Blaine Diddams, who was killed in action in Afghanistan. Photograph: Chris Moore/ADF",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.572621762752533,
+        "text_similarity_score": 0.9665442705154419
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.57, which is less than 0.85. Also, the text similarity score is 0.96, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 AND the text similarity score is greater than 0.7, the verdict should be false. Therefore, the final verdict is false since the image similarity score is below the required threshold, despite the high text similarity.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.572621762752533",
+        "Text Similarity Score: 0.9665442705154419"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 7, which means the final determination must be based on the image check result. The image check result shows that the image similarity score is 0.57, which is less than 0.85, and the text similarity score is 0.96, which is greater than 0.7. Therefore, the image is out of context.",
+    "validation_summary": "The image shows an elderly man in a wheelchair wearing military decorations, while the caption discusses Angus Campbell at a memorial service. This mismatch makes the caption misleading and out of context."
+  },
+  "inference_time": 4.472299337387085,
+  "ablation_type": "no_image_evidences"
+}

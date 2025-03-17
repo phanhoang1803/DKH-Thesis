@@ -1,0 +1,58 @@
+{
+  "caption": "Senate GOP between a rock and a hard place",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Attention Required! | Cloudflare",
+        "content": "",
+        "caption": "",
+        "domain": "alchetron.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9888454675674438,
+        "text_similarity_score": 0.13000400364398956
+      },
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "imdb2.freeforums.net",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9888454675674438,
+        "text_similarity_score": 0.13000400364398956
+      },
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "ludostor.co",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9681417942047119,
+        "text_similarity_score": 0.1300039291381836
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are high across all candidates (>= 0.85), but the text similarity scores are very low (< 0.7). This means while the images are visually similar, the captions associated with those images are not similar to the news caption \"Senate GOP between a rock and a hard place.\" Without relevant text to support the caption, it cannot be determined if the image is actually related to the described situation. Therefore, the caption is deemed out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image features a woman in a yellow cardigan, speaking in what appears to be an official building. The caption, \"Senate GOP between a rock and a hard place\", discusses the Republican party's difficult position in the Senate, specifically regarding the government shutdown. The image check result shows high image similarity but low text similarity between this image and images associated with that caption. Without significant supporting evidence linking the image of this woman to that specific political context, I deem the caption to be out of context.",
+    "validation_summary": "The image's content doesn't directly correlate with the caption's claim about the Senate GOP's predicament, creating potential confusion for viewers. The image check's low text similarity score reinforces this conclusion."
+  },
+  "inference_time": 6.755014896392822,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

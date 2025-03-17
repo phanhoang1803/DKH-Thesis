@@ -1,0 +1,50 @@
+{
+  "caption": "Steve Coogan and Rob Brydon on the set of the second series of The Trip",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "David Walliams swims the Thames - in pictures | Television & radio | The Guardian",
+        "content": "M o n   1 2   S e p   2 0 1 1   1 4 . 3 6  B S T \n \n \n                         F i r s t   p u b l i s h e d   o n   M o n   1 2   S e p   2 0 1 1   1 4 . 3 6  B S T \n \n P h o t o g r a p h :   R h i a n   A P   G r u f f y d d / C o m i c   R e l i e f \n \n P h o t o g r a p h :   D e s   W i l l i e / C o m i c   R e l i e f / P A \n \n P h o t o g r a p h :   S t e v e   P a r s o n s / P A \n \n P h o t o g r a p h :   S t e v e   P a r s o n s / P A \n \n P h o t o g r a p h :   R h i a n   A P   G r u f f y d d / P A \n \n P h o t o g r a p h :   D e s   W i l l i e / C o m i c   R e l i e f \n \n P h o t o g r a p h :   D e s   W i l l i e / P A \n \n P h o t o g r a p h :   R h i a n   A P   G r u f f y d d / P A \n \n P h o t o g r a p h :   L u c i l l e   F l o o d / C o m i c   R e l i e f \n \n P h o t o g r a p h :   D e s   W i l l i e / P A",
+        "caption": "David Walliams Thames : Rob Brydon",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9798131585121155,
+        "text_similarity_score": 0.5170987248420715
+      },
+      {
+        "title": "First Alan Partridge, now The Trip  Sky's Steve Coogan land grab | Television & radio | The Guardian",
+        "content": "F i r s t   A l a n   P a r t r i d g e ,   n o w   T h e   T r i p      S k y ' s   S t e v e   C o o g a n   l a n d   g r a b   . . .",
+        "caption": "Steve Coogan (left) and Rob Brydon on the set of the second series of The Trip.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "text_similarity_score": 0.9360087513923645
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the provided candidates, the analysis indicates the following:\n\nCandidate 1 has a high image similarity score (0.9798131585121155) but a low caption similarity score (0.5170987248420715). Since the image similarity is high (>= 0.85) but the caption similarity is low (< 0.7), the caption is considered out-of-context based on the strict decision rules. Therefore, Candidate 1 does not support the news caption.\n\nCandidate 2 has a low image similarity score (0.0) and a high caption similarity score (0.9360087513923645). Since the image similarity is low (< 0.85), the caption is considered out-of-context, regardless of the caption similarity score. However, the text of the captions are very similar, suggesting that the news and candidate captions are describing the same scene with Steve Coogan and Rob Brydon on the set of the second series of The Trip.\n\nGiven that candidate 2 actually contains the matching caption, it is highly likely that the news image context aligns with the caption.",
+      "supporting_evidences": [
+        "Candidate 2: Caption 'Steve Coogan (left) and Rob Brydon on the set of the second series of The Trip.' has a caption similarity score of 0.9360087513923645."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts a group of people participating in a water-based activity, with individuals in kayaks, inflatable boats, and even swimming in the water. The image check result confirms that the provided caption 'Steve Coogan and Rob Brydon on the set of the second series of The Trip' does not accurately reflect the content of the image. Although candidate 2 in the image check result contains the matching caption it also reports low image similarity (0.0). Therefore, the caption is considered out of context.",
+    "validation_summary": "The provided caption misrepresents the image content by incorrectly identifying the individuals and the scene depicted, leading viewers to believe it's a behind-the-scenes shot of 'The Trip' when it's actually a scene of a water activity involving kayaks and boats, thus misleading the viewer about the image's true context and content and is not related to the series 'The Trip'. "
+  },
+  "inference_time": 7.265975475311279,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

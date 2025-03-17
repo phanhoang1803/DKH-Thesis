@@ -1,0 +1,52 @@
+{
+  "caption": "Urs Rohner CEO of Credit Suisse participates in a panel session in Bern Switzerland on Tuesday",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Urs Rohner",
+      "Credit Suisse Group AG",
+      "Bank",
+      "Switzerland",
+      "Credit Suisse AG",
+      "Archegos Capital Management",
+      "Dividend",
+      "Share repurchase",
+      "Tax"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "US senators say more needs to be done after Credit Suisse conviction | Credit Suisse | The Guardian",
+        "content": "U S   s e n a t o r s   s a y   m o r e   n e e d s   t o   b e   d o n e   a f t e r   C r e d i t   S u i s s e   . . .",
+        "caption": "Urs Rohner, CEO of Credit Suisse, participates in a panel session in Bern, Switzerland, on Tuesday. Photograph: Alessandro Della Valle/EPA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9893438220024109,
+        "text_similarity_score": 0.9250938892364502
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate evidence provides strong support for the news caption. The image similarity score is very high (0.9893438220024109), indicating that the images are nearly identical. The caption similarity score is also high (0.9250938892364502), meaning the captions are very similar. The candidate caption is almost identical to the news caption and comes from a reputable source (www.theguardian.com), confirming the people, event, location, and date mentioned in the news caption. Therefore, based on the high similarity scores and the reputable source confirming the caption details, the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "Urs Rohner, CEO of Credit Suisse, participates in a panel session in Bern, Switzerland, on Tuesday. Photograph: Alessandro Della Valle/EPA"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result provides a high confidence score (10) and strong evidence that the news caption accurately represents the image. The image similarity score is very high (0.9893438220024109), and the caption similarity score is also high (0.9250938892364502). The candidate caption confirms the people, event, location, and date mentioned in the news caption, and it comes from a reputable source (www.theguardian.com). Therefore, the news caption accurately represents the image.",
+    "validation_summary": "The image check confirms that the caption accurately represents the image, with high similarity scores and a reputable source validating the caption's details, indicating viewers would not be misled. The caption and image align well with the information provided in the image check result, supporting the conclusion that the caption is not out of context and accurately describes the image content regarding Urs Rohner's participation in a panel session in Bern, Switzerland on Tuesday. Therefore, viewers will not be misled about the image content and the caption's representation of the event depicted."
+  },
+  "inference_time": 7.331005334854126,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "Prince Harry on a visit to Oman last November",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Prince Harry to leave armed forces | Prince Harry | The Guardian",
+        "content": "P r i n c e   H a r r y   t o   l e a v e   a r m e d   f o r c e s   |   P r i n c e   H a r r y   |   T h e   G u a r d i a n",
+        "caption": "Prince Harry on a visit to Oman last November.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1788347214460373,
+        "text_similarity_score": 0.9740144610404968
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.1788347214460373 which is less than 0.85 and the text similarity score is 0.9740144610404968 which is greater than 0.7. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Prince Harry along with Prince William and Kate Middleton at an event. The caption states \"Prince Harry on a visit to Oman last November\" which doesn't match the content of the image. The image check result shows that the image similarity score is low (0.1788347214460373) which indicates that the image is not depicting the described scene in the caption. Therefore, the caption is misleading as it shows Prince Harry at a different event than described.",
+    "validation_summary": "The caption is misleading as it shows Prince Harry at an event with Prince William and Kate Middleton, while the caption describes him visiting Oman. This would lead viewers to believe Prince Harry was in Oman when the image shows him at a different event entirely with other family members."
+  },
+  "inference_time": 3.875864267349243,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

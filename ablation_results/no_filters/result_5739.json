@@ -1,0 +1,46 @@
+{
+  "caption": "A female tourist in the Skydeck at the now Willis Tower observation floor in Chicago",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Burj Khalifa: from foundations to finished product | Art and design | The Guardian",
+        "content": "M o n   4   J a n   2 0 1 0   1 3 . 0 0  G M T \n \n \n                         F i r s t   p u b l i s h e d   o n   M o n   4   J a n   2 0 1 0   1 3 . 0 0  G M T \n \n P h o t o g r a p h :   A l i   H a i d e r / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   K a m r a n   J e b r e i l i / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   C h r i s   J a c k s o n / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   D a n   C h u n g / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   R a b i h   M o g h r a b i / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   K a m r a n   J e b r e i l i / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   K a r i m   S a h i b / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   K a m r a n   J e b r e i l i / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   I m r e   S o l t / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   A h m e d   J a d a l l a h / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   A l i   H a i d e r / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   A h m e d   J a d a l l a h / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   B l o o m b e r g / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   A h m e d   J a d a l l a h / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   A l i   H a i d e r / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   M a r t i n   R o s e / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   H a i d e r   S h a h / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   K a m r a n   J e b r e i l i / g u a r d i a n . c o . u k \n \n P h o t o g r a p h :   g u a r d i a n . c o . u k",
+        "caption": "Burj Dubai: Members of the media look at the view of Dubai city from the 124th floor",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Female tourist in the SkyDeck at the Sears (now Willis) Tower, Sky Deck observation floor, Chicago, Illinois, USA Stock Photo - Alamy",
+        "content": "F e m a l e   t o u r i s t   i n   t h e   S k y D e c k   a t   t h e   S e a r s   ( n o w   W i l l i s )   T o w e r ,   S k y   . . .",
+        "caption": "",
+        "domain": "www.alamy.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Willis tower observation hi-res stock photography and images - Alamy",
+        "content": "W i l l i s   t o w e r   o b s e r v a t i o n   h i - r e s   s t o c k   p h o t o g r a p h y   a n d   i m a g e s   -   A l a m y",
+        "caption": "",
+        "domain": "www.alamy.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are all 0.0, indicating that none of the candidate images match the news image. The text similarity scores are also low. Candidate 1 mentions \"Burj Dubai\" and \"Dubai city\", which does not match the news caption's reference to \"Skydeck\", \"Willis Tower\", and \"Chicago\". Candidates 2 and 3 are missing captions, offering no basis for comparison. Therefore, there is no supporting evidence for the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows three men looking out a window at a cityscape with numerous skyscrapers, likely a city in the Middle East. The news caption refers to a \"female tourist in the Skydeck at the now Willis Tower observation floor in Chicago.\" There is no evidence in the image to support the presence of a female tourist, or that the location is the Skydeck of the Willis Tower in Chicago. The image check result shows similarity scores of 0.0 and low text similarity scores, meaning the image does not match the description in the caption. Therefore, the caption is out of context.",
+    "validation_summary": "The image depicts a cityscape with men viewing it from a high vantage point, which is inconsistent with the caption's description of a female tourist at the Willis Tower in Chicago, making the caption misleading to viewers. The image check results confirm that the visual content of the image does not align with the caption's description."
+  },
+  "inference_time": 3.594602584838867,
+  "ablation_type": "no_filters"
+}

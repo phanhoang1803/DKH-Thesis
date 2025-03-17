@@ -1,0 +1,44 @@
+{
+  "caption": "Diego Costa has been in excellent form for Chelsea but has not trained regularly due to hamstring problems",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Athlete"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Spains Vicente del Bosque selects Diego Costa despite hamstring fears | Spain | The Guardian",
+        "content": "S p a i n ' s   V i c e n t e   d e l   B o s q u e   s e l e c t s   D i e g o   C o s t a   d e s p i t e   h a m s t r i n g   . . .",
+        "caption": "Diego Costa has been in excellent form for Chelsea but has not trained regularly due to hamstring problems. Photograph: Carlos Costa/NurPhoto/Corbis",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9688224196434021,
+        "text_similarity_score": 0.9429301023483276
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate evidence has a high image similarity score (0.9688224196434021) and a high caption similarity score (0.9429301023483276). This strongly indicates that the caption accurately represents the image content. The caption from www.theguardian.com exactly matches the news caption, further supporting the verdict.",
+      "supporting_evidences": [
+        "Candidate 1: Caption and image highly similar; caption verbatim from a reliable domain (www.theguardian.com)"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result confirms that the caption accurately represents the image content. The high image similarity score (0.9688224196434021) and caption similarity score (0.9429301023483276) support this conclusion. Additionally, the caption is verbatim from a reliable source (www.theguardian.com). The image shows Diego Costa looking distressed, which aligns with the news content discussing his hamstring problems and potential need for rest.",
+    "validation_summary": "The caption accurately describes the situation depicted in the image, supported by a high image similarity and caption similarity score, indicating that viewers would not be misled about the image's content. The news caption exactly matches the caption from a reliable domain (www.theguardian.com)."
+  },
+  "inference_time": 4.94503116607666,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

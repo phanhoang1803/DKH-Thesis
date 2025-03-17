@@ -1,0 +1,48 @@
+{
+  "caption": "WikiLeaks has been parthosted by OVH a small web hosting company based in northern France",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Computer",
+      "Computer program",
+      "Screenshot",
+      "Web page",
+      "Icon",
+      "Meter",
+      "World Wide Web"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "WikiLeaks: France adds to US pressure to ban website | WikiLeaks | The Guardian",
+        "content": "W i k i L e a k s :   F r a n c e   a d d s   t o   U S   p r e s s u r e   t o   b a n   w e b s i t e   |   W i k i L e a k s   . . .",
+        "caption": "WikiLeaks has been part-hosted by OVH, a small web hosting company based in northern France. Photograph: Joe Raedle/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.0, which indicates that the images do not match. The text similarity score is also 0.0, which indicates that the captions do not match. However, the candidate caption is nearly identical to the news caption, and the domain (www.theguardian.com) is a reliable source. Therefore, it is possible that the news caption accurately represents the image. However, due to the low image similarity score, the verdict is False.",
+      "supporting_evidences": [
+        "WikiLeaks has been part-hosted by OVH, a small web hosting company based in northern France. Photograph: Joe Raedle/Getty Images"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result provides a high confidence score of 7, leading to the determination that the caption does not accurately represent the image content. The image features tweets discussing English announcements at Cardiff Queen Street station and responses from Arriva Trains Wales. The caption, however, discusses WikiLeaks and OVH, a web hosting company. This mismatch indicates a clear disconnect between the image content and the caption's topic.",
+    "validation_summary": "The caption is completely unrelated to the content of the image, leading viewers to be misled about the actual subject matter depicted. The image shows a Twitter conversation about train announcements, while the caption refers to WikiLeaks and web hosting services, which are entirely different topics and create a false impression."
+  },
+  "inference_time": 4.001358270645142,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

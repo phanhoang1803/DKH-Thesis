@@ -1,0 +1,48 @@
+{
+  "caption": "Sophie Bevan in Glyndebourne s current production of Saul",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Rock concert",
+      "Concert",
+      "Musical ensemble",
+      "Rock",
+      "Guitarist",
+      "Festival",
+      "5hy"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Handel in Italy Vol I CD review  a dazzling disc from the Bevan siblings | George Frideric Handel | The Guardian",
+        "content": "H a n d e l   i n   I t a l y   V o l   I   C D   r e v i e w      a   d a z z l i n g   d i s c   f r o m   t h e   B e v a n   . . .",
+        "caption": "Sophie Bevan in Glyndebourne's current production of Saul. Photograph: Bill Cooper",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.24948562681674957,
+        "text_similarity_score": 0.8408170938491821
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The Image Similarity Score is 0.24948562681674957 and the Text Similarity Score is 0.8408170938491821. According to the instructions, if the Image Similarity Score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. In this case, the Image Similarity Score is less than 0.85, so the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates the caption is out-of-context because the Image Similarity Score is 0.24948562681674957, which is less than 0.85. This is despite a high Text Similarity Score of 0.8408170938491821. Therefore, the image does not accurately represent the information provided in the caption.",
+    "validation_summary": "The image check determined the caption to be out of context, indicating that viewers would likely be misled about the connection between the image and the provided caption. The image shows a scene of Sophie Bevan holding a doll on a stage with an orchestra in the background, while the caption suggests a specific performance in Glyndebourne, which cannot be confirmed from the image alone."
+  },
+  "inference_time": 5.473401308059692,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

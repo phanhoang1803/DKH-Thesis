@@ -1,0 +1,40 @@
+{
+  "caption": "British singer Duffy was the star of last night s Brits scooping three awards",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "TV ratings: Duffy's Brits triumph pulls 5.2m viewers | Brit awards 2009 | The Guardian",
+        "content": "T V   r a t i n g s :   D u f f y ' s   B r i t s   t r i u m p h   p u l l s   5 . 2 m   v i e w e r s   |   B r i t   a w a r d s   . . .",
+        "caption": "British singer Duffy was the star of last night's Brits, scooping three awards. Photograph: Luke Macgregor/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.20459850132465363,
+        "text_similarity_score": 0.9155631065368652
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.204, which is less than 0.85, and the text similarity score is 0.915, which is greater than 0.7. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a man playing a guitar and singing into a microphone while a woman sits next to him singing into a microphone. The caption states that British singer Duffy was the star of the Brits award, but the image does not contain Duffy. The image check confirms a low similarity between the image and caption. Therefore, the caption is out of context.",
+    "validation_summary": "The caption is misleading because it mentions Duffy and the Brits awards, which are not visible in the image. The image does not relate to the information provided in the caption, leading to a false impression of the image's content."
+  },
+  "inference_time": 3.480332612991333,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "Vladimir Putin s government is following Argentina s in wanting to limit the number of online purchases residents can make from international sites",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Russia considering 30% import tax on foreign online retailers | Russia | The Guardian",
+        "content": "R u s s i a   c o n s i d e r i n g   3 0 %   i m p o r t   t a x   o n   f o r e i g n   o n l i n e   r e t a i l e r s   . . .",
+        "caption": "Vladimir Putin's government is following Argentina's in wanting to limit the number of online purchases residents can make from international sites. Photograph: Mikhail Metzel/AFP/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. The candidate caption is exactly the same as the news caption. However, since the image similarity score is very low, it is very likely that the image does not show what the news caption describes. The low image similarity score suggests that the image may not be related to the described online purchase restrictions. Therefore, I cannot confirm that the caption is in context.",
+      "supporting_evidences": [
+        "Vladimir Putin's government is following Argentina's in wanting to limit the number of online purchases residents can make from international sites. Photograph: Mikhail Metzel/AFP/Getty Images"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 6 and the verdict is 'False'. Therefore, the caption is likely out of context. In the image, a man is present, and the text 'RUSSIA 2018-2022' is visible in the background. The caption discusses Russia's government considering restricting imports from foreign online retailers. The image does not provide any visual evidence to support the claim that Russia is restricting imports. The image of a man and text 'RUSSIA 2018-2022' does not relate to online purchases or international sites. Given the lack of visual connection between the image and the caption's claim, the image does not provide a correct representative summary of the image content.",
+    "validation_summary": "The image shows a man and the text 'RUSSIA 2018-2022', which is unrelated to the caption about Russia potentially restricting online purchases from international sites, therefore a viewer would be misled about the content in the article if they viewed the image with this caption. The image does not show anything related to online retail or import restrictions, indicating that the caption is out of context."
+  },
+  "inference_time": 5.116489410400391,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

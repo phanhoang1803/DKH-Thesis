@@ -1,0 +1,43 @@
+{
+  "caption": "The Rev Al Sharpton waves to supporters before President Obama and others take a symbolic walk across the Edmund Pettus Bridge",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Car",
+      "Festival",
+      "Audience",
+      "Performance M"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "50th anniversary of 'Bloody Sunday' - Los Angeles Times",
+        "content": "5 0 t h   a n n i v e r s a r y   o f   ' B l o o d y   S u n d a y '   -   L o s   A n g e l e s   T i m e s",
+        "caption": "Marchers on the Edmund Pettus Bridge on March 8 in Selma.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0, and the caption similarity score is 0.0. Therefore, the automated rules do not apply. The provided candidate mentions 'Marchers on the Edmund Pettus Bridge on March 8 in Selma.' This information does not provide sufficient details, such as the presence of Rev Al Sharpton, President Obama, or the symbolic walk, to confirm the caption's accuracy. Therefore, the evidence does not support the caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a low confidence score of 2. However, based on a detailed image analysis, the photo shows a crowd of people, with a man in the center wearing white clothes waving his hands. The photo appears to have motion blur. The news caption describes The Rev Al Sharpton waving to supporters before President Obama and others take a symbolic walk across the Edmund Pettus Bridge. The content of the image does not match the description in the news caption. The image check result is correct. Therefore, the image is out of context.",
+    "validation_summary": "The image shows a blurry crowd scene with someone waving and doesn't match the caption's description of Al Sharpton and President Obama at the Edmund Pettus Bridge, which would mislead viewers about the image's content and context and is thus out of context. The image does not depict the figures or location mentioned in the caption."
+  },
+  "inference_time": 4.615520000457764,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

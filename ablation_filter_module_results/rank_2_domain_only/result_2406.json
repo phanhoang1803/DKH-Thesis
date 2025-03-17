@@ -1,0 +1,38 @@
+{
+  "caption": "Russian President Vladimir Putin performs a toast prior to the Opening Ceremony of the Sochi 2014 Paralympic Winter Games on March 7 in Sochi Russia",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Vladimir Putin: A look at Russia's president",
+        "content": "V l a d i m i r   P u t i n :   A   l o o k   a t   R u s s i a ' s   p r e s i d e n t",
+        "caption": "Russian President Vladimir Putin holds a meeting with Government members in the Kremlin in Moscow, Russia on November 23, 2016.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Thus, strict decision rules are not applicable. The candidate caption mentions Russian President Vladimir Putin but does not mention anything about the Sochi 2014 Paralympic Winter Games or the date in the news caption. The content also doesn't provide any support to the news caption. Therefore, the candidate does not provide any evidence that supports the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a confidence score of 1, with the decision based on this result. The news caption refers to 'Russian President Vladimir Putin performs a toast prior to the Opening Ceremony of the Sochi 2014 Paralympic Winter Games on March 7 in Sochi Russia'. The image shows Vladimir Putin holding a glass of champagne. While the image does depict Putin, there's nothing in the image to verify or support the claim that this is related to the Sochi 2014 Paralympic Winter Games. The image check also does not provide sufficient textual similarity between the provided content and the caption, and the news content does not mention Putin performing a toast at the Sochi 2014 Paralympic Winter Games. Therefore, the caption does not accurately describe the image in the context of the provided news content.",
+    "validation_summary": "The image is out of context because the caption associates the image with the Sochi 2014 Paralympic Winter Games, which is not verifiable from the image itself or supported by the news content, potentially misleading viewers about the image's relevance to the news story. Thus, the image and caption are mismatched in the provided news article's context. The image shows Vladimir Putin holding a glass of champagne, but lacks any reference to the Paralympic Winter Games mentioned in the caption."
+  },
+  "inference_time": 3.9601614475250244,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

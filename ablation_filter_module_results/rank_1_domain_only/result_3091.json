@@ -1,0 +1,45 @@
+{
+  "caption": "Ted Cruz speaks at the Republican presidential debate in Boulder Colo",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speech",
+      "Public speaking",
+      "Meter",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Minute-by-minute breakdown of GOP presidential debate in Colorado | PBS News",
+        "content": "M i n u t e - b y - m i n u t e   b r e a k d o w n   o f   G O P   p r e s i d e n t i a l   d e b a t e   i n   C o l o r a d o   . . .",
+        "caption": "Republican U.S. presidential candidate former HP CEO Carly Fiorina speaks as Dr. Ben Carson, left, and U.S. Senator Ted Cruz listen at the 2016 U.S. Republican presidential candidates debate held by CNBC in Boulder, Colorado, Wednesday. Photo by Rick Wilking/Reuters",
+        "domain": "www.pbs.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption states that \"Ted Cruz speaks at the Republican presidential debate in Boulder Colo\". The candidate evidence caption mentions \"Republican U.S. presidential candidate former HP CEO Carly Fiorina speaks as Dr. Ben Carson, left, and U.S. Senator Ted Cruz listen at the 2016 U.S. Republican presidential candidates debate held by CNBC in Boulder, Colorado\". From the candidate evidence, it is clear that Ted Cruz was present at a Republican presidential debate in Boulder, Colorado. However, the candidate evidence doesn't confirm that Ted Cruz was speaking at the event, only that he was present and listening to other speakers. Therefore, the news caption is only partially verified.",
+      "supporting_evidences": [
+        "Republican U.S. presidential candidate former HP CEO Carly Fiorina speaks as Dr. Ben Carson, left, and U.S. Senator Ted Cruz listen at the 2016 U.S. Republican presidential candidates debate held by CNBC in Boulder, Colorado"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a confidence score of 7, therefore the final decision must be based on the image check result. The image check result states that the news caption is only partially verified because the evidence doesn't confirm that Ted Cruz was speaking at the event, only that he was present. Therefore, the news caption is out of context.",
+    "validation_summary": "The caption is misleading because it states that Ted Cruz is speaking at the debate when there is no evidence to support that claim. Viewers would be misled about Ted Cruz's role in the debate based on the caption."
+  },
+  "inference_time": 10.805816411972046,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

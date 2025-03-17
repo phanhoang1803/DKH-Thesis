@@ -1,0 +1,63 @@
+{
+  "caption": "Donald Trump at the Republican National Convention in Cleveland on July 21",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Robert Kagan",
+      "Speech",
+      "Columnist",
+      "Public speaking",
+      "Brookings Institution",
+      "Leadership",
+      "One Wonders",
+      "Convention",
+      "Speaker",
+      "Fellow"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Clinton Campaign Chief Suggests Russians May Be Trying to Help Trump Win - ABC News",
+        "content": "C l i n t o n   C a m p a i g n   C h i e f   S u g g e s t s   R u s s i a n s   M a y   B e   T r y i n g   t o   H e l p   . . .",
+        "caption": "Donald Trump speaks at the 2016 Republican National Convention at the Quicken Loans Arena in Cleveland, Ohio, July 21, 2016. ",
+        "domain": "abcnews.go.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5692541003227234,
+        "text_similarity_score": 0.7167180776596069
+      },
+      {
+        "title": "Ronna McDaniel: RNC moving full steam ahead with convention plans but could reassess this summer | CNN Politics",
+        "content": "R o n n a   M c D a n i e l :   R N C   m o v i n g   ' f u l l   s t e a m   a h e a d '   w i t h   c o n v e n t i o n   . . .",
+        "caption": "Donald Trump delivers a speech during the evening session on the fourth day of the Republican National Convention on July 21, 2016, at the Quicken Loans Arena in Cleveland, Ohio.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3410893678665161,
+        "text_similarity_score": 0.7075104713439941
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption states \"Donald Trump at the Republican National Convention in Cleveland on July 21.\" Candidate 1 has a caption: \"Donald Trump speaks at the 2016 Republican National Convention at the Quicken Loans Arena in Cleveland, Ohio, July 21, 2016.\" The image similarity score is 0.569, and the caption similarity score is 0.716. Candidate 2 has a caption: \"Donald Trump delivers a speech during the evening session on the fourth day of the Republican National Convention on July 21, 2016, at the Quicken Loans Arena in Cleveland, Ohio.\" The image similarity score is 0.341, and the caption similarity score is 0.707. Because both image similarity scores are below 0.85, the image can be deemed out-of-context, even though the text similarity scores are high. Furthermore, the text similarity scores are also not high enough to reach the threshold of 0.85. Both candidate captions confirm that Donald Trump was at the Republican National Convention in Cleveland on July 21, matching the news caption. Therefore, the news caption is likely to be in context, though there is not definitive proof.",
+      "supporting_evidences": [
+        "Candidate 1: Donald Trump speaks at the 2016 Republican National Convention at the Quicken Loans Arena in Cleveland, Ohio, July 21, 2016.",
+        "Candidate 2: Donald Trump delivers a speech during the evening session on the fourth day of the Republican National Convention on July 21, 2016, at the Quicken Loans Arena in Cleveland, Ohio."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a confidence score of 7, which means the final determination must be based on this image check result. The image check result determines that the caption is likely to be in context, though there is not definitive proof, because candidate captions confirm that Donald Trump was at the Republican National Convention in Cleveland on July 21, matching the news caption.",
+    "validation_summary": "The news caption correctly identifies Donald Trump at the Republican National Convention in Cleveland on July 21, as confirmed by candidate captions, meaning viewers would not be misled by the caption's representation of the image. Therefore, the image is not out of context."
+  },
+  "inference_time": 6.054002046585083,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

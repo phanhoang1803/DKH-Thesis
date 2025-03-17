@@ -1,0 +1,49 @@
+{
+  "caption": "2002 Angels 4 Giants 2 Rookie pitcher John Lackey pitched a gem to beat the Barry Bondsled Giants",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "John Lackey",
+      "Los Angeles Angels",
+      "Abilene High School",
+      "2002 World Series",
+      "Pitcher",
+      "Baseball",
+      "Catcher",
+      "College baseball",
+      "Softball",
+      "Infielder"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Recent Game 7s of the World Series",
+        "content": "R e c e n t   G a m e   7 s   o f   t h e   W o r l d   S e r i e s",
+        "caption": "2001 - Diamondbacks 3, Yankees 2:  Luis Gonzalez hit a walk-off RBI single off closer Mariano Rivera.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Since both scores are low, I will do analysis based on the captions and candidate to give the final decision. The candidate caption does not include any information to verify the news caption. Therefore, the verdict is \"False\".",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result states that both the image similarity score and the text similarity score are low. Therefore, the final decision should be based on the captions and candidate to give the final decision. The candidate caption does not include any information to verify the news caption. Therefore, the verdict is \"False\". The image shows three baseball players in uniform hugging each other on a baseball field, suggesting a celebration. The caption claims that rookie pitcher John Lackey beat the Barry Bondsled Giants. However, the image does not provide any specific information about the players or the game mentioned. Therefore, the image is out of context.",
+    "validation_summary": "The caption is out of context with the image because the image does not provide any information about the players or the game mentioned in the caption, leading to a false impression of the image's content. The image shows generic baseball players celebrating, not specifically John Lackey beating the Giants."
+  },
+  "inference_time": 3.8760523796081543,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

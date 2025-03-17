@@ -1,0 +1,52 @@
+{
+  "caption": "WR Eric Decker Signed with Jets",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Notable NFL players changing teams in 2017",
+        "content": "N o t a b l e   N F L   p l a y e r s   c h a n g i n g   t e a m s   i n   2 0 1 7",
+        "caption": "WR Eric Decker: Signed by Titans (previous team: Jets)",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8242476582527161,
+        "text_similarity_score": 0.8985943794250488
+      },
+      {
+        "title": "Patriots Journal: New England to sign veteran WR Eric Decker",
+        "content": "P a t r i o t s   J o u r n a l :   N e w   E n g l a n d   t o   s i g n   v e t e r a n   W R   E r i c   D e c k e r",
+        "caption": "Eric Decker makes a catch against the Patriots Darrelle Revis in a 2014 game. Decker, 31, is reportedly signing with the Patriots.",
+        "domain": "www.providencejournal.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7573698163032532,
+        "text_similarity_score": 0.7396283149719238
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption states \"WR Eric Decker Signed with Jets.\" Candidate 1 has an image similarity score of 0.82 and a text similarity score of 0.89, with a caption of \"WR Eric Decker: Signed by Titans (previous team: Jets).\" Although the text similarity is high, the image similarity is less than 0.85, so it is not enough to prove the caption. Candidate 2 has an image similarity score of 0.75 and a text similarity score of 0.73, with a caption of \"Eric Decker makes a catch against the Patriots Darrelle Revis in a 2014 game. Decker, 31, is reportedly signing with the Patriots.\" Again, the image similarity is less than 0.85 and it is reporting Decker signing with the Patriots, not the Jets. Therefore, based on the evidences, the caption is out-of-context.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: WR Eric Decker: Signed by Titans (previous team: Jets), Image Similarity Score: 0.8242476582527161, Text Similarity Score: 0.8985943794250488",
+        "Candidate 2: Caption: Eric Decker makes a catch against the Patriots Darrelle Revis in a 2014 game. Decker, 31, is reportedly signing with the Patriots, Image Similarity Score: 0.7573698163032532, Text Similarity Score: 0.7396283149719238"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result provides strong evidence that the caption is out of context. The image shows a football player, likely Eric Decker, in action. However, the caption states \"WR Eric Decker Signed with Jets.\" The supporting evidence from the image check includes candidates with captions suggesting Decker signed with the Titans or Patriots, not the Jets. Given the image check's confidence score is above 7, its result is prioritized and this confirms the caption is misleading, as it incorrectly associates the image with Decker signing with the Jets.",
+    "validation_summary": "The caption incorrectly states that Eric Decker signed with the Jets, which is not supported by the image and is contradicted by the image check results. Viewers would be misled into thinking the image is related to Decker joining the Jets when the evidence suggests otherwise."
+  },
+  "inference_time": 7.157644987106323,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

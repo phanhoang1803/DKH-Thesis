@@ -1,0 +1,58 @@
+{
+  "caption": "Presidential candidate Bernie Sanders speaks at a rally outside Qualcomm Stadium on Sunday June 5 2016 in San Diego Calif",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "2020 Democratic Party presidential primaries",
+      "United States presidential debates",
+      "Debate",
+      "Candidate",
+      "Presidential nominee",
+      "Associated Press",
+      "Bill de Blasio",
+      "Cory Booker",
+      "John Hickenlooper"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Sanders hits familiar themes in San Diego  San Diego Union-Tribune",
+        "content": "S a n d e r s   h i t s   f a m i l i a r   t h e m e s   i n   S a n   D i e g o      S a n   D i e g o   U n i o n - T r i b u n e",
+        "caption": "Presidential candidate Bernie Sanders speaks at a rally at Qualcomm Stadium.",
+        "domain": "www.sandiegouniontribune.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Viewers Guide: Hillary Clintons ready for her big moment  San Diego Union-Tribune",
+        "content": "V i e w e r ' s   G u i d e :   H i l l a r y   C l i n t o n ' s   r e a d y   f o r   h e r   b i g   m o m e n t      S a n   . . .",
+        "caption": "FILE - In this Sunday, June 5, 2016 file photo, Democratic presidential candidate Sen. Bernie Sanders, I-Vt. speaks during a campaign rally at Qualcomm Stadium in San Diego. State officials are preparing to embrace an expanded California electorate Tuesday as nearly 18 million registered voters head for the polls or turn in early presidential primary ballots. (AP Photo/Sandy Huffaker, File)",
+        "domain": "www.sandiegouniontribune.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate evidences mention Bernie Sanders speaking at a rally at Qualcomm Stadium. Candidate 2 provides the exact date: Sunday, June 5, 2016. The news caption also specifies San Diego, Calif. All elements in the news caption are confirmed by the candidate evidences. Therefore, the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "Presidential candidate Bernie Sanders speaks at a rally at Qualcomm Stadium.",
+        "FILE - In this Sunday, June 5, 2016 file photo, Democratic presidential candidate Sen. Bernie Sanders, I-Vt. speaks during a campaign rally at Qualcomm Stadium in San Diego."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a high confidence score of 7. Therefore, the final determination is based on the image check result. The image check result states that the news caption accurately represents the image. However, based on the image provided the news caption does not match the image content. The image shows a large auditorium or event space with a stage featuring the NBC News logo, suggesting a debate or town hall event. The crowd is visible but the focus is on the stage setup. The news caption talks about Presidential candidate Bernie Sanders speaks at a rally outside Qualcomm Stadium on Sunday June 5 2016 in San Diego Calif. Based on the image analysis and the image check result the news caption does not match the image content, and is therefore out of context.",
+    "validation_summary": "The image shows an auditorium stage with NBC News branding, which is not accurately described by a caption about Bernie Sanders speaking at a rally outside Qualcomm Stadium. Therefore, viewers would be misled about what they're seeing."
+  },
+  "inference_time": 4.791786432266235,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

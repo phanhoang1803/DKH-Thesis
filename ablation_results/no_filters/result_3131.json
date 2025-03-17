@@ -1,0 +1,44 @@
+{
+  "caption": "Greek prime minister Alexis Tsipras is applauded by lawmakers before addressing his parliamentary group meeting in Athens",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Convention"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Eurozone crisis: Greek austerity plans meet warm but cautious response | Eurozone crisis | The Guardian",
+        "content": "E u r o z o n e   c r i s i s :   G r e e k   a u s t e r i t y   p l a n s   m e e t   w a r m   b u t   c a u t i o u s   . . .",
+        "caption": "Greek prime minister Alexis Tsipras is applauded by lawmakers before addressing his parliamentary group meeting in Athens.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Greek PM Tsipras seeks party backing to avoid financial meltdown | World News - Hindustan Times",
+        "content": "G r e e k   P M   T s i p r a s   s e e k s   p a r t y   b a c k i n g   t o   a v o i d   f i n a n c i a l   m e l t d o w n   . . .",
+        "caption": "Greek PM Alexis Tsipras is applauded by lawmakers before addressing his parliamentary group meeting at the Greek Parliament in Athens on Friday. (Reuters Photo)",
+        "domain": "www.hindustantimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions are very similar to the news caption. They mention \"Greek prime minister Alexis Tsipras\" being \"applauded by lawmakers\" before addressing a \"parliamentary group meeting\" in \"Athens\". The Hindustan Times caption specifies the event occurred at the \"Greek Parliament\" and on \"Friday,\" adding more context. However, because the image similarity scores are 0.0, it's impossible to verify the images accurately represent the content of the caption. Therefore, despite the text similarities, the low image similarity prevents a conclusive 'True' verdict.",
+      "supporting_evidences": [
+        "Greek prime minister Alexis Tsipras is applauded by lawmakers before addressing his parliamentary group meeting in Athens.",
+        "Greek PM Alexis Tsipras is applauded by lawmakers before addressing his parliamentary group meeting at the Greek Parliament in Athens on Friday."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a confidence score of 7. According to the instructions, for confidence scores between 7 and 10, the final determination must be based on the image check result. The image check result's verdict is 'False' because, despite textual similarities between the caption and the image, the low image similarity prevents a conclusive 'True' verdict. Thus, the image is out of context.",
+    "validation_summary": "The image check suggests the provided caption does not accurately represent the image, leading to a potentially misleading interpretation. The low image similarity prevents confirming the elements in the caption are present in the image, making the image out of context of the caption, despite the text similarities between them."
+  },
+  "inference_time": 4.338581800460815,
+  "ablation_type": "no_filters"
+}

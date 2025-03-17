@@ -1,0 +1,51 @@
+{
+  "caption": "Alex Corbisiero right on his debut faces up to Martin Castrogiovanni for the first scrum",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Rugby league",
+      "Rugby sevens",
+      "Rugby league sevens",
+      "Rugby tens",
+      "Rugby league nines",
+      "Touch",
+      "Rugby football",
+      "Touch football",
+      "Rugby union",
+      "Tackle"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Six Nations 2011:  England v Italy - in pictures | Sport | The Guardian",
+        "content": "S i x   N a t i o n s   2 0 1 1 :   E n g l a n d   v   I t a l y   -   i n   p i c t u r e s   |   S p o r t   |   T h e   G u a r d i a n",
+        "caption": "England v Italy: Alex Corbisiero faces up to Martin Castrogiovanni for the first scrum",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. This triggers analysis based on the captions and candidates. The news caption states \"Alex Corbisiero right on his debut faces up to Martin Castrogiovanni for the first scrum.\" The candidate caption states \"England v Italy: Alex Corbisiero faces up to Martin Castrogiovanni for the first scrum\". The candidate caption mentions Alex Corbisiero and Martin Castrogiovanni facing each other in a scrum, which aligns with the news caption. However, the candidate does not mention the context of Alex Corbisiero's debut or specify that it is the \"first\" scrum, leading to a partial match. The low image similarity reduces confidence.",
+      "supporting_evidences": [
+        "England v Italy: Alex Corbisiero faces up to Martin Castrogiovanni for the first scrum"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low image similarity and partial match, resulting in a confidence score of 6. The image shows a rugby player running with the ball during a practice session, while other players and coaches are present in the background. The caption mentions \"Alex Corbisiero right on his debut faces up to Martin Castrogiovanni for the first scrum.\" However, the image does not depict a scrum, nor does it confirm whether Alex Corbisiero is present, or whether the context is related to his debut or a match against Martin Castrogiovanni. Thus the caption misrepresents the image content. Although the supporting evidences shows a statement that seems to support the caption, based on the analysis of the original image, it is not representing what the image shows.",
+    "validation_summary": "The caption describes a scrum involving specific players, but the image shows a player running with the ball during practice, misleading viewers about the context and content of the image. The details in the caption are not directly supported by the visual evidence in the image, leading to a misrepresentation of the depicted scene and action of 'scrum'. Thus, the caption is out of context with the image presented, as it is misleading and misinformative of the visual evidence within the image. Therefore, I am making the final decision according to the image check result."
+  },
+  "inference_time": 5.299286842346191,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

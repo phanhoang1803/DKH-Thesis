@@ -1,0 +1,44 @@
+{
+  "caption": "Maria Sharapova plays a shot during her women s singles semifinal match against Russia s Ekaterina Makarova",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Racketlon",
+      "Soft tennis",
+      "Tennis",
+      "Racket",
+      "Tennis player"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Russians Sharapova, Makarova prepare for semifinals showdown",
+        "content": "6 3 5 5 7 9 1 0 4 8 6 9 7 4 5 3 5 0 - A F P -   . . .",
+        "caption": "Russia's Maria Sharapova plays a shot during her women's singles match against Canada's Eugenie Bouchard on day nine of the 2015 Australian Open.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. Therefore, I need to rely on the content of the captions to make a decision. The news caption states 'Maria Sharapova plays a shot during her women s singles semifinal match against Russia s Ekaterina Makarova'. The candidate caption states 'Russia's Maria Sharapova plays a shot during her women's singles match against Canada's Eugenie Bouchard on day nine of the 2015 Australian Open.' Although the candidate caption also depicts Maria Sharapova playing a shot during her women's singles match, the opponent is different (Eugenie Bouchard vs Ekaterina Makarova), and there is no mention of a semifinal match. Therefore, the captions do not align, and the candidate does not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows Maria Sharapova playing tennis. The provided image check result indicates that the caption in question, which states 'Maria Sharapova plays a shot during her women s singles semifinal match against Russia s Ekaterina Makarova', is not supported by the image. The image check result also mentioned that there are differences between the provided candidate caption and the news caption. Therefore, the news caption is out of context.",
+    "validation_summary": "The news caption is inaccurate based on the image check results, which determined that the caption is not supported by the provided images and captions, making it potentially misleading to viewers. Since the image check confidence score is 7-10, the final determination is based on the image check result, which shows it is OOC."
+  },
+  "inference_time": 3.7976601123809814,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "caption": "Tomas Rosicky has impressed in reecent weeks for Arsenal and has now signed a new contract",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Tomáš Rosický",
+      "Arsenal F.C.",
+      "Gaelic football",
+      "International rules football",
+      "Footballer",
+      "Goalkeeper stops shot",
+      "Kick up a soccer ball",
+      "Ball",
+      "Ball",
+      "Naver Blog"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "'s Story :  ",
+        "content": "",
+        "caption": "",
+        "domain": "blog.naver.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9906286001205444,
+        "text_similarity_score": 0.13368958234786987
+      },
+      {
+        "title": "Arsne Wenger delighted as Tomas Rosicky signs new contract at Arsenal | Arsenal | The Guardian",
+        "content": "A r s  n e   W e n g e r   d e l i g h t e d   a s   T o m a s   R o s i c k y   s i g n s   n e w   c o n t r a c t   a t   . . .",
+        "caption": "Tomas Rosicky has impressed in reecent weeks for Arsenal and has now signed a new contract.  Photograph: Stuart Macfarlane/Arsenal FC via Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9947113394737244,
+        "text_similarity_score": 0.9023399353027344
+      },
+      {
+        "title": "Arsne Wenger delighted as Tomas Rosicky signs new contract at Arsenal | Arsenal | The Guardian",
+        "content": "T o m a s - R o s i c k y - 0 0 7 . j p g ? w i d t h =   . . .",
+        "caption": "Tomas Rosicky has impressed in reecent weeks for Arsenal and has now signed a new contract.  Photograph: Stuart Macfarlane/Arsenal FC via Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8956272006034851,
+        "text_similarity_score": 0.9023399353027344
+      },
+      {
+        "title": "Arsne Wenger delighted as Tomas Rosicky signs new contract at Arsenal | Arsenal | The Guardian",
+        "content": "T o m a s - R o s i c k y - 0 0 7 . j p g ? w i d t h =   . . .",
+        "caption": "Tomas Rosicky has impressed in reecent weeks for Arsenal and has now signed a new contract.  Photograph: Stuart Macfarlane/Arsenal FC via Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8856158256530762,
+        "text_similarity_score": 0.9023399353027344
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the provided candidates, the news caption \"Tomas Rosicky has impressed in recent weeks for Arsenal and has now signed a new contract\" aligns with the image context. Candidates 2, 3, and 4 all have high image similarity scores (≥ 0.85) and text similarity scores (≥ 0.7). Specifically, candidate 2 has an image similarity score of 0.9947113394737244 and a text similarity score of 0.9023399353027344. This strongly indicates that the image associated with the candidate is very similar to the news image and that the candidate's caption is very similar to the news caption. Candidates 3 and 4 provide similar evidence. These candidates support the claim that the caption accurately represents the image because the image depicts Tomas Rosicky in the context of Arsenal, and the caption describes his recent performance and contract signing with the team. Therefore, the caption is likely an accurate description of the image content.",
+      "supporting_evidences": [
+        "Candidate 2: Image Similarity Score: 0.9947113394737244, Caption Similarity Score: 0.9023399353027344, Domain: www.theguardian.com",
+        "Candidate 3: Image Similarity Score: 0.8956272006034851, Caption Similarity Score: 0.9023399353027344, Domain: www.theguardian.com",
+        "Candidate 4: Image Similarity Score: 0.8856158256530762, Caption Similarity Score: 0.9023399353027344, Domain: www.theguardian.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high degree of confidence (score of 10) that the news caption accurately represents the image content. The supporting evidence from candidate matches demonstrates strong image and text similarity between the news item and other instances where Tomas Rosicky is associated with Arsenal and a new contract. Therefore, the caption provides a correct representative summary of the image content.",
+    "validation_summary": "The image and caption are well-aligned, suggesting viewers would not be misled about the content. The image shows Tomas Rosicky in an Arsenal kit, which is consistent with the caption's reference to his contract with the team, as verified by the image check results which strongly support the match between image and caption provided by external sources.. This ensures that the caption accurately represents the image content, supported by high confidence scores and verified image matches from external source candidates in the image check result.. Furthermore the context provided in the candidates align with the image, and the action is playing for Arsenal and not signing a contract which one could not see, but is implied by the context from the candidates in the Image Check Results section of the prompt . In summary, the candidate's information matches the image, with confidence in the candidate scores and with the player in the appropriate team attire playing in a match with another player on the ground behind him which matches the image provided . Therefore the candidate information matches the image provided and ensures that the viewer will not be misled by the image shown in combination with the News Caption provided . Image check validates and supports my claim. The content of the Image matches with the news caption given . In conclusion , the caption accurately aligns to the image content without causing viewer deception as a result of the image check validation outcome ."
+  },
+  "inference_time": 9.83086085319519,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

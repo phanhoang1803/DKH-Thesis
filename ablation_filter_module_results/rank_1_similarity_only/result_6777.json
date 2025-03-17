@@ -1,0 +1,40 @@
+{
+  "caption": "A list of the affected models including the Flavel cooker Mr Smith and Mr Branton had in their Saltash home is on Beko s website",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Nina Bawden | The Guardian",
+        "content": "T o   c o m m e m o r a t e   t h e   7 0 t h   a n n i v e r s a r y   o f   V E   D a y ,   c o m m o n l y   k n o w n   a s   t h e   d a y   t h a t   t h e   a l l i e s   ( B r i t a i n ,   F r a n c e   a n d   R u s s i a )   d e f e a t e d   G e r m a n y   i n   t h e   s e c o n d   w o r l d   w a r ,   w e ' v e   p u t   t o g e t h e r   a   q u i z   a b o u t   b o o k s   w h i c h   a r e   s e t   d u r i n g   t h a t   t i m e .   H a v e   a   g o   i f   y o u   t h i n k   y o u ' r e   s m a r t   e n o u g h . . . \n \n A l s o   s e e   W h a t   a r e   t h e   b e s t   b o o k s   o n   o r   s e t   i n   t h e   s e c o n d   w o r l d   w a r \n \n A   h i l a r i o u s   r o m a n c e   b y   a   p r e c o c i o u s   n i n e - y e a r - o l d .   T h e   f a n t a s i e s   o f   a   s e p t u a g e n a r i a n   f o o t   f e t i s h i s t .   A n   a r i s t o c r a t ' s   l i f e   s p e n t   d o i n g   n o t h i n g   o n   a   s o f a .   J o h n   S u t h e r l a n d   c h o s e s   l i t t l e - k n o w n   b o o k s   t h a t   d e s e r v e   t o   b e   t r e a s u r e d \n \n P o r t r a i t s   o f   s o m e   o f   t h e   g i a n t s   o f   c u l t u r e   a n d   p o l i t i c s   w h o   p a s s e d   a w a y   t h i s   y e a r \n \n S a m   J o r d i s o n :   M y   f i r s t   l o o k   a t   t h e   c o n t e n d e r s   f o r   t h e   L o s t   B o o k e r   p r i z e   e x a m i n e s   a   c l a s s i c   ' H a m p s t e a d   n o v e l ' ,   B i r d s   o n   t h e   T r e e s \n \n N i n a   B a w d e n ,   A u t h o r ,   8 1 ,   L o n d o n \n \n T h e   s t y l i s h   p r o s e   a n d   n e a t   a n e c d o t e s   o f   P e t e r   O w e n ' s   S e c r e t   P r o t o c o l s   e n l i v e n   a   ' f i n a l '   b o o k ,   s a y s   N i n a   B a w d e n . \n \n 2 0 0 5 :   S e v e n   p e o p l e   w e r e   k i l l e d   i n   t h e   P o t t e r s   B a r   r a i l   c r a s h   i n   2 0 0 2 ,   a m o n g   t h e m   A u s t e n   K a r k ,   h u s b a n d   o f   N i n a   B a w d e n ,   w h o   w a s   h e r s e l f   s e r i o u s l y   i n j u r e d .   I n   h e r   p o w e r f u l   n e w   b o o k   a d d r e s s e d   t o   A u s t e n ,   s h e   r e c a l l s   t h e   b i t t e r   a f t e r m a t h   o f   t h e   d i s a s t e r \n \n A   w a r t i m e   e v a c u e e ,   N i n a   B a w d e n   w a n t e d   t o   b e   a   j o u r n a l i s t   b u t   t u r n e d   t o   f i c t i o n .   A l t e r n a t i n g   b e t w e e n   w o r k   f o r   a d u l t s   a n d   c h i l d r e n ,   s h e   w r o t e   m o r e   t h a n   4 0   b o o k s .   L a s t   y e a r ,   h e r   h u s b a n d   w a s   k i l l e d   i n   t h e   P o t t e r s   B a r   r a i l   c r a s h   a n d   s h e   w a s   b a d l y   i n j u r e d .   N o w ,   a g e d   7 8 ,   s h e   h a s   b e g u n   a   b o o k   d r a w i n g   o n   t h a t   t r a g e d y",
+        "caption": "Family in bomb debris",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9522954821586609,
+        "text_similarity_score": 0.19311076402664185
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.95, but the text similarity score is 0.19. According to the instruction, I should immediately return False. The candidate caption talks about family in bomb debris, while the news caption is about a list of affected models including the Flavel cooker.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a family (man, woman, and child) amidst rubble and debris, possibly after a bombing or disaster. The caption refers to a list of affected cooker models, including the Flavel cooker, in connection with a carbon monoxide poisoning incident. This is completely unrelated to the visual content of the image. The image check result has a confidence score of 2, which is less than 7, and returns False result. However, according to the instructions, if the confidence score is 7-10, the final determination MUST be based on the image check result. Since the image and the caption are entirely unrelated, the image is out of context.",
+    "validation_summary": "The image depicts a family in a disaster setting, while the caption discusses faulty cookers and carbon monoxide poisoning, leading to a complete mismatch between the visual and textual information presented to the viewer. The caption is misleading as it provides no relevant information about the image content."
+  },
+  "inference_time": 5.581052541732788,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

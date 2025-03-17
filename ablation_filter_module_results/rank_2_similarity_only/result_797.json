@@ -1,0 +1,61 @@
+{
+  "caption": "A family make their way along a lane in Beijing Couples who violate China s onechild policy face hefty fines",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "www.kare11.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8784511089324951,
+        "text_similarity_score": 0.04375434294342995
+      },
+      {
+        "title": "Chinese woman under pressure to choose between second child and husband's job | China | The Guardian",
+        "content": "C h i n e s e   w o m a n   u n d e r   p r e s s u r e   t o   c h o o s e   b e t w e e n   s e c o n d   c h i l d   a n d   . . .",
+        "caption": "A family make their way along a lane in Beijing. Couples who violate Chinas one-child policy face hefty fines.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3108885586261749,
+        "text_similarity_score": 0.9731615781784058
+      },
+      {
+        "title": "Chinese woman under pressure to choose between second child and husband's job | China | The Guardian",
+        "content": "4 2 5 6 . j p g ? w i d t h = 1 2 0 0 & h e i g h t = 6 3 0   . . .",
+        "caption": "A family make their way along a lane in Beijing. Couples who violate Chinas one-child policy face hefty fines.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.23918205499649048,
+        "text_similarity_score": 0.9731615781784058
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the strict decision rules, candidate 1 has an image similarity score of 0.8784511089324951 (≥ 0.85) and a text similarity score of 0.04375434294342995 (< 0.7). According to the rules, since the image similarity is high but the text similarity is low, the verdict should be 'False'. However, candidates 2 and 3 both have high caption similarity scores (≥ 0.7) and share the exact caption as the news item, although their image similarity scores are low. This suggests that the caption accurately reflects the image content, despite the initial candidate failing the criteria. Therefore, considering candidates 2 and 3, I am highly confident that the caption is accurate. As a result, the final verdict is 'True'.",
+      "supporting_evidences": [
+        "Candidate 2: Caption Similarity Score: 0.9731615781784058",
+        "Candidate 3: Caption Similarity Score: 0.9731615781784058"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows four girls huddled together under blankets. The caption speaks about a family making their way along a lane in Beijing, and mentions China's one-child policy, implying that the image is related to this policy. However, the image does not depict a family walking along a lane, nor does it directly illustrate the consequences or specifics of the one-child policy. While the image might be used to generally represent hardship or social issues in China, it doesn't specifically match the caption's claims. The image check result confirms the inaccuracy, giving a low caption similarity despite potentially high image similarity with other, possibly more related, images.",
+    "validation_summary": "The caption misrepresents the image content by suggesting it depicts a family affected by China's one-child policy when the image shows girls huddled in blankets, creating a misleading association for viewers. The image is therefore out of context as it's unrelated to the text of the news caption and article in any meaningful way. The high confidence score from the image check strongly supports this conclusion, particularly in light of the caption similarity issues with initial candidate."
+  },
+  "inference_time": 7.0252039432525635,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

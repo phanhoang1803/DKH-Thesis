@@ -1,0 +1,58 @@
+{
+  "caption": "Sheehan is one of at least 112 children in 34 states who have developed sudden severe muscle weakness officially known as acute flaccid myelitis since September according to the CDC",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Acute flaccid myelitis",
+      "Enterovirus",
+      "Polio",
+      "Muscle weakness",
+      "Flu",
+      "Influenza-like illness",
+      "light-hearted",
+      "Polio-like syndrome",
+      "Muscle",
+      "Centers for Disease Control and Prevention"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Seven-year-old Bailey Sheehan fights polio-like illness",
+        "content": "S e v e n - y e a r - o l d   B a i l e y   S h e e h a n   f i g h t s   p o l i o - l i k e   i l l n e s s",
+        "caption": "Sheehan is one of at least 112 children in 34 states who have developed sudden, severe muscle weakness, officially known as acute flaccid myelitis, since September, according to the CDC.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Children with polio-like illness continue to struggle",
+        "content": "6 3 5 5 9 3 5 3 5 8 1 5 1 6 4 2 2 5 - X X X -   . . .",
+        "caption": "Bailey Sheehan, 8, of Welches, Ore., suddenly lost the use of most of her right arm and leg in October. Thanks to physical therapy, she can walk with a leg brace and walker.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption states that Sheehan is one of at least 112 children in 34 states who have developed sudden severe muscle weakness, officially known as acute flaccid myelitis, since September, according to the CDC. Candidate 1 has a caption that is identical to the news caption. However, the image similarity score between the image in the news and the image in candidate 1 is 0.0. The text similarity score between the caption in the news and the caption in candidate 1 is 0.0. The domain of candidate 1 is www.usatoday.com. Candidate 2's caption gives details of Bailey Sheehan, 8, who suddenly lost the use of most of her right arm and leg in October. The image similarity score between the image in the news and the image in candidate 2 is 0.0. The text similarity score between the caption in the news and the caption in candidate 2 is 0.0. The domain of candidate 2 is www.usatoday.com. Because candidate 1 has a caption that is identical to the news caption and is from a reputable source, the verdict is true.",
+      "supporting_evidences": [
+        "Sheehan is one of at least 112 children in 34 states who have developed sudden, severe muscle weakness, officially known as acute flaccid myelitis, since September, according to the CDC."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a high confidence score (7) and a verdict of True, stating that the news caption accurately represents the image content. The image shows a young girl hanging from a bar, with an adult woman beside her. This scene doesn't inherently convey the medical information provided in the caption about acute flaccid myelitis. Therefore, while the caption might be factually related to the person in the image, it doesn't accurately represent what is shown in the image. The primary basis for evaluation is the image check result.",
+    "validation_summary": "The caption provides factual information related to the person in the image, but the image doesn't inherently convey the medical details mentioned in the caption, making it potentially misleading to viewers about what they're seeing in the image itself. The image check result indicates the caption is representative, however, the image and caption are weakly related."
+  },
+  "inference_time": 4.667404890060425,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

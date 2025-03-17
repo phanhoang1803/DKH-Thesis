@@ -1,0 +1,51 @@
+{
+  "caption": "Pope Francis right gestures as he talks with journalists during his flight from Manila to Rome on Monday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Debate",
+      "Seminar",
+      "Academic conference",
+      "Public speaking",
+      "Convention",
+      "Academy",
+      "Speech",
+      "Audience"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Pope: Catholics don't have to breed 'like rabbits'  News-Herald",
+        "content": "P o p e :   C a t h o l i c s   d o n ' t   h a v e   t o   b r e e d   ' l i k e   r a b b i t s '      N e w s - H e r a l d",
+        "caption": "Pope Francis, left, gestures as he talks with journalists during his flight from Manila to Rome, Monday, Jan. 19, 2015. Pope Francis flew home Monday after a weeklong trip to Asia, where he called for unity in Sri Lanka after a civil war and asked Filipinos to be \"missionaries of the faith\" in the world's most populous continent after a record crowd joined his final Mass in the Philippine capital. (AP Photo/Giuseppe Cacace, pool)",
+        "domain": "www.news-herald.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Rabbit Breeder to Pope: You Don't Know Rabbits",
+        "content": "R a b b i t   B r e e d e r   t o   P o p e :   Y o u   D o n ' t   K n o w   R a b b i t s",
+        "caption": "Pope Francis, right, gestures as he talks with journalists during his flight from Manila to Rome, Monday, Jan. 19, 2015.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates describe Pope Francis gesturing while talking with journalists on a flight from Manila to Rome on Monday, Jan. 19, 2015. The news caption states \"Pope Francis right gestures as he talks with journalists during his flight from Manila to Rome on Monday\". All key elements in the news caption are confirmed by the candidates. While the image similarity scores are low, the captions are very similar and support the accuracy of the news caption. However, the date 'Jan. 19, 2015' is not provided in the news caption, hence lowering the confidence score.",
+      "supporting_evidences": [
+        "Candidate 1: Pope Francis, left, gestures as he talks with journalists during his flight from Manila to Rome, Monday, Jan. 19, 2015.",
+        "Candidate 2: Pope Francis, right, gestures as he talks with journalists during his flight from Manila to Rome, Monday, Jan. 19, 2015."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows Pope Francis sitting in a chair, while a man in a suit speaks at a podium in front of the United Nations General Assembly. A security guard is also visible in the image. The provided caption describes Pope Francis gesturing and talking with journalists during a flight, which is inconsistent with the image content of him at the UN. Therefore, the caption is out of context.",
+    "validation_summary": "The caption inaccurately describes the image, which depicts Pope Francis at the United Nations, not on a flight speaking with journalists. Viewers would be misled about the image's content if relying on the caption alone."
+  },
+  "inference_time": 4.050044536590576,
+  "ablation_type": "no_filters"
+}

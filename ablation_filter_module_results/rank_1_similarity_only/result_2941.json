@@ -1,0 +1,47 @@
+{
+  "caption": "Australia costars Hugh Jackman left and Nicole Kidman presented for best original score award",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Red carpet",
+      "Carpet",
+      "Fashion",
+      "Fashion show",
+      "Red",
+      "Performance M"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Australia (2008) - User reviews - IMDb",
+        "content": "A u s t r a l i a   ( 2 0 0 8 )   -   U s e r   r e v i e w s   -   I M D b",
+        "caption": "Nicole Kidman and Hugh Jackman in Australia (2008)",
+        "domain": "www.imdb.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1915750354528427,
+        "text_similarity_score": 0.7035714387893677
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.1915750354528427 which is less than 0.85. And the text similarity score is 0.7035714387893677 which is greater than 0.7. According to the instruction, the verdict should be 'False'. Because the image similarity score is low, I cannot confirm that the people in the image are Hugh Jackman and Nicole Kidman.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image similarity score (0.1915750354528427, below the threshold of 0.85), while the text similarity score (0.7035714387893677) is above 0.7. Although the text similarity suggests a potential match, the low image similarity score implies that the individuals in the image may not be Hugh Jackman and Nicole Kidman, as the caption suggests. Therefore, I trust the image check result and conclude that the caption is misleading because the image doesn't clearly show the claimed individuals.",
+    "validation_summary": "The caption claims the image shows Hugh Jackman and Nicole Kidman, but the image similarity is too low to confirm this. Viewers would likely be misled about who is in the image."
+  },
+  "inference_time": 5.201632022857666,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

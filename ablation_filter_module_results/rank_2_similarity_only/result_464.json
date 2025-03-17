@@ -1,0 +1,49 @@
+{
+  "caption": "Entrance to Jerusalem s Old City now a beacon for rage",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Land of Israel in 19th century, in color",
+        "content": "T h e   U n i t e d   S t a t e s   L i b r a r y   o f   C o n g r e s s \n \t   h a s   p u b l i s h e d   t h i s   f a s c i n a t i n g   c o l l e c t i o n   o f   p h o t o s   d o c u m e n t i n g   t h e   c o u n t r y   b e t w e e n   t h e   F i r s t   Z i o n i s t   A l i y a h   a n d   t h e   S e c o n d   A l i y a h . \n \n T h e   p i c t u r e s   w e r e   r e f u r b i s h e d   i n   t h e   p h o t o c h r o m   t e c h n i q u e      i n   o t h e r   w o r d s ,   b l a c k   a n d   w h i t e   p h o t o s   w e r e   c o l o r e d .   I t ' s   u n c l e a r   w h o   t h e   p h o t o g r a p h e r   w a s   a n d   w h a t   h e   w a s   d o i n g   i n   t h e   M i d d l e   E a s t .   I n   a d d i t i o n   t o   t h e   L a n d   o f   I s r a e l ,   t h e   s e r i e s   a l s o   i n c l u d e s   p i c t u r e s   f r o m   L e b a n o n \n \t   a n d   S y r i a . \n \n F i s h i n g   i n   S e a   o f   G a l i l e e \n \n J e r u s a l e m \n \n D a m a s c u s   G a t e \n \n J a f f a   G a t e \n \n A f t e r n o o n   r e s t   i n   G a l i l e e \n \n M a r k e t   i n   J e r u s a l e m \n \n B e t h a n y \n \n P h o t o g r a p h e r   v i s i t e d   B e i r u t   t o o \n \n S y r i a n   w o m e n   p r e p a r i n g   b r e a d \n \n J o r d a n   R i v e r \n \n S h e p h e r d s   i n   N e b i   S a m u e l \n \n N a z a r e t h \n \n M i g d a l \n \n B e d o u i n   e n c a m p m e n t \n \n I n   L e b a n o n   a g a i n :   B a a l b e k   t e m p l e \n \n J e r u s a l e m \n \n L a b o r e r s   i n   J e r u s a l e m \n \n P i l l a r s   i n   a n c i e n t   S a m a r i a \n \n B e d o u i n s   w i t h   c a m e l s \n \n F o l l o w   Y n e t n e w s   o n   F a c e b o o k \n   a n d   T w i t t e r",
+        "caption": "Damascus Gate",
+        "domain": "www.ynetnews.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.837395191192627,
+        "text_similarity_score": 0.4050794243812561
+      },
+      {
+        "title": "Gates of Jerusalem",
+        "content": "",
+        "caption": "several sheep are standing in front of an old stone building with people walking around it",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7640163898468018,
+        "text_similarity_score": 0.22760345041751862
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity scores are below 0.85 for both candidates. Candidate 1 has a caption about 'Damascus Gate' with a text similarity score of 0.405, while Candidate 2 describes 'sheep in front of a stone building' with a text similarity score of 0.228. Neither candidate provides substantial textual overlap to confirm the news caption, 'Entrance to Jerusalem's Old City now a beacon for rage.' The evidence available doesn't describe the image showing entrance being beacon of rage, therefore it cannot be confirmed.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image depicts a stone gate in Jerusalem with people and sheep nearby. The caption mentions that the entrance to Jerusalem's Old City is now a beacon of rage. The image doesn't depict any rage. Even though the location matches, the context of 'rage' is not reflected in the image. The image check result has a confidence score of 3, where the candidate captions do not provide textual overlap and can't confirm the news caption. The image check's explanation is that the provided evidence does not describe the image showing the entrance being beacon of rage, therefore it cannot be confirmed. Considering all the points the image is out of context.",
+    "validation_summary": "The image shows a historical site, but it doesn't reflect the \"rage\" mentioned in the caption, potentially misleading viewers about the atmosphere at this location. The image lacks visual evidence of any unrest or conflict to support the claim that it is now a 'beacon for rage'. Therefore, the image is out of context with the caption's claim of heightened tension."
+  },
+  "inference_time": 13.289847135543823,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

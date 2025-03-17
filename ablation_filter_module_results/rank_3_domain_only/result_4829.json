@@ -1,0 +1,51 @@
+{
+  "caption": "Oakland Raiders linebacker Rod Martin",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Eugene Monroe",
+      "247Sports",
+      "Baltimore Ravens",
+      "Six-man football",
+      "Eight-man football",
+      "Tackle",
+      "College football recruiting",
+      "American football",
+      "College Football",
+      "High school football"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Rod Martin to be inducted in City Section Hall of Fame - Los Angeles Times",
+        "content": "R o d   M a r t i n   t o   b e   i n d u c t e d   i n   C i t y   S e c t i o n   H a l l   o f   F a m e   -   L o s   . . .",
+        "caption": "L.A. Raiders linebacker Rod Martin prepares to tackle Chargers running back Lionel James on Sept. 28, 1986, at the Coliseum.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0, and the caption similarity score is 0.0. The candidate caption mentions \"L.A. Raiders linebacker Rod Martin\" which confirms the person in the news caption, however, the news caption does not provide sufficient information and lacks context, such as opponent team, or date. Therefore, the news caption is not fully verified.",
+      "supporting_evidences": [
+        "L.A. Raiders linebacker Rod Martin prepares to tackle Chargers running back Lionel James on Sept. 28, 1986, at the Coliseum."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 6. The caption claims the image is of \"Oakland Raiders linebacker Rod Martin\". However, the image clearly shows a football player in a black jersey with the number 60, indicating that the player is not Rod Martin. The image check result confirms the player is not Rod Martin, and provides a supporting evidence that Rod Martin was a linebacker for the L.A. Raiders. The photo is of a Baltimore Ravens player and not Oakland Raiders linebacker Rod Martin. The caption is therefore misleading, as it misidentifies the person in the image, so the image is out of context.",
+    "validation_summary": "The caption misidentifies the football player in the image. Viewers would be misled to think the image is Rod Martin, when it is actually a player from the Baltimore Ravens."
+  },
+  "inference_time": 3.3870816230773926,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

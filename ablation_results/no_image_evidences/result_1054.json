@@ -1,0 +1,49 @@
+{
+  "caption": "Syrian troops participate in a live fire exercise Forces loyal to the regime have been accused of a massacre in the village of Tremseh",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Syria",
+      "M-160 mortar",
+      "Mortar",
+      "Soltam M-66",
+      "160mm Mortar M1943",
+      "Soltam Systems",
+      "Caliber",
+      "81 mm mortar",
+      "240 mm mortar M240"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Syrian opposition activists: more than 200 dead in Hama village massacre | Syria | The Guardian",
+        "content": "S y r i a n   o p p o s i t i o n   a c t i v i s t s :   m o r e   t h a n   2 0 0   d e a d   i n   H a m a   v i l l a g e   . . .",
+        "caption": "Syrian troops participate in a live fire exercise. Forces loyal to the regime have been accused of a massacre in the village of Tremseh. Photograph: AP",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.812938928604126,
+        "text_similarity_score": 0.947033703327179
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate provides strong evidence that the caption accurately represents the image. The image similarity score is 0.812938928604126, which is less than 0.85. The text similarity score is 0.947033703327179, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than 0.7, then the caption is out-of-context. However, the caption of the candidate is exactly the same as the news caption. Thus, the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "Caption: Syrian troops participate in a live fire exercise. Forces loyal to the regime have been accused of a massacre in the village of Tremseh.",
+        "Image Similarity Score: 0.812938928604126",
+        "Text Similarity Score: 0.947033703327179",
+        "Domain: www.theguardian.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "validation_summary": "The caption is misleading as it implies participation in an exercise, which may distract from the reported violent actions associated with the forces.",
+    "explanation": "The caption describes \"Syrian troops participate in a live fire exercise,\" which suggests a non-combat training setting. However, the accompanying content and context clearly indicate a serious massacre committed by forces loyal to the Assad regime in Tremseh, involving the deaths of many civilians. The image likely depicts a scene or action that is misleading when presented as a training exercise, which contrasts sharply with the gravity of the massacre reported in the news content. Such a description could lead viewers to misinterpret the actual situation, thus it does not accurately represent the image in context."
+  },
+  "inference_time": 8.67686915397644,
+  "ablation_type": "no_image_evidences"
+}

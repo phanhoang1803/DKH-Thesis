@@ -1,0 +1,38 @@
+{
+  "caption": "Rapper Kanye West and his wife Kim KardashianWest attend the Rihanna party at The New York Edition in New York City",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Kanye West show causes New York Fashion Week schedule chaos | The Independent | The Independent",
+        "content": "K a n y e   W e s t   s h o w   c a u s e s   N e w   Y o r k   F a s h i o n   W e e k   s c h e d u l e   c h a o s   |   T h e   . . .",
+        "caption": "Kim Kardashian West and Kanye West on the front row of the Balmain fashion show in Paris, September 2014",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The available evidence does not provide enough information to confirm the details in the caption, such as the specific event (Rihanna party), the location (The New York Edition in New York City), or the date. The provided candidate mentions Kim Kardashian West and Kanye West at the Balmain fashion show in Paris, September 2014, which is a completely different event and location.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image is out of context. The image shows Kim Kardashian and Kanye West in formal attire, likely at a red carpet event. The caption claims they are attending the Rihanna party at The New York Edition in New York City, but the image check evidence indicates this claim is false. Given the very low image and text similarity scores, and the specific mention of a different event, the caption is highly misleading and does not accurately represent the image content.",
+    "validation_summary": "The caption incorrectly identifies the event and location depicted in the image, leading to a false impression of the context in which the photo was taken and misleading viewers about the image content. This discrepancy renders the caption out of context."
+  },
+  "inference_time": 3.8384435176849365,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

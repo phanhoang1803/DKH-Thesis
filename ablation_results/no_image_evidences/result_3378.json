@@ -1,0 +1,45 @@
+{
+  "caption": "Washington s Bryce Harper hits a homer to right field during the first inning in his first atbat of the season",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Baseball",
+      "College baseball",
+      "Solid swing+hit",
+      "Catcher",
+      "Pitcher",
+      "Ball",
+      "Higher Education School",
+      "Ballpark"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Phillies slugger Bryce Harper homers for his first 3 hits of the season",
+        "content": "P h i l l i e s   s l u g g e r   B r y c e   H a r p e r   h o m e r s   f o r   h i s   f i r s t   3   h i t s   o f   t h e   . . .",
+        "caption": "Phillies slugger Bryce Harper homers for his first 2 hits of the season",
+        "domain": "www.thestar.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8420395851135254,
+        "text_similarity_score": 0.7167591452598572
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.8420395851135254, which is less than 0.85. Therefore, the caption is out-of-context. The text similarity score is 0.7167591452598572, which is greater than 0.7. However, the image similarity score is the deciding factor. The candidate caption mentions \"Phillies slugger Bryce Harper homers for his first 2 hits of the season\", while the news caption says \"Washington s Bryce Harper hits a homer to right field during the first inning in his first atbat of the season\". The context is similar, but the image similarity score indicates that they may not be the same event. The evidence provided supports that Bryce Harper hit a home run, but the specific details (team, inning, etc.) don't perfectly align and the image similarity isn't high enough to confirm it is the same event.",
+      "supporting_evidences": [
+        "The candidate caption mentions \"Phillies slugger Bryce Harper homers for his first 2 hits of the season\", which supports that Bryce Harper hit a home run."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image similarity score is 0.8420395851135254, which is less than 0.85. Therefore, the caption is out-of-context. The text similarity score is 0.7167591452598572, which is greater than 0.7. However, the image similarity score is the deciding factor. The candidate caption mentions \"Phillies slugger Bryce Harper homers for his first 2 hits of the season\", while the news caption says \"Washington s Bryce Harper hits a homer to right field during the first inning in his first atbat of the season\". The context is similar, but the image similarity score indicates that they may not be the same event. The evidence provided supports that Bryce Harper hit a home run, but the specific details (team, inning, etc.) don't perfectly align and the image similarity isn't high enough to confirm it is the same event.",
+    "validation_summary": "The image check result indicates the caption is out of context because the image similarity score is below the threshold, suggesting the image doesn't perfectly match the event described in the caption, even though both captions describe Bryce Harper hitting a home run. Therefore, the viewer might be misled into thinking they are seeing the specific event mentioned in the news caption when they are not."
+  },
+  "inference_time": 6.482112169265747,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,46 @@
+{
+  "caption": "In this Sept 14 2012 photo Republican presidential candidate Mitt Romney campaigns in the rain at Lake Erie College in Painesville Ohio",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Event",
+      "Audience",
+      "Fan"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Romney Campaign Dismisses Recent Wave Of Tough Polls | HuffPost Latest News",
+        "content": "R o m n e y   C a m p a i g n   D i s m i s s e s   R e c e n t   W a v e   O f   T o u g h   P o l l s   |   H u f f P o s t   . . .",
+        "caption": "FILE - In this Sept. 14, 2012 file photo, Republican presidential candidate, former Massachusetts Gov. Mitt Romney campaigns in the rain at Lake Erie College in Painesville, Ohio. Ohio is the presidential race's undisputed epicenter, and it's tilting toward Barack Obama. The revival of the local economy and the popularity of Obama's auto industry bailout are hampering Mitt Romney's call for Ohioans to return to the GOP-leaning ways that were crucial to George W. Bush. (AP Photo/David Richard, File)",
+        "domain": "www.huffpost.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.24291294813156128,
+        "text_similarity_score": 0.7237598299980164
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.24291294813156128 and the text similarity score is 0.7237598299980164. Since the image similarity score is below 0.85, the image is not similar. However, the text similarity score is greater than 0.7, which means that the captions are highly similar. Based on the candidate, the caption almost aligns with the image context since the candidate caption contains the same information as the news caption and it is about Mitt Romney campaigning in the rain at Lake Erie College in Painesville, Ohio on Sept. 14, 2012.",
+      "supporting_evidences": [
+        "Caption: FILE - In this Sept. 14, 2012 file photo, Republican presidential candidate, former Massachusetts Gov. Mitt Romney campaigns in the rain at Lake Erie College in Painesville, Ohio."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows Barack Obama waving to a crowd. The provided caption states the image is of Mitt Romney campaigning in Ohio. The image check result indicates a low image similarity score and a high text similarity score, with the candidate caption containing different information than the news caption. As the image shown is clearly Barack Obama, and not Mitt Romney, the caption is out of context. The image check result clearly indicates the caption is inaccurate, and the image analysis reinforces this.",
+    "validation_summary": "The image depicts Barack Obama, while the caption describes Mitt Romney. Viewers would be misled, as the image and caption do not correspond to the same person or event."
+  },
+  "inference_time": 6.927693128585815,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

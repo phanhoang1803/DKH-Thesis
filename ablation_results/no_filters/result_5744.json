@@ -1,0 +1,49 @@
+{
+  "caption": "A Florida man captured video Saturday of a massive shark eating a smaller shark near a pier in Jacksonville Fla",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Watch: Huge shark eats smaller shark off fishing line",
+        "content": "I t  s   a   d o g - e a t - d o g   w o r l d   o u t   t h e r e ,   o r   i n   t h i s   c a s e   s h a r k - e a t - s h a r k . \n \n A   F l o r i d a   m a n   c a p t u r e d   v i d e o   S a t u r d a y   o f   a   m a s s i v e   s h a r k   e a t i n g   a   s m a l l e r   s h a r k   n e a r   a   p i e r   i n   J a c k s o n v i l l e ,   F l a . \n \n I n   t h e   v i d e o ,   l i v e s t r e a m e d   o n   F a c e b o o k   b y   D a r r e l l   R u g e r ,   a   t w o - f o o t - l o n g   s h a r k   c a u g h t   o n   a   f i s h e r m a n  s   l i n e  s t r u g g l e s   t o   f r e e   i t s e l f . \n \n  L o o k   t h e r e  s   a   b i g g e r   s h a r k ,    s o m e o n e   s a y s   i n   t h e   b a c k g r o u n d .  \" H e  s   g o i n g   t o   e a t   t h a t   s h a r k ,    a n o t h e r   m a n   s a y s . \n \n S e c o n d s   l a t e r ,   a t   a b o u t   t h e   5 0 - s e c o n d   m a r k ,   t h e   l a r g e r   s h a r k   p o u n c e s   o n   t h e   s m a l l e r   s h a r k   a n d   t h e   t w o   s t r u g g l e   i n   t h e   w a t e r . \n \n T h e   v i d e o   e n d s   w i t h   s h o t s   o f   t h e   w a t e r   a n d   w e   a r e   a s s u m i n g   a   f u l l  s t o m a c h   f o r   t h e   l a r g e r   s h a r k . \n \n F o l l o w   @ M a r y B o w e r m a n   o n   T w i t t e r .",
+        "caption": "A Florida man captured video Saturday of a massive shark eating a smaller shark near a pier in Jacksonville, Fla.",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Watch: Huge shark eats smaller shark off fishing line",
+        "content": "W a t c h :   H u g e   s h a r k   e a t s   s m a l l e r   s h a r k   o f f   f i s h i n g   l i n e",
+        "caption": "A Florida man captured video Saturday of a massive shark eating a smaller shark near a pier in Jacksonville, Fla.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Man reels in massive, 12-foot tiger shark at Florida beach | Fox Weather",
+        "content": "M a n   r e e l s   i n   m a s s i v e ,   1 2 - f o o t   t i g e r   s h a r k   a t   F l o r i d a   b e a c h   |   F o x   . . .",
+        "caption": "A 12-foot tiger shark was captured and released at Jacksonville Beach over the weekend. (Credit: Owen Prior)",
+        "domain": "www.foxweather.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are all 0.0, indicating that the candidate images do not match the news image. Therefore, I must rely on textual information. Candidates 1 and 2 have captions that are identical to the news caption and come from the domain usatoday.com. However, without a matching image, I cannot definitively confirm that the news image accurately depicts the event described. Candidate 3 mentions a tiger shark at Jacksonville Beach, which is related to the news caption's location. However, it does not confirm the event of a shark eating another shark. Because image similarity is low, I can not confirm the news caption.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: A Florida man captured video Saturday of a massive shark eating a smaller shark near a pier in Jacksonville, Fla.",
+        "Candidate 2: Caption: A Florida man captured video Saturday of a massive shark eating a smaller shark near a pier in Jacksonville, Fla."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "explanation": "The image check result has a low confidence score. However, it indicates that the image candidates do not match the news image and relies primarily on textual information. The candidates with high similarity to the news caption come from the domain usatoday.com, which increases the likelihood of the caption being accurate. The image shows a video screen capture of a shark in the water near a pier. The news caption describes a 'massive shark eating a smaller shark near a pier in Jacksonville Fla.' While the image shows a shark, it does not show evidence of the shark eating another shark. Therefore, the image does not provide direct support for the caption's claim. As the image check score is low, I'm more likely to use the image as a starting point. Given this evidence, it can be inferred that the caption is OOC because the image alone does not depict the shark eating another shark.",
+    "validation_summary": "Without additional information, it cannot be confirmed whether the image is related to the caption. The image shows a shark in the water but not the shark eating another shark as claimed in the news caption."
+  },
+  "inference_time": 4.616449356079102,
+  "ablation_type": "no_filters"
+}

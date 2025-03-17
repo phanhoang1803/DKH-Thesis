@@ -1,0 +1,41 @@
+{
+  "caption": "Democratic presidential candidate Bernie Sanders speaks at an event sponsored by Institute of Politics at the University of Chicago recently",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Bernie Sanders pulls in nearly as much cash this quarter as Hillary Clinton  Chicago Tribune",
+        "content": "B e r n i e   S a n d e r s   p u l l s   i n   n e a r l y   a s   m u c h   c a s h   t h i s   q u a r t e r   a s   . . .",
+        "caption": "Democratic presidential candidate Bernie Sanders speaks at a University of Chicago Institute of Politics event Sept. 28, 2015.",
+        "domain": "www.chicagotribune.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Sanders wins Maine Democratic caucuses, CNN projects | FOX 5 San Diego & KUSI News",
+        "content": "S a n d e r s   w i n s   M a i n e   D e m o c r a t i c   c a u c u s e s ,   C N N   p r o j e c t s   |   F O X   5   S a n   . . .",
+        "caption": "",
+        "domain": "fox5sandiego.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The available evidence provides partial support for the news caption. Candidate 1 mentions Bernie Sanders speaking at a University of Chicago Institute of Politics event, which aligns with the news caption. However, the image similarity scores are low, indicating the images do not match. Furthermore, crucial details such as the exact date (mentioned as Sept. 28, 2015, in Candidate 1, while the news caption says 'recently') and specific claims about what Sanders spoke about are not fully confirmed. Therefore, based on the current evidence, a definitive 'True' verdict cannot be established.",
+      "supporting_evidences": [
+        "Democratic presidential candidate Bernie Sanders speaks at a University of Chicago Institute of Politics event Sept. 28, 2015."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a low image similarity between the provided image and the supporting evidence mentioning Bernie Sanders at a University of Chicago event. The image shows Barack Obama speaking in front of an American flag and a blue backdrop, which contradicts the caption describing Bernie Sanders speaking at an event sponsored by the Institute of Politics at the University of Chicago. Thus, the caption is misleading because it incorrectly identifies the person and the event depicted in the image.",
+    "validation_summary": "The caption misrepresents the image by identifying the person in the photo as Bernie Sanders instead of Barack Obama, and describing an event at the University of Chicago that does not match the image's content. Viewers would be misled about who is shown in the image and the context of the photograph."
+  },
+  "inference_time": 4.286158323287964,
+  "ablation_type": "no_filters"
+}

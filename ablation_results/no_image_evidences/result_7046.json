@@ -1,0 +1,46 @@
+{
+  "caption": "Matthew McConaughey accepts the Oscar for best actor for his role in Dallas Buyers Club",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Matthew McConaughey Wins Best Actor Oscar For 'Dallas Buyers Club'",
+        "content": "M a t t h e w   M c C o n a u g h e y   W i n s   B e s t   A c t o r   O s c a r   F o r   ' D a l l a s   B u y e r s   C l u b '",
+        "caption": "Matthew McConaughey Wins Best Actor Oscar For 'Dallas Buyers Club'",
+        "domain": "www.hollywoodreporter.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6017045378684998,
+        "text_similarity_score": 0.9782799482345581
+      },
+      {
+        "title": "Oscars 2014: Matthew McConaughey wins for 'Dallas Buyers Club' - Los Angeles Times",
+        "content": "O s c a r s   2 0 1 4 :   M a t t h e w   M c C o n a u g h e y   w i n s   f o r   ' D a l l a s   B u y e r s   C l u b   . . .",
+        "caption": "Matthew McConaughey accepts the Oscar for lead actor for his role in 'Dallas Buyers Club.'",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6075649261474609,
+        "text_similarity_score": 0.9753327369689941
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions have high text similarity scores (0.978 and 0.975) with the news caption, indicating they describe the same event: Matthew McConaughey winning the Best Actor Oscar for 'Dallas Buyers Club.' However, the image similarity scores are only 0.601 and 0.607, respectively. This means the images themselves are not highly similar. Because the image similarity scores are below 0.85, according to the instructions, the caption must be marked as out-of-context, even though the text similarity is high. The images provided in the candidates do not provide enough evidence to confirm that the news image accurately represents the event described in the news caption.",
+      "supporting_evidences": [
+        "Candidate 1: Caption mentions Matthew McConaughey Wins Best Actor Oscar For 'Dallas Buyers Club'",
+        "Candidate 2: Caption mentions Matthew McConaughey accepts the Oscar for lead actor for his role in 'Dallas Buyers Club.'"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity scores between the given image and the candidate images are low (0.601 and 0.607), despite high text similarity scores (0.978 and 0.975) between the captions. This suggests that while the captions describe a similar event, the images themselves are not strongly related. Since the image similarity scores are below the threshold of 0.85, the caption is considered out of context, as the image does not provide sufficient evidence to confirm the event described in the caption.",
+    "validation_summary": "Despite the captions describing the same event, the images are not similar enough to confirm the accuracy of the news caption; therefore, the caption is out of context. Viewers could be misled into thinking the image directly relates to the event described due to the high text similarity but low visual correspondence."
+  },
+  "inference_time": 5.638944149017334,
+  "ablation_type": "no_image_evidences"
+}

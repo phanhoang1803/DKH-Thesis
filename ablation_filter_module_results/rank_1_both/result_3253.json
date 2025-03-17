@@ -1,0 +1,51 @@
+{
+  "caption": "Ian Brown and Mani seen on the big screen",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "The V festival in pictures | Music | The Guardian",
+        "content": "S u n   1 9   A u g   2 0 1 2   1 1 . 5 3  B S T \n \n \n                         F i r s t   p u b l i s h e d   o n   S u n   1 9   A u g   2 0 1 2   1 1 . 5 3  B S T \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   M a r k   H o l l o w a y / R e d f e r n s   v i a   G e t t y   I m a g e s \n \n P h o t o g r a p h :   S h i r l a i n e   F o r r e s t / W i r e I m a g e \n \n P h o t o g r a p h :   Y u i   M o k / P A \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   Y u i   M o k / P A \n \n P h o t o g r a p h :   C   B r a n d o n / R e d f e r n s   v i a   G e t t y   I m a g e s \n \n P h o t o g r a p h :   S h i r l a i n e   F o r r e s t / W i r e I m a g e \n \n P h o t o g r a p h :   Y u i   M o k / P A \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / W i r e I m a g e \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s",
+        "caption": "V Festival day 1: Ian Brown and Reni of The Stone Roses headline",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9798559546470642,
+        "text_similarity_score": 0.3372480869293213
+      },
+      {
+        "title": "Stone Roses reunion gig in London  in pictures | Music | The Guardian",
+        "content": "S t o n e   R o s e s   r e u n i o n   g i g   i n   L o n d o n      i n   p i c t u r e s   |   M u s i c   |   T h e   G u a r d i a n",
+        "caption": "Stone Roses: Ian Brown and Mani seen on the big screen",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.26298803091049194,
+        "text_similarity_score": 0.7278317809104919
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption mentions 'Ian Brown and Mani seen on the big screen.' Candidate 1 has a high image similarity score (0.9798559546470642), indicating a strong match between the images. However, the caption similarity score is low (0.3372480869293213). The candidate caption mentions 'Ian Brown and Reni of The Stone Roses headline,' which provides context for Ian Brown being on a big screen, though it mentions 'Reni' instead of 'Mani.' Candidate 2 has a lower image similarity score (0.26298803091049194) but a higher caption similarity score (0.7278317809104919). Its caption, 'Stone Roses: Ian Brown and Mani seen on the big screen,' directly supports the news caption. Since candidate 2 has a low image similarity score, it doesn't confirm that the image and the caption match, so the final answer depends on the first one which does not fully align the entities but has a high image similarity. Thus, the overall verdict is 'False'.",
+      "supporting_evidences": [
+        "Candidate 1: High image similarity score suggests the images are similar, but the low caption similarity score and mismatch in entities ('Reni' vs. 'Mani') indicate a potential discrepancy."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the news caption 'Ian Brown and Mani seen on the big screen' has a high image similarity with a candidate image (score: 0.9798559546470642), but a low caption similarity (score: 0.3372480869293213). The candidate caption mentions 'Ian Brown and Reni of The Stone Roses headline', not 'Mani'. Since one of the entities is not the same, the caption is considered to be incorrect. Therefore, the caption is considered out of context.",
+    "validation_summary": "The caption identifies Ian Brown and Mani on the big screen, but the high image similarity candidate mentions Reni instead of Mani, suggesting that the caption is misleading about the identity of the person on screen with Ian Brown. This discrepancy makes the caption out of context with the image, as viewers would be misled about who is on the screen with Ian Brown in the image. Mani is visible in the image, but not on the big screen as the caption claims. The caption should specifically say that the image shows Ian Brown and Mani on stage, not on the big screen, as the image indicates."
+  },
+  "inference_time": 5.803433895111084,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

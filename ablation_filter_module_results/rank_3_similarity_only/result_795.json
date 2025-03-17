@@ -1,0 +1,66 @@
+{
+  "caption": "WikiLeaks has been parthosted by OVH a small web hosting company based in northern France",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Computer",
+      "Computer program",
+      "Screenshot",
+      "Web page",
+      "Icon",
+      "Meter",
+      "World Wide Web"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "WikiLeaks: France adds to US pressure to ban website | WikiLeaks | The Guardian",
+        "content": "W i k i L e a k s :   F r a n c e   a d d s   t o   U S   p r e s s u r e   t o   b a n   w e b s i t e   |   W i k i L e a k s   . . .",
+        "caption": "WikiLeaks has been part-hosted by OVH, a small web hosting company based in northern France. Photograph: Joe Raedle/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7478142380714417,
+        "text_similarity_score": 0.9431127309799194
+      },
+      {
+        "title": "WikiLeaks: France adds to US pressure to ban website | WikiLeaks | The Guardian",
+        "content": "W i k i L e a k s :   F r a n c e   a d d s   t o   U S   p r e s s u r e   t o   b a n   w e b s i t e   |   W i k i L e a k s   . . .",
+        "caption": "WikiLeaks has been part-hosted by OVH, a small web hosting company based in northern France. Photograph: Joe Raedle/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7096686959266663,
+        "text_similarity_score": 0.9431127309799194
+      },
+      {
+        "title": "WikiLeaks: France adds to US pressure to ban website | WikiLeaks | The Guardian",
+        "content": "W i k i L e a k s :   F r a n c e   a d d s   t o   U S   p r e s s u r e   t o   b a n   w e b s i t e   |   W i k i L e a k s   . . .",
+        "caption": "WikiLeaks has been part-hosted by OVH, a small web hosting company based in northern France. Photograph: Joe Raedle/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6532756686210632,
+        "text_similarity_score": 0.9431127309799194
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for all provided candidates are below 0.85, which indicates a low similarity between the candidate images and the news image. According to the instructions, if the image similarity score is below 0.85 and the text similarity score is above 0.7, the caption must be marked as out-of-context. Furthermore, the text similarity scores are high, but the image similarity scores are all below the defined threshold, which makes it impossible to ensure the caption accurately reflects the image. Without a strong similarity between the images, there is no way to ensure the news caption accurately represents what the image shows.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low similarity between the candidate images and the news image, with all similarity scores below 0.85. Therefore, the caption, 'WikiLeaks has been parthosted by OVH a small web hosting company based in northern France,' is determined to be out of context, as there is no image evidence to support it. The image displays a conversation on Twitter about train announcements in Cardiff.",
+    "validation_summary": "The provided caption is unrelated to the content of the image, which shows a Twitter conversation regarding train announcements. Using this caption would mislead viewers about the image's content and topic."
+  },
+  "inference_time": 5.2614452838897705,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

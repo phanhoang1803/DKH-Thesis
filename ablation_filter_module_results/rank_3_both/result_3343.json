@@ -1,0 +1,41 @@
+{
+  "caption": "Sir Chris Hoy leads Team GB during the opening ceremony of the London 2012 Olympic Games in London",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 1,
+      "confidence_score": 10,
+      "explanation": "The caption describes the opening ceremony of the London 2012 Olympic Games, featuring Sir Chris Hoy. However, the image context describes two people riding old-fashioned bicycles in a park. The caption and context are entirely unrelated, indicating a complete misalignment.",
+      "supporting_evidences": [
+        "The caption refers to the London 2012 Olympic Games opening ceremony.",
+        "The image context describes a man and woman riding vintage bicycles in a park.",
+        "There is no mention of the Olympics or Sir Chris Hoy in the image context.",
+        "The visual elements described in the context (vintage bicycles, park setting) are not related to the event described in the caption."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Two people are riding old-fashioned bicycles outdoors.",
+      "context": "The image shows a man and a woman riding vintage bicycles in an outdoor setting with greenery in the background. The man is on a penny-farthing bicycle with a large front wheel and a smaller rear wheel. He is wearing a white polo shirt and jeans. The woman is riding a tricycle with a basket in front, and a \"sky ride\" label visible on the basket. She is wearing a floral dress. The setting appears to be a park or green space, with trees providing a backdrop.",
+      "information": "The image features two individuals riding old-fashioned bicycles in a park setting. The man is riding a penny-farthing, while the woman is on a tricycle with a basket that has 'sky ride' on it."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result clearly indicates a complete misalignment between the image content and the caption. The caption refers to Sir Chris Hoy at the opening ceremony of the London 2012 Olympics, while the image depicts two people riding vintage bicycles in a park. These are completely unrelated scenarios. Therefore, using this image with the given caption would mislead viewers about the actual content of the image.",
+    "validation_summary": "The caption describes an Olympic event, but the image shows people on vintage bikes, misleading viewers about the image's actual content. The caption is not representative of the image, and using it would create a false impression."
+  },
+  "inference_time": 4.053222179412842,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

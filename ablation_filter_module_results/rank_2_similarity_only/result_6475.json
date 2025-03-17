@@ -1,0 +1,63 @@
+{
+  "caption": "San Francisco 49ers quarterback Colin Kaepernick throws the ball against the Atlanta Falcons during the third quarter in the NFC Championship game at the Georgia Dome",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Eight-man football",
+      "Six-man football",
+      "American football",
+      "Canadian football",
+      "Arena football",
+      "Kick american football",
+      "Canada",
+      "Sprint football",
+      "Gridiron football",
+      "Team"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Niners' Colin Kaepernick sheds run-first QB label",
+        "content": "N i n e r s '   C o l i n   K a e p e r n i c k   s h e d s   r u n - f i r s t   Q B   l a b e l",
+        "caption": "San Francisco 49ers quarterback Colin Kaepernick (7) throws the ball against the Atlanta Falcons during the third quarter in the NFC Championship game at the Georgia Dome.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8679773807525635,
+        "text_similarity_score": 0.9674385190010071
+      },
+      {
+        "title": "Colin Kaepernick through the years",
+        "content": "C o l i n   K a e p e r n i c k   t h r o u g h   t h e   y e a r s",
+        "caption": "San Francisco 49ers quarterback Colin Kaepernick passes the ball during the first half of the NFL football NFC Championship game Sunday, Jan. 20, 2013, in Atlanta. (AP Photo/Dave Martin)",
+        "domain": "www.nfl.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8699559569358826,
+        "text_similarity_score": 0.8781341314315796
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both Candidate 1 and Candidate 2 have high image similarity scores (>= 0.85) and Candidate 1 has a high text similarity score (>= 0.7). Candidate 1's caption almost identically matches the news caption, confirming that the image shows Colin Kaepernick throwing the ball against the Atlanta Falcons during the NFC Championship game at the Georgia Dome. Candidate 2 also confirms these details, although with a slightly lower text similarity score. Therefore, the caption is in-context and accurately represents the image.",
+      "supporting_evidences": [
+        "San Francisco 49ers quarterback Colin Kaepernick (7) throws the ball against the Atlanta Falcons during the third quarter in the NFC Championship game at the Georgia Dome.",
+        "San Francisco 49ers quarterback Colin Kaepernick passes the ball during the first half of the NFL football NFC Championship game Sunday, Jan. 20, 2013, in Atlanta. (AP Photo/Dave Martin)"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (10) and confirms that the image does not show Colin Kaepernick throwing the ball against the Atlanta Falcons. The image check provided supporting evidence shows candidate images with high similarity, but the captions do not match the provided news image. Therefore, the caption is out of context as it misrepresents the content of the image.",
+    "validation_summary": "The image shows an American football game, but not Colin Kaepernick against the Atlanta Falcons, so viewers would be misled by the caption's specific claim. The caption is inaccurate because it does not correspond to the players or teams visible in the image."
+  },
+  "inference_time": 5.786989688873291,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

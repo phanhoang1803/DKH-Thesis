@@ -1,0 +1,54 @@
+{
+  "caption": "Kansas City Chiefs running back Peyton Hillis takes the ball to head coach Romeo Crennel after scoring a touchdown against the Carolina Panthers in the first half at Arrowhead Stadium",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Chiefs' emotional win",
+        "content": "C h i e f s '   e m o t i o n a l   w i n",
+        "caption": "Kansas City Chiefs running back Peyton Hillis (40) takes the ball to head coach Romeo Crennel after scoring a touchdown against the Carolina Panthers in the first half at Arrowhead Stadium.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7389915585517883,
+        "text_similarity_score": 0.9803224205970764
+      },
+      {
+        "title": "Chiefs win even as they grieve over murder-suicide",
+        "content": "C h i e f s   w i n   e v e n   a s   t h e y   g r i e v e   o v e r   m u r d e r - s u i c i d e",
+        "caption": "Chiefs head coach Romeo Crennel was given a football by Peyton Hillis after the running back scored a touchdown.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4870057702064514,
+        "text_similarity_score": 0.8767485618591309
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "Based on the provided candidates, Candidate 1 has a high image similarity score (0.7389915585517883) and a high text similarity score (0.9803224205970764). Although the image similarity is below the 0.85 threshold, the text similarity is very high and the candidate caption almost exactly matches the news caption. This suggests that the news caption accurately describes the image's content. Candidate 2 also supports this conclusion, with a text similarity score of 0.8767485618591309, indicating that the core information about Peyton Hillis scoring a touchdown and giving the ball to Romeo Crennel is consistent. Considering that both candidates come from a reputable domain (www.usatoday.com) and reinforce the key elements of the news caption, the verdict is True. Considering the image similarity scores are not particularly high, there is some uncertainty.",
+      "supporting_evidences": [
+        "Candidate 1: Caption similarity score of 0.9803224205970764",
+        "Candidate 1: Image similarity score of 0.7389915585517883",
+        "Candidate 2: Caption similarity score of 0.8767485618591309",
+        "Candidate 2: Domain: www.usatoday.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts a football game with players from the Pittsburgh Steelers and Tennessee Titans engaged in a play. The news caption describes a game between the Kansas City Chiefs and Carolina Panthers, featuring Peyton Hillis. The image and caption describe different teams and players, indicating a mismatch. Although the image check results indicate a high text similarity to other captions, the image itself clearly contradicts the provided caption. Therefore, the image is out of context.",
+    "validation_summary": "The image shows a football game between the Steelers and Titans, while the caption describes a game between the Chiefs and Panthers, making the caption misleading. Viewers would be misled about the content of the image based on the caption provided."
+  },
+  "inference_time": 5.918412208557129,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

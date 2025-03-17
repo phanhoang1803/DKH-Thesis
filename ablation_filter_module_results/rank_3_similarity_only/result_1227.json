@@ -1,0 +1,58 @@
+{
+  "caption": "Mobile phone pictiure of the Chinese consulate in San Francisco which was the subject of an arson attack",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Page not found - Showbiz Cheat Sheet",
+        "content": "",
+        "caption": "",
+        "domain": "www.cheatsheet.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9791575074195862,
+        "text_similarity_score": 0.03175199776887894
+      },
+      {
+        "title": "Page not found - Showbiz Cheat Sheet",
+        "content": "",
+        "caption": "",
+        "domain": "www.cheatsheet.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9791575074195862,
+        "text_similarity_score": 0.03175199776887894
+      },
+      {
+        "title": "Page not found - Showbiz Cheat Sheet",
+        "content": "",
+        "caption": "",
+        "domain": "www.cheatsheet.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9630105495452881,
+        "text_similarity_score": 0.03175199776887894
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores are all above 0.85, but the caption similarity scores are all below 0.7. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (10) and a 'False' verdict, meaning the caption is not representative of the image content. The image shows a firefighter in front of a damaged building that appears to have been affected by a fire, but it does not show the Chinese consulate in San Francisco specifically or an arson attack. The caption mentions an arson attack on the Chinese consulate in San Francisco. Therefore, the image and caption do not match, making the caption out of context.",
+    "validation_summary": "The image does not depict the Chinese consulate in San Francisco or an arson attack, making the caption misleading. The image shows a firefighter and a damaged building, which has no clear link to the caption's claim about an arson attack on the Chinese consulate."
+  },
+  "inference_time": 3.817190408706665,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

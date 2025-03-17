@@ -1,0 +1,43 @@
+{
+  "caption": "Vladimir Putin gestures during his annual press conference in Moscow",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Putin boasts of gains in Ukraine at annual news conference meant to reinforce his authority - Los Angeles Times",
+        "content": "P u t i n   b o a s t s   o f   g a i n s   i n   U k r a i n e   a t   a n n u a l   n e w s   c o n f e r e n c e   m e a n t   . . .",
+        "caption": "Vladimir Putin gestures while speaking during his annual news conference and call-in show at Gostinny Dvor in Moscow.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.47929686307907104,
+        "text_similarity_score": 0.8840019106864929
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.47929686307907104, which is less than 0.85. The text similarity score is 0.8840019106864929, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than or equal to 0.7, the verdict should be false. The candidate caption mentions \"Vladimir Putin gestures while speaking during his annual news conference\", which aligns with the news caption. However, due to the low image similarity score, I cannot confidently confirm that the candidate image represents the same context as the news image. Therefore, the final decision is False.",
+      "supporting_evidences": [
+        "The image similarity score is 0.47929686307907104.",
+        "The text similarity score is 0.8840019106864929."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result shows a low image similarity score (0.479), while the text similarity score is high (0.884). Given the low image similarity, I have to rely on that result. The image shows Vladimir Putin holding a glass of champagne, seemingly at a celebratory event, whereas the caption claims he is gesturing during a press conference. While the caption does align with the news content, the image check results suggest the image may not be representative of the captioned press conference. Based on the image check result, the final answer is that the image is OOC.",
+    "validation_summary": "The image shows Putin holding champagne, which could mislead viewers into thinking the news content is about a celebration rather than a press conference. Therefore, the caption does not fully represent the image, leading to a verdict of OOC (Out of Context)."
+  },
+  "inference_time": 6.362331867218018,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

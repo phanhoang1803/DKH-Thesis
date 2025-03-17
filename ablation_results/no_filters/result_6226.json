@@ -1,0 +1,49 @@
+{
+  "caption": "Alex OxladeChamberlain centre was hugely impressive in Arsenal s 21 FA Cup defeat of Liverpool",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Alex Oxlade-Chamberlain",
+      "Arsenal F.C.",
+      "Liverpool F.C.",
+      "Liverpool 0–2 Arsenal",
+      "Gaelic football",
+      "Player",
+      "Tackle",
+      "Ball",
+      "Footballer"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Brentford 3-1 Liverpool: Premier League  as it happened | Premier League | The Guardian",
+        "content": "B r e n t f o r d   3 - 1   L i v e r p o o l :   P r e m i e r   L e a g u e      a s   i t   h a p p e n e d   |   P r e m i e r   . . .",
+        "caption": "Bryan Mbeumo of Brentford celebrates scoring their third goal.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Brentford 3-1 Liverpool: Premier League  as it happened | Premier League | The Guardian",
+        "content": "B r e n t f o r d   3 - 1   L i v e r p o o l :   P r e m i e r   L e a g u e      a s   i t   h a p p e n e d   |   P r e m i e r   . . .",
+        "caption": "Bryan Mbeumo of Brentford celebrates scoring their third goal.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 for both candidates, which is far below the threshold of 0.85. Additionally, the text similarity score is 0.0, falling short of the 0.7 threshold. Given that neither the image nor the caption of the candidates aligns with the news item, and no relevant supporting information is available within the provided candidates, it's not possible to verify the caption. Therefore, the verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image and text similarity score between the news item and the image candidates, leading to a 'False' verdict in the image check. The caption mentions \"Alex OxladeChamberlain centre was hugely impressive in Arsenal s 21 FA Cup defeat of Liverpool\", and the image shows Alex Oxlade-Chamberlain in an Arsenal jersey playing soccer, seemingly against Liverpool players. However, without further information confirming the specific FA Cup match and the score, and since the image check result is strongly negative, I must rely on its assessment. Therefore, based on the available information and the image check's verdict, it is deemed that the caption does not accurately represent the image content.",
+    "validation_summary": "The image check failed to find supporting evidence, so the caption likely misleads viewers about the context of the image. Relying on the negative image check result, the caption's claim cannot be validated based on the provided image and supporting information, suggesting potential misrepresentation to the viewer about what the image actually depicts; this leads to an OOC determination since the image check was strongly negative in its assessment of image/text similarity between the caption and what the image depicts given candidates that were considered. In other words, the image appears to show what the caption describes, but the image check was strongly negative in its assessment."
+  },
+  "inference_time": 4.79695200920105,
+  "ablation_type": "no_filters"
+}

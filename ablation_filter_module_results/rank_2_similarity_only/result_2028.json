@@ -1,0 +1,59 @@
+{
+  "caption": "Angelique Kerber of Germany returns to Eugenie Bouchard of Canada",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Racket",
+      "Tennis",
+      "Tennis Racket",
+      "Soft tennis",
+      "Racketlon",
+      "Tennis player"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Simona Halep, Eugenie Bouchard advance to Wimbledon semifinals  The Denver Post",
+        "content": "S i m o n a   H a l e p ,   E u g e n i e   B o u c h a r d   a d v a n c e   t o   W i m b l e d o n   s e m i f i n a l s   . . .",
+        "caption": "Eugenie Bouchard of Canada plays a return to Angelique Kerber of Germany during their women's singles quarterfinal match at the All England Lawn Tennis Championships in Wimbledon, London, on July 2, 2014.",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9358540773391724,
+        "text_similarity_score": 0.7826206684112549
+      },
+      {
+        "title": "Day 9 at Wimbledon",
+        "content": "D a y   9   a t   W i m b l e d o n",
+        "caption": "Eugenie Bouchard of Canada serves during her match against Angelique Kerber of Germany.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.36526769399642944,
+        "text_similarity_score": 0.7669031620025635
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the analysis of the provided candidate evidences, the news caption \"Angelique Kerber of Germany returns to Eugenie Bouchard of Canada\" is highly likely to accurately represent the image. Candidate 1 has a high image similarity score of 0.9358540773391724 and a text similarity score of 0.7826206684112549. This candidate explicitly mentions both Angelique Kerber and Eugenie Bouchard in a tennis match, aligning perfectly with the news caption's description of Kerber returning a shot to Bouchard. Given that both the image and caption details strongly correlate with the news caption, the verdict is 'True'. Candidate 2 also confirms that the news caption is related to the image content, even with lower similarity scores, due to mentioning the same players in a match.",
+      "supporting_evidences": [
+        "Candidate 1: Caption mentions both players and their action, and has high image similarity score.",
+        "Candidate 2: Caption mentions both players, supporting the context."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result confirms that the news caption accurately represents the image. The confidence score is 10, indicating a high degree of certainty based on the supporting evidences provided. The image shows a tennis player, Angelique Kerber, hitting a ball, and the caption states that she is returning to Eugenie Bouchard. The high image and text similarity scores in the image check result further validate the accuracy of the caption.",
+    "validation_summary": "The caption correctly identifies the tennis player and the action in the image, so viewers would not be misled about the image's content based on the caption provided. The image and caption are strongly correlated according to the image check result."
+  },
+  "inference_time": 7.712889194488525,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

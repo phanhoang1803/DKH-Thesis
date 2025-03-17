@@ -1,0 +1,58 @@
+{
+  "caption": "Sheehan is one of at least 112 children in 34 states who have developed sudden severe muscle weakness officially known as acute flaccid myelitis since September according to the CDC",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Acute flaccid myelitis",
+      "Enterovirus",
+      "Polio",
+      "Muscle weakness",
+      "Flu",
+      "Influenza-like illness",
+      "light-hearted",
+      "Polio-like syndrome",
+      "Muscle",
+      "Centers for Disease Control and Prevention"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Seven-year-old Bailey Sheehan fights polio-like illness",
+        "content": "S e v e n - y e a r - o l d   B a i l e y   S h e e h a n   f i g h t s   p o l i o - l i k e   i l l n e s s",
+        "caption": "Sheehan is one of at least 112 children in 34 states who have developed sudden, severe muscle weakness, officially known as acute flaccid myelitis, since September, according to the CDC.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Children with polio-like illness continue to struggle",
+        "content": "6 3 5 5 9 3 5 3 5 8 1 5 1 6 4 2 2 5 - X X X -   . . .",
+        "caption": "Bailey Sheehan, 8, of Welches, Ore., suddenly lost the use of most of her right arm and leg in October. Thanks to physical therapy, she can walk with a leg brace and walker.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have low image and text similarity scores. However, the first candidate's caption is nearly identical to the news caption, indicating that the news caption is likely accurate. While the image similarity is low, the caption match provides some confidence that the news image context aligns with the caption's description of acute flaccid myelitis cases reported by the CDC.",
+      "supporting_evidences": [
+        "Candidate 1: Caption is verbatim to the News Caption."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "explanation": "The image shows a young girl hanging from a trapeze bar with an adult assisting her. The caption mentions a girl named Sheehan who is one of at least 112 children in 34 states who have developed sudden severe muscle weakness. While the image check indicates a possible match between the news caption and the context, the visual representation does not explicitly depict or directly imply the medical condition of acute flaccid myelitis. Without further information, viewers might not associate the image with the specific medical condition described in the caption. Therefore, using this image to represent the condition could be misleading.",
+    "validation_summary": "The image, depicting a girl on a trapeze, does not visually represent the severe muscle weakness implied by the caption, potentially misleading viewers about the subject's condition. Although the image check indicates a possible match, the lack of direct visual representation leads to an out-of-context determination since there is nothing to indicate the image depicts a child suffering from muscle weakness, thus, it is misleading for the general public as there is no one-to-one visual connection to the context of the news caption, therefore it is 'out of context'. Additionally, the caption is also too specific for what is depicted in the image, which is just a child hanging on a trapeze with an adult nearby."
+  },
+  "inference_time": 4.981045722961426,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

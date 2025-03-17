@@ -1,0 +1,53 @@
+{
+  "caption": "Sheehan is one of at least 112 children in 34 states who have developed sudden severe muscle weakness officially known as acute flaccid myelitis since September according to the CDC",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Acute flaccid myelitis",
+      "Enterovirus",
+      "Polio",
+      "Muscle weakness",
+      "Flu",
+      "Influenza-like illness",
+      "light-hearted",
+      "Polio-like syndrome",
+      "Muscle",
+      "Centers for Disease Control and Prevention"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Seven-year-old Bailey Sheehan fights polio-like illness",
+        "content": "S e v e n - y e a r - o l d   B a i l e y   S h e e h a n   f i g h t s   p o l i o - l i k e   i l l n e s s",
+        "caption": "Sheehan is one of at least 112 children in 34 states who have developed sudden, severe muscle weakness, officially known as acute flaccid myelitis, since September, according to the CDC.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8602895736694336,
+        "text_similarity_score": 0.9829255938529968
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.8602895736694336 and the text similarity score is 0.9829255938529968. According to the instructions, if the image similarity score is greater than or equal to 0.85 and the text similarity score is greater than or equal to 0.7, the verdict should be true.",
+      "supporting_evidences": [
+        "Candidate 1"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image and caption are well-aligned, with high scores for both image similarity (0.86) and text similarity (0.98). This means the image content visually supports the caption, and the text accurately describes the image. In this case, the image shows a girl with assistance from an adult, potentially related to muscle weakness, which aligns with the caption describing children with acute flaccid myelitis. Therefore, the caption provides a correct representative summary of the image content, as confirmed by the image check.",
+    "validation_summary": "The image and caption are well-aligned; the photo depicts a girl receiving assistance, and the caption discusses children with muscle weakness. The image accurately reflects the news content, so viewers would not be misled."
+  },
+  "inference_time": 6.642151355743408,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

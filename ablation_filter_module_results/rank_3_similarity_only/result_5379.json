@@ -1,0 +1,56 @@
+{
+  "caption": "Alex Corbisiero right on his debut faces up to Martin Castrogiovanni for the first scrum",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Rugby league",
+      "Rugby sevens",
+      "Rugby league sevens",
+      "Rugby tens",
+      "Rugby league nines",
+      "Touch",
+      "Rugby football",
+      "Touch football",
+      "Rugby union",
+      "Tackle"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Six Nations 2011:  England v Italy - in pictures | Sport | The Guardian",
+        "content": "S i x   N a t i o n s   2 0 1 1 :   E n g l a n d   v   I t a l y   -   i n   p i c t u r e s   |   S p o r t   |   T h e   G u a r d i a n",
+        "caption": "England v Italy: Alex Corbisiero faces up to Martin Castrogiovanni for the first scrum",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6835421323776245,
+        "text_similarity_score": 0.8270207047462463
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.6835421323776245, which is less than 0.85. The text similarity score is 0.8270207047462463, which is greater than 0.7. Based on the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than or equal to 0.7, the verdict is false. While the captions are similar, the lower image similarity suggests a potential mismatch in the actual images being described. Therefore, the candidate caption is considered out-of-context. The candidate caption and news caption both mention 'Alex Corbisiero' and 'Martin Castrogiovanni' in the context of a scrum during an England vs. Italy match. This suggests that both captions refer to the same event, increasing the confidence in their relatedness. However, since the Image Similarity Score is below 0.85, the caption must be marked as out-of-context.",
+      "supporting_evidences": [
+        "Candidate 1 Caption: England v Italy: Alex Corbisiero faces up to Martin Castrogiovanni for the first scrum",
+        "Candidate 1 Image Similarity Score: 0.6835421323776245",
+        "Candidate 1 Text Similarity Score: 0.8270207047462463",
+        "News Caption: Alex Corbisiero right on his debut faces up to Martin Castrogiovanni for the first scrum"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates an image similarity score of 0.6835421323776245, which is less than 0.85. The text similarity score is 0.8270207047462463, which is greater than 0.7. Despite some textual similarities between the news caption and the candidate caption, the low image similarity score suggests that the image does not accurately match the context described in the caption. Therefore, based on the image check result, the image is deemed out of context.",
+    "validation_summary": "The image similarity score is low, indicating that the image does not accurately match the context described in the caption, leading to a classification of out of context. The caption does not correctly represent the image content due to a mismatch between what is described and what is visually depicted."
+  },
+  "inference_time": 7.437038421630859,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

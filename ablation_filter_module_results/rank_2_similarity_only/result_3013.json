@@ -1,0 +1,73 @@
+{
+  "caption": "The secretary of defence Chuck Hagel and chairman of the joint chiefs of staff General Martin Dempsey",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Long Island",
+      "Columbia",
+      "Ceremony",
+      "left",
+      "Graduation",
+      "Funeral",
+      "Navy",
+      "Times Union",
+      "West Point",
+      "United States Military Academy"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Access to this page has been denied",
+        "content": "",
+        "caption": "",
+        "domain": "www.timesunion.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.947728157043457,
+        "text_similarity_score": 0.09274783730506897
+      },
+      {
+        "title": "Hagel: US Pledges to Stand with Ukrainian People",
+        "content": "H a g e l :   U S   P l e d g e s   t o   S t a n d   w i t h   U k r a i n i a n   P e o p l e",
+        "caption": "U.S. Secretary of Defense Chuck Hagel (R) and Chairman of the Joint Chiefs of Staff U.S. Army General Martin Dempsey (L) testify before the Senate Armed Services Committee on Capitol Hill in Washington, March 5, 2014.",
+        "domain": "www.voanews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.38879674673080444,
+        "text_similarity_score": 0.836925208568573
+      },
+      {
+        "title": "Dempsey: Budget Cuts, Global Challenges Raise Risk to Nation > Joint Chiefs of Staff > News Display",
+        "content": "D e m p s e y :   B u d g e t   C u t s ,   G l o b a l   C h a l l e n g e s   R a i s e   R i s k   t o   N a t i o n   . . .",
+        "caption": "Secretary of Defense Chuck Hagel and Chairman of the Joint Chiefs of Staff Gen. Martin E. Dempsey appeared before the House Armed Services Committee during the DoD Fiscal Year 2015 National Defense Authorization Budget Request hearing at the Rayburn Building at the Capitol, Mar. 6, 2014.",
+        "domain": "www.jcs.mil",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.32728126645088196,
+        "text_similarity_score": 0.8251163959503174
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Candidate 1 has a high image similarity score (0.947728157043457) suggesting the images are very similar, but the text similarity score (0.09274783730506897) is low, indicating the captions differ significantly. This violates the condition for immediately returning 'True'. Candidates 2 and 3 both have image similarity scores below 0.85, automatically disqualifying them despite having high text similarity scores. Given the strict decision rules and the low text similarity score of the candidate with the high image similarity, it is difficult to definitively confirm that the caption accurately represents the image's content. Therefore, the verdict is 'False'.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score = 0.947728157043457, Caption Similarity Score = 0.09274783730506897",
+        "Candidate 2: Image Similarity Score = 0.38879674673080444, Caption Similarity Score = 0.836925208568573",
+        "Candidate 3: Image Similarity Score = 0.32728126645088196, Caption Similarity Score = 0.8251163959503174"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a high image similarity score (0.947728157043457) but a low text similarity score (0.09274783730506897) for Candidate 1, the most relevant candidate. This suggests that the image is related to the described individuals (Chuck Hagel and Martin Dempsey) but the context in which they are presented in the image does not align well with the caption's implied context. The image shows Hagel and a uniformed person shaking hands in what appears to be a graduation or formal event at West Point, while the caption simply identifies them by name and position. The low text similarity combined with only moderate confidence in the image check compels the conclusion that the caption is out of context because it omits critical contextual information conveyed by the image.",
+    "validation_summary": "The caption identifies individuals present but omits crucial context about the event depicted, potentially misleading viewers about the situation shown in the image. The high image similarity and low text similarity indicate that the caption is related to the image, but not representative of it."
+  },
+  "inference_time": 8.134207248687744,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

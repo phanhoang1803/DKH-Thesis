@@ -1,0 +1,41 @@
+{
+  "caption": "Los Angeles Galaxy players celebrate winning the MLS Cup championship match against the New England Revolution in Carson last season",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Huddle",
+      "Fan"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "MLS Cup: Galaxy beat Red Bulls 2-1 for record 6th championship | AP News",
+        "content": "M L S   C u p :   G a l a x y   b e a t   R e d   B u l l s   2 - 1   f o r   r e c o r d   6 t h   c h a m p i o n s h i p   . . .",
+        "caption": "Los Angeles Galaxy forward Joseph Paintsil celebrates after scoring during the first half of the MLS Cup championship soccer match against the New York Red Bulls, Saturday, Dec. 7, 2024, in Carson, Calif. (AP Photo/Etienne Laurent)",
+        "domain": "apnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. This means that the candidate caption and image are not similar to the news item. The candidate caption mentions 'Los Angeles Galaxy forward Joseph Paintsil celebrates after scoring during the first half of the MLS Cup championship soccer match against the New York Red Bulls, Saturday, Dec. 7, 2024, in Carson, Calif.', while the news caption mentions 'Los Angeles Galaxy players celebrate winning the MLS Cup championship match against the New England Revolution in Carson last season'. The news caption mentions New England Revolution while the candidate caption mentions New York Red Bulls, indicating that the captions don't match.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result reveals low similarity between the candidate caption and the image. The image displays a crowd of people, many wearing orange jerseys, reaching out toward players in orange jerseys numbered 25 and 17. The caption describes 'Los Angeles Galaxy players celebrate winning the MLS Cup championship match against the New England Revolution in Carson last season'. There is no mention of Los Angeles Galaxy, New England Revolution, or any championship celebration visible in the image. Furthermore, the presence of orange jerseys and players suggests a different team altogether. The image shows a celebratory scene that doesn't align with the specific details provided in the caption. The high confidence score from the image check reinforces this mismatch, meaning the caption is out of context.",
+    "validation_summary": "The image does not depict the event described in the caption, potentially misleading viewers about the context of the image in relation to the news article. The high confidence score confirms that the caption does not accurately represent the image's content."
+  },
+  "inference_time": 4.183323860168457,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

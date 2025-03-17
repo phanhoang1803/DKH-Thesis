@@ -1,0 +1,48 @@
+{
+  "caption": "Alex OxladeChamberlain centre was hugely impressive in Arsenal s 21 FA Cup defeat of Liverpool",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Alex Oxlade-Chamberlain",
+      "Arsenal F.C.",
+      "Liverpool F.C.",
+      "Liverpool 0–2 Arsenal",
+      "Gaelic football",
+      "Player",
+      "Tackle",
+      "Ball",
+      "Footballer"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Brentford 3-1 Liverpool: Premier League  as it happened | Premier League | The Guardian",
+        "content": "B r e n t f o r d   3 - 1   L i v e r p o o l :   P r e m i e r   L e a g u e      a s   i t   h a p p e n e d   |   P r e m i e r   . . .",
+        "caption": "Bryan Mbeumo of Brentford celebrates scoring their third goal.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, I need to rely on the content of the captions. However, the candidate caption mentions Bryan Mbeumo of Brentford, which is completely unrelated to the news caption about Alex OxladeChamberlain of Arsenal in an FA Cup match against Liverpool. There is no overlap in people, teams, or events. Therefore, the candidate does not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 1, indicating a strong belief that the caption is not representative of the image. According to the image check result, the candidate caption discusses Bryan Mbeumo of Brentford, which has no relation to the news caption about Alex OxladeChamberlain of Arsenal versus Liverpool. Therefore, the candidate does not support the news caption. Based on the image check, the caption is out of context.",
+    "validation_summary": "The image check indicates the provided caption is unrelated to the image, featuring different teams and players; viewers would be significantly misled about the image's content and context, as the caption refers to a different player and team than those visible in the image, indicating a mismatch in content and potential misrepresentation of the event depicted. Therefore, the image is out of context. In summary, the caption is misleading because it mentions an Arsenal versus Liverpool game while the image appears to show Bryan Mbeumo of Brentford, as stated in the image check result."
+  },
+  "inference_time": 4.822662591934204,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

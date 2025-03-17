@@ -1,0 +1,38 @@
+{
+  "caption": "Golden State Warriors guard Klay Thompson dunks against Cleveland Cavaliers center Timofey Mozgov during the third quarter of game three of the NBA Finals at Quicken Loans Arena",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Matthew Dellavedova helps Cavaliers edge Warriors for 2-1 Finals ...",
+        "content": "6 3 5 6 9 4 8 9 7 4 1 6 9 4 7 3 7 5 - U S P - N B A -   . . .",
+        "caption": "Cleveland Cavaliers guard Matthew Dellavedova (8) shoots the ball against Golden State Warriors guard Stephen Curry (30) during the fourth quarter in game three of the NBA Finals at Quicken Loans Arena.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, the strict decision rules do not apply. The candidate caption mentions 'Cleveland Cavaliers guard Matthew Dellavedova' and 'Golden State Warriors guard Stephen Curry' playing in 'game three of the NBA Finals at Quicken Loans Arena.' The news caption mentions 'Golden State Warriors guard Klay Thompson' and 'Cleveland Cavaliers center Timofey Mozgov' during 'game three of the NBA Finals at Quicken Loans Arena.' The candidate does not confirm the players, action (dunk), or context described in the news caption. Therefore, the candidate does not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the candidate caption does not support the news caption. The image shows a basketball game with a player in a yellow jersey dunking the ball. The other players are wearing orange jerseys. The caption describes Klay Thompson of the Golden State Warriors dunking against Timofey Mozgov of the Cleveland Cavaliers. Without specific jersey numbers or player identifications, it is challenging to definitively confirm the players. However, the image check result indicates that the caption is not accurate. The news content mentions the Warriors winning the NBA title, but the image itself doesn't directly confirm or deny this information. Therefore, the image is out of context with the caption.",
+    "validation_summary": "The image shows a basketball game, but the players mentioned in the caption cannot be visually confirmed. Therefore, the image is out of context."
+  },
+  "inference_time": 4.7004783153533936,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

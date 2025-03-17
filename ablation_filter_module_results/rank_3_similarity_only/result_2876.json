@@ -1,0 +1,42 @@
+{
+  "caption": "Donald Trump arrives to speak at a rally in Bangor Maine on Oct 15 2016",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Rudy Giuliani: Donald Trump Might Appoint a Hillary Clinton Prosecutor | Fortune",
+        "content": "R u d y   G i u l i a n i :   D o n a l d   T r u m p   M i g h t   A p p o i n t   a   H i l l a r y   C l i n t o n   . . .",
+        "caption": "Donald Trump Holds Campaign Rally In Bangor, Maine",
+        "domain": "fortune.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.46724504232406616,
+        "text_similarity_score": 0.851776659488678
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.467, which is less than 0.85. Therefore, even though the text similarity score is 0.85, which is greater than 0.7, the caption must be marked as out-of-context. The news caption states 'Donald Trump arrives to speak at a rally in Bangor Maine on Oct 15 2016'. The candidate caption states 'Donald Trump Holds Campaign Rally In Bangor, Maine'. Both captions mention Donald Trump holding a rally in Bangor, Maine. Therefore, the candidate supports the news caption.",
+      "supporting_evidences": [
+        "The candidate caption mentions Donald Trump holding a rally in Bangor, Maine, which aligns with the news caption."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result shows a confidence score of 7, which means the final decision must be based on the image check result. The image check result returned a verdict of 'False', which indicates that the image is out of context. The image check explanation states that while the text similarity score is high, the image similarity score is low. Therefore, the image is out of context.",
+    "validation_summary": "The image check determined that the image is out of context due to low image similarity score despite high text similarity between the news caption and candidate caption. This suggests that viewers might be misled about the specific event or context depicted in the image."
+  },
+  "inference_time": 7.678746700286865,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

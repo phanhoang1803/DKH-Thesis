@@ -1,0 +1,48 @@
+{
+  "caption": "Florida State Seminoles wide receiver Kelvin Benjamin caught the winning touchdown with 13 seconds left",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Eight-man football",
+      "Six-man football",
+      "Canadian football",
+      "Kick american football",
+      "American football",
+      "Canada",
+      "Sprint football",
+      "Gridiron football",
+      "Kick"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "College football bowl action",
+        "content": "1 3 8 9 0 7 4 2 6 5 0 0 2 - U S P - N C A A -   . . .",
+        "caption": "Florida State quarterback Jameis Winston kisses the trophy after defeating the Auburn Tigers 34-31 in the BCS National Championship Game at the Rose Bowl.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Both scores are low. Therefore, I cannot determine if the caption is in context with the image based on the evidence provided. The candidate caption talks about Jameis Winston kissing the trophy, which is completely different from the news caption mentioning Kelvin Benjamin catching a touchdown.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts an American football player in a burgundy and gold uniform, wearing the number 10, in the middle of a game. He is holding a football in one hand and is in motion on a grassy field. There is a crowd in the background, and the scene suggests a professional football game, likely the Washington Redskins given the uniform colors. The provided caption mentions Florida State Seminoles wide receiver Kelvin Benjamin catching a touchdown. This description does not align with the image of the football player in a burgundy and gold uniform as shown. Given that the image check result has a high confidence score and the image content clearly contradicts the caption, the image is Out of Context.",
+    "validation_summary": "The caption is unrelated to the image content. The image shows a player in a Washington Redskins uniform during a game, whereas the caption refers to a Florida State Seminoles player making a touchdown."
+  },
+  "inference_time": 4.212934255599976,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

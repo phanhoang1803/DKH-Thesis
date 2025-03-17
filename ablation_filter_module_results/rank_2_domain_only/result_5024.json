@@ -1,0 +1,38 @@
+{
+  "caption": "Zac Efron stars as Cole a rising EDM DJ in We Are Your Friends",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Review: Zac Efron's 'We Are Your Friends' Argues That EDM Has a Soul - The Atlantic",
+        "content": "R e v i e w :   Z a c   E f r o n ' s   ' W e   A r e   Y o u r   F r i e n d s '   A r g u e s   T h a t   E D M   H a s   a   . . .",
+        "caption": "Warner Bros",
+        "domain": "www.theatlantic.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and text similarity score is 0.0. Thus, the decision needs to be made based on analyzing the content of the caption and the candidate evidence. The candidate evidence talks about Warner Bros. while the news caption talks about Zac Efron starring as Cole, a rising EDM DJ in We Are Your Friends. Since the candidate does not provide any supporting evidence, the verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows Zac Efron in a crowded setting with confetti falling around him, likely at a party or club. The caption states \"Zac Efron stars as Cole a rising EDM DJ in We Are Your Friends\". While the image does depict Zac Efron, it doesn't inherently show him 'starring as Cole' or explicitly indicate his role as an EDM DJ. The setting is consistent with a party/club environment often associated with EDM, the image alone doesn't provide enough information to confirm the accuracy of the entire caption's claim. The image check result has a high confidence score, and the image check result says that the caption may be misleading because it talks about \"Zac Efron starring as Cole, a rising EDM DJ in We Are Your Friends\" and that the candidate does not provide any supporting evidence. Therefore, the image is out of context.",
+    "validation_summary": "The image shows Zac Efron in a generic party setting, but it doesn't explicitly confirm that he's portraying an EDM DJ character as the caption claims, making the caption potentially misleading without additional context. The image check result has a high confidence score, so the decision is based on the image check result to be out of context or OOC = True because the image check result supports that the candidate does not provide any supporting evidence."
+  },
+  "inference_time": 5.291970491409302,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

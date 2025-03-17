@@ -1,0 +1,34 @@
+{
+  "caption": "David Weiss of FischliWeiss in the Swiss Pavilion at the Venice Biennale in 1995",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "David Weiss obituary | Art | The Guardian",
+        "content": "D a v i d - W e i s s - 0 0 8 . j p g ? w i d t h = 1 2 0 0   . . .",
+        "caption": "David Weiss of Fischli/Weiss in the Swiss Pavilion at the Venice Biennale in 1995. Photograph: Galerie Eva Presenhuber",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1579233705997467,
+        "text_similarity_score": 0.8784986734390259
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.1579233705997467, which is less than 0.85. The text similarity score is 0.8784986734390259, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image similarity score is low (0.1579233705997467) while the text similarity score is high (0.8784986734390259). According to the instructions, a low image similarity score necessitates marking the caption as out-of-context. In the image, a man in a white tank top is standing inside a cluttered shop, potentially a flea market, filled with various items such as lamps, vases, and other household goods. Another individual, possibly a police officer given the uniform, stands behind him. This setting and the people present do not align with the caption that refers to David Weiss of FischliWeiss in the Swiss Pavilion at the Venice Biennale in 1995. There is no visible evidence in the image to support the claim that it depicts the Venice Biennale or David Weiss, therefore the caption is misleading and the image is out of context.",
+    "validation_summary": "The image shows a man in a shop with a police officer, which does not correlate with the caption's claim of depicting David Weiss at the Venice Biennale. Therefore, the caption misrepresents the image content."
+  },
+  "inference_time": 5.171797752380371,
+  "ablation_type": "no_image_evidences"
+}

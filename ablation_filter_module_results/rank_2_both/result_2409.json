@@ -1,0 +1,52 @@
+{
+  "caption": "Republican presidential candidate former Pennsylvania senator Rick Santorum pauses as he addresses supporters at his Iowa caucus victory party Tuesday in Johnston Iowa",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Rick Santorum feels like Rocky Balboa | CNN Politics",
+        "content": "R i c k   S a n t o r u m   f e e l s   l i k e   R o c k y   B a l b o a   |   C N N   P o l i t i c s",
+        "caption": "GOP presidential hopeful Rick Santorum addresses a crowd of supporters Tuesday night in Johnston, Iowa.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.665317952632904,
+        "text_similarity_score": 0.7582464218139648
+      },
+      {
+        "title": "Romney And Santorum Split The Spoils In Iowa : NPR",
+        "content": "R o m n e y   A n d   S a n t o r u m   S p l i t   T h e   S p o i l s   I n   I o w a   :   N P R",
+        "caption": "Rick Santorum addresses supporters at his caucus party in Johnston.",
+        "domain": "www.npr.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3490901291370392,
+        "text_similarity_score": 0.7157442569732666
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Both candidates have text similarity scores greater than 0.7, but the image similarity scores are below 0.85. According to the instructions, if the image similarity score is below 0.85 and the text similarity score is greater than or equal to 0.7, the verdict should be 'False'.\n\nCandidate 1 has a caption similarity score of 0.758 and an image similarity score of 0.665. The caption mentions 'GOP presidential hopeful Rick Santorum addresses a crowd of supporters Tuesday night in Johnston, Iowa,' which aligns with the news caption: 'Republican presidential candidate former Pennsylvania senator Rick Santorum pauses as he addresses supporters at his Iowa caucus victory party Tuesday in Johnston Iowa.'\n\nCandidate 2 has a caption similarity score of 0.715 and an image similarity score of 0.349. The caption mentions 'Rick Santorum addresses supporters at his caucus party in Johnston,' which is also highly similar to the news caption.\n\nDespite the high text similarity scores, the image similarity scores are too low to confirm that the candidate images accurately represent the news image.",
+      "supporting_evidences": [
+        "Candidate 1: Caption Similarity Score: 0.758, Image Similarity Score: 0.665",
+        "Candidate 2: Caption Similarity Score: 0.715, Image Similarity Score: 0.349"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates that the caption, \"Republican presidential candidate former Pennsylvania senator Rick Santorum pauses as he addresses supporters at his Iowa caucus victory party Tuesday in Johnston Iowa,\" does not accurately represent the image. Although the text similarity scores between the news caption and the captions of the candidate images are high (0.758 and 0.715), the image similarity scores are too low (0.665 and 0.349). This suggests that while the captions are contextually similar, the actual content of the image does not strongly align with the details provided in the news caption. Therefore, based on the instructions, the verdict must be 'False', making the image out of context.",
+    "validation_summary": "The image is out of context because the image similarity scores between the news image and candidate images are too low to confirm that the candidate images accurately represent the news image, despite the high text similarity scores. This means the visual content of the image does not closely match the situation described in the caption, potentially misleading viewers about the event depicted."
+  },
+  "inference_time": 5.915144681930542,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "caption": "Richard Caring pictured with Kate Moss",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_text_evidences",
+    "evidences": [
+      {
+        "title": "A history of Tom and Gisele's PDA at the Met Gala",
+        "content": "S u r e ,   J e n n i f e r   L o p e z   a n d   A l e x   R o d r i g u e z   w e r e   a l l   t h e   b u z z   a t   t h e   2 0 1 7   M e t   G a l a . \n \n B u t   l e t ' s   n o t   k i d   o u r s e l v e s .   T o m   B r a d y   a n d   G i s e l e   B u n d c h e n   c o n t i n u e   t o   b e   t h e   k i n g   a n d   q u e e n   s p o r t s / c e l e b r i t y   c o u p l e   a t   t h e   M e t r o p o l i t a n   M u s e u m   o f   A r t ' s   C o s t u m e   I n s t i t u t e   G a l a ,   m o s t l y   b e c a u s e   w e   g e t   t o   s e e   s o m e   a f f e c t i o n   f r o m   t h e   N e w   E n g l a n d   P a t r i o t s   q u a r t e r b a c k   a n d   t h e   s u p e r m o d e l . \n \n T h e y   g o t   c l o s e   i n   2 0 0 8 : \n \n ( A P   P h o t o / P e t e r   K r a m e r ) \n \n A n d   t h e r e   w a s   m o m e n t   o n   t h e   r e d   c a r p e t   i n   2 0 1 1 : \n \n ( P h o t o   b y   S t e p h e n   L o v e k i n / G e t t y   I m a g e s ) \n \n A n d   t h i s   s w e e t   s n a p   i n   2 0 1 4 : \n \n ( P h o t o   b y   M i k e   C o p p o l a / G e t t y   I m a g e s ) \n \n C a m e r a s   f l a s h e d   o n   t h e m   c a n o o d l i n g   a t   t h i s   y e a r ' s   r e d   c a r p e t : \n \n ( P h o t o   b y   D i m i t r i o s   K a m b o u r i s / G e t t y   I m a g e s ) \n \n E P A / J U S T I N   L A N E \n \n ( P h o t o   b y   E v a n   A g o s t i n i / I n v i s i o n / A P ) \n \n A n d   t h e   p a i r   b o t h   p o s t e d   m a t c h i n g   I n s t a g r a m   p h o t o s   t o   c o m m e m o r a t e   t h e   e v e n t :",
+        "caption": "(Photo by Stephen Lovekin/Getty Images)",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9639925360679626,
+        "text_similarity_score": 0.33407413959503174
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.9639925360679626, which is greater than 0.85. However, the text similarity score is 0.33407413959503174, which is less than 0.7. According to the instructions, I should immediately return \"False\". The caption of the candidate evidence is just a Getty Images credit. This does not confirm that the image is of 'Richard Caring pictured with Kate Moss'.",
+      "supporting_evidences": [
+        "The image similarity score is 0.9639925360679626, which is greater than 0.85.",
+        "The text similarity score is 0.33407413959503174, which is less than 0.7.",
+        "The caption of the candidate evidence is just a Getty Images credit."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Tom Brady kissing Gisele Bündchen on the cheek at a red carpet event. The caption states that the image is of 'Richard Caring pictured with Kate Moss'. Therefore, there is no match between the image content and the caption. The image check result supports this conclusion, as the image similarity score is high (0.9639925360679626), but the text similarity score is low (0.33407413959503174).",
+    "validation_summary": "The caption incorrectly identifies the people in the image, leading to a false impression of who is being depicted. Viewers would be misled about the identity of the individuals in the photograph."
+  },
+  "inference_time": 4.279984951019287,
+  "ablation_type": "no_text_evidences"
+}

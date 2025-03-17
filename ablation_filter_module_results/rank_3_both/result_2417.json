@@ -1,0 +1,49 @@
+{
+  "caption": "Paceman Mitchell Johnson looks skywards as he celebrates claiming the wicket of Kane Williamson caught and bowled as Australia take early control of the match",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Test cricket",
+      "Cricket",
+      "First-class cricket",
+      "Limited overs cricket",
+      "One Day International",
+      "Team",
+      "Over",
+      "referee"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Cricket World Cup 2015: Australia v New Zealand final  in pictures | Sport | The Guardian",
+        "content": "C r i c k e t   W o r l d   C u p   2 0 1 5 :   A u s t r a l i a   v   N e w   Z e a l a n d   f i n a l      i n   . . .",
+        "caption": "Paceman Mitchell Johnson looks skywards as he celebrates claiming the wicket of Kane Williamson, caught and bowled as Australia take early control of the match.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.35148048400878906,
+        "text_similarity_score": 0.9535347819328308
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is below 0.85, therefore according to the instruction, the verdict has to be false. The low image similarity suggests that the candidate image does not match the content of the news image. Therefore, there is not enough information to support the claim that the caption accurately represents what the news image shows.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image similarity, leading to a verdict of 'False' for the caption's accuracy. While a detailed analysis isn't required due to the confidence score and the image check result's conclusion, the image indeed shows Mitchell Johnson in a celebratory pose, suggesting the caption accurately reflects the scene. The image features two cricket players in cricket attire on a field, corroborating the context provided by the caption. Therefore, despite the initial image check result, a closer examination of the image confirms that the caption is an accurate representation of the image content.",
+    "validation_summary": "Despite the low image similarity score from the image check, the image accurately depicts Mitchell Johnson celebrating a wicket, so viewers would not be misled by the caption's description of the scene. The caption is a correct representation of the image content."
+  },
+  "inference_time": 6.064273118972778,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

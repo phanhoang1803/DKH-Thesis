@@ -1,0 +1,53 @@
+{
+  "caption": "A Koala called Mullaya keeps on munching during the annual inventory at Dresden zoo Germany",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "TVL: ANIMAL DA SEMANA - Coala",
+        "content": "",
+        "caption": "",
+        "domain": "tvlagartixa.blogspot.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9935712218284607,
+        "text_similarity_score": 0.10472066700458527
+      },
+      {
+        "title": "Photo highlights of the day | News | The Guardian",
+        "content": "P h o t o   h i g h l i g h t s   o f   t h e   d a y   |   N e w s   |   T h e   G u a r d i a n",
+        "caption": "A Koala called Mullaya keeps on munching during the annual inventory at Dresden zoo, Germany.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9898885488510132,
+        "text_similarity_score": 0.9824790954589844
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the analysis of the provided candidates, the news caption \"A Koala called Mullaya keeps on munching during the annual inventory at Dresden zoo Germany\" is highly likely to be in context. Candidate 2 has both a high image similarity score (0.9898885488510132) and a high caption similarity score (0.9824790954589844). This strongly suggests that the image associated with the news caption is very similar to the image associated with Candidate 2, and the captions are also very similar. The high similarity scores indicate a strong match between the news caption and the candidate's information. This alignment provides a strong basis for concluding that the news caption accurately represents the image content.",
+      "supporting_evidences": [
+        "Candidate 2: Image Similarity Score: 0.9898885488510132",
+        "Candidate 2: Caption Similarity Score: 0.9824790954589844",
+        "Candidate 2: Caption: A Koala called Mullaya keeps on munching during the annual inventory at Dresden zoo, Germany."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a strong match between the news caption and the image content. The high image similarity score (0.9898885488510132) and caption similarity score (0.9824790954589844) of Candidate 2 strongly suggest that the news caption accurately represents the image content. The image shows a koala among green leaves, and the caption states \"A Koala called Mullaya keeps on munching during the annual inventory at Dresden zoo Germany\", which is an accurate description of the image content.",
+    "validation_summary": "The image shows a koala eating leaves, and the caption accurately describes the scene as a koala munching during an inventory at a zoo, so viewers would not be misled about what they're seeing. Therefore, the image is not out of context according to the evidence provided by the image check."
+  },
+  "inference_time": 6.207401990890503,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

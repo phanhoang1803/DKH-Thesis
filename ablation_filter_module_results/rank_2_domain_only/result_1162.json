@@ -1,0 +1,45 @@
+{
+  "caption": "In the Harajuku area of Tokyo young people prefer wearing more modern clothes kimonos are out of fashion",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "The decline and fall of the kimono  in pictures | Life and style | The Guardian",
+        "content": "M o n   8   O c t   2 0 1 2   2 0 . 0 0  B S T \n \n \n                         F i r s t   p u b l i s h e d   o n   M o n   8   O c t   2 0 1 2   2 0 . 0 0  B S T \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   R o l a n d   B u e r k \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   R u t h   E v a n s \n \n P h o t o g r a p h :   R o l a n d   B u e r k \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   R u t h   E v a n s \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   P a m   S k i n n e r \n \n P h o t o g r a p h :   R u t h   E v a n s \n \n P h o t o g r a p h :   R u t h   E v a n s \n \n P h o t o g r a p h :   P a m   S k i n n e r",
+        "caption": "Kimono gallery: young people prefer wearing fashionable clothes to kimonos.",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Lolita style, explained: Why the Japanese-born, Victorian-inspired street style enchants women around the world | CNN",
+        "content": "L o l i t a   s t y l e ,   e x p l a i n e d :   W h y   t h e   J a p a n e s e - b o r n ,   V i c t o r i a n - i n s p i r e d   . . .",
+        "caption": "Lauren, Bianca, Nghi, and Ella wait outside the Lovejoy's Tea Room in San Francisco, California, on September 10, 2023.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "Both candidate captions have low image and text similarity scores, indicating they are not strong matches to the news caption. Candidate 1 mentions kimonos and fashion, which is a general theme similar to the news caption about young people in Harajuku preferring modern clothes over kimonos. However, without a direct match or specific details confirming the Harajuku location or the claim about modern clothes being preferred, the evidence is weak. Candidate 2 is completely unrelated. Therefore, I cannot confirm the news caption's accuracy based on the provided candidates.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a person with bright yellow hair riding a decorated gold bicycle in a street setting, with other bikes parked nearby and a scooter in the background. The caption states, \"In the Harajuku area of Tokyo young people prefer wearing more modern clothes kimonos are out of fashion.\" Although the news content mentions the Harajuku area and a shift away from kimonos, the image itself doesn't directly show 'modern clothes' as such. The person's style is unique but doesn't clearly represent a general preference for modern clothes. Therefore, the caption is misleading as the image context does not directly align with the statement about modern clothing trends, making the image out of context. The image check result also indicates the caption is inaccurate.",
+    "validation_summary": "The image doesn't directly support the caption's claim about modern clothes being preferred in Harajuku, making the connection weak and potentially misleading to viewers. The person's unique style, while eye-catching, doesn't represent a general fashion trend, rendering the image out of context."
+  },
+  "inference_time": 4.679913282394409,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

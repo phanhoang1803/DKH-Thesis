@@ -1,0 +1,48 @@
+{
+  "caption": "Devyani Khobragade India s deputy consul general in New York",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "India: US Diplomat Underpaid Filipina Maid and School Teachers Evaded Taxes | IBTimes UK",
+        "content": "I n d i a :   U S   D i p l o m a t   U n d e r p a i d   F i l i p i n a   M a i d   a n d   S c h o o l   T e a c h e r s   . . .",
+        "caption": "India's Deputy Consul General in New York, Devyani Khobragade,",
+        "domain": "www.ibtimes.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.25703874230384827,
+        "text_similarity_score": 0.9793429374694824
+      },
+      {
+        "title": "India Vows to Protect Diplomat After US Arrest",
+        "content": "I n d i a   V o w s   t o   P r o t e c t   D i p l o m a t   A f t e r   U S   A r r e s t",
+        "caption": "FILE - Devyani Khobragade, India's deputy consul general, attends a fundraiser event in Long Island, New York, Dec. 8, 2013.",
+        "domain": "www.voanews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.35324063897132874,
+        "text_similarity_score": 0.8114440441131592
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have text similarity scores above 0.7, suggesting that the captions are similar. However, the image similarity scores are below 0.85 for both candidates. This means that while the captions are textually similar, the images themselves do not strongly match the image in question. Therefore, I cannot definitively confirm that the caption accurately represents the image based on the provided evidence.",
+      "supporting_evidences": [
+        "Candidate 1 has a caption similarity score of 0.9793429374694824.",
+        "Candidate 2 has a caption similarity score of 0.8114440441131592.",
+        "Candidate 1 has an image similarity score of 0.25703874230384827.",
+        "Candidate 2 has an image similarity score of 0.35324063897132874."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows a woman smiling in front of the Capitol Building in Washington, D.C. The news caption identifies her as Devyani Khobragade, India's deputy consul general in New York. While the caption correctly identifies the person in the image, it provides no context for the location. The backdrop of the Capitol Building suggests a connection to Washington D.C. and U.S. politics. Because the image check result has a confidence score between 7 and 10, the decision must be based on the image check result. The verdict is that the image is out of context.",
+    "validation_summary": "Although the caption correctly identifies the person, it doesn't explain her presence in front of the Capitol Building, making the image out of context. This could mislead viewers about the situation."
+  },
+  "inference_time": 5.3994245529174805,
+  "ablation_type": "no_image_evidences"
+}

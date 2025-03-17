@@ -1,0 +1,51 @@
+{
+  "caption": "Stanford Cardinal running back Anthony Wilkerson stiff arms Michigan State Spartans safety RJ Williamson during the first quarter",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Ohio State Buckeyes football",
+      "Urban Meyer",
+      "Sugar Bowl",
+      "Ezekiel Elliott",
+      "Alabama Crimson Tide football",
+      "Eight-man football",
+      "Six-man football",
+      "Running back",
+      "Head coach",
+      "American football"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "All the action from the Sugar Bowl: Alabama vs. Ohio State",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9598987698554993,
+        "text_similarity_score": 0.05548557639122009
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.9598987698554993, and the text similarity score is 0.05548557639122009. Since the image similarity score is greater than 0.85 but the text similarity score is less than 0.7, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the image similarity score is high (0.9598987698554993), but the text similarity score is low (0.05548557639122009). This suggests that while the image might visually resemble the described action (a player stiff-arming another), the caption's specific details about the teams (Stanford Cardinal vs. Michigan State Spartans) and players (Anthony Wilkerson vs. RJ Williamson) are not supported by the image. The players' uniforms in the picture are red and white, while Stanford and Michigan State have different uniform colors. The image depicts an American football game, but without specific team or player identifiers visible, the caption's claims are not verifiable and likely incorrect, making the image out of context. Given the high image similarity score, the players are in a similar football position, but the other information in the caption does not align with the image's content.",
+    "validation_summary": "The caption inaccurately describes the football game and players depicted in the image, potentially misleading viewers about the context of the photograph. While the depicted action might be similar, specific team and player details are unsupported by the image, rendering the caption out of context."
+  },
+  "inference_time": 6.556424140930176,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "Ray Rice arrives with his wife Janay Palmer whom he was recorded on video knocking unconscious in a New Jersey casino in",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Ray Rice settles with Baltimore Ravens for dropping him after assault video | Ray Rice | The Guardian",
+        "content": "2 0 0 0 . j p g ? w i d t h = 4 6 5 & d p r = 1 & s =   . . .",
+        "caption": "Ray Rice arrives with his wife Janay Palmer, whom he was recorded on video knocking unconscious in a New Jersey casino in",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.45018425583839417,
+        "text_similarity_score": 0.9961666464805603
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is below 0.85, and the text similarity score is above 0.7, so the caption must be marked as out-of-context. There is no information about whether the provided caption accurately represents the image without manipulation, so the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result returned a confidence score of 2, indicating the caption must be marked as out-of-context. This is because the image similarity score is below 0.85, and the text similarity score is above 0.7, so the caption must be marked as out-of-context. The image depicts Ray Rice, potentially with his wife Janay Palmer and others, possibly arriving at or leaving a building amidst a crowd of reporters. The caption states that Ray Rice is arriving with his wife Janay Palmer, whom he was recorded on video knocking unconscious in a New Jersey casino. However, the image itself does not provide any evidence of the assault or the specific location. Without explicit imagery related to the assault or casino, the caption draws on external knowledge and is therefore classified as out of context based on the image check result.",
+    "validation_summary": "Based on the image check result, the caption doesn't accurately represent the image content, as it relies on external information not visible within the photo. Viewers could be misled into thinking the image depicts the event described in the caption, which it doesn't."
+  },
+  "inference_time": 5.326578378677368,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

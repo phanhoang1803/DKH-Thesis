@@ -1,0 +1,52 @@
+{
+  "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Cadbury",
+      "Chocolate bar",
+      "Chocolate",
+      "Candy",
+      "Kraft Foods",
+      "Fudge",
+      "Sweet dish",
+      "Wrigley"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Healthier chocolate and other incredible discoveries of the week",
+        "content": "6 3 5 6 3 1 2 6 7 1 4 0 4 5 0 7 5 3 - A P - D a r k -   . . .",
+        "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.36464327573776245,
+        "text_similarity_score": 0.9921733736991882
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is below 0.85, and the text similarity score is high. According to the instruction, the caption must be marked as out-of-context in this case. Therefore, the final verdict is \"False\".",
+      "supporting_evidences": [
+        "The image similarity score is 0.36464327573776245, which is less than 0.85",
+        "The text similarity score is 0.9921733736991882, which is greater than 0.7"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result clearly indicates that the image and the caption are not aligned. The image similarity score is 0.36464327573776245, which is much lower than the threshold of 0.85, indicating a significant difference in visual content. While the text similarity score is high (0.9921733736991882), the instruction dictates that when the image similarity score is below 0.85 and the text similarity score is high, the caption should be classified as out of context. Therefore, the caption is not a correct representative summary of the image content, making the image out of context (OOC = True). The image shows a collection of Green & Black's chocolates of different varieties and packaging.",
+    "validation_summary": "The image shows a variety of chocolate boxes, but the caption mentions 'Japanese plum chocolates made of dark chocolate ganache with plum wine', implying a specific type of chocolate not visually evident, thus misleading viewers about the image content. The image check confirms this mismatch, with a low image similarity score and a high text similarity score, which indicates a false representation, causing it to be out of context (OOC = True).  "
+  },
+  "inference_time": 10.33453893661499,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

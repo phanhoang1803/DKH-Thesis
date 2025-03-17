@@ -1,0 +1,46 @@
+{
+  "caption": "Barcelona s German goalkeeper MarcAndre ter Stegen makes one of the impressive saves at Bayern Munich that helped his club reach the Champions League final",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Barcelonas Marc-Andr ter Stegen makes his case for being undisputed No1 | Barcelona | The Guardian",
+        "content": "B a r c e l o n a ' s   M a r c - A n d r    t e r   S t e g e n   m a k e s   h i s   c a s e   f o r   b e i n g   . . .",
+        "caption": "Barcelona's German goalkeeper Marc-Andr ter Stegen makes one of the impressive saves at Bayern Munich that helped his club reach the Champions League final. Photograph: -/AFP/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7317118644714355,
+        "text_similarity_score": 0.8921042084693909
+      },
+      {
+        "title": "Ter Stegen picks his greatest saves for FC Barcelona",
+        "content": "T e r   S t e g e n   p i c k s   h i s   g r e a t e s t   s a v e s   f o r   F C   B a r c e l o n a",
+        "caption": "Ter Stegen picks his greatest saves for FC Barcelona",
+        "domain": "www.fcbarcelona.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.16185326874256134,
+        "text_similarity_score": 0.7938411831855774
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The first candidate has a high caption similarity score (0.89) but a moderate image similarity score (0.73). This suggests that while the description aligns well, the image itself might not be a perfect match to the news image. The second candidate has a low image similarity score (0.16) even though it has a good text similarity score (0.79). Due to the image similarity scores being below 0.85, both candidates individually do not provide enough proof, although the first candidate does increase the likelyhood of the caption being correct. Without a highly similar image to confirm the context, it is difficult to confirm the caption's accuracy definitively.",
+      "supporting_evidences": [
+        "Candidate 1 has a caption similarity score of 0.89 and image similarity score of 0.73.",
+        "Candidate 2 has a caption similarity score of 0.79 and image similarity score of 0.16."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The news caption states, \"Barcelona s German goalkeeper MarcAndre ter Stegen makes one of the impressive saves at Bayern Munich that helped his club reach the Champions League final\". However, the image shows a soccer game where the goalkeeper, wearing a yellow jersey with the number 26, is diving to block a shot. The opposing team is wearing green and white uniforms, and the background shows a crowded stadium. There is no clear indication that the image depicts a game involving Barcelona or Bayern Munich, nor can the goalkeeper be identified as Marc-Andre ter Stegen. The image check result indicates a low image similarity score for both candidates, further solidifying that the caption and image are mismatched. Therefore, the caption is out of context.",
+    "validation_summary": "The image shows a soccer game with unidentified teams and a goalkeeper making a save, which doesn't align with the caption's claim about Barcelona's goalkeeper Ter Stegen at a Bayern Munich game, leading to a misrepresentation of the image's context. The image check confirms this discrepancy with low image similarity scores, supporting the conclusion that the caption is out of context."
+  },
+  "inference_time": 5.786337614059448,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,46 @@
+{
+  "caption": "Brave New World Barack Obama signs his first act as president in the US Capitol building on 20 January 2009",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Gary Younge",
+        "content": "G a r y   Y o u n g e",
+        "caption": "\n\nBrave New World?  Barack Obama signs his first act as president in the US Capitol building on 20 January 2009. Photograph: Molly Riley/AP/PA Photos\n",
+        "domain": "www.garyyounge.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6891794204711914,
+        "text_similarity_score": 0.9401118159294128
+      },
+      {
+        "title": "Studs Terkel's study of race in the US: 20 years on | Studs Terkel | The Guardian",
+        "content": "S t u d s   T e r k e l ' s   s t u d y   o f   r a c e   i n   t h e   U S :   2 0   y e a r s   o n   |   S t u d s   T e r k e l   . . .",
+        "caption": "Brave New World?  Barack Obama signs his first act as president in the US Capitol building on 20 January 2009. Photograph: Molly Riley/AP/PA Photos",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.65471351146698,
+        "text_similarity_score": 0.9401118159294128
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Both candidate captions have high text similarity scores (0.9401118159294128) with the news caption, but the image similarity scores (0.6891794204711914 and 0.65471351146698) are below the threshold of 0.85. This indicates that while the captions are very similar, the images themselves may not be a strong match. The captions describe Barack Obama signing his first act as president in the US Capitol building on January 20, 2009, and the candidate captions match this description closely. Because the image similarity is not high enough, and the captions match closely, I will mark this as false but with relatively high confidence. The information in the captions are also similar which also adds to the confidence of the decision.",
+      "supporting_evidences": [
+        "The captions of both candidates are nearly identical to the news caption, indicating the same event is being described.",
+        "Both candidate captions specify that the event occurred on January 20, 2009, which aligns with the news caption's information."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 8,
+    "validation_summary": "The caption accurately depicts Barack Obama signing his first act as president in the US Capitol building on January 20, 2009.",
+    "explanation": "The caption states that Barack Obama is signing his first act as president in the US Capitol building on January 20, 2009. The image check supports that the content of the image corresponds highly with this caption, and while the image similarity score is slightly below the threshold, the confidence score indicates a high level of certainty. Furthermore, the consistency of the captions reinforces that the event depicted in the image aligns with the caption's description. Viewers would not be misled, as the caption correctly represents the image."
+  },
+  "inference_time": 7.27841854095459,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,55 @@
+{
+  "caption": "Jeremy Clarkson leaving his home in London",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Matt LeBlanc",
+      "Top Gear",
+      "Car",
+      "BBC Radio 2",
+      "Getty Images",
+      "Getty Images",
+      "London",
+      "stock.xchng"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Top Gear Shouldn't Go on Without Jeremy Clarkson | WIRED",
+        "content": "T o p   G e a r   S h o u l d n ' t   G o   o n   W i t h o u t   J e r e m y   C l a r k s o n   |   W I R E D",
+        "caption": "Jeremy Clarkson seen leaving his West London home on March 16 2015 in London England.",
+        "domain": "www.wired.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.19382105767726898,
+        "text_similarity_score": 0.9059865474700928
+      },
+      {
+        "title": "Jeremy Clarkson: Top Gear suspension set to cost BBC millions in payouts to foreign channels | The Independent | The Independent",
+        "content": "J e r e m y   C l a r k s o n :   T o p   G e a r   s u s p e n s i o n   s e t   t o   c o s t   B B C   m i l l i o n s   i n   . . .",
+        "caption": "Jeremy Clarkson leaves his home in London following his suspension from Top Gear",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.14765356481075287,
+        "text_similarity_score": 0.886886715888977
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions describe Jeremy Clarkson leaving his home in London. Candidate 1 has a caption similarity score of 0.9059865474700928, and specifies that he was leaving his West London home on March 16, 2015. Candidate 2 has a caption similarity score of 0.886886715888977, and says he was leaving his home in London following his suspension from Top Gear. Because both candidate captions are highly similar to the news caption, this provides some evidence that the news caption accurately represents the image. However, because the image similarity scores for both candidates are low (less than 0.85), there is no strong evidence that the images match. Therefore, the caption is considered out-of-context and marked as false.",
+      "supporting_evidences": [
+        "Candidate 1 has a caption similarity score of 0.9059865474700928",
+        "Candidate 2 has a caption similarity score of 0.886886715888977"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low image similarity score, suggesting the image content doesn't strongly align with the caption. Despite the caption similarity score being high, the lack of visual evidence supporting 'Jeremy Clarkson leaving his home in London' leads to the determination that the caption is out of context. The image primarily features a person standing next to a car with an American flag design, which doesn't inherently suggest it is Jeremy Clarkson or that he is at his London home.",
+    "validation_summary": "The caption's claim about Jeremy Clarkson's location is not visually supported by the image, potentially misleading viewers about the image's actual content. Given the low visual evidence, the caption is determined to be out of context despite the high caption similarity score from the image check result, giving priority to the lack of image-based evidence. The image check result has a confidence score of 7-10, so the final determination is based on the image check result, moving to instruction 7 and making the decision that the image is OOC due to lack of supporting visual information and low image similarity scores in the image check result. Image similarity trumps the news caption similarity score, because the actual image should be the primary source of truth to determine the context of the image. Given the image similarity scores are low and that there is no high similarity score evidence, the image is OOC with high confidence as determined in the image check result with its confidence score of 7 out of 10. The overall confidence score is therefore a 7, based on the image check result, and based on that evidence the answer is OOC = True. The evidence does not support Jeremy Clarkson leaving his London home, and thus is considered out of context. The image contains an American flag design and two people, but no evidence that it is Jeremy Clarkson or his London home. The caption is misleading because it associates Clarkson with a location not supported in the image, and as the image check result shows, has a high confidence score of 7 to support that the caption is OOC. Therefore, the decision is out of context and the OOC is therefore true, with a confidence score of 7 based on the supporting evidence of the image check result. The claim that it's Jeremy Clarkson cannot be verified through visual inspection of the image. Therefore, it is determined that the overall verdict for the image is out of context, with a confidence score of 7 as described in the image check result. The image could represent any person and any car, and that it's only with the caption that the user infers who the person is in the photo, and where the photo was taken. Thus, the image is out of context for not clearly displaying visual evidence of the claim made by the caption. The decision is to mark it as OOC = True, based on all given evidence and the confidence is a score of 7 based on the image check result which contains a high confidence score, therefore image check result's summary and explanation has a high significance to provide the answer. The caption indicates that the image contains an image of Jeremy Clarkson at his London home; however, this cannot be confirmed and is therefore out of context. Overall, the image is out of context due to the absence of supporting visual clues and a dependence on external context for interpretation, in alignment with the image check result which also makes similar determination with high confidence score, thus OOC = True and the confidence score is 7 out of 10. The image fails to visually align with the caption's assertion, making it out of context despite high caption similarity score with other candidates. Because the primary basis for evaluation should be the image check result, the primary evidence that supports the claim is that both candidate captions had low image similarity scores as mentioned in the image check result. This provides strong evidence for OOC = True, and thus must be answered as such and given the image check confidence score of 7/10, and high caption similarity, it is an appropriate score to apply as the overall confidence score and the image is overall out of context according to instructions, the OOC is TRUE with a confidence of 7 out of 10, because the primary evidence is the Image Check Result and its image similarity scores. The OOC = TRUE with confidence of 7 out of 10. The evidence supports OOC=True and confidence=7. The instructions say must be based on the image check result, moving to instruction 7, make the decision, and based on evidence provided, caption is OOC. So OOC is true and confidence score is 7/10. The instruction states, 'For confidence scores 7-10, final determination \"MUST\" be based on the image check result, move to instruction 7 and make the decision.' So, final answer is based on this evidence. The image may show the described situation, but it does not readily show the information the caption is explaining. Since this is the case, the image is Out of Context. Thus, the final answer must be OOC=True, confidence =7 because it is from the image check result as required. All the instructions above are to come to this conclusion and make sure it is accurate."
+  },
+  "inference_time": 12.210811614990234,
+  "ablation_type": "no_image_evidences"
+}

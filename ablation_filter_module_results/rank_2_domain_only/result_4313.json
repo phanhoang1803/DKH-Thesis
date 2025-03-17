@@ -1,0 +1,40 @@
+{
+  "caption": "Detroit Lions tight end Will Heller runs onto the field during player introductions prior to the game against the Chicago Bears at Ford Field",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 1,
+      "confidence_score": 10,
+      "explanation": "The caption describes a football game at Ford Field involving the Detroit Lions and Chicago Bears. However, the image context describes two football players at the NFL Combine, wearing orange jerseys and practicing in an indoor facility. There is no mention of the Lions, Bears, or Ford Field in the image context. Therefore, the caption does not align with the image context.",
+      "supporting_evidences": [
+        "The caption mentions the Detroit Lions and Chicago Bears, which are not present in the image context.",
+        "The caption mentions Ford Field, while the image context describes an indoor stadium or training facility.",
+        "The image context describes players wearing orange jerseys at the NFL Combine, which is not mentioned in the caption."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Two football players in orange jerseys during the NFL Combine.",
+      "context": "The image shows two football players at the NFL Combine, an event where college football players perform physical and mental tests in front of National Football League coaches, general managers, and scouts. The player on the left has the name 'MARIOTA' and the number '11' on his jersey. The player on the right has the number '15' with 'QB' (Quarterback) below it on his jersey. Both are wearing Under Armour branded shirts. The background appears to be an indoor stadium or training facility with visible seating and infrastructure. The players seem to be in preparation or training during the event.",
+      "information": "The image features two football players wearing orange jerseys with black accents. One player's jersey reads 'MARIOTA 11' on the back. The other player's jersey has the number '15' and 'QB' on the front. Both are wearing Under Armour shirts and are in an indoor stadium or training facility."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows two football players wearing orange jerseys, one with the name 'MARIOTA' and the number 11 on the back, and the other with the number 15 and 'QB' on the front. The players are in an indoor setting, likely a training facility or stadium, participating in what appears to be the NFL Combine. The caption describes Detroit Lions tight end Will Heller at a game against the Chicago Bears at Ford Field, which is completely different from the scene depicted in the image. Therefore, the caption is out of context because it does not accurately represent the image content.",
+    "validation_summary": "The caption inaccurately describes the image, as the image depicts football players at the NFL Combine, not a Detroit Lions player at a game against the Chicago Bears. Viewers would be misled about the image's content if they relied on the caption."
+  },
+  "inference_time": 4.1983537673950195,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

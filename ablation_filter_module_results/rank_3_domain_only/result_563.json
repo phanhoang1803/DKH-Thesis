@@ -1,0 +1,47 @@
+{
+  "caption": "Those are not piranhas they appear to be some sort of cichlid possibly Malawian said one Shropshire Star reader",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Oily fish",
+      "Pomacentridae",
+      "Biology",
+      "Fish",
+      "Marine biology",
+      "Herring"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Killer piranhas blocking Telford sewer turn out to be red herrings | UK news | The Guardian",
+        "content": "K i l l e r   p i r a n h a s   b l o c k i n g   T e l f o r d   s e w e r   t u r n   o u t   t o   b e   r e d   h e r r i n g s   . . .",
+        "caption": "'Those are not piranhas, they appear to be some sort of cichlid, possibly Malawian,' said one Shropshire Star reader. Photograph: Severn Trent Water/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate caption is identical to the news caption, and the source is a reputable news organization (The Guardian). This strongly supports the accuracy of the news caption.",
+      "supporting_evidences": [
+        "'Those are not piranhas, they appear to be some sort of cichlid, possibly Malawian,' said one Shropshire Star reader. Photograph: Severn Trent Water/PA"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a dead fish floating in water. The caption refers to the fish as potentially a cichlid or Malawian. The article discusses a misidentification of fish found in sewers as piranhas. The image check result confirms the caption is related to the news article. However, the connection is weak. The caption doesn't describe the core issue of misidentification in the news content, making it a poor summary of the article. The image supports the claim made in the caption and the article, but the viewer may be misled due to the weak connection between the image and the overall news content.",
+    "validation_summary": "While the caption's statement is supported by the image, it doesn't sufficiently summarize the news content, which is about a fish misidentification in sewers, and can mislead the viewer. The image does match with the context, but caption's summary of the context is poor."
+  },
+  "inference_time": 3.234323501586914,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

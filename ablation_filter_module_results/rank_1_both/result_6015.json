@@ -1,0 +1,51 @@
+{
+  "caption": "Sen Joni Ernst RIowa delivers the Republican response after President Obama s State of the Union address",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speaker",
+      "Speaker of the United States House of Representatives",
+      "United States House of Representatives",
+      "House Republican Conference",
+      "Legislator",
+      "Politics",
+      "Motion to vacate the chair",
+      "Mike Johnson",
+      "Kevin McCarthy",
+      "Thomas Massie"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Joni Ernst's State of the Union Republican response  full text | US politics | The Guardian",
+        "content": "J o n i   E r n s t ' s   S t a t e   o f   t h e   U n i o n   R e p u b l i c a n   r e s p o n s e      f u l l   t e x t   . . .",
+        "caption": "Senator Joni Ernst rehearses the Republican response to Barack Obamas State of the Union address.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.32957643270492554,
+        "text_similarity_score": 0.7433881759643555
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.32957643270492554 and the text similarity score is 0.7433881759643555. Since the image similarity score is less than 0.85, the caption is out-of-context. The candidate caption mentions Senator Joni Ernst rehearsing the Republican response to Barack Obama’s State of the Union address, and the news caption mentions Sen Joni Ernst RIowa delivers the Republican response after President Obama s State of the Union address. Since the image similarity is low, it is not likely that the image is showing this event.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the caption is out of context with a confidence score of 3, and a text similarity score of 0.7433881759643555. The image primarily features a woman (likely Nancy Pelosi) in front of two flags: the American flag and what appears to be the flag of the House of Representatives. The caption claims that \"Sen Joni Ernst RIowa delivers the Republican response after President Obama s State of the Union address.\" However, the image does not contain any visual elements to support that the person in the image is Sen. Joni Ernst or that the event occurring is the Republican response to a State of the Union address. Therefore, the caption does not match the image content, making it out of context.",
+    "validation_summary": "The caption inaccurately identifies the person in the image and the event depicted, leading to a misrepresentation of the image's content. Viewers would be misled into thinking the image shows Senator Joni Ernst delivering a response to the State of the Union address, which is not supported by the image's actual content of Nancy Pelosi in front of American and House flags.. This suggests the information presented alongside the image is misleading and out of context.. This discrepancy confirms that the caption is not a correct representation of the image content."
+  },
+  "inference_time": 8.342084646224976,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

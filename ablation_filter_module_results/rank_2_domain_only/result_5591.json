@@ -1,0 +1,50 @@
+{
+  "caption": "The Rev Al Sharpton waves to supporters before President Obama and others take a symbolic walk across the Edmund Pettus Bridge",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Car",
+      "Festival",
+      "Audience",
+      "Performance M"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "50th anniversary of 'Bloody Sunday' - Los Angeles Times",
+        "content": "5 0 t h   a n n i v e r s a r y   o f   ' B l o o d y   S u n d a y '   -   L o s   A n g e l e s   T i m e s",
+        "caption": "Marchers on the Edmund Pettus Bridge on March 8 in Selma.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Obama marks 'Bloody Sunday' anniversary: 'Our march is not yet finished' - Los Angeles Times",
+        "content": "O b a m a   m a r k s   ' B l o o d y   S u n d a y '   a n n i v e r s a r y :   ' O u r   m a r c h   i s   n o t   y e t   . . .",
+        "caption": "Selma, Ala.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are both 0.0, which indicates that the candidate images are not related to the news image. The caption similarity scores are also 0.0, which indicates that the captions are not related. Thus, the candidate evidences do not provide any information that could prove the caption accurately represents what the news image shows and what the image is about.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low confidence score of 2. The image similarity and caption similarity scores are both 0.0, meaning that the images and captions are unrelated. The image shows a blurred scene of a crowd with a person waving, while the caption describes Al Sharpton waving to supporters before President Obama walks across the Edmund Pettus Bridge. The image content does not depict the figures or event mentioned in the caption. Therefore, the image is out of context.",
+    "validation_summary": "The caption is unrelated to the image content, misrepresenting the scene depicted in the image and misleading viewers about what they are seeing. Based on the image check result, the image is determined to be out of context, because the similarity scores are both 0.0, which indicates that the image and caption are unrelated."
+  },
+  "inference_time": 4.108258008956909,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

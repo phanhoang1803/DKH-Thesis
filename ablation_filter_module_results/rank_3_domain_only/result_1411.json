@@ -1,0 +1,47 @@
+{
+  "caption": "Cheerleaders celebrate the University of Alabama s national championship wins in January",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "SlamBall",
+      "Basketball",
+      "Slam dunk",
+      "Basketball Player",
+      "Stadium"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 8,
+      "confidence_score": 9,
+      "explanation": "The image depicts cheerleaders celebrating, and the context confirms it's related to the University of Alabama's athletic events, specifically basketball. The caption mentions the University of Alabama's national championship wins. Although the caption specifies 'January', which isn't directly verifiable from the image, the celebratory nature aligns with the context of championship wins. Therefore, the caption almost aligns with the image context.",
+      "supporting_evidences": [
+        "Image shows cheerleaders celebrating.",
+        "Context mentions University of Alabama basketball game.",
+        "Context mentions the spirit of victory.",
+        "Caption mentions University of Alabama's national championship wins."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image depicts a celebratory scene likely related to basketball. In the foreground, there are cheerleaders in colorful uniforms performing a routine, while in the background, a crowd can be seen cheering in a stadium setting. The atmosphere is lively and energetic, emphasizing a moment of triumph or victory, possibly in a sporting context such as a championship game. The branding and colors suggest a connection to the University of Alabama, likely coinciding with their athletic events.",
+      "caption": "Cheerleaders celebrate amidst a vibrant crowd at a University of Alabama basketball game, embodying the spirit of victory.",
+      "context": "This image is situated within the recent events surrounding the University of Alabama's basketball success, specifically highlighting their national championship wins. The cheerleaders' celebration in the image aligns with the reported enthusiasm and pride of the university community following the success of their sports teams. The news content discusses broader issues within the university, including investigations related to sorority pledging practices and issues of race on campus. However, the image focuses solely on the joyous atmosphere of athletic achievement, particularly celebrating basketball victories. The cheerleaders represent school spirit, emphasizing the positive aspects of community and teamwork in sports, contrasting with the more serious discussions surrounding inclusion and equity occurring within the university's social structures."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a basketball player cutting down the net after winning the WAC championship, surrounded by celebrating people. The caption states cheerleaders are celebrating the University of Alabama's national championship wins. The image clearly shows a basketball game celebration, and the caption is about a different sport (cheerleading) and a different university (University of Alabama), so the caption is misleading and out of context.",
+    "validation_summary": "The caption is about cheerleaders celebrating the University of Alabama's national championship wins, but the image shows a basketball player celebrating a WAC championship, making the caption out of context and potentially misleading to viewers. The mismatch between the image content and the caption's description would mislead viewers about the context of the image."
+  },
+  "inference_time": 3.8028171062469482,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

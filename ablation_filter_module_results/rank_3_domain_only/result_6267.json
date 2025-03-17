@@ -1,0 +1,48 @@
+{
+  "caption": "Julian Savea has scored 38 tries in 39 Test starts for New Zealand who meet South Africa in the Rugby World Cup semifinal",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Billy Vunipola",
+      "Premiership Rugby",
+      "Wasps RFC",
+      "Touch football",
+      "Rugby Player",
+      "Touch rugby",
+      "Rugby union",
+      "Rugby football",
+      "American football"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "New Zealand winger Julian Savea heading for hero status | Rugby World Cup 2015 | The Guardian",
+        "content": "N e w   Z e a l a n d   w i n g e r   J u l i a n   S a v e a   h e a d i n g   f o r   h e r o   s t a t u s   |   R u g b y   . . .",
+        "caption": "Julian Savea has scored 38 tries in 39 Test starts for New Zealand, who meet South Africa in the Rugby World Cup semi-final.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, I should do analysis based on the captions and candidate to give the final decision. The provided candidate caption is the exact same as the news caption, but the image similarity is too low. Thus, I cannot confirm that the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a rugby player in a black and yellow jersey running with the ball. The caption states that Julian Savea has scored 38 tries in 39 Test starts for New Zealand who meet South Africa in the Rugby World Cup semifinal. Although the image does show a rugby player, there is nothing to confirm that the player in the image is Julian Savea. The image check result also shows that the image similarity score and text similarity score are 0.0, indicating that the caption doesn't accurately represent the image.",
+    "validation_summary": "The caption doesn't accurately represent the image. The image shows a rugby player in action, but there is no confirmation that the player is Julian Savea, making the association misleading for viewers who expect to see a specific individual related to the caption's claim."
+  },
+  "inference_time": 4.436285018920898,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

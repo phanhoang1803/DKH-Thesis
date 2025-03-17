@@ -1,0 +1,72 @@
+{
+  "caption": "Damage to two Ryanair planes that clipped each other at Dublin airport",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Aircraft",
+      "Boeing C-40 Clipper",
+      "Boeing",
+      "Boeing 737 MAX",
+      "Airliner",
+      "Boeing 737 Next Generation",
+      "Boeing P-8 Poseidon",
+      "Airbus SE",
+      "Boeing 777X"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Ryanair planes clip wings at Dublin | Irish Independent",
+        "content": "R y a n a i r   p l a n e s   c l i p   w i n g s   a t   D u b l i n   |   I r i s h   I n d e p e n d e n t",
+        "caption": "Damage to one of two Ryanair planes which clipped each other at Dublin Airport (Paul Roche/PA Wire)",
+        "domain": "www.independent.ie",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4621545374393463,
+        "text_similarity_score": 0.9208447933197021
+      },
+      {
+        "title": "Ryanair planes clip each other at Dublin airport | Ryanair | The Guardian",
+        "content": "R y a n a i r   p l a n e s   c l i p   e a c h   o t h e r   a t   D u b l i n   a i r p o r t   |   R y a n a i r   |   T h e   . . .",
+        "caption": "Damage to two Ryanair planes that clipped each other at Dublin airport. Photograph: Emily Carroll/Twitter",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5726106762886047,
+        "text_similarity_score": 0.9147859811782837
+      },
+      {
+        "title": "Ryanair planes clip each other at Dublin airport | Ryanair | The Guardian",
+        "content": "R y a n a i r   p l a n e s   c l i p   e a c h   o t h e r   a t   D u b l i n   a i r p o r t   |   R y a n a i r   |   T h e   . . .",
+        "caption": "Damage to two Ryanair planes that clipped each other at Dublin airport. Photograph: Emily Carroll/Twitter",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5501798987388611,
+        "text_similarity_score": 0.9147859811782837
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption states \"Damage to two Ryanair planes that clipped each other at Dublin airport.\" We have three candidate evidences that support the caption. Candidate 1 has a caption of \"Damage to one of two Ryanair planes which clipped each other at Dublin Airport.\" and a text similarity score of 0.92 and an image similarity score of 0.46. Candidate 2 has a caption of \"Damage to two Ryanair planes that clipped each other at Dublin airport.\" and a text similarity score of 0.91 and an image similarity score of 0.57. Candidate 3 has a caption of \"Damage to two Ryanair planes that clipped each other at Dublin airport.\" and a text similarity score of 0.91 and an image similarity score of 0.55. All of the candidate captions have a text similarity score greater than 0.7, meaning the captions are very similar. All of the candidates have image similarity scores less than 0.85, meaning the images may not match, but the captions are about the same event. Based on the captions, the news image is in context.",
+      "supporting_evidences": [
+        "Candidate 1",
+        "Candidate 2",
+        "Candidate 3"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the news caption \"Damage to two Ryanair planes that clipped each other at Dublin airport\" is not accurately represented by the provided image. The confidence score is high (10), which means that the image check result is reliable. The supporting evidences from the image check result have captions related to Ryanair planes clipping each other, but the image itself does not depict the planes involved in the incident. The image shows a Boeing 737 (likely a MAX variant) with a tail number and '737' on the tail, suggesting it is a Boeing aircraft. Two people and a camera are also visible. Given this mismatch between the depicted content (a Boeing plane and people filming it) and the caption's claim (damage to Ryanair planes), the image is out of context.",
+    "validation_summary": "The image depicts a Boeing airplane unrelated to the Ryanair incident described in the news caption, making the image out of context and potentially misleading to viewers. The image check result confirms that the provided image does not accurately reflect the Ryanair incident described in the caption, reinforcing the determination that the image is out of context."
+  },
+  "inference_time": 9.063801765441895,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

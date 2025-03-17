@@ -1,0 +1,40 @@
+{
+  "caption": "The MyNameIs coalition will demonstrate Sunday at 11am across the street from Facebook s Menlo Park headquarters in California",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Facebook users plan protest against site's 'real name' policy at headquarters | Facebook | The Guardian",
+        "content": "F a c e b o o k   u s e r s   p l a n   p r o t e s t   a g a i n s t   s i t e ' s   ' r e a l   n a m e '   p o l i c y   a t   . . .",
+        "caption": "The #MyNameIs coalition will demonstrate Sunday at 11am across the street from Facebooks Menlo Park headquarters in California.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption exactly matches the news caption, suggesting that the demonstration is indeed planned to occur as described. However, the lack of image similarity casts doubt on whether the candidate evidence directly relates to the specific image in question. Without a matching image or additional confirming details, a definitive 'True' verdict cannot be given. It is likely that the candidate is related to the news but not about the image content.",
+      "supporting_evidences": [
+        "The #MyNameIs coalition will demonstrate Sunday at 11am across the street from Facebook’s Menlo Park headquarters in California."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a woman using a laptop, seemingly browsing a social media page. The caption mentions a demonstration planned against Facebook's Menlo Park headquarters. There is no visual representation or connection between the image and the news caption's claim about a demonstration or Facebook's Menlo Park headquarters. Therefore, the caption is misleading, as it uses an unrelated image to accompany the news. The image check result shows low image similarity and text similarity, while the confidence score is high.",
+    "validation_summary": "The image is unrelated to the caption. The caption discusses a demonstration against Facebook, while the image shows a woman using a laptop, creating a misleading association between the event and the depicted activity."
+  },
+  "inference_time": 6.032423973083496,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

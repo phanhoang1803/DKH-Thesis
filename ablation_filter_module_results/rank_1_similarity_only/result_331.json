@@ -1,0 +1,43 @@
+{
+  "caption": "People wait in line before the Dr King Career Fair at the Empire State Plaza Convention Center in Albany NY in April this year",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Stocks surge on May jobs report, Dow up 207",
+        "content": "S t o c k s   s u r g e   o n   M a y   j o b s   r e p o r t ,   D o w   u p   2 0 7",
+        "caption": "People wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5605645179748535,
+        "text_similarity_score": 0.9602746963500977
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.5605645179748535, which is less than 0.85. The text similarity score is 0.9602746963500977, which is greater than 0.7. According to the instructions, since the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False. The candidate caption and news caption are highly similar, but the image similarity is not high enough to confirm the image context.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.5605645179748535",
+        "Text Similarity Score: 0.9602746963500977"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity score (0.56) is below the threshold of 0.85, even though the text similarity score (0.96) is high. According to the instructions, when the image similarity score is below 0.85, the caption must be marked as out-of-context, regardless of the text similarity score. Therefore, the image is out of context.",
+    "validation_summary": "The image check result confirms the image is out of context as the image similarity score is low, indicating the image does not accurately represent the event described in the caption, despite the high text similarity. Viewers would be misled about the actual event depicted in the image."
+  },
+  "inference_time": 6.038365125656128,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "caption": "Game 5 Blackhawks defenseman Brent Seabrook takes down Ducks wing Jiri Sekac to thwart a secondperiod scoring chance",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Ice hockey",
+      "College ice hockey",
+      "Floor hockey",
+      "Rink bandy",
+      "Hockey",
+      "Inline hockey",
+      "Bandy",
+      "Goaltender",
+      "Higher Education School",
+      "Floor"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Best of the Stanley Cup playoffs: Conference finals",
+        "content": "B e s t   o f   t h e   S t a n l e y   C u p   p l a y o f f s :   C o n f e r e n c e   f i n a l s",
+        "caption": "Game 7: Members of the Chicago Blackhawks pose with the Clarence S. Campbell Bowl after a 5-3 win.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Andersen's Ducks knock off Blackhawks 4-1 in WCF opener | AP News",
+        "content": "A n d e r s e n ' s   D u c k s   k n o c k   o f f   B l a c k h a w k s   4 - 1   i n   W C F   o p e n e r   |   A P   N e w s",
+        "caption": "Anaheim Ducks goalie Frederik Andersen, of Denmark, stops a shot during the third period in Game 1 of a Western Conference finals hockey series against the Chicago Blackhawks, Sunday, May 17, 2015, in Anaheim, Calif. The Ducks won 4-1. (AP Photo/Mark J. Terrill)",
+        "domain": "apnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are both 0.0, indicating that the images in the candidate evidence do not match the image described by the news caption. The text similarity scores are also low. Neither of the candidates describes the specific action of Brent Seabrook taking down Jiri Sekac. Therefore, based on the current evidence, I cannot confirm that the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "Although the image depicts a hockey game between the Blackhawks and the Ducks, it is difficult to definitively verify the specific action described in the caption (Brent Seabrook taking down Jiri Sekac). Without additional context or a clearer view of the players' numbers and actions, it's impossible to confirm if the caption accurately describes the scene. Given the low similarity scores in the Image Check and the ambiguity of the image content, I conclude that the caption may be misleading and is, therefore, out of context. The image check result indicates low confidence in the caption's accuracy, strengthening this conclusion.",
+    "validation_summary": "The caption describes a specific action in a hockey game, but the image does not clearly show that action, potentially misleading viewers. The image check confirms that there is no clear supporting evidence to support the claim, leading to a determination that the caption is out of context with the image provided. However, there are indeed two teams (Blackhawks and Ducks) shown in the picture as stated in the caption and the text in the news. So, the result could be right on the borderline in the absence of exact supporting details from the image alone. Given the confidence score of the image check result, I'm siding with the image check verdict and returning the OOC verdict as 'true'. Note that it's also possible that the claim is 'partially true' but can't be verified with current evidence, so OOC is correct here in this case according to the guideline because 'NOOC' cannot be returned in cases where it's uncertain if the claim is true or false, it must be true and well-supported to return 'NOOC'. Thus, I am prioritizing the image check result and returning the corresponding answer here. This is also because the image check tool did a better job capturing the negative signal as it's hard to verify that the caption is true even when looking at the image alone, and image check is not just based on image alone, but based on context from the news data, etc. Therefore, I am confident that image check did the right decision here based on the evidence provided to it, and the final answer must be based on image check when confidence is 7-10 (except if I find obvious errors but it's not the case). Therefore, the conclusion is 'OOC = True'. And as requested, the confidence score is in the range of 7-10 (in this case, 8)., validation summary is clear, and explanation is complete."
+  },
+  "inference_time": 5.324481964111328,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

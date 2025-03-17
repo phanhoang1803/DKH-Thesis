@@ -1,0 +1,61 @@
+{
+  "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Cadbury",
+      "Chocolate bar",
+      "Chocolate",
+      "Candy",
+      "Kraft Foods",
+      "Fudge",
+      "Sweet dish",
+      "Wrigley"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Healthier chocolate and other incredible discoveries of the week",
+        "content": "6 3 5 6 3 1 2 6 7 1 4 0 4 5 0 7 5 3 - A P - D a r k -   . . .",
+        "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.36464327573776245,
+        "text_similarity_score": 0.9921733736991882
+      },
+      {
+        "title": "Healthier chocolate and other incredible discoveries of the week",
+        "content": "6 3 5 6 3 1 2 6 7 1 4 0 4 5 0 7 5 3 - A P - D a r k -   . . .",
+        "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.34615379571914673,
+        "text_similarity_score": 0.9921733736991882
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidates have low image similarity scores (0.36 and 0.34 respectively), and high caption similarity scores (0.99). According to the instruction, if the Image Similarity Score < 0.85 AND Text Similarity Score ≥ 0.7, the verdict should be 'False'. Since the image similarity scores are significantly below the threshold of 0.85, the images in the candidates do not match the news image, indicating that the caption is out-of-context.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score = 0.36, Caption Similarity Score = 0.99",
+        "Candidate 2: Image Similarity Score = 0.34, Caption Similarity Score = 0.99"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates the image and caption are not related. The caption describes Japanese plum chocolates made of dark chocolate ganache with plum wine prepared in New York, while the image shows an assortment of Green & Black's chocolate products. The high caption similarity scores (0.99) in the candidates suggest that the captions are well-written and cohesive, but this does not overcome the very low image similarity scores (0.36 and 0.34). This reinforces that the image and the caption are not contextually aligned.",
+    "validation_summary": "The caption describes specific Japanese plum chocolates, which are not visible in the image featuring an assortment of Green & Black's chocolate products, leading to a mismatch between the visual content and the caption's claims. Viewers would be misled about the nature of the chocolates if they were to only rely on the caption to understand the image's contents; therefore, it is out of context (OOC). The image check result confirms that the image and caption are unrelated due to the image's low image similarity score and high caption similarity score. The confidence score is high, indicating strong confidence that the image is OOC because the image check result shows low image similarity scores, indicating that the images in the candidates do not match the news image, indicating that the caption is out-of-context. Therefore, the image is Out Of Context (OOC=True). This means that the caption cannot possibly be true since it refers to a totally different image context. The Image Check result returned OOC=True. Thus, OOC=True. The analysis and Image Check result align so the confidence score is 9. This indicates high confidence in the image being OOC because it is supported by the image check result. Therefore, the final response is: OOC = True, Confidence Score = 9, Explanation = \"The image check result indicates the image and caption are not related. The caption describes Japanese plum chocolates made of dark chocolate ganache with plum wine prepared in New York, while the image shows an assortment of Green & Black's chocolate products. The high caption similarity scores (0.99) in the candidates suggest that the captions are well-written and cohesive, but this does not overcome the very low image similarity scores (0.36 and 0.34). This reinforces that the image and the caption are not contextually aligned.\", Validation Summary = \"The caption describes specific Japanese plum chocolates, which are not visible in the image featuring an assortment of Green & Black's chocolate products, leading to a mismatch between the visual content and the caption's claims.\""
+  },
+  "inference_time": 11.790061712265015,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

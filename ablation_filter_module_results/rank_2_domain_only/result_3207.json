@@ -1,0 +1,45 @@
+{
+  "caption": "Bernie Sanders speaks at campaign rally in South Carolina",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Concert",
+      "Orchestra",
+      "Pianist",
+      "Piano",
+      "5hy",
+      "Electrical conductor"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Unstoppable? Bernie Sanders heads into South Carolina stronger than ever",
+        "content": "U n s t o p p a b l e ?   B e r n i e   S a n d e r s   h e a d s   i n t o   S o u t h   C a r o l i n a   s t r o n g e r   . . .",
+        "caption": "Sen. Bernie Sanders, I-Vt., speaks at a campaign rally in San Antonio on Saturday, Feb. 22, 2020, after winning the Nevada Democratic presidential caucuses.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. This means that the candidate is not very similar to the image. In addition, the candidate does not mention that Bernie Sanders speaks at campaign rally in South Carolina. Therefore, the evidence does not confirm the caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows Bernie Sanders at a podium, speaking to an audience. While he may be at a rally, there is no visual evidence to confirm it is in South Carolina, nor that it is specifically a campaign rally. Given the lack of specific evidence and the negative result from the image check, the caption is likely misleading.",
+    "validation_summary": "The caption claims Bernie Sanders is at a campaign rally in South Carolina, but the image does not provide enough information to confirm this statement, which could mislead viewers regarding the location of the rally. The image check result also indicates the caption does not accurately represent the image."
+  },
+  "inference_time": 2.9959824085235596,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

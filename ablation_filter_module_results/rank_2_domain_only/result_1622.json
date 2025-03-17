@@ -1,0 +1,49 @@
+{
+  "caption": "Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond Calif",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "El Dorado Fire",
+      "Fire",
+      "King Fire",
+      "El Dorado County",
+      "California Department of Forestry and Fire Protection",
+      "Fire retardant",
+      "Stock photography",
+      "National Interagency Fire Center",
+      "Photography",
+      "Photograph"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Firefighters battle California wildfires",
+        "content": "F i r e f i g h t e r s   b a t t l e   C a l i f o r n i a   w i l d f i r e s",
+        "caption": "Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond, Calif.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0, so I will base my analysis on the text of the captions and the candidate evidence. The caption being verified is \"Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond Calif.\" The candidate caption is \"Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond, Calif.\" Although the candidate caption is almost identical to the caption being verified, the image similarity score is 0.0, indicating that the images are very different and not a match. Therefore, the candidate does not support the claim that the caption accurately represents what the news image shows. Due to the low image similarity score, I cannot assume that the caption is in context with the image in the news article.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows two firefighters in gear, standing in a smoky environment. While the caption mentions 'Cal Fire strike crews battle the King Fire,' the image itself doesn't explicitly confirm the location or the specific action of battling the fire. The image similarity score is low and because the image does not explicitly show them battling the King Fire, it is out of context. Because the image check result has a high confidence score, I will trust the image check result and make the final decision.",
+    "validation_summary": "The image shows firefighters, but lacks specific details linking them to the King Fire or their direct involvement in battling it, making the caption potentially misleading. The low image similarity score indicates that the image is not in context with the caption and article."
+  },
+  "inference_time": 4.519882917404175,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

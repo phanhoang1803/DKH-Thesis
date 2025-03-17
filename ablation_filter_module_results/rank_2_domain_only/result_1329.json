@@ -1,0 +1,48 @@
+{
+  "caption": "Armed Swiss police officers stand guard on the roof of a hotel the day before the opening of the annual meeting of the World Economic Forum in Davos Switzerland",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Can science be the solution if it is part of the problem? |  | The Guardian",
+        "content": "C a n   s c i e n c e   b e   t h e   s o l u t i o n   i f   i t   i s   p a r t   o f   t h e   p r o b l e m ?   |   |   T h e   . . .",
+        "caption": "Armed Swiss police officers stand guard on the roof of a hotel the day before the opening of the annual meeting of the World Economic Forum in Davos, Switzerland. (AP Photo/Michel Euler, File).",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Melanie Smallman | The Guardian",
+        "content": "M e l a n i e   S m a l l m a n   |   T h e   G u a r d i a n",
+        "caption": "Armed Swiss police officers stand guard on the roof of a hotel the day before the opening of the annual meeting of the World Economic Forum in Davos, Switzerland. (AP Photo/Michel Euler, File).",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both candidates provide the exact caption as the news image, indicating high confidence that the caption accurately represents the image. The elements described in the caption (armed Swiss police officers, roof of a hotel, World Economic Forum, Davos, Switzerland) are all confirmed by the candidate captions. Since the image similarity scores are 0.0, the decision is based on the captions themselves.",
+      "supporting_evidences": [
+        "Candidate 1: Armed Swiss police officers stand guard on the roof of a hotel the day before the opening of the annual meeting of the World Economic Forum in Davos, Switzerland. (AP Photo/Michel Euler, File).",
+        "Candidate 2: Armed Swiss police officers stand guard on the roof of a hotel the day before the opening of the annual meeting of the World Economic Forum in Davos, Switzerland. (AP Photo/Michel Euler, File)."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a blue flag with white text, possibly 'HBOS', against a backdrop of a building with a statue on top. This does not align with the provided caption describing 'Armed Swiss police officers stand guard on the roof of a hotel the day before the opening of the annual meeting of the World Economic Forum in Davos Switzerland'. The image check result confirms this discrepancy, further reinforcing the conclusion that the caption is not representative of the image content.",
+    "validation_summary": "The image depicts a flag and a building, while the caption describes armed police officers, thus creating a mismatch between the visual content and the textual description and making it out of context. The image check results corroborates this assessment with a high confidence score of 10, indicating the caption is not representative of the image content and will mislead the viewer regarding the image's actual context and content."
+  },
+  "inference_time": 4.112050533294678,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

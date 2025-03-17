@@ -1,0 +1,42 @@
+{
+  "caption": "Mr McGinlay was attacked on St Georges Road",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Human"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 9,
+      "confidence_score": 10,
+      "explanation": "The original caption, 'Mr McGinlay was attacked on St Georges Road,' is consistent with the image context, which describes emergency services responding to an incident on St Georges Road where Stephen McGinlay was attacked. The context details that McGinlay later died and a murder inquiry was launched, but the caption's primary statement about the attack aligns with the visual and contextual information. The revised caption, 'Emergency services respond to a murder inquiry on St Georges Road following a horrific attack,' accurately reflects the scene depicted in the image and the surrounding context, strengthening the alignment.",
+      "supporting_evidences": [
+        "The image shows police presence and cordoned-off area on St Georges Road, supporting the idea of an incident.",
+        "The context confirms that an attack occurred on St Georges Road involving Stephen McGinlay.",
+        "The police presence in the image aligns with the description of a murder inquiry in the context."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image depicts a scene on a street in Glasgow where emergency services are present following an incident. There are several police officers, and a section of the road is cordoned off with police tape. In the background, there is a library that may indicate the location of the attack near Woodside Library, as mentioned in news reports. The area appears to be a busy urban environment with vehicles parked along the side of the road. The mood is somber and tense, reflecting the serious nature of the event being investigated.",
+      "caption": "Emergency services respond to a murder inquiry on St Georges Road following a horrific attack.",
+      "context": "The image captures a critical moment in the aftermath of a violent incident involving Stephen McGinlay, a 26-year-old man who was attacked on St Georges Road in Glasgow. After sustaining serious injuries during the assault, McGinlay was taken to Glasgow Royal Infirmary, where he later died. The police have launched a murder inquiry and are actively investigating the circumstances surrounding the attack, which occurred in a relatively busy area at around 17:50 on Thursday. The authorities are appealing for witnesses and are currently reviewing CCTV footage to identify the suspects, who are reported to have fled the scene in a dark-colored vehicle. The police presence in the image underscores the gravity of the situation, with efforts ongoing to gather evidence and provide support to the community affected by this tragic event."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a person with gruesome makeup, depicting injuries to the face and neck, including stitches and fake blood. The caption states 'Mr McGinlay was attacked on St Georges Road'. While the news content confirms Mr McGinlay was attacked, the image does not directly represent the actual attack or Mr. McGinlay immediately after the event. The image is likely a stock photo or an illustration to depict the extent of injuries from the attack. The image is out of context because it is showing special effect makeup. It is misleading to show this image to portray that this is what Mr. McGinlay actually looked like or how he was attacked. This would mislead viewers about the actual scene of the news.",
+    "validation_summary": "The image is out of context because the image shows a man with fake injuries that does not align with the real event, misleading viewers about what actually happened to Mr McGinlay."
+  },
+  "inference_time": 5.536320924758911,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

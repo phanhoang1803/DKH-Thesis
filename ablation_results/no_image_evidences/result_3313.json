@@ -1,0 +1,34 @@
+{
+  "caption": "Andrew Scott conveys Julian s descent into tyranny without resorting to carpetbiting cliche at the Olivier London",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Emperor and Galilean - review | Theatre | The Guardian",
+        "content": "E m p e r o r   a n d   G a l i l e a n   -   r e v i e w   |   T h e a t r e   |   T h e   G u a r d i a n",
+        "caption": "Andrew Scott conveys Julians descent into tyranny without resorting to carpet-biting cliche at the Olivier, London. Photograph: Tristram Kenton for the Guardian",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1894558221101761,
+        "text_similarity_score": 0.8624197840690613
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.1894558221101761 which is less than 0.85 and the text similarity score is 0.8624197840690613 which is greater than 0.7. Based on the instruction, the verdict should be false because the image similarity score is less than 0.85.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low image similarity score (0.189) but a high text similarity score (0.862). Since the confidence score from the image check result is below 7, an independent image analysis is conducted. The image features a man, presumably Andrew Scott, looking upwards with his hands raised. The caption refers to Andrew Scott conveying Julian's descent into tyranny at the Olivier London. The news content mentions Andrew Scott's heroic performance as Julian. Given the high text similarity and the fact that the image visually aligns with a performance, the caption provides a correct representative summary of the image content. Therefore, the image is not out of context. Per the instructions, since the confidence score is not between 7-10, I performed an independent analysis of the image and caption to confirm the image check results. However, based on the instruction, for confidence scores 7-10, the final determination MUST be based on the image check result. Therefore, the 'OOC' should be 'False' and the confidence score should be higher.",
+    "validation_summary": "The image shows a man, likely Andrew Scott, performing, and the caption accurately describes his role in the play at the Olivier London; viewers would not be misled about the image's content or context based on the caption and supporting news content, indicating it's not out of context despite the low image similarity score from the image check result."
+  },
+  "inference_time": 5.523313999176025,
+  "ablation_type": "no_image_evidences"
+}

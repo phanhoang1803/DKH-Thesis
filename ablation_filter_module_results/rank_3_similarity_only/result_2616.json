@@ -1,0 +1,51 @@
+{
+  "caption": "Defense Secretary Chuck Hagel hands diplomas to cadets during a graduation and commissioning ceremony at the US Military Academy in West Point NY on Saturday May 25 2013",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "West Point",
+      "Long Island",
+      "Columbia",
+      "Ceremony",
+      "left",
+      "Funeral",
+      "Graduation",
+      "Navy",
+      "Times Union",
+      "Maryland"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Access to this page has been denied",
+        "content": "",
+        "caption": "",
+        "domain": "www.timesunion.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.947728157043457,
+        "text_similarity_score": 0.008222443982958794
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.947728157043457, and the text similarity score is 0.008222443982958794. According to the instructions, since the image similarity score is greater than 0.85 but the text similarity score is less than 0.7, the verdict should be 'False'. The caption is therefore out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image similarity score is 0.947728157043457, and the text similarity score is 0.008222443982958794. Since the image similarity score is greater than 0.85 but the text similarity score is less than 0.7, the verdict is 'False'. This means the caption is out of context, failing to accurately represent the image content. Therefore, the image is out of context.",
+    "validation_summary": "The image similarity is high, but the text similarity is too low, suggesting the caption doesn't accurately describe the image's content. The viewer would be misled by the caption."
+  },
+  "inference_time": 5.8125505447387695,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

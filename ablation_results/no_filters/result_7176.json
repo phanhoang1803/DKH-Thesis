@@ -1,0 +1,46 @@
+{
+  "caption": "Star Wars screenwriter Lawrence Kasdan attends the premiere of The Force Awakens",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "'Star Wars' Premiere: Celebs Nerd Out On The Red Carpet | HuffPost Style",
+        "content": "\" S t a r   W a r s :   T h e   F o r c e   A w a k e n s \"   h a s   i t s   p r e m i e r e   i n   H o l l y w o o d   t o n i g h t ,   a n d   t h e   c a s t   i s   a l r e a d y   s l a y i n g   t h e   r e d   c a r p e t . \n \n W e ' v e   s e e n   d r o i d s   C - 3 P O   a n d   R 2 - D 2   s t r u t   t h e i r   s t u f f   o u t s i d e   t h e   D o l b y   T h e a t r e .   A c t o r s   D a i s y   R i d l e y ,   G w e n d o l i n e   C h r i s t i e ,   A n t h o n y   D a n i e l s   a n d   P e t e r   M a y h e w   a l s o   w a l k e d   t h e   c a r p e t . \n \n H e r e   a r e   t h e   s t a r s   w e   s p o t t e d   f r o m   t h e   f i l m : \n \n A n d   h e r e   a r e   s o m e   o t h e r   c e l e b r i t i e s   w h o   s h o w e d   u p : \n \n L i k e   U s   O n   F a c e b o o k \n \n F o l l o w   U s   O n   T w i t t e r \n \n A l s o   o n   H u f f P o s t :",
+        "caption": "",
+        "domain": "www.huffingtonpost.ca",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Photos: 'Star Wars: The Force Awakens' premieres in L.A.",
+        "content": "P h o t o s :   ' S t a r   W a r s :   T h e   F o r c e   A w a k e n s '   p r e m i e r e s   i n   L . A .",
+        "caption": "HOLLYWOOD, CA - DECEMBER 14:  Actor Mark Hamill attends the premiere of Walt Disney Pictures and Lucasfilm's \"Star Wars: The Force Awakens\" at the Dolby Theatre on December 14th, 2015 in Hollywood, California.  (Photo by Ethan Miller/Getty Images) ORG XMIT: 584247853 ORIG FILE ID: 501372500",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Photos: 'Star Wars: The Force Awakens' premieres in L.A.",
+        "content": "P h o t o s :   ' S t a r   W a r s :   T h e   F o r c e   A w a k e n s '   p r e m i e r e s   i n   L . A .",
+        "caption": "C-3PO and R2-D2 arrive at the premiere of 'The Force Awakens.'",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 4,
+      "explanation": "Since the image similarity scores are all 0.0 (very low), the images in the candidates do not match the image being analyzed. Therefore, the initial strict decision rules cannot be applied. Furthermore, the caption doesn't appear verbatim in the candidates. Candidate 2 mentions 'Star Wars: The Force Awakens' and the presence of Mark Hamill at the premiere at the Dolby Theatre on December 14th, 2015. The news caption mentions Lawrence Kasdan at the premiere of 'The Force Awakens'. Since there is no information about Lawrence Kasdan, or any confirmation of the event, date, and location details being accurate, the caption is deemed not fully verified. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low similarity between the analyzed image and the candidate images, leading to an initial 'False' verdict. The caption states that the image is of 'Star Wars screenwriter Lawrence Kasdan attends the premiere of The Force Awakens'. Given that the image check result's confidence score is 4, and there is no explicit confirmation within the image that the person depicted is indeed Lawrence Kasdan at the said premiere, the caption can not be confirmed by the image. Therefore the image is out of context.",
+    "validation_summary": "The image check returns a low confidence score, and the image itself does not provide enough information to verify the caption's claims about the person's identity or the event. Viewers would be misled if they assumed the caption was verified by the image alone, as the image offers no such confirmation regarding the screenwriter's presence at the event mentioned in the caption. Thus, the image is considered OOC (Out of Context). The final verdict must be based on image check result, so the image is OOC since the confidence score is higher than 7, and the verdict is False in Image Check Result. Therefore, the image is Out of Context (OOC = True)."
+  },
+  "inference_time": 5.35797643661499,
+  "ablation_type": "no_filters"
+}

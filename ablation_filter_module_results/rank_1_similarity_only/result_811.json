@@ -1,0 +1,51 @@
+{
+  "caption": "Protesters shout next to a bus carrying some members of Brazil s national team The sign reads in Portuguese There will be not Cup There will be a strike",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "elojygan.withtheinter.net",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9877434372901917,
+        "text_similarity_score": 0.17854823172092438
+      },
+      {
+        "title": "Public pessimism reigns in Brazil as World Cup looms",
+        "content": "P u b l i c   p e s s i m i s m   r e i g n s   i n   B r a z i l   a s   W o r l d   C u p   l o o m s",
+        "caption": "Protesters shout next to a bus carrying some members of Brazil's national team The sign reads in Portuguese \"There will be not Cup. There will be a strike.\"",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2144940048456192,
+        "text_similarity_score": 0.9798662662506104
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1 has a high image similarity score (0.9877434372901917) but a low caption similarity score (0.17854823172092438). According to the strict decision rules, if the Image Similarity Score is ≥ 0.85 AND Text Similarity Score is < 0.7, the verdict should be False. Candidate 2 has a low image similarity score (0.2144940048456192) but a high caption similarity score (0.9798662662506104). According to the strict decision rules, if the Image Similarity Score is < 0.85 AND Text Similarity Score is ≥ 0.7, the verdict should be False. However, Candidate 2 confirms the caption accurately represents the image.",
+      "supporting_evidences": [
+        "Candidate 2"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption does not accurately represent the image content. The image depicts a series of flags with mountains in the background, whereas the caption describes protesters near a bus carrying members of Brazil's national team with a sign referencing a strike and the World Cup. The image similarity score is low, indicating that the image does not depict the scene described in the caption. Therefore, the caption is out of context, and the viewers would be misled about what they're seeing.",
+    "validation_summary": "The caption does not correspond to the image content, which shows flags and mountains, leading to a misrepresentation of the scene. Viewers would be misled about the image's subject matter based on the caption's description of protesters and a bus related to Brazil's national team and a strike."
+  },
+  "inference_time": 7.26277494430542,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

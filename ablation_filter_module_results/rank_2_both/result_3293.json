@@ -1,0 +1,43 @@
+{
+  "caption": "Vladimir Putin gestures during his annual press conference in Moscow",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Putin boasts of gains in Ukraine at annual news conference meant to reinforce his authority - Los Angeles Times",
+        "content": "P u t i n   b o a s t s   o f   g a i n s   i n   U k r a i n e   a t   a n n u a l   n e w s   c o n f e r e n c e   m e a n t   . . .",
+        "caption": "Vladimir Putin gestures while speaking during his annual news conference and call-in show at Gostinny Dvor in Moscow.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.47929686307907104,
+        "text_similarity_score": 0.8840019106864929
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.47929686307907104 which is less than 0.85. According to the instruction, the caption must be marked as out-of-context. The text similarity score is 0.8840019106864929, which is greater than 0.7. However, since the image similarity is low, the caption is still considered out-of-context. The candidate caption describes Vladimir Putin gesturing during his annual news conference in Moscow, which aligns with the news caption. However, without a high image similarity score, a definitive confirmation is not possible.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.47929686307907104",
+        "Caption Similarity Score: 0.8840019106864929"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity score is 0.479, which is less than 0.85. The caption describes Vladimir Putin gesturing during his annual press conference in Moscow. While this aligns with the image, the low image similarity score suggests that the caption is out of context. Therefore, based on the image check result, the final determination must be that the caption is out of context.",
+    "validation_summary": "The image similarity score is low, suggesting the caption does not accurately represent the image content. Viewers might be misled about the specific context of the image."
+  },
+  "inference_time": 5.132164478302002,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

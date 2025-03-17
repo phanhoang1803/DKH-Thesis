@@ -1,0 +1,52 @@
+{
+  "caption": "A Florida man captured video Saturday of a massive shark eating a smaller shark near a pier in Jacksonville Fla",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Watch: Huge shark eats smaller shark off fishing line",
+        "content": "I t  s   a   d o g - e a t - d o g   w o r l d   o u t   t h e r e ,   o r   i n   t h i s   c a s e   s h a r k - e a t - s h a r k . \n \n A   F l o r i d a   m a n   c a p t u r e d   v i d e o   S a t u r d a y   o f   a   m a s s i v e   s h a r k   e a t i n g   a   s m a l l e r   s h a r k   n e a r   a   p i e r   i n   J a c k s o n v i l l e ,   F l a . \n \n I n   t h e   v i d e o ,   l i v e s t r e a m e d   o n   F a c e b o o k   b y   D a r r e l l   R u g e r ,   a   t w o - f o o t - l o n g   s h a r k   c a u g h t   o n   a   f i s h e r m a n  s   l i n e  s t r u g g l e s   t o   f r e e   i t s e l f . \n \n  L o o k   t h e r e  s   a   b i g g e r   s h a r k ,    s o m e o n e   s a y s   i n   t h e   b a c k g r o u n d .  \" H e  s   g o i n g   t o   e a t   t h a t   s h a r k ,    a n o t h e r   m a n   s a y s . \n \n S e c o n d s   l a t e r ,   a t   a b o u t   t h e   5 0 - s e c o n d   m a r k ,   t h e   l a r g e r   s h a r k   p o u n c e s   o n   t h e   s m a l l e r   s h a r k   a n d   t h e   t w o   s t r u g g l e   i n   t h e   w a t e r . \n \n T h e   v i d e o   e n d s   w i t h   s h o t s   o f   t h e   w a t e r   a n d   w e   a r e   a s s u m i n g   a   f u l l  s t o m a c h   f o r   t h e   l a r g e r   s h a r k . \n \n F o l l o w   @ M a r y B o w e r m a n   o n   T w i t t e r .",
+        "caption": "A Florida man captured video Saturday of a massive shark eating a smaller shark near a pier in Jacksonville, Fla.",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9696117639541626,
+        "text_similarity_score": 0.9948158860206604
+      },
+      {
+        "title": "Watch: Huge shark eats smaller shark off fishing line",
+        "content": "W a t c h :   H u g e   s h a r k   e a t s   s m a l l e r   s h a r k   o f f   f i s h i n g   l i n e",
+        "caption": "A Florida man captured video Saturday of a massive shark eating a smaller shark near a pier in Jacksonville, Fla.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9702668786048889,
+        "text_similarity_score": 0.9948158860206604
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both candidate captions are nearly identical to the news caption, with a very high text similarity score (0.9948158860206604) and image similarity scores (0.9696117639541626 and 0.9702668786048889) exceeding the threshold of 0.85. This strongly suggests that the news caption accurately describes the content of the image. Both candidates originate from the reputable domain www.usatoday.com, further increasing confidence in the match.",
+      "supporting_evidences": [
+        "Candidate 1: Caption and Image Similarity Scores indicate a strong match, Domain: www.usatoday.com",
+        "Candidate 2: Caption and Image Similarity Scores indicate a strong match, Domain: www.usatoday.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a scene at Jax pier, according to the overlaid text 'Live @ Jax pier.' The image displays a shark in the water, which aligns with the news caption's description of a shark near a pier in Jacksonville, Florida. However, the news caption specifically mentions that a 'massive shark' is eating a 'smaller shark.' While the image does show a shark, it doesn't explicitly depict the act of one shark eating another. This discrepancy indicates that the caption adds specific details (the eating event) that are not visually confirmed in the image, thus potentially misrepresenting the image content. Based on the image check result, the news caption accurately represents the content of the image. However, given that the image doesn't clearly show the act of one shark eating another, the caption contains details which cannot be visually confirmed. Therefore, the caption is somewhat misleading because it includes elements not directly visible in the image. Despite the strong confidence score provided by the image check, closer inspection reveals the caption adds information not explicitly present in the image.",
+    "validation_summary": "The image shows a shark in the water, which supports the general topic of the news caption. However, the caption includes specific details about the shark eating another shark which aren't visible in the image, potentially misleading viewers."
+  },
+  "inference_time": 6.609599828720093,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "caption": "Amanda Seyfried after the Les Miserables musical number",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Musician",
+      "Performance M"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Photos: Backstage and behind the scenes at the Oscars",
+        "content": "P h o t o s :   B a c k s t a g e   a n d   b e h i n d   t h e   s c e n e s   a t   t h e   O s c a r s",
+        "caption": "Amanda Seyfried after the 'Les Miserables' musical number.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3264607787132263,
+        "text_similarity_score": 0.9697455763816833
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is below 0.85, and the text similarity score is above 0.7. According to the instructions, I should immediately return \"False\".",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a woman with blonde hair wearing a gray jacket and a patterned hat, holding a large key. The caption states, \"Amanda Seyfried after the Les Miserables musical number\". The image similarity score is below 0.85, and the text similarity score is above 0.7. According to the instructions, I should immediately return \"False\". This indicates the image likely shows Amanda Seyfried, but not necessarily directly after a Les Miserables performance, as there is no clear context in the image to verify that claim, so the caption is misleading.",
+    "validation_summary": "The caption identifies the person as Amanda Seyfried, but the image provides no specific context related to Les Miserables, potentially misleading viewers. Because the image check result has a confidence score of 2, and the image similarity score is below 0.85, and the text similarity score is above 0.7, I must return 'False'."
+  },
+  "inference_time": 7.514171361923218,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

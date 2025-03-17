@@ -1,0 +1,40 @@
+{
+  "caption": "Two other Libyan army cadets stationed at Bassingbourn barracks in Cambridge have pleaded guilty to sex offences",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Photos: 1 dead in gate-crashing at Fort Meade - WTOP News",
+        "content": "W T O P   S t a f f \n \n M a r c h   3 0 ,   2 0 1 5 ,   1 1 : 3 8   A M \n \n W a i t i n g   t o   h e a r   f r o m   o f f i c i a l s   a b o u t   t h e   # n s a s h o o t i n g   a s   h e l i c o p t e r s   s w i r l   a b o v e   # w t o p \n \n A   p h o t o   p o s t e d   b y   D e n n i s   J .   F o l e y   ( @ d e n n i s j f o l e y )   o n   M a r   3 0 ,   2 0 1 5   a t   8 : 1 5 a m   P D T \n \n U p d a t e   f r o m   o f f i c i a l s   o n   # n s a s h o o t i n g   c o m i n g   s o o n   # w t o p \n \n A   p h o t o   p o s t e d   b y   D e n n i s   J .   F o l e y   ( @ d e n n i s j f o l e y )   o n   M a r   3 0 ,   2 0 1 5   a t   8 : 2 9 a m   P D T \n \n A   s e n i o r   U . S .   o f f i c i a l   s a y s   p r e l i m i n a r y   r e p o r t s   f r o m   t h e   s c e n e   a t   F o r t   M e a d e ,   M a r y l a n d ,   i n d i c a t e   o n e   p e r s o n   i s   d e a d   a f t e r   a   c a r   w i t h   t w o   p e o p l e   t r i e d   t o   r a m   a   g a t e   a t   t h e   b a s e ,   t h e   h o m e   t o   t h e   N a t i o n a l   S e c u r i t y   A g e n c y .",
+        "caption": "A Maryland State Police cruiser sits at a blocked southbound entrance on the Baltimore-Washington Parkway that accesses the National Security Agency, Monday, March 30, 2015, in Fort Meade, Md. A senior U.S. official says preliminary reports from the scene at Fort Meade indicate one person is dead after a car with two people tried to ram a gate at the base. The official says a firefight ensued after the car tried to crash the gate, and at least one of the two people in the car is dead. Fort Meade is home of the National Security Agency.  (AP Photo/Patrick Semansky)",
+        "domain": "wtop.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9418376684188843,
+        "text_similarity_score": 0.058264248073101044
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score (0.9418376684188843) is high, indicating that the images might match. However, the text similarity score (0.058264248073101044) is low, indicating that the captions do not match. Furthermore, the content of the candidate evidence is about a car ramming a gate at Fort Meade, which is completely unrelated to the news caption about Libyan army cadets pleading guilty to sex offenses. Therefore, the candidate evidence does not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a road with a sign for the NSA and a police car. The caption discusses Libyan army cadets pleading guilty to sex offenses. There is no correlation between the image and the caption; the image does not depict anything related to Libyan army cadets or sex offenses. The image check result provides strong evidence for this determination, with a high image similarity score but a low text similarity score. The image check explicitly states that the content of the candidate evidence is completely unrelated to the news caption. Therefore, the image is out of context.",
+    "validation_summary": "The image shows a road with a sign for the NSA and a police car, while the caption discusses Libyan army cadets, making the image out of context and misleading to viewers about the news story's subject matter. The image check results further confirm this finding."
+  },
+  "inference_time": 8.927247285842896,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

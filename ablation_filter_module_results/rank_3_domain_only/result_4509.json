@@ -1,0 +1,38 @@
+{
+  "caption": "Former governor of Maryland and Democratic presidential candidate Martin O Malley",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Martin OMalley, Ex-Maryland Governor, Kicks Off Race to Lead D.N.C. - The New York Times",
+        "content": "M a r t i n   O ' M a l l e y ,   E x - M a r y l a n d   G o v e r n o r ,   K i c k s   O f f   R a c e   t o   L e a d   . . .",
+        "caption": "A picture of Martin OMalley during a Senate hearing.",
+        "domain": "www.nytimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0, which is below the threshold. The available candidate does not directly confirm that Martin O'Malley was a former governor of Maryland or a Democratic presidential candidate. The candidate only mentions him in a Senate hearing, which does not confirm the specific details in the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows Martin O'Malley, but there is no way to visually confirm that he is a former governor of Maryland or a Democratic presidential candidate from the image alone. The image check confirms that the caption similarity score is 0.0, which is below the threshold. The supporting evidence does not confirm the specific details in the news caption, stating that the candidate only mentions him in a Senate hearing. Therefore, I cannot definitively confirm the accuracy of the caption based on the image content and the image check result. The image itself doesn't show any indication of his political roles or affiliations.",
+    "validation_summary": "The caption states Martin O'Malley's political roles, but the image solely depicts him, offering no visual verification of his former position as a governor or his status as a presidential candidate, making the caption potentially misleading. The image check result further supports the conclusion that the caption's claim cannot be verified from the image."
+  },
+  "inference_time": 3.6350109577178955,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

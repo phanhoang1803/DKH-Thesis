@@ -1,0 +1,51 @@
+{
+  "caption": "Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond Calif",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Smoke m"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Firefighters battle California wildfires",
+        "content": "F i r e f i g h t e r s   b a t t l e   C a l i f o r n i a   w i l d f i r e s",
+        "caption": "Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond, Calif.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3492710590362549,
+        "text_similarity_score": 0.9849346280097961
+      },
+      {
+        "title": "Firefighters battle California wildfires",
+        "content": "F i r e f i g h t e r s   b a t t l e   C a l i f o r n i a   w i l d f i r e s",
+        "caption": "Cal Fire strike crews battle the King fire in El Dorado County near Fresh Pond, Calif.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.33234941959381104,
+        "text_similarity_score": 0.9849346280097961
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidates have a low image similarity score (< 0.85) and a high text similarity score (>= 0.7). According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Thus, the verdict is \"False\".",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image similarity score (< 0.85) and a high text similarity score (>= 0.7). According to the instructions, when the image similarity score is below 0.85, the caption must be marked as out-of-context. The image shows a fire in a hilly, residential area, with a helicopter dropping red retardant. The caption references the \"King Fire in El Dorado County near Fresh Pond Calif\". Although the text mentions the fire and the location, the low image similarity score suggests that the image is not directly representative of the event described in the caption. Therefore, the image is out of context.",
+    "validation_summary": "The image does not accurately depict the specific event described in the caption due to the low image similarity score, making it out of context. Viewers would be misled into thinking this image directly relates to the King Fire."
+  },
+  "inference_time": 4.647416353225708,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "caption": "In 18th place Ford Explorer",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Car",
+      "Road",
+      "Dirt road",
+      "Tree"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Pickups rule!: Top 20 best-selling new vehicles in June",
+        "content": "P i c k u p s   r u l e ! :   T o p   2 0   b e s t - s e l l i n g   n e w   v e h i c l e s   i n   J u n e",
+        "caption": "in 18th place, Ford Explorer",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.24096035957336426,
+        "text_similarity_score": 0.9845162034034729
+      },
+      {
+        "title": "Here's the 20 hottest-selling vehicles in July",
+        "content": "H e r e ' s   t h e   2 0   h o t t e s t - s e l l i n g   v e h i c l e s   i n   J u l y",
+        "caption": "In 18th place, Ford Explorer",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.24018093943595886,
+        "text_similarity_score": 0.9845162034034729
+      },
+      {
+        "title": "Detroit's pickups rule Top 20 best-sellers in September",
+        "content": "D e t r o i t ' s   p i c k u p s   r u l e   T o p   2 0   b e s t - s e l l e r s   i n   S e p t e m b e r",
+        "caption": "In 18th place, Ford Explorer",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.23749466240406036,
+        "text_similarity_score": 0.9845162034034729
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are all below 0.85. Therefore, even though the caption similarity scores are high (>= 0.7), the images provided in the evidence do not match the image the caption is describing. This lack of visual confirmation means that the caption is out-of-context, and I cannot confirm the accuracy of the news caption based on the provided evidence. The candidate captions are very similar to the news caption, but the corresponding images are not, so the final verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a flooded road in a wooded area, as viewed from inside a vehicle. The caption \"In 18th place Ford Explorer\" does not match the image content. There is no indication of a Ford Explorer or any vehicle sales information in the image. The image check result confirms this mismatch with a confidence score of 2 and a verdict of false. Therefore, the caption is out of context.",
+    "validation_summary": "The caption does not accurately represent the image, as it refers to a Ford Explorer's ranking while the image shows a flooded road. Viewers would be misled about the image's content."
+  },
+  "inference_time": 8.820719242095947,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

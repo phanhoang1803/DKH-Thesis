@@ -1,0 +1,63 @@
+{
+  "caption": "Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond Calif",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "El Dorado Fire",
+      "Fire",
+      "King Fire",
+      "El Dorado County",
+      "California Department of Forestry and Fire Protection",
+      "Fire retardant",
+      "Stock photography",
+      "National Interagency Fire Center",
+      "Photography",
+      "Photograph"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "King Fire - September 2014 - AZCentral",
+        "content": "",
+        "caption": "Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond, Calif. on Sept. 17, 2014.",
+        "domain": "www.azcentral.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9066992998123169,
+        "text_similarity_score": 0.9787814021110535
+      },
+      {
+        "title": "Firefighters battle California wildfires",
+        "content": "F i r e f i g h t e r s   b a t t l e   C a l i f o r n i a   w i l d f i r e s",
+        "caption": "Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond, Calif.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9100207686424255,
+        "text_similarity_score": 0.9849346280097961
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both candidate captions are highly similar to the news caption, with text similarity scores of 0.978 and 0.984 respectively. The image similarity scores are also very high, at 0.906 and 0.910 respectively. Both candidates explicitly mention 'Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond, Calif.', which is exactly what the news caption states. This confirms that the news caption accurately represents the image content.",
+      "supporting_evidences": [
+        "Candidate 1: Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond, Calif. on Sept. 17, 2014.",
+        "Candidate 2: Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond, Calif."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high level of confidence (10) and strong supporting evidence that the news caption accurately represents the image content. The text similarity scores between the news caption and the candidate captions are very high (0.978 and 0.984), as are the image similarity scores (0.906 and 0.910). The candidate captions explicitly mention 'Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond, Calif.', which matches the news caption. Therefore, based on the image check result, the caption is a correct representative summary of the image content.",
+    "validation_summary": "The image check confirms the caption accurately describes the image content, showing Cal Fire strike crews battling the King Fire in El Dorado County, so viewers would not be misled. The high confidence score and supporting evidence further support this conclusion."
+  },
+  "inference_time": 8.746940851211548,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

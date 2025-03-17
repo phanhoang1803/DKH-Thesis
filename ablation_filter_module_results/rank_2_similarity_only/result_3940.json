@@ -1,0 +1,51 @@
+{
+  "caption": "Miss Rhode Island Ivy DePew in the Miss America competition The state may have to pay the piper for its investment in hedge funds",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "United States",
+      "Western concert flute",
+      "Flute",
+      "Russia",
+      "Bansuri",
+      "Flutist",
+      "Piccolo",
+      "Concert"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Do state retirement pensions belong with Wall Street hedge funds? | US personal finance | The Guardian",
+        "content": "D o   s t a t e   r e t i r e m e n t   p e n s i o n s   b e l o n g   w i t h   W a l l   S t r e e t   h e d g e   f u n d s   . . .",
+        "caption": "Miss Rhode Island Ivy DePew in the Miss America competition. The state may have to pay the piper for its investment in hedge funds.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9958415627479553,
+        "text_similarity_score": 0.9558480978012085
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate evidence has a high image similarity score (0.9958415627479553) and a high text similarity score (0.9558480978012085). This indicates that the candidate image is very similar to the news image, and the caption of the candidate evidence is also very similar to the news caption. Therefore, the candidate evidence strongly supports the claim that the caption accurately represents the image.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.9958415627479553, Caption Similarity Score: 0.9558480978012085, Caption: Miss Rhode Island Ivy DePew in the Miss America competition. The state may have to pay the piper for its investment in hedge funds."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result shows a high confidence score (10) and indicates that the caption accurately represents the image. However, the news content primarily discusses Rhode Island's financial issues and investments in hedge funds. While the caption mentions Miss Rhode Island and the state potentially 'paying the piper' for its hedge fund investments, the image of Miss Rhode Island playing a flute does not directly relate to the complex financial matters discussed in the news content. The connection is metaphorical and could mislead viewers into thinking the image is directly related to the financial crisis, rather than illustrating the literal financial problems and political decisions in Rhode Island.",
+    "validation_summary": "While the caption technically mentions Miss Rhode Island, using her image in the context of a financial article is misleading as it does not visually represent the discussed topics and could be misinterpreted by viewers about what they're seeing in the image. The image check results confirms the caption, but the disconnect from the actual article makes it out of context, and therefore, the caption does not provide a correct representative summary of the image content."
+  },
+  "inference_time": 6.535385847091675,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "caption": "A BMW became submerged in the Staffordshire and Worcestershire Canal",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Cookley crashed car submerged in canal - BBC News",
+        "content": "A   B M W   b e c a m e   s u b m e r g e d   i n   t h e   S t a f f o r d s h i r e   a n d   W o r c e s t e r s h i r e   C a n a l \n \n A   c r a s h e d   c a r   b e c a m e   s u b m e r g e d   i n   a   c a n a l   w h i l e   t h e   d r i v e r   m a d e   a   l u c k y   e s c a p e ,   p o l i c e   s a i d . \n \n T h e   w h i t e   B M W   m a d e   a   s p l a s h   i n   t h e   S t a f f o r d s h i r e   a n d   W o r c e s t e r s h i r e   C a n a l   n e a r   L e a   L a n e   i n   C o o k l e y   s h o r t l y   a f t e r   1 4 : 3 0   B S T . \n \n T h e   d r i v e r ,   a   m a n   i n   h i s   2 0 s ,   w a s   o n   d r y   l a n d   w h e n   e m e r g e n c y   s e r v i c e s   a r r i v e d   a t   t h e   s c e n e . \n \n F i r e   c r e w s   h e l p e d   r e c o v e r   t h e   c a r   a n d   n o   o n e   w a s   a r r e s t e d .   P o l i c e   a r e   a p p e a l i n g   f o r   w i t n e s s e s . \n \n H e r e f o r d   a n d   W o r c e s t e r   f i r e f i g h t e r s   h e l p e d   r e c o v e r   t h e   B M W   f r o m   t h e   S t a f f o r d s h i r e   a n d   W o r c e s t e r s h i r e   C a n a l \n \n H e r e f o r d   &   W o r c e s t e r   F i r e   a n d   R e s c u e   S e r v i c e \n \n W e s t   M e r c i a   P o l i c e \n \n W e s t   M i d l a n d s   A m b u l a n c e   S e r v i c e",
+        "caption": "A BMW became submerged in the Staffordshire and Worcestershire Canal",
+        "domain": "www.bbc.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9999998807907104,
+        "text_similarity_score": 1.0
+      },
+      {
+        "title": "Cookley crashed car submerged in canal - BBC News",
+        "content": "C o o k l e y   c r a s h e d   c a r   s u b m e r g e d   i n   c a n a l   -   B B C   N e w s",
+        "caption": "A BMW became submerged in the Staffordshire and Worcestershire Canal",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9999998807907104,
+        "text_similarity_score": 1.0
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both candidate evidences have a perfect image similarity score (0.9999998807907104) and a perfect caption similarity score (1.0). They both come from the domain 'www.bbc.com'. This strongly indicates that the caption accurately represents the image.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.9999998807907104, Caption Similarity Score: 1.0, Domain: www.bbc.com",
+        "Candidate 2: Image Similarity Score: 0.9999998807907104, Caption Similarity Score: 1.0, Domain: www.bbc.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image shows a car submerged in a canal. The caption states that a BMW became submerged in the Staffordshire and Worcestershire Canal. The image check result confirms a high degree of similarity between the image and corroborating sources, indicating the caption accurately represents the image content. Therefore, the image is not out of context.",
+    "validation_summary": "The caption accurately describes the image of a car submerged in a canal, so viewers would not be misled about the image content. The image check result supports this conclusion."
+  },
+  "inference_time": 6.320740461349487,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

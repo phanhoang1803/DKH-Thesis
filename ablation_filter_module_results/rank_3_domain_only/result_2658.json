@@ -1,0 +1,38 @@
+{
+  "caption": "Group G Cristiano Ronaldo reacts during Portugal s loss to Germany",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "U.S. fans happy despite loss to Germany | CNN",
+        "content": "U . S .   f a n s   h a p p y   d e s p i t e   l o s s   t o   G e r m a n y   |   C N N",
+        "caption": "Fans watch from Dupont Circle in Washington.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, I must decide based on the content of the candidates. However, the candidate captions do not mention the entities in the news caption such as Cristiano Ronaldo, Portugal, or Germany. Therefore, there is not enough information to determine if the news caption is accurate.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates low similarity scores between the image and the news caption. The image shows Cristiano Ronaldo with his eyes closed, wearing a Portugal jersey, and a blurry background. The news caption says 'Group G Cristiano Ronaldo reacts during Portugal s loss to Germany'. The news content is about Luis Suarez biting Giorgio Chiellini. The image check result has a confidence score of 1. Since the confidence score is at least 7, the final determination must be based on the image check result. Therefore, the image is out of context since the caption is not an accurate representation of what is depicted in the image.",
+    "validation_summary": "The image depicts Cristiano Ronaldo looking distressed, but the caption provides a specific context of a loss to Germany, which is not verifiable from the image alone. Therefore, using this image with the caption could mislead viewers if the image does not actually relate to the described event."
+  },
+  "inference_time": 3.700411319732666,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "caption": "Serena Williams serves to Carla Suarez Navarro",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Racketlon",
+      "Tennis",
+      "Racket",
+      "Soft tennis",
+      "Tennis player",
+      "Performance M"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Serena Williams dominating winner in U.S. Open quarterfinals - Los Angeles Times",
+        "content": "S e r e n a   W i l l i a m s   d o m i n a t i n g   w i n n e r   i n   U . S .   O p e n   q u a r t e r f i n a l s   -   L o s   . . .",
+        "caption": "Serena Williams serves during her quarterfinal victory over Carl Suarez Navarro at the U.S. Open on Tuesday.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7996447086334229,
+        "text_similarity_score": 0.8266542553901672
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "The news caption \"Serena Williams serves to Carla Suarez Navarro\" is assessed using a candidate evidence. The image similarity score is 0.7996447086334229 and the text similarity score is 0.8266542553901672. Since the image similarity score is less than 0.85, according to the instructions, the caption should be marked as out-of-context. However, the candidate's caption mentions \"Serena Williams serves during her quarterfinal victory over Carl Suarez Navarro at the U.S. Open on Tuesday\", which strongly supports that the news caption is likely accurately describing a scene where Serena Williams is serving to Carla Suarez Navarro. Considering the high text similarity and the context provided in the candidate caption, it's reasonable to conclude that the news caption is in context, even though the image similarity is not high enough to automatically confirm it.",
+      "supporting_evidences": [
+        "Candidate caption: Serena Williams serves during her quarterfinal victory over Carl Suarez Navarro at the U.S. Open on Tuesday.",
+        "Text Similarity Score: 0.8266542553901672"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 9,
+    "explanation": "The image shows Serena Williams serving, which aligns with the caption \"Serena Williams serves to Carla Suarez Navarro.\" The image check result also confirms the caption's accuracy, with a confidence score of 9. The candidate caption mentions Serena Williams serving during her quarterfinal victory over Carl Suarez Navarro, which further supports that the news caption accurately describes a scene where Serena Williams is serving to Carla Suarez Navarro.",
+    "validation_summary": "The image shows Serena Williams serving, which is accurately described by the caption. The image check result also supports that the caption is not out of context."
+  },
+  "inference_time": 5.008782863616943,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

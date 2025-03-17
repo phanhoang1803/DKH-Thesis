@@ -1,0 +1,44 @@
+{
+  "caption": "Devyani Khobragade India s deputy consul general in New York",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Indian diplomat charged with visa fraud, ordered to leave US",
+        "content": "I n d i a n   d i p l o m a t   c h a r g e d   w i t h   v i s a   f r a u d ,   o r d e r e d   t o   l e a v e   U S",
+        "caption": "Devyani Khobragade, who was Indian's deputy consul in New York when she was arrested, has left the U.S.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.25416210293769836,
+        "text_similarity_score": 0.7271511554718018
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score (0.25) is low, indicating that the candidate image does not closely match the news image. However, the text similarity score (0.72) is high, suggesting a strong similarity between the candidate caption and the news caption. Despite the high text similarity, the low image similarity overrides this, leading to an out-of-context determination. The candidate caption mentions Devyani Khobragade being India's deputy consul in New York and leaving the U.S., which aligns with the news caption's identification of her role. However, without visual confirmation from the images matching, it's difficult to confirm the context of the news image is being represented accurately by the candidate.",
+      "supporting_evidences": [
+        "Candidate 1 Caption: Devyani Khobragade, who was Indian's deputy consul in New York when she was arrested, has left the U.S.",
+        "Candidate 1 Image Similarity Score: 0.25416210293769836",
+        "Candidate 1 Caption Similarity Score: 0.7271511554718018"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low image similarity score of 0.25 and a high text similarity score of 0.72. Given the image check result and a confidence score of 7, it is determined that the caption is out of context. The low image similarity overrides the text similarity, suggesting that the candidate image does not closely match the provided news image. Therefore, the caption does not accurately represent the image's content.",
+    "validation_summary": "The image check result indicates a mismatch between the image and the caption, suggesting the provided caption does not accurately represent the image's content. Viewers might be misled about the image's context based on the given caption alone because of the low image similarity between the news image and the candidate image analyzed by the image check result, overriding the high text similarity."
+  },
+  "inference_time": 4.7179412841796875,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

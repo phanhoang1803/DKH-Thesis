@@ -1,0 +1,42 @@
+{
+  "caption": "Amanda Seyfried after the Les Miserables musical number",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Musician",
+      "Performance M"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Photos: Backstage and behind the scenes at the Oscars",
+        "content": "P h o t o s :   B a c k s t a g e   a n d   b e h i n d   t h e   s c e n e s   a t   t h e   O s c a r s",
+        "caption": "Amanda Seyfried after the 'Les Miserables' musical number.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Photos: Backstage and behind the scenes at the Oscars",
+        "content": "P h o t o s :   B a c k s t a g e   a n d   b e h i n d   t h e   s c e n e s   a t   t h e   O s c a r s",
+        "caption": "Dancers and singers take the stage during the 'Les Miserables' performance.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are all 0.0 which means the images in the candidates do not match the image in the news. Also, the caption similarity scores are all 0.0 which means the captions in the candidates do not match the caption in the news. Therefore, based on the candidates, I cannot determine if the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low confidence score (2) because the candidate images and captions do not match the provided image and caption. Therefore, further analysis is required. The image shows a woman with blonde hair and a patterned head covering, holding a large key. She appears to be wearing a gray jacket with lace detailing. The caption states \"Amanda Seyfried after the Les Miserables musical number.\" Without additional context, it's impossible to confirm if the woman in the image is indeed Amanda Seyfried or if the setting relates to Les Miserables. However, the image check result indicating no similarity between candidate images of Amanda Seyfried and the current image, leads to determination that the caption is out of context. Considering the woman is holding a key, it does not indicate it is associated with the musical number, and the picture does not have any indication of a musical setting. Therefore, the caption is misleading.",
+    "validation_summary": "The image does not appear to show Amanda Seyfried after a Les Miserables musical number, making the caption misleading and out of context. The image check result indicates no similarity between the original image and the candidates related to the news caption, confirming the mismatch."
+  },
+  "inference_time": 4.270972967147827,
+  "ablation_type": "no_filters"
+}

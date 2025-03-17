@@ -1,0 +1,38 @@
+{
+  "caption": "View Photo Gallery About half of the country was left in the dark as electrical grids mysteriously collapsed in 14 states in the north and east of India",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Science Archives - Page 2 of 2 - The Atavist Magazine",
+        "content": "S c i e n c e   A r c h i v e s   -   P a g e   2   o f   2   -   T h e   A t a v i s t   M a g a z i n e",
+        "caption": "A recording of 52 Blue, sped up for audibility.",
+        "domain": "magazine.atavist.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption talks about 'A recording of 52 Blue' which is unrelated to the news caption about electrical grids collapsing in India. Therefore, the candidate does not provide evidence to support that the news caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts several people, including women and children, seated inside what appears to be a train or bus. They are looking out of the window. The news caption discusses a power blackout affecting 14 states in north and east India due to electrical grid collapses. The image check result indicates a very low similarity between the image and caption's content. The image gives no indication of a power blackout or electrical grid issues. Therefore, the caption does not accurately represent the image.",
+    "validation_summary": "The image shows people on a train, whereas the caption discusses a power outage. Viewers would be misled into believing the image is related to the power outage when it is not based on the image content alone, which shows people on a train or bus."
+  },
+  "inference_time": 6.289371728897095,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

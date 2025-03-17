@@ -1,0 +1,58 @@
+{
+  "caption": "Game 5 in Washington Nationals third baseman Anthony Rendon catches a fly ball hit by Dodgers shortstop Corey Seager during the sixth inning",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Baseball",
+      "College baseball",
+      "Pitcher",
+      "Higher Education School",
+      "Ballpark"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Stephen Strasburg lifts Nationals past Dodgers to tie NLDS - Los Angeles Times",
+        "content": "S t e p h e n   S t r a s b u r g   l i f t s   N a t i o n a l s   p a s t   D o d g e r s   t o   t i e   N L D S   -   L o s   . . .",
+        "caption": "The Nationals' Stephen Strasburg delivers a pitch in Game 2 of the NLDS against the Dodgers on Oct. 4, 2019.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Dodgers' 4-3 win over Nationals in NLDS opener is a group effort - Los Angeles Times",
+        "content": "D o d g e r s '   4 - 3   w i n   o v e r   N a t i o n a l s   i n   N L D S   o p e n e r   i s   a   g r o u p   e f f o r t   . . .",
+        "caption": "Dodgers shortstop Corey Seager follows through after hitting a home run against Washington in Game 1 of the NLDS on Friday at Nationals Park.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Clayton Kershaw falters early as Dodgers lose Game 2 of NLDS - Los Angeles Times",
+        "content": "C l a y t o n   K e r s h a w   f a l t e r s   e a r l y   a s   D o d g e r s   l o s e   G a m e   2   o f   N L D S   -   L o s   . . .",
+        "caption": "Dodgers starting pitcher Clayton Kershaw gathers himself during the first inning in Game 2 of the NLDS against the Washington Nationals.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores for all candidates are 0.0, which indicates that none of the candidate images match the news image. Additionally, the text similarity scores are also 0.0, meaning the captions do not match. None of the candidate captions contain information related to Anthony Rendon catching a fly ball during Game 5 or the Dodgers' Corey Seager hitting the ball. Therefore, there is no evidence to support that the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 10 and indicates the caption does not accurately represent the image. The caption claims the image is of Anthony Rendon catching a fly ball during Game 5, but the image check result does not find any supporting evidence. Therefore, the caption is out of context.",
+    "validation_summary": "The caption is misleading as it describes a specific baseball game scenario not depicted in the image, leading viewers to believe they are seeing something they are not. The image check confirms the mismatch between the caption and the image content."
+  },
+  "inference_time": 3.3968913555145264,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "caption": "Mayim Bialik in The Big Bang Theory with Jim Parsons",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "TV star Jim Parsons shines light on NIH research | NIH MedlinePlus Magazine",
+        "content": "T V   s t a r   J i m   P a r s o n s   s h i n e s   l i g h t   o n   N I H   r e s e a r c h   |   N I H   M e d l i n e P l u s   . . .",
+        "caption": "Mayim Bialik and Jim Parsons on the set of \"The Big Bang Theory.\" ",
+        "domain": "magazine.medlineplus.gov",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.34902098774909973,
+        "text_similarity_score": 0.8585891127586365
+      },
+      {
+        "title": "Mayim Bialik's The Big Bang Theory Return Comments Repeat Why The Show Ended In The First Place",
+        "content": "M a y i m   B i a l i k ' s   T h e   B i g   B a n g   T h e o r y   R e t u r n   C o m m e n t s   R e p e a t   W h y   T h e   . . .",
+        "caption": "Mayim Bialik's Amy kisses Jim Parsons' Sheldon on the couch from The Big Bang Theory",
+        "domain": "screenrant.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.31431493163108826,
+        "text_similarity_score": 0.791974663734436
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are below 0.85, indicating that the images do not closely match the news image. Although the text similarity scores are above 0.7, according to the rule, a low image similarity score automatically results in a 'False' verdict. Without a high image similarity, the textual similarity is not sufficient to confirm that the candidates accurately represent the image described in the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a low image similarity score and a high text similarity score, ultimately resulting in a 'False' verdict. Therefore, the caption does not accurately represent the image. In the image, Mayim Bialik and Jim Parsons stand near a whiteboard with a tic-tac-toe grid on it. This scene is not adequately captured or contextualized by the caption alone, as it doesn't provide enough detail about the visual content and the situation depicted.",
+    "validation_summary": "The caption is misleading because it only mentions the actors and the show without providing any context about the scene depicted in the image. The image shows the actors next to a tic-tac-toe game on a whiteboard, which is not reflected in the caption."
+  },
+  "inference_time": 4.6239025592803955,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,52 @@
+{
+  "caption": "Christopher Canales plays with a squirt gun outside of his home that was damaged by falling trees in Henderson Texas",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Pond pine",
+      "Mexican pinyon",
+      "Oregon",
+      "Pinyon pine",
+      "Douglas fir",
+      "Pine"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Severe storms pound Texas",
+        "content": "S e v e r e   s t o r m s   p o u n d   T e x a s",
+        "caption": "Wilber Albarenga, left, and Alfredo Chavez, pump water from the United Orthodox Synagogues of Houston, which suffered extensive damage by flooding from a recent storm Wednesday, May 27, 2015, in Houston. More rain fell on the hard-hit Houston area, threatening to complicate the cleanup a day after a downpour of nearly a foot triggered some of the worst flooding Houston has ever seen. (Gary Coronado/Houston Chronicle via AP) ORG XMIT: TXHOU104",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "True Crime Archives - The Atavist Magazine",
+        "content": "T r u e   C r i m e   A r c h i v e s   -   T h e   A t a v i s t   M a g a z i n e",
+        "caption": "Dave Riess",
+        "domain": "magazine.atavist.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores are both 0.0, indicating that the candidate images do not resemble the news image. Additionally, the text similarity scores are both 0.0, meaning the captions of the candidates are not similar to the news caption. Neither candidate provides information about Christopher Canales, Henderson Texas, or damage from falling trees. Therefore, based on the provided evidence, it is impossible to verify the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence level (10) and a verdict of False, meaning the caption does not accurately represent the image. The supporting evidence shows that the image similarity scores are 0.0, captions of the candidate images are not similar, and there is no information about Christopher Canales, Henderson Texas, or damage from falling trees. Based on this, the image is out of context.",
+    "validation_summary": "The caption claims the image shows Christopher Canales playing outside his home damaged by falling trees in Henderson Texas, but the image check found no evidence to support this, meaning viewers would be misled about the image's content and location. Therefore, the image is out of context."
+  },
+  "inference_time": 3.816112995147705,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

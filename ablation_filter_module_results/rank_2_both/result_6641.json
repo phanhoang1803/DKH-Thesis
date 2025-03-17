@@ -1,0 +1,40 @@
+{
+  "caption": "British singer Duffy was the star of last night s Brits scooping three awards",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "TV ratings: Duffy's Brits triumph pulls 5.2m viewers | Brit awards 2009 | The Guardian",
+        "content": "T V   r a t i n g s :   D u f f y ' s   B r i t s   t r i u m p h   p u l l s   5 . 2 m   v i e w e r s   |   B r i t   a w a r d s   . . .",
+        "caption": "British singer Duffy was the star of last night's Brits, scooping three awards. Photograph: Luke Macgregor/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.20459850132465363,
+        "text_similarity_score": 0.9155631065368652
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.20459850132465363 and the text similarity score is 0.9155631065368652. Since the image similarity score is less than 0.85, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image and the caption are out of context. The image similarity score is low (0.20459850132465363) and the text similarity score is 0.9155631065368652. The image shows a man and a woman singing, with the man playing guitar. The caption mentions Duffy winning an award. This has nothing to do with the content of the image. Therefore, the image is out of context.",
+    "validation_summary": "The caption refers to British singer Duffy winning an award, while the image shows two singers performing on stage, unrelated to Duffy or any award ceremony, misleading viewers about the image's content. The image and caption are entirely unrelated and create a false association."
+  },
+  "inference_time": 3.7095301151275635,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

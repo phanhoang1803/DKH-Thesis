@@ -1,0 +1,43 @@
+{
+  "caption": "Tucson US A supporter holds up a cowboy hat at a rally where Sarah Palin campaigned to support John McCain in his Senate reelection bid",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "United States",
+      "Iowa Caucus",
+      "Politics",
+      "Immigration",
+      "Reuters",
+      "other",
+      "settled"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 10,
+      "explanation": "The caption describes a political rally featuring Sarah Palin supporting John McCain, with a supporter holding a cowboy hat. However, the image context describes a man wearing a straw hat with a political button expressing discontent ('We the People are Mad as Hell') at a rally in an urban setting. There is a significant mismatch between the caption's description of a specific political event and the image's depiction of a more generic protest or expression of political dissatisfaction. The caption does not align with the image content.",
+      "supporting_evidences": [
+        "The caption mentions Sarah Palin and John McCain, who are not identifiable in the context.",
+        "The caption specifies a 'cowboy hat,' while the context describes a 'straw hat' with a political button.",
+        "The caption alludes to a specific political campaign event, whereas the context indicates a general political gathering or protest.",
+        "The political sentiment is different between the caption and the image context."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "A man wearing a straw hat with a political button that reads \"We the People are Mad as Hell\".",
+      "context": "The image shows a man wearing a straw hat adorned with a button that reads \"We the People are Mad as Hell.\" The setting appears to be a rally or gathering, possibly related to political activism, given the slogan on the button. The background shows other people and what appears to be industrial cranes or structures, suggesting an urban or port-related environment. The man's expression seems serious, aligning with the sentiment expressed on the button. The photo captures a moment of political expression.",
+      "information": "The image features a man in the foreground wearing a straw hat with a political button. The button's slogan, \"We the People are Mad as Hell,\" conveys a sense of political dissatisfaction or protest. The background includes other individuals and industrial structures, suggesting a rally or public gathering in an urban or port-side setting. The overall composition suggests a moment of political expression or activism."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a mismatch between the caption and the image content. The caption describes a rally with Sarah Palin supporting John McCain, featuring a supporter in a cowboy hat. However, the image shows a person in a straw hat with a button that says, \"We the People are MAD as HELL,\" at what appears to be an urban protest, or general political gathering. Given the high confidence score, the caption is misleading because it provides details about specific people not evident in the photo, and inaccurately represents the sentiment expressed in the image.",
+    "validation_summary": "The caption is misleading because it ascribes the image to a specific political event that is not verifiable from the image itself, and misrepresents the political sentiment being conveyed. The image depicts a general protest, while the caption implies support for specific politicians at a campaign rally."
+  },
+  "inference_time": 7.514054775238037,
+  "ablation_type": "no_image_evidences"
+}

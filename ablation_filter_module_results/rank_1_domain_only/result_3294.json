@@ -1,0 +1,38 @@
+{
+  "caption": "Donald Trump during Wednesday night s debate in Las Vegas",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Fact Check & Analysis Of Third 2016 Presidential Debate With Hillary Clinton And Donald Trump : NPR",
+        "content": "F a c t   C h e c k   &   A n a l y s i s   O f   T h i r d   2 0 1 6   P r e s i d e n t i a l   D e b a t e   W i t h   . . .",
+        "caption": "Hillary Clinton and Donald Trump debate for the final time Wednesday night.",
+        "domain": "www.npr.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. This means the images in the candidate and the image in the news do not match, and the captions in the candidate and the caption in the news do not match. The candidate caption mentions 'Hillary Clinton and Donald Trump debate for the final time Wednesday night'. Although it shares 'Donald Trump debate Wednesday night' with the news caption 'Donald Trump during Wednesday night s debate in Las Vegas', it does not explicitly confirm the specific location 'Las Vegas' which is crucial to the news caption. Therefore, without confirmation of the specific location and the low similarity scores, I can't confirm the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result has a confidence score of 2. However, because the image check result indicates that the images and captions do not match, and the location is not explicitly confirmed, I am overriding the initial image check result. The news caption states, 'Donald Trump during Wednesday night s debate in Las Vegas'. The image depicts Donald Trump at a podium, speaking into a microphone and pointing. While it is plausible this occurred during a debate, the image alone does not confirm the specific location of 'Las Vegas'. Without visual confirmation of the location, the caption provides information that is not verifiable from the image alone. Therefore, the caption is considered out of context.",
+    "validation_summary": "The caption mentions a specific location, 'Las Vegas,' which is not verifiable from the image itself, making the caption potentially misleading. Viewers might assume the location is confirmed by the image when it is not."
+  },
+  "inference_time": 19.82631540298462,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

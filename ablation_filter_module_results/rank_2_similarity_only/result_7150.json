@@ -1,0 +1,63 @@
+{
+  "caption": "Ohio State Buckeyes quarterback Braxton Miller throws a pass against the Michigan State Spartans during the Big Ten Championship game at Lucas Oil Stadium",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Eight-man football",
+      "Six-man football",
+      "American football",
+      "Canadian football",
+      "Arena football",
+      "Kick american football",
+      "Canada",
+      "Sprint football",
+      "Gridiron football",
+      "Team"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Big Ten championship game: Ohio State vs. Michigan State",
+        "content": "B i g   T e n   c h a m p i o n s h i p   g a m e :   O h i o   S t a t e   v s .   M i c h i g a n   S t a t e",
+        "caption": "Ohio State Buckeyes quarterback Braxton Miller throws a pass against the Michigan State Spartans during the Big Ten Championship game at Lucas Oil Stadium.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9649133086204529,
+        "text_similarity_score": 0.9790985584259033
+      },
+      {
+        "title": "Miller out for the season - Jamestown Sun | News, weather, sports from Jamestown North Dakota",
+        "content": "M i l l e r   o u t   f o r   t h e   s e a s o n   -   J a m e s t o w n   S u n   |   N e w s ,   w e a t h e r ,   s p o r t s   . . .",
+        "caption": "Ohio State Buckeyes quarterback Braxton Miller (5) throws a pass during the third quarter of the 2013 Big 10 Championship game against the Michigan State Spartans at Lucas Oil Stadium in Indianapolis last December. USA Today Sports photo",
+        "domain": "www.jamestownsun.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8843529224395752,
+        "text_similarity_score": 0.9232121706008911
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both candidates have high image similarity scores (above 0.85) and high text similarity scores (above 0.7). Candidate 1 has an image similarity score of 0.9649133086204529 and a caption similarity score of 0.9790985584259033. Candidate 2 has an image similarity score of 0.8843529224395752 and a caption similarity score of 0.9232121706008911. This indicates that the captions and images are highly similar to the news image and caption. Both candidates mention Ohio State Buckeyes quarterback Braxton Miller throwing a pass against the Michigan State Spartans during the Big Ten Championship game at Lucas Oil Stadium, which is exactly what the news caption describes. Therefore, the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "Ohio State Buckeyes quarterback Braxton Miller throws a pass against the Michigan State Spartans during the Big Ten Championship game at Lucas Oil Stadium.",
+        "Ohio State Buckeyes quarterback Braxton Miller (5) throws a pass during the third quarter of the 2013 Big 10 Championship game against the Michigan State Spartans at Lucas Oil Stadium in Indianapolis last December."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result confirms that the caption accurately describes the image. The image shows Ohio State Buckeyes quarterback Braxton Miller throwing a pass against the Michigan State Spartans during the Big Ten Championship game at Lucas Oil Stadium. The supporting evidences from the image check clearly validate the caption, with high image and text similarity scores.",
+    "validation_summary": "The caption correctly identifies the players, teams, and event depicted in the image, so viewers would not be misled about the image content. The high confidence score from the image check further supports this conclusion."
+  },
+  "inference_time": 5.843494653701782,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

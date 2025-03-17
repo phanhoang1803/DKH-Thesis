@@ -1,0 +1,49 @@
+{
+  "caption": "A Red Line train arrives at the Metro Center station last month in this file photo",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Metro Seeks Stable Federal Funding as States Set to Pony Up - Roll Call",
+        "content": "M e t r o   S e e k s   S t a b l e   F e d e r a l   F u n d i n g   a s   S t a t e s   S e t   t o   P o n y   U p   -   R o l l   . . .",
+        "caption": "A WMATA Metro Red Line Metro train pulls into Metro Center in Washington in 2016. (Bill Clark/CQ Roll Call file photo)",
+        "domain": "rollcall.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.46155810356140137,
+        "text_similarity_score": 0.7259081602096558
+      },
+      {
+        "title": "The Death Of The Washington Metro | Hudson Institute",
+        "content": "T h e   D e a t h   O f   T h e   W a s h i n g t o n   M e t r o   |   H u d s o n   I n s t i t u t e",
+        "caption": "A WMATA Metro Red Line Metro train pulls into Metro Center in Washington on Tuesday, Sept. 27, 2016. (Bill Clark/CQ Roll Call)",
+        "domain": "www.hudson.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.43599677085876465,
+        "text_similarity_score": 0.7046815752983093
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have image similarity scores below 0.85. Even though the text similarity scores are high (above 0.7), according to the instructions, this automatically leads to a 'False' verdict. Furthermore, while the captions of the candidates do refer to a 'WMATA Metro Red Line Metro train pulls into Metro Center in Washington', this is not enough to confirm that the news caption 'A Red Line train arrives at the Metro Center station last month in this file photo' is accurate, especially given the low image similarity. The candidate captions provide some contextual similarity, but without stronger image evidence, a positive determination cannot be made.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result has a confidence score of 6, so I need to perform a manual check. The image shows a metro station with a train arriving. The caption states \"A Red Line train arrives at the Metro Center station last month in this file photo\". The image does depict a metro train and station, but there is no definitive way to confirm it is the Red Line or Metro Center station from visual evidence alone. Nor can I confirm that the image was taken \"last month.\" Given this lack of definitive evidence and the initial image check's negative result, the caption is likely out of context. The image check result indicates the image similarity scores are below 0.85, which is a significant factor in the decision. Therefore, I will follow the primary basis and mark this as OOC.",
+    "validation_summary": "Without visual confirmation that the image shows a Red Line train at the Metro Center station or that the photo was taken recently, viewers may be misled as to the image's specific context and relevance to the news article. The low image similarity scores from the image check support this conclusion."
+  },
+  "inference_time": 5.423782587051392,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

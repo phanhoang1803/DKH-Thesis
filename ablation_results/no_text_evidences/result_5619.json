@@ -1,0 +1,43 @@
+{
+  "caption": "A man clears snow from his car in the Chinatown neighborhood of New York",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Calhan",
+      "Ford Crown Victoria Police Interceptor",
+      "Ford Motor Company",
+      "Denver Metropolitan Area",
+      "Snow",
+      "Car",
+      "Blowing snow",
+      "National Weather Service"
+    ],
+    "ablation_type": "no_text_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 1,
+      "confidence_score": 10,
+      "explanation": "The caption describes a man clearing snow from his car in Chinatown, New York. However, the image shows a police officer standing next to a Calhan police car during a snowstorm. Therefore, the caption does not align with the image context, as it describes a completely different scene and location.",
+      "supporting_evidences": [
+        "The image context mentions a police officer and a Calhan police car.",
+        "The caption describes a man and a car in Chinatown, New York.",
+        "These two descriptions are completely different."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "A police officer stands next to a Calhan police car during a snowstorm.",
+      "context": "The image shows a police officer standing next to a Calhan police car in snowy conditions. The scene depicts a snowstorm with blowing snow visible in the background, which obscures the view. The officer is dressed in winter attire, suggesting cold weather conditions. The presence of the police car indicates that law enforcement is active despite the severe weather. The entities detected such as 'Snow', 'Blowing snow' and 'National Weather Service' are relevant to the image. The detected entities such as 'Ford Crown Victoria Police Interceptor' and 'Ford Motor Company' are relevant to the car, and 'Calhan' is relevant to the police car logo, thus accurately reflect the image's context. The news caption refers to a man clearing snow from his car in the Chinatown neighborhood of New York, which does not correspond to the image. The provided news content discusses a major snowstorm affecting the East Coast, but it does not directly relate to the specific scene depicted in the image.",
+      "information": "The image captures a police officer and a police car during a snowstorm, highlighting the challenges faced by law enforcement in severe weather conditions. The car is labeled as \"Calhan Police.\""
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a high confidence score (10) and indicates the caption is out of context because it incorrectly describes the scene and location depicted in the image. The image shows a police officer next to a \"Calhan Police\" car in a snowy environment, while the caption refers to a man clearing snow from his car in Chinatown, New York. Therefore, the caption is misleading as it does not accurately represent the image content.",
+    "validation_summary": "The caption is misleading because it describes a different scene and location than what is shown in the image. The image features a police officer and a police car in a snowy location, while the caption describes a man in Chinatown, New York."
+  },
+  "inference_time": 6.051780700683594,
+  "ablation_type": "no_text_evidences"
+}

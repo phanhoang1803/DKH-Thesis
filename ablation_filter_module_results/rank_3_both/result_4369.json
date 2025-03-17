@@ -1,0 +1,42 @@
+{
+  "caption": "Former England rugby captain Jonny Wilkinson",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Footballer"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 9,
+      "explanation": "The provided caption mentions Jonny Wilkinson, a former England rugby captain. However, the image context describes a memorial service for Jonah Lomu, a rugby legend. The caption and the context do not align, as they refer to different individuals and events. The caption fails to accurately represent the image content, indicating a significant misalignment.",
+      "supporting_evidences": [
+        "The image context is about a memorial service for Jonah Lomu.",
+        "The caption refers to Jonny Wilkinson, a different rugby player.",
+        "The caption does not reflect the memorial or tribute event shown in the image."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "information": "The image features a solemn atmosphere with several figures gathered, likely at a memorial or tribute event. Family, friends, and fans, are showing their respects or expressing grief for the passing of a notable rugby player. People can be seen engaging in conversations, holding flowers, and showing support to each other during this emotional time.",
+      "caption": "Fans and family gather to pay tribute to rugby legend Jonah Lomu at a memorial service.",
+      "context": "This image captures an emotional gathering in memory of Jonah Lomu, the renowned rugby player known for his outstanding contributions to the sport. Onlookers are participating in a tribute, showcasing the collective grief felt by New Zealanders, rugby fans, and the global rugby community following Lomu's passing at the age of 40 after a battle with a rare kidney disorder. The expressions of sorrow, sadness, and mourning on the faces of those present highlight Lomu's impact and legacy as one of the game's greats. He is celebrated not only for his skills on the field but also for his character and the joy he brought to countless fans and players alike. The image serves as a poignant reminder of the loss felt within the rugby community, emphasizing the significant influence Lomu had during his lifetime."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a confidence score of 9, suggesting high certainty that the caption inaccurately represents the image. The caption identifies the person in the image as Jonny Wilkinson, a former England rugby captain. However, the image shows a soccer player wearing a Fulham FC jersey. This discrepancy constitutes a clear misalignment between the caption and the image content, leading to the conclusion that the image is out of context.",
+    "validation_summary": "The image shows a soccer player, while the caption incorrectly identifies him as rugby player Jonny Wilkinson, misleading viewers about the image's content. The image and caption are therefore out of context with each other."
+  },
+  "inference_time": 4.385109186172485,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

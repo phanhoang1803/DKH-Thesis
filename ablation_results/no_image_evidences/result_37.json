@@ -1,0 +1,45 @@
+{
+  "caption": "Gambling tables at Venetian Macau Queensland wants some Asian highrollers too",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Pachinko",
+      "Gambling",
+      "Pinball",
+      "Japan",
+      "Maruhan",
+      "Casino",
+      "Arcade video game",
+      "Pachi-Slo",
+      "Amusement arcade",
+      "Koreans in Japan"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Campbell Newman plans three new casinos in Queensland | Gambling | The Guardian",
+        "content": "V e n e t i a n - M a c a u - c a s i n o - 0 1 0 . j p g ?   . . .",
+        "caption": "Gambling tables at Venetian Macau: Queensland wants some Asian high-rollers too. Photograph: Kin Cheung/AP",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.13989350199699402,
+        "text_similarity_score": 0.8656691908836365
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.139, which is less than 0.85. The text similarity score is 0.865, which is greater than 0.7. According to the strict decision rules, if the image similarity score is less than 0.85, the caption must be marked as out-of-context. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption does not match the image, as the image is not related to the gambling tables at the Venetian Macau, nor does it depict highrollers.",
+    "explanation": "The image and caption do not align as the image does not show any gambling tables or any visuals related to the Venetian Macau. The caption discusses gambling tables at the Venetian Macau and references highrollers—however, the content of the image does not provide evidence to support this claim. Instead, the image may depict something entirely unrelated, which misrepresents the context implied by the caption about Asian high-stakes gambling facilities. Therefore, the caption is out of context with the image provided."
+  },
+  "inference_time": 7.424056053161621,
+  "ablation_type": "no_image_evidences"
+}

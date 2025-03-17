@@ -1,0 +1,90 @@
+{
+  "caption": "Syrian troops participate in a live fire exercise Forces loyal to the regime have been accused of a massacre in the village of Tremseh",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Syria",
+      "M-160 mortar",
+      "Mortar",
+      "Soltam M-66",
+      "160mm Mortar M1943",
+      "Soltam Systems",
+      "Caliber",
+      "81 mm mortar",
+      "240 mm mortar M240"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "New massacre reported in Syria, more than 200 people dead - TVMnews.mt",
+        "content": "S y r i a n   a c t i v i s t s   s a i d   o n   F r i d a y   t h a t   m o r e   t h a n   2 0 0   p e o p l e   h a d   b e e n   k i l l e d   i n   H a m a   p r o v i n c e   a m i d   r e p o r t s   o f   a   m a s s a c r e   b y   f o r c e s   l o y a l   t o   P r e s i d e n t   B a s h a r   a l - A s s a d . \n \n W i t n e s s e s   s a i d   m o s t   o f   t h e   d e a d ,   i n   t h e   v i l l a g e   o f   T r e m s e h ,   w e r e   c i v i l i a n s . \n \n U n v e r i f i e d   v i d e o   u p l o a d e d   t o   a   s o c i a l   m e d i a   w e b s i t e   p u r p o r t e d l y   s h o w e d   w o u n d e d   s u r v i v o r s   f r o m   t h e   s h e l l i n g . \n \n A c t i v i s t s   s a i d   t h e   v i l l a g e ,   a b o u t   1 0   k i l o m e t r e s   f r o m   t h e   c i t y   o f   H a m a ,   w a s   a t t a c k e d   b y   h e l i c o p t e r   g u n s h i p s   a n d   t a n k s .   R e p o r t s   s a i d   t h e   d e a d l y   S h a b b i h a   m i l i t i a   t h e n   m o v e d   i n ,   c a r r y i n g   o u t   e x e c u t i o n - s t y l e   k i l l i n g s . \n \n I f   c o n f i r m e d ,   T h u r s d a y",
+        "caption": "",
+        "domain": "tvmnews.mt",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9966390132904053,
+        "text_similarity_score": 0.019871775060892105
+      },
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "dzen.ru",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8608136177062988,
+        "text_similarity_score": 0.019871775060892105
+      },
+      {
+        "title": "Just a moment...",
+        "content": "",
+        "caption": "",
+        "domain": "topwar.ru",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8243610858917236,
+        "text_similarity_score": 0.019871775060892105
+      },
+      {
+        "title": "Syrian opposition activists: more than 200 dead in Hama village massacre | Syria | The Guardian",
+        "content": "S y r i a n   o p p o s i t i o n   a c t i v i s t s :   m o r e   t h a n   2 0 0   d e a d   i n   H a m a   v i l l a g e   . . .",
+        "caption": "Syrian troops participate in a live fire exercise. Forces loyal to the regime have been accused of a massacre in the village of Tremseh. Photograph: AP",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.812938928604126,
+        "text_similarity_score": 0.947033703327179
+      },
+      {
+        "title": "Syrian opposition activists: more than 200 dead in Hama village massacre | Syria | The Guardian",
+        "content": "S y r i a n   o p p o s i t i o n   a c t i v i s t s :   m o r e   t h a n   2 0 0   d e a d   i n   H a m a   v i l l a g e   . . .",
+        "caption": "Syrian troops participate in a live fire exercise. Forces loyal to the regime have been accused of a massacre in the village of Tremseh. Photograph: AP",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.798607587814331,
+        "text_similarity_score": 0.947033703327179
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the provided candidates, the caption accurately represents the image. Candidate 1 has a high image similarity score of 0.9966, indicating a strong match between the images. Although its caption similarity score is low (0.0198), Candidates 4 and 5 offer confirmation. They both have image similarity scores of 0.8129 and 0.7986, respectively, and high caption similarity scores of 0.9470. This indicates that the caption \"Syrian troops participate in a live fire exercise. Forces loyal to the regime have been accused of a massacre in the village of Tremseh\" accurately describes the image. The high caption similarity scores of candidates 4 and 5, along with their respective domains from www.theguardian.com, strongly support the accuracy of the news caption.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.9966",
+        "Candidate 4: Image Similarity Score: 0.8129, Caption Similarity Score: 0.9470, Domain: www.theguardian.com",
+        "Candidate 5: Image Similarity Score: 0.7986, Caption Similarity Score: 0.9470, Domain: www.theguardian.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score of 10, with supporting evidence from multiple candidates. Candidate 1 has a high image similarity score of 0.9966. Additionally, Candidates 4 and 5 have image similarity scores of 0.8129 and 0.7986, respectively, and high caption similarity scores of 0.9470. This indicates that the caption \"Syrian troops participate in a live fire exercise. Forces loyal to the regime have been accused of a massacre in the village of Tremseh\" accurately describes the image, despite linking to a massacre. The high caption similarity scores of candidates 4 and 5, along with their respective domains from www.theguardian.com, strongly support the accuracy of the news caption, as the image shows troops and military equipment, corresponding with a live fire exercise.",
+    "validation_summary": "The image accurately reflects the caption, showing Syrian troops participating in what appears to be a live fire exercise, despite the caption's mention of a massacre accusation. Viewers would not be misled about the image content given the evidence of military activity."
+  },
+  "inference_time": 8.0653817653656,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

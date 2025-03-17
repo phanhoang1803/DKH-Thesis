@@ -1,0 +1,36 @@
+{
+  "caption": "The first Wetherspoon pub opened in north London in 1979 named after a teacher of the company s founder",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "JD Wetherspoon makes record profits and plans to open another 30 pubs | JD Wetherspoon | The Guardian",
+        "content": "J D   W e t h e r s p o o n   m a k e s   r e c o r d   p r o f i t s   a n d   p l a n s   t o   o p e n   a n o t h e r   3 0   . . .",
+        "caption": "The first Wetherspoon pub opened in north London in 1979, named after a teacher of the company's founder.  Photograph: Frank Baron for the Guardian",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9916220307350159,
+        "text_similarity_score": 0.9548603892326355
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.9916220307350159 and the text similarity score is 0.9548603892326355. According to the instructions, if the image similarity score is greater than or equal to 0.85 and the text similarity score is greater than or equal to 0.7, then the verdict is True. The caption from the guardian.com confirms the news caption.",
+      "supporting_evidences": [
+        "The first Wetherspoon pub opened in north London in 1979, named after a teacher of the company's founder.  Photograph: Frank Baron for the Guardian"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts the exterior of a pub named \"FREE HOUSE,\" with a man walking out. The caption states, \"The first Wetherspoon pub opened in north London in 1979 named after a teacher of the company s founder.\" While the news content refers to the Wetherspoon pub chain, there is no clear indication in the image that this is a Wetherspoon pub. Without further evidence, it cannot be determined that the image accurately represents the caption's claim about Wetherspoon's first pub. The image check result also confirms that the image and text have high similarity, but it does not guarantee that the image is representative of the specific claim in the caption. Therefore, it is reasonable to conclude that the image is used out of context in relation to the caption.",
+    "validation_summary": "The image is of a generic pub exterior, but the caption specifically mentions the first Wetherspoon pub; thus, viewers might be misled into believing the image is of that specific pub when there's no visual confirmation of it being a Wetherspoon's establishment. The image is therefore out of context."
+  },
+  "inference_time": 5.290093183517456,
+  "ablation_type": "no_image_evidences"
+}

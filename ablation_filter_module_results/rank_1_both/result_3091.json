@@ -1,0 +1,49 @@
+{
+  "caption": "Ted Cruz speaks at the Republican presidential debate in Boulder Colo",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speech",
+      "Public speaking",
+      "Meter",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Minute-by-minute breakdown of GOP presidential debate in Colorado | PBS News",
+        "content": "M i n u t e - b y - m i n u t e   b r e a k d o w n   o f   G O P   p r e s i d e n t i a l   d e b a t e   i n   C o l o r a d o   . . .",
+        "caption": "Republican U.S. presidential candidate former HP CEO Carly Fiorina speaks as Dr. Ben Carson, left, and U.S. Senator Ted Cruz listen at the 2016 U.S. Republican presidential candidates debate held by CNBC in Boulder, Colorado, Wednesday. Photo by Rick Wilking/Reuters",
+        "domain": "www.pbs.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.36150336265563965,
+        "text_similarity_score": 0.7079572677612305
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image similarity score is 0.36150336265563965 and the text similarity score is 0.7079572677612305. Since the image similarity score is less than 0.85, I cannot confirm that the image in the candidate is the same as the image in the news. However, based on the content of the provided candidate caption, it seems to describe a scene from the 2016 U.S. Republican presidential candidates debate held by CNBC in Boulder, Colorado, which is consistent with the news caption. The candidate caption mentions Ted Cruz and other Republican candidates speaking at the debate, which aligns with the news caption mentioning Ted Cruz speaking at a Republican presidential debate in Boulder, Colorado. Based on this textual similarity, I believe the news caption is likely describing a similar event, but I cannot definitively confirm without a higher image similarity score.",
+      "supporting_evidences": [
+        "The candidate caption mentions a Republican presidential debate held in Boulder, Colorado, aligning with the news caption.",
+        "The candidate caption includes Ted Cruz, also mentioned in the news caption.",
+        "The text similarity score between the two captions is 0.7079572677612305, indicating a strong similarity."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates an image similarity score of 0.36150336265563965, which is below the threshold of 0.85 required to definitively confirm that the image in the news and the image in the candidate caption are the same. While the text similarity score is relatively high (0.7079572677612305), the low image similarity score prevents a definitive determination. The news caption states 'Ted Cruz speaks at the Republican presidential debate in Boulder Colo,' and the provided image does show Ted Cruz holding a microphone and appearing to speak. The news content also mentions a debate in Boulder, Colo. However, without higher image similarity, it cannot be definitively confirmed that the news caption is a correct representative summary of the image content. Because the image check result has a confidence score between 7 and 10, the final determination must be based on the image check result. The image check result indicates that the caption is not a correct representative summary. Thus, I must conclude that the caption is out of context.",
+    "validation_summary": "Due to the low image similarity score reported in the image check result, it's not possible to confirm if the caption accurately represents the image, potentially misleading viewers about the image's content. Therefore, the caption is out of context according to the image check result which had a confidence score between 7 and 10, so must be the basis of the determination about the caption."
+  },
+  "inference_time": 5.5138468742370605,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

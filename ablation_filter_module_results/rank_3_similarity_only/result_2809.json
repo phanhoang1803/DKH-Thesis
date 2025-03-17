@@ -1,0 +1,67 @@
+{
+  "caption": "The Clintons on stage in Las Vegas Nevada",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speech",
+      "Academic conference",
+      "Seminar",
+      "Public speaking",
+      "Convention",
+      "Orator",
+      "Academy",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "God, guns and dirty tricks: Republicans trade shots as Democrats divide on race | US elections 2016 | The Guardian",
+        "content": "G o d ,   g u n s   a n d   d i r t y   t r i c k s :   R e p u b l i c a n s   t r a d e   s h o t s   a s   D e m o c r a t s   . . .",
+        "caption": "The Clintons on stage in Las Vegas, Nevada.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.439980685710907,
+        "text_similarity_score": 0.9600189328193665
+      },
+      {
+        "title": "God, guns and dirty tricks: Republicans trade shots as Democrats divide on race | US elections 2016 | The Guardian",
+        "content": "G o d ,   g u n s   a n d   d i r t y   t r i c k s :   R e p u b l i c a n s   t r a d e   s h o t s   a s   D e m o c r a t s   . . .",
+        "caption": "The Clintons on stage in Las Vegas, Nevada.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3928464353084564,
+        "text_similarity_score": 0.9600189328193665
+      },
+      {
+        "title": "God, guns and dirty tricks: Republicans trade shots as Democrats divide on race | US elections 2016 | The Guardian",
+        "content": "G o d ,   g u n s   a n d   d i r t y   t r i c k s :   R e p u b l i c a n s   t r a d e   s h o t s   a s   D e m o c r a t s   . . .",
+        "caption": "The Clintons on stage in Las Vegas, Nevada.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.37833839654922485,
+        "text_similarity_score": 0.9600189328193665
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores are all below 0.85. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low similarity score (below 0.85) between the image and the caption. The image shows Bill Clinton at a podium speaking to a crowd. Behind him is a sign with \"Fighting for us\" and \"hillaryclinton.com.\" The caption states \"The Clintons on stage in Las Vegas Nevada\". While Bill Clinton is in the image, the caption refers to \"The Clintons\", implying Hillary Clinton is also present on stage. Because the image similarity score is below 0.85, the caption is marked as out-of-context, even though the text similarity score may be high. Thus, the caption is misleading because it implies the presence of both Clintons when only Bill Clinton is visible in the image.",
+    "validation_summary": "The image depicts Bill Clinton speaking, but the caption suggests both Clintons are on stage. The low image similarity score confirms that the caption is out of context and potentially misleading."
+  },
+  "inference_time": 7.201653003692627,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

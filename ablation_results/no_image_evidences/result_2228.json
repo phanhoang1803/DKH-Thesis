@@ -1,0 +1,46 @@
+{
+  "caption": "An emotional President Obama discusses the shooting at a Connecticut elementary school on Friday",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Obama: 'Our hearts are broken today'",
+        "content": "O b a m a :   ' O u r   h e a r t s   a r e   b r o k e n   t o d a y '",
+        "caption": "An emotional President Obama discusses the shooting at a Connecticut elementary school on Friday.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9139671921730042,
+        "text_similarity_score": 0.9878186583518982
+      },
+      {
+        "title": "Text of President Obama's statement",
+        "content": "T e x t   o f   P r e s i d e n t   O b a m a ' s   s t a t e m e n t",
+        "caption": "President Obama becomes emotional while discussing the Connecticut shootings.",
+        "domain": "www.telegram.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7860206961631775,
+        "text_similarity_score": 0.8057459592819214
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption describes President Obama discussing the shooting at a Connecticut elementary school. \n\nCandidate 1 has an image similarity score of 0.9139671921730042 and a text similarity score of 0.9878186583518982. This candidate's caption is 'An emotional President Obama discusses the shooting at a Connecticut elementary school on Friday.' Because the image similarity score is above 0.85 and the text similarity score is above 0.7, this confirms that the news caption accurately represents the image.\n\nCandidate 2 has an image similarity score of 0.7860206961631775 and a text similarity score of 0.8057459592819214. This candidate's caption is 'President Obama becomes emotional while discussing the Connecticut shootings.' Although the text similarity score is above 0.7, the image similarity score is below 0.85, so this doesn't overrule candidate 1.",
+      "supporting_evidences": [
+        "Candidate 1 has an image similarity score of 0.9139671921730042 and a text similarity score of 0.9878186583518982.",
+        "Candidate 1's caption is 'An emotional President Obama discusses the shooting at a Connecticut elementary school on Friday.'"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high level of similarity between the image and the caption. The image shows President Obama with an emotional expression, and the caption states that he is discussing the shooting at a Connecticut elementary school. The image check results give a confidence score of 10 with supporting evidence: \n\nCandidate 1 has an image similarity score of 0.9139671921730042 and a text similarity score of 0.9878186583518982.\nCandidate 1's caption is 'An emotional President Obama discusses the shooting at a Connecticut elementary school on Friday.'",
+    "validation_summary": "The image accurately reflects the caption's description of President Obama's emotional state while discussing the Connecticut elementary school shooting; therefore, it's not misleading to viewers about the image's content and context and is considered a correct and representative summary of the image content based on the evidence from the image check result with a high confidence score of 10. Because the image similarity score is above 0.85 and the text similarity score is above 0.7, this confirms that the news caption accurately represents the image."
+  },
+  "inference_time": 6.259431838989258,
+  "ablation_type": "no_image_evidences"
+}

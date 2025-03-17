@@ -1,0 +1,60 @@
+{
+  "caption": "Ian Brown and Mani seen on the big screen",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "The V festival in pictures | Music | The Guardian",
+        "content": "S u n   1 9   A u g   2 0 1 2   1 1 . 5 3  B S T \n \n \n                         F i r s t   p u b l i s h e d   o n   S u n   1 9   A u g   2 0 1 2   1 1 . 5 3  B S T \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   M a r k   H o l l o w a y / R e d f e r n s   v i a   G e t t y   I m a g e s \n \n P h o t o g r a p h :   S h i r l a i n e   F o r r e s t / W i r e I m a g e \n \n P h o t o g r a p h :   Y u i   M o k / P A \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   Y u i   M o k / P A \n \n P h o t o g r a p h :   C   B r a n d o n / R e d f e r n s   v i a   G e t t y   I m a g e s \n \n P h o t o g r a p h :   S h i r l a i n e   F o r r e s t / W i r e I m a g e \n \n P h o t o g r a p h :   Y u i   M o k / P A \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / W i r e I m a g e \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s",
+        "caption": "V Festival day 1: Ian Brown and Reni of The Stone Roses headline",
+        "domain": "amp.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9798559546470642,
+        "text_similarity_score": 0.3372480869293213
+      },
+      {
+        "title": "The V festival in pictures | Music | The Guardian",
+        "content": "S u n   1 9   A u g   2 0 1 2   1 1 . 5 3  B S T \n \n \n                         F i r s t   p u b l i s h e d   o n   S u n   1 9   A u g   2 0 1 2   1 1 . 5 3  B S T \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   M a r k   H o l l o w a y / R e d f e r n s   v i a   G e t t y   I m a g e s \n \n P h o t o g r a p h :   S h i r l a i n e   F o r r e s t / W i r e I m a g e \n \n P h o t o g r a p h :   Y u i   M o k / P A \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   Y u i   M o k / P A \n \n P h o t o g r a p h :   C   B r a n d o n / R e d f e r n s   v i a   G e t t y   I m a g e s \n \n P h o t o g r a p h :   S h i r l a i n e   F o r r e s t / W i r e I m a g e \n \n P h o t o g r a p h :   Y u i   M o k / P A \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / W i r e I m a g e \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s",
+        "caption": "V Festival day 1: Ian Brown and Reni of The Stone Roses headline",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9798559546470642,
+        "text_similarity_score": 0.3372480869293213
+      },
+      {
+        "title": "Stone Roses reunion gig in London  in pictures | Music | The Guardian",
+        "content": "S t o n e   R o s e s   r e u n i o n   g i g   i n   L o n d o n      i n   p i c t u r e s   |   M u s i c   |   T h e   G u a r d i a n",
+        "caption": "Stone Roses: Ian Brown and Mani seen on the big screen",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.26298803091049194,
+        "text_similarity_score": 0.7278317809104919
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Candidate 1 and 2 have high image similarity scores (0.9798559546470642), indicating a strong match with the news image. However, their caption similarity scores are low (0.3372480869293213), meaning the captions themselves don't align well with the news caption. Candidate 3 has a low image similarity score (0.26298803091049194), suggesting it's not the same image, but the caption similarity score is high (0.7278317809104919). Considering the news caption mentions Ian Brown and Mani on a big screen, and Candidate 3 directly references this, it offers some support. Despite the low image similarity of Candidate 3, the combination of names and 'big screen' reference from it makes the news caption likely in-context.",
+      "supporting_evidences": [
+        "Candidate 3: Stone Roses: Ian Brown and Mani seen on the big screen"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a high confidence score (8) due to the supporting evidence from Candidate 3, which mentions Ian Brown and Mani seen on a big screen. While the image similarity is low for Candidate 3, the caption similarity, especially the mention of 'Ian Brown and Mani seen on the big screen,' strongly supports the news caption being in context. The image shows Ian Brown on stage playing with what appear to be tambourines. While Mani is not clearly visible on a big screen in this particular image, the image check identified supporting evidence that he was shown with Ian Brown on a big screen during the event.",
+    "validation_summary": "The news caption is likely referring to a broader context of the event where Ian Brown and Mani were shown on a big screen, which aligns with the identified supporting evidence, although not directly depicted in this specific image. The viewer may be misled if they expect to see Ian Brown and Mani displayed on a screen within this particular photo."
+  },
+  "inference_time": 7.920494079589844,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

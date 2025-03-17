@@ -1,0 +1,49 @@
+{
+  "caption": "Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Car",
+      "Sports sedan",
+      "Sports car",
+      "Taxi",
+      "Sedan",
+      "Executive car"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Foxtons shares plunge 20% as London property market slows | Housing market | The Guardian",
+        "content": "F o x t o n s   s h a r e s   p l u n g e   2 0 %   a s   L o n d o n   p r o p e r t y   m a r k e t   s l o w s   . . .",
+        "caption": "Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Foxtons shares plunge 20% as London property market slows | Housing market | The Guardian",
+        "content": "F o x t o n s   s h a r e s   p l u n g e   2 0 %   a s   L o n d o n   p r o p e r t y   m a r k e t   s l o w s   . . .",
+        "caption": "Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidate captions are identical to the news caption and originate from the same domain (www.theguardian.com). However, the image similarity score is 0.0, indicating the images do not match. Given that the image similarity is low, and there's no specific information extracted from the candidate's content, the caption might not accurately represent the image, even though the captions are identical. A higher confidence would require verification of the image to validate if it is accurately represented by the caption.",
+      "supporting_evidences": [
+        "Caption: Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers.",
+        "Domain: www.theguardian.com"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "validation_summary": "The caption implies a connection to a specific image of Foxtons' operations, but the actual image content does not match this implication.",
+    "explanation": "The caption states, \"Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers.\" This suggests an image that would illustrate either Foxtons' branding, their fleet of Mini Coopers, or their aggressive sales tactics, potentially showing a crowded property scene or Foxtons employees in action. However, the image does not contain any identifiable Foxtons vehicles, branding, or related activities that establish such a connection. Given the image content lacks any elements that would depict or relate to the statements made in the caption, it misrepresents the image. Thus, while the photo perhaps illustrates an aspect of real estate, it does not visualize the specific claims made regarding Foxtons, leading to the conclusion that the caption is out of context."
+  },
+  "inference_time": 5.798013687133789,
+  "ablation_type": "no_filters"
+}

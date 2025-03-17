@@ -1,0 +1,62 @@
+{
+  "caption": "People wait in line before the Dr King Career Fair at the Empire State Plaza Convention Center in Albany NY in April this year",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Stocks surge on May jobs report, Dow up 207",
+        "content": "S t o c k s   s u r g e   o n   M a y   j o b s   r e p o r t ,   D o w   u p   2 0 7",
+        "caption": "People wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7431338429450989,
+        "text_similarity_score": 0.9602746963500977
+      },
+      {
+        "title": "Your comments on unemployment benefits: 'Help is necessary sometimes for any of us' - syracuse.com",
+        "content": "Y o u r   c o m m e n t s   o n   u n e m p l o y m e n t   b e n e f i t s :   ' H e l p   i s   n e c e s s a r y   . . .",
+        "caption": "In this Thursday, April 11, 2013 photo, people wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y.",
+        "domain": "www.syracuse.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9621492028236389,
+        "text_similarity_score": 0.9468958973884583
+      },
+      {
+        "title": "US employers add 165K jobs; rate falls to 7.5 percent",
+        "content": "U S   e m p l o y e r s   a d d   1 6 5 K   j o b s ;   r a t e   f a l l s   t o   7 . 5   p e r c e n t",
+        "caption": "In this Thursday, April 11, 2013 photo, people wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y.",
+        "domain": "www.capecodtimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9614261388778687,
+        "text_similarity_score": 0.9468958973884583
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the analysis of the provided candidates, the news caption appears to accurately represent the image. All three candidates have high image similarity scores (above 0.74, with two exceeding 0.96) and high text similarity scores (above 0.94). These scores indicate that the images in the candidates are visually similar to the news image, and the captions are also highly similar in content. Specifically, the captions from the candidates mention 'People wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year.' This directly aligns with the news caption. The consistency across multiple independent sources (www.usatoday.com, www.syracuse.com, and www.capecodtimes.com) strengthens the assertion that the caption is an accurate representation of the image's context.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.7431338429450989, Caption Similarity Score: 0.9602746963500977, Domain: www.usatoday.com",
+        "Candidate 2: Image Similarity Score: 0.9621492028236389, Caption Similarity Score: 0.9468958973884583, Domain: www.syracuse.com",
+        "Candidate 3: Image Similarity Score: 0.9614261388778687, Caption Similarity Score: 0.9468958973884583, Domain: www.capecodtimes.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high level of confidence that the news caption accurately represents the image. The high image and text similarity scores across multiple independent sources confirm that the image depicts people waiting in line for the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, NY, in April this year. Therefore, the caption is not out of context.",
+    "validation_summary": "The image check confirms that the caption accurately describes the image content, showing people in line at the Dr. King Career Fair. Viewers would not be misled about the image's content based on the caption."
+  },
+  "inference_time": 5.90841007232666,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "caption": "A woman watches the sunset from a lifeguard chair at a beach on Lake Calhoun in Minneapolis",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Sunset",
+      "Red sky at morning",
+      "Evening",
+      "Sea"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "America plunges into deep freeze  in pictures | World news | The Guardian",
+        "content": "A m e r i c a   p l u n g e s   i n t o   d e e p   f r e e z e      i n   p i c t u r e s   |   W o r l d   n e w s   |   T h e   . . .",
+        "caption": "A woman watches the sunset from a lifeguard chair at a beach on Lake Calhoun in Minneapolis.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2632520794868469,
+        "text_similarity_score": 0.9969707131385803
+      },
+      {
+        "title": "GALLERY: 'Polar vortex' hits US | The North West Star | Mt Isa, QLD",
+        "content": "G A L L E R Y :   ' P o l a r   v o r t e x '   h i t s   U S   |   T h e   N o r t h   W e s t   S t a r   |   M t   I s a ,   Q L D",
+        "caption": "Jennifer Berry watches the sunset from a lifeguard chair at a beach on Lake Calhoun in Minneapolis, January 7, 2014. Photo: REUTERS/Eric Miller.",
+        "domain": "www.northweststar.com.au",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2761565148830414,
+        "text_similarity_score": 0.8211466670036316
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions describe a woman watching the sunset from a lifeguard chair at Lake Calhoun in Minneapolis, matching the news caption. The first candidate has a text similarity score of 0.99, and the second has a score of 0.82. However, the image similarity scores are low (0.26 and 0.27 respectively), indicating that the images in the candidates do not closely match the news image. Therefore, it's difficult to definitively confirm the news caption based on the provided evidence.",
+      "supporting_evidences": [
+        "Candidate 1 Caption",
+        "Candidate 2 Caption"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a person paddleboarding on the ocean at sunset. The caption describes a woman watching the sunset from a lifeguard chair at a beach on Lake Calhoun in Minneapolis. These descriptions are vastly different; the location and activity are not the same. The image check result confirms this discrepancy, with a high confidence score, as it notes that the candidate images do not closely match the news image, and therefore the news caption is inaccurate.",
+    "validation_summary": "The caption misrepresents the image by describing a scene at a lake in Minneapolis, while the image actually depicts a person paddleboarding on the ocean. Viewers would be misled about the image's content and location."
+  },
+  "inference_time": 4.451246500015259,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "Patrick Hardison far right at a recent birthday party for his son Cullen",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "cn15.nevsedoma.com.ua",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9718695878982544,
+        "text_similarity_score": 0.10180628299713135
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is high (0.9718695878982544), suggesting that the candidate image is very similar to the news image. However, the text similarity score is very low (0.10180628299713135), indicating that the caption of the candidate image is significantly different from the news caption. Since the text similarity is low, and I don't have access to the content of the candidate, I cannot determine if the candidate image and caption provide evidence that the news caption accurately represents the image. Therefore, the final decision is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The news caption states \"Patrick Hardison far right at a recent birthday party for his son Cullen\". The image shows a group of people at a restaurant. A man is seen putting a sombrero on a child's head. There are plates of food and drinks on the table. The man on the right in a blue shirt could be Patrick Hardison but the claim that this is a birthday party for his son Cullen is not supported by the image. As I do not have external confirmation that the person on the far right is Patrick Hardison, the image check provides high confidence that this is out of context, as the text similarity is very low.",
+    "validation_summary": "The image does not support the claim that this is Patrick Hardison at a birthday party for his son Cullen, making the caption misleading. The image check confirmed low similarity between the caption and what's depicted in the image."
+  },
+  "inference_time": 6.559838771820068,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

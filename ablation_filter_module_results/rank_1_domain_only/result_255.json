@@ -1,0 +1,45 @@
+{
+  "caption": "A woman watches the sunset from a lifeguard chair at a beach on Lake Calhoun in Minneapolis",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Sunset",
+      "Red sky at morning",
+      "Evening",
+      "Sea"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "America plunges into deep freeze  in pictures | World news | The Guardian",
+        "content": "A m e r i c a   p l u n g e s   i n t o   d e e p   f r e e z e      i n   p i c t u r e s   |   W o r l d   n e w s   |   T h e   . . .",
+        "caption": "A woman watches the sunset from a lifeguard chair at a beach on Lake Calhoun in Minneapolis.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate evidence has a caption that exactly matches the news caption: \"A woman watches the sunset from a lifeguard chair at a beach on Lake Calhoun in Minneapolis.\" Since the caption is identical, it strongly suggests that the news caption is accurate.",
+      "supporting_evidences": [
+        "A woman watches the sunset from a lifeguard chair at a beach on Lake Calhoun in Minneapolis."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a person paddleboarding on the ocean during a sunset, with orange and blue colors dominating the sky and water. This does not match the caption, which describes a woman watching the sunset from a lifeguard chair at a beach on Lake Calhoun in Minneapolis. Since the image check result also confirms the mismatch, the image is out of context.",
+    "validation_summary": "The image does not show what the caption describes, so viewers would be misled about the image content. The image depicts a paddleboarder in the ocean during sunset, while the caption describes a woman in a lifeguard chair at a lake."
+  },
+  "inference_time": 10.278993606567383,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

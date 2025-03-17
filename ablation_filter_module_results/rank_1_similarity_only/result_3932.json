@@ -1,0 +1,43 @@
+{
+  "caption": "Susan and Christopher Edwards will appear before Nottingham Crown Court on Monday",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Couple in court over Forest Town garden bodies - BBC News",
+        "content": "S u s a n   a n d   C h r i s t o p h e r   E d w a r d s   a r e   d u e   i n   c o u r t   a g a i n   o n   1 5   N o v e m b e r \n \n T h e   d a u g h t e r   a n d   s o n - i n - l a w   o f   a   c o u p l e   f o u n d   b u r i e d   i n   a   g a r d e n   h a v e   a p p e a r e d   a t   c r o w n   c o u r t   c h a r g e d   w i t h   t h e i r   m u r d e r s . \n \n W i l l i a m   a n d   P a t r i c i a   W y c h e r l e y   d i s a p p e a r e d   i n   1 9 9 8   a n d   r e m a i n s   t h o u g h t   t o   b e   t h e i r s   w e r e   f o u n d   a t   t h e i r   f o r m e r   h o m e   i n   N o t t i n g h a m s h i r e   o n   9   O c t o b e r . \n \n S u s a n   P a t r i c i a   E d w a r d s   a n d   C h r i s t o p h e r   J o h n   E d w a r d s   w e r e   c h a r g e d   w i t h   t h e i r   m u r d e r s   o n   F r i d a y . \n \n I f   s t i l l   a l i v e ,   M r   a n d   M r s   W y c h e r l e y   w o u l d   n o w   b e   1 0 0   a n d   7 9   r e s p e c t i v e l y . \n \n P o l i c e   f o u n d   t h e   r e m a i n s   a t   t h e   h o m e   i n   B l e n h e i m   C l o s e ,   F o r e s t   T o w n ,   M a n s f i e l d ,   f o l l o w i n g   a   t i p - o f f . \n \n P o s t - m o r t e m   t e s t s   h a v e   r e v e a l e d   t h a t   e a c h   p e r s o n   d i e d   a s   a   r e s u l t   o f   b e i n g   s h o t . \n \n M r   a n d   M r s   E d w a r d s ,   a g e d   5 7   a n d   5 5   a n d   o f   n o   f i x e d   a d d r e s s ,   w e r e   a r r e s t e d   i n   L o n d o n   o n   W e d n e s d a y   e v e n i n g . \n \n T h e y   a r e   c h a r g e d   w i t h   t h e   m u r d e r s   b e t w e e n   1   a n d   3 1   M a y   1 9 9 8 . \n \n T h e y   w e r e   r e m a n d e d   i n t o   c u s t o d y   a f t e r   a p p e a r i n g   a t   N o t t i n g h a m   C r o w n   C o u r t   a n d   a r e   d u e   t o   a p p e a r   a t   t h e   s a m e   c o u r t   o n   1 5   N o v e m b e r . \n \n D a u g h t e r   i n   c o u r t   o v e r   g a r d e n   b o d i e s \n \n D a u g h t e r   c h a r g e d   o v e r   g a r d e n   b o d i e s \n \n H M   C o u r t s   S e r v i c e",
+        "caption": "Susan and Christopher Edwards are due in court again on 15 November",
+        "domain": "www.bbc.co.uk",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9884534478187561,
+        "text_similarity_score": 0.692466139793396
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.9884534478187561, which is greater than 0.85. The text similarity score is 0.692466139793396, which is less than 0.7. Based on the instructions, since the image similarity score is greater than 0.85 and the text similarity score is less than 0.7, the verdict should be immediately returned as False.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.9884534478187561",
+        "Candidate 1: Caption Similarity Score: 0.692466139793396"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 10. The image similarity score is 0.9884534478187561, which is greater than 0.85. The text similarity score is 0.692466139793396, which is less than 0.7. Based on the instructions, since the image similarity score is greater than 0.85 and the text similarity score is less than 0.7, the verdict should be immediately returned as False. Therefore, the caption provides a correct representative summary of the image content.",
+    "validation_summary": "The image check result indicates the caption accurately represents the image content. The high image similarity score confirms that the people in the image are likely Susan and Christopher Edwards, as stated in the caption."
+  },
+  "inference_time": 6.938136339187622,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

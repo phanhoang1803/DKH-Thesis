@@ -1,0 +1,43 @@
+{
+  "caption": "The Clintons on stage in Las Vegas Nevada",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speech",
+      "Academic conference",
+      "Seminar",
+      "Public speaking",
+      "Convention",
+      "Orator",
+      "Academy",
+      "Audience"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "God, guns and dirty tricks: Republicans trade shots as Democrats divide on race | US elections 2016 | The Guardian",
+        "content": "G o d ,   g u n s   a n d   d i r t y   t r i c k s :   R e p u b l i c a n s   t r a d e   s h o t s   a s   D e m o c r a t s   . . .",
+        "caption": "The Clintons on stage in Las Vegas, Nevada.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.439980685710907,
+        "text_similarity_score": 0.9600189328193665
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is below 0.85 and the text similarity score is above 0.7, so the caption is out-of-context. Therefore, the final verdict is \"False\".",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result shows a confidence score of 2 with a verdict of 'False', indicating the caption is out-of-context. This is further supported by the image showing Bill Clinton at a podium with a 'Fighting for us' banner, which doesn't directly depict 'The Clintons on stage in Las Vegas Nevada' as the primary focus. While Bill Clinton may be speaking in Las Vegas, the image's emphasis on him and the 'Fighting for us' message doesn't align with the general claim of 'The Clintons on stage'. Therefore, the caption is misleading and out of context.",
+    "validation_summary": "The image check confirms the caption is out of context, and the image predominantly features Bill Clinton at a podium, not specifically 'The Clintons on stage'. Viewers would be misled about the image's primary content."
+  },
+  "inference_time": 5.714998483657837,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,52 @@
+{
+  "caption": "Ali Landry and her husband Alejandro Monteverde",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "regrese.info",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9719845056533813,
+        "text_similarity_score": 0.05376293510198593
+      },
+      {
+        "title": "Ali Landry and Husband Scatter Ashes of Killed Family Members",
+        "content": "A l i   L a n d r y   a n d   H u s b a n d   S c a t t e r   A s h e s   o f   K i l l e d   F a m i l y   M e m b e r s",
+        "caption": "Ali Landry, Alejandro Monteverde",
+        "domain": "www.eonline.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8105710744857788,
+        "text_similarity_score": 0.8782972693443298
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "We have two candidates to evaluate the news caption 'Ali Landry and her husband Alejandro Monteverde'.\n\nCandidate 1:\n- Image Similarity Score: 0.9719\n- Caption Similarity Score: 0.0537\n- According to the strict decision rules, since the image similarity is >= 0.85 but the caption similarity is < 0.7, we should immediately return 'False'.\n\nCandidate 2:\n- Image Similarity Score: 0.8105\n- Caption Similarity Score: 0.8782\n- According to the strict decision rules, since the image similarity is < 0.85 but the caption similarity is >= 0.7, we should immediately return 'False'.\n\nSince Candidate 1 has high image similarity (0.9719 >= 0.85) but low text similarity (0.0537 < 0.7), it indicates that while the image is similar to the news image, the caption differs significantly. Similarly, Candidate 2 has a low image similarity score (0.8105 < 0.85), which indicates the images do not match. Therefore, the caption is likely out-of-context. So, based on the analysis, the caption is out-of-context.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.9719, Caption Similarity Score: 0.0537",
+        "Candidate 2: Image Similarity Score: 0.8105, Caption Similarity Score: 0.8782"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a high confidence score of 9. The image check result indicates that the caption is likely out of context as it has high image similarity (0.9719 >= 0.85) but low text similarity (0.0537 < 0.7), therefore the caption differs significantly. Similarly, Candidate 2 has a low image similarity score (0.8105 < 0.85), which indicates the images do not match. Overall, the image check result indicates the caption is out of context.",
+    "validation_summary": "The image check indicates that the caption does not accurately describe the image content, potentially misleading viewers. The high image similarity in the first candidate suggests the image contains elements related to the caption's subjects, but the low caption similarity indicates a mismatch in the descriptive details."
+  },
+  "inference_time": 6.860167980194092,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

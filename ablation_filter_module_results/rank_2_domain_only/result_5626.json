@@ -1,0 +1,45 @@
+{
+  "caption": "Democratic presidential candidate Sen Bernie Sanders speaks to his campaign volunteers at the local headquarters in Bowling Green Ky Wednesday",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Bernie Sanders finds himself in a new role as front-runner | PBS News",
+        "content": "B e r n i e   S a n d e r s   f i n d s   h i m s e l f   i n   a   n e w   r o l e   a s   f r o n t - r u n n e r   |   P B S   N e w s",
+        "caption": "2020 Democratic presidential candidate and Senator Bernie Sanders participates in a moderated discussion at the We the Peo...",
+        "domain": "www.pbs.org",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Biden makes new campaign hires with focus on Super Tuesday | PBS News",
+        "content": "B i d e n   m a k e s   n e w   c a m p a i g n   h i r e s   w i t h   f o c u s   o n   S u p e r   T u e s d a y   |   P B S   N e w s",
+        "caption": "South Bend Mayor Pete Buttigieg, Senator Bernie Sanders, former Vice President Joe Biden, Senator Elizabeth Warren and Sen...",
+        "domain": "www.pbs.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are low (0.0), and the text similarity scores are also low (0.0). The candidate captions mention Bernie Sanders, but they do not provide enough specific information to confirm that the news caption accurately describes the image. The candidate captions do not mention Bowling Green, KY, or the specific event of speaking to campaign volunteers. Therefore, the news caption is not fully verified.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a low similarity score, which indicates that the caption does not accurately reflect the image. The caption says 'Democratic presidential candidate Sen Bernie Sanders speaks to his campaign volunteers at the local headquarters in Bowling Green Ky Wednesday'. The image depicts Bernie Sanders interacting with people, one of whom is taking a photo with him. While it's possible he is speaking to volunteers, the image doesn't confirm this nor does it confirm that the event took place in Bowling Green, KY, or on a Wednesday. Therefore, without stronger evidence supporting the caption's accuracy, it must be considered out of context.",
+    "validation_summary": "The caption's claims about the specific location and context of the image cannot be verified from the image alone, which could mislead viewers about the situation depicted. The low image check result strengthens the conclusion that the caption is out of context."
+  },
+  "inference_time": 3.690136432647705,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

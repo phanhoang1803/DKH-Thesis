@@ -1,0 +1,60 @@
+{
+  "caption": "Baked Alaska scene from Suzi Yoonessi s Dear Lemon Lima",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Banoffee pie",
+      "Tart",
+      "Lemon meringue pie",
+      "Bavarian cream",
+      "Cobbler",
+      "Apple pie",
+      "Crumble",
+      "Pie",
+      "Meringue",
+      "Chocolate"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Chefs' favorite desserts across the country",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9470457434654236,
+        "text_similarity_score": 0.10035178810358047
+      },
+      {
+        "title": "Chefs' favorite desserts across the country",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9470457434654236,
+        "text_similarity_score": 0.10035178810358047
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidates have a high image similarity score (0.9470457434654236), which suggests that the candidate images are visually similar to the news image. However, both have a low text similarity score (0.10035178810358047), which indicates that the captions are not similar. Since the text similarity score is low, the captions of the candidates do not provide relevant information that confirms the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a coconut cream pie on a glass plate. The pie has a flaky crust, a creamy filling, and is topped with toasted coconut flakes. There's a card that says \"Coconut Cream\" stuck in the pie. The provided caption refers to a 'Baked Alaska scene from Suzi Yoonessi's Dear Lemon Lima', which is completely unrelated to the image. Given the high confidence score in the image check result and the clear mismatch between the image and the caption, it's highly probable that the caption is out of context.",
+    "validation_summary": "The caption is irrelevant to the image content, misleading viewers about the subject matter portrayed. The image depicts a coconut cream pie, while the caption refers to a Baked Alaska scene from a film, creating a false association for viewers who rely on the caption to understand the image's context, as confirmed by image check result with high confidence_score (greater than 7). Therefore, the caption is Out of Context (OOC). The high image similarity and low text similarity between the news image and the candidate images reinforces this verdict as well."
+  },
+  "inference_time": 8.16181468963623,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

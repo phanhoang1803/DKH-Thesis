@@ -1,0 +1,49 @@
+{
+  "caption": "New York Knicks forward Carmelo Anthony drives to the basket between Orlando Magic defenders",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Basketball",
+      "Slam dunk",
+      "Dribbling",
+      "Basketball Player",
+      "Block"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Carmelo Anthony's 30th straight 20-point game takes Knicks past Magic | NBA | The Guardian",
+        "content": "C a r m e l o   A n t h o n y ' s   3 0 t h   s t r a i g h t   2 0 - p o i n t   g a m e   t a k e s   K n i c k s   p a s t   . . .",
+        "caption": "New York Knicks' forward Carmelo Anthony drives to the basket between Orlando Magic defenders. Photograph: Adam Hunger/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7583732604980469,
+        "text_similarity_score": 0.9035754799842834
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image similarity score of 0.7583732604980469 is less than 0.85. However, the text similarity score is 0.9035754799842834, which is greater than 0.7. According to the instruction, when the image similarity score is below 0.85, the caption must be marked as out-of-context even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [
+        "The image similarity score between the news image and the candidate image is 0.7583732604980469.",
+        "The text similarity score between the news caption and the candidate caption is 0.9035754799842834."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a low image similarity score (0.7583732604980469, less than 0.85) despite a high text similarity score (0.9035754799842834). According to the instructions, when the image similarity score is below 0.85, the caption must be marked as out-of-context. The image shows a basketball player in a blue jersey with the number 13 driving to the basket while being defended by a player in a white jersey with the number 10. There are other players visible as well, all on a basketball court during a game. The caption claims that the image shows Carmelo Anthony, a forward for the New York Knicks, driving to the basket between Orlando Magic defenders. Based on the image content and the image check result, the caption is out of context.",
+    "validation_summary": "The caption incorrectly identifies the players and teams in the image, making it misleading to viewers. The low image similarity score confirms that the image content does not align with the caption's description."
+  },
+  "inference_time": 5.8360655307769775,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

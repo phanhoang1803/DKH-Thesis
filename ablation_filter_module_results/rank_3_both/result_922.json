@@ -1,0 +1,43 @@
+{
+  "caption": "Tazys show off their hunting skills in Kazakhstan",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Kazakhstan: Hunters try to save rare Tazy dog breed - BBC News",
+        "content": "T a z y s   s h o w   o f f   t h e i r   h u n t i n g   s k i l l s   i n   K a z a k h s t a n \n \n H u n t e r s   i n   K a z a k h s t a n   h a v e   o r g a n i s e d   a   d o g   s h o w   a s   p a r t   o f   a n   a t t e m p t   t o   p r e s e r v e   o n e   o f   t h e   w o r l d ' s   r a r e s t   b r e e d s   -   t h e   T a z y . \n \n B r e d   b y   n o m a d s   f o r   h u n t i n g   r a b b i t s ,   f o x e s   a n d   e v e n   w o l v e s   i n   K a z a k h s t a n   a n d   t h e   N o r t h   C a u c a s u s ,   i t ' s   n o w   o n e   o f   t h e   r a r e s t   d o g s   i n   t h e   w o r l d .   \" T h e   b r e e d   h a s   c e n t u r i e s - o l d   r o o t s , \"   A l e x a n d e r   B e r b e r ,   t h e   C E O   o f   n a t i o n a l   h u n t i n g   s o c i e t y   K a n s o n a r ,   t e l l s   t h e   K a z a k h   w e b s i t e   t e n g r i n e w s ,   e x t e r n a l .   \" I t   i s   o u r   t a s k   t o   e n s u r e   t h i s   b r e e d   d o e s   n o t   d i s a p p e a r . \" \n \n N o w ,   m o r e   t h a n   1 5 0   o f   t h e   d o g s   h a v e   b r o u g h t   t o g e t h e r   b y   h u n t e r s   f r o m   a l l   o v e r   K a z a k h s t a n   a t   t h e   c a p i t a l   A s t a n a .   T h e   a n i m a l s   c o m p e t e   i n   e x e r c i s e s   d e s i g n e d   t o   s h o w   o f f   t h e i r   h u n t i n g   s k i l l s ,   u s i n g   a r t i f i c i a l   b a i t .   T h e   f i r s t   o f   i t s   k i n d ,   t h e   s h o w   s e e k s   t o   h e l p   t o   s e t   a   c o m m o n   s t a n d a r d   f o r   t h e   b r e e d ,   w h i c h   d o e s n ' t   h a v e   o f f i c i a l   r e c o g n i t i o n .   W i t h o u t   t h i s   c r u c i a l   s t e p   t o   p r e s e r v e   t h e   b r e e d ,   s a y s   K a n s o n a r   c h a i r m a n ,   O r a l b a i   A b d i k a r i m o v ,   e x t e r n a l ,   i t ' s   i n   d a n g e r   o f   b e c o m i n g   e x t i n c t . \n \n T h e   t a z y   -   m e a n i n g   \" p u r e \"   -   b e l o n g s   t o   t h e   s i g h t h o u n d   g r o u p ,   w i t h   t h e   l i t h e   b o d y   o f   a   g r e y h o u n d   a n d   l o n g   m u s c u l a r   l e g s .   I t ' s   f a m e d   a s   t h e   K a z a k h   n o m a d ' s   b e s t   f r i e n d ,   a n d   t r a d i t i o n a l l y   t h e   o n l y   a n i m a l   a l l o w e d   t o   s l e e p   i n s i d e   t h e   y u r t   a n d   a p p r o a c h   c h i l d r e n . \n \n U s e   # N e w s f r o m E l s e w h e r e   t o   s t a y   u p - t o - d a t e   w i t h   o u r   r e p o r t s   v i a   T w i t t e r ,   e x t e r n a l .",
+        "caption": "Tazy hunting dogs at a dog show in Astana Kazakhstan",
+        "domain": "www.bbc.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9978784322738647,
+        "text_similarity_score": 0.6901000738143921
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "Based on the provided information, the image similarity score is 0.9978784322738647 and the text similarity score is 0.6901000738143921. According to the instructions, if the Image Similarity Score is greater than or equal to 0.85 and the Text Similarity Score is less than 0.7, the verdict should immediately be 'False'. The candidate caption mentions \"Tazy hunting dogs at a dog show in Astana Kazakhstan\", while the news caption states \"Tazys show off their hunting skills in Kazakhstan\". Although the captions share similar entities ('Tazys', 'Kazakhstan'), the context differs slightly ('dog show' vs. 'hunting skills'). However, given the high image similarity, it's plausible the image depicts Tazys demonstrating hunting skills, even if in a show setting. The instruction prioritizes image similarity score, but I decided to review both image and caption to provide a more accurate and reliable answer.",
+      "supporting_evidences": [
+        "Candidate caption mentions 'Tazy hunting dogs', which aligns with the news caption's 'Tazys'.",
+        "Both captions refer to 'Kazakhstan', indicating a common location."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a high image similarity score (0.9978784322738647) but a lower text similarity score (0.6901000738143921). Based on this, the image check result's verdict is 'False'. The image shows several Tazys standing in a line, presumably at a dog show. The caption, 'Tazys show off their hunting skills in Kazakhstan', implies the dogs are actively demonstrating these skills, which is not directly observable in the image. Although the news content describes the dogs competing in exercises to show off their hunting skills using artificial bait, the photograph itself simply depicts them standing, not actively hunting. Given the high confidence score, following the instructions dictates that the final determination must align with the image check result, confirming the caption's implication is misleading. Therefore, the image is out of context.",
+    "validation_summary": "The caption misleadingly implies the dogs are actively displaying their hunting skills in the image, while the image primarily shows them standing, likely at a dog show. This misrepresentation could lead viewers to misunderstand the context of the photograph in relation to the news content about preserving the Tazy breed and their hunting abilities, especially if they do not examine the news content."
+  },
+  "inference_time": 5.8855650424957275,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

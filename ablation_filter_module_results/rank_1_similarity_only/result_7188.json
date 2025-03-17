@@ -1,0 +1,51 @@
+{
+  "caption": "This twofooted tackle on Morgan Schneiderlin meant that Mathieu Flamini was heading for an early bath Final score Cardiff City v Arsenal",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Morgan Schneiderlin",
+      "St Mary's Stadium",
+      "Southampton F.C.",
+      "Premier League",
+      "Arsenal F.C.",
+      "Manchester United F.C.",
+      "UEFA Europa League",
+      "Fulham F.C.",
+      "Liverpool F.C.",
+      "Mathieu Flamini"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8902594447135925,
+        "text_similarity_score": 0.04480579495429993
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is high (0.8902594447135925), suggesting the images are visually similar. However, the text similarity score is low (0.04480579495429993), indicating the captions are not similar. The news caption talks about a two-footed tackle by Mathieu Flamini, leading to an early bath in a Cardiff City v Arsenal match. Without the actual candidate caption, it is hard to confirm if it aligns with the news caption. Due to the low text similarity score, I cannot definitively confirm the caption's accuracy. Therefore, I will mark it as False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a high image similarity score (0.8902594447135925) but a low text similarity score (0.04480579495429993). The image shows two players going in for a tackle, where one player is on the ground and another is stepping over the player on the ground. The player in the foreground is wearing a red and white striped kit, while the player they are tackling is wearing a yellow and blue kit. Another player in a yellow and blue kit is running past. The caption states \"This twofooted tackle on Morgan Schneiderlin meant that Mathieu Flamini was heading for an early bath Final score Cardiff City v Arsenal\". Based on the image, it is difficult to verify this information, as the player's names and match specifics are not visually discernible. The low text similarity score indicates that the caption is not representative of the image. Therefore, the caption is likely out of context. The image check result has a confidence score above 7, I will base my determination based on it.",
+    "validation_summary": "The caption describes a specific game scenario that cannot be verified from the image, leading to a potential misinterpretation of the image content. Given the low text similarity and high image similarity with the original article content, the caption is misleading and out of context, potentially confusing viewers about the game being depicted and the players involved in the tackle shown in the image.. However, given that the Image Check result has a high confidence score, I will base my determination on it and mark the caption as out of context (OOC = True).The low text similarity between the image and caption further supports this conclusion."
+  },
+  "inference_time": 8.568832874298096,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

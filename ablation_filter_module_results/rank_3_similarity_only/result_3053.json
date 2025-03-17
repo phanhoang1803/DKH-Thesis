@@ -1,0 +1,54 @@
+{
+  "caption": "Marin Cilic reacts after beating Kei Nishikori in the men s singles final of the 2014 US Open tennis tournament at USTA Billie Jean King National Tennis Center",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Emilio Solfrizzi",
+      "Computer",
+      "Molfetta",
+      "Soft tennis",
+      "Tennis",
+      "Racket",
+      "Tennis Racket",
+      "Racketlon",
+      "settled",
+      "Personal computer"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Marin Cilic routs Kei Nishikori for U.S. Open title",
+        "content": "M a r i n   C i l i c   r o u t s   K e i   N i s h i k o r i   f o r   U . S .   O p e n   t i t l e",
+        "caption": "Marin Cilic reacts after beating Kei Nishikori in the men's singles final of the 2014 U.S. Open tennis tournament at USTA Billie Jean King National Tennis Center.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5653233528137207,
+        "text_similarity_score": 0.9887994527816772
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.5653233528137207, which is less than 0.85. The text similarity score is 0.9887994527816772, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is false.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.5653233528137207",
+        "Text Similarity Score: 0.9887994527816772"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity score (0.565) is below the threshold of 0.85, despite a high text similarity score (0.988). This means the image is not visually representative of the event described in the caption, even if the text is related to the event. The image shows Marin Cilic playing tennis, but it doesn't provide specific evidence of him reacting after beating Kei Nishikori in the 2014 US Open final. Therefore, the caption is considered out of context.",
+    "validation_summary": "The image doesn't visually support the caption's claim about a specific reaction during the US Open final, thus potentially misleading viewers. Although the caption is related to the person in the image, it is not directly represented in the image itself, indicating it is used out of context."
+  },
+  "inference_time": 4.557132959365845,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

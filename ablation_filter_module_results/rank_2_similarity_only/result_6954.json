@@ -1,0 +1,52 @@
+{
+  "caption": "Kathmandu Nepal Women from the Gurung community dance during the Tamu Losar festival to celebrate new year",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Photo highlights of the day",
+        "content": "",
+        "caption": "the women are dressed in red and green costumes with headdresses on their heads",
+        "domain": "www.pinterest.co.uk",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9638195633888245,
+        "text_similarity_score": 0.24821516871452332
+      },
+      {
+        "title": "Ashin Gurung (gurungashin123) - Profile | Pinterest",
+        "content": "",
+        "caption": "",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9960669875144958,
+        "text_similarity_score": 0.05201001837849617
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption describes a scene of women from the Gurung community dancing during the Tamu Losar festival in Kathmandu, Nepal, celebrating the new year. Candidate 1 has a high image similarity score (0.9638195633888245) but a low text similarity score (0.24821516871452332). While the image might show women in similar attire, the caption only mentions details about red and green costumes with headdresses, not the specific festival or location. Candidate 2 has a high image similarity score (0.9960669875144958), but the low caption similarity score (0.05201001837849617) indicates that the details about festival and location are missing in the provided captions. Since there isn't a strong alignment between the news caption and the candidate captions with supporting details about the festival, community, and location, it's difficult to confirm that the news caption accurately represents the image. The candidates confirm that the image has people in dresses but does not provide sufficient context to correlate with the event mentioned in the caption, therefore, the caption is possibly out-of-context.",
+      "supporting_evidences": [
+        "Candidate 1 has a high image similarity score (0.9638195633888245) but a low text similarity score (0.24821516871452332).",
+        "Candidate 2 has a high image similarity score (0.9960669875144958), but the low caption similarity score (0.05201001837849617)."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a confidence score of 7, which means the final determination must be based on the image check result. The image check result indicates that the news caption is likely out-of-context, because the image similarity is high in the candidates, but the text similarity is low. The image does show people in dresses, but does not provide sufficient context to correlate with the event mentioned in the caption, therefore, the caption is possibly out-of-context.",
+    "validation_summary": "The caption mentions details of a specific event in the image, but the check result indicates that those specific details are missing from the candidate captions that have a high image similarity. Therefore, viewers would be misled by the caption."
+  },
+  "inference_time": 6.674490690231323,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

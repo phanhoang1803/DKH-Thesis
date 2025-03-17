@@ -1,0 +1,43 @@
+{
+  "caption": "Prince William and Kate are expected to leave Wales and move into Kensington Palace within the next few weeks",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Cadillac CTS-V",
+      "Jaguar XJ",
+      "Cadillac",
+      "Car",
+      "Executive car",
+      "Cadillac",
+      "official",
+      "Jaguar"
+    ],
+    "ablation_type": "no_text_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 1,
+      "confidence_score": 10,
+      "explanation": "The caption describes Prince William and Kate moving to Kensington Palace, while the image shows Prince Edward exiting a Jaguar. There is no alignment between the caption and the image context.",
+      "supporting_evidences": [
+        "The caption mentions Prince William and Kate.",
+        "The image and context describe Prince Edward.",
+        "The caption describes a relocation; the image depicts an arrival/departure at an event."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Prince Edward waves as he exits a black Jaguar XJ.",
+      "context": "The image features Prince Edward waving while standing next to a black Jaguar XJ. A security personnel stands behind the car, observing the surroundings. The setting appears to be outdoors, possibly in front of a building with glass windows. The focus is on Prince Edward and his official appearance, suggesting his involvement in some royal duties or public engagement. The presence of security indicates the importance of the event or individual. Given the visual elements, the image likely captures Prince Edward arriving at or departing from a formal event.",
+      "information": "The image shows Prince Edward in a dark suit, waving with a security detail present. A black Jaguar XJ is prominently featured. The setting appears to be an official event."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Prince Edward, not Prince William and Kate, standing beside a black Jaguar. He is wearing a suit with medals and waving. The caption states that Prince William and Kate are expected to move to Kensington Palace. This information does not align with the image as it depicts a different royal figure in a different setting. Therefore, the caption is misleading in the context of the image.",
+    "validation_summary": "The caption is out of context because it refers to Prince William and Kate moving, while the image shows Prince Edward next to a car, which misleads viewers about the subject of the image and the content being described. The image does not support the caption's claim about Prince William and Kate's relocation."
+  },
+  "inference_time": 5.064551115036011,
+  "ablation_type": "no_text_evidences"
+}

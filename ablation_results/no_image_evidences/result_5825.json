@@ -1,0 +1,38 @@
+{
+  "caption": "Theodore Bikel in Fiddler on the Roof at Caesars Palace Las Vegas 196768 He played the role of Tevye the milkman more than 2000 times across the US",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Theodore Bikel obituary | Stage | The Guardian",
+        "content": "e 2 9 c a 8 f 5 - a 0 b 4 - 4 5 5 7 - a a 0 8 -   . . .",
+        "caption": "Theodore Bikel in Fiddler on the Roof at Caesars Palace, Las Vegas, 1967-68. He played the role of Tevye the milkman more than 2,000 times across the US.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.36621811985969543,
+        "text_similarity_score": 0.9557445049285889
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.36621811985969543 which is less than 0.85, and the text similarity score is 0.9557445049285889 which is greater than 0.7. According to the instructions, the verdict should be False. The candidate caption matches the news caption, mentioning Theodore Bikel in Fiddler on the Roof at Caesars Palace, Las Vegas, 1967-68, and his extensive portrayal of Tevye the milkman. However, since the image similarity is low, it is deemed out-of-context.",
+      "supporting_evidences": [
+        "Caption: Theodore Bikel in Fiddler on the Roof at Caesars Palace, Las Vegas, 1967-68. He played the role of Tevye the milkman more than 2,000 times across the US.",
+        "Image Similarity Score: 0.36621811985969543",
+        "Text Similarity Score: 0.9557445049285889"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity score is low (0.36621811985969543) despite a high text similarity score (0.9557445049285889). The instructions state that for confidence scores of 7-10, the final determination must be based on the image check result. Thus, because the image similarity is low, the image is deemed out of context, regardless of the text similarity.",
+    "validation_summary": "Despite mentioning details related to Theodore Bikel's role in 'Fiddler on the Roof,' the image's visual content doesn't align well, making the caption misleading. The low image similarity suggests that the scene depicted is not accurately represented by the caption's description of Bikel in the specific role and location mentioned."
+  },
+  "inference_time": 5.42198920249939,
+  "ablation_type": "no_image_evidences"
+}

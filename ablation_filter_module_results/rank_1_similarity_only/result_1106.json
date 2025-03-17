@@ -1,0 +1,44 @@
+{
+  "caption": "A Ladbrokes bookmakers in southeast London",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "inno8495",
+        "content": "",
+        "caption": "several people are standing in front of ladbrokes on the sidewalk outside their store",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9786733984947205,
+        "text_similarity_score": 0.3618033528327942
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image similarity score is high (0.9786733984947205), indicating that the candidate image closely resembles the news image. However, the text similarity score is low (0.3618033528327942).  The news caption mentions \"A Ladbrokes bookmakers in southeast London\", while the candidate caption describes \"several people are standing in front of ladbrokes on the sidewalk outside their store\". Although the images are similar, the low caption similarity indicates the candidate caption contains additional details (people, sidewalk) not explicitly mentioned in the news caption. However, these details do not necessarily contradict the news caption, as it's plausible the scene includes people and a sidewalk. Since the image is similar, and the candidate caption aligns with the overall scene, the news caption is likely in context, as it focuses on the subject Ladbrokes.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.9786733984947205",
+        "Caption Similarity Score: 0.3618033528327942",
+        "Candidate caption mentions 'ladbrokes' which is mentioned in the news caption"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 8,
+    "explanation": "The image check result has a high confidence score (8), so the final determination is based on the image check result. The image similarity score is high (0.9786733984947205), indicating that the candidate image closely resembles the news image. However, the text similarity score is low (0.3618033528327942). The news caption mentions \"A Ladbrokes bookmakers in southeast London\", while the candidate caption describes \"several people are standing in front of ladbrokes on the sidewalk outside their store\". Although the images are similar, the low caption similarity indicates the candidate caption contains additional details (people, sidewalk) not explicitly mentioned in the news caption. However, these details do not necessarily contradict the news caption, as it's plausible the scene includes people and a sidewalk. Since the image is similar, and the candidate caption aligns with the overall scene, the news caption is likely in context, as it focuses on the subject Ladbrokes.",
+    "validation_summary": "The image shows a Ladbrokes bookmakers and the caption accurately describes the scene, so viewers would not be misled. The image check result confirms that the image is in context with the caption, even though the caption lacks all the details of the image."
+  },
+  "inference_time": 9.357947826385498,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

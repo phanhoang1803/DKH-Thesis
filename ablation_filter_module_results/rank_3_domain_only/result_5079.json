@@ -1,0 +1,38 @@
+{
+  "caption": "Mr Whittle denied that deputy chair of UKIP Suzanne Evans would have made a stronger candidate",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "UKIP selects Peter Whittle as London mayoral candidate - BBC News",
+        "content": "U K I P   s e l e c t s   P e t e r   W h i t t l e   a s   L o n d o n   m a y o r a l   c a n d i d a t e   -   B B C   N e w s",
+        "caption": "Peter Whittle believes many in the City of London want to leave the EU",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. The candidate does not provide any information that supports the news caption. Therefore, the news caption cannot be verified.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a woman and a man in front of an orange background with the word \"BUILDING\" partially visible. The caption mentions Mr. Whittle denying Suzanne Evans would have made a stronger candidate for London Mayor. This caption does not relate to what is visible in the image. The individuals in the image are not identified as Mr. Whittle or Suzanne Evans, and the image does not contain any information about the London Mayor election or related denials. Therefore, the caption is out of context.",
+    "validation_summary": "The image does not show Mr. Whittle or Suzanne Evans, nor does it relate to the London Mayor election, making the caption completely unrelated and misleading. The image check result also indicates a mismatch between the image content and the news caption supporting the out of context determination with a low similarity score between the caption and image content."
+  },
+  "inference_time": 3.4474217891693115,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

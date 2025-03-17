@@ -1,0 +1,37 @@
+{
+  "caption": "Prince Kate Moss Adele Rita Ora Noel Gallagher Cara Delevingne and Stephen Fry attended his Ronnie Scott s gig",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Prince watch: his Hit and Run tour stops by at Ronnie Scott's | Prince | The Guardian",
+        "content": "e 9 0 8 0 8 f 8 - 0 8 8 6 - 4 5 e c - 8 d 6 b -   . . .",
+        "caption": "Prince: Kate Moss, Adele, Rita Ora, Noel Gallagher, Cara Delevingne and Stephen Fry attended his Ronnie Scotts gig",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.15599681437015533,
+        "text_similarity_score": 0.9689324498176575
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.15599681437015533, which is less than 0.85. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. The text similarity score is 0.9689324498176575, which is greater than 0.7. However, since the image similarity score is low, the caption is still considered out-of-context. Therefore, the verdict is False.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.15599681437015533",
+        "Text Similarity Score: 0.9689324498176575"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image features two men in formal attire, one in a purple velvet blazer and the other in a tuxedo with a bow tie. The individuals in the image are not explicitly identified as Prince, Kate Moss, Adele, Rita Ora, Noel Gallagher, Cara Delevingne, or Stephen Fry. Given that the image check result indicates a low image similarity score of 0.15599681437015533 and a confidence score of 7, the caption is deemed out of context because it cannot be confirmed that the people listed in the caption are actually present in the image. The image check result takes precedence in this determination.",
+    "validation_summary": "The caption incorrectly identifies the people in the image, as the image does not provide enough information to confirm the presence of the celebrities listed. Therefore, viewers would be misled about the actual content of the image and the individuals featured in it, making the caption out of context."
+  },
+  "inference_time": 5.4579455852508545,
+  "ablation_type": "no_image_evidences"
+}

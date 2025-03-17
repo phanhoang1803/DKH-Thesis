@@ -1,0 +1,50 @@
+{
+  "caption": "The BBC s newsroom at New Broadcasting House",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "The Venetian Las Vegas",
+      "Image",
+      "Stock photography",
+      "Getty Images",
+      "Flag",
+      "Politics"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "BBC - The Editors",
+        "content": "B B C   -   T h e   E d i t o r s",
+        "caption": "The Newsroom in New Broadcasting House, pictured before the big move",
+        "domain": "www.bbc.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.34143513441085815,
+        "text_similarity_score": 0.7967345118522644
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score between the news image and the candidate image is 0.34143513441085815, which is less than 0.85. The text similarity score between the news caption and the candidate caption is 0.7967345118522644, which is greater than 0.7. Since the image similarity score is below 0.85, the caption must be marked as out-of-context, even though the text similarity score is high. Therefore, the final verdict is 'False'. Although the text similarity is high, the low image similarity indicates that the candidate image does not closely resemble the news image, suggesting a potential mismatch in the visual context.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.34143513441085815",
+        "Text Similarity Score: 0.7967345118522644"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a convention hall decorated with Republican party symbols (elephants) and the word \"VOTE\". There are people in the background, along with tables and chairs. The caption references the BBC's newsroom. The image check result strongly indicates that the caption is unrelated to the image content, as the image similarity score is low (0.34143513441085815), despite the text similarity score being high (0.7967345118522644). Since the image check has a confidence score above 7, the analysis defers to the image check's 'False' verdict.",
+    "validation_summary": "The caption describes the BBC newsroom, which is not depicted in the image showing a political convention hall, misleading viewers about the image's content and context.. This will mislead viewers about what the content is actually about because it shows a political convention rather than a newsroom. The image shows political convention rather than BBC newsroom and hence is misleading to the viewers about the image's content and context. This misrepresentation can lead to confusion and a misunderstanding of the depicted scene.Therefore, the caption does not provide a correct representation of the image content, making the image out of context (OOC)."
+  },
+  "inference_time": 9.544404745101929,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

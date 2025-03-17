@@ -1,0 +1,40 @@
+{
+  "caption": "Nuneaton was once considered a Labour stronghold but the Tories have now managed to hold it in consecutive elections",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "twitter.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8644474744796753,
+        "text_similarity_score": 0.02159501239657402
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is high (0.8644474744796753), but the caption similarity score is low (0.02159501239657402). Based on the instruction, I should return 'False'. Since there is no other information available, I can't make a more confident judgement.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a group of people celebrating at what appears to be a political event related to the Scottish independence referendum. Several individuals are wearing \"Vote No\" t-shirts and expressing excitement. The caption describes the political landscape of Nuneaton and makes no mention of the Scottish Independence Referendum or the people in the image. Therefore, the caption does not align with the visual content of the image, making it out of context. The image check result also supports this conclusion with a high similarity score and low caption similarity score.",
+    "validation_summary": "The caption discusses Nuneaton's political landscape, while the image shows people celebrating at an event related to the Scottish independence referendum, misleading viewers about the image's content and context. The image and caption are unrelated, thus, the image is used out of context."
+  },
+  "inference_time": 7.8291404247283936,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

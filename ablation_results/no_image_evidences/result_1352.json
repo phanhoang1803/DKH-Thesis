@@ -1,0 +1,43 @@
+{
+  "caption": "Kenwood House on Hampstead Heath London England",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Hampstead Heath  Park Review | Cond Nast Traveler",
+        "content": "H a m p s t e a d   H e a t h      P a r k   R e v i e w   |   C o n d    N a s t   T r a v e l e r",
+        "caption": "Views of Kenwood House at Hampstead Heath",
+        "domain": "www.cntraveler.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.31340155005455017,
+        "text_similarity_score": 0.926716685295105
+      },
+      {
+        "title": "Review of Hampstead Heath  | London, United Kingdom, Europe -  AFAR",
+        "content": "R e v i e w   o f   H a m p s t e a d   H e a t h   |   L o n d o n ,   U n i t e d   K i n g d o m ,   E u r o p e   -   A F A R",
+        "caption": "Picnic on lawn, castle Kenwood House, Hampstead Heath, London, England",
+        "domain": "www.afar.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.23809553682804108,
+        "text_similarity_score": 0.7568677663803101
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption is \"Kenwood House on Hampstead Heath London England.\" Candidate 1 has a caption of \"Views of Kenwood House at Hampstead Heath\" with a text similarity score of 0.926716685295105, which is high, but an image similarity score of 0.31340155005455017, which is low. Candidate 2 has a caption of \"Picnic on lawn, castle Kenwood House, Hampstead Heath, London, England\" with a text similarity score of 0.7568677663803101, which is high, but an image similarity score of 0.23809553682804108, which is low. Because both candidates have low image similarity scores, the captions are considered to be out-of-context, despite the high text similarity scores.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "validation_summary": "The caption incorrectly states Kenwood House is depicted, while the image shows a different location with cherry blossoms.",
+    "explanation": "The news caption claims the image depicts 'Kenwood House on Hampstead Heath, London, England.' However, the image specifically shows a road lined with pink cherry blossoms and no identifiable structures that resemble Kenwood House or indicate Hampstead Heath. Due to the low image similarity scores and the context of the image, it becomes clear that the caption is misleading. Instead of representing Kenwood House, the image doesn’t correlate to the content provided in the caption."
+  },
+  "inference_time": 8.42746090888977,
+  "ablation_type": "no_image_evidences"
+}

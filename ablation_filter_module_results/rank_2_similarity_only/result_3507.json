@@ -1,0 +1,45 @@
+{
+  "caption": "GOP presidential nominee Donald Trump speaks at a rally in West Bend rally last month",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Footballer",
+      "Fan"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Donald Trump reaches out to African Americans, says Democrats take black vote for granted - Los Angeles Times",
+        "content": "D o n a l d   T r u m p   r e a c h e s   o u t   t o   A f r i c a n   A m e r i c a n s ,   s a y s   D e m o c r a t s   t a k e   . . .",
+        "caption": "Republican presidential candidate Donald Trump speaks at a campaign rally in West Bend, Wis., on Tuesday.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2914695143699646,
+        "text_similarity_score": 0.8735129237174988
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.2914695143699646, which is less than 0.85. The text similarity score is 0.8735129237174988, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than or equal to 0.7, the verdict should be 'False'. The candidate caption mentions that Donald Trump spoke at a campaign rally in West Bend, Wis., on Tuesday, which aligns with the news caption. However, due to the low image similarity score, a definitive determination cannot be made.",
+      "supporting_evidences": [
+        "Candidate caption mentions Donald Trump spoke at a campaign rally in West Bend, Wis."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity score (0.2914695143699646) is less than 0.85, while the text similarity score (0.8735129237174988) is greater than or equal to 0.7. Therefore, according to the instructions, the verdict should be 'False.' However, the low image similarity score suggests that the image does not strongly represent the content described in the caption. Considering this, I will use the image check result to determine my verdict. The image shows Donald Trump signing an autograph for a young man at a rally. The caption states \"GOP presidential nominee Donald Trump speaks at a rally in West Bend rally last month.\" While it's true that Trump is at a rally, the image focuses on the interaction with a supporter and his autograph and not him speaking. Because the image check result suggests the image does not strongly represent the content described in the caption, and the confidence score is high, the verdict is 'OOC = True'.",
+    "validation_summary": "The image shows Trump signing an autograph at a rally, not specifically speaking, which is a detail not fully captured by the caption, so the image could be misleading. The image check confirms the caption is potentially misleading."
+  },
+  "inference_time": 6.698641777038574,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

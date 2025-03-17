@@ -1,0 +1,55 @@
+{
+  "caption": "Brave New World Barack Obama signs his first act as president in the US Capitol building on 20 January 2009",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "www.oleantimesherald.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "20 World News ideas | new world, world, united nations security council",
+        "content": "",
+        "caption": "",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Studs Terkel's study of race in the US: 20 years on | Studs Terkel | The Guardian",
+        "content": "S t u d s   T e r k e l ' s   s t u d y   o f   r a c e   i n   t h e   U S :   2 0   y e a r s   o n   |   S t u d s   T e r k e l   . . .",
+        "caption": "Brave New World?  Barack Obama signs his first act as president in the US Capitol building on 20 January 2009. Photograph: Molly Riley/AP/PA Photos",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Fear and loathing in Washington DC: progressives dread Trump inauguration | Donald Trump inauguration | The Guardian",
+        "content": "F e a r   a n d   l o a t h i n g   i n   W a s h i n g t o n   D C :   p r o g r e s s i v e s   d r e a d   T r u m p   . . .",
+        "caption": "This is unlike any inauguration weve seen.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are all 0.0, indicating that none of the candidate images match the news image. The caption similarity scores are also 0.0 for candidates 1, 2, and 4, indicating no similarity between the captions. However, candidate 3 has a caption that is almost identical to the news caption. Despite this similarity, since the image similarity is 0.0, the candidate image doesn't match the news image. Therefore, it's difficult to be completely confident. The news caption mentions 'Barack Obama signs his first act as president in the US Capitol building on 20 January 2009'. Candidate 3 mentions the same event, date, and location. However, without the images matching, it is hard to be certain that they are referring to the same thing.",
+      "supporting_evidences": [
+        "Candidate 3: Brave New World? … Barack Obama signs his first act as president in the US Capitol building on 20 January 2009."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "validation_summary": "The caption references Barack Obama signing his first act on January 20, 2009, which may not accurately represent the image content confirmed by similarity checks, suggesting it might not depict the event described.",
+    "explanation": "The image check results indicate low similarity scores (0.0) between the news image and the candidate images, implying that the news image doesn't accurately match the failing candidate. Additionally, the only candidate with a caption similar to the original is also not a match to the news image based on similarity. Consequently, the lack of matches raises doubts about the reliability of the caption which suggests Obama signing his first act. Since we cannot verify if the image represents the event accurately, we determine the caption misrepresents the content based on this evidence. Therefore, it is classified as Out of Context."
+  },
+  "inference_time": 5.859281778335571,
+  "ablation_type": "no_filters"
+}

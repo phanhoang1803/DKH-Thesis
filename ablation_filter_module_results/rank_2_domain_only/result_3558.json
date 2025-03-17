@@ -1,0 +1,38 @@
+{
+  "caption": "Hillary Clinton greets fans at a signing for her book Hard Choices at the Tattered Cover bookstore in Denver in 2014",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Hillary Clinton visiting Denver on Dec. 11",
+        "content": "H i l l a r y   C l i n t o n   v i s i t i n g   D e n v e r   o n   D e c .   1 1",
+        "caption": "First lady Hillary Rodham Clinton, left, ...",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is low (0.0) and the text similarity score is low (0.0). Therefore, I must rely on textual analysis of the evidence. The candidate caption mentions \"First lady Hillary Rodham Clinton\" but does not confirm the event, location, or year mentioned in the news caption (book signing, Tattered Cover bookstore in Denver, 2014). Since key details are missing and not explicitly confirmed by the candidate, I cannot verify the caption's accuracy. Therefore, the verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 2, indicating low reliability. However, re-evaluation based on image analysis strongly suggests that the caption is misleading. The image shows Hillary Clinton interacting with people and signing a book. The background suggests the event is taking place at a bookstore. The news caption states that it is Hillary Clinton greeting fans at a signing for her book Hard Choices at the Tattered Cover bookstore in Denver in 2014. Based on the Image Check Result and additional details about the book signing event, the caption contains verifiable elements. Given the verifiable elements are present and the Image Check Result's confidence score is low, the caption is deemed Out of Context.",
+    "validation_summary": "Although the image shows Hillary Clinton interacting with people at a bookstore and signing a book, there is no information provided to verify the accuracy of the specific location, book title, and year. Therefore, the viewers would be misled to believe that the event described by the caption is represented in the picture."
+  },
+  "inference_time": 3.5585997104644775,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "Former President George W Bush and Laura Bush move toward the stage before President Barack Obama speaks",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "USA TODAY",
+        "content": "F e w   t h i n g s   d r a w   m o r e   c o n s e r v a t i v e   i r e   t h a n   n e w s   t h a t   P r e s i d e n t   O b a m a   i s   b a c k   o n   t h e   g o l f   c o u r s e . \n \n B u t   O b a m a ' s   R e p u b l i c a n   p r e d e c e s s o r ,   G e o r g e   W .   B u s h ,   s a i d   p r e s i d e n t s   s h o u l d   p l a y   g o l f   b e c a u s e   t h e y   n e e d   t o   r e l a x . \n \n I n   a n   i n t e r v i e w   o n   t h e   G o l f   C h a n n e l ,   B u s h   s a i d   O b a m a   \" o u g h t   t o   p l a y   g o l f \"   w h e n   h e   c a n . \n \n \" I   k n o w   w h a t   i t ' s   l i k e   t o   b e   i n   t h e   b u b b l e , \"   B u s h   s a i d .   \" A n d   I   k n o w   t h e   p r e s s u r e s   o f   t h e   j o b .   A n d   t o   b e   a b l e   t o   g e t   o u t s i d e   a n d   p l a y   g o l f   w i t h   s o m e   o f   y o u r   p a l s   i s   i m p o r t a n t   f o r   t h e   p r e s i d e n t .   I t   d o e s   g i v e   y o u   a n   o u t l e t . \" \n \n B u s h   h i m s e l f   p l a y e d   g o l f   d u r i n g   h i s   e a r l y   y e a r s   i n   t h e   W h i t e   H o u s e ,   b u t   s t o p p e d   i n   2 0 0 3   i n   t h e   m i d s t   o f   t h e   I r a q   w a r . \n \n A s   t h e   A s s o c i a t e d   P r e s s   r e p o r t s ,   O b a m a   i s   h a r d l y   u n i q u e   w h e n   i t   c o m e s   t o   h i s   g o l f   g a m e : \n \n \" F i f t e e n   o f   t h e   l a s t   1 8   p r e s i d e n t s   h a v e   p l a y e d   g o l f ,   a n d   t w o   a r e   i n   t h e   W o r l d   G o l f   H a l l   o f   F a m e   - -   D w i g h t   D .   E i s e n h o w e r   a n d   G e o r g e   H . W .   B u s h .   E i s e n h o w e r   w a s   a   m e m b e r   a t   A u g u s t a   N a t i o n a l .   . . . \n \n \" O b a m a   h a s   p l a y e d   m o r e   t h a n   1 4 0   r o u n d s   o f   g o l f   s i n c e   h e   f i r s t   t o o k   o f f i c e ,   a c c o r d i n g   t o   C B S   N e w s .   E a r l i e r   t h i s   y e a r ,   h e   p l a y e d   w i t h   T i g e r   W o o d s   i n   s o u t h   F l o r i d a . \"",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9187869429588318,
+        "text_similarity_score": 0.06999421119689941
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is high (0.9187869429588318), suggesting the images are visually similar. However, the caption similarity score is low (0.06999421119689941), indicating the captions are not very similar. This means that while the images might depict similar scenes or subjects, the specific details mentioned in the news caption (Former President George W Bush and Laura Bush move toward the stage before President Barack Obama speaks) are not explicitly confirmed or matched by the candidate's caption. Therefore, without additional information or context from the candidate, it is difficult to determine if the news caption accurately reflects the content of the image. Because the text similarity score is below 0.7, I will mark the caption as out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a high image similarity score (0.9187869429588318) but a low caption similarity score (0.06999421119689941). This discrepancy suggests that the image and caption are not well-aligned, as the text in the caption doesn't correspond well with the visual content of the image. The image shows Obama and George W. Bush, with no indication of Laura Bush or specific movement toward a stage, which are mentioned in the caption. The low caption similarity score is below the 0.7 threshold I set, indicating that the caption does not accurately represent the image content. The image check result guides my choice, but I also evaluated the image and found no context to support the text.",
+    "validation_summary": "The caption describes details (Laura Bush, movement to the stage) not evident in the image, misleading viewers about the scene depicted. Based on a confidence score of 7, the image is determined to be out of context."
+  },
+  "inference_time": 6.128174543380737,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

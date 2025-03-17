@@ -1,0 +1,34 @@
+{
+  "caption": "Gizza light then Bill Murray in Theodore Melfi s film St Vincent",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Bill Murray: five best moments | Movies | The Guardian",
+        "content": "B i l l   M u r r a y :   f i v e   b e s t   m o m e n t s   |   M o v i e s   |   T h e   G u a r d i a n",
+        "caption": "Gizza light, then  Bill Murray, in Theodore Melfis film St Vincent.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.28485238552093506,
+        "text_similarity_score": 0.9697118997573853
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is low (0.28485238552093506 < 0.85) and the caption similarity score is high (0.9697118997573853 > 0.7). According to the rule, I should immediately return False. Therefore, the final decision is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image shows Bill Murray in what appears to be a still from a movie, possibly 'St. Vincent'. He is in a car, wearing a hat and suit, and smoking from a holder. The caption identifies the actor and the movie, which is accurate. The image check result indicates a high caption similarity score, further supporting the accuracy of the caption.",
+    "validation_summary": "The caption accurately identifies Bill Murray in the film 'St Vincent', so viewers would not be misled by the image and caption pairing because it aligns with the image content and context provided in the news article. The high caption similarity score confirms this assessment."
+  },
+  "inference_time": 4.837292909622192,
+  "ablation_type": "no_image_evidences"
+}

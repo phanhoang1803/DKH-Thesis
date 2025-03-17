@@ -1,0 +1,49 @@
+{
+  "caption": "A South African giraffe practices its footwork at Vutomi Dam in Kruger National Park South Africa Giraffes are prone to broken limbs caused by slipping on wet surfaces",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Giraffe",
+      "South African giraffe",
+      "West African giraffe",
+      "Lion",
+      "Leg",
+      "Ig",
+      "Science",
+      "1980s",
+      "tall",
+      "Subspecies"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "In pictures: Necks on the line - saving the West African giraffe | Environment | The Guardian",
+        "content": "M o n   1 5   F e b   2 0 1 0   1 3 . 0 0  C E T \n \n \n                         F i r s t   p u b l i s h e d   o n   M o n   1 5   F e b   2 0 1 0   1 3 . 0 0  C E T",
+        "caption": "Giraffe: South African Giraffe ",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0, which are both low. The candidate caption does not contain any information about the location, the actions, or the claims made in the news caption. Thus, there is not enough information to support that the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image depicts two giraffes in a grassy area, one bending down to what appears to be a bush. The caption states \"A South African giraffe practices its footwork at Vutomi Dam in Kruger National Park South Africa. Giraffes are prone to broken limbs caused by slipping on wet surfaces.\" While the image does show a giraffe in what could potentially be Kruger National Park, the photo provides no visual evidence to support the claim that the giraffe is practicing footwork or that the location is Vutomi Dam. Also, there is no indication that the giraffe may slip on a wet surface. The image check result has a low confidence score; however, the image does not support the claims made in the caption. Therefore, the caption is considered out of context.",
+    "validation_summary": "The caption makes specific claims about the giraffe practicing footwork at a specific location and the risk of slipping, none of which are visually supported by the image. The caption could mislead viewers into thinking the image directly illustrates these claims."
+  },
+  "inference_time": 3.2718570232391357,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

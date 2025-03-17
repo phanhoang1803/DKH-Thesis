@@ -1,0 +1,45 @@
+{
+  "caption": "Democratic presidential candidate Sen Bernie Sanders speaks to his campaign volunteers at the local headquarters in Bowling Green Ky Wednesday",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Bernie Sanders finds himself in a new role as front-runner | PBS News",
+        "content": "B e r n i e   S a n d e r s   f i n d s   h i m s e l f   i n   a   n e w   r o l e   a s   f r o n t - r u n n e r   |   P B S   N e w s",
+        "caption": "2020 Democratic presidential candidate and Senator Bernie Sanders participates in a moderated discussion at the We the Peo...",
+        "domain": "www.pbs.org",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Biden makes new campaign hires with focus on Super Tuesday | PBS News",
+        "content": "B i d e n   m a k e s   n e w   c a m p a i g n   h i r e s   w i t h   f o c u s   o n   S u p e r   T u e s d a y   |   P B S   N e w s",
+        "caption": "South Bend Mayor Pete Buttigieg, Senator Bernie Sanders, former Vice President Joe Biden, Senator Elizabeth Warren and Sen...",
+        "domain": "www.pbs.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both Image Similarity Score and Text Similarity Score are low. The candidates only mention Bernie Sanders is a 2020 Democratic presidential candidate or a senator. It does not provide the location where Bernie Sanders gave the campaign speech, and therefore the caption is not verified.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates the caption is not verified. While the image does show Bernie Sanders interacting with people, it does not provide definitive visual evidence of a campaign event in Bowling Green, KY. The image primarily shows Sanders shaking hands with a woman as another person takes a photo with their phone. There are other people around, but the location and the context of a \"campaign volunteer\" meeting are not visually confirmed. Because the image check has a low similarity score and the visual analysis doesn't strongly support the caption's claims, the caption is considered out of context.",
+    "validation_summary": "The caption suggests a specific campaign event which is not clearly supported by the image. Viewers would be misled to believe the image definitively shows a campaign event with volunteers in Bowling Green, KY, which is not verifiable from the image alone."
+  },
+  "inference_time": 3.2402381896972656,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

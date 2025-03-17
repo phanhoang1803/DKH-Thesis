@@ -1,0 +1,41 @@
+{
+  "caption": "Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Car",
+      "Sports sedan",
+      "Sports car",
+      "Taxi",
+      "Sedan",
+      "Executive car"
+    ],
+    "ablation_type": "no_text_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 9,
+      "explanation": "The caption mentions Foxtons and Mini Coopers, which are associated with London real estate. However, the image depicts a Liverpool Taxi. This is a clear mismatch between the caption's subject and the image content. Therefore, the caption does not align with the image context at all.",
+      "supporting_evidences": [
+        "The caption refers to Foxtons and Mini Coopers.",
+        "The image shows a Liverpool Taxi, not a Foxtons vehicle.",
+        "There is no mention of Liverpool in the original caption."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "information": "The image depicts a Liverpool Taxi emblazoned with distinctive branding in an urban setting. It appears to be parked on a city street with modern buildings in the background, capturing the vibrant yet bustling atmosphere of urban life. The taxi is a bright color, likely yellow or another vivid hue, making it stand out against the backdrop of the cityscape. The taxi is also marked with logos or advertisements, further emphasizing its function in public transportation. The overall composition reflects the dynamic nature of a metropolitan environment, possibly emphasizing themes of commerce and movement.",
+      "caption": "A vibrant Liverpool Taxi parked in a bustling urban setting, showcasing its distinctive branding amidst the cityscape.",
+      "context": "The image of the Liverpool Taxi connects with the news context regarding Foxtons, a prominent estate agent in London known for its aggressive marketing tactics. The article discusses Foxtons' financial struggles amid a slowing London property market, highlighting the competitive nature of real estate in metropolitan areas. The mention of taxis could imply the increased mobility and accessibility in urban life, reflecting the dynamics of renting and living in a city where transport plays a critical role in property markets. The visual elements in the image reinforce the narrative of urban life’s hustle, tying into the broader trends of economic fluctuation and consumer sentiment expressed in the news content about Foxtons."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "validation_summary": "The caption misrepresents the image content as it refers to Foxtons and Mini Coopers, while the image actually shows a Liverpool Taxi.",
+    "explanation": "The news caption states that 'Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers,' suggesting a focus on the Foxtons brand and their distinctive vehicles. However, the image provided clearly depicts a Liverpool Taxi, which is not associated with Foxtons. This stark difference creates a significant disconnect between the caption and the image. The caption implies visually identifiable branding and context related to Foxtons' operations in London, yet the visual evidence in the image is entirely unrelated. As such, viewers looking at the image alongside the caption would be misled into thinking they are seeing a representation of Foxtons, when in fact, they are seeing something contextually irrelevant."
+  },
+  "inference_time": 9.405210494995117,
+  "ablation_type": "no_text_evidences"
+}

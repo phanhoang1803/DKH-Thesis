@@ -1,0 +1,51 @@
+{
+  "caption": "Cricket Power in Acton by Stephen Weiss",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Underwater Photographer of the Year 2015 winners  in pictures | Environment | The Guardian",
+        "content": "W i n n e r   h o p e s   h i s   p h o t o g r a p h   o f   a   s h o r t   s n o u t e d   s e a h o r s e      t h a t   b e a t   t h o u s a n d s   o f   e n t r i e s   f r o m   4 0   c o u n t r i e s      w i l l   r a i s e   a w a r e n e s s   o f   t h e   s p e c i e s    d r a m a t i c   d e c l i n e \n \n T h u   2 6   F e b   2 0 1 5   1 1 . 2 6  G M T \n \n \n                         L a s t   m o d i f i e d   o n   F r i   2 9   O c t   2 0 2 1   1 2 . 5 4  B S T \n \n P h o t o g r a p h :   N u n o   S    / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   M a t t   D o g g e t t / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   M a r i o   V i t a l i n i / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   R a f f a e l e   L i v o r n e s e / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   H a n i   B a d e r / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   M o r t e n   B j  r n   L a r s e n / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   T r e v o r   R e e s / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   S t e v e   J o n e s / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   T h e r e s a   A .   G u i s e / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   F i l i p p o   B o r g h i / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   T r e v o r   R e e s / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   M a t t   D o g g e t t / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   A r t h u r   K i n g d o n / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   T o b i a s   F r i e d r i c h / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   M o n t s e   G r i l l o / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   T a m m y   G i b b s / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   C a t h y   L e w i s / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   F a b r i c e   G u e r i n / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   T o m m i   K o k k o l a / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   T r e v o r   R e e s / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   P o l l y   W h y t e / U P Y   2 0 1 5 \n \n P h o t o g r a p h :   P a u l   C o l l e y / U P Y   2 0 1 5",
+        "caption": "THIRD: 'Sharp Shrimp' - Paul Colley CB OBE",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9821351766586304,
+        "text_similarity_score": 0.22358278930187225
+      },
+      {
+        "title": "Spacehoppers and Enoch Powell: real British life in the 1970s  in pictures | Art and design | The Guardian",
+        "content": "S p a c e h o p p e r s   a n d   E n o c h   P o w e l l :   r e a l   B r i t i s h   l i f e   i n   t h e   1 9 7 0 s      i n   . . .",
+        "caption": "Cricket Power, Acton.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "text_similarity_score": 0.8540733456611633
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Candidate 1 has a high image similarity score (0.9821351766586304), indicating that the images are very similar. However, the caption similarity score is low (0.22358278930187225). Based on the strict decision rules, this results in a \"False\" verdict. \nCandidate 2 has a zero image similarity score, implying that the images are unrelated. Therefore, it is difficult to say that the captions align. The caption similarity score is 0.8540733456611633, which is high, but due to the low image similarity, it does not confirm the accuracy of the news caption. The title from candidate 2 'Cricket Power, Acton' is relevant to the News Caption 'Cricket Power in Acton by Stephen Weiss'. However, the evidence is insufficient to determine whether the news caption accurately represents the image, especially when the images have different content.",
+      "supporting_evidences": [
+        "Candidate 1: High image similarity (0.9821351766586304) but low caption similarity (0.22358278930187225).",
+        "Candidate 2: Zero image similarity score, but high caption similarity score is 0.8540733456611633."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a close-up of a shrimp or prawn. The caption refers to \"Cricket Power in Acton\", which is highly unlikely to be related to a shrimp. The image check result provides a high confidence score of 6, indicating a strong basis for the decision. Although the caption similarity score is high, the image similarity score is zero, making the final verdict False. The image and caption are unrelated.",
+    "validation_summary": "The image depicts a shrimp, while the caption refers to cricket, misleading viewers about the image's content and implying a connection that doesn't exist. The image and caption are unrelated, leading to a false association for viewers about what they are seeing in the news content. Therefore, the image is out of context (OOC = True). The caption creates a false impression of the image, as it describes something completely different from what is shown in the image. Viewers are misled about the actual content of the image, which is clearly a shrimp and not related to cricket power in Acton, as suggested by the caption. This disconnect between the visual and textual information is misleading and can lead to a misinterpretation of the news content."
+  },
+  "inference_time": 6.211832523345947,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

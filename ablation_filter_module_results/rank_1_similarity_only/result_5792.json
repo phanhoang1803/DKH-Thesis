@@ -1,0 +1,47 @@
+{
+  "caption": "Claudio Ranieri is back to tinker in the Premier League",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "referee"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Premier League fans verdicts part 1: Arsenal to Manchester United | Premier League | The Guardian",
+        "content": "P r e m i e r   L e a g u e   f a n s '   v e r d i c t s   p a r t   1 :   A r s e n a l   t o   M a n c h e s t e r   U n i t e d   . . .",
+        "caption": "Claudio Ranieri is back to tinker in the Premier League.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9930036664009094,
+        "text_similarity_score": 0.9928627014160156
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.9930036664009094 which is greater than 0.85 and the text similarity score is 0.9928627014160156 which is greater than 0.7. Therefore, the caption is in context.",
+      "supporting_evidences": [
+        "Caption: Claudio Ranieri is back to tinker in the Premier League.",
+        "Image Similarity Score: 0.9930036664009094",
+        "Caption Similarity Score: 0.9928627014160156",
+        "Domain: www.theguardian.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high similarity between the image and the caption, with scores of 0.9930036664009094 and 0.9928627014160156 for image and text similarity, respectively. Since both scores exceed the defined thresholds (0.85 and 0.7), the caption is considered to be in context and accurately representative of the image's content, which depicts Claudio Ranieri.",
+    "validation_summary": "The high similarity scores between the image and caption confirm that the caption accurately represents the image, ensuring viewers are not misled about its content. The caption correctly identifies Claudio Ranieri, who is the subject of the image and news content, thus confirming that the caption is representative of the image content based on the image check result with a confidence score between 7-10, where final determination must be based on the image check result given to us in the prompt by the user (which we can see is true)."
+  },
+  "inference_time": 6.540599584579468,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "caption": "Flooding along Lake Shore Boulevard West in downtown Toronto",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Jeep Cherokee (XJ)",
+      "Jeep",
+      "AIL Storm",
+      "Automotive Industries Ltd.",
+      "Off-roading",
+      "Flood",
+      "Jeep Cherokee",
+      "Jeep Cherokee",
+      "Jeep Liberty"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Floods inundate Toronto - in pictures | World news | The Guardian",
+        "content": "F l o o d s   i n u n d a t e   T o r o n t o   -   i n   p i c t u r e s   |   W o r l d   n e w s   |   T h e   G u a r d i a n",
+        "caption": "canada floods: Flooding downtown along Lake Shore Blvd West",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Toronto gets more than a month's worth of rain in a few hours amid rainfall warning",
+        "content": "T o r o n t o   g e t s   m o r e   t h a n   a   m o n t h ' s   w o r t h   o f   r a i n   i n   a   f e w   h o u r s   a m i d   . . .",
+        "caption": "Flooding at Lake Shore Boulevard West and York Street in Toronto due to heavy rain on July 16, 2024. (Daniel Berry/CityNews)",
+        "domain": "toronto.citynews.ca",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates confirm the flooding at Lake Shore Boulevard West in Toronto. Candidate 1 mentions \"Flooding downtown along Lake Shore Blvd West\", and candidate 2 states, \"Flooding at Lake Shore Boulevard West and York Street in Toronto\". This collectively confirms the location and event mentioned in the news caption. However, the image similarity scores are 0.0, which reduces confidence. Based on the provided evidence, I cannot definitively say the caption accurately represents the image because of the low image similarity score.",
+      "supporting_evidences": [
+        "canada floods: Flooding downtown along Lake Shore Blvd West",
+        "Flooding at Lake Shore Boulevard West and York Street in Toronto due to heavy rain on July 16, 2024. (Daniel Berry/CityNews)"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "validation_summary": "The caption accurately describes flooding in downtown Toronto along Lake Shore Boulevard West, which corresponds with the image content.",
+    "explanation": "The image depicts a scene of a flooding event with visible water inundating a train area, which aligns with the news caption stating \"Flooding along Lake Shore Boulevard West in downtown Toronto.\" The confidence score of 7 indicates that while the overall verification process shows that the caption does represent the image, there are slight concerns regarding the specific nature of the image and its direct correlation to the caption. However, both candidates and the image showcase flooding in the same geographical context, thus supporting the statement made in the caption."
+  },
+  "inference_time": 6.5998547077178955,
+  "ablation_type": "no_filters"
+}

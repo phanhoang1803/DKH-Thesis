@@ -1,0 +1,38 @@
+{
+  "caption": "A British soldier stops a group of Iraqis at a checkpoint on the road to Basra",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "War After the War | The New Yorker",
+        "content": "W a r   A f t e r   t h e   W a r   |   T h e   N e w   Y o r k e r",
+        "caption": "Under the watch of an American soldier young Iraqis gather in the Al Mansour district of Baghdad. The decision to...",
+        "domain": "www.newyorker.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Since both scores are low, a direct comparison is needed. The candidate caption describes 'young Iraqis gather in the Al Mansour district of Baghdad' and the news caption describes 'A British soldier stops a group of Iraqis at a checkpoint on the road to Basra'. The two captions are not similar and do not describe the same event. Therefore, the verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows two soldiers near a tank. One soldier is holding a rifle. There is a dog nearby. The caption describes 'A British soldier stops a group of Iraqis at a checkpoint on the road to Basra'. The image does not depict a British soldier stopping a group of Iraqis at a checkpoint on the road to Basra. Therefore, the caption is out of context.",
+    "validation_summary": "The caption describes a scenario not represented in the image, where a British soldier is stopping Iraqis at a checkpoint, while the image shows soldiers and a tank in a different setting, misleading viewers about the image's content and context. The image check result also returned a negative result further validating the OOC claim. Therefore, the image and caption are mismatched."
+  },
+  "inference_time": 4.341317176818848,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

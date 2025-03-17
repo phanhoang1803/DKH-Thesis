@@ -1,0 +1,38 @@
+{
+  "caption": "Workers make their way to the Costa Concordia to begin the refloating operation in Isola del Giglio Italy",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Final Voyage of the Costa Concordia - The Atlantic",
+        "content": "F i n a l   V o y a g e   o f   t h e   C o s t a   C o n c o r d i a   -   T h e   A t l a n t i c",
+        "caption": " Donna Feledichuk / World Nature Photography Awards",
+        "domain": "www.theatlantic.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is less than 0.85 and the text similarity score is less than 0.7. Thus, I need to perform analysis based on the captions and the candidate to give the final decision. The caption of the news is 'Workers make their way to the Costa Concordia to begin the refloating operation in Isola del Giglio Italy'. The caption of the candidate is '© Donna Feledichuk / World Nature Photography Awards'. The captions are completely different and the candidate does not provide any information to support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 1, so the final determination must be based on the image check result. The image check result has a verdict of False, so OOC must be true. The caption states 'Workers make their way to the Costa Concordia to begin the refloating operation in Isola del Giglio Italy'. The image shows a boat with several people on board, with the Costa Concordia in the background. The image check result states that the captions are completely different and that the candidate does not provide any information to support the news caption.",
+    "validation_summary": "The caption and image do not match according to the image check result, so viewers would be misled about what they are seeing. Therefore, the image is out of context."
+  },
+  "inference_time": 3.9138686656951904,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

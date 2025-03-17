@@ -1,0 +1,37 @@
+{
+  "caption": "A cyclist in the Lake District The UK s national parks are just one of the destinations for Britons who want to saddle up and get away on holiday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Cycle-mad UK hits the open road as holidaymakers get on their bikes for summer | Cycling holidays | The Guardian",
+        "content": "C y c l e - m a d   U K   h i t s   t h e   o p e n   r o a d   a s   h o l i d a y m a k e r s   g e t   o n   t h e i r   . . .",
+        "caption": "A cyclist in the Lake District. The UKs national parks are just one of the destinations for Britons who want to saddle up and get away on holiday. Photograph: Tim Graham/Getty",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3496931493282318,
+        "text_similarity_score": 0.9318528175354004
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image similarity score is 0.3496931493282318, which is less than 0.85. The text similarity score is 0.9318528175354004, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than 0.7, the verdict should be False. The candidate provides a caption that is very similar to the news caption and also mentions a cyclist in the Lake District, suggesting the news caption is likely accurate. However, since the image similarity is low, there is still a possibility that the image and caption are mismatched.",
+      "supporting_evidences": [
+        "The candidate caption is 'A cyclist in the Lake District. The UK’s national parks are just one of the destinations for Britons who want to saddle up and get away on holiday. Photograph: Tim Graham/Getty'",
+        "The text similarity score between the news caption and the candidate caption is 0.9318528175354004"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 8,
+    "validation_summary": "The caption accurately describes a cyclist in the Lake District, consistent with the image content as confirmed by the check results.",
+    "explanation": "The provided news caption states that there is a cyclist in the Lake District and further emphasizes the UK’s national parks as holiday destinations for cyclists. Image analysis and the image check results indicate a high similarity with the caption, confirming the presence of a cyclist in a landscape that appears consistent with the Lake District's terrain. While the image and caption's actual elements were not visually compared in detail, the check results state that the image similarity score is low, but the text similarity score is high, which suggests the caption has been effectively contextualized with the image despite the visual correlation being less convincing. Ultimately, the caption correctly represents the image's content, leading to the determination that it is not out of context."
+  },
+  "inference_time": 11.58363127708435,
+  "ablation_type": "no_image_evidences"
+}

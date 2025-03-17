@@ -1,0 +1,47 @@
+{
+  "caption": "Fiat has scooped up booming demand for construction equipment in Latin America and Asia",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Commercial vehicle",
+      "Tow truck",
+      "Truck",
+      "rig",
+      "Towing",
+      "Bulldozer",
+      "Trailer",
+      "Commerce"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "story Archives - Page 4 of 7 - The Atavist Magazine",
+        "content": "s t o r y   A r c h i v e s   -   P a g e   4   o f   7   -   T h e   A t a v i s t   M a g a z i n e",
+        "caption": "Captain Fritz Duquesne",
+        "domain": "magazine.atavist.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, the strict decision rules do not apply. The candidate does not provide any information related to Fiat, construction equipment, Latin America, or Asia. The candidate is about Captain Fritz Duquesne, which is completely unrelated to the news caption. Therefore, the caption is not verified.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low similarity score between the image and the news caption. The image displays several yellow snowplows, likely for winter road maintenance. The caption refers to Fiat's increased demand for construction equipment in Latin America and Asia. The image does not show Fiat equipment, construction sites, or any locations in Latin America or Asia. Therefore, the caption is out of context, as it does not accurately represent the content of the image.",
+    "validation_summary": "The image shows snowplows and does not relate to the caption's claims about Fiat's construction equipment demand in Latin America and Asia, potentially misleading viewers about the connection between the image and the news story. Based on the image check result, the caption is completely out of context."
+  },
+  "inference_time": 3.239004135131836,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

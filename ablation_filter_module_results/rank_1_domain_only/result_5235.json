@@ -1,0 +1,38 @@
+{
+  "caption": "Coles and Maxwell listen to Kayne Gillaspie describe his design",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Behind-the-scenes with USA TODAY and 'Project Runway'",
+        "content": "B e h i n d - t h e - s c e n e s   w i t h   U S A   T O D A Y   a n d   ' P r o j e c t   R u n w a y '",
+        "caption": "Anthony Ryan Auld, 29, of Baton Rouge,  won the USA TODAY challenge on 'Project Runway All-Stars' Thursday night. Here he presents his winning creation.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and text similarity score is 0.0, so the strict decision rules do not apply. The candidate caption and content do not have anything related to the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a baseball player sitting on a bench in what appears to be a dugout, holding a helmet and looking towards the field. In the background, there are gloves and a helmet on a shelf. This image is completely unrelated to the provided news caption which describes Coles and Maxwell listening to Kayne Gillaspie describe his design. The image check result also confirms a low image similarity score and a low text similarity score between the image and the caption. Therefore, the caption is out of context.",
+    "validation_summary": "The image depicts a baseball player in a dugout, which is completely unrelated to the news caption mentioning Coles, Maxwell, and Kayne Gillaspie discussing a design, thereby misleading viewers about the image's actual content and its relation to the article. The image check result supports the high confidence in the OOC verdict as the similarity scores are low."
+  },
+  "inference_time": 4.058314561843872,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

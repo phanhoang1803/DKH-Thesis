@@ -1,0 +1,34 @@
+{
+  "caption": "The BBC s Helen Boaden was stateeducated",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "MediaGuardian 100 shows influence of fee-paying schools in UK media | MediaGuardian 100 2014 | The Guardian",
+        "content": "M e d i a G u a r d i a n   1 0 0   s h o w s   i n f l u e n c e   o f   f e e - p a y i n g   s c h o o l s   i n   U K   . . .",
+        "caption": "The BBC's Helen Boaden was state-educated.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5945537686347961,
+        "text_similarity_score": 0.9071574807167053
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.5945537686347961 and the text similarity score is 0.9071574807167053. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. The evidence is not enough to prove the caption accurately represents what the news image shows and what the image is about, because the image similarity is too low.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates the image is out of context due to a low image similarity score (0.5945537686347961), despite a high text similarity score (0.9071574807167053). The image depicts a woman, Helen Boaden, wearing a pink jacket against a red background. The caption states that Helen Boaden was state-educated, but the image itself doesn't directly convey information about her education. Since the image similarity is low, the caption is deemed out of context as the image alone does not provide enough information to support the caption's claim, potentially misleading viewers about the image's relevance to the claim.",
+    "validation_summary": "The image check indicates the image is out of context due to low image similarity, suggesting the image doesn't visually support the caption's claim. Viewers might be misled about the relevance of the image to the information provided in the caption."
+  },
+  "inference_time": 4.792929172515869,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,43 @@
+{
+  "caption": "Christopher Elliott explains how to say no when it comes to fullbody TSA scanners",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Poll | Do you agree with the move to introduce full-body scanners for airport security? | Opinion | theguardian.com",
+        "content": "D o   y o u   a g r e e   w i t h   t h e   m o v e   t o   i n t r o d u c e   f u l l - b o d y   s c a n n e r s   f o r   a i r p o r t   s e c u r i t y ? \n \n T h i s   p o l l   i s   n o w   c l o s e d",
+        "caption": "An employee at Schiphol airport, Amsterdam, tests \u001b\u001bnew body scanners",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9896934032440186,
+        "text_similarity_score": 0.48926597833633423
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption talks about Christopher Elliott explaining how to say no to full body TSA scanners. The candidate caption talks about an employee at Schiphol airport testing new body scanners. The image similarity score is high (0.9896934032440186), suggesting the images are visually similar, depicting body scanners. However, the text similarity score is low (0.48926597833633423), indicating that the captions themselves are not very similar. The candidate caption mentions a specific location (Schiphol airport) and activity (testing scanners), while the news caption refers to advice on refusing full-body scans. Based on the evidence, the captions do not align. The candidate captions refers to testing of the body scanner in Schiphol airport, while the news caption talks about Christopher Elliot explaining how to refuse full body TSA scanners. Therefore, the news image is out-of-context with the candidate caption.",
+      "supporting_evidences": [
+        "Candidate caption mentions a specific location (Schiphol airport) and activity (testing scanners), while the news caption refers to advice on refusing full-body scans.",
+        "The text similarity score is low (0.48926597833633423), indicating that the captions themselves are not very similar."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a man undergoing a body scan at an airport security checkpoint. The news caption mentions Christopher Elliott explaining how to say no to full body TSA scanners. The image check result indicates a high image similarity but low text similarity between the provided captions, and that the news caption is out of context with the candidate caption. Given that the image check result has a confidence score of 8, I will follow the result and make the decision. Thus, the news caption does not accurately represent the image content, as it refers to advice on refusing scans, while the image depicts the scanning process itself.",
+    "validation_summary": "The caption discusses advice on refusing body scans, while the image depicts someone undergoing a scan, making the caption misleading. The news image is out-of-context with the candidate caption, suggesting a mismatch between the content and its representation."
+  },
+  "inference_time": 5.565342903137207,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

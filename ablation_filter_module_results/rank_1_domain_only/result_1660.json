@@ -1,0 +1,45 @@
+{
+  "caption": "Field day a farmer reaps wheat by hand near Douma above the Jordan Valley",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Israel holidays | The Guardian",
+        "content": "D e s p i t e   t e n s i o n s ,   t o u r i s m   i n   t h e   M i d d l e   E a s t   i s   g r o w i n g   a n d ,   f o r   t h e   m o s t   p a r t ,   v i s i t o r s   c a n   t r a v e l   s a f e l y .   D a n i e l   A d a m s o n   a s s e s s e s   t h e   s i t u a t i o n   i n   P a l e s t i n e ,   I s r a e l ,   L e b a n o n ,   J o r d a n ,   O m a n   a n d   T u n i s i a \n \n F a m i l y   w a l k s   i n   W a i n w r i g h t ' s   f o o t s t e p s ,   v i s i t i n g   I s r a e l   a n d   P a l e s t i n e   a n d   t h r e e   o f   t h e   b e s t   o u t d o o r   c i n e m a s   i n   E u r o p e \n \n W h e t h e r   y o u ' r e   t h i n k i n g   o f   a   y e a r   o u t ,   n e e d   a   c a r e e r   b r e a k   o r   j u s t   a n   a d v e n t u r o u s   h o l i d a y ,   f i n d   i n s p i r a t i o n   w i t h   t h e s e   e x t r a o r d i n a r y   g a p - y e a r   t a l e s \n \n F r o m   h u n t i n g   i n   t h e   A m a z o n   t o   d r u m m i n g   a t   a   p o w w o w ,   e x p l o r e r s ,   t r a v e l   w r i t e r s   a n d   t o u r   o p e r a t o r s   r e m e m b e r   t h e i r   f a v o u r i t e   t r a v e l   m o m e n t s",
+        "caption": "Douma",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Walking in Palestine | Palestine holidays | The Guardian",
+        "content": "W a l k i n g   i n   P a l e s t i n e   |   P a l e s t i n e   h o l i d a y s   |   T h e   G u a r d i a n",
+        "caption": "Map of Palestine Photograph: Graphic",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are both 0.0, indicating that neither candidate image closely resembles the news image. Additionally, the caption similarity scores are also 0.0, which means there is no textual match between the news caption and the candidate captions. The candidates only mention 'Douma' and 'Map of Palestine' with no further context, failing to verify the specific details of the news caption, such as a farmer reaping wheat by hand near Douma in the Jordan Valley. Since neither candidate provides relevant information to confirm the caption, the verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result yields a low confidence score of 2. However, the image shows a farmer reaping wheat by hand in a field, and there are children helping him. The caption says \"Field day a farmer reaps wheat by hand near Douma above the Jordan Valley\". Although the image confirms that a farmer is reaping wheat by hand, there is nothing in the image to confirm that this is happening \"near Douma above the Jordan Valley\". Due to this missing information, the image is out of context. I am giving a higher confidence score because the farmer harvesting wheat is very clear in the image, but there is no way to confirm the location described in the caption.",
+    "validation_summary": "Although the image accurately depicts a farmer harvesting wheat by hand, it cannot be verified that this is taking place specifically \"near Douma above the Jordan Valley\", making the caption misleading. Therefore, the image is considered out of context due to the lack of locational verification."
+  },
+  "inference_time": 4.267378330230713,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

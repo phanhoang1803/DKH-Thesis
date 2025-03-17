@@ -1,0 +1,37 @@
+{
+  "caption": "A woman begs for money outside Saks department store in New York The further the world falls into the inequality trap the harder it will be to escape",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Mind the gap: why UN development goals must tackle economic inequality | Millennium development goals | The Guardian",
+        "content": "M i n d   t h e   g a p :   w h y   U N   d e v e l o p m e n t   g o a l s   m u s t   t a c k l e   e c o n o m i c   . . .",
+        "caption": "A woman begs for money outside Saks department store in New York. The further the world falls into the inequality trap, the harder it will be to escape. Photograph: AP",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2301463931798935,
+        "text_similarity_score": 0.973610520362854
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.2301463931798935, which is less than 0.85. The text similarity score is 0.973610520362854, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.2301463931798935",
+        "Caption Similarity Score: 0.973610520362854"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption does not accurately represent the image, leading to potential misunderstanding about its context and meaning.",
+    "explanation": "The caption states, \"A woman begs for money outside Saks department store in New York,\" but the image shows a scene that lacks visual evidence of this. The image similarity score was significantly low (0.230), indicating a very different scene captured from what is described in the caption. Furthermore, the high text similarity score suggests that while the textual content of the caption aligns closely with some aspects of social issues (like begging or economic inequality), it fails to accurately depict the specific situation in the image provided, confirming that the caption is misleading and out of context."
+  },
+  "inference_time": 7.206732511520386,
+  "ablation_type": "no_image_evidences"
+}

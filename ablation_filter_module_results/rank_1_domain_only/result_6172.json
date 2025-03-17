@@ -1,0 +1,51 @@
+{
+  "caption": "Tomas Rosicky has impressed in reecent weeks for Arsenal and has now signed a new contract",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Tomáš Rosický",
+      "Arsenal F.C.",
+      "Gaelic football",
+      "International rules football",
+      "Footballer",
+      "Goalkeeper stops shot",
+      "Kick up a soccer ball",
+      "Ball",
+      "Ball",
+      "Naver Blog"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Arsne Wenger delighted as Tomas Rosicky signs new contract at Arsenal | Arsenal | The Guardian",
+        "content": "A r s  n e   W e n g e r   d e l i g h t e d   a s   T o m a s   R o s i c k y   s i g n s   n e w   c o n t r a c t   a t   . . .",
+        "caption": "Tomas Rosicky has impressed in reecent weeks for Arsenal and has now signed a new contract.  Photograph: Stuart Macfarlane/Arsenal FC via Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided candidate evidence has a caption that exactly matches the news caption. Although the image similarity score is low (0.0), the perfect match in caption text from a reputable domain (theguardian.com) strongly suggests that the caption accurately reflects the context of the image it describes. The candidate caption explicitly states \"Tomas Rosicky has impressed in reecent weeks for Arsenal and has now signed a new contract,\" which is identical to the news caption. This direct match provides strong support.",
+      "supporting_evidences": [
+        "Tomas Rosicky has impressed in reecent weeks for Arsenal and has now signed a new contract.  Photograph: Stuart Macfarlane/Arsenal FC via Getty Images"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a perfect match in caption text with a reputable source (theguardian.com), stating \"Tomas Rosicky has impressed in reecent weeks for Arsenal and has now signed a new contract.\" Although the image similarity score is low, the direct textual match overrides this concern, confirming that the caption accurately reflects the context of the image. The image shows Tomas Rosicky in an Arsenal kit playing a soccer match which aligns with him playing for Arsenal as per the caption.",
+    "validation_summary": "The caption accurately describes the image content based on the image check result, which found a perfect match between the news caption and a caption from a reputable source, indicating no misleading elements are present in the image or caption combination. Rosicky playing for Arsenal aligns with the news event of his contract extension with the club, therefore not misleading to viewers given the image context and the verified caption."
+  },
+  "inference_time": 4.389240980148315,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

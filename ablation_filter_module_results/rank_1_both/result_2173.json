@@ -1,0 +1,42 @@
+{
+  "caption": "On the first day of his visit Pope Francis greeted the crowds from his popemobile on the way to the National Palace",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Figurine"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Pope Francis's visit to Mexico - in pictures | World news | The Guardian",
+        "content": "P o p e   F r a n c i s ' s   v i s i t   t o   M e x i c o   -   i n   p i c t u r e s   |   W o r l d   n e w s   |   T h e   . . .",
+        "caption": "Pope Francis greeted the crowds from his popemobile",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.0800820142030716,
+        "text_similarity_score": 0.8195492029190063
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.08, which is less than 0.85. And the text similarity score is 0.81, which is higher than 0.7. According to the instruction, the verdict should be false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a collection of Pope Francis plush dolls on a shelf. The caption describes Pope Francis greeting crowds from his popemobile during his visit. Because the image depicts merchandise and not the Pope himself greeting crowds, the caption does not accurately represent the image content. The image check result supports this analysis, indicating a low image similarity score and a verdict of 'false'. Therefore, the image is out of context.",
+    "validation_summary": "The caption describes Pope Francis greeting crowds, while the image shows Pope Francis plush dolls. This mismatch makes the caption misleading about the image's content, indicating the image is out of context."
+  },
+  "inference_time": 4.836066007614136,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

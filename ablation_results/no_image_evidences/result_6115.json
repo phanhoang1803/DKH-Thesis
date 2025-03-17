@@ -1,0 +1,34 @@
+{
+  "caption": "John and Yoko pose with Andy Peebles and an unidentified woman",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Photographs of John Lennon's final interview to be auctioned  in pictures | Music | The Guardian",
+        "content": "P h o t o g r a p h s   o f   J o h n   L e n n o n ' s   f i n a l   i n t e r v i e w   t o   b e   a u c t i o n e d      i n   . . .",
+        "caption": "John and Yoko pose with Andy Peebles and an unidentified woman.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.36051440238952637,
+        "text_similarity_score": 0.9907565712928772
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score (0.36051440238952637) is less than 0.85, and the text similarity score (0.9907565712928772) is greater than or equal to 0.7. Based on the instructions, the verdict should be 'False' because the image similarity is low. The low image similarity suggests that the images in the news and the candidate are different, even though the captions are highly similar. Because the images are not similar, even if the caption is, the evidence is not reliable.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a confidence score of 2, with the verdict being 'False' due to low image similarity (0.36051440238952637). The caption mentions 'John and Yoko pose with Andy Peebles and an unidentified woman,' while the image features Clint Eastwood embracing a woman. The individuals in the image are clearly different from those named in the caption, indicating a mismatch. Therefore, the caption misrepresents the image content.",
+    "validation_summary": "The caption incorrectly identifies the people in the image, showing Clint Eastwood and a woman instead of John and Yoko with Andy Peebles. Viewers would be misled about the individuals present in the image based on the provided caption."
+  },
+  "inference_time": 4.874483823776245,
+  "ablation_type": "no_image_evidences"
+}

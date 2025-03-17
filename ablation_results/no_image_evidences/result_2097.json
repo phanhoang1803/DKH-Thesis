@@ -1,0 +1,48 @@
+{
+  "caption": "Oscar Pistorius passes family members of the late Reeva Steenkamp on his arrival in court to await the verdict",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Court",
+      "Crime",
+      "Culpable homicide",
+      "Criminal justice",
+      "Guilt",
+      "Judge",
+      "Sentence",
+      "Conviction",
+      "Appeal",
+      "Oscar Pistorius"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Oscar Pistorius verdict  in pictures | World news | The Guardian",
+        "content": "O s c a r   P i s t o r i u s   v e r d i c t      i n   p i c t u r e s   |   W o r l d   n e w s   |   T h e   G u a r d i a n",
+        "caption": "Oscar Pistorius passes family members of the late Reeva Steenkamp on his arrival in court to await the verdict.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6766767501831055,
+        "text_similarity_score": 0.9705376625061035
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.6766767501831055 and the text similarity score is 0.9705376625061035. Since the image similarity score is below 0.85, I will mark the caption as out-of-context, even though the text similarity score is high. The candidate caption is very similar to the news caption, suggesting the content aligns with the news but the image similarity score suggests that the images do not match. Therefore, the final verdict is 'False'.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.6766767501831055",
+        "Caption Similarity Score: 0.9705376625061035"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result shows a confidence score of 7, indicating that the final determination must be based on the image check result. According to the image check, the image similarity score is 0.6766767501831055 and the text similarity score is 0.9705376625061035. Since the image similarity score is below 0.85, the image is marked as out-of-context, even though the text similarity score is high. The caption is very similar to the news caption, suggesting the content aligns with the news but the image similarity score suggests that the images do not match. Therefore, the final verdict is 'False'.",
+    "validation_summary": "The image check indicates that the image doesn't align with the news caption, despite high text similarity, suggesting viewers would be misled. The image similarity score being below the threshold confirms the image is out of context."
+  },
+  "inference_time": 5.3098366260528564,
+  "ablation_type": "no_image_evidences"
+}

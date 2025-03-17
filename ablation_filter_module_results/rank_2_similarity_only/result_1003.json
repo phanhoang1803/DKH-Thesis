@@ -1,0 +1,49 @@
+{
+  "caption": "High living standards and high taxfree salaries draw thousands of Britons to Qatar",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "amp.cincinnati.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9307916164398193,
+        "text_similarity_score": 0.02039371058344841
+      },
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "www.gannett-cdn.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9307916164398193,
+        "text_similarity_score": 0.02039371058344841
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidates have high image similarity scores (0.9307916164398193), suggesting they depict similar visuals to the news image. However, their caption similarity scores are very low (0.02039371058344841). This indicates that the captions of the candidates do not align with the news caption: \"High living standards and high taxfree salaries draw thousands of Britons to Qatar\". Given the low text similarity and the absence of content or title information to further evaluate the context, I cannot confirm that the candidate images and their context support the news caption. Therefore, the verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a skyline with skyscrapers at night. The caption mentions high living standards and high tax-free salaries drawing Britons to Qatar. This does not directly relate to the image of the skyline. The image doesn't depict Britons, salaries, or living conditions, therefore, the caption is misleading and taken out of context. The Image Check also supports a 'False' verdict with a confidence score of 2.",
+    "validation_summary": "The caption is misleading as the image shows a skyline but the caption talks about high living standards in Qatar, giving viewers a false impression of the image's content and its relevance to the news article. The skyline image doesn't directly relate to the caption's claims about Britons or salaries in Qatar."
+  },
+  "inference_time": 6.20449686050415,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

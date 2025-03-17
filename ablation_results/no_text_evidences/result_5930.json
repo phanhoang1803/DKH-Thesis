@@ -1,0 +1,45 @@
+{
+  "caption": "A Hummer rammed the Silver Diner in McLean on May 4 Fairfax County police said",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "SUV",
+      "Hummer",
+      "Fire",
+      "Silver Diner",
+      "Driving",
+      "Fire department",
+      "Dunn Loring",
+      "Injured",
+      "Fairfax County Fire and Rescue Department"
+    ],
+    "ablation_type": "no_text_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 9,
+      "confidence_score": 10,
+      "explanation": "The caption accurately describes the scene depicted in the image, where a Hummer crashed into the Silver Diner in McLean. It correctly identifies the location, the vehicles involved and the date of the incident. Therefore, the caption aligns with the image context.",
+      "supporting_evidences": [
+        "The image shows a Hummer crashed into the Silver Diner.",
+        "The caption mentions a Hummer ramming into the Silver Diner in McLean.",
+        "Both the caption and context refer to the date of the incident.",
+        "The context describes emergency responders, which is consistent with the image."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image depicts the aftermath of a serious incident involving a Hummer that has crashed into a Silver Diner, as indicated by the partially damaged structure in the background. The vehicle is shown wedged against the diner with visible signs of fire damage, smoke, and shattered glass scattered around, suggesting a chaotic scene. Various emergency responders, including fire department workers, are seen attending to the aftermath of the incident, with some dousing the vehicle with water to contain the fire. The scene appears tense, with onlookers observing the events unfold. The restaurant's sign is partially visible, along with debris scattered across the pavement around the vehicle and diner.",
+      "caption": "Emergency responders at the scene where a Hummer crashed into the Silver Diner in McLean, resulting in a fire and multiple injuries on May 4, 2023.",
+      "context": "On May 4, 2023, a Hummer SUV crashed into the Silver Diner located in McLean, Virginia, causing significant damage and leading to a fire that engulfed the vehicle. The incident resulted in injuries to several people, including pedestrians and individuals inside the diner. Eyewitnesses reported seeing smoke billowing from the vehicle as emergency responders arrived to extinguish the flames and assist those injured. The chaos unfolded when Samuel Ovie Abutoh, a 59-year-old man, allegedly rammed the Hummer into the diner intentionally. Following the crash, Abutoh reportedly doused himself in a flammable liquid and set himself on fire, escalating the tragic series of events. The incident attracted a large police and fire department response, highlighting serious safety concerns surrounding such unforeseen violent actions."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "Although the image shows the aftermath of the Hummer ramming into the Silver Diner, the caption's implication that the Hummer alone caused the damage is misleading. The news content clarifies that the driver also lit himself on fire, which significantly contributed to the visible smoke and flames. Without this context, viewers might incorrectly attribute the fire solely to the impact of the Hummer. Since the fire is a critical part of what the image shows, the caption omits a key element and does not accurately represent the full situation depicted in the image. Given the high confidence score, the caption does not provide a complete and accurate summary of the image's content.",
+    "validation_summary": "The caption doesn't fully represent the image because it omits that the driver lit himself on fire, which significantly contributed to the scene's fire and smoke, potentially misleading viewers about the cause of the damage visible in the image. Therefore, the caption is considered out of context due to this significant omission."
+  },
+  "inference_time": 3.431612730026245,
+  "ablation_type": "no_text_evidences"
+}

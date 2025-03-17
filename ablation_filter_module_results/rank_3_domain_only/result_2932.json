@@ -1,0 +1,51 @@
+{
+  "caption": "Maria Sharapova plays a shot during her women s singles semifinal match against Russia s Ekaterina Makarova",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Racketlon",
+      "Soft tennis",
+      "Tennis",
+      "Racket",
+      "Tennis player"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Russians Sharapova, Makarova prepare for semifinals showdown",
+        "content": "6 3 5 5 7 9 1 0 4 8 6 9 7 4 5 3 5 0 - A F P -   . . .",
+        "caption": "Russia's Maria Sharapova plays a shot during her women's singles match against Canada's Eugenie Bouchard on day nine of the 2015 Australian Open.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Second-seeded Maria Sharapova is a shaky survivor at Australian Open - Los Angeles Times",
+        "content": "S e c o n d - s e e d e d   M a r i a   S h a r a p o v a   i s   a   s h a k y   s u r v i v o r   a t   A u s t r a l i a n   . . .",
+        "caption": "Maria Sharapova of Russia plays a shot during her women's singles match against Alexandra Panova of Russia at the Australian Open. Sharapova defeated Panova, 6-1, 4-6, 7-5.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity scores are 0.0 in both candidates, indicating that the images do not match. The text similarity scores are also 0.0 in both, implying that the captions do not match. Moreover, the provided candidates do not offer supporting evidence for the news caption. There is no explicit mention of Ekaterina Makarova, which is an important element of the caption. Therefore, I cannot confidently verify the caption based on the provided evidence.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows Maria Sharapova playing a shot during a tennis match. However, the caption claims she is playing against Ekaterina Makarova in the women's singles semifinal, which cannot be confirmed from the image alone. Without visual evidence to confirm the opponent, the caption's claim is unverified, making the image potentially out of context.",
+    "validation_summary": "The image shows Maria Sharapova playing tennis, but there's no way to verify if she is playing against Ekaterina Makarova as the caption states, so it may be misleading to viewers if they don't know the context of the photo. Therefore, the image is out of context."
+  },
+  "inference_time": 4.361464977264404,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

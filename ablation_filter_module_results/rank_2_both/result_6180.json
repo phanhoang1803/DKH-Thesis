@@ -1,0 +1,63 @@
+{
+  "caption": "Venus Williams of the US serves during the women s doubles third round match",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Sunset at Montmajour",
+      "Amsterdam Museum",
+      "Painting",
+      "History",
+      "Museum",
+      "BASE jumping",
+      "Jumping",
+      "Stadium",
+      "Vincent van Gogh",
+      "Amsterdam"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Linda Noskov and Lucie Hradeck beat Serena and Venus Williams: US Open doubles  as it happened | US Open Tennis 2022 | The Guardian",
+        "content": "L i n d a   N o s k o v    a n d   L u c i e   H r a d e c k    b e a t   S e r e n a   a n d   V e n u s   W i l l i a m s   . . .",
+        "caption": "Serena and Venus Williams prepare to receive serve during their US Open doubles match against Linda Noskov and Lucie Hradeck.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2914733588695526,
+        "text_similarity_score": 0.7849866151809692
+      },
+      {
+        "title": "Serena, Venus Williams remind us on how they inspired tennis stars - Los Angeles Times",
+        "content": "S e r e n a ,   V e n u s   W i l l i a m s   r e m i n d   u s   o n   h o w   t h e y   i n s p i r e d   t e n n i s   s t a r s   . . .",
+        "caption": "Serena Williams, left, and Venus Williams during their first-round doubles match.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.20183007419109344,
+        "text_similarity_score": 0.7512632608413696
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have low image similarity scores (< 0.85), therefore, the caption is deemed out-of-context. However, I will still analyze the captions. The news caption mentions 'Venus Williams of the US serves during the women's doubles third round match'. Candidate 1 mentions 'Serena and Venus Williams prepare to receive serve during their US Open doubles match against Linda Nosková and Lucie Hradecká.' This candidate confirms that Venus Williams plays in a doubles match. Candidate 2 states: 'Serena Williams, left, and Venus Williams during their first-round doubles match.' This also confirms that Venus Williams plays in a doubles match. Although both candidates confirm that Venus Williams plays in a doubles match, the image similarity scores are low, thus the final verdict is False.",
+      "supporting_evidences": [
+        "Candidate 1: Caption mentions Serena and Venus Williams during their US Open doubles match.",
+        "Candidate 2: Caption mentions Serena and Venus Williams during their first-round doubles match."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a confidence score of 7, thus the final decision is based on the image check result. The image check result states: 'Both candidates have low image similarity scores (< 0.85), therefore, the caption is deemed out-of-context. However, I will still analyze the captions. The news caption mentions 'Venus Williams of the US serves during the women's doubles third round match'. Candidate 1 mentions 'Serena and Venus Williams prepare to receive serve during their US Open doubles match against Linda Nosková and Lucie Hradecká.' This candidate confirms that Venus Williams plays in a doubles match. Candidate 2 states: 'Serena Williams, left, and Venus Williams during their first-round doubles match.' This also confirms that Venus Williams plays in a doubles match. Although both candidates confirm that Venus Williams plays in a doubles match, the image similarity scores are low, thus the final verdict is False.' Therefore, the image is out of context.",
+    "validation_summary": "The image check found low similarity scores between the provided image and other images containing similar captions, indicating that viewers would be misled by the caption's claim about the image's content. The low image similarity scores suggest the provided caption is not a good representation of the provided image, even though Venus Williams might be playing doubles in both scenarios, the match event details differ enough to be considered out of context for a specific news article, since the similarity is less than 0.85 and the confidence score is over 7.0, which directs the validation process to accept the image check analysis result as final, and conclude 'OOC=TRUE'. This analysis does not contradict the image check findings that indicate an out-of-context scenario because of the low image similarity scores between the provided image and similar ones from the news article (which is a different event). Based on the image check result, I rated this image as out-of-context ('OOC=TRUE'). Given this analysis, I agree that the initial image check was reasonably accurate in assessing the image's context. Given the image check result and its high confidence score of 7, the image is deemed out of context based on the low similarity scores (< 0.85). Therefore, 'OOC=TRUE'. The confidence score is already at 7, so I do not need to assess based on analyzing the image, and instead must only use the pre-provided image check result. This is true because the confidence score is in the range of 7-10. The image check found a low similarity score indicating an out-of-context scenario. Because the image check result had a confidence score in the range of 7-10, the final determination has to be based on the image check result."
+  },
+  "inference_time": 7.252663850784302,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

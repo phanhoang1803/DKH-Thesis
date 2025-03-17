@@ -1,0 +1,50 @@
+{
+  "caption": "From left Al Gore Lorraine Bracco Kennedy and Cheryl Hines attend an award dinner at the Robert F Kennedy Center for Justice and Human Rights in 2011",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Behind the Candelabra",
+      "65th Primetime Emmy Awards",
+      "STX IT20 RISK.5RV NR EO",
+      "Emmy Awards",
+      "Primetime Emmy Award for Outstanding Lead Actor in a Limited or Anthology Series or Movie",
+      "Formal wear",
+      "Model M keyboard",
+      "USA Today",
+      "Michael Douglas"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "2013 Emmy Awards highlights - USA Today",
+        "content": "",
+        "caption": "Starlet sisters Zooey, left, and Emily Deschanel present the award for supporting  actor in a comedy series at the 2013 Emmy Awards.",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9326401352882385,
+        "text_similarity_score": 0.28085699677467346
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.9326401352882385, which is greater than 0.85, but the text similarity score is 0.28085699677467346, which is less than 0.7. Therefore, the caption is out-of-context. The candidate caption mentions 'Starlet sisters Zooey, left, and Emily Deschanel' and '2013 Emmy Awards', while the news caption mentions 'Al Gore Lorraine Bracco Kennedy and Cheryl Hines' and 'Robert F Kennedy Center for Justice and Human Rights in 2011'. These are completely different people and events, so the candidate caption does not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image features two women in formal gowns, holding hands, and seemingly on a stage. The news caption mentions Al Gore, Lorraine Bracco, Kennedy, and Cheryl Hines attending an award dinner. The individuals in the image do not resemble the people mentioned in the caption. Also, the image check result indicates a low text similarity score and a determination of being out-of-context.",
+    "validation_summary": "The caption incorrectly identifies the people in the image and the event they are attending, misleading viewers about the image's content. The image shows two women in formal dresses, while the caption names entirely different individuals attending a different event."
+  },
+  "inference_time": 6.831790447235107,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

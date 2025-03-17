@@ -1,0 +1,72 @@
+{
+  "caption": "New York City mayor Bill de Blasio is trying to reduce the number of traffic fatalities",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Chicago PD Street Stops Down 80%",
+        "content": "",
+        "caption": "cheats/2016/01/13/chicago-pd-street-stops-down-80/160103-chicago-mayor-cheat_pfu4nu",
+        "domain": "www.thedailybeast.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.96558678150177,
+        "text_similarity_score": 0.29754573106765747
+      },
+      {
+        "title": "IL Considers Recall of Chicago Mayor",
+        "content": "",
+        "caption": "cheats/2016/01/03/il-considers-recall-of-chicago-mayor/160103-chicago-mayor-cheat_bmxccm",
+        "domain": "www.thedailybeast.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9652958512306213,
+        "text_similarity_score": 0.2627561390399933
+      },
+      {
+        "title": "Mayor de Blasio Signs New Law Lowering New York City's Default Speed Limit to 25 MPH | City of New York",
+        "content": "M a y o r   d e   B l a s i o   S i g n s   N e w   L a w   L o w e r i n g   N e w   Y o r k   C i t y ' s   D e f a u l t   . . .",
+        "caption": "Mayor de Blasio Signs New Law Lowering New York City's Default Speed Limit to 25 MPH",
+        "domain": "www.nyc.gov",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1408938616514206,
+        "text_similarity_score": 0.7272002696990967
+      },
+      {
+        "title": "Vision Zero: Mayor de Blasio Announces Pedestrian Fatalities Dropped 32% Last Year | City of New York",
+        "content": "V i s i o n   Z e r o :   M a y o r   d e   B l a s i o   A n n o u n c e s   P e d e s t r i a n   F a t a l i t i e s   . . .",
+        "caption": "Vision Zero: Mayor de Blasio Announces Pedestrian Fatalities Dropped 32% Last Year",
+        "domain": "www.nyc.gov",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3627685606479645,
+        "text_similarity_score": 0.7171309590339661
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Candidate 1 and 2 have high image similarity scores (0.9656 and 0.9653, respectively) but low text similarity scores (0.2975 and 0.2628, respectively). This means the images are very similar, but the captions are not. Therefore, these candidates do not support the news caption. Candidate 3 has a low image similarity score (0.1409) and a higher text similarity score (0.7272). Because the image similarity is low, it is out-of-context. Candidate 4 has a higher image similarity score (0.3628) and a relatively high text similarity score (0.7171). While this candidate has a decent text similarity score, the image similarity is too low to confirm the image is similar. Although the captions of Candidates 3 and 4 are similar to the news caption, the image similarity scores are low. Therefore, it is difficult to confirm if the candidate confirms the image is similar to the news image. The lack of strong image similarity across the candidates makes it difficult to confirm the caption's accuracy in representing the image.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.96558678150177, Caption Similarity Score: 0.29754573106765747",
+        "Candidate 2: Image Similarity Score: 0.9652958512306213, Caption Similarity Score: 0.2627561390399933",
+        "Candidate 3: Image Similarity Score: 0.1408938616514206, Caption Similarity Score: 0.7272002696990967",
+        "Candidate 4: Image Similarity Score: 0.3627685606479645, Caption Similarity Score: 0.7171309590339661"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low text similarity score and a high image similarity score for the top two candidates. These candidates have almost identical images, yet, the captions differ in meaning from the news caption. The captions from the last two candidates do show high text similarity, but their image similarity scores are low. Therefore, the news caption is not representative of the image content. The news caption mentions New York City Mayor Bill de Blasio, however the image displays Rahm Emanuel, the former mayor of Chicago.",
+    "validation_summary": "The news caption is not representative of the image content as the person in the image is not New York City mayor Bill de Blasio, and the image check result further supports this determination. Viewers would be misled about who is in the image based on the news caption."
+  },
+  "inference_time": 8.849697351455688,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

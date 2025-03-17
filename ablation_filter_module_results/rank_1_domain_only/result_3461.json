@@ -1,0 +1,40 @@
+{
+  "caption": "Sparks flew when Sarah and Arlen rode the bus to a John McCain campaign rally in Delaware County Pa in September 2008",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 10,
+      "explanation": "The caption describes an event with Sarah and Arlen on a bus to a John McCain rally in Delaware County in 2008. However, the image shows Sarah Palin at an outdoor rally wearing a Superwoman t-shirt. There are musical instruments visible. The caption does not align with the content of the image.",
+      "supporting_evidences": [
+        "The caption references a bus ride and a John McCain rally, while the image depicts Sarah Palin on stage wearing a Superwoman shirt.",
+        "The caption mentions Sarah and Arlen, but the image focuses on Sarah Palin.",
+        "The image shows musical instruments which are not mentioned in the caption."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Sarah Palin speaking at a rally wearing a Superwoman t-shirt.",
+      "context": "The image shows Sarah Palin standing behind a podium, addressing a crowd at an outdoor event. She is wearing a blue t-shirt with the Superwoman logo, black pants, and platform sandals. Microphones are set up on the podium, and there are several guitars visible behind her on the stage. A sign is attached to the podium. There is also a music stand with sheet music. This image captures a moment during one of Sarah Palin's public appearances, showcasing her informal style and connection with her audience.",
+      "information": "The image shows Sarah Palin at an outdoor rally. She is wearing a Superwoman t-shirt. There are musical instruments visible behind her."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Sarah Palin on a stage, wearing a 'Superwoman' t-shirt, addressing an audience, likely at an outdoor event with musical instruments present. The provided caption describes Sarah and Arlen riding a bus to a John McCain rally in Delaware County, PA, in September 2008. This description does not align with the visual content of the image, as the image doesn't show a bus, Arlen, or any indication of Delaware County. The setting, her attire, and the presence of musical instruments contradict the caption's description of a bus ride.",
+    "validation_summary": "The image shows Sarah Palin on a stage, while the caption describes her on a bus with Arlen, misleading viewers about the context and location of the event. The caption incorrectly describes the event depicted in the image, presenting a false association between the text and visual content."
+  },
+  "inference_time": 4.140483856201172,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

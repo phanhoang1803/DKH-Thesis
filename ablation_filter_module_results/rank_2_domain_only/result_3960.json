@@ -1,0 +1,51 @@
+{
+  "caption": "Game 5 in Washington Nationals third baseman Anthony Rendon catches a fly ball hit by Dodgers shortstop Corey Seager during the sixth inning",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Baseball",
+      "College baseball",
+      "Pitcher",
+      "Higher Education School",
+      "Ballpark"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Stephen Strasburg lifts Nationals past Dodgers to tie NLDS - Los Angeles Times",
+        "content": "S t e p h e n   S t r a s b u r g   l i f t s   N a t i o n a l s   p a s t   D o d g e r s   t o   t i e   N L D S   -   L o s   . . .",
+        "caption": "The Nationals' Stephen Strasburg delivers a pitch in Game 2 of the NLDS against the Dodgers on Oct. 4, 2019.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Dodgers' 4-3 win over Nationals in NLDS opener is a group effort - Los Angeles Times",
+        "content": "D o d g e r s '   4 - 3   w i n   o v e r   N a t i o n a l s   i n   N L D S   o p e n e r   i s   a   g r o u p   e f f o r t   . . .",
+        "caption": "Dodgers shortstop Corey Seager follows through after hitting a home run against Washington in Game 1 of the NLDS on Friday at Nationals Park.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are both 0.0, which indicates that the images in the candidates do not match the image described in the news caption. Additionally, the caption similarity scores are also 0.0, meaning the captions do not match either. The candidates mention specific players (Stephen Strasburg, Corey Seager) and teams (Nationals, Dodgers) involved in the NLDS series, but they do not confirm the specific action described in the news caption, which is Anthony Rendon catching a fly ball hit by Corey Seager in Game 5. The provided evidences do not mention Game 5 or the specific play described in the caption. Therefore, based on the information available, there is not enough evidence to confirm that the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result has a confidence score of 2 and a verdict of false. I will use the image check result to determine the final output. The image check indicates that the candidate images do not match the image described in the news caption and the caption similarity scores are also 0.0. Additionally, the specific action described in the caption, which is Anthony Rendon catching a fly ball hit by Corey Seager in Game 5, is not confirmed by the evidences, so I will mark the image as OOC.",
+    "validation_summary": "The image check result indicates the caption is inaccurate; the image shows baseball players, but there is no information to confirm it's Anthony Rendon catching a ball from Corey Seager in Game 5 of the NLDS as the caption suggests. Viewers would be misled about the specific players and game being depicted."
+  },
+  "inference_time": 4.233445882797241,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

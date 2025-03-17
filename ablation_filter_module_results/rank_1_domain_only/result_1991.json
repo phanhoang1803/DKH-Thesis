@@ -1,0 +1,40 @@
+{
+  "caption": "Prince Harry on a visit to Oman last November",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Prince Harry to leave armed forces | Prince Harry | The Guardian",
+        "content": "P r i n c e   H a r r y   t o   l e a v e   a r m e d   f o r c e s   |   P r i n c e   H a r r y   |   T h e   G u a r d i a n",
+        "caption": "Prince Harry on a visit to Oman last November.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0, so I will analyze the evidence to determine if the caption is accurate. The candidate provides a matching caption ('Prince Harry on a visit to Oman last November') and domain (www.theguardian.com). However, without a matching image or additional supporting details about the visit itself (specific activities, context, etc.), it's impossible to confirm whether the caption accurately represents the image content. I need further information to determine the accuracy of the caption.",
+      "supporting_evidences": [
+        "Candidate 1: Caption matches the news caption and provides a domain (www.theguardian.com)."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a confidence score of 6 and a verdict of False, suggesting the caption is inaccurate. The image shows Prince Harry, along with Prince William, Kate Middleton, and others, attending an event in what appears to be a theater or auditorium. The caption states 'Prince Harry on a visit to Oman last November,' which is not supported by the image. The setting and the presence of other members of the royal family suggest a public event or performance, not a solo visit to Oman. Therefore, the caption is misleading, as it does not accurately represent the content of the image.",
+    "validation_summary": "The caption claims Prince Harry is visiting Oman, but the image shows him at a public event with other royals, misrepresenting the context of the image. Viewers would be misled about where and what activity Prince Harry is engaged in."
+  },
+  "inference_time": 4.0763044357299805,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

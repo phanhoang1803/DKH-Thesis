@@ -1,0 +1,40 @@
+{
+  "caption": "Petraeus left and Central Command commander Adm William J Fallon right welcome President George W Bush as he arrives in Iraq s Anbar province for a surprise visit",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Paul Davis Ryan Profile photos | SuccessStory",
+        "content": "",
+        "caption": "Paul Rayn With Bush",
+        "domain": "successstory.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9658777713775635,
+        "text_similarity_score": 0.2801215946674347
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is high (0.9658777713775635), indicating a strong match between the images. However, the text similarity score is low (0.2801215946674347), suggesting the captions are not similar. Although the images match, the captions are very different, indicating that the candidate caption does not represent the news caption. Therefore, the image caption is considered out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a high image similarity score (0.9658777713775635) but a low text similarity score (0.2801215946674347). This discrepancy suggests that while the image might be related to the general subject matter, the specific details mentioned in the caption do not accurately reflect the image content. The caption mentions Petraeus, Adm. William J Fallon, and President George W. Bush in Iraq's Anbar province, while the image shows four men in suits, one of whom could potentially be George W. Bush but there is no clear confirmation within the image itself and the setting does not appear to be in Iraq. Given the high image similarity and low text similarity, the caption is considered out of context.",
+    "validation_summary": "The caption incorrectly identifies the people in the image and the location, misleading viewers about the context of the photo. The image similarity is high, but the caption's details are inaccurate."
+  },
+  "inference_time": 5.784668445587158,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

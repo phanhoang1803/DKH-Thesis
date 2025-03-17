@@ -1,0 +1,38 @@
+{
+  "caption": "Louisville Cardinals wide receiver Andrell Smith runs after a pass reception against Pittsburgh Panthers defensive back Jason Hendricks during the second quarter at Heinz Field",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "College football Week 7",
+        "content": "C o l l e g e   f o o t b a l l   W e e k   7",
+        "caption": "Louisville Cardinals wide receiver Andrell Smith runs after a pass reception against Pittsburgh Panthers defensive back Jason Hendricks during the second quarter at Heinz Field.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5875989198684692,
+        "text_similarity_score": 0.9881550669670105
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.5875989198684692, which is less than 0.85. According to the instruction, the caption must be marked as out-of-context. Although the text similarity score is 0.9881550669670105 which is greater than 0.7, the verdict should be false. The candidate caption is 'Louisville Cardinals wide receiver Andrell Smith runs after a pass reception against Pittsburgh Panthers defensive back Jason Hendricks during the second quarter at Heinz Field.', which aligns with the news caption.",
+      "supporting_evidences": [
+        "The image similarity score is 0.5875989198684692.",
+        "The text similarity score is 0.9881550669670105.",
+        "The candidate caption is 'Louisville Cardinals wide receiver Andrell Smith runs after a pass reception against Pittsburgh Panthers defensive back Jason Hendricks during the second quarter at Heinz Field.'"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image features two football players in action, one wearing a red jersey with the number 3 and the other wearing a white jersey with the number 11. Given the image check result indicates a low similarity score (0.5875989198684692) and a high text similarity score (0.9881550669670105), the image is considered out of context because the visual content does not align with the caption, despite the textual similarity. The image check suggests the caption is about a different game and different players. Therefore, the caption misrepresents the image content.",
+    "validation_summary": "The image check indicates a low image similarity score, suggesting the caption does not accurately represent the players or game depicted in the image, despite the high text similarity score. The viewer would be misled about the context of the image."
+  },
+  "inference_time": 6.124011278152466,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,36 @@
+{
+  "caption": "Iraqi soldiers patrol a suburb close to the area of Jweibah east of the city of Ramadi the capital of Iraq s Anbar province on Feb 4 2016",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Photos Of The Week #5",
+        "content": "P h o t o s   O f   T h e   W e e k   # 5",
+        "caption": "Iraqi soldiers patrol a suburb close to the area of Jweibah, east of the city of Ramadi, the capital of Iraq's Anbar Province. Iraqi forces declared victory in December in the battle for Ramadi after wresting back control of the city's central government complex from the Islamic State militant group. (AFP/Ahmad al-Rubaye)",
+        "domain": "www.rferl.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2392517328262329,
+        "text_similarity_score": 0.894990086555481
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.2392517328262329, which is less than 0.85. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. The text similarity score between the news caption and the candidate caption is 0.894990086555481, which is greater than 0.7, indicating high similarity. However, because the image similarity score is low, the final decision is False. The candidate caption states, \"Iraqi soldiers patrol a suburb close to the area of Jweibah, east of the city of Ramadi, the capital of Iraq's Anbar Province\", which matches the news caption. Furthermore, it provides additional context that \"Iraqi forces declared victory in December in the battle for Ramadi after wresting back control of the city's central government complex from the Islamic State militant group.\"",
+      "supporting_evidences": [
+        "Caption: Iraqi soldiers patrol a suburb close to the area of Jweibah, east of the city of Ramadi, the capital of Iraq's Anbar Province. Iraqi forces declared victory in December in the battle for Ramadi after wresting back control of the city's central government complex from the Islamic State militant group."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "validation_summary": "The caption misrepresents the image content, implying a direct connection to an area close to Jweibah without clear evidence from the image.",
+    "explanation": "The news caption states that Iraqi soldiers are patrolling a suburb close to Jweibah, east of Ramadi, on February 4, 2016. However, the image check results indicate a low image similarity score of 0.239, which suggests that the content in the image may not accurately depict the scene described in the caption. Furthermore, while the text similarity score is high, this alone does not confirm that the visual content aligns with the caption. The context implies that the soldiers are performing a patrol in a specific location, but the image does not provide clear indicators of the setting being described. Therefore, without visual confirmation of soldiers in that specific locale on the date mentioned, the caption is deemed out of context."
+  },
+  "inference_time": 6.734962701797485,
+  "ablation_type": "no_image_evidences"
+}

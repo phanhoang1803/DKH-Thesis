@@ -1,0 +1,52 @@
+{
+  "caption": "Antoine Griezmann has played his entire career in Spain having joined Real Sociedad at the age of just 14",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Antoine Griezmann happy at Atltico: I dont feel need to play in England | Atltico Madrid | The Guardian",
+        "content": "A n t o i n e   G r i e z m a n n   h a s   i n s i s t e d   h e   i s   h a p p y   t o   s t a y   a t   A t l  t i c o   M a d r i d   d e s p i t e   r e p o r t s   J o s    M o u r i n h o   h a s   m a d e   t h e   F r a n c e   f o r w a r d   h i s   m a i n   t r a n s f e r   t a r g e t   f o r   J a n u a r y . \n \n G r i e z m a n n ,   w h o   s i g n e d   a   n e w   c o n t r a c t   i n   t h e   s u m m e r   w i t h   a    4 3 m   b u y o u t   c l a u s e ,   i s   e n j o y i n g   a n o t h e r   g o o d   s e a s o n   h a v i n g   s c o r e d   s e v e n   g o a l s . \n \n C h e l s e a   m a d e   i n q u i r i e s   o v e r   h i s   a v a i l a b i l i t y   i n   t h e   s u m m e r ,   w i t h   r e p o r t s   t h i s   w e e k   t h a t   M o u r i n h o   m a y   a t t e m p t   t o   s i g n   t h e   2 4 - y e a r - o l d   i n   t h e   J a n u a r y   t r a n s f e r   w i n d o w .   G r i e z m a n n ,   w h o   h a s   p l a y e d   h i s   e n t i r e   c a r e e r   i n   S p a i n   h a v i n g   j o i n e d   R e a l   S o c i e d a d   a t   t h e   a g e   o f   1 4 ,   a p p e a r e d   t o   p o u r   c o l d   w a t e r   o n   t h o s e   p l a n s   t h i s   w e e k . \n \n  I   d o   n o t   f e e l   t h e   n e e d   t o   p l a y   i n   L i g u e   1 ,   n o r   i n   t h e   P r e m i e r   L e a g u e   o r   i n   S e r i e   A ,    h e   s a i d   o n   t h e   C a n a l   F o o t b a l l   C l u b .    I   a m   i n   S p a i n      I  m   h a p p y .   L i f e   h e r e ,   f o o t b a l l ,   I   l i k e   i t   a l l .  \n \n M a n c h e s t e r   U n i t e d   h a v e   a l s o   b e e n   l i n k e d   w i t h   a   m o v e   f o r   G r i e z m a n n ,   w h o   s c o r e d   2 2   g o a l s   l a s t   s e a s o n .",
+        "caption": "Antoine Griezmann has played his entire career in Spain having joined Real Sociedad at the age of just 14.",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9721475839614868,
+        "text_similarity_score": 0.9906675219535828
+      },
+      {
+        "title": "Antoine Griezmann happy at Atltico: I dont feel need to play in England | Atltico Madrid | The Guardian",
+        "content": "A n t o i n e   G r i e z m a n n   h a p p y   a t   A t l  t i c o :   ' I   d o n ' t   f e e l   n e e d   t o   p l a y   i n   . . .",
+        "caption": "Antoine Griezmann has played his entire career in Spain having joined Real Sociedad at the age of just 14.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.98965984582901,
+        "text_similarity_score": 0.9906675815582275
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both candidate evidences have high image similarity scores (>= 0.85) and high text similarity scores (>= 0.7) with the news caption. Specifically, the image similarity scores are 0.9721475839614868 and 0.98965984582901, and the text similarity scores are 0.9906675219535828 and 0.9906675815582275, respectively. Moreover, the captions in both candidates are identical to the news caption, and they come from a reliable source (theguardian.com). This strongly suggests that the caption accurately represents what the news image shows.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: Antoine Griezmann has played his entire career in Spain having joined Real Sociedad at the age of just 14. Image Similarity Score: 0.9721475839614868, Caption Similarity Score: 0.9906675219535828, Domain: www.theguardian.com",
+        "Candidate 2: Caption: Antoine Griezmann has played his entire career in Spain having joined Real Sociedad at the age of just 14. Image Similarity Score: 0.98965984582901, Caption Similarity Score: 0.9906675815582275, Domain: www.theguardian.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high level of confidence that the caption accurately represents the image content. Both candidate evidences have high image and text similarity scores. The image features Antoine Griezmann, and the caption refers to his career in Spain. Therefore, the caption is not misleading and correctly represents the image.",
+    "validation_summary": "The image check confirms that the caption is a correct representation of the image, featuring Antoine Griezmann and referencing his career in Spain. The caption accurately reflects the image content, preventing viewer misinterpretation."
+  },
+  "inference_time": 7.381740093231201,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

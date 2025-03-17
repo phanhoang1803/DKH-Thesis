@@ -1,0 +1,47 @@
+{
+  "caption": "Helen Glover and Heather Stanning celebrate winning more golds for Great Britain",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Kerri Walsh Jennings",
+      "Beach volleyball",
+      "Volleyball",
+      "Olympic Games",
+      "Brazil",
+      "United States",
+      "Beach",
+      "Team"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "I looked up, heard the roar of the crowd: Helen Glover wins gold at the 2012 Olympics | Olympics 2012: rowing | The Guardian",
+        "content": "I   l o o k e d   u p ,   h e a r d   t h e   r o a r   o f   t h e   c r o w d ' :   H e l e n   G l o v e r   w i n s   g o l d   . . .",
+        "caption": "Helen Glover, right, and Heather Stanning celebrate Olympic gold at London 2012.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The available evidence mentions Helen Glover and Heather Stanning celebrating Olympic gold at London 2012, while the news caption mentions them celebrating winning more golds for Great Britain. The candidate does not support the claim that they are celebrating winning 'more' golds, or provide information that supports this claim.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image and the caption are not well aligned. The image shows a beach volleyball scene with athletes, possibly celebrating, while the caption refers to Helen Glover and Heather Stanning celebrating more gold medals for Great Britain. Given the image check's low similarity scores and its specific mention of beach volleyball versus rowing (Glover and Stanning's sport), the image appears to be showing a different event and different athletes. The image check result has high confidence score. Therefore, the caption is misleading, as it incorrectly associates the athletes and sport with the scene depicted in the image.",
+    "validation_summary": "The caption misrepresents the image by associating it with Helen Glover and Heather Stanning and a rowing event, while the image shows a beach volleyball scene. This creates a false impression about the athletes and the sport being shown."
+  },
+  "inference_time": 3.687943696975708,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

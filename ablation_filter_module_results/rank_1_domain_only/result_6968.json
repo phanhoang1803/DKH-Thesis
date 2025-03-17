@@ -1,0 +1,41 @@
+{
+  "caption": "Since leaving Congress former House majority leader Eric Cantor has become a lobbyist",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 7,
+      "confidence_score": 9,
+      "explanation": "The caption mentions Eric Cantor becoming a lobbyist after leaving Congress. While the context confirms that Cantor became a managing director at an investment firm, it does not explicitly state that he became a lobbyist, nor does the picture show him lobbying. The context mentions he interacts with Congress members but is not registered as a lobbyist. Therefore, the caption is partially misleading, as it presents an unconfirmed aspect of his post-congressional career as a definitive fact. The image itself shows him walking with associates, which aligns with his continued presence in Washington D.C., but it does not depict lobbying activities.",
+      "supporting_evidences": [
+        "The caption states Eric Cantor became a lobbyist.",
+        "The image shows Eric Cantor walking with associates.",
+        "The context confirms Cantor's move to an investment firm but doesn't confirm lobbying.",
+        "The context mentions Cantor interacting with Congress members but not being registered as a lobbyist."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Eric Cantor, former House Majority Leader, walks with associates after leaving Congress.",
+      "context": "The image shows Eric Cantor, former House Majority Leader, accompanied by several associates. Cantor, who became a managing director at the investment banking firm Moelis & Co. after leaving Congress, is seen walking in what appears to be a corridor, possibly in Washington D.C. The news article mentions that Cantor has been involved in public policy issues and interacts with current members of Congress, although he is not registered as a lobbyist. The photograph reflects his continued presence and activity in the Washington D.C. area after his congressional career.",
+      "information": "The image features Eric Cantor, the former House Majority Leader, walking alongside three other men in suits. Cantor is in the foreground, smiling and wearing glasses, a grey suit, and a red patterned tie. To his left, a bald man in a blue tie and dark suit holds a white cup. Behind Cantor are two more men, one wearing a navy suit with a red tie and the other wearing a blue suit and a gold tie. They are walking in a bright hallway with a white wall on the left and a partially visible window with a plant on the right."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a high confidence score of 9, indicating a strong level of certainty that the caption misrepresents the image. The caption suggests that the image depicts Eric Cantor as a lobbyist. However, the image shows Eric Cantor walking with other people in suits, which doesn't inherently depict lobbying. The image check result confirms this, stating that the image shows Cantor walking with associates. Therefore, based on the image and the image check result, the caption is out of context because it implies an activity (lobbying) that isn't visibly evident in the image.",
+    "validation_summary": "The caption implies Eric Cantor is actively lobbying, but the image only shows him walking with associates, misleading viewers about the context of the image. Therefore, the caption is out of context of the image's content."
+  },
+  "inference_time": 4.576496362686157,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "caption": "People rush into Macy s as they open at midnight on Friday in NYC",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Why Black Friday shoppers endure the crush | CNN",
+        "content": "W h y   B l a c k   F r i d a y   s h o p p e r s   e n d u r e   t h e   c r u s h   |   C N N",
+        "caption": "Black Friday shoppers gleefully rush through the doors of the New York City Macy's after it opened its doors at midnight on November 25, 2011.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5728743076324463,
+        "text_similarity_score": 0.749836802482605
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption mentions \"People rush into Macy's as they open at midnight on Friday in NYC\". The candidate caption also mentions \"Black Friday shoppers gleefully rush through the doors of the New York City Macy's after it opened its doors at midnight on November 25, 2011.\" Although the image similarity score is only 0.57, the text similarity is 0.74. The candidate caption confirms the location is Macy's in NYC and people are rushing in as the store opens at midnight. Therefore, the news caption and the candidate caption are almost aligned, although additional information might be required to improve the confidence score.",
+      "supporting_evidences": [
+        "The candidate caption mentions the location as Macy's in New York City.",
+        "The candidate caption indicates people are rushing in as doors open at midnight."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a confidence score of 7. The news caption mentions \"People rush into Macy's as they open at midnight on Friday in NYC\". The candidate caption also mentions \"Black Friday shoppers gleefully rush through the doors of the New York City Macy's after it opened its doors at midnight on November 25, 2011.\" The candidate caption confirms the location is Macy's in NYC and people are rushing in as the store opens at midnight. Therefore, based on the image check result, the news caption and the candidate caption are aligned.",
+    "validation_summary": "The caption correctly describes people rushing into Macy's in NYC, aligning with the image check and suggesting the image is not out of context. Viewers are unlikely to be misled about what they're seeing."
+  },
+  "inference_time": 5.229304075241089,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

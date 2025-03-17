@@ -1,0 +1,43 @@
+{
+  "caption": "Barry Hitchings 40 was working in a retro computer game shop in Hammersmith London when he was headhunted",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Machine",
+      "Vending"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Video Game On: The man who spent 13 years travelling with Pong and Pac-Man - BBC News",
+        "content": "V i d e o   G a m e   O n :   T h e   m a n   w h o   s p e n t   1 3   y e a r s   t r a v e l l i n g   w i t h   P o n g   a n d   . . .",
+        "caption": "Barry Hitchings, 40, was working in a retro computer game shop in Hammersmith, London when he was headhunted",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.14708200097084045,
+        "text_similarity_score": 0.985959529876709
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.147, which is less than 0.85, and the text similarity score is 0.985, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Because the image similarity score is low, the caption is out-of-context. The content of the candidate evidence is not directly analyzed to determine if it confirms the caption accurately represents the image because the image similarity is low.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the image similarity score is low (0.147) while the text similarity score is high (0.985). According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, regardless of the text similarity score. The image shows a man (presumably Barry Hitchings) standing in what appears to be a room filled with filing cabinets and shelves containing books and other items. The caption states that Barry Hitchings was working in a retro computer game shop in Hammersmith London when he was headhunted. While the person in the image could be Barry Hitchings, the background does not resemble a retro computer game shop in Hammersmith, London. Therefore, the caption is out of context because the image does not support the claim of him being in a retro computer game shop.",
+    "validation_summary": "The caption is misleading as the image doesn't show the individual in a retro computer game shop, thus misrepresenting the context of the news story. The image check result confirms this assessment, indicating the image and caption are not aligned."
+  },
+  "inference_time": 5.242109060287476,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

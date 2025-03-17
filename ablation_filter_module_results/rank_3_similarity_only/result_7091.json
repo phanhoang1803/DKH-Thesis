@@ -1,0 +1,58 @@
+{
+  "caption": "Dramatic thunderstorm clouds roll in from Lake Superior in Grand Marais Mich in July",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "110 Things to do in Boothbay Harbor, Maine ideas | boothbay harbor, boothbay, maine",
+        "content": "",
+        "caption": "a person standing on a balcony looking at boats in the water",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9916027188301086,
+        "text_similarity_score": 0.10372231900691986
+      },
+      {
+        "title": "10 Prettiest Coastal Towns In Maine | Maine travel, Coastal towns, Visit maine",
+        "content": "",
+        "caption": "a person standing on a balcony looking at boats in the water",
+        "domain": "in.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9399580955505371,
+        "text_similarity_score": 0.10372231900691986
+      },
+      {
+        "title": "21 New England ideas | new england, england, new england travel",
+        "content": "",
+        "caption": "a person standing on a balcony looking at boats in the water",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9399580955505371,
+        "text_similarity_score": 0.10372231900691986
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores for all candidates are above 0.85, but the text similarity scores are all below 0.7. According to the instructions, if the image similarity score is >= 0.85 AND the text similarity score is < 0.7, the verdict must be 'False'. The captions of the candidates describe a person standing on a balcony looking at boats in the water, which does not align with the news caption describing a thunderstorm over Lake Superior in Grand Marais, Michigan.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a harbor scene at sunset with numerous boats in the water, buildings along the shore, and people in the foreground. The caption describes \"Dramatic thunderstorm clouds roll in from Lake Superior in Grand Marais Mich in July.\" The image content clearly contradicts the caption. The image check result also supports the conclusion that the caption is unrelated to the image.",
+    "validation_summary": "The caption misrepresents the image content by describing a thunderstorm and a specific location that are not visible in the image, misleading viewers about what they are seeing. The image displays a harbor scene with boats at sunset, a stark contrast to the described thunderstorm, making the caption out of context."
+  },
+  "inference_time": 8.05509614944458,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

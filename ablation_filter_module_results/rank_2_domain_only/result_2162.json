@@ -1,0 +1,38 @@
+{
+  "caption": "George Clooney waves to his fans waves as he leaves the restaurant Da Ivo with friends and his father during his stag night event in Venice on September 27 2014",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Celebs flood Venice for Clooney's wedding",
+        "content": "C e l e b s   f l o o d   V e n i c e   f o r   C l o o n e y ' s   w e d d i n g",
+        "caption": "The stars are heading to the floating city! Celebrities hit the canals of Venice where George Clooney is expected to marry Amal Alamuddin sometime this weekend.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate mentions George Clooney and Venice, aligning with the news caption. However, it doesn't mention the specific event (stag night), the restaurant (Da Ivo), the date (September 27, 2014), or George Clooney's father. Without these key details, the candidate does not fully support the caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a low similarity score and a negative verdict, meaning the caption does not accurately represent the image content. Specifically, the image check mentions that while the caption and the candidate both mention George Clooney and Venice, the candidate fails to include critical details like the stag night event, the restaurant Da Ivo, the date (September 27, 2014), and the presence of George Clooney's father. Analyzing the image, it shows George Clooney with several other men in a boat. While it is possible that these are his friends and his father, this cannot be definitively confirmed from the image alone. Therefore, the image does not provide enough evidence to support the caption's claim about it being his stag night at Da Ivo with his father and friends on that particular date. This lack of corroborating visual details leads to the determination that the caption is out of context.",
+    "validation_summary": "The caption provides specific details (date, location, event) that the image cannot confirm, making the caption potentially misleading. While George Clooney is in the image, the details of the event are unsubstantiated by visual evidence."
+  },
+  "inference_time": 4.388915538787842,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

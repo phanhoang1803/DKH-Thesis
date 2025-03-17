@@ -1,0 +1,48 @@
+{
+  "caption": "President Obama pauses as he speaks on the shooting in Dallas on the sidelines of the NATO Summit at a hotel in Warsaw Friday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speech",
+      "Public speaking",
+      "Orator",
+      "Audience"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Obama to cut short European trip after 'vicious' attacks on Dallas police",
+        "content": "O b a m a   t o   c u t   s h o r t   E u r o p e a n   t r i p   a f t e r   ' v i c i o u s '   a t t a c k s   o n   D a l l a s   . . .",
+        "caption": "President Obama pauses as he speaks on the shooting in Dallas on the sidelines of the NATO Summit at a hotel in Warsaw Friday.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3847843110561371,
+        "text_similarity_score": 0.9866794347763062
+      },
+      {
+        "title": "How the Dallas police ambush unfolded -- in photos and video - nj.com",
+        "content": "H o w   t h e   D a l l a s   p o l i c e   a m b u s h   u n f o l d e d   - -   i n   p h o t o s   a n d   v i d e o   -   n j . c o m",
+        "caption": "US President Barack Obama pauses as he speaks on the shooting in Dallas, Texas, on the sidelines of the NATO Summit at a hotel in Warsaw, Poland on July 8, 2016. (Mandel Ngan| AFP/Getty Images)",
+        "domain": "www.nj.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3901725709438324,
+        "text_similarity_score": 0.9387922883033752
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are low (less than 0.85) for both candidates, meaning the images in the candidate evidence do not closely match the news image. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image and caption are out of context (OOC = True). The image shows President Obama speaking at a podium with the word \"FORWARD\" visible, but there is no clear evidence within the image itself to confirm he is speaking about the shooting in Dallas or that the event is taking place on the sidelines of the NATO Summit in Warsaw. The image similarity scores in the image check are low, meaning the images do not closely match the news image. Therefore, based on the image check result, the caption is deemed out of context.",
+    "validation_summary": "The caption incorrectly associates the image of President Obama speaking at a podium with a specific event (the shooting in Dallas on the sidelines of the NATO Summit), which cannot be verified from the image content itself, thus misleading viewers about the image's context. The image check confirms this discrepancy, supporting the determination that the caption is out of context."
+  },
+  "inference_time": 4.852580785751343,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,52 @@
+{
+  "caption": "Ryan Seacrest and contestant LaPorsha Renae on the final season of Idol",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "The answer to why I love American Idol so much  The Talon",
+        "content": "T h e   a n s w e r   t o   w h y   I   l o v e   A m e r i c a n   I d o l   s o   m u c h      T h e   T a l o n",
+        "caption": "Ryan Seacrest stands with the final 2 contestants of American Idol's farewell season, Trent Harmon and La'Porsha Renae. Photo courtesy of FOX.",
+        "domain": "thetalonohs.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6383644938468933,
+        "text_similarity_score": 0.7392815947532654
+      },
+      {
+        "title": "'American Idol': Kelly Clarkson, Phillip Phillips at Atlanta Botanical Garden July 30, Ryan Seacrest UGA graduation speaker",
+        "content": "A m e r i c a n   I d o l ' :   K e l l y   C l a r k s o n ,   P h i l l i p   P h i l l i p s   a t   A t l a n t a   . . .",
+        "caption": "AMERICAN IDOL: Host Ryan Seacrest, Contestant La'Porsha Renae and Trent Harmon during the AMERICAN IDOL Finale airing Thursday, April 7 (8:00-10:06 PM ET Live/PT tape-delayed) on FOX.  2016 FOX Broadcasting Co. Cr: Ray Mickshaw/FOX",
+        "domain": "www.ajc.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4556535482406616,
+        "text_similarity_score": 0.7378273010253906
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have text similarity scores greater than 0.7, indicating that their captions are similar to the news caption. However, the image similarity scores are below 0.85. Based on the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context. Both candidates refer to Ryan Seacrest and LaPorsha Renae, which are mentioned in the news caption. Candidate 1 also mentions the final season of American Idol. Candidate 2 mentions Trent Harmon, who is not present in the news caption.",
+      "supporting_evidences": [
+        "Candidate 1 Caption",
+        "Candidate 2 Caption"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity scores are below 0.85, implying that the caption is out of context, and thus does not accurately represent the image. The confidence score is high (7-10), so the final determination is based on the image check result.",
+    "validation_summary": "The caption, while containing correct details, is not a representative summary of the image, potentially misleading viewers about its content or context. This determination is based on the provided image check result, which indicates a lack of sufficient image similarity to support the caption's accuracy."
+  },
+  "inference_time": 6.53114128112793,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

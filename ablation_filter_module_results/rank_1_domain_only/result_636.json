@@ -1,0 +1,44 @@
+{
+  "caption": "Rising abruptly out of the rolling boil are billionyearold inselbergs island mountains of sandstone like Suilven a sugarloaf peak that the Vikings called the pillar",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Mount Scenery",
+      "Outcrop",
+      "Batholith",
+      "Tree",
+      "Bouldering"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "In pictures: What lies beneath? | The Lie of the Land by Ian Vince | Science | The Guardian",
+        "content": "I n   p i c t u r e s :   W h a t   l i e s   b e n e a t h ?   |   T h e   L i e   o f   t h e   L a n d   b y   I a n   V i n c e   . . .",
+        "caption": "Book Review:  The Lie Of The Land by Ian Vince, geological history of British landscape",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate does not contain any information about inselbergs or island mountains of sandstone. Therefore, the candidate does not support the caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low similarity between the image and the caption, with a confidence score of 2. The image shows a snow-covered mountain with trees in the foreground, while the caption refers to \"inselbergs island mountains of sandstone like Suilven a sugarloaf peak that the Vikings called the pillar\". The image check result states that the candidate does not support the caption and the similarity scores are 0.0. Therefore, the caption does not accurately represent the image content.",
+    "validation_summary": "The caption describes a specific type of mountain (inselberg) that the image does not appear to depict, leading to a mismatch between the text and the visual content. Viewers would be misled about the content of the image by reading the caption."
+  },
+  "inference_time": 3.2243096828460693,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

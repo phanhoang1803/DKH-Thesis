@@ -1,0 +1,40 @@
+{
+  "caption": "Protesters shout next to a bus carrying some members of Brazil s national team The sign reads in Portuguese There will be not Cup There will be a strike",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Public pessimism reigns in Brazil as World Cup looms",
+        "content": "P u b l i c   p e s s i m i s m   r e i g n s   i n   B r a z i l   a s   W o r l d   C u p   l o o m s",
+        "caption": "Protesters shout next to a bus carrying some members of Brazil's national team The sign reads in Portuguese \"There will be not Cup. There will be a strike.\"",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate evidence from usatoday.com has a verbatim caption that exactly matches the news caption. This provides strong support that the caption is accurate and represents the image content.",
+      "supporting_evidences": [
+        "Protesters shout next to a bus carrying some members of Brazil's national team The sign reads in Portuguese \"There will be not Cup. There will be a strike.\""
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts various national flags waving in front of a mountainous landscape. While the image check indicates that the news caption discusses protesters and a bus related to the Brazilian national team, along with a sign mentioning strikes, these elements are not visually evident in the image itself. The image shows no protesters, buses, or signs. The image is not Out of Context according to the provided supporting evidence from usatoday.com.",
+    "validation_summary": "The caption describes a scene involving protesters, a bus, and a strike, none of which are visible in the image, making the image potentially misleading if paired with this caption. Based on the image check result, the image is still not Out of Context."
+  },
+  "inference_time": 6.193024158477783,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "caption": "Actress Kerry Washington helped get out the vote for Democrat Terry McAuliffe in Virginia",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "What Tom Perriellos Loss in Virginia Can Teach Democrats | The New Yorker",
+        "content": "W h a t   T o m   P e r r i e l l o ' s   L o s s   i n   V i r g i n i a   C a n   T e a c h   D e m o c r a t s   |   T h e   . . .",
+        "caption": "Image may contain Tie Accessories Accessory Suit Coat Clothing Overcoat Apparel Human Person and Tom Perriello",
+        "domain": "www.newyorker.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. The candidate caption does not mention Kerry Washington or Terry McAuliffe. It simply describes people in suits. Therefore, it doesn't support the claim that Kerry Washington helped get out the vote for Terry McAuliffe in Virginia.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a woman speaking at a microphone. The caption states that 'Actress Kerry Washington helped get out the vote for Democrat Terry McAuliffe in Virginia'. Without additional information, it's impossible to confirm that the woman in the image is Kerry Washington or that the image shows her helping McAuliffe. The image check result also gives a low similarity score between the image and the caption. Therefore, the caption is out of context.",
+    "validation_summary": "The caption incorrectly identifies the person in the image as Kerry Washington and incorrectly states that the image is of her helping Terry McAuliffe, which is unsupported by the image; therefore, the image is out of context and misleading to viewers."
+  },
+  "inference_time": 3.58465576171875,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

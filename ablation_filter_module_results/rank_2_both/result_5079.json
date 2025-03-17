@@ -1,0 +1,40 @@
+{
+  "caption": "Mr Whittle denied that deputy chair of UKIP Suzanne Evans would have made a stronger candidate",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "UKIP selects Peter Whittle as London mayoral candidate - BBC News",
+        "content": "U K I P   s e l e c t s   P e t e r   W h i t t l e   a s   L o n d o n   m a y o r a l   c a n d i d a t e   -   B B C   N e w s",
+        "caption": "Mr Whittle denied that deputy chair of UKIP Suzanne Evans would have made a stronger candidate",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5838154554367065,
+        "text_similarity_score": 0.9999999403953552
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is below 0.85 (0.5838154554367065) and the text similarity score is above 0.7 (0.9999999403953552), so according to the instructions, I should return 'False'. Because the image similarity score is low, it cannot be confirmed that the candidate matches the news image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates the image is out of context, with a low image similarity score (0.5838154554367065) and a high text similarity score (0.9999999403953552). The caption refers to Mr. Whittle denying that Suzanne Evans would have made a stronger candidate for London Mayor. The image shows a woman speaking at a podium with a man (potentially Michael Bloomberg) in the background. The image does not contain any explicit information about Mr. Whittle, Suzanne Evans, or the UKIP mayoral candidacy. Therefore, based on the image check result, the caption does not accurately represent the image content. The low image similarity score indicates that the visual content of the image doesn't correspond to the details described in the caption.",
+    "validation_summary": "The image and caption do not align; the image doesn't visually represent the people and events mentioned in the caption, leading to a mismatch between the visual and textual information. The caption could mislead viewers into thinking the image depicts events related to the mentioned individuals and UKIP candidacy when it does not."
+  },
+  "inference_time": 5.6108558177948,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

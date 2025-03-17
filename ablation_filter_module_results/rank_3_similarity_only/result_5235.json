@@ -1,0 +1,40 @@
+{
+  "caption": "Coles and Maxwell listen to Kayne Gillaspie describe his design",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Behind-the-scenes with USA TODAY and 'Project Runway'",
+        "content": "B e h i n d - t h e - s c e n e s   w i t h   U S A   T O D A Y   a n d   ' P r o j e c t   R u n w a y '",
+        "caption": "Coles and Maxwell listen to Kayne Gillaspie describe his design.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.10372363030910492,
+        "text_similarity_score": 0.9874953627586365
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is less than 0.85 and the text similarity score is greater than 0.7. Based on the instruction, the verdict should be false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result returned a confidence score of 10. The image similarity score is less than 0.85 and the text similarity score is greater than 0.7. Based on the instruction, the verdict should be false. The image shows a baseball player sitting on a bench in a dugout, wearing a uniform. The caption states, \"Coles and Maxwell listen to Kayne Gillaspie describe his design.\" This caption describes a different scenario than what is shown in the image, therefore the caption is not representative of the image's content.",
+    "validation_summary": "The caption is about people listening to a design description, but the image shows a baseball player. Therefore, the caption misrepresents the image content and would mislead viewers about what they are seeing."
+  },
+  "inference_time": 5.012887477874756,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

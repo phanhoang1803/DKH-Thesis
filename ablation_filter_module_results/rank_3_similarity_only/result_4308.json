@@ -1,0 +1,42 @@
+{
+  "caption": "Amanda Seyfried after the Les Miserables musical number",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Photos: Backstage and behind the scenes at the Oscars",
+        "content": "P h o t o s :   B a c k s t a g e   a n d   b e h i n d   t h e   s c e n e s   a t   t h e   O s c a r s",
+        "caption": "Amanda Seyfried after the 'Les Miserables' musical number.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9335917830467224,
+        "text_similarity_score": 0.9697455763816833
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.9335917830467224 and the text similarity score is 0.9697455763816833. Both scores are above the thresholds of 0.85 and 0.7 respectively. The candidate caption is an exact match of the news caption. Therefore, the news caption accurately represents what the image shows.",
+      "supporting_evidences": [
+        "Candidate 1: Caption is an exact match and has high image and text similarity scores."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score of 10, stemming from high image and text similarity scores (0.93 and 0.97, respectively), and that the candidate caption is an exact match of the news caption. Despite this automated check, the image shows a woman in a red dress and the provided caption states \"Amanda Seyfried after the Les Miserables musical number\". However, the news content makes no reference to Amanda Seyfried. The image context is therefore unrelated to the news content, thus the image is out of context.",
+    "validation_summary": "The image of a woman in a red dress is not related to the news content about Daniel Day-Lewis winning an Oscar, thereby misleading viewers about the content of the article. Although the automated check suggested a match, manual review reveals the image and news content are unrelated, indicating the image is out of context. The caption is not representative of the image content within the context of the news article, despite the similarity scores flagged by the image check result, necessitating overriding the automated assessment in this case."
+  },
+  "inference_time": 9.682347774505615,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

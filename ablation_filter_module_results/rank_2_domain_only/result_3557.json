@@ -1,0 +1,50 @@
+{
+  "caption": "Thunder guard Russell Westbrook reacts after an injury in Game 1",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "San Antonio Spurs",
+      "Oklahoma City Thunder",
+      "Slam dunk",
+      "2013–14 NBA season",
+      "NBA conference finals",
+      "Basketball Player",
+      "Basketball",
+      "Basketball court",
+      "Ball"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 10,
+      "explanation": "The provided caption mentions Russell Westbrook reacting to an injury. However, the image context describes him performing a slam dunk. These are very different scenarios, indicating a significant misalignment. The caption and image context do not align at all.",
+      "supporting_evidences": [
+        "The caption describes Russell Westbrook reacting to an injury.",
+        "The image context describes Russell Westbrook executing a slam dunk.",
+        "These two descriptions contradict each other."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Oklahoma City Thunder's Russell Westbrook executes a slam dunk during a basketball game.",
+      "context": "The image captures Russell Westbrook, a basketball player for the Oklahoma City Thunder, in the midst of a slam dunk during a game. He is wearing the Thunder's white jersey with the number 0. His posture shows full extension as he reaches for the hoop with the basketball in hand. The background features a packed stadium with numerous spectators, indicating a well-attended match. Visible branding includes 'KIA' on the courtside boards. The setting suggests a dynamic moment in a basketball game, likely a regular season or playoff match, showcasing Westbrook's athletic abilities and the intensity of the competition.",
+      "information": "The image shows Russell Westbrook of the Oklahoma City Thunder performing a slam dunk during a basketball game. The crowd is visible in the background, and the photo captures the action and energy of the moment."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a significant misalignment between the image and the caption. The image shows Russell Westbrook performing a slam dunk, while the caption describes him reacting to an injury. These are contradictory actions. Therefore, the caption is misleading and the image is out of context.",
+    "validation_summary": "The caption describes Westbrook reacting to an injury, which is not what the image depicts, leading to a misunderstanding of the visual content. The viewer would be misled about what Westbrook is doing in the image because the caption contradicts the action of a slam dunk that is occurring in the image."
+  },
+  "inference_time": 3.218998908996582,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

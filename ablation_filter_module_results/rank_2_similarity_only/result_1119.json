@@ -1,0 +1,40 @@
+{
+  "caption": "Mars will make its nearest approach to Earth in 11 years about 468 million miles away from our planet according to NASA",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Health",
+        "content": "",
+        "caption": "",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.917233407497406,
+        "text_similarity_score": 0.04187881201505661
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.917233407497406, and the caption similarity score is 0.04187881201505661. According to the instructions, since the image similarity score is greater than or equal to 0.85, and the caption similarity score is less than 0.7, the verdict should immediately be false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image similarity score is 0.917233407497406, which is greater than or equal to 0.85, and the caption similarity score is 0.04187881201505661, which is less than 0.7. According to the instructions, the verdict should immediately be 'false.' The image depicts a human arm covered in mosquitos. The caption discusses Mars making its nearest approach to Earth. The image and caption are completely unrelated. Therefore, the caption is out of context with the image.",
+    "validation_summary": "The caption describes Mars's approach to Earth, but the image shows a close-up of a mosquito-covered arm, making the caption misleading and irrelevant to the visual content. Viewers would be severely misled about the content depicted in the image."
+  },
+  "inference_time": 4.510917663574219,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "caption": "An early live shot from Jim Reid s collection with Douglas Hart centre",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Robert Smith",
+      "Zilker Metropolitan Park",
+      "Zilker",
+      "Austin City Limits Music Festival",
+      "Toyota Sports 800",
+      "The Cure",
+      "Car",
+      "Sports car",
+      "SEAT 600",
+      "Festival"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Photos: The Cure's influence in pop culture",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.843600332736969,
+        "text_similarity_score": 0.07620459049940109
+      },
+      {
+        "title": "The Jesus and Mary Chain on Psychocandy: It was a little miracle | Jesus and Mary Chain | The Guardian",
+        "content": "T h e   J e s u s   a n d   M a r y   C h a i n   o n   P s y c h o c a n d y :   ' I t   w a s   a   l i t t l e   m i r a c l e   . . .",
+        "caption": "An early live shot from Jim Reids collection, with Douglas Hart centre.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.27556756138801575,
+        "text_similarity_score": 0.9805857539176941
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1 has a high image similarity score (0.843600332736969), which is close to the threshold, but the text similarity score is low (0.07620459049940109). This suggests that the image is similar, but the caption does not match. Candidate 2 has a lower image similarity score (0.27556756138801575), but a very high text similarity score (0.9805857539176941). Since the image similarity score for candidate 2 is lower than 0.85, we cannot confirm that the images match. However, the high text similarity score suggests that the caption is accurate. The caption from Candidate 2 precisely matches the news caption: 'An early live shot from Jim Reid’s collection, with Douglas Hart centre.' Considering that the caption in Candidate 2 provides an almost exact match to the news caption, and Candidate 1's image is highly similar, it's likely that the news caption accurately represents the image. Therefore, the news caption is in context.",
+      "supporting_evidences": [
+        "Candidate 2: Caption: An early live shot from Jim Reid’s collection, with Douglas Hart centre.",
+        "Candidate 2: Caption Similarity Score: 0.9805857539176941",
+        "Candidate 1: Image Similarity Score: 0.843600332736969"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result provides a high confidence score of 10, indicating a strong match between the image and the caption. The image check notes a high image similarity score (0.843600332736969) for candidate 1 and a very high text similarity score (0.9805857539176941) for candidate 2, precisely matching the news caption: 'An early live shot from Jim Reid’s collection, with Douglas Hart centre.' This confirms that the caption accurately represents the image content, showing an early live shot from Jim Reid's collection with Douglas Hart in the center. Therefore, based on the evidence, the image is not out of context.",
+    "validation_summary": "The image check confirms a strong match between the image and the caption, indicating that the caption correctly represents the image content. Viewers would not be misled about what they're seeing as the caption accurately describes the image's content showing a live shot with Douglas Hart in the center from Jim Reid's collection, aligning with the news article's discussion of the Jesus and Mary Chain's history and members, including Douglas Hart's role in the band and Jim Reid's involvement in live performances and music video direction, ensuring accurate context for the image within the article's narrative regarding the band's early career and members' roles, confirming an authentic visual representation of the discussed subject."
+  },
+  "inference_time": 8.138580560684204,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

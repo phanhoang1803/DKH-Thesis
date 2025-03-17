@@ -1,0 +1,47 @@
+{
+  "caption": "Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Car",
+      "Sports sedan",
+      "Sports car",
+      "Taxi",
+      "Sedan",
+      "Executive car"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Foxtons shares plunge 20% as London property market slows | Housing market | The Guardian",
+        "content": "F o x t o n s   s h a r e s   p l u n g e   2 0 %   a s   L o n d o n   p r o p e r t y   m a r k e t   s l o w s   . . .",
+        "caption": "Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate evidence has a caption that is identical to the news caption. The domain is a reliable source (www.theguardian.com). Therefore, the candidate confirms that the caption accurately represents the image.",
+      "supporting_evidences": [
+        "Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a yellow and green taxi with 'NATIONAL' written on it. The news caption is 'Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers'. The caption refers to Foxton's Mini Coopers, while the image shows a taxi. Therefore, the caption misrepresents what is shown in the image.",
+    "validation_summary": "The image shows a taxi, but the caption refers to Foxtons' Mini Coopers, misleading viewers about the image's content. The image does not show the 'liveried fleet of Mini Coopers' that the news caption claims."
+  },
+  "inference_time": 3.3854000568389893,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

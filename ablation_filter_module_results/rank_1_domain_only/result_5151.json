@@ -1,0 +1,51 @@
+{
+  "caption": "Erik Lamela rounds Manchester City s Willy Caballero to score the fourth goal for Tottenham",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Steven Gerrard",
+      "Frank Lampard",
+      "Liverpool F.C.",
+      "UEFA Champions League",
+      "Anfield",
+      "Riath Al-Samarrai",
+      "PFC Ludogorets Razgrad",
+      "Gaelic football",
+      "other",
+      "just"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Harry Kane finally gets reward as Spurs  deepen Manchester Citys slump | Premier League | The Guardian",
+        "content": "H a r r y   K a n e   f i n a l l y   g e t s   r e w a r d   a s   S p u r s   d e e p e n   M a n c h e s t e r   C i t y ' s   . . .",
+        "caption": "Erik Lamela rounds Manchester City's Willy Caballero to score the fourth goal for Tottenham.\r Photograph: Tony O'Brien/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The candidate captions matches the news caption and includes relevant details such as the players involved (Erik Lamela and Willy Caballero) and the teams (Tottenham and Manchester City). Therefore the caption can be deemed as accurate.",
+      "supporting_evidences": [
+        "Erik Lamela rounds Manchester City's Willy Caballero to score the fourth goal for Tottenham. Photograph: Tony O'Brien/Reuters"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a strong match between a candidate caption, extracted from the news article, and the provided news caption. However, the image itself depicts a different scene: a player in a red Liverpool jersey taking a shot on goal with Tottenham players nearby. This contrasts with the caption's claim that Erik Lamela is rounding Willy Caballero to score for Tottenham. Since the image doesn't visually support the specific event described in the caption, the image is considered out of context.",
+    "validation_summary": "The image does not show Erik Lamela scoring against Manchester City, making the caption misleading. The image shows a different player and action entirely, leading to a mismatch between the visual and the described event."
+  },
+  "inference_time": 5.243312835693359,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

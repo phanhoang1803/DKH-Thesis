@@ -1,0 +1,51 @@
+{
+  "caption": "A South African giraffe practices its footwork at Vutomi Dam in Kruger National Park South Africa Giraffes are prone to broken limbs caused by slipping on wet surfaces",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Giraffe",
+      "South African giraffe",
+      "West African giraffe",
+      "Lion",
+      "Leg",
+      "Ig",
+      "Science",
+      "1980s",
+      "tall",
+      "Subspecies"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "In pictures: Necks on the line - saving the West African giraffe | Environment | The Guardian",
+        "content": "M o n   1 5   F e b   2 0 1 0   1 3 . 0 0  C E T \n \n \n                         F i r s t   p u b l i s h e d   o n   M o n   1 5   F e b   2 0 1 0   1 3 . 0 0  C E T",
+        "caption": "Giraffe: South African Giraffe ",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9899780750274658,
+        "text_similarity_score": 0.6658450365066528
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is high (0.9899780750274658), suggesting that the candidate image is visually similar to the news image. However, the text similarity score is low (0.6658450365066528), indicating that the candidate caption ('Giraffe: South African Giraffe') is not very similar to the news caption ('A South African giraffe practices its footwork at Vutomi Dam in Kruger National Park South Africa Giraffes are prone to broken limbs caused by slipping on wet surfaces').\n\nBecause the text similarity score is below 0.7, the captions do not match. The candidate caption provides a very basic description, whereas the news caption gives more specific information about the giraffe's location and behavior. Thus, the candidate does not provide enough information to confirm that the news caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a giraffe bending down to eat or drink near a body of water. The caption states, \"A South African giraffe practices its footwork at Vutomi Dam in Kruger National Park South Africa Giraffes are prone to broken limbs caused by slipping on wet surfaces\". Although the giraffe is in Kruger National Park, South Africa, and near water (Vutomi Dam), the image does not show the giraffe 'practicing its footwork' or any evidence of slipping or broken limbs. It appears to be simply foraging near the water. Since it's misleading to state the giraffe is \"practicing its footwork\", the caption doesn't fully represent what is in the image.",
+    "validation_summary": "The caption is misleading because it describes an action (practicing footwork) that is not evident in the image, making it out of context. Viewers may be misled about what the giraffe is doing in the image."
+  },
+  "inference_time": 4.270514965057373,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

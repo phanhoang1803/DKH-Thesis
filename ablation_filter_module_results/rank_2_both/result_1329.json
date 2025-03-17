@@ -1,0 +1,49 @@
+{
+  "caption": "Armed Swiss police officers stand guard on the roof of a hotel the day before the opening of the annual meeting of the World Economic Forum in Davos Switzerland",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Can science be the solution if it is part of the problem? |  | The Guardian",
+        "content": "C a n   s c i e n c e   b e   t h e   s o l u t i o n   i f   i t   i s   p a r t   o f   t h e   p r o b l e m ?   |   |   T h e   . . .",
+        "caption": "Armed Swiss police officers stand guard on the roof of a hotel the day before the opening of the annual meeting of the World Economic Forum in Davos, Switzerland. (AP Photo/Michel Euler, File).",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2873433232307434,
+        "text_similarity_score": 0.9695761203765869
+      },
+      {
+        "title": "Melanie Smallman | The Guardian",
+        "content": "M e l a n i e   S m a l l m a n   |   T h e   G u a r d i a n",
+        "caption": "Armed Swiss police officers stand guard on the roof of a hotel the day before the opening of the annual meeting of the World Economic Forum in Davos, Switzerland. (AP Photo/Michel Euler, File).",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.28093233704566956,
+        "text_similarity_score": 0.9695761203765869
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores are below 0.85. Because of that, I must mark the caption as out-of-context, even if the text similarity score is high.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is out of context with a confidence score of 1. The image shows a blue flag with white text, possibly the letters 'HBOS', flying in front of a building with a statue on top. This image does not show armed Swiss police officers on the roof of a hotel in Davos, Switzerland. Therefore, the caption is not an accurate representation of the image content.",
+    "validation_summary": "The caption describes armed Swiss police officers at a hotel in Davos, while the image shows a flag in front of a building, misleading viewers about the image's content and location. The image check result supports this conclusion, indicating that the caption is out of context."
+  },
+  "inference_time": 3.4968106746673584,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

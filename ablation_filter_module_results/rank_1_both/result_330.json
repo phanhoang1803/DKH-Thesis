@@ -1,0 +1,44 @@
+{
+  "caption": "People wait in line before the Dr King Career Fair at the Empire State Plaza Convention Center in Albany NY in April this year",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Stocks surge on May jobs report, Dow up 207",
+        "content": "S t o c k s   s u r g e   o n   M a y   j o b s   r e p o r t ,   D o w   u p   2 0 7",
+        "caption": "People wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7431338429450989,
+        "text_similarity_score": 0.9602746367454529
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "The image similarity score is 0.7431338429450989, which is less than 0.85. The text similarity score is 0.9602746367454529, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Thus, the verdict is False. The candidate caption and news caption are nearly identical, referring to the 'Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year.' However, since the image similarity score is below the defined threshold, the caption is considered out-of-context. The high text similarity suggests that the captions describe a similar event, but the differing images suggest that the visual context does not align with what the caption describes.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.7431338429450989",
+        "Text Similarity Score: 0.9602746367454529",
+        "Caption: People wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates an image similarity score of 0.7431338429450989, which is below the threshold of 0.85. Although the text similarity score is high at 0.9602746367454529, the low image similarity score dictates that the caption is out of context. The caption and the news caption are nearly identical, referring to the 'Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year.' However, the visual context does not align with what the caption describes.",
+    "validation_summary": "Although the caption describes an event that is textually similar to what is described in the news content, the image does not match the event. Therefore, viewers would be misled about the actual content of the image if they only read the caption."
+  },
+  "inference_time": 4.765603542327881,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

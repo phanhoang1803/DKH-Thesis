@@ -1,0 +1,58 @@
+{
+  "caption": "Tomas Rosicky has impressed in reecent weeks for Arsenal and has now signed a new contract",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Tomáš Rosický",
+      "Arsenal F.C.",
+      "Gaelic football",
+      "International rules football",
+      "Footballer",
+      "Goalkeeper stops shot",
+      "Kick up a soccer ball",
+      "Ball",
+      "Ball",
+      "Naver Blog"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Arsne Wenger delighted as Tomas Rosicky signs new contract at Arsenal | Arsenal | The Guardian",
+        "content": "A r s  n e   W e n g e r   d e l i g h t e d   a s   T o m a s   R o s i c k y   s i g n s   n e w   c o n t r a c t   a t   . . .",
+        "caption": "Tomas Rosicky has impressed in reecent weeks for Arsenal and has now signed a new contract.  Photograph: Stuart Macfarlane/Arsenal FC via Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Per Mertesacker and Tomas Rosicky sign Arsenal contracts - but future of Bacary Sagna thrown into doubt | The Independent | The Independent",
+        "content": "P e r   M e r t e s a c k e r   a n d   T o m a s   R o s i c k y   s i g n   A r s e n a l   c o n t r a c t s   -   b u t   . . .",
+        "caption": "Tomas Rosicky (left) and Per Mertesacker will not feature for Arsenal against Manchester United because of illness",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are low for both candidates, indicating the images do not match. Consequently, I cannot definitively verify the caption's accuracy based solely on image similarity. However, candidate 1 has an identical caption to the news caption and comes from a reputable news organization, 'The Guardian'. While this increases confidence slightly, the lack of image verification prevents full verification. Therefore, the final decision leans towards False, but with moderate confidence.",
+      "supporting_evidences": [
+        "Candidate 1: Identical caption from www.theguardian.com"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows Tomas Rosicky playing in a match for Arsenal. The caption mentions Tomas Rosicky signing a new contract with Arsenal. Although the image features the person mentioned in the caption, it does not depict the event of him signing a contract. It is a generic image of him playing soccer. The image check result also indicates that the images do not match. Therefore, the caption is out of context because the image does not accurately represent the news event.",
+    "validation_summary": "The image shows Tomas Rosicky playing soccer, which does not represent him signing a new contract, making the image out of context. Viewers would be misled into thinking this image is related to the contract signing when it is just a generic game photo with the player mentioned in the caption."
+  },
+  "inference_time": 4.290815114974976,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

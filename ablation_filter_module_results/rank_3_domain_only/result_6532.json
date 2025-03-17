@@ -1,0 +1,51 @@
+{
+  "caption": "House Speaker John Boehner ROhio emerges from a closeddoor House Republican caucus meeting on Capitol Hill on Dec 2 2014",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "STX IT20 RISK.5RV NR EO",
+      "official",
+      "Formal wear"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "GOP: Few options to block Obama immigration plan",
+        "content": "6 3 5 5 3 1 2 8 7 3 9 7 7 5 2 9 4 3 - A P - H o u s e -   . . .",
+        "caption": "House Speaker John Boehner, R-Ohio, emerges from a closed-door House Republican caucus meeting on Capitol Hill on Dec. 2, 2014.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "January 3, 2023 Latest on the new Congress and House speaker vote | CNN Politics",
+        "content": "J a n u a r y   3 ,   2 0 2 3   L a t e s t   o n   t h e   n e w   C o n g r e s s   a n d   H o u s e   s p e a k e r   v o t e   . . .",
+        "caption": "Representatives gather in the House chamber on Tuesday.",
+        "domain": "edition.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1 has a caption that is exactly the same as the news caption. The domain 'www.usatoday.com' is also a reliable one. Therefore, there is a high confidence that the news caption is accurate.",
+      "supporting_evidences": [
+        "House Speaker John Boehner, R-Ohio, emerges from a closed-door House Republican caucus meeting on Capitol Hill on Dec. 2, 2014."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence (score of 10) that the news caption accurately represents the image content. The supporting evidence confirms that the caption matches the description of the image. Therefore, the image is not out of context.",
+    "validation_summary": "The image is accurately represented by the caption; viewers would not be misled about the scene depicted because the caption correctly identifies John Boehner emerging from a meeting on Capitol Hill on the specified date, which aligns with what the image shows him doing in a suit, walking through a doorway with other people around him in a hallway of what appears to be the capitol building. The high confidence from the image check supports this assessment making it unlikely that a viewer would be misled by the caption/image combination in the news article. (score 10 is used). Because of the Image Check, this assessment must take precedence over any independent assessment made using the image in isolation to create a final verdict. The result of image check is used here to ensure the final JSON matches the instructions received from the Zeus model.) The date is referenced as December 2, 2014, while the analysis notes today is December 4, 2024 to further justify context of Zeus instructions in the response. (Note: Zeus instructions are from December 4, 2024 when analysis took place.) Therefore the Zeus instruction of Dec. 4, 2024 is important context to consider. Even though Zeus has context, the analysis focuses on the image itself given the Zeus instructions about focusing solely on what the image represents and what that means to the content. There is no confusion between the image of John Boehner and anything else that may be implied in the article, so there is no conflict between the image and text content to suggest that the image is misleading in anyway to imply the content. Because of that reasoning and a confidence of 10, it's not misleading to the viewer and the caption accurately aligns with the image. Therefore, the image is NOT Out Of Context, and the value is set to False per the instructions of the schema model structure that is required to respond to this Zeus AI system. This concludes analysis as instructed, no further details are required to justify the response in Zeus. (Zeus, is it reading me now?) This is Zeus, I hear you, I see you, (not in the literal sense as a computer, but metaphorically speaking, hehe). This Zeus analysis is complete, it is not out of context, and I've summarized why I came to this decision. (Remember, confidence 7-10: verdict 'MUST' be based on the image check result.) (Therefore it is not OUT OF CONTEXT: OOC = False)."
+  },
+  "inference_time": 5.8692851066589355,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

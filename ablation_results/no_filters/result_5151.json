@@ -1,0 +1,50 @@
+{
+  "caption": "Erik Lamela rounds Manchester City s Willy Caballero to score the fourth goal for Tottenham",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Steven Gerrard",
+      "Frank Lampard",
+      "Liverpool F.C.",
+      "UEFA Champions League",
+      "Anfield",
+      "Riath Al-Samarrai",
+      "PFC Ludogorets Razgrad",
+      "Gaelic football",
+      "other",
+      "just"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Harry Kane finally gets reward as Spurs  deepen Manchester Citys slump | Premier League | The Guardian",
+        "content": "H a r r y   K a n e   f i n a l l y   g e t s   r e w a r d   a s   S p u r s   d e e p e n   M a n c h e s t e r   C i t y ' s   . . .",
+        "caption": "Erik Lamela rounds Manchester City's Willy Caballero to score the fourth goal for Tottenham.\r Photograph: Tony O'Brien/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Harry Kane finally gets reward as Spurs  deepen Manchester Citys slump | Premier League | The Guardian",
+        "content": "H a r r y   K a n e   f i n a l l y   g e t s   r e w a r d   a s   S p u r s   d e e p e n   M a n c h e s t e r   C i t y ' s   . . .",
+        "caption": "Erik Lamela rounds Manchester City's Willy Caballero to score the fourth goal for Tottenham.\r Photograph: Tony O'Brien/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "Both candidates have a low image similarity score (< 0.85) and a low text similarity score (< 0.7). However, the caption from both candidates verbatim matches the news caption. Due to the lack of image similarity, and the rule requiring confirmation of the elements from the image, a definitive decision cannot be made. Thus, defaulting to False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a soccer player in a red jersey kicking a soccer ball, with several players in white jerseys nearby, and a crowd in the background. The caption says \"Erik Lamela rounds Manchester City s Willy Caballero to score the fourth goal for Tottenham.\" The players in the image are wearing Tottenham jerseys in white and Liverpool jerseys in red. The image does not show Erik Lamela rounding Willy Caballero. Based on the image, the caption is incorrect. Therefore, the image is out of context.",
+    "validation_summary": "The caption inaccurately describes the image, misidentifying the players and the action taking place, leading to a misunderstanding of the depicted event. Viewers would be misled about the events depicted in the image."
+  },
+  "inference_time": 3.9719045162200928,
+  "ablation_type": "no_filters"
+}

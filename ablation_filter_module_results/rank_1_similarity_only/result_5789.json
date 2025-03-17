@@ -1,0 +1,51 @@
+{
+  "caption": "The Stone Bridge at the Manassas National Battlefield Park is the backdrop for this photo of bluebells April 19 2014",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Bluebonnet",
+      "Fredericksburg",
+      "Texas bluebonnet",
+      "April Showers",
+      "2015",
+      "Bring May Flowers",
+      "Bring May Flowers",
+      "Split-rail fence",
+      "April Showers Bring May Flowers",
+      "Picket fence"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Happy May 1st: April showers bring May flowers - USA Today",
+        "content": "",
+        "caption": "Bluebonnet season arrives in Fredericksburg, Texas on April 4, 2015.",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8991184234619141,
+        "text_similarity_score": 0.33631449937820435
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score (0.89) is high, indicating that the images are similar. However, the text similarity score is low (0.33). The candidate caption mentions \"Bluebonnet season arrives in Fredericksburg, Texas on April 4, 2015,\" while the news caption mentions \"Stone Bridge at the Manassas National Battlefield Park\" and \"bluebells April 19 2014.\" These captions refer to different locations and types of flowers. Therefore, the news caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a field of bluebonnets and red flowers, with a wooden fence and trees in the background, under a cloudy sky. This scene contrasts sharply with the caption's description of 'The Stone Bridge at the Manassas National Battlefield Park' and 'bluebells April 19 2014'. The image depicts neither a stone bridge nor specifically bluebells. As the image check also indicated that the news caption does not match the image content, it is out of context. Therefore, using this caption with the given image would mislead viewers about the location and subject matter.",
+    "validation_summary": "The image shows a field of bluebonnets, not a stone bridge or bluebells as the caption suggests, misleading viewers about the actual content of the image. The image check result supports this determination, indicating that the caption is out of context."
+  },
+  "inference_time": 4.099031448364258,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

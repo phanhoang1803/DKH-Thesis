@@ -1,0 +1,40 @@
+{
+  "caption": "Seeking larger living quarters Lincicome and Flota bought 15 acres in 2010 with the idea of tearing down a flooddamaged dwelling and building a larger contemporary house for retirement",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Master Bathroom - Contemporary - Bathroom - Baltimore - by Ernesto Santalla PLLC | Houzz AU",
+        "content": "",
+        "caption": "",
+        "domain": "www.houzz.com.au",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9529438614845276,
+        "text_similarity_score": 0.05256064981222153
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.95, which means the images are highly similar. However, the text similarity score is 0.05, which means the captions are not similar. According to the instructions, if the image similarity score is greater than or equal to 0.85 and the text similarity score is less than 0.7, the verdict should be 'False'. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 2. The image similarity score is 0.95, which indicates a high degree of similarity between the images. Conversely, the text similarity score is only 0.05, suggesting little correlation between the captions. Given these scores, and adhering to the instructions provided, the verdict must be 'False', implying that the caption is out-of-context. The image displays a sunroom or porch with large windows, furniture, and plants. The caption speaks about the homeowners buying land to build a house. The image does not show the outside of a house or the construction of one, but rather an interior space. Therefore, the caption doesn't accurately represent the content of the image.",
+    "validation_summary": "The caption discusses purchasing land and building a house, but the image depicts an interior space, leading to a mismatch that would mislead viewers. Thus, the caption is out of context with the image's content."
+  },
+  "inference_time": 5.758229970932007,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

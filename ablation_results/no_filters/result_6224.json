@@ -1,0 +1,50 @@
+{
+  "caption": "Larry s Lounge a gay bar on 18th Street near Dupont Circle boasts a comfortable patio and strong house punch",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Guide",
+      "monthly",
+      "Jazz",
+      "Jazz club",
+      "Happy hour",
+      "Hotel",
+      "Convenience store",
+      "Supermarket",
+      "Dialogue",
+      "Tavern"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "(VOL 83) FALL 2024  by Food & Dining Magazine - Issuu",
+        "content": "V O L   8 3 )   F A L L   2 0 2 4   b y   F o o d   &   D i n i n g   M a g a z i n e   -   I s s u u",
+        "caption": "",
+        "domain": "issuu.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "(VOL 85) Spring 2025 by Food & Dining Magazine - Issuu",
+        "content": "V O L   8 5 )   S p r i n g   2 0 2 5   b y   F o o d   &   D i n i n g   M a g a z i n e   -   I s s u u",
+        "caption": "",
+        "domain": "issuu.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are 0.0 for both candidates, indicating that the images do not match. The caption similarity scores are also 0.0, meaning the captions do not match. Therefore, there is no evidence to support the claim that the caption accurately represents the image. The candidate information is insufficient to verify the caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts the exterior of Larry's Lounge, a gay bar located on 18th Street near Dupont Circle. While the caption correctly identifies the bar and its location, it also mentions a \"comfortable patio\" and \"strong house punch.\" However, the image primarily shows the front of the bar at night and does not provide evidence of a patio or the house punch. The image check result further confirms that the images and captions do not match. Therefore, while the caption is partially accurate, it includes details not supported by the image, making it potentially misleading. Given the high confidence score from the image check result, I am making the final determination based on this result.",
+    "validation_summary": "The caption mentions details (patio, house punch) not visible in the image, leading to a misrepresentation of what the image actually shows, and the image check confirmed this. Viewers might be misled about the bar's features based on the image and caption combination."
+  },
+  "inference_time": 3.8565802574157715,
+  "ablation_type": "no_filters"
+}

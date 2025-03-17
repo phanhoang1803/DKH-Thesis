@@ -1,0 +1,56 @@
+{
+  "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Cadbury",
+      "Chocolate bar",
+      "Chocolate",
+      "Candy",
+      "Kraft Foods",
+      "Fudge",
+      "Sweet dish",
+      "Wrigley"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Healthier chocolate and other incredible discoveries of the week",
+        "content": "6 3 5 6 3 1 2 6 7 1 4 0 4 5 0 7 5 3 - A P - D a r k -   . . .",
+        "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Chocolate is hot  and it's not just the curry",
+        "content": "C h o c o l a t e   i s   h o t      a n d   i t ' s   n o t   j u s t   t h e   c u r r y",
+        "caption": "A woman photographs Jun Kobayashi as he prepares Japanese plum chocolates, made of dark chocolate ganache with plum wine, during a demonstration of chocolate-making at the Chocolate Show in New York.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are both 0.0, indicating that the images in the candidates do not match the news image. Therefore, a decision cannot be made based on image similarity. However, candidate 1 has the exact same caption as the news caption and comes from a valid source. Therefore, the caption is likely to be in context.",
+      "supporting_evidences": [
+        "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image displays a variety of chocolate boxes and bars, seemingly arranged as a gift collection. The caption specifies \"Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York.\" While the image shows chocolates, it does not confirm or deny the specific type (Japanese plum), ingredients (dark chocolate ganache, plum wine), or origin (New York). Based on the image check result, the confidence score is high (6), and the determination \"MUST\" be based on the image check result. Also, the caption is likely to be in context and therefore representative, which is not the case as the picture lacks the explicit content for the caption.",
+    "validation_summary": "The image check result indicates that the caption is likely to be in context, the picture lacks the explicit content for the caption's context, potentially misleading viewers about the specific type and origin of the chocolates depicted in the image, suggesting they are specifically \"Japanese plum chocolates\" when this cannot be verified visually from the image alone. Therefore, the image is out of context given the caption's claims that cannot be substantiated by the image itself. In addition, the image doesn't confirm the setting as 'New York'. Therefore, the image is out of context and viewers would be misled about the setting and specific kind of chocolates it portrays. Therefore, the image is out of context and OOC is true. Because the confidence score is above 7, the primary determination should be based on the image check result which supports that the caption is out of context, but the images in the candidates don't match the news image itself, making the current task harder to determine the caption's accuracy. Given these reasons, I believe a thorough image analysis and an understanding of the content's claims are needed in order to make the final judgement. Therefore, OOC is True due to the image failing to substantiate the specific details mentioned in the caption and failing to see related images of the same scene/context in the candidates' check image results. In this context and scenario, a human validation is always required with high confidence scores when the images in the image check do not match the images in the news image or the information presented in the caption is not immediately represented in the image itself and could cause confusion to a reader that lacks knowledge regarding the overall scene or news article's content. Finally, the images are not of Japanese Plum Chocolates which causes the OOC to be True based on the overall validation criteria for this task. The OOC is true for the prior mentioned reasons."
+  },
+  "inference_time": 7.494497299194336,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

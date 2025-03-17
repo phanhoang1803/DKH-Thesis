@@ -1,0 +1,78 @@
+{
+  "caption": "The secretary of defence Chuck Hagel and chairman of the joint chiefs of staff General Martin Dempsey",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Long Island",
+      "Columbia",
+      "Ceremony",
+      "left",
+      "Graduation",
+      "Funeral",
+      "Navy",
+      "Times Union",
+      "West Point",
+      "United States Military Academy"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Access to this page has been denied",
+        "content": "",
+        "caption": "",
+        "domain": "www.timesunion.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.947728157043457,
+        "text_similarity_score": 0.09274783730506897
+      },
+      {
+        "title": "Hagel: US Pledges to Stand with Ukrainian People",
+        "content": "H a g e l :   U S   P l e d g e s   t o   S t a n d   w i t h   U k r a i n i a n   P e o p l e",
+        "caption": "U.S. Secretary of Defense Chuck Hagel (R) and Chairman of the Joint Chiefs of Staff U.S. Army General Martin Dempsey (L) testify before the Senate Armed Services Committee on Capitol Hill in Washington, March 5, 2014.",
+        "domain": "www.voanews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.38879674673080444,
+        "text_similarity_score": 0.836925208568573
+      },
+      {
+        "title": "Dempsey: Budget Cuts, Global Challenges Raise Risk to Nation > Joint Chiefs of Staff > News Display",
+        "content": "D e m p s e y :   B u d g e t   C u t s ,   G l o b a l   C h a l l e n g e s   R a i s e   R i s k   t o   N a t i o n   . . .",
+        "caption": "Secretary of Defense Chuck Hagel and Chairman of the Joint Chiefs of Staff Gen. Martin E. Dempsey appeared before the House Armed Services Committee during the DoD Fiscal Year 2015 National Defense Authorization Budget Request hearing at the Rayburn Building at the Capitol, Mar. 6, 2014.",
+        "domain": "www.jcs.mil",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.32728126645088196,
+        "text_similarity_score": 0.8251163959503174
+      },
+      {
+        "title": "SECDEF: National Guard vital to national security > National Guard > State Partnership Program News - The National Guard",
+        "content": "S E C D E F :   N a t i o n a l   G u a r d   v i t a l   t o   n a t i o n a l   s e c u r i t y   >   N a t i o n a l   G u a r d   . . .",
+        "caption": "Secretary of Defense Chuck Hagel, Chairman of the Joint Chiefs of Staff General Martin Dempsey, and Department of Defense Comptroller Robert Hale testify before the House Armed Service Committee at the Rayburn House Office Building in Washington D.C. on March 6, 2014. Hagel addressed the 2015 Department of Defense Budget Proposal as remarked on the steps the Department has taken to separate itself from military cooperations with Russia in response to the situation in Ukraine.",
+        "domain": "www.nationalguard.mil",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.18265162408351898,
+        "text_similarity_score": 0.7839624881744385
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption mentions \"The secretary of defence Chuck Hagel and chairman of the joint chiefs of staff General Martin Dempsey\".\n\nCandidate 1 has a high image similarity score of 0.94, but a very low caption similarity score of 0.09. This means the images are very similar but the captions are not. This violates the strict decision rule. So further analysis is needed.\n\nCandidates 2, 3, and 4 all have low image similarity scores (below 0.85) but high caption similarity scores (above 0.7). This violates the strict decision rule. So further analysis is needed. \n\nCandidates 2, 3, and 4 all mention both Chuck Hagel and Martin Dempsey, so they confirm that these two people are related to the image. However, because the Image Similarity Scores are all below 0.85, it's difficult to confirm that the images are similar enough to make a determination. Candidate 1 has a high image similarity score of 0.94 but has a text similarity score of 0.09 which is too low. While Candidates 2, 3 and 4 mention the two people in the caption, their image similarity scores are too low to be strong supporting evidence. Because the image similarity scores are low for the candidates, the caption is not in context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 7, indicating that the final determination must be based on the image check result. The image check result states that the caption is not in context because the image similarity scores are low for the candidates, and thus, the caption is not in context. Therefore, the image is out of context.",
+    "validation_summary": "The image check result indicates the caption is out of context. The caption does not accurately represent the image content."
+  },
+  "inference_time": 6.893476963043213,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

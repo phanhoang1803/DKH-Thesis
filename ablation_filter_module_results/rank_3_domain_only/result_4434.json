@@ -1,0 +1,66 @@
+{
+  "caption": "Los Angeles Kings right wing Justin Williams celebrates with teammates after scoring a goal during the first period",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Ice hockey",
+      "College ice hockey",
+      "Floor hockey",
+      "Ringette",
+      "Rink bandy",
+      "Bandy",
+      "Hockey",
+      "Inline hockey",
+      "Goalkeeper",
+      "Higher Education School"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "LA playoff star Justin Williams wins Conn Smythe  San Diego Union-Tribune",
+        "content": "L A   p l a y o f f   s t a r   J u s t i n   W i l l i a m s   w i n s   C o n n   S m y t h e      S a n   D i e g o   U n i o n   . . .",
+        "caption": "Los Angeles Kings right wing Justin Williams, left, celebrates his goal against the New York Rangers with teammate Los Angeles Kings defenseman Slava Voynov (26), of Russia, during the first period in Game 5 of the NHL Stanley Cup Final series Friday, June 13, 2014, in Los Angeles. (AP Photo/Jae C. Hong)",
+        "domain": "www.sandiegouniontribune.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Kings top Sharks in Game 7",
+        "content": "K i n g s   t o p   S h a r k s   i n   G a m e   7",
+        "caption": "Los Angeles Kings right wing Justin Williams (14) celebrates with teammates Trevor Lewis (22) and Dustin Brown (23) after scoring a goal against the San Jose Sharks in the second period.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "NHL Stanley Cup Playoffs: Round 2",
+        "content": "N H L   S t a n l e y   C u p   P l a y o f f s :   R o u n d   2",
+        "caption": "Los Angeles Kings right wing Marian Gaborik (12) celebrates with defenseman Drew Doughty (8) after scoring a goal against the Anaheim Ducks during the second period in game seven.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are all 0.0, indicating that the images in the candidate evidences do not match the news image. Additionally, the text similarity scores are also 0.0, suggesting that the captions do not strongly align. \n\nHowever, based on the captions, candidate 1 mentions \"Los Angeles Kings right wing Justin Williams celebrates his goal against the New York Rangers\", which aligns with the news caption about Justin Williams celebrating a goal. Candidate 2 also mentions \"Los Angeles Kings right wing Justin Williams (14) celebrates with teammates\", which also supports the news caption. Despite these matches, since the image similarity is 0, there is no confirmation that the celebration is in the specific context described in the news caption. Candidate 3 refers to Marian Gaborik instead of Justin Williams, so it does not align with the news caption.\n\nTherefore, based on the limited evidence and the low image similarity scores, I cannot confidently confirm that the news caption accurately represents what the news image shows.",
+      "supporting_evidences": [
+        "Candidate 1: Caption mentions \"Los Angeles Kings right wing Justin Williams celebrates his goal against the New York Rangers\"",
+        "Candidate 2: Caption mentions \"Los Angeles Kings right wing Justin Williams (14) celebrates with teammates\""
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "explanation": "The image check result suggests that the images in the candidate evidences do not match the news image, indicated by the image similarity scores of 0.0. While the text similarity scores also are low, the captions in candidates 1 and 2 mention Los Angeles Kings right wing Justin Williams celebrating, aligning with the news caption. However, due to the lack of image similarity, there's no confirmation that the celebration is specifically a result of scoring a goal in the first period, as the news caption indicates. The image shows a group of hockey players wearing Los Angeles Kings jerseys in a huddle, which could be a celebration of any accomplishment and the lack of confirmatory evidence and low image similarity causes for the caption to be misleading.",
+    "validation_summary": "The caption cannot be verified to accurately depict the image content, and the lack of specific details in the image makes it difficult to confirm the caption's claim about Justin Williams celebrating a goal during the first period. Viewers might be misled to believe that the image shows a specific event, whereas the image depicts a general celebration among teammates that could be attributed to various scenarios during the game or after the game not necessarily related to Justin Williams scoring a goal during the first period as the News Caption states. Furthermore, there is no Justin Williams shown in the picture and none of the players are discernable to be him in the picture that is presented in the image. Therefore, the Image is misleading in representing the image content because of the players showing in the picture are not discernable. Therefore, I label this image as OOC, out of context, with the given information and image analysis provided by the Image Check Result's lack of information and confidence in finding the image that aligns with the News Image. Finally, the low confidence score supports a OOC label for this News Image and News Caption."
+  },
+  "inference_time": 6.051600456237793,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

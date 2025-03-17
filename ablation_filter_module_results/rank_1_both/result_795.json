@@ -1,0 +1,51 @@
+{
+  "caption": "WikiLeaks has been parthosted by OVH a small web hosting company based in northern France",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Computer",
+      "Computer program",
+      "Screenshot",
+      "Web page",
+      "Icon",
+      "Meter",
+      "World Wide Web"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "WikiLeaks: France adds to US pressure to ban website | WikiLeaks | The Guardian",
+        "content": "W i k i L e a k s :   F r a n c e   a d d s   t o   U S   p r e s s u r e   t o   b a n   w e b s i t e   |   W i k i L e a k s   . . .",
+        "caption": "WikiLeaks has been part-hosted by OVH, a small web hosting company based in northern France. Photograph: Joe Raedle/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7478142380714417,
+        "text_similarity_score": 0.9431127309799194
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.7478142380714417, which is less than 0.85. The text similarity score is 0.9431127309799194, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [
+        "Image Similarity Score < 0.85",
+        "Text Similarity Score > 0.7"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image similarity score is less than 0.85, while the text similarity score is greater than 0.7. This means that, while the text in the caption is somewhat related to the text in the image, the image itself does not strongly align with the caption's topic. Therefore, according to the instructions, the image is out of context. The image shows a Twitter conversation about announcements on Arriva Trains Wales, while the caption is about WikiLeaks and its hosting arrangements.",
+    "validation_summary": "The image shows a Twitter conversation regarding train announcements, and is unrelated to the caption's reference to WikiLeaks and web hosting, misleading viewers about the image's content. The low image similarity confirms that the caption is not accurately representing the image's content."
+  },
+  "inference_time": 5.240271329879761,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

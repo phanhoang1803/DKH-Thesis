@@ -1,0 +1,59 @@
+{
+  "caption": "Awardwinning gin from Australian distiller Four Pillars",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Wine",
+      "May wine",
+      "Burgundy wine",
+      "Glass bottle",
+      "Wine Bottle",
+      "Bottle",
+      "Glass",
+      "May",
+      "Burgundy"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Australia's gin revolution led by boutique distilleries | Food | The Guardian",
+        "content": "A u s t r a l i a ' s   g i n   r e v o l u t i o n   l e d   b y   b o u t i q u e   d i s t i l l e r i e s   |   F o o d   . . .",
+        "caption": "Award-winning gin from Australian distiller Four Pillars. Photograph: Anson Smart",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2518323063850403,
+        "text_similarity_score": 0.8995303511619568
+      },
+      {
+        "title": "Four Pillars Navy Strength Gin  My Store",
+        "content": "F o u r   P i l l a r s   N a v y   S t r e n g t h   G i n      M y   S t o r e",
+        "caption": "Four Pillars Navy Strength Gin",
+        "domain": "www.southernspirits.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1328829526901245,
+        "text_similarity_score": 0.7239922285079956
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity scores are low for both candidates (0.2518323063850403 and 0.1328829526901245, respectively), and based on the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context. Although the text similarity score is high for candidate 1, it does not meet the condition where the image similarity score is greater than or equal to 0.85. Candidate 2 also has a text similarity score that is greater than or equal to 0.7, but the image similarity score does not meet the threshold.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image displays a bottle of wine, specifically a 2005 Etienne Sauzet Grand Cru. The caption, however, mentions \"Awardwinning gin from Australian distiller Four Pillars.\" These two do not match at all; the image shows wine, while the caption describes gin. Therefore, the caption is out of context.",
+    "validation_summary": "The image shows a bottle of wine while the caption describes gin, misleading viewers about the image's content by presenting an unrelated alcoholic beverage and brand name."
+  },
+  "inference_time": 4.97943377494812,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

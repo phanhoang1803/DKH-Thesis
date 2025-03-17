@@ -1,0 +1,52 @@
+{
+  "caption": "Voters stand in line to cast their ballots inside Calvary Baptist Church March 1 2016 in Rosenberg Texas",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Legal cases could affect how Texans cast ballots in November",
+        "content": "6 3 5 9 9 6 5 3 6 1 1 3 3 6 4 6 4 3 - G T Y -   . . .",
+        "caption": "Voters stand in line to cast their ballots inside Calvary Baptist Church March 1, 2016 in Rosenberg, Texas.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3865143656730652,
+        "text_similarity_score": 0.9787018299102783
+      },
+      {
+        "title": "'Racist voter suppression': Texas laws keep Latinos from the ballot box, groups say",
+        "content": "R a c i s t   v o t e r   s u p p r e s s i o n ' :   T e x a s   l a w s   k e e p   L a t i n o s   f r o m   t h e   b a l l o t   . . .",
+        "caption": "Voters stand in line to cast their ballots inside Calvary Baptist Church in Rosenberg, Texas on March 1, 2016.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.43148431181907654,
+        "text_similarity_score": 0.974822461605072
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have low image similarity scores (less than 0.85), indicating the images are not a strong match. However, the text similarity scores are high (above 0.7), suggesting the captions are very similar. Given the low image similarity and adhering to the strict decision rules, a 'False' verdict is given because the images do not sufficiently match. While the captions are similar, the visual context is not confirmed.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.3865143656730652, Caption Similarity Score: 0.9787018299102783",
+        "Candidate 2: Image Similarity Score: 0.43148431181907654, Caption Similarity Score: 0.974822461605072"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a 'False' verdict due to low image similarity scores between the provided image and the image candidates, despite high caption similarity. The image shows people standing outside on a roadside holding campaign signs. The caption states, \"Voters stand in line to cast their ballots inside Calvary Baptist Church March 1 2016 in Rosenberg Texas\", which directly contradicts what the image portrays as the voters are outside not inside and are holding campaign signs. Therefore, the image is Out of Context.",
+    "validation_summary": "The caption is misleading as it states voters are inside a church casting ballots, while the image shows people outside holding campaign signs, which is a direct contradiction. Viewers would be misled about the image content based on the provided caption."
+  },
+  "inference_time": 4.789613962173462,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

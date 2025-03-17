@@ -1,0 +1,47 @@
+{
+  "caption": "Vladimir Putin speaks after a summit with European Union leaders He said Moscow had not yet delivered advanced S300 air defence systems to Damascus",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Putin defends arms sales to Syrian regime | Vladimir Putin | The Guardian",
+        "content": "P u t i n   d e f e n d s   a r m s   s a l e s   t o   S y r i a n   r e g i m e   |   V l a d i m i r   P u t i n   |   T h e   . . .",
+        "caption": "Vladimir Putin speaks after a summit with European Union leaders. He said Moscow had not yet delivered advanced S-300 air defence systems to Damascus. Photograph: Itar-Tass/Barcroft Media",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "August 24, 2023 Russia-Ukraine, Prigozhin news | CNN",
+        "content": "A u g u s t   2 4 ,   2 0 2 3   R u s s i a - U k r a i n e ,   P r i g o z h i n   n e w s   |   C N N",
+        "caption": "Stringer/Anadolu Agency/Getty Images",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have very low image similarity scores (< 0.85) and low text similarity scores (< 0.7) with the news item. Analyzing the captions, candidate 1's caption is an exact match to the news caption, which adds some confidence to the accuracy of the news caption. It specifically mentions Vladimir Putin speaking after a summit with EU leaders and his statement about not delivering S-300 air defense systems to Damascus. Candidate 2 offers a generic caption with no relevant information. Thus, the news caption has some support from candidate 1, but not decisively.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: Vladimir Putin speaks after a summit with European Union leaders. He said Moscow had not yet delivered advanced S-300 air defence systems to Damascus. Photograph: Itar-Tass/Barcroft Media"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image shows Vladimir Putin at a press conference, speaking into a microphone. The caption states that \"Vladimir Putin speaks after a summit with European Union leaders. He said Moscow had not yet delivered advanced S300 air defence systems to Damascus.\" The Image Check Result's confidence score is 7, and its supporting evidence states: \"Candidate 1: Caption: Vladimir Putin speaks after a summit with European Union leaders. He said Moscow had not yet delivered advanced S-300 air defence systems to Damascus. Photograph: Itar-Tass/Barcroft Media\". Therefore, the caption accurately represents the image content.",
+    "validation_summary": "The image shows Vladimir Putin speaking, and the caption accurately describes the context of his speech as after a summit with EU leaders and his statement about not delivering S-300 air defense systems to Damascus. Therefore, the caption is not misleading about what viewers are seeing in the image because the image shows him speaking at a press conference or similar event, consistent with the caption's claim about him speaking after a summit with European Union leaders and his statement about not delivering S-300 air defense systems to Damascus as determined by the provided context."
+  },
+  "inference_time": 4.327075242996216,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

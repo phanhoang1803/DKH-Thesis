@@ -1,0 +1,59 @@
+{
+  "caption": "Pope Francis kisses a young child with Down syndrome in Rome",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Pope",
+      "Infant",
+      "Down syndrome",
+      "Syndrome",
+      "Muscle",
+      "Family",
+      "Birth defect",
+      "Sick",
+      "Pontiff"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Pope's prayer: Change of mentality about differently abled",
+        "content": "P o p e ' s   p r a y e r :   C h a n g e   o f   m e n t a l i t y   a b o u t   d i f f e r e n t l y   a b l e d",
+        "caption": "A girl with down syndrome kisses Pope Francis",
+        "domain": "aleteia.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.212637260556221,
+        "text_similarity_score": 0.8705379366874695
+      },
+      {
+        "title": "Pope's prayer: Change of mentality about differently abled",
+        "content": "P o p e ' s   p r a y e r :   C h a n g e   o f   m e n t a l i t y   a b o u t   d i f f e r e n t l y   a b l e d",
+        "caption": "A girl with down syndrome kisses Pope Francis",
+        "domain": "aleteia.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.19200648367404938,
+        "text_similarity_score": 0.8705379366874695
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are below 0.85 (0.212637260556221 and 0.19200648367404938 respectively). According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Although the caption similarity scores are high (0.8705379366874695 for both candidates), the low image similarity scores indicate that the candidate images are not similar to the news image. Therefore, there is not enough evidence to confirm the accuracy of the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low image similarity score (below 0.85). Therefore, the caption must be marked as out-of-context, even if the text similarity score is high. Although the caption mentions Pope Francis kissing a young child with Down syndrome in Rome, the low image similarity scores indicate that the candidate images are not similar to the news image. Therefore, there is not enough evidence to confirm the accuracy of the news caption. The image shows the Pope kissing a baby, but there is no visual confirmation the child has Down syndrome.",
+    "validation_summary": "The image check indicated the caption is out of context because the visual similarity was low and there is no visual confirmation from the image that the child has Down syndrome. Viewers may be misled as there is no way to determine the condition of the child from the provided image alone, making the caption's claim unverifiable based solely on the image content itself. Therefore, the caption is marked as OOC=True, based on the instructions given the low similarity score from the Image Check result and lack of visual confirmation in the image itself. As per the instructions, the primary basis for evaluation should be the image check result as the confidence score is above 7 and final determination 'MUST' be based on the image check result, move to instruction 7 and make the decision. The instructions state that for confidence scores 7-10, final determination 'MUST' be based on the image check result, move to instruction 7 and make the decision. Therefore, I will be making my decision based on the image check result and thus marking the image as out of context. Per instructions. \"The image similarity scores for both candidates are below 0.85 (0.212637260556221 and 0.19200648367404938 respectively). According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Although the caption similarity scores are high (0.8705379366874695 for both candidates), the low image similarity scores indicate that the candidate images are not similar to the news image. Therefore, there is not enough evidence to confirm the accuracy of the news caption.\", 'supporting_evidences': [], 'verdict': False}} Instructions state that for confidence scores 7-10, final determination 'MUST' be based on the image check result, move to instruction 7 and make the decision."
+  },
+  "inference_time": 7.424165725708008,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

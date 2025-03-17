@@ -1,0 +1,50 @@
+{
+  "caption": "Flooding along Lake Shore Boulevard West in downtown Toronto",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Jeep Cherokee (XJ)",
+      "Jeep",
+      "AIL Storm",
+      "Automotive Industries Ltd.",
+      "Off-roading",
+      "Flood",
+      "Jeep Cherokee",
+      "Jeep Cherokee",
+      "Jeep Liberty"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Floods inundate Toronto - in pictures | World news | The Guardian",
+        "content": "F l o o d s   i n u n d a t e   T o r o n t o   -   i n   p i c t u r e s   |   W o r l d   n e w s   |   T h e   G u a r d i a n",
+        "caption": "canada floods: Flooding downtown along Lake Shore Blvd West",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The news caption states 'Flooding along Lake Shore Boulevard West in downtown Toronto'. Candidate 1's caption is 'canada floods: Flooding downtown along Lake Shore Blvd West'. Although the text similarity score is low (0.0) and image similarity score is low (0.0), the candidate's caption refers to a similar event and location. Therefore, I'm leaning towards the caption being relevant, but not with high confidence because the image and text similarity scores are low.",
+      "supporting_evidences": [
+        "Candidate 1's caption mentions 'Flooding downtown along Lake Shore Blvd West', which is similar to the news caption."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a car driving through a flooded street, creating a large splash. The caption states, \"Flooding along Lake Shore Boulevard West in downtown Toronto.\" Although the image clearly depicts flooding, the reference to a specific location is not explicitly confirmed within the image itself. However, the image check result indicates a high degree of relevance between the caption and other captions associated with the image, which also mention \"Flooding downtown along Lake Shore Blvd West.\" Given the strong evidence from the image check result, I can confirm that the image context fits what is described in the news caption. Therefore, it should not be OOC. Because confidence score is above 7, final determination is based on image check result.",
+    "validation_summary": "The image depicts a flooded street, and the caption specifies the location as Lake Shore Boulevard West in downtown Toronto. While the location is not verifiable from the image, the image check result supports the caption."
+  },
+  "inference_time": 3.8812570571899414,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

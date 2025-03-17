@@ -1,0 +1,45 @@
+{
+  "caption": "A day earlier the bank s chairman Marcus Agius had resigned in an attempt to take the heat off Bob Diamond",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Public speaking",
+      "Speech",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 9,
+      "confidence_score": 10,
+      "explanation": "The caption describes the resignations of Marcus Agius and Bob Diamond amid the Libor scandal, which aligns with the image context describing Bob Diamond's resignation following the scandal. The image information mentions 'Public speaking', 'Speech', and 'Audience', suggesting the image captures a moment related to addresses or statements made during the scandal, which could relate to the resignations mentioned in the caption. Therefore, the caption aligns well with the image context.",
+      "supporting_evidences": [
+        "The caption mentions the resignations of Marcus Agius and Bob Diamond.",
+        "The context discusses Bob Diamond's resignation following the Libor-rigging scandal.",
+        "The context mentions public addresses or statements made during the scandal.",
+        "The caption accurately reflects the key events described in the image context."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image depicts a public speaking event, capturing a speaker at a podium addressing an audience. The entities detected relate to elements commonly found in such settings, including 'Public speaking', 'Speech', and 'Audience'.",
+      "caption": "Bob Diamond resigns amid Libor scandal after Marcus Agius stepped down a day earlier.",
+      "context": "The context of the image relates to Bob Diamond's resignation from Barclays following the Libor-rigging scandal. A day prior, the bank's chairman Marcus Agius had resigned, attempting to divert the scrutiny from Bob Diamond. The image may capture a moment relating to public addresses or statements made during this scandal. There is a focus on the internal and external pressure faced by Barclays, particularly from politicians and the media, and on the broader impact of the scandal on the UK's banking culture. Bob Diamond's resignation is portrayed as a significant event amid the investigations and public backlash."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Andrew Forrest, an Australian businessman. The caption refers to Marcus Agius and Bob Diamond, relating to the Libor scandal. The image check provides a high alignment and confidence score, suggesting the caption is accurate in representing the image's context within the provided news content. However, visually, the person in the image is not Marcus Agius or Bob Diamond, and is thus, out of context.",
+    "validation_summary": "The caption does not show the person pictured in the image. Therefore, viewers would be misled about the content of the image, given the caption information."
+  },
+  "inference_time": 4.424521446228027,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

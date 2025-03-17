@@ -1,0 +1,44 @@
+{
+  "caption": "Mitt Romney holds a campaign rally Friday at Canton Hoover High School in North Canton Ohio",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Flag",
+      "Flag Day",
+      "Flag Day"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Obama, Romney campaign with eye on storm forecast",
+        "content": "O b a m a ,   R o m n e y   c a m p a i g n   w i t h   e y e   o n   s t o r m   f o r e c a s t",
+        "caption": "Mitt Romney holds a campaign rally Friday at Canton Hoover High School in North Canton, Ohio.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.0 which is less than 0.85 and the text similarity score is 0.0 which is less than 0.7. However, the caption from www.usatoday.com states \"Mitt Romney holds a campaign rally Friday at Canton Hoover High School in North Canton, Ohio.\" This matches the news caption, indicating the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "Candidate 1"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image similarity score is 0.0 which is less than 0.85 and the text similarity score is 0.0 which is less than 0.7. However, the caption from www.usatoday.com states \"Mitt Romney holds a campaign rally Friday at Canton Hoover High School in North Canton, Ohio.\" This matches the news caption, indicating the news caption accurately represents the image.",
+    "validation_summary": "The image shows Mitt Romney and others at a rally, which aligns with the caption describing a Mitt Romney campaign rally. Therefore, the caption is a correct representation of the image content and would not mislead viewers."
+  },
+  "inference_time": 3.511490821838379,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

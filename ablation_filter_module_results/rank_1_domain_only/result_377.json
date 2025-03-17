@@ -1,0 +1,40 @@
+{
+  "caption": "A woman begs for money outside Saks department store in New York The further the world falls into the inequality trap the harder it will be to escape",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Mind the gap: why UN development goals must tackle economic inequality | Millennium development goals | The Guardian",
+        "content": "M i n d   t h e   g a p :   w h y   U N   d e v e l o p m e n t   g o a l s   m u s t   t a c k l e   e c o n o m i c   . . .",
+        "caption": "A woman begs for money outside Saks department store in New York. The further the world falls into the inequality trap, the harder it will be to escape. Photograph: AP",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The candidate provides an exact match for the news caption, including the location (Saks department store in New York) and the description of the woman begging. Although the image similarity score is low, the verbatim caption match from a reputable source (theguardian.com) strongly suggests that the caption accurately describes the image. The candidate evidence confirms the elements described in the caption, increasing our confidence in its accuracy. Thus, the caption is likely in context.",
+      "supporting_evidences": [
+        "A woman begs for money outside Saks department store in New York. The further the world falls into the inequality trap, the harder it will be to escape. Photograph: AP"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image depicts a woman with her hands together, looking upwards with an emotional expression, standing behind a metal barrier amidst a crowd. While the image check result suggests that the caption accurately describes the image because there is a candidate that is verbatim with the caption, upon careful analysis of the image itself, there is no visible evidence of the woman begging or being near the Saks department store. The photo shows an emotional moment, but the assertion of begging outside Saks is unsubstantiated by the visual content. Therefore, the caption is misleading because it adds context not verifiable in the image. Therefore the image is out of context.",
+    "validation_summary": "Without direct visual confirmation of the woman begging or her location outside Saks, the caption introduces elements that cannot be verified by the image alone, potentially misleading viewers. The caption makes a claim about the woman begging that can't be verified by the image."
+  },
+  "inference_time": 4.766742706298828,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

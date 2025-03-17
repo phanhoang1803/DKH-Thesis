@@ -1,0 +1,68 @@
+{
+  "caption": "The X Factords Simon Cowell on the NME cover Click to see full image",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Michael Jackson",
+      "Magazine",
+      "Michael Jackson impersonator",
+      "2009",
+      "Smash Hits",
+      "Smash Hits Poll Winners Party",
+      "Meter",
+      "Tabloid",
+      "Impersonator"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Simon Cowell v the NME: 'I don't take music too seriously' | Simon Cowell | The Guardian",
+        "content": "S i m o n   C o w e l l   v   t h e   N M E :   ' I   d o n ' t   t a k e   m u s i c   t o o   s e r i o u s l y '   |   S i m o n   . . .",
+        "caption": "The X Factor'ds Simon Cowell on the NME cover. Click to see full image",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6994947195053101,
+        "text_similarity_score": 0.9432846307754517
+      },
+      {
+        "title": "Simon Cowell v the NME: 'I don't take music too seriously' | Simon Cowell | The Guardian",
+        "content": "S i m o n   C o w e l l   v   t h e   N M E :   ' I   d o n ' t   t a k e   m u s i c   t o o   s e r i o u s l y '   |   S i m o n   . . .",
+        "caption": "The X Factor'ds Simon Cowell on the NME cover. Click to see full image",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6974450945854187,
+        "text_similarity_score": 0.9432846307754517
+      },
+      {
+        "title": "Simon Cowell v the NME: 'I don't take music too seriously' | Simon Cowell | The Guardian",
+        "content": "S i m o n   C o w e l l   v   t h e   N M E :   ' I   d o n ' t   t a k e   m u s i c   t o o   s e r i o u s l y '   |   S i m o n   . . .",
+        "caption": "The X Factor'ds Simon Cowell on the NME cover. Click to see full image",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6918193697929382,
+        "text_similarity_score": 0.9432846307754517
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are all below 0.85. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image clearly shows a magazine cover featuring Michael Jackson, specifically a \"Smash Hits\" magazine with a 52-page tribute issue. The caption provided is \"The X Factords Simon Cowell on the NME cover Click to see full image\". There is absolutely no relation between the image content and the caption. The image features Michael Jackson, a \"Smash Hits\" magazine, while the caption references Simon Cowell and \"NME\", which are completely different subjects and publications. The image check also indicates a low confidence score, further confirming that the caption is out of context.",
+    "validation_summary": "The image shows a magazine cover with Michael Jackson, while the caption refers to Simon Cowell and NME, misleading viewers about the image's actual content. This constitutes a clear mismatch and misrepresentation of the image content."
+  },
+  "inference_time": 14.404096364974976,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "Thanet s 300MW offshore windfarm off the Kent coast the largest of its type in the world",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "British windfarms blow Vestas towards 25% profit rise | Vestas | The Guardian",
+        "content": "B r i t i s h   w i n d f a r m s   b l o w   V e s t a s   t o w a r d s   2 5 %   p r o f i t   r i s e   |   V e s t a s   . . .",
+        "caption": "Thanet's 300MW offshore windfarm off the Kent coast  the largest of its type in the world. Photograph: Gareth Fuller/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate provides the exact caption as the news, mentioning 'Thanet's 300MW offshore windfarm off the Kent coast – the largest of its type in the world.' However, because the image similarity score is low, and without further evidence confirming the image's alignment with this caption, I cannot definitively verify the caption's accuracy. More visual confirmation is needed.",
+      "supporting_evidences": [
+        "Thanet's 300MW offshore windfarm off the Kent coast – the largest of its type in the world. Photograph: Gareth Fuller/PA"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows multiple wind turbines in the water. The caption mentions \"Thanet's 300MW offshore windfarm off the Kent coast the largest of its type in the world\". While the image shows a windfarm, there's no specific visual evidence confirming that it is the Thanet windfarm or the largest of its type. The image check result also returned a verdict of False with a low image similarity score. Therefore, without additional visual evidence, I cannot confirm the caption's accuracy.",
+    "validation_summary": "The caption identifies a specific windfarm, but the image lacks visual confirmation that it is that particular windfarm, potentially misleading viewers. While the image does show a windfarm, the association with the specific name and claim of being the largest cannot be verified visually."
+  },
+  "inference_time": 3.869687557220459,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

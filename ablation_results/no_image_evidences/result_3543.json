@@ -1,0 +1,38 @@
+{
+  "caption": "Martin Shkreli is seen on a TV as he invokes his 5th amendment rights",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "The many faces of Martin 'Pharma Bro' Shkreli",
+        "content": "T h e   m a n y   f a c e s   o f   M a r t i n   ' P h a r m a   B r o '   S h k r e l i",
+        "caption": "Martin Shkreli smiles for the cameras as he leaves after invoking his Fifth Amendment rights Feb. 4, 2016, in Washington, D.C.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.31331485509872437,
+        "text_similarity_score": 0.7238906621932983
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score between the news image and the candidate image is 0.31331485509872437, which is less than 0.85. Also, the text similarity score between the news caption and the candidate caption is 0.7238906621932983, which is greater than 0.7. According to the instructions, since the image similarity score is less than 0.85, the caption should be marked as out-of-context, even if the text similarity score is high. The candidate caption mentions \"Martin Shkreli smiles for the cameras as he leaves after invoking his Fifth Amendment rights Feb. 4, 2016, in Washington, D.C.\". This aligns with the news caption: \"Martin Shkreli is seen on a TV as he invokes his 5th amendment rights\", so it is indeed about Martin Shkreli invoking his 5th amendment. However, due to the low image similarity, a direct comparison cannot be established and therefore it's labeled out-of-context.",
+      "supporting_evidences": [
+        "Caption: Martin Shkreli smiles for the cameras as he leaves after invoking his Fifth Amendment rights Feb. 4, 2016, in Washington, D.C.",
+        "Image Similarity Score: 0.31331485509872437",
+        "Text Similarity Score: 0.7238906621932983"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image is out of context. The image similarity score is 0.3133, which is less than the threshold of 0.85, leading to the determination that the caption does not accurately represent the image content, despite a text similarity score of 0.7238. The image shows Martin Shkreli being escorted, while the caption states \"Martin Shkreli is seen on a TV as he invokes his 5th amendment rights\", implying he is on television when the photo was taken. The image check result is prioritized for confidence scores between 7-10.",
+    "validation_summary": "The caption inaccurately describes the context of the image, suggesting Martin Shkreli is on television when the photo was taken; this is not supported by the image content, which shows him being escorted. Therefore, viewers would be misled about the situation presented in the image based on the caption provided."
+  },
+  "inference_time": 6.1615471839904785,
+  "ablation_type": "no_image_evidences"
+}

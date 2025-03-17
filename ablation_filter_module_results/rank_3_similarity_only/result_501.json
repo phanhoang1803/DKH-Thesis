@@ -1,0 +1,58 @@
+{
+  "caption": "Lawyers for Palestinian authority argue that group does not have money to compensate Americans affected by attacks between 2002 and 2004",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "US Intervenes in Lawsuit Over Palestinian Terror Attacks - The Washington Informer",
+        "content": "U S   I n t e r v e n e s   i n   L a w s u i t   O v e r   P a l e s t i n i a n   T e r r o r   A t t a c k s   -   T h e   . . .",
+        "caption": "Lawyers for Palestinian authority argue that group does not have money to compensate Americans affected by attacks between 2002 and 2004. (Majdi Mohammed/AP Photo)",
+        "domain": "www.washingtoninformer.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6336376070976257,
+        "text_similarity_score": 0.9501866102218628
+      },
+      {
+        "title": "US government intervenes in lawsuit payments over Palestinian terror attacks | Obama administration | The Guardian",
+        "content": "U S   g o v e r n m e n t   i n t e r v e n e s   i n   l a w s u i t   p a y m e n t s   o v e r   P a l e s t i n i a n   . . .",
+        "caption": "Lawyers for Palestinian authority argue that group does not have money to compensate Americans affected by attacks between 2002 and 2004.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6746739149093628,
+        "text_similarity_score": 0.9498758316040039
+      },
+      {
+        "title": "US government intervenes in lawsuit payments over Palestinian terror attacks | Obama administration | The Guardian",
+        "content": "U S   g o v e r n m e n t   i n t e r v e n e s   i n   l a w s u i t   p a y m e n t s   o v e r   P a l e s t i n i a n   . . .",
+        "caption": "Lawyers for Palestinian authority argue that group does not have money to compensate Americans affected by attacks between 2002 and 2004.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6292793154716492,
+        "text_similarity_score": 0.9498758316040039
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for all candidates are below 0.85, indicating that the images do not strongly match. Although the caption similarity scores are high (≥ 0.7), according to the instruction, the caption must be marked as out-of-context. Therefore, the final verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows two British flags being waved against a blue sky with some clouds. The news caption discusses legal arguments related to compensation for American victims of Palestinian attacks. There is no visual connection between the flags and the legal case mentioned in the caption. The image does not provide any representative summary of the news content, therefore, the caption is out of context.",
+    "validation_summary": "The image shows British flags, but the caption discusses legal matters concerning Palestinian authority, therefore the image is out of context. Viewers would be misled if they associate the image with the legal news content, as the image doesn't relate to the Palestinian authority or the legal arguments discussed in the news caption."
+  },
+  "inference_time": 4.91562819480896,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "caption": "On the first day of his visit Pope Francis greeted the crowds from his popemobile on the way to the National Palace",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Figurine"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Pope Francis's visit to Mexico - in pictures | World news | The Guardian",
+        "content": "P o p e   F r a n c i s ' s   v i s i t   t o   M e x i c o   -   i n   p i c t u r e s   |   W o r l d   n e w s   |   T h e   . . .",
+        "caption": "Pope Francis greeted the crowds from his popemobile",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.0800820142030716,
+        "text_similarity_score": 0.8195492029190063
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.08, which is less than 0.85. The text similarity score is 0.81, which is greater than 0.7. According to the instruction, when the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Also, the candidate caption only partially overlap with the news caption.",
+      "supporting_evidences": [
+        "Caption: Pope Francis greeted the crowds from his popemobile",
+        "Image Similarity Score: 0.0800820142030716",
+        "Caption Similarity Score: 0.8195492029190063"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 2, which is below 7. However, since the image similarity score is 0.08 which is less than 0.85, I will follow the instruction and determine that the image is out of context. The image shows Pope Francis dolls, and the caption describes Pope Francis greeting crowds from his popemobile.",
+    "validation_summary": "The image shows dolls and the caption describes Pope Francis greeting crowds from his popemobile, implying the image shows this event. Therefore, viewers would be misled about what they're seeing."
+  },
+  "inference_time": 6.408701419830322,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

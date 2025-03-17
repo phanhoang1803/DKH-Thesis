@@ -1,0 +1,37 @@
+{
+  "caption": "Democratic presidential candidate Hillary Clinton last month in Reno Nev",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Clinton on foundation: Winding down some of these programs takes time",
+        "content": "C l i n t o n   o n   f o u n d a t i o n :   ' W i n d i n g   d o w n   s o m e   o f   t h e s e   p r o g r a m s   t a k e s   . . .",
+        "caption": "Democratic presidential candidate Hillary Clinton speaks at a campaign event at Truckee Meadows Community College, in Reno, Nev., Thursday, Aug. 25, 2016. (AP Photo/Carolyn Kaster)",
+        "domain": "abcnews4.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2318427860736847,
+        "text_similarity_score": 0.7452110648155212
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.2318427860736847, which is less than 0.85. The text similarity score is 0.7452110648155212, which is greater than 0.7. According to the instructions, since the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. The candidate caption states 'Democratic presidential candidate Hillary Clinton speaks at a campaign event at Truckee Meadows Community College, in Reno, Nev., Thursday, Aug. 25, 2016.' The news caption mentions 'Democratic presidential candidate Hillary Clinton last month in Reno Nev'. While the captions share similar information, the low image similarity score suggests that the images do not match, thus the candidate caption does not confirm the news caption. Therefore, the final verdict is 'False'.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.2318427860736847",
+        "Caption Similarity Score: 0.7452110648155212"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "validation_summary": "The caption misrepresents the image, as the visual context does not align accurately with the description provided.",
+    "explanation": "The caption states that it depicts Democratic presidential candidate Hillary Clinton in Reno, Nevada, but the image check result indicates a significant discrepancy between the visual content and the caption's claim. The low image similarity score of 0.23 suggests that the image does not show Clinton or the specific event in Reno, despite the high text similarity score. This implies that while the information about Clinton may be relevant in general, it does not accurately represent the actual content of the image, leading to a misleading impression for viewers. Thus, the final determination is that the caption is out of context."
+  },
+  "inference_time": 7.552197456359863,
+  "ablation_type": "no_image_evidences"
+}

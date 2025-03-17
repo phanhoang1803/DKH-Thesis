@@ -1,0 +1,54 @@
+{
+  "caption": "Hillary Clinton is seen aboard the campaign bus in Cleveland on the third day of a bus tour through Pennsylvania and Ohio",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "White House travel office controversy",
+      "1996 United States campaign finance controversy",
+      "United States Senator",
+      "Hillary Clinton 2016 presidential campaign",
+      "Politics",
+      "United States Secretary of State",
+      "Political campaign",
+      "Bill Clinton"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Midterm Elections Daily: Biden Seeks to Put Democracy Front and Center - The New York Times",
+        "content": "M i d t e r m   E l e c t i o n s   D a i l y :   B i d e n   S e e k s   t o   P u t   D e m o c r a c y   F r o n t   a n d   . . .",
+        "caption": "Video player loading",
+        "domain": "www.nytimes.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Hillary Clinton bus tour looks for inroads with Republicans | CNN Politics",
+        "content": "H i l l a r y   C l i n t o n   b u s   t o u r   l o o k s   f o r   i n r o a d s   w i t h   R e p u b l i c a n s   |   C N N   . . .",
+        "caption": "02 DNC convention doug elmets jennifer lim split july 28 2016",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "Both candidates have low image and text similarity scores. Therefore, I cannot determine if the caption accurately represents the image. Both candidate captions are irrelevant to the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Hillary Clinton sitting inside a vehicle, smiling and looking out the window. Her reflection is visible on the window, giving the impression that there are two Hillary Clintons in the image. Text is visible in the background of the image, reflecting in the window. The news caption states, \"Hillary Clinton is seen aboard the campaign bus in Cleveland on the third day of a bus tour through Pennsylvania and Ohio.\" While the image shows Hillary Clinton possibly on a bus, it's impossible to verify from the image alone whether she is in Cleveland, on the third day of a bus tour, or traveling through Pennsylvania and Ohio. The image check result indicates that the caption does not accurately represent the image. Therefore, because the details in the caption cannot be independently verified through the image, the image is classified as out of context.",
+    "validation_summary": "The caption provides specific details about Hillary Clinton's location and activity that cannot be confirmed by the image itself, making the image's context unverifiable and potentially misleading. The caption could mislead viewers into believing specific information about Hillary Clinton's whereabouts that is not visually supported."
+  },
+  "inference_time": 3.7786219120025635,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

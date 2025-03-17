@@ -1,0 +1,45 @@
+{
+  "caption": "Texas Health Presbyterian Hospital Dallas staff line the drive that exits the emergency room as they wait for an ambulance carrying Pham to depart on Oct 16",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "light-hearted",
+      "Ceremony"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Dallas nurse Nina Pham",
+        "content": "D a l l a s   n u r s e   N i n a   P h a m",
+        "caption": "A Texas Health Presbyterian Hospital Dallas staff carries a sign wishing Pham well as she and others line the drive that exits the emergency room as they await an ambulance carrying Pham to depart.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Dallas nurse Nina Pham",
+        "content": "D a l l a s   n u r s e   N i n a   P h a m",
+        "caption": "Texas Health Presbyterian Hospital Dallas staff line the drive that exits the emergency room as they wait for an ambulance carrying Pham to depart on Oct. 16.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both candidate captions describe the same event and contain the same details as the news caption. They confirm that Texas Health Presbyterian Hospital Dallas staff lined the drive exiting the emergency room, waiting for an ambulance carrying Pham to depart on October 16. The matching elements confirm the accuracy of the news caption.",
+      "supporting_evidences": [
+        "Candidate 1: A Texas Health Presbyterian Hospital Dallas staff carries a sign wishing Pham well as she and others line the drive that exits the emergency room as they await an ambulance carrying Pham to depart.",
+        "Candidate 2: Texas Health Presbyterian Hospital Dallas staff line the drive that exits the emergency room as they wait for an ambulance carrying Pham to depart on Oct. 16."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a man in a police uniform and a woman in a black top talking outside. Several people are surrounding them with recording devices. The news caption talks about Texas Health Presbyterian Hospital Dallas staff lining the drive that exits the emergency room as they wait for an ambulance carrying Pham to depart on Oct 16, which is not depicted in the image.",
+    "validation_summary": "The image does not show what the caption describes which would mislead viewers about the story's visual context and the actual events being depicted. The news caption discusses Texas Health Presbyterian Hospital Dallas staff, while the image contains a person in a police uniform and a woman talking, not related to the event in the caption, causing a mismatch and misrepresentation."
+  },
+  "inference_time": 3.8696186542510986,
+  "ablation_type": "no_filters"
+}

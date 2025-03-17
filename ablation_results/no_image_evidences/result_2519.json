@@ -1,0 +1,43 @@
+{
+  "caption": "Julian Assange at the Ecuadorian embassy The WikiLeaks founder is calling for the threat of arrest to be lifted",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Assange demands UK and Sweden lift arrest threat so he can leave Ecuadorian embassy | Julian Assange | The Guardian",
+        "content": "A s s a n g e   d e m a n d s   U K   a n d   S w e d e n   l i f t   a r r e s t   t h r e a t   s o   h e   c a n   l e a v e   . . .",
+        "caption": "Julian Assange at the Ecuadorian embassy. The WikiLeaks founder is calling for the threat of arrest to be lifted.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.21865199506282806,
+        "text_similarity_score": 0.9093963503837585
+      },
+      {
+        "title": "Julian Assange Arrested in London After Ecuador Withdraws Asylum",
+        "content": "J u l i a n   A s s a n g e   A r r e s t e d   i n   L o n d o n   A f t e r   E c u a d o r   W i t h d r a w s   A s y l u m",
+        "caption": "A general view of the Ecuadorian Embassy where Wikileaks founder Julian Assange has been holed out since 2012, in London, Friday, April 5, 2019. A senior Ecuadorian official said no decision has been made to expel Julian Assange from the country's London embassy despite tweets from Wikileaks that sources had told it he could be kicked out within \"hours to days\" on Friday. (AP Photo/Alastair Grant)",
+        "domain": "theintercept.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.0398564413189888,
+        "text_similarity_score": 0.7939053773880005
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are below 0.85 for both candidates (0.21865199506282806 and 0.0398564413189888). According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. The text similarity score for candidate 1 is high, but the image similarity score is low. The text similarity score for candidate 2 is also high, but the image similarity score is low. Therefore, the caption is determined to be out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Julian Assange holding up a newspaper with the headline 'Massive leak of secret files exposes true Afghan war'. The newspaper also features a photo of a soldier. The provided caption describes Julian Assange at the Ecuadorian embassy and mentions his call for the threat of arrest to be lifted. The image check result confirms that the image similarity scores are low, indicating that the image content does not match the caption's description. Therefore, the caption is out of context because it does not accurately represent the visual content of the image.",
+    "validation_summary": "The image shows Assange holding a newspaper about the Afghan war, while the caption describes his situation at the Ecuadorian embassy, thus misleading viewers about the image's content. The image check results confirm the mismatch between the image and the caption's description."
+  },
+  "inference_time": 5.478343486785889,
+  "ablation_type": "no_image_evidences"
+}

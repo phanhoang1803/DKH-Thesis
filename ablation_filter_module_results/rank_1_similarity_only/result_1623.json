@@ -1,0 +1,42 @@
+{
+  "caption": "Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond Calif",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Smoke m"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Firefighters battle California wildfires",
+        "content": "F i r e f i g h t e r s   b a t t l e   C a l i f o r n i a   w i l d f i r e s",
+        "caption": "Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond, Calif.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3492710590362549,
+        "text_similarity_score": 0.9849346280097961
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.3492710590362549 and the text similarity score is 0.9849346280097961. Since the image similarity score is less than 0.85, the caption is out-of-context, even though the text similarity score is high. The candidate caption mentions \"Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond, Calif.\", but the image similarity is too low to confirm the caption accurately represents what the news image shows and what the image is about.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a helicopter dropping red fire retardant on a hillside with homes in the foreground and a large plume of smoke in the background, suggesting a wildfire. The caption mentions \"Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond Calif\". While the text refers to a fire, the image check results indicate a low image similarity score of 0.349. Given the low image similarity, it is likely that the image is not representative of the King Fire as described in the caption. Therefore, the caption misrepresents the image content, making it out of context.",
+    "validation_summary": "The image does show a wildfire being fought with aerial support, but the low image similarity score indicates that the image is not related to the King Fire as claimed in the caption, misleading viewers about the image's content and context. The image fails to confirm the caption's accuracy, resulting in an out-of-context determination."
+  },
+  "inference_time": 47.16766667366028,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

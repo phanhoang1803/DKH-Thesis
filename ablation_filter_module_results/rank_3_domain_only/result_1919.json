@@ -1,0 +1,47 @@
+{
+  "caption": "Republican presidential candidates from left Marco Rubio Jeb Bush and Ben Carson talk during a break during the first Republican presidential debate",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Jon Stewart, the GOP debate and the great suit divide - Los Angeles Times",
+        "content": "J o n   S t e w a r t ,   t h e   G O P   d e b a t e   a n d   t h e   g r e a t   s u i t   d i v i d e   -   L o s   . . .",
+        "caption": "Republican presidential candidates from left, Marco Rubio, Jeb Bush and Ben Carson talk Thursday during a break in the first Republican presidential debate.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "In Republican Debate, Rivals Jab at Marco Rubio to Try to Slow His Rise - The New York Times",
+        "content": "I n   R e p u b l i c a n   D e b a t e ,   R i v a l s   J a b   a t   M a r c o   R u b i o   t o   T r y   t o   S l o w   H i s   . . .",
+        "caption": "Video player loading",
+        "domain": "www.nytimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity scores are low for both candidates (0.0), indicating that the images in the candidates do not match the news image. However, Candidate 1's caption is highly similar to the news caption. It states, \"Republican presidential candidates from left, Marco Rubio, Jeb Bush and Ben Carson talk Thursday during a break in the first Republican presidential debate.\" This aligns with the news caption, which states, \"Republican presidential candidates from left Marco Rubio Jeb Bush and Ben Carson talk during a break during the first Republican presidential debate.\" The candidate's caption confirms the people involved (Marco Rubio, Jeb Bush, Ben Carson) and the event (first Republican presidential debate). However, without the image matching, there's a reliance on the caption's accuracy. While the information aligns and comes from a reputable news source, the lack of image similarity prevents a definitive 'True' verdict. I am not highly confident due to the lack of image similarity.",
+      "supporting_evidences": [
+        "Candidate 1: Republican presidential candidates from left, Marco Rubio, Jeb Bush and Ben Carson talk Thursday during a break in the first Republican presidential debate."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image depicts a group of people in what appears to be a refugee camp, with a man in a suit talking to children who are wearing traditional clothing and head coverings. Several other adults are standing nearby. The caption claims the image depicts Republican presidential candidates Marco Rubio, Jeb Bush, and Ben Carson talking during a break at the first Republican presidential debate. This is completely inconsistent with the scene shown in the image. The image check result also indicated very low image similarity scores, confirming the mismatch between the image and the caption. Therefore, the caption is out of context.",
+    "validation_summary": "The caption is misleading because it describes a political debate, while the image shows a scene at a refugee camp, featuring different people than those mentioned in the caption. The image and caption are not aligned, making it out of context and highly misleading to viewers about the image's content and purpose."
+  },
+  "inference_time": 4.121426582336426,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

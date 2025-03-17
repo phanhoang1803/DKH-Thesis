@@ -1,0 +1,70 @@
+{
+  "caption": "Climate activists stage a protest outside the Louvre pyramid in Paris where negotiations are taking place to agree a global deal on greenhouse gas emissions",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "twitter.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8099063634872437,
+        "text_similarity_score": 0.0317205935716629
+      },
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "twitter.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8099063634872437,
+        "text_similarity_score": 0.0317205935716629
+      },
+      {
+        "title": "Will the Paris climate deal spell out the end of the fossil fuel era? | Environment | The Guardian",
+        "content": "W i l l   t h e   P a r i s   c l i m a t e   d e a l   s p e l l   o u t   t h e   e n d   o f   t h e   f o s s i l   f u e l   . . .",
+        "caption": "Climate activists stage a protest outside the Louvre pyramid in Paris where negotiations are taking place to agree a global deal on greenhouse gas emissions<br>",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1913502961397171,
+        "text_similarity_score": 0.9951795935630798
+      },
+      {
+        "title": "Will the Paris climate deal spell out the end of the fossil fuel era? | Environment | The Guardian",
+        "content": "W i l l   t h e   P a r i s   c l i m a t e   d e a l   s p e l l   o u t   t h e   e n d   o f   t h e   f o s s i l   f u e l   . . .",
+        "caption": "Climate activists stage a protest outside the Louvre pyramid in Paris where negotiations are taking place to agree a global deal on greenhouse gas emissions<br>",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.17093564569950104,
+        "text_similarity_score": 0.9951795935630798
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Based on the provided candidates, two of them (Candidates 3 and 4) have high text similarity scores (0.995) with the news caption, indicating a strong match in the textual content. These candidates also explicitly mention 'Climate activists stage a protest outside the Louvre pyramid in Paris where negotiations are taking place to agree a global deal on greenhouse gas emissions'. However, the image similarity scores for all candidates are below 0.85. Candidates 1 and 2 have image similarity scores of 0.809, while Candidates 3 and 4 have even lower scores (0.191 and 0.170, respectively). Since the image similarity is low, even with high text similarity in some cases, it's not possible to confirm that the candidates' images accurately represent the news image. Therefore, the caption cannot be confirmed as in-context based on the current evidence.",
+      "supporting_evidences": [
+        "Candidate 3 has a caption that almost perfectly matches the news caption (text similarity score: 0.995), but a low image similarity score (0.191).",
+        "Candidate 4 has a caption that almost perfectly matches the news caption (text similarity score: 0.995), but a low image similarity score (0.170)."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows a balloon with the words \"Je Suis Charlie\" written on it, along with a monument, against a cloudy sky. This imagery is related to the Charlie Hebdo attack and the subsequent expression of solidarity. The caption describes climate activists staging a protest outside the Louvre pyramid. There is no indication of climate activism or the Louvre pyramid in the image. Therefore, the caption is not representative of the image content. The image check result supports this assessment, as it indicates low image similarity between the provided image and the candidates that align with the caption's text.",
+    "validation_summary": "The image depicts a \"Je Suis Charlie\" balloon and monument, unrelated to climate activism or the Louvre, which would mislead viewers if paired with the provided caption. The image content contradicts the caption's claim of climate activists protesting at the Louvre pyramid."
+  },
+  "inference_time": 6.892194986343384,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

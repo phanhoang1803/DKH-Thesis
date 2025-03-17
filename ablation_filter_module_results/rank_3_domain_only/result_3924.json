@@ -1,0 +1,38 @@
+{
+  "caption": "Jose Cruz RomeroFlores is accused of operating brothels in Lakewood NJ He is being held at the Ocean County Jail on 1 million bail",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Officials crack N.J. human sex trafficking ring",
+        "content": "O f f i c i a l s   c r a c k   N . J .   h u m a n   s e x   t r a f f i c k i n g   r i n g",
+        "caption": "A Brook Road house in Lakewood, N.J., where suspects allegedly ran a house of prostitution, is shown on Thursday, July 18, 2013.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The available evidence describes a house in Lakewood, N.J., that was allegedly used for prostitution. However, it doesn't mention Jose Cruz RomeroFlores, brothels, the Ocean County Jail, or the 1 million dollar bail mentioned in the news caption. Because it is missing critical information, the caption cannot be verified.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image is a mugshot of Jose Cruz RomeroFlores. The caption states that he is accused of operating brothels in Lakewood NJ and is being held at the Ocean County Jail on 1 million bail. While the caption is about Jose Cruz RomeroFlores, it describes events and accusations related to him, and not something visible in the provided image. The image simply shows his face. Since there is a disconnect between what the image shows (a portrait) and the claims of the caption (allegations and legal status), the caption is considered out of context.",
+    "validation_summary": "The image shows a mugshot, while the caption refers to the person's criminal accusations and legal status, misleading viewers into thinking the image directly relates to those events or a specific location mentioned in the caption, which it does not. Therefore, the caption is out of context."
+  },
+  "inference_time": 3.658463478088379,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

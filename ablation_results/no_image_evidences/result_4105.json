@@ -1,0 +1,34 @@
+{
+  "caption": "Lessons in Posing Subjects Standard Pose 1 1982 All images Robert HeineckenThe Robert Heinecken Trust",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Strike a pose: Robert Heinecken's fashion world send-ups  in pictures | Art and design | The Guardian",
+        "content": "S t r i k e   a   p o s e :   R o b e r t   H e i n e c k e n ' s   f a s h i o n   w o r l d   s e n d - u p s      i n   . . .",
+        "caption": "Lessons in Posing Subjects : Standard Pose #2 (Hand/Head), 1982 (detail). Robert Heinecken",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.11267451196908951,
+        "text_similarity_score": 0.8923743963241577
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.11267451196908951 which is less than 0.85 and the text similarity score is 0.8923743963241577 which is greater than 0.7. According to the instruction, the verdict should be false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates the image and caption do not align, confirmed by a low similarity score of 0.11267451196908951. The image shows three people in what appears to be a promotional shot. Two men are wearing graduation caps and gowns while holding playing cards, and a woman stands between them holding a game. The caption provided appears to be an art piece title, specifically referring to \"Lessons in Posing Subjects Standard Pose 1 1982 All images Robert HeineckenThe Robert Heinecken Trust\", this title is not representative of the image content, thus the image is out of context. The confidence score is high because of the prompt instruction to prioritize image check result when the confidence score is greater than 7, therefore the caption is out of context.",
+    "validation_summary": "The provided caption, which seems to be the title of an art piece, does not accurately describe the image's content, misleading viewers about what the image represents. The image is a promotional shot with people in graduation attire and the title does not reflect that."
+  },
+  "inference_time": 4.787191390991211,
+  "ablation_type": "no_image_evidences"
+}

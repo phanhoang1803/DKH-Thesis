@@ -1,0 +1,49 @@
+{
+  "caption": "Boys from the Mandari tribe wait by the Nile in September 2012 for boats with the day s catch to arrive in Terekeka a fishing community in South Sudan",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "LightBox | Time | Pictures of the week, Nile river, River",
+        "content": "",
+        "caption": "three men are standing on the side of a boat in muddy water with bananas and other items",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.948432981967926,
+        "text_similarity_score": 0.28823721408843994
+      },
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "www.cloudigirl.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9762890338897705,
+        "text_similarity_score": 0.12345365434885025
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Candidate 1 has a high image similarity score (0.948432981967926) but a low text similarity score (0.28823721408843994). The caption mentions 'three men are standing on the side of a boat in muddy water with bananas and other items', which doesn't provide explicit confirmation of boys from the Mandari tribe waiting by the Nile for boats with the day's catch to arrive in Terekeka, South Sudan. Candidate 2 has a high image similarity score (0.9762890338897705) but a low text similarity score (0.12345365434885025) and an empty caption, so it's not useful. Since the text similarity score is low in both candidates and the information in the captions doesn't clearly support the news caption, I cannot confidently say that the news caption accurately represents what the image shows.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "Based on the image check result with a confidence score of 7, Candidate 1 has a high image similarity score (0.948432981967926) but a low text similarity score (0.28823721408843994). The caption mentions 'three men are standing on the side of a boat in muddy water with bananas and other items', which doesn't provide explicit confirmation of boys from the Mandari tribe waiting by the Nile for boats with the day's catch to arrive in Terekeka, South Sudan. Candidate 2 has a high image similarity score (0.9762890338897705) but a low text similarity score (0.12345365434885025) and an empty caption, so it's not useful. Since the text similarity score is low in both candidates and the information in the captions doesn't clearly support the news caption, I cannot confidently say that the news caption accurately represents what the image shows.",
+    "validation_summary": "The image shows boys standing near boats, but the caption's specific claims about the Mandari tribe, the Nile, the day's catch, and the location of Terekeka are not verifiable from the image alone, potentially misleading viewers about the context of the image. Therefore, the image is out of context based on the information provided in the image check result."
+  },
+  "inference_time": 8.466527462005615,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

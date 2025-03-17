@@ -1,0 +1,35 @@
+{
+  "caption": "Western Australia November 7 Daredevil surfer Kerby Brown rides a huge ocean wave",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 1,
+      "confidence_score": 10,
+      "explanation": "The caption describes a surfer riding a wave, while the image shows a white SUV parked on a sandy hill overlooking the ocean. There is no surfing or surfer visible in the image, and the context describes a landscape with a vehicle. Therefore, the caption does not align with the image context.",
+      "supporting_evidences": [
+        "The caption mentions a surfer riding a wave.",
+        "The image context describes an SUV parked on a hill overlooking the ocean.",
+        "There is no surfer or wave depicted in the image.",
+        "The image content and caption content are unrelated."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "A white SUV parked on a sandy hill overlooking the ocean.",
+      "context": "The image shows a white SUV parked on a sandy hill overlooking the ocean. A person stands near the edge of the hill, looking out at the water. The sky is partly cloudy. The landscape suggests a remote, coastal location, possibly used for off-road adventures. The news content mentions surfing in Western Australia, but this image does not depict surfing. The person in the image is just standing and looking at the waves. Thus, the image appears to be a landscape shot showcasing a vehicle in a scenic coastal environment.",
+      "information": "The image features a white SUV parked on a sandy hill, with a person standing near the edge looking at the ocean. The sky is partly cloudy."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts a white SUV parked on a sandy cliff overlooking the ocean, with a man standing nearby. The caption describes a 'daredevil surfer Kerby Brown rides a huge ocean wave.' This is a clear mismatch. The image does not show any surfing or surfers, and the context provided by the image is a coastal landscape with a vehicle, not a surfing event. The image check result confirms this discrepancy with a high confidence score, so the caption is not an accurate representation of the image content.",
+    "validation_summary": "The caption describes a surfing scene, but the image shows an SUV by the sea; viewers would be misled about the image's content with this caption. The image content is completely different from what the caption suggests, leading to a false impression."
+  },
+  "inference_time": 6.5305962562561035,
+  "ablation_type": "no_image_evidences"
+}

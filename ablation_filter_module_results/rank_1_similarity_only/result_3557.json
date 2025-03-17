@@ -1,0 +1,50 @@
+{
+  "caption": "Thunder guard Russell Westbrook reacts after an injury in Game 1",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "San Antonio Spurs",
+      "Oklahoma City Thunder",
+      "Slam dunk",
+      "2013–14 NBA season",
+      "NBA conference finals",
+      "Basketball Player",
+      "Basketball",
+      "Basketball court",
+      "Ball"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "2014 NBA Western Conference finals: Spurs vs. Thunder",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8800459504127502,
+        "text_similarity_score": 0.03219909220933914
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.88 which is greater than 0.85, but the caption similarity score is 0.03 which is less than 0.7. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates the image similarity score is high (0.88), but the caption similarity score is low (0.03), leading to the conclusion that the caption is out-of-context. The image shows Russell Westbrook in action, jumping towards a basketball hoop, likely attempting a dunk or layup. He is wearing an Oklahoma City Thunder jersey. There's no visible evidence of an injury or reaction to an injury. The caption states that he's reacting after an injury in Game 1. Since the image doesn't show any indication of an injury or reaction to one, and the image check confirms low caption similarity, the caption is misleading.",
+    "validation_summary": "The caption claims Russell Westbrook is reacting to an injury, but the image shows him in the middle of a basketball play with no visible indication of injury, misleading viewers about the image content. The image check also suggests the caption is out-of-context and does not accurately represent what the image shows."
+  },
+  "inference_time": 4.877210378646851,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

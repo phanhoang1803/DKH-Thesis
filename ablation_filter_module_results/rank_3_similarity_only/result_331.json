@@ -1,0 +1,62 @@
+{
+  "caption": "People wait in line before the Dr King Career Fair at the Empire State Plaza Convention Center in Albany NY in April this year",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Stocks surge on May jobs report, Dow up 207",
+        "content": "S t o c k s   s u r g e   o n   M a y   j o b s   r e p o r t ,   D o w   u p   2 0 7",
+        "caption": "People wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5605645179748535,
+        "text_similarity_score": 0.9602746963500977
+      },
+      {
+        "title": "US employers add 165K jobs; rate falls to 7.5 percent",
+        "content": "U S   e m p l o y e r s   a d d   1 6 5 K   j o b s ;   r a t e   f a l l s   t o   7 . 5   p e r c e n t",
+        "caption": "In this Thursday, April 11, 2013 photo, people wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y.",
+        "domain": "www.capecodtimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5245456099510193,
+        "text_similarity_score": 0.9468958973884583
+      },
+      {
+        "title": "Your comments on unemployment benefits: 'Help is necessary sometimes for any of us' - syracuse.com",
+        "content": "Y o u r   c o m m e n t s   o n   u n e m p l o y m e n t   b e n e f i t s :   ' H e l p   i s   n e c e s s a r y   . . .",
+        "caption": "In this Thursday, April 11, 2013 photo, people wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y.",
+        "domain": "www.syracuse.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5098874568939209,
+        "text_similarity_score": 0.9468958973884583
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The news caption describes people waiting in line at the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, NY, in April. Candidate 1 has a high caption similarity score of 0.96 and an image similarity score of 0.56. The caption matches the news caption almost exactly, and it provides specific details like the event name (Dr. King Career Fair), location (Empire State Plaza Convention Center in Albany, N.Y.), and approximate time (April). Although the image similarity is not very high, the almost perfect caption match supports that the news caption aligns with the image's context. Candidate 2 and Candidate 3 also have almost same captions, further increases the confidence.",
+      "supporting_evidences": [
+        "Candidate 1 has a caption similarity score of 0.96 and mentions the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April.",
+        "Candidate 2 has a caption similarity score of 0.94 and mentions the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April.",
+        "Candidate 3 has a caption similarity score of 0.94 and mentions the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result shows a high confidence score of 10 and supporting evidences from three candidates with high caption similarity scores. These captions specifically mention the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April, which aligns with the provided news caption. Given the strong evidence from the image check result, the image is not out of context.",
+    "validation_summary": "The image check result indicates that the caption accurately describes the image, as it identifies the location and event shown in the picture. Viewers would not be misled about what they're seeing."
+  },
+  "inference_time": 6.177023649215698,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

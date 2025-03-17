@@ -1,0 +1,55 @@
+{
+  "caption": "Ariana Grande introduces The Weeknd during the 58th Grammy Awards at the Staples Center",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Grammys 2016: Inside the show",
+        "content": "G r a m m y s   2 0 1 6 :   I n s i d e   t h e   s h o w",
+        "caption": "Bruno Mars accepts Record of the year for Uptown Funk during the 58th Grammy Awards at the Staples Center.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Review: The young acts including Bieber and the Weeknd drained all the energy from the Grammys - Los Angeles Times",
+        "content": "R e v i e w :   T h e   y o u n g   a c t s   i n c l u d i n g   B i e b e r   a n d   t h e   W e e k n d   d r a i n e d   a l l   . . .",
+        "caption": "From left to right: The Weeknd, Adele and Justin Bieber perform at the 58th annual Grammy Awards at Staples Center in Los Angeles on Feb. 15.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Pop superstar Ariana Grande over the years",
+        "content": "P o p   s u p e r s t a r   A r i a n a   G r a n d e   o v e r   t h e   y e a r s",
+        "caption": "Ariana Grande arrives at the 56th Annual Grammy Awards at the Staples Center in Los Angeles on Jan. 26, 2014.",
+        "domain": "www.tennessean.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The provided candidates contain information about the 58th Grammy Awards at the Staples Center. Candidate 2 mentions The Weeknd performing at the event, which aligns with the news caption that Ariana Grande introduced The Weeknd during the awards. Candidate 3 mentions Ariana Grande at the Grammy Awards at the Staples Center. However, none of the candidates explicitly state that Ariana Grande introduced The Weeknd. Because there isn't explicit confirmation, a high confidence level is not possible.",
+      "supporting_evidences": [
+        "From left to right: The Weeknd, Adele and Justin Bieber perform at the 58th annual Grammy Awards at Staples Center in Los Angeles on Feb. 15.",
+        "Ariana Grande arrives at the 56th Annual Grammy Awards at the Staples Center in Los Angeles on Jan. 26, 2014."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows Ariana Grande singing into a microphone. She is wearing a short, fringed dress. The caption states that Ariana Grande introduced The Weeknd during the 58th Grammy Awards. While the Image Check Result suggests a possible link between Ariana Grande and the Grammy Awards, it doesn't confirm she introduced The Weeknd. The image itself doesn't provide evidence to support this specific claim. Therefore, the caption is considered out of context as the image alone doesn't convey the information provided in the caption.",
+    "validation_summary": "The image does not depict Ariana Grande introducing The Weeknd, making the caption misleading. Viewers would not be able to verify the claim based solely on the image."
+  },
+  "inference_time": 4.666389465332031,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

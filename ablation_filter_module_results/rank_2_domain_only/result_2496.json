@@ -1,0 +1,38 @@
+{
+  "caption": "President Obama makes a statement on his administration s response to the Ebola crisis before departing the White House in Washington DC",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Ebola 'czar' appointed by White House to oversee outbreak response in US | Ebola | The Guardian",
+        "content": "E b o l a   ' c z a r '   a p p o i n t e d   b y   W h i t e   H o u s e   t o   o v e r s e e   o u t b r e a k   r e s p o n s e   . . .",
+        "caption": "Sylvia Burwell, secretary of health and human services and Dr Thomas Frieden, CDC director, with Obama on Thursday.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. This means that the candidate image and caption are not similar to the news image and caption. The candidate caption mentions Obama, Sylvia Burwell, secretary of health and human services and Dr Thomas Frieden, CDC director on Thursday. This is not enough information to verify the news caption which states: President Obama makes a statement on his administration s response to the Ebola crisis before departing the White House in Washington DC. The candidate does not provide information about the Ebola crisis, the White House, or Obama making a statement.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts President Obama at a podium, possibly making a statement. The caption suggests the statement is about his administration's response to the Ebola crisis before departing the White House. However, the news article discusses Obama's response to the Ebola crisis but doesn't explicitly state that he made the statement right before departing the White House. The Image Check Result has a low confidence score and a 'False' verdict, indicating a mismatch between the image and caption. It mentions that the candidate image and caption are not similar to the news image and caption. The candidate does not provide information about the Ebola crisis, the White House, or Obama making a statement. Therefore, while Obama is likely making a statement, the specific context described in the caption is not verifiable from the image alone or supported by the news article and image check. The Ebola context is not explicit in the image.",
+    "validation_summary": "The caption implies a specific context (Ebola crisis statement before departing White House) that is not visually evident or verifiable from the image and is not strongly supported by the image check result, potentially misleading viewers about the image's true subject matter. The statement on the response to the Ebola crisis is not confirmed by the image alone, as only Obama at a podium is visible."
+  },
+  "inference_time": 4.440422534942627,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

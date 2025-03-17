@@ -1,0 +1,57 @@
+{
+  "caption": "Pope Francis right gestures as he talks with journalists during his flight from Manila to Rome on Monday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Debate",
+      "Seminar",
+      "Academic conference",
+      "Public speaking",
+      "Convention",
+      "Academy",
+      "Speech",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Rabbit Breeder to Pope: You Don't Know Rabbits",
+        "content": "R a b b i t   B r e e d e r   t o   P o p e :   Y o u   D o n ' t   K n o w   R a b b i t s",
+        "caption": "Pope Francis, right, gestures as he talks with journalists during his flight from Manila to Rome, Monday, Jan. 19, 2015.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Pope: Catholics need not breed 'like rabbits'",
+        "content": "6 3 5 5 7 2 8 5 7 9 6 6 6 1 4 2 9 9 - E P A -   . . .",
+        "caption": "Pope Francis gestures as he talks with journalists on the plane during the flight from Manila to Rome, 19 January 2015.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates describe Pope Francis gesturing and talking with journalists on a flight from Manila to Rome, which aligns with the news caption. They also mention the date, January 19, 2015 (or Monday, Jan. 19, 2015), offering temporal context. However, the similarity scores are low, and I am unable to assess the image to check if it's the same. Given the provided information, I cannot definitively confirm the caption's accuracy, but the textual descriptions align.",
+      "supporting_evidences": [
+        "Pope Francis, right, gestures as he talks with journalists during his flight from Manila to Rome, Monday, Jan. 19, 2015.",
+        "Pope Francis gestures as he talks with journalists on the plane during the flight from Manila to Rome, 19 January 2015."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows Pope Francis seated in the foreground with Ban Ki-moon at a podium in the background. A security guard is standing on the left side of the image. The news caption states, \"Pope Francis right gestures as he talks with journalists during his flight from Manila to Rome on Monday\". The image does not show Pope Francis talking with journalists on a flight from Manila to Rome. Therefore, the caption does not match the content of the image.",
+    "validation_summary": "The caption is inaccurate as it describes Pope Francis talking with journalists on a flight, which is not depicted in the image showing him seated with Ban Ki-moon at a conference or meeting; this mismatch could mislead viewers about the image's actual content. The image check result supports that the image is not a representative of the caption's context. The caption leads to a false impression about what is happening in the picture, which is Pope Francis at a meeting or conference rather than talking with journalists on a plane. The image does not support the claim that Pope Francis is on a flight from Manila to Rome, nor that he's talking with journalists at the time the photo was taken. Therefore, the caption is out of context."
+  },
+  "inference_time": 4.628846168518066,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

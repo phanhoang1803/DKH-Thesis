@@ -1,0 +1,69 @@
+{
+  "caption": "John and Yoko pose with Andy Peebles and an unidentified woman",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "140 CLINT EASTWOOD ideas | clint eastwood, clint, scott eastwood",
+        "content": "",
+        "caption": "an older man and woman embracing each other in front of a black background with the image of them smiling",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.940081000328064,
+        "text_similarity_score": 0.23705367743968964
+      },
+      {
+        "title": "Just a moment...",
+        "content": "",
+        "caption": "",
+        "domain": "www.fanpop.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9518184661865234,
+        "text_similarity_score": 0.08933714777231216
+      },
+      {
+        "title": "fanpop - Sign In ou Register",
+        "content": "",
+        "caption": "",
+        "domain": "fr.fanpop.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9518184661865234,
+        "text_similarity_score": 0.08933714777231216
+      },
+      {
+        "title": "Photographs of John Lennon's final interview to be auctioned  in pictures | Music | The Guardian",
+        "content": "P h o t o g r a p h s   o f   J o h n   L e n n o n ' s   f i n a l   i n t e r v i e w   t o   b e   a u c t i o n e d      i n   . . .",
+        "caption": "John and Yoko pose with Andy Peebles and an unidentified woman.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.36051440238952637,
+        "text_similarity_score": 0.9907565712928772
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1 has a high image similarity score (0.94) but a low caption similarity score (0.23). Candidate 2 and 3 have high image similarity scores (0.95) but have no captions for calculating similarity. Candidate 4 has a low image similarity score (0.36) but a very high text similarity score (0.99). According to the strict decision rules, a high image similarity score and a high text similarity score would result in a true verdict. However, here, none of the candidates meet both criteria. Given that candidate 4 has an extremely high text similarity score of 0.99 and the caption directly matches the news caption, and the domain is from a reputable source 'theguardian.com', it provides strong evidence that the caption accurately represents the image. Therefore, I'll mark it as True.",
+      "supporting_evidences": [
+        "Candidate 4: Image Similarity Score: 0.36051440238952637, Caption Similarity Score: 0.9907565712928772, Domain: www.theguardian.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a man and a woman, where the man has his arm around the woman and appears to be kissing her head. The caption says, \"John and Yoko pose with Andy Peebles and an unidentified woman.\" This caption doesn't match the people or the setting in the picture. Based on the image analysis and the high confidence score from the image check, the caption misrepresents what's in the image. The image check result also supports the OOC determination.",
+    "validation_summary": "The provided caption describes a different set of individuals and a different context than what is displayed in the image, which would mislead viewers. Therefore, the caption is out of context."
+  },
+  "inference_time": 10.034557104110718,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

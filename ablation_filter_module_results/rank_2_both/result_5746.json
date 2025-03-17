@@ -1,0 +1,46 @@
+{
+  "caption": "Shannon Rae Green hosts USA NOW for July 31 covering the rise of TSA misconduct cases by 26 in the past three years",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 10,
+      "explanation": "The image depicts an airport scene with travelers. The provided caption references 'Shannon Rae Green hosts USA NOW for July 31 covering the rise of TSA misconduct cases by 26 in the past three years'. The context describes the image and the rise of TSA misconduct cases. However, the caption focuses on a host and a news program, which is not visible or inferable from the image itself. There is a significant misalignment as the caption introduces elements not present in the visual context.",
+      "supporting_evidences": [
+        "The image shows travelers in an airport.",
+        "The caption mentions a host, Shannon Rae Green, and a news program, which are not depicted in the image.",
+        "The caption and context both reference TSA misconduct cases, but the image itself doesn't explicitly convey this information."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "information": "The image depicts a representative scene from an airport, possibly within a concourse area. It includes various travelers going about their business, with some standing in line and others in casual poses, looking at their mobile devices. The architecture in the background suggests a modern airport design, characterized by high ceilings and expansive glass windows that let in natural light.",
+      "caption": "Travelers navigate through Denver International Airport amid rising TSA misconduct concerns.",
+      "context": "This image captures the hustle and bustle within Denver International Airport, reflecting the everyday experiences of passengers as they navigate through security checks and travel to their destinations. The visual plays a significant role considering the recent concerns arising over misconduct cases reported within the Transportation Security Administration (TSA), which have surged by 26% over the past three years. Federal lawmakers, including Rep. Jeff Duncan, have expressed discontent, emphasizing the need for improved regulations and disciplinary action regarding TSA officials. The context surrounding the image highlights the ongoing debate about security practices at airports, as passengers continue to deal with the repercussions of TSA misconduct. Lawmakers have criticized the agency for inconsistent disciplinary measures, particularly in light of documented cases involving theft and other forms of misconduct by TSA employees, which can undermine the trust of travelers during their transition through airport security processes.",
+      "entities": [
+        "Denver International Airport",
+        "Transportation Security Administration",
+        "Passenger",
+        "Concourse"
+      ]
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts an airport security checkpoint with travelers and TSA personnel. The caption mentions \"Shannon Rae Green hosts USA NOW for July 31 covering the rise of TSA misconduct cases by 26 in the past three years\". This statement is misleading because the image itself does not show the host, the news program, or any direct evidence of TSA misconduct. While the image context and the accompanying news article discuss TSA issues, the caption introduces specific elements (the host and program) that are completely absent from the image, leading to a mismatch between the visual content and the caption's implication. The image check result confirms this misalignment.",
+    "validation_summary": "The caption introduces elements not present in the image, leading to a mismatch between the visual content and the caption's implication, misleading viewers about the image's content and relevance to the described news event.. Specifically, the claim that Shannon Rae Green hosts USA NOW is nowhere to be found in the image, and it is misleading to viewers that these things have anything to do with the image itself at all. Therefore, it is out of context. (OOC = True). The fact that both the caption and the content reference the rise of TSA misconduct cases is not enough to prove that the two are aligned, because the image does not show any explicit evidence of the rise of TSA misconduct cases as the text claims."
+  },
+  "inference_time": 4.835881948471069,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

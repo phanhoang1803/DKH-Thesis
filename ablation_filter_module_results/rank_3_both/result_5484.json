@@ -1,0 +1,43 @@
+{
+  "caption": "This undated photo provided by the Wood family shows Philip Wood an IBM executive who was aboard the Malaysia Airlines flight that went missing on March 8 2014",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Father of missing plane victim leans on faith, family",
+        "content": "F a t h e r   o f   m i s s i n g   p l a n e   v i c t i m   l e a n s   o n   f a i t h ,   f a m i l y",
+        "caption": "This undated photo provided by the Wood family shows Philip Wood, an IBM executive who was aboard the Malaysia Airlines flight that went missing on March 8, 2014.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5711709856987,
+        "text_similarity_score": 0.9631156325340271
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image similarity score is 0.5711709856987, which is less than 0.85. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. The text similarity score is 0.9631156325340271, which is greater than 0.7. However, since the image similarity score is less than 0.85, the verdict is False.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.5711709856987",
+        "Text Similarity Score: 0.9631156325340271"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates an image similarity score of 0.5711709856987, which is less than the threshold of 0.85. Despite a high text similarity score of 0.9631156325340271, the low image similarity necessitates labeling the caption as out-of-context. The caption refers to Philip Wood, an IBM executive, and the image shows a man next to a motorcycle; while it might be Philip Wood, the image similarity score suggests the caption and image do not align well enough for a positive match.",
+    "validation_summary": "The image and caption do not have sufficient similarity based on the image check result, suggesting the caption is misleading regarding the image's content. Viewers would likely find the image unrelated to the caption's description of Philip Wood and his connection to the Malaysia Airlines flight."
+  },
+  "inference_time": 10.380924701690674,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "caption": "A building burns after an explosion on Second Avenue on March 26 2015 in New York City",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Blast, fire erupt in NYC's East Village; 19 hurt",
+        "content": "6 3 5 6 2 9 8 5 0 5 7 2 4 7 3 4 6 4 - G T Y -   . . .",
+        "caption": "A building burns after an explosion on Second Avenue on March 26, 2015, in New York City.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Explosion, fire rips building in NYC's East Village",
+        "content": "E x p l o s i o n ,   f i r e   r i p s   b u i l d i n g   i n   N Y C ' s   E a s t   V i l l a g e",
+        "caption": "A building burns after an explosion on Second Avenue on March 26, 2015, in New York City.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "NYC Building Fire: 4 Critical After Explosion Tears Through NYC Building - ABC News",
+        "content": "N Y C   B u i l d i n g   F i r e :   4   C r i t i c a l   A f t e r   E x p l o s i o n   T e a r s   T h r o u g h   N Y C   . . .",
+        "caption": "PHOTO: This photo posted to Twitter by Scott Westerfeld shows the aftermath of a building collapse in  Manhattan, March 27, 2015. ",
+        "domain": "abcnews.go.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The provided candidates, particularly Candidate 1 and Candidate 2 from www.usatoday.com, directly support the news caption. Both candidates have the exact same caption as the news item, stating \"A building burns after an explosion on Second Avenue on March 26, 2015, in New York City.\" This confirms the event, location, and date described in the news caption. Candidate 3, while related to the event (building collapse in Manhattan on March 27, 2015), doesn't precisely match the original caption's wording and specifics. Given the verbatim match in multiple candidate captions from a reputable source, I'm reasonably confident that the news caption is accurate. However, the image similarity scores are all 0.0, indicating no image matching was possible to verify, so the confidence is not maximal.",
+      "supporting_evidences": [
+        "Candidate 1: Caption matches the news caption exactly.",
+        "Candidate 2: Caption matches the news caption exactly, specifying the location and date."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a confidence score of 7, and the provided candidates (Candidate 1 and Candidate 2 from www.usatoday.com) support the news caption. These candidates have the exact same caption as the news item, stating \"A building burns after an explosion on Second Avenue on March 26, 2015, in New York City.\" This confirms the event, location, and date described in the news caption. Although no image matching was possible to verify with image similarity scores of 0.0, the captions align with what is shown in the image.",
+    "validation_summary": "The news caption accurately describes the image, depicting a building on fire after an explosion on Second Avenue in New York City on March 26, 2015, as verified by other sources with matching captions. Therefore, viewers would not be misled about the image content based on the caption provided since the supporting evidences matches the image shown in this task instruction."
+  },
+  "inference_time": 4.9504804611206055,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

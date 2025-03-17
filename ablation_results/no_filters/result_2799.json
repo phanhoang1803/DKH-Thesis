@@ -1,0 +1,42 @@
+{
+  "caption": "Obama listens during a joint ratification of the Paris climate change agreement with China",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Orchestra",
+      "Electrical conductor"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "US-China rivalry stirs ghosts from the past  Middle East Monitor",
+        "content": "U S - C h i n a   r i v a l r y   s t i r s   g h o s t s   f r o m   t h e   p a s t      M i d d l e   E a s t   M o n i t o r",
+        "caption": "",
+        "domain": "www.middleeastmonitor.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "222 Photos & High Res Pictures - Getty Images",
+        "content": "2 2 2   P h o t o s   &   H i g h   R e s   P i c t u r e s   -   G e t t y   I m a g e s",
+        "caption": "",
+        "domain": "www.gettyimages.ae",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidate images have an image similarity score of 0.0 and a caption similarity score of 0.0. This indicates that neither candidate image is visually or textually similar to the news image or its caption. Therefore, the candidate images do not provide any evidence to support the accuracy of the news caption. The analysis relies on image similarity and caption similarity scores, and as these scores are very low for both candidates, the conclusion is that there's no support.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The provided image shows Barack Obama at a podium, apparently giving a speech or presentation. The caption states, \"Obama listens during a joint ratification of the Paris climate change agreement with China.\" This caption is misleading because the image depicts Obama speaking, not listening. While the news content may discuss the Paris climate change agreement, the image itself does not provide any visual confirmation of this event or Obama's role in it. The image shows Obama giving a speech. The caption implies he is listening. Therefore, the caption is not representative of the image.",
+    "validation_summary": "The caption is misleading as the image depicts Obama speaking at a podium, while the caption implies he is listening. This discrepancy misrepresents Obama's actions in the image and could mislead viewers about the context of the photo."
+  },
+  "inference_time": 4.3882691860198975,
+  "ablation_type": "no_filters"
+}

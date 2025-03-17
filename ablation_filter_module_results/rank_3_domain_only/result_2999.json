@@ -1,0 +1,65 @@
+{
+  "caption": "Mitt Romney and President Obama meet during a town hallstyle debate at Hofstra University",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "United States",
+      "Politics",
+      "Political campaign",
+      "Mitt Romney 2012 presidential campaign",
+      "Campaign advertising",
+      "Getty Images",
+      "Political science",
+      "Stephen M. Caliendo"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Live: Obama, Romney clash in town hall debate",
+        "content": "L i v e :   O b a m a ,   R o m n e y   c l a s h   i n   t o w n   h a l l   d e b a t e",
+        "caption": "Mitt Romney and President Obama meet during a town hall-style debate at Hofstra University.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "5 things to watch for in Obama vs. Romney sequel",
+        "content": "5   t h i n g s   t o   w a t c h   f o r   i n   O b a m a   v s .   R o m n e y   s e q u e l",
+        "caption": "Mitt Romney and President Obama will answer questions posed by uncommitted voters during a town hall meeting.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "5 things to look for: Obama vs. Romney, Round 3",
+        "content": "5   t h i n g s   t o   l o o k   f o r :   O b a m a   v s .   R o m n e y ,   R o u n d   3",
+        "caption": "Mitt Romney and Barack Obama shake hands prior to the start of a town hall style debate at Hofstra University Oct. 16 in Hempstead, New York",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are all 0.0, indicating that none of the candidate images match the news image. The text similarity scores are also 0.0, showing no caption matches. However, candidate 1 provides a caption that is exactly the same as the news caption: \"Mitt Romney and President Obama meet during a town hall-style debate at Hofstra University.\" Although the images don't match, the presence of an identical caption from a potentially reliable domain (www.usatoday.com) gives some support to the accuracy of the news caption. Candidates 2 and 3 also describe similar events (town hall meetings/debates involving Romney and Obama), which adds further context. Thus, while image matching is absent, the caption information suggests the news caption is likely accurate, but this is not fully confirmed due to the low image similarity score.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: Mitt Romney and President Obama meet during a town hall-style debate at Hofstra University.",
+        "Candidate 2: Caption: Mitt Romney and President Obama will answer questions posed by uncommitted voters during a town hall meeting.",
+        "Candidate 3: Caption: Mitt Romney and Barack Obama shake hands prior to the start of a town hall style debate at Hofstra University Oct. 16 in Hempstead, New York"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 6. The image check shows that the image similarity scores are all 0.0, indicating that none of the candidate images match the news image. The text similarity scores are also 0.0, showing no caption matches. Thus, the images don't match. Based on the image, it depicts Mitt Romney at a podium with a banner that says, \"Obama isn't working\" suggesting a political rally or speech. However, the news caption states \"Mitt Romney and President Obama meet during a town hallstyle debate at Hofstra University\" implying that the two are together. This is not seen within the provided image, therefore the caption doesn't match the picture.",
+    "validation_summary": "The caption is misleading as it describes a meeting between Mitt Romney and President Obama, while the image shows Mitt Romney at a rally with an \"Obama isn't working\" banner, implying they are not together. Viewers would be misled about what they're seeing because it is one sided rather than an event with both people involved as the caption infers. Therefore, the image is out of context with the provided caption as it is not representative of the image's content, thus the caption is inaccurate, and the image and caption are out of context, as the image does not depict what is inferred within the caption; moreover, the image check further supports this notion with a confidence score of 6. Thus, the final verdict is that the image is out of context because Mitt Romney and President Obama are not seen at the same event/place, which is what the caption infers."
+  },
+  "inference_time": 5.564582109451294,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

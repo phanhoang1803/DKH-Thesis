@@ -1,0 +1,51 @@
+{
+  "caption": "The Stone Bridge at the Manassas National Battlefield Park is the backdrop for this photo of bluebells April 19 2014",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Bluebonnet",
+      "Fredericksburg",
+      "Texas bluebonnet",
+      "April Showers",
+      "2015",
+      "Bring May Flowers",
+      "Bring May Flowers",
+      "Split-rail fence",
+      "April Showers Bring May Flowers",
+      "Picket fence"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 1,
+      "confidence_score": 10,
+      "explanation": "The caption mentions a stone bridge and bluebells at Manassas National Battlefield Park, while the image context describes a field of Texas bluebonnets and red poppies with a split-rail fence and trees in the background. There is no alignment between the entities (stone bridge vs. wildflower field) and location (Manassas vs. Texas) mentioned in the caption and the context. The caption does not convey any information present in the image context, leading to a determination of no alignment.",
+      "supporting_evidences": [
+        "Caption mentions 'Stone Bridge' and 'Manassas National Battlefield Park', which are not present in the image context.",
+        "Image context describes 'Texas bluebonnets', 'red poppies', and 'split-rail fence', which are not mentioned in the caption.",
+        "The locations 'Manassas' and 'Texas' are entirely different, indicating a mismatch."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "A field of Texas bluebonnets and red poppies with a split-rail fence in the foreground and trees in the background under a cloudy sky.",
+      "context": "The image showcases a field of Texas bluebonnets interspersed with red poppies, set against a backdrop of trees under an overcast sky. A rustic split-rail fence runs along the foreground, adding depth and leading the eye into the scene. The presence of bluebonnets, a type of Texas bluebonnet, suggests a springtime setting, aligning with the mention of 'April Showers Bring May Flowers'. While the entities detected include 'Fredericksburg', the image itself doesn't specifically confirm this location, focusing instead on the natural landscape filled with wildflowers. The scene evokes a sense of natural beauty and tranquility, typical of wildflower blooms in the Texas countryside.",
+      "information": "The image features a vibrant field of wildflowers, predominantly Texas bluebonnets and red poppies. A split-rail fence is in the foreground. In the background are trees under a cloudy sky."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts a field of bluebonnets and red poppies along a wooden fence, with trees in the background under a cloudy sky. The caption describes a stone bridge and bluebells at Manassas National Battlefield Park. These are entirely different locations and flora, indicating a mismatch between the image content and the caption. Given the significant differences in scenery, the caption does not accurately represent the image.",
+    "validation_summary": "The caption describing a stone bridge and bluebells in Manassas is completely different from the image showing a field of bluebonnets and poppies, misleading viewers about the image's actual content. The image and caption describe different locations and floral species."
+  },
+  "inference_time": 5.035284042358398,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

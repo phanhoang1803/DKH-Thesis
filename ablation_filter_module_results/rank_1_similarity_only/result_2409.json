@@ -1,0 +1,42 @@
+{
+  "caption": "Republican presidential candidate former Pennsylvania senator Rick Santorum pauses as he addresses supporters at his Iowa caucus victory party Tuesday in Johnston Iowa",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Rick Santorum feels like Rocky Balboa | CNN Politics",
+        "content": "R i c k   S a n t o r u m   f e e l s   l i k e   R o c k y   B a l b o a   |   C N N   P o l i t i c s",
+        "caption": "GOP presidential hopeful Rick Santorum addresses a crowd of supporters Tuesday night in Johnston, Iowa.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.665317952632904,
+        "text_similarity_score": 0.7582464218139648
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.665317952632904, which is less than 0.85. Also, the text similarity score is 0.7582464218139648, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than 0.7, the verdict should be false. The candidate caption mentions Rick Santorum addressing supporters in Johnston, Iowa, which aligns with the news caption. However, due to the low image similarity score, it's difficult to say whether the two images are the same. Hence, I mark it as out-of-context, because the images are not similar enough to confirm the caption.",
+      "supporting_evidences": [
+        "The candidate caption mentions Rick Santorum addressing supporters in Johnston, Iowa, which aligns with the news caption."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the images are not similar enough to confirm the caption. The image similarity score is 0.665317952632904, which is less than 0.85, while the text similarity score is 0.7582464218139648, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than 0.7, the verdict should be false. Since the image check has a confidence score of 7, the determination must be based on this result. Therefore, the image is considered out of context.",
+    "validation_summary": "The image and caption do not align based on the image check, suggesting the caption may mislead viewers about the image's content. Therefore, the image is determined to be out of context due to low image similarity."
+  },
+  "inference_time": 6.39464259147644,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

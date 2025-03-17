@@ -1,0 +1,49 @@
+{
+  "caption": "2002 Angels 4 Giants 2 Rookie pitcher John Lackey pitched a gem to beat the Barry Bondsled Giants",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "John Lackey",
+      "Los Angeles Angels",
+      "Abilene High School",
+      "2002 World Series",
+      "Pitcher",
+      "Baseball",
+      "Catcher",
+      "College baseball",
+      "Softball",
+      "Infielder"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Recent Game 7s of the World Series",
+        "content": "R e c e n t   G a m e   7 s   o f   t h e   W o r l d   S e r i e s",
+        "caption": "2001 - Diamondbacks 3, Yankees 2:  Luis Gonzalez hit a walk-off RBI single off closer Mariano Rivera.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, the predefined rules are not met. Analyzing the candidate, the candidate is about the 2001 Diamondbacks winning against the Yankees. However, the news caption is about the 2002 Angels winning against the Giants. Therefore, the candidate is completely irrelevant to the news caption. Therefore, the verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result gives a verdict of False and confidence score of 1. The image shows baseball players celebrating, while the caption references a specific game between the 2002 Angels and Giants, claiming Rookie pitcher John Lackey pitched a gem to beat the Barry Bondsled Giants. As such, the automated result is prioritized. The caption is Out of Context.",
+    "validation_summary": "The caption describes a specific game, but the image does not show the specific game and players involved, misleading viewers about what they are seeing. The image check result confirms the verdict."
+  },
+  "inference_time": 3.700512409210205,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "Mr Whittle denied that deputy chair of UKIP Suzanne Evans would have made a stronger candidate",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "UKIP selects Peter Whittle as London mayoral candidate - BBC News",
+        "content": "U K I P   s e l e c t s   P e t e r   W h i t t l e   a s   L o n d o n   m a y o r a l   c a n d i d a t e   -   B B C   N e w s",
+        "caption": "Mr Whittle denied that deputy chair of UKIP Suzanne Evans would have made a stronger candidate",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5838154554367065,
+        "text_similarity_score": 0.9999999403953552
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.5838154554367065, which is less than 0.85. Therefore, the caption is out-of-context. The text similarity score is 0.9999999403953552, which is greater than 0.7. However, since the image similarity score is less than 0.85, the caption is still out-of-context. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the caption is out of context with a confidence score of 2. The image shows a woman speaking at a podium with a man standing behind her, against a backdrop with the word \"BUILDING\" partially visible. The caption refers to Mr. Whittle denying that Suzanne Evans would have made a stronger candidate. The image content does not directly support this claim, as neither Mr. Whittle nor Ms. Evans are clearly identified in the image, and the context of their discussion is not visually represented. Therefore, based on the image check result, the image is considered out of context.",
+    "validation_summary": "The image depicts a woman speaking at a podium, which is unrelated to the caption's discussion about Mr. Whittle and Ms. Evans, potentially misleading viewers about the image's content and relevance to the news article it accompanies, making the caption out of context. As the image check score is very low, and the image content does not support the claim, the caption is out of context."
+  },
+  "inference_time": 6.568708658218384,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

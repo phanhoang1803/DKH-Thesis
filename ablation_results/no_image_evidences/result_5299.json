@@ -1,0 +1,45 @@
+{
+  "caption": "Thanks to Twitter you can now snooze through the boring bits at Glastonbury",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Camp for Climate Action",
+      "Kingsnorth Power Station",
+      "Climate",
+      "Climate change",
+      "Natural environment",
+      "near",
+      "Blackheath",
+      "Direct action",
+      "Demonstration",
+      "Power station"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 10,
+      "explanation": "The image context describes a climate action protest camp near a power station, with numerous tents visible. The caption mentions Glastonbury and Twitter, which are completely unrelated to the image content. The caption fails to convey the actual subject matter of the image, which involves environmental activism and a protest camp setting.",
+      "supporting_evidences": [
+        "The image depicts a climate protest camp, while the caption refers to Glastonbury.",
+        "The presence of a power station in the background contrasts with the caption's mention of a music festival.",
+        "The entities detected (e.g., 'Camp for Climate Action,' 'Climate change') indicate a different context than the caption suggests."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "A multitude of tents are pitched in a field, with a power station visible in the background.",
+      "context": "The image depicts a field filled with numerous tents, suggesting a gathering such as a festival or protest camp. In the background, a large power station is visible, which could be related to the event taking place. The entities detected, including 'Camp for Climate Action,' 'Kingsnorth Power Station,' 'Climate,' 'Climate change,' 'Natural environment,' 'Direct action,' and 'Demonstration,' indicate that this is a climate action protest or demonstration near a power station. The presence of tents suggests an extended stay or a sustained demonstration. The news content and caption provided appear to be unrelated to the image, as they discuss Glastonbury and Twitter. Therefore, the context is primarily derived from the image and associated entities, pointing towards a climate-related protest camp.",
+      "information": "The image shows a field densely populated with tents of various colors and sizes. Two women are walking in the foreground. In the background, beyond the trees, a large industrial complex identified as a power station dominates the horizon. The sky is overcast. The presence of many tents suggests a large gathering of people."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence level (10) that the caption is out of context. The image depicts a climate action protest camp near a power station, with numerous tents visible. In contrast, the caption references Glastonbury and Twitter, which are unrelated to the visual content and the context of environmental activism suggested by the image. The entities detected (e.g., 'Camp for Climate Action,' 'Climate change') further support that the image represents a climate-related protest, which is completely different from the event mentioned in the caption. Therefore, the caption is misleading as it fails to accurately represent the image's content.",
+    "validation_summary": "The caption mentions Glastonbury, which is a music festival, while the image depicts a climate protest camp near a power station, thus misleading viewers about the image's actual content and context. The caption is therefore out of context and would mislead viewers about the scene depicted in the image and the actual event taking place."
+  },
+  "inference_time": 7.688232183456421,
+  "ablation_type": "no_image_evidences"
+}

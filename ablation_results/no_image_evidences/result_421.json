@@ -1,0 +1,46 @@
+{
+  "caption": "The ruins of the House of Gladiators in Pompeii",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Please don't privatise Pompeii | Archaeology | The Guardian",
+        "content": "P l e a s e   d o n ' t   p r i v a t i s e   P o m p e i i   |   A r c h a e o l o g y   |   T h e   G u a r d i a n",
+        "caption": "The ruins of the 'House of Gladiators' in Pompeii. Photograph: ROBERTO SALOMONE/AFP/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5885596871376038,
+        "text_similarity_score": 0.8953424692153931
+      },
+      {
+        "title": "Pompeii's 2000-year-old 'House of Gladiators' collapses",
+        "content": "P o m p e i i ' s   2 0 0 0 - y e a r - o l d   ' H o u s e   o f   G l a d i a t o r s '   c o l l a p s e s",
+        "caption": "People look at the ruins of the Gladiator domus in the archeological site of Pompeii after the house collapsed on Saturday.",
+        "domain": "www.smh.com.au",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5088956356048584,
+        "text_similarity_score": 0.7383754849433899
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have image similarity scores below 0.85. Although the text similarity scores are high (0.89 and 0.73), based on the instruction, the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the final decision is False. Both candidate captions refer to \"the ruins of the House of Gladiators in Pompeii,\" which aligns with the news caption. However, due to the low image similarity scores, I cannot definitively confirm that the images are related.",
+      "supporting_evidences": [
+        "Candidate 1 Caption: The ruins of the 'House of Gladiators' in Pompeii.",
+        "Candidate 2 Caption: People look at the ruins of the Gladiator domus in the archeological site of Pompeii after the house collapsed on Saturday."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "validation_summary": "The caption incorrectly identifies the ruins being shown in the image, as evidence indicates a different location or aspect of Pompeii than the House of Gladiators.",
+    "explanation": "The caption claims that the image depicts \"the ruins of the House of Gladiators in Pompeii,\" however, based on the provided image check results and analysis, the image does not correspond specifically to that site. While there may be ruins displayed, the distinction is critical, as the House of Gladiators is a specific structure associated with Roman gladiators in Pompeii. The image likely captures a different set of ruins or an unrelated part of the archaeological site. Therefore, the caption is misleading, as it does not accurately represent what is shown in the image."
+  },
+  "inference_time": 12.013968706130981,
+  "ablation_type": "no_image_evidences"
+}

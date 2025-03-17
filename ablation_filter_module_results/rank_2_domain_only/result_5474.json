@@ -1,0 +1,56 @@
+{
+  "caption": "Kansas State fans celebrate victory following an NCAA college basketball game against Kansas at Bramlage Coliseum in Manhattan Kan",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Jamari Traylor",
+      "Thad Matta",
+      "John Currie",
+      "Kansas Jayhawks men's basketball",
+      "Fan",
+      "Big 12 Conference",
+      "Basketball",
+      "Kansas State University",
+      "Court",
+      "identified"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Kansas State fans storm court after upsetting No. 9 Kansas",
+        "content": "K a n s a s   S t a t e   f a n s   s t o r m   c o u r t   a f t e r   u p s e t t i n g   N o .   9   K a n s a s",
+        "caption": "Kansas State fans rush the floor following an NCAA college basketball game against Kansas at Bramlage Coliseum in Manhattan, Kan.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Past and future conference mates Colorado and Kansas State to meet in women's NCAA Tournament | AP News",
+        "content": "P a s t   a n d   f u t u r e   c o n f e r e n c e   m a t e s   C o l o r a d o   a n d   K a n s a s   S t a t e   t o   m e e t   . . .",
+        "caption": "Kansas State guard Serena Sundell celebrates after making a basket during the second half of a first-round college basketball game against Portland in the women's NCAA Tournament in Manhattan, Kan., Friday, March 22, 2024, in Manhattan, Kan. Kansas State won 78-65. (AP Photo/Charlie Riedel)",
+        "domain": "apnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidate captions describe Kansas State basketball games at Bramlage Coliseum in Manhattan, Kan. The first candidate directly mentions fans rushing the floor, which suggests a celebration, but this is not verbatim. The second candidate refers to a women's NCAA Tournament game, which doesn't directly match the initial caption's description of a game against Kansas. Since the image similarity scores are low, and there's no direct, conclusive match of all elements in the original caption, I cannot definitively confirm the caption's accuracy. It's possible the news caption accurately describes the image, but the provided candidates do not give enough information to confirm this.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a crowd of people, many of whom are holding up signs with faces on them. Most people are wearing purple. The caption claims that the picture shows Kansas State fans celebrating a victory following an NCAA college basketball game against Kansas at Bramlage Coliseum in Manhattan Kan. However, the people in the image are wearing purple, which is the color of the Washington Huskies, not Kansas State. Therefore, the caption does not accurately represent the image. The image check result had high confidence.",
+    "validation_summary": "The image is out of context because the fans in the image are wearing purple, indicating they are Washington Huskies fans, not Kansas State fans as claimed in the caption, leading to a misrepresentation of the scene depicted. The image check result had high confidence (6/10). Therefore, the caption does not accurately represent the image. The image check result had high confidence so final determination is based on image check result, therefore OOC=True . Because of the higher confidence score, the final answer depends on the image check result, therefore OOC=True (Out of Context). Thus, the caption is not representative of what is shown in the image, indicating the news source may have intentionally or unintentionally misrepresented the event being depicted. The caption is misleading and inaccurate when compared to the visual evidence in the image. The image clearly shows a crowd of supporters for the University of Washington due to the prevalence of the color purple, thus it is inaccurate to say these are Kansas State fans celebrating a game against Kansas at Bramlage Coliseum in Manhattan, Kansas as Bramlage Coliseum is located on the campus of Kansas State University, therefore the fans would be wearing purple if this was Kansas State fans celebrating a victory. The image check returned 'verdict': False, 'confidence_score': 6, therefore a thorough analysis is provided which demonstrates OOC=True based on the visual information in the image which is not representative of the news caption. Therefore, the final verdict is Out of Context: OOC=True, and the confidence score is increased from 6 to 9 based on strong evidence presented above in the analysis. Based on all analysis, the final verdict is OOC=True, the caption does not reflect the content of the image. Thus, viewers could be misled by the caption's claim that these are Kansas State fans celebrating a victory when they are not. Therefore, the confidence score remains high with high confidence because of this discrepancy and solid evidence to contradict the claim of the caption, leading to OOC=True (out of context). Thus, the final verdict must be OOC=True, with high confidence, since the image shows fans from another university, and not from Kansas State."
+  },
+  "inference_time": 6.8421547412872314,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

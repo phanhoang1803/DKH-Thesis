@@ -1,0 +1,49 @@
+{
+  "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Cadbury",
+      "Chocolate bar",
+      "Chocolate",
+      "Candy",
+      "Kraft Foods",
+      "Fudge",
+      "Sweet dish",
+      "Wrigley"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Healthier chocolate and other incredible discoveries of the week",
+        "content": "6 3 5 6 3 1 2 6 7 1 4 0 4 5 0 7 5 3 - A P - D a r k -   . . .",
+        "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The Image Similarity Score is 0.0 and the Text Similarity Score is 0.0. According to the instruction, I should do analysis based on the captions and candidate to give the final decision. The candidate caption is exactly the same as the news caption. Therefore, the verdict is True.",
+      "supporting_evidences": [
+        "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a variety of Green & Black's chocolate products, including boxes, bars, and tubes, arranged on a white surface with a red box in the background. The caption mentions 'Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York,' which is not directly represented or verifiable in the image. The image focuses on the presentation of various chocolate products from a specific brand, while the caption describes a specific type of chocolate with a particular origin and preparation method, which cannot be confirmed by the visual content. The image check result confirms that the caption is not representative of the image content.",
+    "validation_summary": "The caption describes a specific type of Japanese plum chocolate, which is not visually identifiable in the image that displays an assortment of Green & Black's chocolate products. Therefore, viewers would be misled about what they are seeing in the image if they were to believe the caption's description of a specific type of chocolate made in New York."
+  },
+  "inference_time": 5.022498607635498,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

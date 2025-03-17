@@ -1,0 +1,43 @@
+{
+  "caption": "Novak Djokovic of Serbia celebrates his 67 76 63 62 victory against Andy Murray of Britain to capture his third consecutive Australian Open crown and fourth overall",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Soft tennis",
+      "Tennis",
+      "Racketlon",
+      "Tennis player"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Team USA rolls, Serbia comes back and Frances home court advantage: 6 takeaways from the mens basketball quarterfinals | CNN",
+        "content": "T e a m   U S A   r o l l s ,   S e r b i a   c o m e s   b a c k   a n d   F r a n c e ' s   h o m e   c o u r t   . . .",
+        "caption": "Team USA huddles after their victory against Brazil in Paris, on August 6.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, the candidate is not relevant to the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image similarity score (0.0) and a low text similarity score (0.0), leading to the determination that the candidate is not relevant to the news caption. The image depicts Novak Djokovic playing tennis on a clay court, while the caption describes his victory against Andy Murray at the Australian Open. The image itself shows Djokovic in action, but without any clear indication that it is specifically related to the described match. Given the discrepancy between the image content and the caption's claim, the caption does not accurately represent what is shown in the image. Therefore, the image is out of context.",
+    "validation_summary": "The image shows Djokovic playing tennis on a clay court, which does not correspond to the caption describing his victory against Andy Murray at the Australian Open. The caption misrepresents the image content, making it out of context."
+  },
+  "inference_time": 3.5169734954833984,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

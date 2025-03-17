@@ -1,0 +1,39 @@
+{
+  "caption": "Palais elBadi in the medina is now home to the Museum for Photography and Visual Arts",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Marrakech's new arts scene in the funky old medina | Marrakech holidays | The Guardian",
+        "content": "M a r r a k e c h ' s   n e w   a r t s   s c e n e   i n   t h e   f u n k y   o l d   m e d i n a   |   M a r r a k e c h   . . .",
+        "caption": "Palais el-Badi, in the medina, is now home to the Museum for Photography and Visual Arts.  Photograph: Jochen Schlenker//Robert Harding World Imagery/Corbis",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.49059244990348816,
+        "text_similarity_score": 0.8352895379066467
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.49059244990348816, which is less than 0.85. The text similarity score is 0.8352895379066467, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. The provided candidate caption from theguardian.com discusses the Palais el-Badi in Marrakech, noting its role as home to the Museum for Photography and Visual Arts. While this aligns with the news caption, the low image similarity score suggests a mismatch in visual context. Therefore, a definitive confirmation based on the given evidence is not possible. Due to the low image similarity, the verdict is that the caption is out-of-context.",
+      "supporting_evidences": [
+        "Caption: Palais el-Badi, in the medina, is now home to the Museum for Photography and Visual Arts.",
+        "Domain: www.theguardian.com",
+        "Image Similarity Score: 0.49059244990348816",
+        "Text Similarity Score: 0.8352895379066467"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "validation_summary": "The caption does not accurately represent the visual context of the image, suggesting a mismatch between the description and the image content.",
+    "explanation": "The news caption states that \"Palais elBadi in the medina is now home to the Museum for Photography and Visual Arts.\" While this description aligns with the provided news content regarding the Palais el-Badi's recent transformation, the image analysis indicated a low similarity score of 0.490, which suggests a significant visual discrepancy. Even though the text reference to the Palais el-Badi and its role as a museum is correct, the caption's implication may mislead viewers about the image's context or relevance to that specific location, as the image similarity score being below the threshold implies it's not effectively depicting what was described in the text. Thus, while the text aligns with its content, the imagery fails to provide supporting evidence that corresponds adequately to the claims made in the caption."
+  },
+  "inference_time": 8.139044523239136,
+  "ablation_type": "no_image_evidences"
+}

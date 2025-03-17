@@ -1,0 +1,44 @@
+{
+  "caption": "Brooks Headley James Beard winner and former pastry chef at Del Posto picks up some cucumbers from the basement of Superiority Burger This is not about health food Headley said",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Bus",
+      "Bus stop"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Superiority Burger's Blackberry Sorbet | Food Gal",
+        "content": "S u p e r i o r i t y   B u r g e r ' s   B l a c k b e r r y   S o r b e t   |   F o o d   G a l",
+        "caption": "SuperiorityCookbook",
+        "domain": "www.foodgal.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "",
+        "content": "   ",
+        "caption": " Superiority Burger, which was opened in June by award-winning former pastry chef Brooks Headley, draws crowds in Manhattan with its vegetarian burger. ",
+        "domain": "www.iusm.co.kr",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The news caption mentions Brooks Headley, a James Beard winner and former pastry chef at Del Posto, picking up cucumbers from the basement of Superiority Burger, stating it's not about health food. Candidate 2 confirms that Superiority Burger was opened by award-winning former pastry chef Brooks Headley. However, it does not mention him picking up cucumbers or the specific context of the image. Since the Image Similarity Score is low in both cases, and there isn't enough evidence to verify the claim about the cucumbers or the context of the image, the caption is considered out-of-context.",
+      "supporting_evidences": [
+        "▲ Superiority Burger, which was opened in June by award-winning former pastry chef Brooks Headley, draws crowds in Manhattan with its vegetarian burger. 워싱턴포스트"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a man in a white hat and black apron, presumably Brooks Headley, reaching into a basement or lower-level opening, with cucumbers visible inside. Above him is the sign for \"Superiority Burger.\" People are seen entering the establishment. The caption claims Brooks Headley is picking up cucumbers from the basement of Superiority Burger and mentions his statement about it not being about health food. The news content supports the connection between Brooks Headley and Superiority Burger. However, without external confirmation that the person in the image is indeed Headley and that he is specifically picking up cucumbers at that moment, and given that the cucumbers are not the primary focus of the image, the caption can be misleading. While elements align, the caption infers a specific action without enough explicit visual confirmation. The image check confirms this.",
+    "validation_summary": "While the image shows someone who could be Brooks Headley at Superiority Burger, the claim about picking up cucumbers is not definitively verifiable, making the caption potentially misleading and out of context. The primary focus of the image is the restaurant and the entrance, not a specific action of retrieving cucumbers."
+  },
+  "inference_time": 4.61126446723938,
+  "ablation_type": "no_filters"
+}

@@ -1,0 +1,34 @@
+{
+  "caption": "Bryce Harper and Kayla Varner did nt walk the aisle together as planned",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "MLB MVP Bryce Harper and Kayla Varners Rustic, Elegant Wedding Featured a Barn on a Polo Field",
+        "content": "M L B   M V P   B r y c e   H a r p e r   a n d   K a y l a   V a r n e r ' s   R u s t i c ,   E l e g a n t   W e d d i n g   . . .",
+        "caption": "Kayla and Bryce Harper wedding",
+        "domain": "www.yahoo.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5518683195114136,
+        "text_similarity_score": 0.7668075561523438
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.55, which is less than 0.85. The text similarity score is 0.76, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. The caption mentions Bryce Harper and Kayla Varner did nt walk the aisle together as planned, but the candidate caption mentions Kayla and Bryce Harper wedding. Since the image similarity is low, I can't make any judgements.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a bride being escorted down the aisle by a man, presumably her father, at a wedding ceremony. There are guests seated on either side of the aisle. The caption, \"Bryce Harper and Kayla Varner did nt walk the aisle together as planned,\" references a specific couple and implies that their wedding plans changed. Given the image content showing a wedding, it seems the caption relates to an event that didn't occur. The image check result supports this determination, indicating that the image and text similarity scores do not align to support the caption's claim within the image context. Because of the high confidence score, the image check result takes precedence.",
+    "validation_summary": "The caption discusses the cancellation of a wedding while the image shows a wedding ceremony, creating a misleading impression about the event's occurrence. Viewers would likely be confused by the mismatch between the image and caption, as they suggest conflicting events."
+  },
+  "inference_time": 4.496431827545166,
+  "ablation_type": "no_image_evidences"
+}

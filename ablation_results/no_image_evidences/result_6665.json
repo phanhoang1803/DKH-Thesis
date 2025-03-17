@@ -1,0 +1,37 @@
+{
+  "caption": "Cameron and Vladimir Putin at the G20 summit in Brisbane last year The UK and Russia are at odds over Bashar alAssad",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "David Cameron to try to sway Putin over Syria bombing at G20 summit | David Cameron | The Guardian",
+        "content": "D a v i d   C a m e r o n   t o   t r y   t o   s w a y   P u t i n   o v e r   S y r i a   b o m b i n g   a t   G 2 0   . . .",
+        "caption": "Cameron and Vladimir Putin at the G20 summit in Brisbane last year. The UK and Russia are at odds over Bashar al-Assad.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6460643410682678,
+        "text_similarity_score": 0.9414090514183044
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.6460643410682678, which is less than 0.85. The text similarity score is 0.9414090514183044, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than 0.7, the verdict should be 'False'. The candidate caption is 'Cameron and Vladimir Putin at the G20 summit in Brisbane last year. The UK and Russia are at odds over Bashar al-Assad.' and the news caption is 'Cameron and Vladimir Putin at the G20 summit in Brisbane last year The UK and Russia are at odds over Bashar alAssad'. Although the captions are very similar, the image similarity is not high enough to confirm that they are the same image.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.6460643410682678",
+        "Text Similarity Score: 0.9414090514183044"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows John Kerry and Sergey Lavrov shaking hands, with the flags of the United States and Russia visible in the background. The news caption mentions Cameron and Vladimir Putin. Since the people in the image do not match the people mentioned in the caption, the caption is misleading. The image check result confirms that the image similarity between the provided image and an image that is expected based on the caption is low.",
+    "validation_summary": "The caption mentions Cameron and Putin, while the image shows Kerry and Lavrov shaking hands, which would mislead viewers about the actual content of the image. The image check result supports this finding, confirming that the caption and image do not align."
+  },
+  "inference_time": 4.9716668128967285,
+  "ablation_type": "no_image_evidences"
+}

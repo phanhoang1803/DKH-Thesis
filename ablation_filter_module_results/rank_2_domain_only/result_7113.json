@@ -1,0 +1,38 @@
+{
+  "caption": "Jessica Vazquez left hugs her aunt Leticia Alcaraz as they await word on Alcaraz s daughter after a deadly shooting at Umpqua Community College",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Deadly rampage at Umpqua Community College in southern Oregon",
+        "content": "D e a d l y   r a m p a g e   a t   U m p q u a   C o m m u n i t y   C o l l e g e   i n   s o u t h e r n   O r e g o n",
+        "caption": "Friends and family are reunited with students at the local fairgrounds after a deadly shooting at Umpqua Community College in Roseburg, Ore.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. The available evidence mentions a deadly shooting at Umpqua Community College in Roseburg, Ore, which aligns with the news caption. However, it does not explicitly mention Jessica Vazquez, Leticia Alcaraz, or their relationship. Therefore, the caption is not fully verified.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result has a confidence score of 3 and a verdict of false. The image depicts a group of people, including two women hugging and appearing distressed. The caption says that \"Jessica Vazquez left hugs her aunt Leticia Alcaraz as they await word on Alcaraz s daughter after a deadly shooting at Umpqua Community College.\" While the image is consistent with the aftermath of a shooting, the caption includes specific names and relationships that are not confirmed by the image itself. The image check also could not verify these specifics. While the image aligns with the news content in that it shows people reacting to a shooting, the specific relationship and names within the caption cannot be verified from the image alone. Therefore the caption is considered misleading.",
+    "validation_summary": "The caption provides specific details about the people in the image (names and relationships) that cannot be confirmed by the image alone, implying a level of certainty that is not supported. Viewers might be misled into thinking the image confirms the specific identities and relationships described in the caption, when it doesn't."
+  },
+  "inference_time": 4.915360450744629,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

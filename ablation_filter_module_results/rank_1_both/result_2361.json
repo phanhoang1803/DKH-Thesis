@@ -1,0 +1,44 @@
+{
+  "caption": "Nigel Farage and Nick Clegg during the first debate",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Traffic sign",
+      "Traffic",
+      "Sign"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Nick Clegg aims to show emotional side in second debate with Nigel Farage | Nick Clegg | The Guardian",
+        "content": "N i c k   C l e g g   a i m s   t o   s h o w   e m o t i o n a l   s i d e   i n   s e c o n d   d e b a t e   w i t h   N i g e l   . . .",
+        "caption": "Nigel Farage and Nick Clegg during the first debate.  Photograph: Ian West/AFP/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.22290365397930145,
+        "text_similarity_score": 0.8445228934288025
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is less than 0.85 (0.22290365397930145) and the text similarity score is greater than 0.7 (0.8445228934288025). Based on the instructions, I should return 'False' immediately.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The Image Check Result indicates that the image similarity between the provided image and the content described in the caption is low (0.22290365397930145, less than 0.85), while the text similarity is high (0.8445228934288025, greater than 0.7). This suggests that the image content doesn't align with the caption's claim of showing 'Nigel Farage and Nick Clegg during the first debate.' The image depicts Nigel Farage, but there's no evidence of Nick Clegg or a debate setting. Therefore, the caption misrepresents the image content, leading to an 'Out of Context' verdict.",
+    "validation_summary": "The caption claims to show Nigel Farage and Nick Clegg during a debate, but the image only shows Nigel Farage, making the caption misleading. Viewers would be misled into thinking they are seeing both individuals together in a debate setting, which isn't depicted in the image."
+  },
+  "inference_time": 4.539112329483032,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

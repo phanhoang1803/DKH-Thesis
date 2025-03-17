@@ -1,0 +1,67 @@
+{
+  "caption": "Xinjiang is China s largest administrative region and borders eight countries",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Hazaras",
+      "Mark Getty",
+      "Getty Images",
+      "Image",
+      "Getty Images",
+      "Stock photography",
+      "Photograph",
+      "Kabul"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.dk",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9056985378265381,
+        "text_similarity_score": 0.0354454442858696
+      },
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.fi",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9056985378265381,
+        "text_similarity_score": 0.0354454442858696
+      },
+      {
+        "title": "The Energy Industry in Xinjiang, China: Potential, Problems, and Solutions",
+        "content": "T h e   E n e r g y   I n d u s t r y   i n   X i n j i a n g ,   C h i n a :   P o t e n t i a l ,   P r o b l e m s ,   a n d   . . .",
+        "caption": "Xinjiang",
+        "domain": "www.powermag.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.08390042930841446,
+        "text_similarity_score": 0.711859405040741
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Based on the analysis of the provided candidates, I cannot definitively confirm or deny whether the caption accurately represents the image. \n\nCandidate 1 and 2 have high image similarity scores (0.9056985378265381), but low caption similarity scores (0.0354454442858696). This suggests that while the images may be visually similar, the captions do not align with the content of the provided caption which is 'Xinjiang is China s largest administrative region and borders eight countries'.\n\nCandidate 3 has a low image similarity score (0.08390042930841446), meaning the image is not a match. Although the caption similarity is relatively higher at 0.711859405040741 because the candidate caption is 'Xinjiang', due to the very low image similarity, it fails the condition and therefore does not provide sufficient evidence to support the caption being in context.\n\nTherefore, without a clear and direct match between the image and caption of the candidates, I cannot confirm that the caption accurately represents the image. More relevant evidence is needed for a more accurate determination.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a low caption similarity, thus, based on the image check result's verdict, the caption does not accurately represent the image. The image shows a group of people standing on what appears to be a hill or elevated ground, with a mountainous landscape in the background. Several individuals are visible, including women wearing veils or headscarves, children, and a man in traditional attire. This is inconsistent with the caption which describes \"Xinjiang is China s largest administrative region and borders eight countries\", which makes no reference to the people, veils, attire, children or mountainous landscape depicted in the image. Therefore, the image is out of context.",
+    "validation_summary": "The caption fails to mention the people in traditional clothing and mountainous landscape, thus misleading viewers about the content of the image. The caption is geographical, whereas the image depicts people and a landscape, making it out of context."
+  },
+  "inference_time": 7.2437522411346436,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

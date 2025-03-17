@@ -1,0 +1,67 @@
+{
+  "caption": "The Rev Al Sharpton waves to supporters before President Obama and others take a symbolic walk across the Edmund Pettus Bridge",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Car",
+      "Festival",
+      "Audience",
+      "Performance M"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "PHOTOS: Crowds gather for 'Bloody Sunday' anniversary in Selma - ABC7 San Francisco",
+        "content": "P H O T O S :   C r o w d s   g a t h e r   f o r   ' B l o o d y   S u n d a y '   a n n i v e r s a r y   i n   S e l m a   . . .",
+        "caption": "The Rev. Al Sharpton waves to supporters before President Barack Obama and others take a symbolic walk across the Edmund Pettus Bridge on March 7, 2015, in Selma, Ala.",
+        "domain": "abc7news.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.12259159237146378,
+        "text_similarity_score": 0.9049038887023926
+      },
+      {
+        "title": "Selma event marks 50 years after Bloody Sunday",
+        "content": "S e l m a   e v e n t   m a r k s   5 0   y e a r s   a f t e r   B l o o d y   S u n d a y",
+        "caption": "The Rev. Al Sharpton, left, watches supporters before President Barack Obama gives a speech and walks with others in a symbolic walk across the Edmund Pettus Bridge, Saturday, March 7, 2015, in Selma, Ala.",
+        "domain": "www.detroitnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.12185807526111603,
+        "text_similarity_score": 0.8107666969299316
+      },
+      {
+        "title": "President Obama marks Selma civil rights milestone  Chicago Tribune",
+        "content": "P r e s i d e n t   O b a m a   m a r k s   S e l m a   c i v i l   r i g h t s   m i l e s t o n e      C h i c a g o   T r i b u n e",
+        "caption": "The Rev. Al Sharpton waves to supporters before President Obama...",
+        "domain": "www.chicagotribune.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.12802910804748535,
+        "text_similarity_score": 0.7841712236404419
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Based on the provided candidates, none have an image similarity score of 0.85 or higher. Therefore, I cannot definitively confirm the caption accurately represents the image. However, the high text similarity scores across the candidates (0.904, 0.810, and 0.784) suggest a strong topical alignment. All candidate captions mention Rev. Al Sharpton, President Obama, and a symbolic walk across the Edmund Pettus Bridge, mirroring the news caption. This consistency lends some support to the news caption's accuracy, although the low image similarity prevents a conclusive 'True' verdict. Given these factors, I lean towards 'False' due to the image similarity rule but acknowledge the textual relevance.",
+      "supporting_evidences": [
+        "Candidate 1: Caption similarity score: 0.904, mentions Rev. Al Sharpton, President Barack Obama, and the Edmund Pettus Bridge.",
+        "Candidate 2: Caption similarity score: 0.810, mentions Rev. Al Sharpton, President Barack Obama, and the Edmund Pettus Bridge.",
+        "Candidate 3: Caption similarity score: 0.784, mentions Rev. Al Sharpton and President Obama."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 7. Therefore, the final determination must be based on the image check result. The image check result has a verdict of false. This means that the caption does not correctly represent the image content. The image check result explains that based on the provided candidates, none have an image similarity score of 0.85 or higher. Therefore, the image check cannot definitively confirm the caption accurately represents the image. The image check result also states that the high text similarity scores across the candidates suggest a strong topical alignment but the low image similarity prevents a conclusive 'True' verdict.",
+    "validation_summary": "The image check could not definitively confirm the caption accurately represents the image because of low image similarity even though the text similarity was high. The caption is misleading because it does not match the image content."
+  },
+  "inference_time": 8.972691774368286,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

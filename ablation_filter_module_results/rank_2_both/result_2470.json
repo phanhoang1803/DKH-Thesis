@@ -1,0 +1,40 @@
+{
+  "caption": "Russian President Vladimir Putin speaks during a media forum in St Petersburg on April 7",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "What did Putin say at Russias flagship economic forum? | Russia-Ukraine war News | Al Jazeera",
+        "content": "W h a t   d i d   P u t i n   s a y   a t   R u s s i a ' s   f l a g s h i p   e c o n o m i c   f o r u m ?   |   R u s s i a   . . .",
+        "caption": "Russian President Vladimir Putin speaks during a session of the St. Petersburg International Economic Forum (SPIEF) in Saint Petersburg, Russia",
+        "domain": "www.aljazeera.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3824784457683563,
+        "text_similarity_score": 0.8223845362663269
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.3824784457683563, which is less than 0.85. The text similarity score is 0.8223845362663269, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows Vladimir Putin speaking at a media forum in St. Petersburg on April 7. The image check result also indicates that the image similarity score is below 0.85, leading to the conclusion that the caption is out of context despite the high text similarity score. Therefore, the caption is considered out of context because the visual evidence does not strongly support the event described.",
+    "validation_summary": "The image and caption have a low image similarity score, therefore, the caption misrepresents the image content. The caption is out of context because the visual evidence does not strongly support the event described."
+  },
+  "inference_time": 3.4208288192749023,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

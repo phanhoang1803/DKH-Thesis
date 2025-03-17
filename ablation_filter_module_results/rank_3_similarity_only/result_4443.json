@@ -1,0 +1,49 @@
+{
+  "caption": "Broadway Avenue in Pleasant Beach New Jersey is littered with boats washed ashore by Sandy",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Flag of the United States",
+      "United States",
+      "Flag"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Superstorm Sandy hits the US north-east - in pictures | US news | The Guardian",
+        "content": "S u p e r s t o r m   S a n d y   h i t s   t h e   U S   n o r t h - e a s t   -   i n   p i c t u r e s   |   U S   n e w s   . . .",
+        "caption": "Sandy on east coast: Residents walk along Broadway Avenue in  Pleasant Beach, New Jersey",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2805349826812744,
+        "text_similarity_score": 0.766761064529419
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is low (0.2805349826812744 < 0.85). According to the instruction, the caption must be marked as out-of-context, even if the text similarity score is high. The caption of the news is 'Broadway Avenue in Pleasant Beach New Jersey is littered with boats washed ashore by Sandy'. The caption of the candidate is 'Sandy on east coast: Residents walk along Broadway Avenue in  Pleasant Beach, New Jersey'. Although the text similarity is high (0.766761064529419), the candidate doesn't mention boats being washed ashore. Therefore, the candidate does not fully support the news caption.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.2805349826812744",
+        "Caption Similarity Score: 0.766761064529419",
+        "News Caption: Broadway Avenue in Pleasant Beach New Jersey is littered with boats washed ashore by Sandy",
+        "Candidate Caption: Sandy on east coast: Residents walk along Broadway Avenue in Pleasant Beach, New Jersey"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows a devastated area with debris and an American flag. The news caption describes 'Broadway Avenue in Pleasant Beach New Jersey is littered with boats washed ashore by Sandy'. This caption does not accurately reflect the image content. The image check result confirms a low image similarity score and that the candidate caption does not fully support the news caption. Therefore, the image is out of context.",
+    "validation_summary": "The image depicts general devastation, while the caption specifically mentions boats washed ashore in Pleasant Beach, New Jersey, a detail not present in the image, leading to a misleading representation of the scene."
+  },
+  "inference_time": 7.2990827560424805,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

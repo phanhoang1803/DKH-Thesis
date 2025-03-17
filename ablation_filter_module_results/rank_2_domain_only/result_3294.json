@@ -1,0 +1,45 @@
+{
+  "caption": "Donald Trump during Wednesday night s debate in Las Vegas",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Fact Check & Analysis Of Third 2016 Presidential Debate With Hillary Clinton And Donald Trump : NPR",
+        "content": "F a c t   C h e c k   &   A n a l y s i s   O f   T h i r d   2 0 1 6   P r e s i d e n t i a l   D e b a t e   W i t h   . . .",
+        "caption": "Hillary Clinton and Donald Trump debate for the final time Wednesday night.",
+        "domain": "www.npr.org",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Live updates: Trump and Harris debate in Philadelphia | PBS News",
+        "content": "L i v e   u p d a t e s :   T r u m p   a n d   H a r r i s   d e b a t e   i n   P h i l a d e l p h i a   |   P B S   N e w s",
+        "caption": "US-VOTE-POLITICS-DEBATE-HARRIS-TRUMP",
+        "domain": "www.pbs.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are low for both candidates (0.0). Furthermore, the caption similarity scores are also low (0.0). Therefore, there is not enough evidence to prove that the image represents the caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows Donald Trump at a podium, speaking and gesturing during what appears to be a debate or rally. The caption states, \"Donald Trump during Wednesday night s debate in Las Vegas\". Based solely on the image, it is impossible to verify if the event was indeed a debate in Las Vegas on a Wednesday night. The image check result also indicates the images are dissimilar and captions are too, therefore, the caption cannot be confirmed as an accurate representation. The image shows Donald Trump at a debate or rally.",
+    "validation_summary": "Without external verification, it is impossible to confirm that the image shows Donald Trump at a debate in Las Vegas on a Wednesday night based on the image alone, therefore, the caption cannot be validated as an accurate representation and is therefore likely misleading to viewers with the provided caption in the context of the given news article about Donald Trump's rhetoric about a 'rigged' election as the news article does not mention the 'Wednesday night debate in Las Vegas'. Therefore, it can be misleading to the viewer and is considered OOC. The image check's low similarity score and low caption score proves that the news article and image and caption are not in alignment with each other, therefore the caption is OOC because it is only a random description without any additional context from the news article provided to assist the viewer to better understand what is being shown."
+  },
+  "inference_time": 4.718242645263672,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

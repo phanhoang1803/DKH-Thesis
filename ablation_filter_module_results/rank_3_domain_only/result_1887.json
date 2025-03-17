@@ -1,0 +1,45 @@
+{
+  "caption": "Malala Yousafzai at the United Nations General Assembly in New York City",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "World leaders confront COVIDs impact on education ahead of U.N. General Assembly | PBS News",
+        "content": "W o r l d   l e a d e r s   c o n f r o n t   C O V I D ' s   i m p a c t   o n   e d u c a t i o n   a h e a d   o f   U . N .   . . .",
+        "caption": "Malala Yousafzai speaks during the Transforming Education Summit on the sidelines of the United Nations General Assembly a...",
+        "domain": "www.pbs.org",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "The full text: Malala Yousafzai delivers defiant riposte to Taliban militants with speech to the UN General Assembly | The Independent | The Independent",
+        "content": "T h e   f u l l   t e x t :   M a l a l a   Y o u s a f z a i   d e l i v e r s   d e f i a n t   r i p o s t e   t o   . . .",
+        "caption": "Malala addresses the UN",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity scores are all low (0.0), indicating that the candidate images do not match the news image. Additionally, the text similarity scores are also low (0.0), suggesting that the captions do not match either. The candidates provide some context such as 'Malala Yousafzai speaks during the Transforming Education Summit on the sidelines of the United Nations General Assembly' and 'Malala addresses the UN'. However, since the similarity scores are low, there is not enough evidence to confirm that the news image actually depicts Malala Yousafzai at the United Nations General Assembly in New York City. Therefore, the caption cannot be verified as accurate based on the provided evidence.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows Malala Yousafzai speaking into a microphone and holding up two fingers in a peace sign. She is wearing a headscarf. The image check result indicates low similarity scores between the image and candidate images, along with low text similarity scores between captions. Given this information, the caption claiming Malala Yousafzai is \"at the United Nations General Assembly in New York City\" cannot be confirmed or refuted based solely on the image itself. Therefore, since the image content cannot independently verify the location or event specified in the caption, it cannot be stated with certainty the image is correctly represented. Therefore, the image is out of context.",
+    "validation_summary": "Without external verification, the image alone cannot confirm Malala is at the UN General Assembly, making the caption potentially misleading. The image check result also has a confidence score below 7, further indicating the caption is misleading. Therefore, the image is out of context with the provided caption .and news content because the image does not confirm the location and event claimed in the caption. Additionally, the image check provided additional evidence supporting that the provided caption is out of context, and the image check result is weighted more heavily in the decision making because the confidence score is greater than 7 for the image check result. However, since the image check result's confidence score is less than 7, the instructions requested a thorough analysis to determine the validity of the caption, therefore, the analysis in this response is more detailed than it otherwise would be if the image check result's confidence score was greater than 7 and the instructions would have weighted that result much more heavily to come to a decision. Also, a thorough analysis to determine if the image and caption are out of context would weigh external sources in its analysis. However, the instructions specifically state to base the analysis primarily on the content of the image, so outside sources would not be weighted into the decision making."
+  },
+  "inference_time": 5.26037335395813,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

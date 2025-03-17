@@ -1,0 +1,40 @@
+{
+  "caption": "Madison Keys reacts during her bronze medal match against Petra Kvitova",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Bocas Madison Keys fails in bid for bronze medal; Miamis Puig wins gold  Sun Sentinel",
+        "content": "B o c a ' s   M a d i s o n   K e y s   f a i l s   i n   b i d   f o r   b r o n z e   m e d a l ;   M i a m i ' s   P u i g   . . .",
+        "caption": "Madison Keys of the United States reacts after she loses a point to Petra Kvitova of the Czech Republic during their women's singles bronze medal tennis match at the 2016 Summer Olympics in Rio de Janeiro, Brazil, Saturday, Aug. 13, 2016.",
+        "domain": "www.sun-sentinel.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.33625030517578125,
+        "text_similarity_score": 0.8315678238868713
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is below 0.85, and the text similarity score is above 0.7. According to the instructions, the caption must be marked as out-of-context. Therefore, the verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a woman in athletic wear bent over while being supported by a medical professional. The scene appears to be on a tennis court. The caption claims the image is of \"Madison Keys reacting during her bronze medal match against Petra Kvitova.\" The image check result indicates that the caption is out of context with a high confidence score of 10. Given this, the image and caption do not align, and therefore the caption is deemed out of context.",
+    "validation_summary": "The image depicts a tennis player receiving medical attention, which is unrelated to the caption's description of Madison Keys reacting during a match. The caption is misleading as it misrepresents the scene in the image."
+  },
+  "inference_time": 6.141525745391846,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

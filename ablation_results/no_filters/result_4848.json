@@ -1,0 +1,39 @@
+{
+  "caption": "Elected mayor scheme opposed by the community secretary Eric Pickles and Tory local council leaders",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Leader of Wiltshire council: 'The cuts have been manageable' | Local government | The Guardian",
+        "content": "J a n e - S c o t t - l e a d e r - o f - W i l t - 0 0 6 .   . . .",
+        "caption": "Wiltshire council leader, Jane Scott: 'We haven't closed one library.' Photograph: Sam Frost for the Guardian",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Leader of Wiltshire council: 'The cuts have been manageable' | Local government | The Guardian",
+        "content": "J a n e - S c o t t - l e a d e r - o f - W i l t - 0 0 6 .   . . .",
+        "caption": "Wiltshire council leader, Jane Scott: 'We haven't closed one library.' Photograph: Sam Frost for the Guardian",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0 for both candidates. Therefore, the strict decision rules cannot be applied. Neither candidate provides any supporting information for the news caption, which mentions \"elected mayor scheme opposed by the community secretary Eric Pickles and Tory local council leaders.\" The candidate captions discuss Wiltshire council leader Jane Scott and library closures, which are unrelated to the news caption's content. Thus, there is no evidence to support the caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows two men, one wearing a mayoral chain. The caption states \"Elected mayor scheme opposed by the community secretary Eric Pickles and Tory local council leaders\". This caption does not accurately represent the image, as it references a political issue and figures not present in the picture. There is no visual connection between the image and the caption's claim, making the image out of context.",
+    "validation_summary": "The image depicts a person wearing a mayoral chain, while the caption discusses a political dispute; therefore, the image is unrelated and misleading in the context of the caption's claim, leading to an out-of-context determination. The image check result confirms this."
+  },
+  "inference_time": 3.407924175262451,
+  "ablation_type": "no_filters"
+}

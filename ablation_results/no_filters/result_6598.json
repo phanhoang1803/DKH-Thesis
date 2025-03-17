@@ -1,0 +1,41 @@
+{
+  "caption": "Peter Wallace leaves the field on crutches in a sore sight for Panthers fans",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "EFL Championship"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "story Archives - Page 4 of 7 - The Atavist Magazine",
+        "content": "s t o r y   A r c h i v e s   -   P a g e   4   o f   7   -   T h e   A t a v i s t   M a g a z i n e",
+        "caption": "Captain Fritz Duquesne",
+        "domain": "magazine.atavist.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "story Archives - Page 4 of 7 - The Atavist Magazine",
+        "content": "s t o r y   A r c h i v e s   -   P a g e   4   o f   7   -   T h e   A t a v i s t   M a g a z i n e",
+        "caption": "Captain Fritz Duquesne",
+        "domain": "magazine.atavist.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "Both candidates have low image and text similarity scores. The captions of the candidates are about 'Captain Fritz Duquesne', while the news caption is about 'Peter Wallace leaving the field on crutches'. Therefore, the candidates do not provide any evidence to support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result shows a low similarity score between the image and the news caption. The news caption mentions 'Peter Wallace leaving the field on crutches', but the image shows a man in a tracksuit without any crutches. He has a mark on his forehead, but nothing suggests he is leaving the field on crutches or has any injury.",
+    "validation_summary": "The caption is misleading as the image does not show Peter Wallace leaving the field on crutches, as the caption suggests. Therefore, the image is out of context with the caption provided."
+  },
+  "inference_time": 3.788480281829834,
+  "ablation_type": "no_filters"
+}

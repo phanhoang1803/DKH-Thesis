@@ -1,0 +1,49 @@
+{
+  "caption": "Herc Domenick Lombardozzi in his Baltimore days",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "IIS 10.0 Detailed Error - 404.0 - Not Found",
+        "content": "",
+        "caption": "",
+        "domain": "www.ncccc.gov.eg",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9855549335479736,
+        "text_similarity_score": 0.16408777236938477
+      },
+      {
+        "title": "Domenick Lombardozzi | The Wire | Fandom",
+        "content": "D o m e n i c k   L o m b a r d o z z i   |   T h e   W i r e   |   F a n d o m",
+        "caption": "Domenick Lombardozzi",
+        "domain": "thewire.fandom.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.07959715276956558,
+        "text_similarity_score": 0.7611076831817627
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Candidate 1 has a high image similarity score (0.9855549335479736), suggesting the image is similar to the news image. However, the caption similarity score is low (0.16408777236938477). The caption is empty and doesn't give any information. Candidate 2 has a low image similarity score (0.07959715276956558), indicating the image is not similar to the news image. The caption similarity score is 0.7611076831817627, but because the image similarity is so low, it is out of context. Given the conflicting data and low text similarity for both candidates, there is not enough evidence to support the caption. Thus, the caption is considered out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result provides a high confidence score of 6 and a verdict of False for the caption's accuracy. This indicates that the caption is out of context with the image. The image shows a baseball player in a Yankee's uniform and the caption mentions Herc Domenick Lombardozzi in his Baltimore days. The high image similarity score in Candidate 1 indicates the image is similar to the news image, however the low text similarity makes it out of context. Therefore, it can be concluded that the caption does not accurately represent the content of the image.",
+    "validation_summary": "The caption states the image shows Herc Domenick Lombardozzi in his Baltimore days, but the image shows a baseball player in a Yankee's uniform, making the caption misleading and out of context to the image's content and context in which it is trying to represent this image to the general audience. The image check confirms the caption is out of context and thus the caption is considered to be misleading to the audience if paired with this image and displayed to the public."
+  },
+  "inference_time": 9.476110458374023,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

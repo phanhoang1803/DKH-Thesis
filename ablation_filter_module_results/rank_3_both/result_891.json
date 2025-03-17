@@ -1,0 +1,62 @@
+{
+  "caption": "Iranians celebrate the nuclear agreement in Tehran",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Israeli security cabinet slams Iran nuclear deal | News | Al Jazeera",
+        "content": "I s r a e l i   s e c u r i t y   c a b i n e t   s l a m s   I r a n   n u c l e a r   d e a l   |   N e w s   |   A l   J a z e e r a",
+        "caption": "Iranians celebrate the nuclear agreement with world powers in Lausanne, on a street in northern Tehran[AP]",
+        "domain": "www.aljazeera.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2107124775648117,
+        "text_similarity_score": 0.8239468932151794
+      },
+      {
+        "title": "Trump can preserve nuclear deal while reviewing Iran policy",
+        "content": "T r u m p   c a n   p r e s e r v e   n u c l e a r   d e a l   w h i l e   r e v i e w i n g   I r a n   p o l i c y",
+        "caption": "In this July 14, 2015 file photo, jubilant Iranians celebrate a landmark nuclear deal in Tehran, Iran. World powers and Iran struck a historic deal to curb Iran's nuclear program in exchange for billions of dollars in relief from international sanctions.",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3881304860115051,
+        "text_similarity_score": 0.7802792191505432
+      },
+      {
+        "title": "Iran nuclear deal: Jubilation in Tehran, relief in the White House and dismay in Israel as agreement is finally reached | The Independent | The Independent",
+        "content": "I r a n   n u c l e a r   d e a l :   J u b i l a t i o n   i n   T e h r a n ,   r e l i e f   i n   t h e   W h i t e   H o u s e   . . .",
+        "caption": "Iranians celebrate in the streets of Tehran",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.37118470668792725,
+        "text_similarity_score": 0.7668465375900269
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Based on the provided candidates, all have image similarity scores below 0.85. Therefore, the strict decision rules dictate that the caption should be marked as out-of-context. However, considering the content of the captions, they all indicate that Iranians celebrated the nuclear agreement in Tehran, which aligns with the news caption. Candidate 1 specifies the location as a street in northern Tehran, and candidate 2 mentions jubilant Iranians celebrating the nuclear deal in Tehran. Candidate 3 directly states Iranians celebrate in the streets of Tehran. Given these consistencies, there's a moderate indication that the news caption accurately reflects the image context, but due to low image similarity scores, I cannot be fully confident.",
+      "supporting_evidences": [
+        "Candidate 1: Iranians celebrate the nuclear agreement with world powers in Lausanne, on a street in northern Tehran",
+        "Candidate 2: In this July 14, 2015 file photo, jubilant Iranians celebrate a landmark nuclear deal in Tehran, Iran.",
+        "Candidate 3: Iranians celebrate in the streets of Tehran"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts a densely packed crowd of people at night, with many individuals holding up their phones. The overall atmosphere appears tense. The news caption states that \"Iranians celebrate the nuclear agreement in Tehran\". However, the image does not obviously reflect a celebration. There are no clear signs of celebration in the image, such as celebratory gestures, attire, or decorations. The image check result also supports that the image may be out of context, with low similarity scores among the candidate images. Therefore, the image is out of context with the news caption.",
+    "validation_summary": "The image does not obviously reflect a celebration, and therefore the news caption is misleading. The image shows a crowd of people at night, which does not support the claim that it is a celebration by Iranians of the nuclear agreement in Tehran, making it out of context."
+  },
+  "inference_time": 6.1476428508758545,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "caption": "Kentucky Wildcats guard Aaron Harrison is congratulated by teammates Dakari Johnson and Julius Randle after making the gamewinning basket against Michigan",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Murphy Holloway",
+      "Nashville",
+      "Basketball",
+      "University of Mississippi",
+      "Southeastern Conference",
+      "Mississippi River",
+      "Basketball Player",
+      "Florida"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "US NCAA: Aaron Harrison's trey punches Kentucky's ticket to the Final Four | GMA News Online",
+        "content": "U S   N C A A :   A a r o n   H a r r i s o n ' s   t r e y   p u n c h e s   K e n t u c k y ' s   t i c k e t   t o   t h e   . . .",
+        "caption": "Kentucky Wildcats guard Aaron Harrison (2) is congratulated by teammates Dakari Johnson (right) and Julius Randle (middle) after making the game-winning three-point shot.",
+        "domain": "www.gmanetwork.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7101904153823853,
+        "text_similarity_score": 0.9328604340553284
+      },
+      {
+        "title": "NCAA tournament: Kentucky edges Michigan for last spot in Final Four - Los Angeles Times",
+        "content": "N C A A   t o u r n a m e n t :   K e n t u c k y   e d g e s   M i c h i g a n   f o r   l a s t   s p o t   i n   F i n a l   . . .",
+        "caption": "Kentucky forward Aaron Harrison is congratulated by teammates Julius Randle (left) and Dakari Johnson (44) after making a three-point shot with 2.3 seconds left to clinch a victory over Michigan in the Midwest Regional final on Sunday in Indianapolis.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7477244734764099,
+        "text_similarity_score": 0.8322226405143738
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both candidate captions describe a scene where Kentucky Wildcats guard Aaron Harrison is being congratulated by teammates Dakari Johnson and Julius Randle after making a game-winning shot. Candidate 1 has an image similarity score of 0.71 and a text similarity score of 0.93. Candidate 2 has an image similarity score of 0.74 and a text similarity score of 0.83. Although the image similarity scores are less than 0.85, the captions align well with the news caption. Therefore, the news caption accurately represents the image context.",
+      "supporting_evidences": [
+        "Kentucky Wildcats guard Aaron Harrison (2) is congratulated by teammates Dakari Johnson (right) and Julius Randle (middle) after making the game-winning three-point shot.",
+        "Kentucky forward Aaron Harrison is congratulated by teammates Julius Randle (left) and Dakari Johnson (44) after making a three-point shot with 2.3 seconds left to clinch a victory over Michigan in the Midwest Regional final on Sunday in Indianapolis."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image features three basketball players in white and blue Saint Louis jerseys standing on a basketball court. The players are wearing jerseys with the numbers 3, 24, and 21. The background shows spectators in the stands. The caption describes Kentucky Wildcats players Aaron Harrison, Dakari Johnson, and Julius Randle, which does not match the players or team shown in the image. Thus, the caption is out of context because it incorrectly identifies the team and players depicted in the image.",
+    "validation_summary": "The image shows Saint Louis basketball players, but the caption describes Kentucky Wildcats players, misleading viewers about the image's content. The caption incorrectly identifies the team and players in the photo, making it out of context."
+  },
+  "inference_time": 4.54104471206665,
+  "ablation_type": "no_image_evidences"
+}

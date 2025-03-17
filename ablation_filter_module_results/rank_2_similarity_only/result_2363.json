@@ -1,0 +1,45 @@
+{
+  "caption": "Britain s home secretary Theresa May at a Board of Deputies of British Jews event in London",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Vic Parsons | The Independent",
+        "content": "P l e a s e   r e f r e s h   t h e   p a g e   o r   n a v i g a t e   t o   a n o t h e r   p a g e   o n   t h e   s i t e   t o   b e   a u t o m a t i c a l l y   l o g g e d   i n P l e a s e   r e f r e s h   y o u r   b r o w s e r   t o   b e   l o g g e d   i n \n \n V i c   P a r s o n s   i s   a   g e n d e r   a n d   i d e n t i t y   r e p o r t e r   a t & a m p n b s p P i n k N e w s . \n \n P l e a s e   r e f r e s h   t h e   p a g e   o r   n a v i g a t e   t o   a n o t h e r   p a g e   o n   t h e   s i t e   t o   b e   a u t o m a t i c a l l y   l o g g e d   i n P l e a s e   r e f r e s h   y o u r   b r o w s e r   t o   b e   l o g g e d   i n",
+        "caption": "Home Secretary Theresa May arrives at Brixton Recreation Centre in south London (PA)",
+        "domain": "www.independent.co.uk",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9395235180854797,
+        "text_similarity_score": 0.6219026446342468
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is high (0.9395235180854797), suggesting the images are visually similar. However, the text similarity score is low (0.6219026446342468), indicating the captions are not very similar. The news caption mentions \"Britain's home secretary Theresa May at a Board of Deputies of British Jews event in London,\" while the candidate caption states, \"Home Secretary Theresa May arrives at Brixton Recreation Centre in south London.\" Since the locations mentioned in the captions are different (a Jewish event in London vs. Brixton Recreation Centre in south London), the captions are out-of-context. Therefore, the evidence does not confirm the caption accurately represents the image.",
+      "supporting_evidences": [
+        "Caption: Home Secretary Theresa May arrives at Brixton Recreation Centre in south London (PA)",
+        "Image Similarity Score: 0.9395235180854797",
+        "Caption Similarity Score: 0.6219026446342468",
+        "Domain: www.independent.co.uk"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a high image similarity but a low caption similarity. Specifically, the confidence score is 7, implying the final determination is based on the image check result. The image similarity score is 0.9395235180854797, suggesting the images are visually similar. However, the text similarity score is low at 0.6219026446342468, indicating that the captions are not very similar. The analysis indicates that the locations described in the captions are different. The news caption mentions a Jewish event in London, while the candidate caption mentions Brixton Recreation Centre in south London. Because of this discrepancy, the image does not represent the caption, suggesting it is out of context.",
+    "validation_summary": "The news caption mentions a specific event that doesn't align with the identified location in the compared caption, potentially misleading viewers about the context of the image. Therefore, the image is out of context because the caption's implications don't match the supporting evidence and result from the image check analysis that the locations are different.  Brixton Recreation Centre in south London vs a Jewish event in London does not correlate so the image cannot represent the news caption that mentions the Jewish event. Therefore OOC = true with a confidence score of 7. The image check result directs to follow its results with a confidence of 7 and above. So I am following that result here. Therefore the image is out of context as the captions are in different locations and themes and events. The image cannot represent the news caption if they are in different locations. It may lead the user to believe that the news caption is where Theresa May is in the photo, but the independent source caption of the image says otherwise. The analysis indicates that the locations described in the captions are different. The news caption mentions a Jewish event in London, while the candidate caption mentions Brixton Recreation Centre in south London. Because of this discrepancy, the image does not represent the caption, suggesting it is out of context."
+  },
+  "inference_time": 6.892757892608643,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

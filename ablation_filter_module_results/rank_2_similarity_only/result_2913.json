@@ -1,0 +1,52 @@
+{
+  "caption": "US House Speaker John Boehner a Republican from Ohio speaks during a news conference at the Capitol in Washington DC US on Thursday Feb 6 2014 Photographer Pete MarovichBloomberg",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Latino Voters Will Blame Republicans If Immigration Reform Fails, Poll Says | HuffPost Voices",
+        "content": "L a t i n o   V o t e r s   W i l l   B l a m e   R e p u b l i c a n s   I f   I m m i g r a t i o n   R e f o r m   F a i l s   . . .",
+        "caption": "U.S. House Speaker John Boehner, a Republican from Ohio, speaks during a news conference at the Capitol in Washington, D.C., U.S., on Thursday, Feb. 6, 2014. Boehner said it would be difficult to pass an immigration bill because fellow Republicans dont trust President Barack Obama to implement the law, a position that shrinks chances for House action this year. Photographer: Pete Marovich/Bloomberg via Getty Images ",
+        "domain": "www.huffpost.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6495617628097534,
+        "text_similarity_score": 0.7937690019607544
+      },
+      {
+        "title": "House GOP Passes Immigration-Related Bill That Goes After Dreamers | HuffPost Latest News",
+        "content": "H o u s e   G O P   P a s s e s   I m m i g r a t i o n - R e l a t e d   B i l l   T h a t   G o e s   A f t e r   D r e a m e r s   . . .",
+        "caption": "U.S. House Speaker John Boehner, a Republican from Ohio, speaks during a news conference at the Capitol in Washington, D.C., U.S., on Thursday, Feb. 6, 2014. Boehner said it would be difficult to pass an immigration bill because fellow Republicans dont trust President Barack Obama to implement the law, a position that shrinks chances for House action this year. Photographer: Pete Marovich/Bloomberg via Getty Images ",
+        "domain": "www.huffpost.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6249799728393555,
+        "text_similarity_score": 0.7937690019607544
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions have high text similarity scores (≥ 0.7), indicating substantial overlap in content with the news caption. However, the image similarity scores are below the 0.85 threshold, signaling that the images are not closely matched enough to definitively confirm the news caption's accuracy based on image context alone. The captions of candidate 1 and 2 contains the following information:  U.S. House Speaker John Boehner, a Republican from Ohio, speaks during a news conference at the Capitol in Washington, D.C., U.S., on Thursday, Feb. 6, 2014. Boehner said it would be difficult to pass an immigration bill because fellow Republicans dont trust President Barack Obama to implement the law. This closely aligns with the information presented in the news caption. The high text similarity suggests a strong likelihood that the news caption accurately describes the event depicted in the image, though the lower image similarity prevents absolute certainty.",
+      "supporting_evidences": [
+        "Candidate 1 Caption",
+        "Candidate 2 Caption"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a confidence score of 7. The news caption states: \"US House Speaker John Boehner a Republican from Ohio speaks during a news conference at the Capitol in Washington DC US on Thursday Feb 6 2014 Photographer Pete MarovichBloomberg\". The image check identifies that both candidate captions contain similar information, specifically identifying John Boehner as speaking during a news conference at the Capitol. Although the image similarity score is below the threshold, the text similarity and high confidence score indicates that the news caption accurately describes the image content. Therefore, the image is not out of context.",
+    "validation_summary": "The news caption correctly identifies John Boehner speaking at a news conference, aligning with the content of the image and supporting candidate captions. Viewers would not be misled about the context of the image based on the provided caption."
+  },
+  "inference_time": 4.567705392837524,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

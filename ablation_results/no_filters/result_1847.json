@@ -1,0 +1,51 @@
+{
+  "caption": "Ed Miliband campaigning in Oldham East and Saddleworth before Christmas",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Ed Balls",
+      "Labour Party",
+      "Shadow Chancellor of the Exchequer",
+      "Shadow Home Secretary of the United Kingdom",
+      "front",
+      "Leader of the Labour Party of the United Kingdom",
+      "past",
+      "Resonant Chord",
+      "side"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Miliband raises the stakes as the battle for Oldham East intensifies | Ed Miliband | The Guardian",
+        "content": "M i l i b a n d   r a i s e s   t h e   s t a k e s   a s   t h e   b a t t l e   f o r   O l d h a m   E a s t   . . .",
+        "caption": "Ed Miliband campaigning in Oldham East and Saddleworth before Christmas. Photograph: Anna Gowthorpe/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Miliband raises the stakes as the battle for Oldham East intensifies | Ed Miliband | The Guardian",
+        "content": "O l d h a m - E a s t - a n d - S a d d l e w o r - 0 0 7 .   . . .",
+        "caption": "Ed Miliband campaigning in Oldham East and Saddleworth before Christmas. Photograph: Anna Gowthorpe/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have low image and text similarity scores. However, they share the exact same caption as the news, which states, \"Ed Miliband campaigning in Oldham East and Saddleworth before Christmas.\" Both candidates are from a reliable source (www.theguardian.com), and they explicitly mention Ed Miliband's campaign in Oldham East and Saddleworth before Christmas. Since the key elements of the caption (Ed Miliband, campaign, location, and time) are directly confirmed, I can provide a verdict. However, given the low similarity scores, I cannot be completely confident.",
+      "supporting_evidences": [
+        "Ed Miliband campaigning in Oldham East and Saddleworth before Christmas. Photograph: Anna Gowthorpe/PA"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 6,
+    "validation_summary": "The caption accurately describes Ed Miliband campaigning in Oldham East and Saddleworth before Christmas, matching the event shown in the image, but the certainty of this assessment is somewhat low due to image and text similarity factors.",
+    "explanation": "The news caption states, 'Ed Miliband campaigning in Oldham East and Saddleworth before Christmas.' This description is in direct alignment with the depicted event where Ed Miliband is actively campaigning in the specified location. While the image check score is relatively low at 6, indicating some uncertainty owing to other image-text candidates, the evidence from the image - showing Miliband engaged in a campaign - supports the claims made in the caption. Overall, there are no major contradictions or misleading elements observed. Thus, it is reasonable to affirm that the caption reflects the image content accurately, even though there are doubts due to the low similarity score."
+  },
+  "inference_time": 9.973034620285034,
+  "ablation_type": "no_filters"
+}

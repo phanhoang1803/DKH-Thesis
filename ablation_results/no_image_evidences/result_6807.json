@@ -1,0 +1,41 @@
+{
+  "caption": "Redskins quarterback Colt McCoy scrambles out of the pocket in the fourth quarter",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "American football",
+      "Arena football"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Washington Redskins outlast Dallas Cowboys in overtime, 20-17 - Los Angeles Times",
+        "content": "W a s h i n g t o n   R e d s k i n s   o u t l a s t   D a l l a s   C o w b o y s   i n   o v e r t i m e ,   2 0 - 1 7   . . .",
+        "caption": "Washington Redskins quarterback Colt McCoy scrambles out of the pocket during the second half of a 20-17 overtime win against the Dallas Cowboys on Monday night.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7292599678039551,
+        "text_similarity_score": 0.9350647926330566
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "The news caption states, \"Redskins quarterback Colt McCoy scrambles out of the pocket in the fourth quarter.\" The candidate caption states, \"Washington Redskins quarterback Colt McCoy scrambles out of the pocket during the second half of a 20-17 overtime win against the Dallas Cowboys on Monday night.\" The image similarity score is 0.7292599678039551, and the caption similarity score is 0.9350647926330566. Although the image similarity is below the threshold of 0.85, the caption similarity is above 0.7. The candidate caption explicitly mentions Colt McCoy scrambling out of the pocket, which aligns with the news caption. The candidate caption provides additional context, specifying that this action occurred during a game against the Dallas Cowboys, further supporting the accuracy of the news caption's description of the image.",
+      "supporting_evidences": [
+        "Caption: Washington Redskins quarterback Colt McCoy scrambles out of the pocket during the second half of a 20-17 overtime win against the Dallas Cowboys on Monday night.",
+        "Image Similarity Score: 0.7292599678039551",
+        "Caption Similarity Score: 0.9350647926330566"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts a quarterback throwing a football, wearing a white and red jersey with the number 8. He is wearing a helmet and is surrounded by other players, some of whom are wearing purple jerseys. The news caption states, \"Redskins quarterback Colt McCoy scrambles out of the pocket in the fourth quarter\". However, based on visual inspection, the jersey in the image is not consistent with a Redskins uniform, and the player doesn't obviously resemble Colt McCoy. The image check result supports the idea that the caption is out of context, because it identified the player as Colt McCoy in the candidate caption, but the image similarity score is below the threshold, suggesting that the image is not depicting what the news caption suggests. Therefore, the image is OOC because the caption does not accurately describe the image content.",
+    "validation_summary": "The caption incorrectly identifies the team of the quarterback and therefore misrepresents the image content. Viewers would be misled about the team and potentially the player in the image."
+  },
+  "inference_time": 5.743199348449707,
+  "ablation_type": "no_image_evidences"
+}

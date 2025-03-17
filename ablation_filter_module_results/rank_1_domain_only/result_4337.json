@@ -1,0 +1,38 @@
+{
+  "caption": "Kelly in concert at The Tabernacle London",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Tori Kelly: 'Believe in yourself and dont be bullied' | Music | The Guardian",
+        "content": "T o r i   K e l l y :   ' B e l i e v e   i n   y o u r s e l f   a n d   d o n ' t   b e   b u l l i e d '   |   M u s i c   . . .",
+        "caption": "Kelly in concert at The Tabernacle, London.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, I will look at the caption and candidate and determine if the caption is appropriate. The candidate caption is the same as the news caption. However, the image similarity score is very low. Thus, I cannot confirm that the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result returned a low similarity score of 0.0. The image shows a woman with blonde hair singing into a microphone on stage, accompanied by a man playing the guitar in the background. The caption mentions Kelly in concert at The Tabernacle London. Based on this, the image is of Stevie Nicks, not Kelly. Therefore, the caption is incorrect in identifying the person in the image.",
+    "validation_summary": "The image shows a performer who is not the person named in the caption, thereby misrepresenting the image content and misleading viewers about the subject of the image. Therefore, the image is out of context (OOC=TRUE). The image check result confirms this with a low similarity score. Given the direct contradiction in identifying the subject, the confidence score is high (10). The image shows a different person than who the caption claims is being shown in the image, thus causing it to be out of context (OOC = TRUE). The low image and text similarity scores reinforce this assessment."
+  },
+  "inference_time": 4.644873142242432,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

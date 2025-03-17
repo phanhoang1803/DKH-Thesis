@@ -1,0 +1,34 @@
+{
+  "caption": "A visitor uses his Apple iPhone to take a picture of the new Samsung Galaxy 6 smartphone at GSM Mobile World Congress in Barcelona this week",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Apple overtakes Samsung as the world's biggest smartphone maker | Apple | The Guardian",
+        "content": "A p p l e   o v e r t a k e s   S a m s u n g   a s   t h e   w o r l d ' s   b i g g e s t   s m a r t p h o n e   m a k e r   . . .",
+        "caption": "A visitor uses his Apple iPhone to take a picture of the new Samsung Galaxy 6 smartphone at GSM Mobile World Congress in Barcelona this week.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.40508392453193665,
+        "text_similarity_score": 0.9828288555145264
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is below 0.85 (0.40508392453193665), so I cannot confirm that the candidate image matches the news image. Although the text similarity score is high (0.9828288555145264), this cannot be used to confirm that the caption accurately represents what the news image shows, since the image similarity is low. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption inaccurately represents the image content, suggesting a visitor is photographing a Samsung Galaxy 6 when the image does not confirm this.",
+    "explanation": "The caption asserts that a visitor is taking a picture of a Samsung Galaxy 6 smartphone using an iPhone, which creates a specific expectation for the visual evidence. However, the image check result indicates low similarity to any specific image depicting the Galaxy 6 smartphone. This implies that the actual content of the image might not involve the Samsung Galaxy 6, but potentially another device or scene entirely. Since the image similarity score is significantly below the 0.85 threshold, it cannot be confirmed that the Samsung Galaxy 6 is even present in the image. Therefore, the caption is misrepresentative, leading to a misunderstanding for viewers regarding the actual subject matter displayed."
+  },
+  "inference_time": 6.93865442276001,
+  "ablation_type": "no_image_evidences"
+}

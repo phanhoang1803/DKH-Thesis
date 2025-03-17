@@ -1,0 +1,45 @@
+{
+  "caption": "A Red Line train arrives at the Metro Center station last month in this file photo",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Regional taxes, longer I-66 toll hours on table for dedicated N. Va. transit funding | FFXnow",
+        "content": "R e g i o n a l   t a x e s ,   l o n g e r   I - 6 6   t o l l   h o u r s   o n   t a b l e   f o r   d e d i c a t e d   N   . . .",
+        "caption": "A train arrives at the Tysons Metro station (staff photo by Angela Woolsey)",
+        "domain": "www.ffxnow.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "LAPD officers 'overwhelmed' by homeless problem on Metro | LAist",
+        "content": "L A P D   o f f i c e r s   ' o v e r w h e l m e d '   b y   h o m e l e s s   p r o b l e m   o n   M e t r o   |   L A i s t",
+        "caption": "File: Red Line at 7th Street/Metro Center.",
+        "domain": "laist.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidate captions have very low image and text similarity scores, indicating they do not closely match the news caption. Candidate 1 mentions a train arriving at the Tysons Metro station, while Candidate 2 mentions the Red Line at 7th Street/Metro Center. Neither candidate confirms the specific details of the news caption, such as it being a file photo or any specific date. Since the image similarity scores are both 0.0 and text similarity scores are both 0.0, and the captions do not contain sufficient overlapping information to confirm the news caption, the verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low similarity between the image and the caption, which refers to a 'Red Line train arrives at the Metro Center station last month in this file photo.' The image shows a metro station with a train arriving. While it is plausible that the station could be Metro Center and the train on the Red Line, the confidence score of 2 from the image check is below the defined threshold to confirm this. As a result, based on the image check, the caption cannot be confirmed with certainty and it is therefore classified as out of context.",
+    "validation_summary": "The image and caption have a low similarity score according to the image check, which makes the caption's accuracy questionable. The viewer would be misled by a potentially inaccurate caption associating a 'Red Line train arrives at the Metro Center station' with an unconfirmed image of a Metro train at a station."
+  },
+  "inference_time": 4.370356559753418,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

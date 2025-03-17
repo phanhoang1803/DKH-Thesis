@@ -1,0 +1,47 @@
+{
+  "caption": "Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Car",
+      "Sports sedan",
+      "Sports car",
+      "Taxi",
+      "Sedan",
+      "Executive car"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Foxtons shares plunge 20% as London property market slows | Housing market | The Guardian",
+        "content": "F o x t o n s   s h a r e s   p l u n g e   2 0 %   a s   L o n d o n   p r o p e r t y   m a r k e t   s l o w s   . . .",
+        "caption": "Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate evidence has a caption that is identical to the news caption. Additionally, the domain is a reliable source (www.theguardian.com). Therefore, the caption is likely accurate.",
+      "supporting_evidences": [
+        "Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the news caption accurately represents the image content with a high confidence score of 10. However, the image shows a yellow and green taxi cab, not a 'liveried fleet of Mini Coopers'. Therefore, the caption is out of context.",
+    "validation_summary": "The caption incorrectly identifies the vehicle in the image as a 'liveried fleet of Mini Coopers', when it is actually a taxi cab, which would mislead viewers about the image's content and relevance to the article about Foxtons' financial struggles and sales tactics in London's property market. The caption is OOC because it does not accurately represent the image content."
+  },
+  "inference_time": 3.0039865970611572,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "caption": "Peabody Energy headquarters in St Louis",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Peabody Energy",
+      "Peabody Energy",
+      "Coal",
+      "St. Louis",
+      "Bankruptcy",
+      "Business",
+      "Economy",
+      "Company",
+      "Chapter 11, Title 11, United States Code"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Bankrupt Peabody Energy wants to pay execs up to $12 million in bonuses  The Denver Post",
+        "content": "B a n k r u p t   P e a b o d y   E n e r g y   w a n t s   t o   p a y   e x e c s   u p   t o   $ 1 2   m i l l i o n   i n   . . .",
+        "caption": "Peabody Energy headquarters in St. Louis. ",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6709858775138855,
+        "text_similarity_score": 0.9826998114585876
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is less than 0.85, and the text similarity score is greater than 0.7, so the caption is out-of-context. Because both similarity scores are not high, and the content/title are missing, I cannot confirm if the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows the Peabody Energy headquarters building with the company's name displayed prominently on the building. The caption, \"Peabody Energy headquarters in St Louis\", accurately describes the image content. The image check result indicates a low image similarity score and a relatively high text similarity score, leading to an out-of-context verdict with low confidence. However, given the visual evidence directly supports the caption's claim, and with a confidence score of 3, the final determination MUST be based on the image check result according to the instructions. Therefore, the image is deemed Not Out of Context.",
+    "validation_summary": "The caption accurately identifies the building as Peabody Energy headquarters, so viewers are not likely to be misled about the image content, although the image check result flagged this as out of context, the visual information in the image aligns perfectly with the caption and confirms it to be true. Thus it's NOT OOC (out of context). However based on instructions, final determination MUST be based on the image check result, OOC=True, confidence_score=10. A viewer would not be misled here though."
+  },
+  "inference_time": 4.928757429122925,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

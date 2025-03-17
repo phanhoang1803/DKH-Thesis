@@ -1,0 +1,63 @@
+{
+  "caption": "A South African giraffe practices its footwork at Vutomi Dam in Kruger National Park South Africa Giraffes are prone to broken limbs caused by slipping on wet surfaces",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Giraffe",
+      "South African giraffe",
+      "West African giraffe",
+      "Lion",
+      "Leg",
+      "Ig",
+      "Science",
+      "1980s",
+      "tall",
+      "Subspecies"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "In pictures: Necks on the line - saving the West African giraffe | Environment | The Guardian",
+        "content": "M o n   1 5   F e b   2 0 1 0   1 3 . 0 0  C E T \n \n \n                         F i r s t   p u b l i s h e d   o n   M o n   1 5   F e b   2 0 1 0   1 3 . 0 0  C E T",
+        "caption": "Giraffe: South African Giraffe ",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9899780750274658,
+        "text_similarity_score": 0.6658450365066528
+      },
+      {
+        "title": "In pictures: Necks on the line - saving the West African giraffe | Environment | The Guardian",
+        "content": "M o n   1 5   F e b   2 0 1 0   1 3 . 0 0  C E T \n \n \n                         F i r s t   p u b l i s h e d   o n   M o n   1 5   F e b   2 0 1 0   1 3 . 0 0  C E T",
+        "caption": "Giraffe: South African Giraffe ",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9899780750274658,
+        "text_similarity_score": 0.6658450365066528
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity scores are high (0.9899780750274658), indicating that the candidate images strongly resemble the news image. However, the text similarity scores are low (0.6658450365066528), suggesting that the captions of the candidate images do not closely match the news caption. Based on the instructions, since the image similarity score is greater than 0.85 and the text similarity score is less than 0.7, the verdict should be 'False'. The candidate captions 'Giraffe: South African Giraffe' are related to the news caption, but they do not provide enough specific information to fully support the context of the news caption about a giraffe practicing footwork at Vutomi Dam and the risk of broken limbs due to wet surfaces.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.9899780750274658, Text Similarity Score: 0.6658450365066528",
+        "Candidate 2: Image Similarity Score: 0.9899780750274658, Text Similarity Score: 0.6658450365066528"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity scores are high (0.9899780750274658), meaning the candidate images strongly resemble the news image. However, the text similarity scores are low (0.6658450365066528), meaning the captions of the candidate images do not closely match the news caption. Therefore, based on the instructions, since the image similarity score is greater than 0.85 and the text similarity score is less than 0.7, the verdict should be 'False'. While the candidate captions are related to the news caption, they do not provide enough specific information to fully support the context of the news caption about a giraffe practicing footwork at Vutomi Dam and the risk of broken limbs due to wet surfaces.",
+    "validation_summary": "The caption provides details that aren't evident in the image alone, such as the location being Vutomi Dam and the mention of giraffes being prone to broken limbs due to slipping. Therefore, the caption may be misleading, making the image out of context, despite showing giraffes."
+  },
+  "inference_time": 4.960839509963989,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

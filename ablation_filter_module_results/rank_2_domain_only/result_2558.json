@@ -1,0 +1,51 @@
+{
+  "caption": "Donald Trump speaks during a campaign stop on Feb 19 2016 in North Charleston SC",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Academic conference",
+      "Speech",
+      "Seminar",
+      "Convention",
+      "Debate",
+      "Public speaking",
+      "Audience",
+      "Flag",
+      "Academy",
+      "Flag Day"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Mexico OKs new Trump trademarks for hotels and tourism | AP News",
+        "content": "M e x i c o   O K s   n e w   T r u m p   t r a d e m a r k s   f o r   h o t e l s   a n d   t o u r i s m   |   A P   N e w s",
+        "caption": "FILE - In this Feb. 19, 2016 file photo, Republican presidential candidate Donald Trump speaks during a campaign stop in North Charleston, S.C. Then-candidate Trump gave a stump speech in which he railed against American jobs moving to Mexico: We lose our jobs, we close our factories, Mexico gets all of the work, he said. We get nothing. That same day a law firm in Mexico City quietly filed for trademarks that would authorize the Trump brand to set up shop in a country with which he has sparred over trade, migration and the planned border wall. (AP Photo/Matt Rourke, File)",
+        "domain": "apnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate provides a file photo with the exact caption, including the date, location, and speaker. Thus, the provided candidate confirms that the caption accurately describes the image.",
+      "supporting_evidences": [
+        "FILE - In this Feb. 19, 2016 file photo, Republican presidential candidate Donald Trump speaks during a campaign stop in North Charleston, S.C."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates the caption accurately represents the image. The image shows Donald Trump speaking at a campaign stop in North Charleston, SC, on February 19, 2016. The supporting evidence confirms this information. Therefore, the caption is not out of context.",
+    "validation_summary": "The caption accurately describes the image, depicting Donald Trump at a campaign stop in North Charleston, SC, on the specified date, thus it's not misleading to viewers as per the image check result . "
+  },
+  "inference_time": 3.457742214202881,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

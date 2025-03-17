@@ -1,0 +1,38 @@
+{
+  "caption": "Group G Cristiano Ronaldo reacts during Portugal s loss to Germany",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "U.S. fans happy despite loss to Germany | CNN",
+        "content": "U . S .   f a n s   h a p p y   d e s p i t e   l o s s   t o   G e r m a n y   |   C N N",
+        "caption": "Fans watch from Dupont Circle in Washington.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption \"Fans watch from Dupont Circle in Washington\" does not match the news caption \"Group G Cristiano Ronaldo reacts during Portugal s loss to Germany\". The candidate does not provide any relevant information or evidence that supports the news caption. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Cristiano Ronaldo in a white Real Madrid kit about to kick a soccer ball, with a goalkeeper in an orange kit diving to block the ball. There are many spectators in the background. The provided caption mentions 'Group G Cristiano Ronaldo reacts during Portugal s loss to Germany,' which does not match the visual content of the image. The image does not show Ronaldo reacting specifically during a match between Portugal and Germany, nor does it confirm a loss. The image check result further confirms this discrepancy with a low similarity score and a verdict of 'False'. Therefore, the caption is out of context.",
+    "validation_summary": "The image shows Ronaldo playing soccer, but the caption incorrectly claims it depicts a specific match (Portugal vs. Germany) and outcome (loss), misleading viewers about the image's context. The image check result agrees the candidate caption does not match the image content and the news caption provides wrong information about the image content and context of the image taken place in that time."
+  },
+  "inference_time": 4.291642665863037,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

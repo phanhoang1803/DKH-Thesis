@@ -1,0 +1,34 @@
+{
+  "caption": "Malala Yousafzai at the United Nations General Assembly in New York City",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "The full text: Malala Yousafzai delivers defiant riposte to Taliban militants with speech to the UN General Assembly | The Independent | The Independent",
+        "content": "T h e   f u l l   t e x t :   M a l a l a   Y o u s a f z a i   d e l i v e r s   d e f i a n t   r i p o s t e   t o   . . .",
+        "caption": "Malala addresses the UN",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.12504498660564423,
+        "text_similarity_score": 0.7198669910430908
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.12504498660564423, which is less than 0.85. The text similarity score is 0.7198669910430908, which is greater than 0.7. According to the rule, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption does not accurately represent the image, which likely depicts a scene unrelated to Malala Yousafzai at the United Nations General Assembly.",
+    "explanation": "The caption claims that the image shows Malala Yousafzai at the United Nations General Assembly. However, the image check result reflects a low similarity score between the caption and the visual content of the image, indicating that the image does not align with the expected content associated with this specific event or person. The image's context likely depicts a different scene or subject entirely, leading to the determination that it is out of context in relation to the caption provided."
+  },
+  "inference_time": 8.133417129516602,
+  "ablation_type": "no_image_evidences"
+}

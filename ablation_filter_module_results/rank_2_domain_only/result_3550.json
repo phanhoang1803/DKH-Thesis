@@ -1,0 +1,49 @@
+{
+  "caption": "Roy Hodgson questions the booking for Danny Welbeck in the match against Moldova on Friday",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Stadium",
+      "Football Referee",
+      "Footballer"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Roy Hodgson fury at yellow card that 'overshadowed' confident win | England | The Guardian",
+        "content": "R o y   H o d g s o n   f u r y   a t   y e l l o w   c a r d   t h a t   ' o v e r s h a d o w e d '   c o n f i d e n t   w i n   . . .",
+        "caption": "Roy Hodgson questions the booking for Danny Welbeck in the match against Moldova on Friday. Photograph: Darren Staples/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Moldova v England: Dominic Fifield answered your questions | Football | The Guardian",
+        "content": "M o l d o v a   v   E n g l a n d :   D o m i n i c   F i f i e l d   a n s w e r e d   y o u r   q u e s t i o n s   . . .",
+        "caption": "Roy Hodgson's England begin their qualification campaign for the 2014 World Cup tonight in Moldova. Photograph: Neil Hall/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "Both candidates have low image similarity scores (<0.85) and low text similarity scores (<0.7).\n\nCandidate 1 has the exact caption, suggesting that it could be a potential match. However, the image similarity score is 0.0. Therefore, I cannot confirm if the image aligns with the caption.\n\nCandidate 2 does not have the exact caption. It mentions Roy Hodgson's England beginning their qualification campaign for the 2014 World Cup in Moldova. This provides context related to Roy Hodgson and Moldova, which are elements in the news caption. However, the specific claim about 'questioning the booking for Danny Welbeck' is not mentioned.\n\nSince the image similarity score is low and there is no specific supporting evidence, I cannot verify the caption's accuracy.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result shows a low image similarity score, indicating the image content does not closely align with the caption. The image depicts Roy Hodgson arguing with a referee, which aligns with the part of the caption concerning him questioning a decision. However, the specific detail about Danny Welbeck's booking is not visually evident. Given the low similarity score in the image check result and the lack of concrete visual support for the full caption's claim, it's likely the image is used out of context, as the image only provides limited support for the caption's overall message.",
+    "validation_summary": "The image shows Roy Hodgson in a discussion with a referee, but lacks specific visual evidence to support the claim about him questioning Danny Welbeck's booking, making the image potentially misleading. The low image similarity score supports this conclusion, indicating the image is used out of context and misrepresents the specific claim made by the caption, though Hodgson's presence and gesturing provide some weak evidence."
+  },
+  "inference_time": 4.313772916793823,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

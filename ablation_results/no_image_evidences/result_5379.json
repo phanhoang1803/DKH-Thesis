@@ -1,0 +1,49 @@
+{
+  "caption": "Alex Corbisiero right on his debut faces up to Martin Castrogiovanni for the first scrum",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Rugby league",
+      "Rugby sevens",
+      "Rugby league sevens",
+      "Rugby tens",
+      "Rugby league nines",
+      "Touch",
+      "Rugby football",
+      "Touch football",
+      "Rugby union",
+      "Tackle"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Six Nations 2011:  England v Italy - in pictures | Sport | The Guardian",
+        "content": "S i x   N a t i o n s   2 0 1 1 :   E n g l a n d   v   I t a l y   -   i n   p i c t u r e s   |   S p o r t   |   T h e   G u a r d i a n",
+        "caption": "England v Italy: Alex Corbisiero faces up to Martin Castrogiovanni for the first scrum",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6835421323776245,
+        "text_similarity_score": 0.8270207047462463
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.6835421323776245 and the text similarity score is 0.8270207047462463. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than or equal to 0.7, the verdict should be 'False'. The candidate caption mentions Alex Corbisiero and Martin Castrogiovanni in a scrum during an England vs Italy match. This aligns with the news caption, which also mentions Alex Corbisiero facing Martin Castrogiovanni for the first scrum. Because the image similarity score is below 0.85, I cannot be certain that the image in the news is the same as the candidate image.",
+      "supporting_evidences": [
+        "Candidate caption mentions Alex Corbisiero and Martin Castrogiovanni in a scrum.",
+        "News caption mentions Alex Corbisiero facing Martin Castrogiovanni for the first scrum.",
+        "Text similarity score is 0.8270207047462463."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the image similarity score is below 0.85 while the text similarity score is greater or equal to 0.7, which defaults the verdict to false. I cannot be completely sure that the image in the news is the same as the candidate image. However, I also reviewed the image and can see that it features a rugby player with the ball, running during what appears to be a practice session. Other players and coaches are present. The players are wearing what appears to be Welsh Rugby jerseys. The caption mentions Alex Corbisiero and Martin Castrogiovanni in a scrum during an England vs Italy match. Based on my observation of the image, there are no signs of a scrum or any clear indication of it being an England vs Italy match. Therefore, the caption misrepresents the image content, and the image is out of context.",
+    "validation_summary": "The caption describes an England vs Italy rugby match with Alex Corbisiero and Martin Castrogiovanni in a scrum, which is not depicted in the image, so it's misleading. The image actually shows a Welsh rugby player in what seems like a training session, not a match between England and Italy, making the caption inaccurate and the image out of context (OOC). However, I followed the guideline and prioritized the image check result when making the final decision. The candidate caption mentions Alex Corbisiero and Martin Castrogiovanni in a scrum during an England vs Italy match. This aligns with the news caption, which also mentions Alex Corbisiero facing Martin Castrogiovanni for the first scrum. Because the image similarity score is below 0.85, I cannot be certain that the image in the news is the same as the candidate image, however, I can confirm that it's a rugby match so the caption is correct and the image is not out of context (NOOC). Given a confidence score of 9, I rely on the image check to come to my conclusion. Thus, the image is out of context (OOC=True). As the image check is not certain that the images are the same, but the caption seems to describe a scrum, which is not obvious, the result is still OOC as it is not clear the image is showing an England/Italy game or the described players. This could be misleading to a viewer, thus the image is OOC). However, based on the image alone, the players are wearing what appears to be Welsh rugby jerseys, which would conflict with the caption."
+  },
+  "inference_time": 7.408626556396484,
+  "ablation_type": "no_image_evidences"
+}

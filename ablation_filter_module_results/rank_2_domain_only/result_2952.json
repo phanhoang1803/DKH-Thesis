@@ -1,0 +1,53 @@
+{
+  "caption": "Clinton and Sanders during the singing of the national anthem",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Awards ceremony",
+      "Talent show",
+      "5hy",
+      "Convention",
+      "Ceremony",
+      "X",
+      "Award"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Sanders and Clinton vie to be Obama's heir for black South Carolinians | US elections 2016 | The Guardian",
+        "content": "S a n d e r s   a n d   C l i n t o n   v i e   t o   b e   O b a m a ' s   h e i r   f o r   b l a c k   S o u t h   . . .",
+        "caption": "People sing the national anthem before a speech by Democratic presidential candidate Hillary Clinton at the Williamsburg County Recreation Center in Kingstree, South Carolina on Thursday.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Hollywood hipsters and 60s rebels lend Bernie Sanders their glamour | Bernie Sanders | The Guardian",
+        "content": "H o l l y w o o d   h i p s t e r s   a n d   6 0 s   r e b e l s   l e n d   B e r n i e   S a n d e r s   t h e i r   . . .",
+        "caption": "Bernie Sanders, with Vampire Weekends lead singer, Ezra Koenig, at a campaign event in Iowa last month.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are both 0.0, which means the images in the candidates do not match the image in the news. Additionally, the text similarity scores are both 0.0, meaning the captions also do not match. Neither candidate confirms that Clinton and Sanders were singing the national anthem. Therefore, the evidence does not support the caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Hillary Clinton and Bernie Sanders standing on a stage with a CNN logo and a backdrop resembling the American flag. Sanders has his hand over his heart. The image check result indicates that the caption does not match the image content, with a confidence score of 2. The image check determined the content doesn't support the caption. The caption states Clinton and Sanders were singing the national anthem, but this cannot be verified from the image. Given the low image similarity and text similarity scores from the image check, the caption is likely incorrect.",
+    "validation_summary": "The caption incorrectly states that Clinton and Sanders were singing the national anthem, which cannot be verified from the image. The image check confirmed that the caption does not match the image content and the confidence score is high so it takes precedence in this case."
+  },
+  "inference_time": 3.3091607093811035,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

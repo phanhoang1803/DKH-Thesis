@@ -1,0 +1,68 @@
+{
+  "caption": "Maria Sharapova plays a shot during her women s singles semifinal match against Russia s Ekaterina Makarova",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Racketlon",
+      "Soft tennis",
+      "Tennis",
+      "Racket",
+      "Tennis player"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Maria's final hurdle toughest to clear | Herald Sun",
+        "content": "M a r i a ' s   f i n a l   h u r d l e   t o u g h e s t   t o   c l e a r   |   H e r a l d   S u n",
+        "caption": "Russia's Maria Sharapova plays a shot during her women's singles semi-final match against Russia's Ekaterina Makarova on day eleven of the 2015 Australian Open tennis tournament in Melbourne on January 29, 2015. AFP PHOTO / PAUL CROCK-- IMAGE RESTRICTED TO EDITORIAL USE - STRICTLY NO COMMERCIAL USE",
+        "domain": "www.heraldsun.com.au",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.840790331363678,
+        "text_similarity_score": 0.8951042890548706
+      },
+      {
+        "title": "Second-seeded Maria Sharapova is a shaky survivor at Australian Open - Los Angeles Times",
+        "content": "S e c o n d - s e e d e d   M a r i a   S h a r a p o v a   i s   a   s h a k y   s u r v i v o r   a t   A u s t r a l i a n   . . .",
+        "caption": "Maria Sharapova of Russia plays a shot during her women's singles match against Alexandra Panova of Russia at the Australian Open. Sharapova defeated Panova, 6-1, 4-6, 7-5.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8484303951263428,
+        "text_similarity_score": 0.8462924361228943
+      },
+      {
+        "title": "Russians Sharapova, Makarova prepare for semifinals showdown",
+        "content": "6 3 5 5 7 9 1 0 4 8 6 9 7 4 5 3 5 0 - A F P -   . . .",
+        "caption": "Russia's Maria Sharapova plays a shot during her women's singles match against Canada's Eugenie Bouchard on day nine of the 2015 Australian Open.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8608433604240417,
+        "text_similarity_score": 0.835066020488739
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the provided candidates, the news caption appears to be accurate. Candidate 1 has a high image similarity score (0.840790331363678) and a high text similarity score (0.8951042890548706). The caption in Candidate 1 closely matches the news caption, mentioning Maria Sharapova playing a shot during her women's singles semi-final match against Ekaterina Makarova. Although the image similarity is slightly below the 0.85 threshold, the extremely high text similarity and the context provided in the candidate caption strongly suggest that the news caption is accurate. Candidate 2 has an image similarity score of 0.8484303951263428 and text similarity score of 0.8462924361228943 which also supports the context of the image. Candidate 3 has an image similarity score of 0.8608433604240417 and text similarity score of 0.835066020488739, further supporting the context. Given these points, the news caption is deemed to be in context.",
+      "supporting_evidences": [
+        "Candidate 1: Caption mentions Maria Sharapova playing a shot during her women's singles semi-final match against Ekaterina Makarova.",
+        "Candidate 2: Caption mentions Maria Sharapova playing a shot during her women's singles match against Alexandra Panova of Russia at the Australian Open.",
+        "Candidate 3: Caption mentions Maria Sharapova playing a shot during her women's singles match against Canada's Eugenie Bouchard on day nine of the 2015 Australian Open."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result provides a high confidence score of 10, indicating a strong match between the image and the caption. The supporting evidences from the image check confirm that the caption accurately describes Maria Sharapova playing a shot during a women's singles match. Therefore, the image is not out of context.",
+    "validation_summary": "The image and caption are well-aligned, ensuring viewers would not be misled about the depicted content related to Maria Sharapova's tennis match. The image check result confirms the accuracy of the caption in representing the image content, so it is not out of context."
+  },
+  "inference_time": 9.157089233398438,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

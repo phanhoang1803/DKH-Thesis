@@ -1,0 +1,52 @@
+{
+  "caption": "Iranians celebrate the nuclear agreement in Tehran",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Index of /wp-content/uploads/sites/1/nggallery/lam-yik-fei-interview",
+        "content": "",
+        "caption": "",
+        "domain": "invisiblephotographer.asia",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8266380429267883,
+        "text_similarity_score": 0.03815140575170517
+      },
+      {
+        "title": "Israeli security cabinet slams Iran nuclear deal | News | Al Jazeera",
+        "content": "I s r a e l i   s e c u r i t y   c a b i n e t   s l a m s   I r a n   n u c l e a r   d e a l   |   N e w s   |   A l   J a z e e r a",
+        "caption": "Iranians celebrate the nuclear agreement with world powers in Lausanne, on a street in northern Tehran[AP]",
+        "domain": "www.aljazeera.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2107124775648117,
+        "text_similarity_score": 0.8239468932151794
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have low image similarity scores (0.826 and 0.210, respectively), indicating the images in the candidates do not strongly match the image in the news. Candidate 1 has a low text similarity score (0.038), suggesting its caption is dissimilar to the news caption. Candidate 2 has a text similarity score of 0.823. However, because the image similarity score is below 0.85, the caption must be marked as out-of-context despite the high text similarity score. While candidate 2 mentions 'Iranians celebrate the nuclear agreement' which aligns with the news caption, the low image similarity prevents confirmation. Therefore, based on these evidences, I conclude that the caption is out-of-context.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.826, Caption Similarity Score: 0.038",
+        "Candidate 2: Image Similarity Score: 0.210, Caption Similarity Score: 0.823"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows a crowded street scene at night, with many people raising their hands or phones, potentially at a protest or celebration. The news caption describes \"Iranians celebrate the nuclear agreement in Tehran.\" According to the image check result, the image similarity scores of both candidates are low (0.826 and 0.210), which means the images in the candidates are dissimilar to the news image. Although candidate 2 mentions Iranians celebrating, the low image similarity prevents confirmation. Based on the image check, I conclude that the caption is out-of-context.",
+    "validation_summary": "The image does not depict Iranians celebrating the nuclear agreement, and the image check confirms that the image is out-of-context with the caption. Viewers would be misled about what the image represents."
+  },
+  "inference_time": 6.949138641357422,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

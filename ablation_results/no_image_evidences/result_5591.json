@@ -1,0 +1,48 @@
+{
+  "caption": "The Rev Al Sharpton waves to supporters before President Obama and others take a symbolic walk across the Edmund Pettus Bridge",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Car",
+      "Festival",
+      "Audience",
+      "Performance M"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "PHOTOS: Crowds gather for 'Bloody Sunday' anniversary in Selma - ABC7 San Francisco",
+        "content": "P H O T O S :   C r o w d s   g a t h e r   f o r   ' B l o o d y   S u n d a y '   a n n i v e r s a r y   i n   S e l m a   . . .",
+        "caption": "The Rev. Al Sharpton waves to supporters before President Barack Obama and others take a symbolic walk across the Edmund Pettus Bridge on March 7, 2015, in Selma, Ala.",
+        "domain": "abc7news.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.12259159237146378,
+        "text_similarity_score": 0.9049038887023926
+      },
+      {
+        "title": "Selma event marks 50 years after Bloody Sunday",
+        "content": "S e l m a   e v e n t   m a r k s   5 0   y e a r s   a f t e r   B l o o d y   S u n d a y",
+        "caption": "The Rev. Al Sharpton, left, watches supporters before President Barack Obama gives a speech and walks with others in a symbolic walk across the Edmund Pettus Bridge, Saturday, March 7, 2015, in Selma, Ala.",
+        "domain": "www.detroitnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.12185807526111603,
+        "text_similarity_score": 0.8107666969299316
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are both below 0.85. Based on the strict decision rules, I must mark the caption as out-of-context. The text similarity scores are high, however the image similarity scores are low. Therefore, I cannot confirm that the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image features a blurred scene of a crowd with a central figure who appears to be Pope Francis waving, but there are no recognizable features such as Edmund Pettus Bridge, Al Sharpton, or President Obama. This discrepancy indicates a mismatch between the caption and the image content. The image check result also supports this by indicating a low image similarity score which led to a classification as out-of-context. Therefore the caption cannot be validated by the image.",
+    "validation_summary": "The caption describes Al Sharpton and President Obama at the Edmund Pettus Bridge, but the image shows Pope Francis in a crowd, which is misleading and unrelated to the caption's content. Viewers would be misled about the content of the image based on the caption provided."
+  },
+  "inference_time": 7.176154613494873,
+  "ablation_type": "no_image_evidences"
+}

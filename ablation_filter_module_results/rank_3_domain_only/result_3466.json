@@ -1,0 +1,38 @@
+{
+  "caption": "Beckham celebrates a 2006 World Cup win",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "World Cup: Best players never to play in it or never to win a title - Los Angeles Times",
+        "content": "W o r l d   C u p :   B e s t   p l a y e r s   n e v e r   t o   p l a y   i n   i t   o r   n e v e r   t o   w i n   a   . . .",
+        "caption": "England's David Beckham celebrates after scoring the opening goal during a round of 16 World Cup match against Ecuador on June 25, 2006.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption mentions David Beckham celebrating after scoring a goal in a 2006 World Cup match against Ecuador on June 25, 2006. However, the news caption refers to Beckham celebrating a '2006 World Cup win,' which is different from celebrating after scoring a goal in a specific match. There is no evidence to support that it's a world cup win.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows David Beckham celebrating with another player, both wearing England jerseys. The caption states 'Beckham celebrates a 2006 World Cup win.' However, the image shows a celebration during a match, but not necessarily a celebration *of a win*. The image check result indicates a low similarity score and points out the difference between celebrating after scoring in a match and celebrating an overall win. There is no concrete evidence to support that the image depicts a '2006 World Cup win'. Therefore, the caption is misleading, as it implies a victory that the image does not explicitly show.",
+    "validation_summary": "The caption misrepresents the image by claiming it depicts a '2006 World Cup win,' when the image only shows a celebration during a match, potentially misleading viewers about the context of the celebration depicted. The image check result further confirms the lack of evidence to support the claim that it shows a World Cup win."
+  },
+  "inference_time": 3.8328051567077637,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

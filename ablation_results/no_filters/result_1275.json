@@ -1,0 +1,45 @@
+{
+  "caption": "People light candles at the Malaysian embassy in Kiev Ukraine",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Night",
+      "5hy",
+      "Performance M"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Gerakan's Kota Damansara youth chief and wife among Flight MH17 victims | Malay Mail",
+        "content": "G e r a k a n ' s   K o t a   D a m a n s a r a   y o u t h   c h i e f   a n d   w i f e   a m o n g   F l i g h t   M H 1 7   . . .",
+        "caption": "People light candles at the Malaysian embassy for victims of Malaysia Airlines MH17, which crashed in eastern Ukraine, in Kiev July 17, 2014. u00e2u20acu2022 Reuters pic",
+        "domain": "www.malaymail.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Malaysia Airlines Victims: Indiana Student, AIDS Workers Among Dead - ABC News",
+        "content": "M a l a y s i a   A i r l i n e s   V i c t i m s :   I n d i a n a   S t u d e n t ,   A I D S   W o r k e r s   A m o n g   . . .",
+        "caption": "PHOTO: People lay flowers and light candles in front of the Embassy of the Netherlands in Kiev on July 17, 2014, to commemorate passengers of Malaysian Airlines flight MH17 from Amsterdam to Kuala Lumpur which crashed in eastern Ukraine.",
+        "domain": "abcnews.go.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The news caption states, \"People light candles at the Malaysian embassy in Kiev Ukraine.\" Candidate 1 has a caption stating, \"People light candles at the Malaysian embassy for victims of Malaysia Airlines MH17, which crashed in eastern Ukraine, in Kiev July 17, 2014.\" Candidate 2 states, \"PHOTO: People lay flowers and light candles in front of the Embassy of the Netherlands in Kiev on July 17, 2014, to commemorate passengers of Malaysian Airlines flight MH17 from Amsterdam to Kuala Lumpur which crashed in eastern Ukraine.\" Both candidates confirm that people are lighting candles in Kiev. Candidate 1 mentions the Malaysian embassy, which matches the news caption. Candidate 2 mentions the Netherlands embassy, which doesn't align with the news caption of the Malaysian embassy. Because candidate 1 is the only one that mentions all aspects of the news caption and has a low Image Similarity Score and Text Similarity Score, I cannot fully determine that the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "Candidate 1: People light candles at the Malaysian embassy for victims of Malaysia Airlines MH17, which crashed in eastern Ukraine, in Kiev July 17, 2014."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "validation_summary": "The caption appears to misrepresent the image, indicating a specific connection to the Malaysian embassy, which is not clearly supported by the evidence.",
+    "explanation": "The caption claims that 'People light candles at the Malaysian embassy in Kiev Ukraine.' However, the context of the image check result indicates uncertainty regarding the specific location mentioned. While candidate 1 supports the idea that people are lighting candles at a Malaysian embassy commemorating victims of Flight MH17, there is a significant validity concern because the second candidate mentions the Embassy of the Netherlands, suggesting that there is ambiguity about the exact location where the candles are being lit. The image check findings reflect a lack of definitive evidence to assert that the Malaysian embassy is indeed the location cited in the news caption, thus creating a misleading implication about the specific event or place represented in the image."
+  },
+  "inference_time": 9.425636529922485,
+  "ablation_type": "no_filters"
+}

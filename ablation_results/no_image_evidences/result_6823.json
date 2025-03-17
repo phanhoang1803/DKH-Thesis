@@ -1,0 +1,34 @@
+{
+  "caption": "The Orwells Matt O Keefe Grant Brinner Dominic Corso Henry Brinner Mario Cuomo",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "The Orwells - Mario Cuomo, Dominic Corso, Grant Brinner, H | Flickr",
+        "content": "T h e   O r w e l l s   -   M a r i o   C u o m o ,   D o m i n i c   C o r s o ,   G r a n t   B r i n n e r ,   H    |   F l i c k r",
+        "caption": "The Orwells - Mario Cuomo, Dominic Corso, Grant Brinner, Henry Brinner & Matt O'Keefe | by Peter Hutchins",
+        "domain": "www.flickr.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.12007409334182739,
+        "text_similarity_score": 0.8647379875183105
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score between the news image and the candidate image is 0.12, which is significantly lower than the threshold of 0.85. Additionally, although the text similarity score is 0.86, the low image similarity score indicates that the candidate image does not visually match the news image. Therefore, based on the defined rules, the caption is considered out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image similarity score (0.12) and a high text similarity score (0.86). The low image similarity suggests that the candidate image does not visually match the news image. Therefore, based on the image check result, the caption is considered out-of-context. The news caption lists names: The Orwells Matt O Keefe Grant Brinner Dominic Corso Henry Brinner Mario Cuomo, which could be the people in the image. However, the automated check has determined the image and caption do not match.",
+    "validation_summary": "The image and news caption do not align, as confirmed by the image check result, leading to a high likelihood of misleading viewers regarding the image's content. The low image similarity score confirms the mismatch between the image and caption's content and context."
+  },
+  "inference_time": 3.6065781116485596,
+  "ablation_type": "no_image_evidences"
+}

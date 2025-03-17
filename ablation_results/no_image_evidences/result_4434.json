@@ -1,0 +1,57 @@
+{
+  "caption": "Los Angeles Kings right wing Justin Williams celebrates with teammates after scoring a goal during the first period",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Ice hockey",
+      "College ice hockey",
+      "Floor hockey",
+      "Ringette",
+      "Rink bandy",
+      "Bandy",
+      "Hockey",
+      "Inline hockey",
+      "Goalkeeper",
+      "Higher Education School"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Justin Williams helps Kings end slide with 4-2 win over Tampa Bay - Los Angeles Times",
+        "content": "J u s t i n   W i l l i a m s   h e l p s   K i n g s   e n d   s l i d e   w i t h   4 - 2   w i n   o v e r   T a m p a   B a y   . . .",
+        "caption": "Kings right wing Justin Williams celebrates with teammate Trevor Lewis, left, after scoring in the first period, the first of his two goals in the game Saturday at Tampa Bay.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.816944420337677,
+        "text_similarity_score": 0.8588582277297974
+      },
+      {
+        "title": "Kings top Sharks in Game 7",
+        "content": "K i n g s   t o p   S h a r k s   i n   G a m e   7",
+        "caption": "Los Angeles Kings right wing Justin Williams (14) celebrates with teammates Trevor Lewis (22) and Dustin Brown (23) after scoring a goal against the San Jose Sharks in the second period.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8274088501930237,
+        "text_similarity_score": 0.7871767282485962
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "Both candidate captions describe Justin Williams celebrating with teammates after scoring a goal. Candidate 1 has a high image similarity score (0.8169) and a very high caption similarity score (0.8588). It explicitly mentions Justin Williams celebrating with a teammate after scoring a goal in the first period, which aligns directly with the news caption. Candidate 2 also has a high image similarity score (0.8274) and a good caption similarity score (0.7871). It specifies Justin Williams celebrating with teammates after scoring a goal, which aligns with the news caption. Although neither candidate meets the strict criteria of having an image similarity score >= 0.85, their combined evidence strongly supports the news caption. The content of the captions confirms the news caption, with the image similarity being close enough to the threshold. Thus, I make the decision that the news caption is accurate.",
+      "supporting_evidences": [
+        "Kings right wing Justin Williams celebrates with teammate Trevor Lewis, left, after scoring in the first period, the first of his two goals in the game Saturday at Tampa Bay.",
+        "Los Angeles Kings right wing Justin Williams (14) celebrates with teammates Trevor Lewis (22) and Dustin Brown (23) after scoring a goal against the San Jose Sharks in the second period."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a high confidence score (9) and positive supporting evidence. The supporting captions confirm that Justin Williams is celebrating with teammates after scoring a goal. Given the image check's findings, the news caption is an accurate representation of the image content, showing Los Angeles Kings right wing Justin Williams celebrating with teammates after scoring a goal during the first period.",
+    "validation_summary": "The image depicts Justin Williams celebrating with his teammates after scoring a goal, which aligns with the news caption, so viewers would not be misled. The image check result supports that the news caption is an accurate representation of the image content."
+  },
+  "inference_time": 6.015734910964966,
+  "ablation_type": "no_image_evidences"
+}

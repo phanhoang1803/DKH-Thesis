@@ -1,0 +1,44 @@
+{
+  "caption": "Trevithick Day Steam Fair Each year there s a steam fair and vintage vehicle festival in Central Park",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Steam engine",
+      "Engine",
+      "Tractor",
+      "Steam"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Exploring Steamtown National Historic Site in Scranton - PA Bucket List",
+        "content": "E x p l o r i n g   S t e a m t o w n   N a t i o n a l   H i s t o r i c   S i t e   i n   S c r a n t o n   -   P A   B u c k e t   . . .",
+        "caption": "A four-image collage from Steamtown National Historic Site in Scranton, PA. Upper left shows a vintage steam engine number 26 inside a roundhouse with steam rising. Upper right features two locomotives, including engine 790, displayed on a turntable with a modern building in the background. Lower left is the Union Pacific 'Big Boy' steam engine number 4012, a large black locomotive parked outside. Lower right is the National Park Service round emblem displayed at the historic site.",
+        "domain": "pabucketlist.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Exploring Steamtown National Historic Site in Scranton - PA Bucket List",
+        "content": "E x p l o r i n g   S t e a m t o w n   N a t i o n a l   H i s t o r i c   S i t e   i n   S c r a n t o n   -   P A   B u c k e t   . . .",
+        "caption": "The entrance area of the Steamtown National Historic Site in Scranton, Pennsylvania, featuring a large informational sign with an image of a steam locomotive and the text \"STEAMTOWN.\" Behind the sign, there is a seating area with picnic tables and a modern building with large glass windows and red structural elements. A clear blue sky is overhead.",
+        "domain": "pabucketlist.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidates have very low image and text similarity scores. The news caption mentions a 'Trevithick Day Steam Fair' with a 'steam fair and vintage vehicle festival in Central Park'. Candidate 1 describes Steamtown National Historic Site in Scranton, PA, featuring steam engines and locomotives. Candidate 2 also describes the Steamtown National Historic Site in Scranton, Pennsylvania, focusing on the entrance area. Neither candidate confirms the specific event mentioned in the news caption or the location of 'Central Park'. Thus, the candidates do not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption does not accurately represent the image content, which appears unrelated to Trevithick Day or any steam fair.",
+    "explanation": "The news caption mentions the 'Trevithick Day Steam Fair' taking place in 'Central Park', suggesting a celebration featuring steam engines and vintage vehicles. However, the image in question displays content that has no visible relation to either of these themes. The image does not depict any steam-related activities, vehicles, or recognizable locations associated with the event mentioned in the caption. Additionally, the analysis indicates that both candidates evaluated in the image check result do not align with the specific event or location referenced, as they describe features unrelated to the caption's claims. Therefore, the caption is indeed out of context with respect to the image."
+  },
+  "inference_time": 8.331172466278076,
+  "ablation_type": "no_filters"
+}

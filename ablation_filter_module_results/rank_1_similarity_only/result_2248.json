@@ -1,0 +1,51 @@
+{
+  "caption": "Feb 7 2016 Santa Clara CA USA Coldplay singer Chris Martin performs during halftime in Super Bowl 50 at Levi s Stadium Mandatory Credit Cary EdmondsonUSA TODAY Sports",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Skip Bayless and Stephen A. Smith probably regret these tweets right about now",
+        "content": "G o i n g   i n t o   S u p e r   B o w l   5 0 ,   E S P N   F i r s t   T a k e   g a v e   t h e   D e n v e r   B r o n c o s   n o   c h a n c e   t o   d e f e a t   t h e   C a r o l i n a   P a n t h e r s . \n \n T h a t   w a s n ' t   a   s m a r t   m o v e ,   a s   D e n v e r   k n o c k e d   o f f   C a r o l i n a   2 4 - 1 0   i n   c o n v i n c i n g   f a s h i o n . \n \n W h a t ' s   w o r s e ,   t h i s   o l d   t w e e t   t h a t   S k i p   B a y l e s s   p o s t e d   d u r i n g   V o n   M i l l e r ' s   r o o k i e   s e a s o n   l o o k s   p r e t t y   r i d i c u l o u s   r i g h t   a b o u t   n o w . \n \n M i l l e r ,   a s   y o u   k n o w ,   w a s   n a m e d   S u p e r   B o w l   M V P   a f t e r   r e c o r d i n g   2 . 5   s a c k s   a n d   f o r c i n g   t w o   f u m b l e s .   B i t   o f   a   m i s s   t h e r e ,   S k i p . \n \n F e l l o w   F i r s t   T a k e   h o s t   S t e p h e n   A .   S m i t h   h a d   a   s i m i l a r l y   e m b a r r a s s i n g   t w e e t . \n \n T o   b e   f a i r ,   B r o n c o s   q u a r t e r b a c k   P e y t o n   M a n n i n g   d i d   n o t   h a v e   a   g r e a t   g a m e  h e   h a d   t w o   t u r n o v e r s  b u t   h e   d i d   n o t   c o s t   D e n v e r   t h e   g a m e ,   a n d   i t   w a s   n o w h e r e   n e a r   a s   b a d   a s   h i s   S u p e r   B o w l   p e r f o r m a n c e   a g a i n s t   t h e   S e a t t l e   S e a h a w k s . \n \n S k i p ' s   t w e e t   o n   M i l l e r   w a s   m u c h   w o r s e ,   b u t   b o t h   a n a l y s t s   p r o b a b l y   f e e l   l i k e   e a t i n g   a   l i t t l e   c r o w   t o n i g h t .  F o r   f u t u r e   r e f e r e n c e ,   p r o b a b l y   n o t   a   g o o d   i d e a   t o   t w e e t   a g a i n s t   D e n v e r ,   g u y s . \n \n [ s i g a l l e r y   i d = \" 9 w C 3 M T U d S V B E Y c A x Q J N Y v f \"   t i t l e = \" S u p e r   B o w l   5 0   f i n a l \"   t y p e = \" s i g a l l e r y \" ]",
+        "caption": "",
+        "domain": "broncoswire.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9648096561431885,
+        "text_similarity_score": 0.08773348480463028
+      },
+      {
+        "title": "Halftime show at Super Bowl 50",
+        "content": "H a l f t i m e   s h o w   a t   S u p e r   B o w l   5 0",
+        "caption": "Feb 7, 2016; Santa Clara, CA, USA; Coldplay singer Chris Martin performs during halftime in Super Bowl 50 at Levi's Stadium. Mandatory Credit: Cary Edmondson-USA TODAY Sports ORG XMIT: USATSI-245820 ORIG FILE ID:  20160207_pjc_se9_188.JPG",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.33088749647140503,
+        "text_similarity_score": 0.9391211867332458
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1 has a high image similarity score (0.9648096561431885), but a low text similarity score (0.08773348480463028). Therefore, it doesn't meet the criteria for a definite 'True' verdict. Candidate 2 has a low image similarity score (0.33088749647140503) and a high text similarity score (0.9391211867332458). Therefore, it doesn't meet the criteria for a definite 'True' verdict. However, the caption of Candidate 2 is nearly identical to the news caption, and it specifies that the image was taken at Super Bowl 50 at Levi's Stadium, and features Coldplay singer Chris Martin, which aligns perfectly with the news caption. Therefore, the news caption is considered to be in-context.",
+      "supporting_evidences": [
+        "Feb 7, 2016; Santa Clara, CA, USA; Coldplay singer Chris Martin performs during halftime in Super Bowl 50 at Levi's Stadium. Mandatory Credit: Cary Edmondson-USA TODAY Sports ORG XMIT: USATSI-245820 ORIG FILE ID:  20160207_pjc_se9_188.JPG"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 10, and it states that the news caption is in context because it aligns with the details of one of the supporting evidences. The supporting evidence specifies that the image was taken at Super Bowl 50 at Levi's Stadium, and features Coldplay singer Chris Martin, which aligns perfectly with the news caption.",
+    "validation_summary": "The caption correctly identifies the image as showing Coldplay singer Chris Martin performing at Super Bowl 50, so viewers are not misled. The image check confirms the accuracy of the caption."
+  },
+  "inference_time": 7.433461427688599,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

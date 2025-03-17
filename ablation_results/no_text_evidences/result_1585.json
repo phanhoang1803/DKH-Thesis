@@ -1,0 +1,39 @@
+{
+  "caption": "In 18th place Ford Explorer",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Car",
+      "Road",
+      "Dirt road",
+      "Tree"
+    ],
+    "ablation_type": "no_text_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 7,
+      "confidence_score": 9,
+      "explanation": "The caption mentions \"In 18th place Ford Explorer\" which seems to be extracted from the provided context (SUV sales and the Ford Explorer's performance in the market, specifically being positioned at 18th place among best-selling vehicles). However, the image context is about a Ford Explorer on a dirt road. Therefore, the caption does not accurately convey what the image is about but is relevant to the news. It is a partial alignment.",
+      "supporting_evidences": [
+        "The image context describes a Ford Explorer on a dirt road.",
+        "The caption references the Ford Explorer's ranking, aligning with the provided information.",
+        "The caption is not a direct description of the visual content (Ford Explorer on a dirt road)."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "information": "The image likely depicts a Ford Explorer, an SUV, on a dirt road surrounded by trees. The surrounding environment is somewhat rural or forested, indicating that the vehicle may be traversing an off-road or less developed area. There are no other vehicles or notable signage present in the image, focusing on the Ford Explorer itself, which occupies the foreground of the scene.",
+      "caption": "Ford Explorer navigating a dirt road.",
+      "context": "This image complements the news content about SUV sales, highlighting the Ford Explorer's performance in the market, specifically being positioned at 18th place among best-selling vehicles. With a noted increase in sales of 34.9% during July, the Ford Explorer stands out as the only larger SUV in a category that has primarily seen sales in smaller crossovers. The photo, showcasing the Explorer on a rugged terrain, symbolizes its suitability for both urban and adventurous activities, appealing to buyers looking for versatility in an SUV. This aligns with the highlighted trends that while larger trucks and pickups dominate the sales landscape, there remains a substantial market for capable SUVs, particularly for those interested in both family practicality and off-road capabilities."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "validation_summary": "The caption 'In 18th place Ford Explorer' does not accurately represent the image, which depicts a Ford Explorer on a dirt road rather than emphasizing its market ranking.",
+    "explanation": "The caption references the Ford Explorer's sales ranking of 18th among vehicles, extracted from the accompanied news content discussing July's SUV sales. However, the image itself presents a Ford Explorer off-road, specifically on a dirt road, which does not align with the context of sales rankings or market performance discussed in the caption. Viewers seeing the image might be led to believe the focus is on an adventure or off-road capability of the vehicle, rather than its sales statistics. The confidence score is high due to the inconsistency between the visual content of the image and the claims made in the caption."
+  },
+  "inference_time": 6.659870147705078,
+  "ablation_type": "no_text_evidences"
+}

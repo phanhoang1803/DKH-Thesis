@@ -1,0 +1,43 @@
+{
+  "caption": "Spanish for sixth base Bajo Sexto Taco Lounge opened inside the Country Music Hall of Fame and Museum in Nashville",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Commercial property",
+      "Commerce",
+      "Outlet store",
+      "Building"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "2016's restaurant openings through spring",
+        "content": "2 0 1 6 ' s   r e s t a u r a n t   o p e n i n g s   t h r o u g h   s p r i n g",
+        "caption": "Executive chef Ben Thibodeaux has prepared a menu composed of oysters, toasts and snacks, along with a section devoted to fish, farm and foul.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. The provided candidate does not provide any information about \"Spanish for sixth base Bajo Sexto Taco Lounge\" or its opening inside the \"Country Music Hall of Fame and Museum in Nashville\". The candidate mentions an executive chef and a menu with oysters, toasts, snacks, fish, farm, and fowl, which is unrelated to the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 2, however upon reviewing the image, it is clear the image shows the exterior of a building with a sign that reads \"BAJO SEXTO\" and has benches outside. The caption describes \"Spanish for sixth base Bajo Sexto Taco Lounge opened inside the Country Music Hall of Fame and Museum in Nashville\". The image and caption do not align, because the image shows the exterior of a building named Bajo Sexto, not the inside of a museum. The image check result also indicates the news content does not mention anything about the \"Country Music Hall of Fame and Museum in Nashville\". Therefore, the caption is misleading and the image is out of context.",
+    "validation_summary": "The image shows the exterior of a building with the sign \"BAJO SEXTO\", whereas the caption claims it is inside the Country Music Hall of Fame and Museum, misleading viewers. Therefore, the image is out of context."
+  },
+  "inference_time": 3.9896886348724365,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

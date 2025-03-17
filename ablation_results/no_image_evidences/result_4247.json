@@ -1,0 +1,37 @@
+{
+  "caption": "Brochures for Swissbased Glencore s IPO at a news conference in Hong Kong",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Glencore valued at 38bn as it reveals its flotation price | Glencore | The Guardian",
+        "content": "G l e n c o r e   v a l u e d   a t    3 8 b n   a s   i t   r e v e a l s   i t s   f l o t a t i o n   p r i c e   . . .",
+        "caption": "Brochures for Swiss-based Glencore's IPO at a news conference in Hong Kong.  Photograph: Bobby Yip/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.34040987491607666,
+        "text_similarity_score": 0.9137378931045532
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.34040987491607666, which is less than 0.85. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. The text similarity score is 0.9137378931045532, which is greater than 0.7. However, because the image similarity score is low, the caption is considered out-of-context. The candidate caption says, \"Brochures for Swiss-based Glencore's IPO at a news conference in Hong Kong. Photograph: Bobby Yip/Reuters,\" which is very similar to the news caption. Because the image similarity is low, I will say the caption is out of context.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.34040987491607666",
+        "Caption Similarity Score: 0.9137378931045532"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low image similarity score (0.34040987491607666) despite a high caption similarity score (0.9137378931045532). This means the caption is describing something that is not accurately represented in the image. The image primarily shows multiple copies of the book \"Soumission\" by Michel Houellebecq, with some copies stacked and others held by a hand. This scene contrasts with the caption's claim about 'Brochures for Swiss-based Glencore s IPO at a news conference in Hong Kong.' Therefore, the caption is out of context because it refers to a completely different subject matter (Glencore's IPO) than what is depicted in the image (books by Michel Houellebecq).",
+    "validation_summary": "The image shows books by Michel Houellebecq, while the caption discusses Glencore's IPO, misleading viewers about the image's content. Due to the low image similarity score, the caption is considered out of context, regardless of the high text similarity score to the candidate caption during image check. Hence, the caption misrepresents the image's content, leading to a determination of 'Out of Context'. The final judgment prioritizes the image check result's finding of low image similarity."
+  },
+  "inference_time": 6.308968544006348,
+  "ablation_type": "no_image_evidences"
+}

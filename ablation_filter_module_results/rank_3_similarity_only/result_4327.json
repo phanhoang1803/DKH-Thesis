@@ -1,0 +1,40 @@
+{
+  "caption": "Lynn Sweet Washington bureau chief for the Chicago SunTimes right and Mary Shearer",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 10,
+      "explanation": "The provided caption, 'Lynn Sweet Washington bureau chief for the Chicago SunTimes right and Mary Shearer' is completely misaligned with the image context which describes a photo of Marlene Dietrich with her daughter Maria Riva. The caption mentions different people entirely, indicating a clear mismatch between the caption and the image content.",
+      "supporting_evidences": [
+        "The image context clearly describes Marlene Dietrich and her daughter Maria Riva.",
+        "The caption mentions Lynn Sweet and Mary Shearer, who are not present in the image described by the context.",
+        "There is no mention of Marlene Dietrich or Maria Riva in the caption."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "information": "The image appears to be a portrait of Marlene Dietrich along with her daughter Maria Riva. Marlene Dietrich is depicted in a striking yet elegant pose, possibly conveying her iconic femme fatale aura. Her hair is styled in a classic manner, possibly reflecting the glamour of Hollywood's golden age. The setting seems to be simple, with a focus on the figures to highlight their expressions and relationship rather than any elaborate background. Maria Riva, standing next to her mother, appears to share a connection, and both individuals convey a sense of nostalgia associated with their shared history. Images of this nature often reflect familial bonds and legacy, particularly within the context of classic Hollywood.",
+      "caption": "Marlene Dietrich poses with her daughter Maria Riva, showcasing their strong familial bond and the legacy of classic Hollywood.",
+      "context": "This portrait encapsulates the essence of Marlene Dietrich, an iconic figure known for her roles in films that defined the femme fatale trope in Hollywood. The relationship between Dietrich and her daughter, Maria Riva, adds a personal layer to the image, reflecting on not only their familial ties but also Dietrich's enduring influence in the arts and entertainment industry. Dietrich's image is often perceived as timeless, representing strength and femininity, which resonates with audiences past and present. This snapshot may have been taken during a public or private moment, allowing viewers to appreciate the personal side of a renowned actress while considering her career, film legacy, and relationships her life encompassed."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows two women in military attire sitting at a table with glasses. The caption states that it depicts Lynn Sweet and Mary Shearer, which is not supported by the image analysis or the image check result which identifies Marlene Dietrich and Maria Riva. This discrepancy indicates the caption does not accurately represent the image, making it out of context.",
+    "validation_summary": "The caption incorrectly identifies the people in the image, which would mislead viewers about who is depicted. The image check result confirms this mismatch, highlighting the inaccuracy of the provided caption in relation to the image content with high confidence, because caption explicitly makes a false claim about who is in the image, which is easily disproven by image analysis and external information about the image's true subjects (Marlene Dietrich and her daughter). The confidence in this finding is high due to the clear contradiction and the supporting evidence from the image check result."
+  },
+  "inference_time": 10.810077428817749,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

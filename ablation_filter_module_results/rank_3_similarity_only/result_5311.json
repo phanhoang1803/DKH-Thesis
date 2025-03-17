@@ -1,0 +1,44 @@
+{
+  "caption": "Robert Blay appeared to threaten to shoot rival candidate Ranil Jayawardena",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "UKIP candidate Robert Blay suspended over shooting threat - BBC News",
+        "content": "U K I P   c a n d i d a t e   R o b e r t   B l a y   s u s p e n d e d   o v e r   s h o o t i n g   t h r e a t   -   B B C   N e w s",
+        "caption": "Robert Blay appeared to threaten to shoot rival candidate Ranil Jayawardena",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2436619997024536,
+        "text_similarity_score": 1.0
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.2436619997024536, which is less than 0.85. The text similarity score is 1.0, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 AND the text similarity score is greater than or equal to 0.7, the verdict should be 'False'. The candidate caption matches the news caption, but the image similarity is low, suggesting the images do not match, therefore the candidate is out-of-context. The available evidence confirms the caption, but because of the image similarity score, I am less confident.",
+      "supporting_evidences": [
+        "Caption: Robert Blay appeared to threaten to shoot rival candidate Ranil Jayawardena",
+        "Image Similarity Score: 0.2436619997024536",
+        "Caption Similarity Score: 1.0"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates an image similarity score of 0.2436619997024536 and a text similarity score of 1.0. Since the image similarity score is less than 0.85 and the text similarity score is greater than or equal to 0.7, the verdict is 'False', meaning the caption is out of context. The image primarily shows a man in a suit, while the caption discusses Robert Blay's alleged threat to shoot Ranil Jayawardena. Although the caption is related to the news article, the image itself doesn't depict or directly represent this specific claim. Therefore, based on the image check result and the visual evidence, the image is out of context.",
+    "validation_summary": "The image shows a man in a suit, but it does not depict the threat described in the caption. Viewers would be misled if they believed the image directly related to the reported threat."
+  },
+  "inference_time": 10.031356811523438,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

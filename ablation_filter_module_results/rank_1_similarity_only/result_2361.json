@@ -1,0 +1,44 @@
+{
+  "caption": "Nigel Farage and Nick Clegg during the first debate",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Traffic sign",
+      "Traffic",
+      "Sign"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Nick Clegg aims to show emotional side in second debate with Nigel Farage | Nick Clegg | The Guardian",
+        "content": "N i c k   C l e g g   a i m s   t o   s h o w   e m o t i o n a l   s i d e   i n   s e c o n d   d e b a t e   w i t h   N i g e l   . . .",
+        "caption": "Nigel Farage and Nick Clegg during the first debate.  Photograph: Ian West/AFP/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.22290365397930145,
+        "text_similarity_score": 0.8445228934288025
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is below 0.85 (0.22290365397930145). Also, as the image similarity score is less than 0.85, the caption is automatically out-of-context, even if the text similarity score is high.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image similarity score is below the threshold (0.22290365397930145 < 0.85). Therefore, even if the text similarity were high, the caption would still be considered out of context because the image content does not align with the caption's claim. Specifically, the caption refers to Nigel Farage and Nick Clegg during the first debate, but the image only shows Nigel Farage. The image check confirms that the caption does not accurately represent the image content.",
+    "validation_summary": "The caption mentions both Nigel Farage and Nick Clegg during a debate, while the image only depicts Nigel Farage, making the caption misleading about the image's content. Therefore, the caption is out of context because it does not match the image's actual content."
+  },
+  "inference_time": 4.627817869186401,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

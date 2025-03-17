@@ -1,0 +1,44 @@
+{
+  "caption": "Obama supporters celebrate his early win in front of the White House",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Ginkgo",
+      "Tree",
+      "Fire",
+      "Northern maidenhair fern"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Watching Trump Win from the White House | The New Yorker",
+        "content": "W a t c h i n g   T r u m p   W i n   f r o m   t h e   W h i t e   H o u s e   |   T h e   N e w   Y o r k e r",
+        "caption": "As the reality of Donald Trumps Election Night victory became clear President Obama reminded his staff that most of the...",
+        "domain": "www.newyorker.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Trump to invite Philadelphia Eagles to White House",
+        "content": "T r u m p   t o   i n v i t e   P h i l a d e l p h i a   E a g l e s   t o   W h i t e   H o u s e",
+        "caption": "AFP Philadelphia Eagles players celebrate with the trophy at the end of Super Bowl game in New Orleans, Louisiana, on 09 February ",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidate captions have very low image and text similarity scores, indicating they are irrelevant to the news caption. The news caption describes Obama supporters celebrating his win in front of the White House, but neither candidate mentions Obama, supporters, the White House, or a celebration. Therefore, there's no evidence to support the caption's accuracy.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts a crowd of people, some of whom are climbing a tree. The caption claims that the image shows \"Obama supporters celebrate his early win in front of the White House\". The image check result has a low confidence score which means the caption is not related to the image. Therefore, the caption is out of context.",
+    "validation_summary": "The image does not show any clear evidence of Obama supporters, celebrations, or the White House, making the caption misleading. The image shows people in a tree at night with no association to Obama or politics. Therefore, the caption does not provide an accurate representation of the image's content and misleads viewers about what the photo shows. Therefore the image is out of context (OOC=True). High confidence score reflects direct image analysis of missing elements."
+  },
+  "inference_time": 3.7516417503356934,
+  "ablation_type": "no_filters"
+}

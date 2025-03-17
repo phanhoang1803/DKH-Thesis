@@ -1,0 +1,38 @@
+{
+  "caption": "Syrian doctors try to save the life of a boy shot by a Syrian Army sniper at Dar alShifa hospital",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Life and death at the Dar Al Shifa hospital on Aleppos front line | Arab Spring: 10 years on | Al Jazeera",
+        "content": "L i f e   a n d   d e a t h   a t   t h e   D a r   A l   S h i f a   h o s p i t a l   o n   A l e p p o ' s   f r o n t   l i n e   . . .",
+        "caption": "In a photo from November 29, 2012, night falls on a rebel-controlled area of Aleppo as destroyed buildings, including Dar Al Shifa hospital, are seen on Sa'ar street after airstrikes had targeted it a week before [Narciso Contreras]",
+        "domain": "www.aljazeera.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, the strict decision rules are not applicable. The available candidate describes the Dar Al Shifa hospital being destroyed in Aleppo. However, it does not mention a boy being shot by a Syrian Army sniper and doctors trying to save his life. Therefore, there is not enough evidence to confirm the caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 3 and determines that the caption is not accurately representative of the image content. The image depicts a child lying on a medical table with doctors attending to him in what appears to be a hospital setting. The caption specifies that the child was \"shot by a Syrian Army sniper at Dar alShifa hospital,\" which is not directly verifiable from the image alone. While the image shows the aftermath of an injury, it does not provide evidence of the cause (sniper fire) or the specific location (Dar alShifa hospital). Therefore, the claim in the caption is not substantiated by the image, as it is only a generic medical scene that could be associated with a variety of causes and locations. Therefore the image is out of context.",
+    "validation_summary": "The caption claims the child was shot by a Syrian Army sniper at Dar alShifa hospital, but the image only shows a child injured, lying on a medical table, and there is no way to verify the cause or location from the image alone. Therefore, the caption is misleading since the image does not corroborate the specific claim."
+  },
+  "inference_time": 4.672091245651245,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

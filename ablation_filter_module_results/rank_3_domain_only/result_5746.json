@@ -1,0 +1,46 @@
+{
+  "caption": "Shannon Rae Green hosts USA NOW for July 31 covering the rise of TSA misconduct cases by 26 in the past three years",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 7,
+      "confidence_score": 9,
+      "explanation": "The image context mentions travelers navigating through Denver International Airport amid rising TSA misconduct concerns. The provided caption talks about Shannon Rae Green hosting USA NOW for July 31 covering the rise of TSA misconduct cases by 26 in the past three years. While both relate to TSA misconduct, the caption introduces an element (Shannon Rae Green and USA NOW) that is not directly visible or implied in the image context. Thus, the alignment is not very strong, but there's a thematic connection.",
+      "supporting_evidences": [
+        "Image context discusses TSA misconduct concerns.",
+        "Caption discusses TSA misconduct cases.",
+        "The caption introduces unrelated information (Shannon Rae Green, USA NOW) not present in the image context."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "information": "The image depicts a representative scene from an airport, possibly within a concourse area. It includes various travelers going about their business, with some standing in line and others in casual poses, looking at their mobile devices. The architecture in the background suggests a modern airport design, characterized by high ceilings and expansive glass windows that let in natural light.",
+      "caption": "Travelers navigate through Denver International Airport amid rising TSA misconduct concerns.",
+      "context": "This image captures the hustle and bustle within Denver International Airport, reflecting the everyday experiences of passengers as they navigate through security checks and travel to their destinations. The visual plays a significant role considering the recent concerns arising over misconduct cases reported within the Transportation Security Administration (TSA), which have surged by 26% over the past three years. Federal lawmakers, including Rep. Jeff Duncan, have expressed discontent, emphasizing the need for improved regulations and disciplinary action regarding TSA officials. The context surrounding the image highlights the ongoing debate about security practices at airports, as passengers continue to deal with the repercussions of TSA misconduct. Lawmakers have criticized the agency for inconsistent disciplinary measures, particularly in light of documented cases involving theft and other forms of misconduct by TSA employees, which can undermine the trust of travelers during their transition through airport security processes.",
+      "entities": [
+        "Denver International Airport",
+        "Transportation Security Administration",
+        "Passenger",
+        "Concourse"
+      ]
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a busy airport security checkpoint. The caption mentions Shannon Rae Green hosting USA NOW and a report on TSA misconduct. While the image is related to TSA and airport security, it doesn't show or imply anything about the specific person or program mentioned in the caption. The core of the issue is the specific claim that the image depicts Shannon Rae Green or her show, which is not visually supported. The image check result also confirms that the alignment between the image and the caption is not strong due to the introduction of elements (Shannon Rae Green and USA NOW) not visible in the image. Therefore, the caption misrepresents the image context, making it out of context.",
+    "validation_summary": "The caption makes a specific claim about the image depicting a person and program not present, misleading viewers about the image's content and context. The image is about a TSA checkpoint, while the caption is about a person hosting a show about TSA misconduct, thereby misleading the viewer."
+  },
+  "inference_time": 5.192142963409424,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

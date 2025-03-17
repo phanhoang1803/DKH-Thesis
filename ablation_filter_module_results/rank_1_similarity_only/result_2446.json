@@ -1,0 +1,54 @@
+{
+  "caption": "Kit Harington as Jon Snow and Sophie Turner as Sansa Stark in HBO s Game of Thrones",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Indochinese rhesus macaque",
+      "Japanese macaque",
+      "Sea otter",
+      "Otters",
+      "Chimpanzee",
+      "Walrus",
+      "Sloths",
+      "Japan",
+      "Sea",
+      "Marmoset"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Sophie Turner: Kit Harington deserves more money than me on 'Game of Thrones'",
+        "content": "S o p h i e   T u r n e r :   K i t   H a r i n g t o n   d e s e r v e s   m o r e   m o n e y   t h a n   m e   o n   ' G a m e   . . .",
+        "caption": "Sophie Turner as Sansa Stark and Kit Harington as Jon Snow in Game of Thrones (Credit: HBO)",
+        "domain": "uk.news.yahoo.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2038564682006836,
+        "text_similarity_score": 0.9541661143302917
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.2038564682006836, which is less than 0.85. The text similarity score is 0.9541661143302917, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [
+        "The image similarity score is 0.2038564682006836, which is less than 0.85.",
+        "The text similarity score is 0.9541661143302917, which is greater than 0.7."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image is out of context (OOC = True) because the image similarity score is 0.2038564682006836, which is less than 0.85, even though the text similarity score is 0.9541661143302917, which is greater than 0.7. Therefore, I must mark the caption as out of context, as the image similarity score is below the threshold. The image shows a person partially submerged in snow, while the caption references Kit Harington as Jon Snow and Sophie Turner as Sansa Stark, suggesting a different scene involving these two specific actors from the Game of Thrones series, which does not match the content of the image.",
+    "validation_summary": "The image shows a person in the snow, which is not representative of Jon Snow and Sansa Stark as the caption suggests, misleading viewers about the image's content. The low image similarity score confirms the mismatch between the image and caption."
+  },
+  "inference_time": 6.942390203475952,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

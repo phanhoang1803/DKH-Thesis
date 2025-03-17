@@ -1,0 +1,51 @@
+{
+  "caption": "Libyan men protesting against Ansar alSharia in Benghazi Libya last month",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Benghazi",
+      "United States",
+      "Ansar al-Sharia",
+      "Ambassador",
+      "Diplomat",
+      "Demonstration",
+      "Rebellion",
+      "Photograph",
+      "Death"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Unarmed people power drums Libya's jihadists out of Benghazi | Libya | The Guardian",
+        "content": "U n a r m e d   p e o p l e   p o w e r   d r u m s   L i b y a ' s   j i h a d i s t s   o u t   o f   B e n g h a z i   . . .",
+        "caption": "A Libyan man gestures as thousands of people march in Benghazi during a protest against militias on 21 September, 2012.  Photograph: Abdullah Doma/AFP/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Libyan army blockades Islamist militia suspected of killing US ambassador | Libya | The Guardian",
+        "content": "L i b y a n   a r m y   b l o c k a d e s   I s l a m i s t   m i l i t i a   s u s p e c t e d   o f   k i l l i n g   U S   . . .",
+        "caption": "Libyan men protesting against Ansar al-Sharia in Benghazi, Libya, last month. Photograph: Mohammad Hannon/AP",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have low image and text similarity scores, requiring a deeper analysis. Candidate 1 describes 'thousands of people march in Benghazi during a protest against militias on 21 September, 2012.' Candidate 2 has the exact same caption as the news item, stating, 'Libyan men protesting against Ansar al-Sharia in Benghazi, Libya, last month.' The key elements present in the news caption, 'Libyan men,' 'protesting,' 'Ansar al-Sharia,' 'Benghazi,' and 'Libya' are also present in Candidate 2. While Candidate 1 mentions a protest against militias in Benghazi, it does not specifically mention Ansar al-Sharia, and it gives a specific date (September 21, 2012), which may or may not align with when 'last month' is referring to. Thus, Candidate 2 is much better. Because of this matching information, I believe that the caption of the news item accurately represents what the news image shows and what the image is about. However, because the similarity scores were low, and I only have one candidate that verifies the news caption almost verbatim, I am giving a confidence score of 7.",
+      "supporting_evidences": [
+        "Candidate 2: Caption - Libyan men protesting against Ansar al-Sharia in Benghazi, Libya, last month."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "validation_summary": "The caption accurately represents the image content of Libyan men protesting against Ansar al-Sharia in Benghazi.",
+    "explanation": "The caption \"Libyan men protesting against Ansar al-Sharia in Benghazi, Libya last month\" effectively describes the scene depicted in the image. The image shows a large crowd of men gathered together in what appears to be a protest setting. Their expressions and body language suggest they are actively engaged in protest activities, which aligns with the claim made in the caption. The reference to Ansar al-Sharia indicates the specific group they are protesting against, which is also consistent with the ongoing conflict and tensions in Libya during that period. Overall, the content of the image aligns closely with the description provided in the caption, confirming its accuracy."
+  },
+  "inference_time": 11.299606561660767,
+  "ablation_type": "no_filters"
+}

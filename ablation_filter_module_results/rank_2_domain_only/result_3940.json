@@ -1,0 +1,47 @@
+{
+  "caption": "Miss Rhode Island Ivy DePew in the Miss America competition The state may have to pay the piper for its investment in hedge funds",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "United States",
+      "Western concert flute",
+      "Flute",
+      "Russia",
+      "Bansuri",
+      "Flutist",
+      "Piccolo",
+      "Concert"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Do state retirement pensions belong with Wall Street hedge funds? | US personal finance | The Guardian",
+        "content": "D o   s t a t e   r e t i r e m e n t   p e n s i o n s   b e l o n g   w i t h   W a l l   S t r e e t   h e d g e   f u n d s   . . .",
+        "caption": "John A Paulson, president of Paulson & Co Inc, is a good example of how quickly fortunes can turn for hedge-fund geniuses",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate is about John Paulson, president of Paulson & Co Inc, and hedge-fund geniuses. It does not support the news caption which is about Miss Rhode Island Ivy DePew in the Miss America competition.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image features a woman playing the flute on stage. She is wearing a red dress and has her hair styled up. The background is an orange color with some indistinct shapes. The news caption refers to \"Miss Rhode Island Ivy DePew in the Miss America competition\" and mentions the state paying for its investment in hedge funds. The image check result indicates a low similarity between the image content and the caption, further emphasizing the discrepancy. Since the image shows a flutist and the caption discusses a beauty pageant contestant and financial matters, the caption is not representative of the image content.",
+    "validation_summary": "The caption is misleading because it discusses Miss Rhode Island in a competition and state finances, while the image depicts a woman playing the flute on stage, leading to a completely different visual association. The caption doesn't represent the content of the image accurately."
+  },
+  "inference_time": 3.6670172214508057,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

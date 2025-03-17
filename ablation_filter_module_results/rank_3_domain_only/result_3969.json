@@ -1,0 +1,40 @@
+{
+  "caption": "Macaulay Culkin and Elijah Wood in controversial thriller The Good Son",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Disaster movies: what happens when real-life pre-empts Hollywood? | Film | The Guardian",
+        "content": "D i s a s t e r   m o v i e s :   w h a t   h a p p e n s   w h e n   r e a l - l i f e   p r e - e m p t s   H o l l y w o o d   . . .",
+        "caption": "Macaulay Culkin and Elijah Wood in controversial thriller The Good Son.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 which is less than 0.85, and the text similarity score is 0.0 which is less than 0.7. According to the instructions, I need to analyze based on the captions and candidates to give the final decision. The candidate caption is identical to the news caption, which is a strong indication that the caption is in context. However, I am not fully confident, given that there is no further details. Thus, the verdict is True.",
+      "supporting_evidences": [
+        "Macaulay Culkin and Elijah Wood in controversial thriller The Good Son."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a high confidence score, and the image similarity score is 0.0 which is less than 0.85, and the text similarity score is 0.0 which is less than 0.7. The image shows a group of five men, while the caption references Macaulay Culkin and Elijah Wood in a movie called 'The Good Son'. The image content does not match the caption information, leading to the determination that the image is out of context.",
+    "validation_summary": "The caption incorrectly identifies the people in the image, as the image depicts a group of five men and does not contain Macaulay Culkin or Elijah Wood. Therefore, viewers would be misled about the image's content."
+  },
+  "inference_time": 4.14583945274353,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "caption": "Arizona Cardinals free safety Tyrann Mathieu celebrates with cornerback Patrick Peterson after a 26yard interception against the Kansas City Chiefs",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "2015 NFL preseason",
+        "content": "2 0 1 5   N F L   p r e s e a s o n",
+        "caption": "Tampa Bay Buccaneers defensive end George Johnson (94) sacks Cincinnati Bengals quarterback Andy Dalton (14) during the first quarter at Raymond James Stadium.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The Image Similarity Score is 0.0 and Text Similarity Score is 0.0. Therefore, the content of the candidate is irrelevant to the news caption. The candidate does not confirm who is in the image, what the event is, or any of the elements in the caption. Thus, the caption is determined to be false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a high confidence score of 10 and states that the caption is false because the image similarity score and text similarity score are both 0.0. The image shows two football players in red uniforms celebrating on a field with a crowd in the background. The caption describes Arizona Cardinals players celebrating an interception against the Kansas City Chiefs. Given the image check result, the people and teams in the image do not align with the caption. Therefore, the caption does not correctly represent the image content.",
+    "validation_summary": "The caption is misleading because it describes specific players and teams that are not identifiable in the image, leading to a mismatch between the visual content and the textual description. The image check result confirms that the caption is unrelated to the image."
+  },
+  "inference_time": 4.0790417194366455,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

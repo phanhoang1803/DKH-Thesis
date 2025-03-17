@@ -1,0 +1,66 @@
+{
+  "caption": "A golden retriever dressed as a reindeer pulls a sleigh through the costume contest at the annual Tompkins Square Halloween Dog Parade in New York City",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Golden Retriever",
+      "Labrador Retriever",
+      "Nova Scotia Duck Tolling Retriever",
+      "Alopekis",
+      "American Bulldog",
+      "Dorgi",
+      "Bulldog",
+      "Hunting dog",
+      "Companion dog",
+      "Retriever"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Dogs parade in Halloween costumes",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Dogs parade in Halloween costumes",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "What Does a Green Porch Light Mean in WA?",
+        "content": "W h a t   D o e s   a   G r e e n   P o r c h   L i g h t   M e a n   i n   W A ?",
+        "caption": "What Does a Green Porch Light Mean in WA?",
+        "domain": "929thebull.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Dogs parade in Halloween costumes",
+        "content": "D o g s   p a r a d e   i n   H a l l o w e e n   c o s t u m e s",
+        "caption": "A golden retriever dressed as a reindeer pulls a \"sleigh\" through the costume contest at the annual Tompkins Square Halloween Dog Parade in New York City.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The news caption is \"A golden retriever dressed as a reindeer pulls a sleigh through the costume contest at the annual Tompkins Square Halloween Dog Parade in New York City\".\n\nCandidate 1 has no relevant information.\nCandidate 2 has no relevant information.\nCandidate 3 has no relevant information.\nCandidate 4 has the caption \"A golden retriever dressed as a reindeer pulls a \\\"sleigh\\\" through the costume contest at the annual Tompkins Square Halloween Dog Parade in New York City.\"\n\nSince the image similarity scores are all 0.0, I cannot confirm if the image matches the caption. However, Candidate 4's caption is almost identical to the original caption, which indicates that the original caption may be accurate. Therefore, I will give a \"False\" verdict due to the low image similarity scores and a confidence score of 6.",
+      "supporting_evidences": [
+        "Candidate 4's caption is almost identical to the original caption."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result returned a confidence score of 6, so an image analysis is required. The image shows two dogs in costume being pulled in a red wagon. The dog in the front is wearing reindeer antlers and a red outfit with white trim. A smaller dog is in the wagon, also wearing a costume. The caption states, \"A golden retriever dressed as a reindeer pulls a sleigh through the costume contest at the annual Tompkins Square Halloween Dog Parade in New York City.\" While the image depicts a dog dressed as a reindeer and pulling a sleigh (wagon), there is no visual confirmation that this is taking place at the Tompkins Square Halloween Dog Parade in New York City. Given this discrepancy and the image check result, the caption is likely misleading. Because the confidence score is between 7-10, the final determination must be based on the image check result which indicates OOC=False. Therefore, given the image check result indicating a confidence score of 6, the decision has been altered to OOC=True.",
+    "validation_summary": "The caption claims the photo was taken at a specific event (Tompkins Square Halloween Dog Parade), but the image provides no evidence to support this, making the caption misleading. The image check result provided a low confidence score but the determination has been updated to be OOC=True to match the image check result verdict and altered confidence score of 7+."
+  },
+  "inference_time": 4.5636560916900635,
+  "ablation_type": "no_filters"
+}

@@ -1,0 +1,46 @@
+{
+  "caption": "Many people in the local village of Harmondsworth are strongly apposed to the third Heathrow as it would likely mean the demolition of the village",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "How would you be affected by a third runway at Heathrow? | Heathrow airport | The Guardian",
+        "content": "H o w   w o u l d   y o u   b e   a f f e c t e d   b y   a   t h i r d   r u n w a y   a t   H e a t h r o w   . . .",
+        "caption": "Many people in the local village of Harmondsworth are strongly apposed to the third Heathrow as it would likely mean the demolition of the village",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9830070734024048,
+        "text_similarity_score": 1.0
+      },
+      {
+        "title": "Life under the Heathrow flightpath from being woken up at 4.30am to being able hearing the birds sing in lockdown - MyLondon",
+        "content": "L i f e   u n d e r   t h e   H e a t h r o w   f l i g h t p a t h   f r o m   b e i n g   w o k e n   u p   a t   4 . 3 0 a m   . . .",
+        "caption": "Many people in the local village of Harmondsworth are strongly opposed to the third Heathrow runway as it would likely mean the demolition of the village",
+        "domain": "www.mylondon.news",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.13290582597255707,
+        "text_similarity_score": 0.9094441533088684
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1 has a high image similarity score (0.9830070734024048) and a high text similarity score (1.0). According to the instructions, if the Image Similarity Score is ≥ 0.85 AND the Text Similarity Score is ≥ 0.7, the verdict should be immediately returned as True. Therefore, the caption is in-context.",
+      "supporting_evidences": [
+        "Candidate 1 has a high image similarity score (0.9830070734024048).",
+        "Candidate 1 has a high text similarity score (1.0)."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "validation_summary": "The caption accurately reflects the concerns of the village residents shown in the image, aligning with the discussions around Heathrow's third runway and its impact on Harmondsworth.",
+    "explanation": "The caption mentions that many people in the local village of Harmondsworth are strongly opposed to the third Heathrow runway due to the potential demolition of the village. Given the image is highly similar in context, it likely depicts a scene representative of the local village, supporting the concerns expressed. The image check result corroborates the caption's accuracy, indicating high similarity between the image and the caption, confirming that the concerns about demolition and local opposition are relevant and significant."
+  },
+  "inference_time": 7.297564744949341,
+  "ablation_type": "no_image_evidences"
+}

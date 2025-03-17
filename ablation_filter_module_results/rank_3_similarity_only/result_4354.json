@@ -1,0 +1,51 @@
+{
+  "caption": "David Cameron was heckled by members of the charity Age UK during speech in which he tried to show he was on side",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "David Cameron ages five years in mauling by pensioners | John Crace | The Guardian",
+        "content": "D a v i d   C a m e r o n   a g e s   f i v e   y e a r s   i n   m a u l i n g   b y   p e n s i o n e r s   |   J o h n   . . .",
+        "caption": "David Cameron was heckled by members of the charity Age UK during speech in which he tried to show he was on side.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9952220320701599,
+        "text_similarity_score": 0.955913782119751
+      },
+      {
+        "title": "David Cameron ages five years in mauling by pensioners | John Crace | The Guardian",
+        "content": "D a v i d   C a m e r o n   a g e s   f i v e   y e a r s   i n   m a u l i n g   b y   p e n s i o n e r s   |   J o h n   . . .",
+        "caption": "David Cameron was heckled by members of the charity Age UK during speech in which he tried to show he was on side.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9933233857154846,
+        "text_similarity_score": 0.955913782119751
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both candidates have an image similarity score >= 0.85 and a text similarity score >= 0.7. Therefore, the caption is in-context and the verdict is True. The candidates come from a reliable source (theguardian.com) and the captions are identical to the news caption.",
+      "supporting_evidences": [
+        "David Cameron was heckled by members of the charity Age UK during speech in which he tried to show he was on side."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 10, which indicates a high level of certainty that the caption accurately represents the image content. The image check result confirms that the caption is in-context, with an image similarity score >= 0.85 and a text similarity score >= 0.7. The supporting evidences from the image check result also include captions from a reliable source (theguardian.com) that are identical to the news caption. Based on this, the caption is deemed to provide a correct representative summary of the image content.",
+    "validation_summary": "The image check confirms that the caption accurately describes the image content, preventing viewer from being misled. The high confidence score further supports the accuracy of this assessment, as the caption is consistent with reliable sources and identical to the news caption used."
+  },
+  "inference_time": 4.337203025817871,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

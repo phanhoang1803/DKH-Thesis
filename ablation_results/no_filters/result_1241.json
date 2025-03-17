@@ -1,0 +1,62 @@
+{
+  "caption": "Xinjiang is China s largest administrative region and borders eight countries",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Hazaras",
+      "Mark Getty",
+      "Getty Images",
+      "Image",
+      "Getty Images",
+      "Stock photography",
+      "Photograph",
+      "Kabul"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.fi",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Regions of China: A Comprehensive Guide",
+        "content": "R e g i o n s   o f   C h i n a :   A   C o m p r e h e n s i v e   G u i d e",
+        "caption": "A map that outlines the 6 different regions of China in different colours for easier reference.",
+        "domain": "www.advantasourcing.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "The Energy Industry in Xinjiang, China: Potential, Problems, and Solutions",
+        "content": "T h e   E n e r g y   I n d u s t r y   i n   X i n j i a n g ,   C h i n a :   P o t e n t i a l ,   P r o b l e m s ,   a n d   . . .",
+        "caption": "Xinjiang",
+        "domain": "www.powermag.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are all 0.0, indicating that none of the candidate images match the news image. The caption similarity scores are also all 0.0, meaning that the captions do not match. Candidate 3 mentions regions of China, and candidate 4 mentions Xinjiang. However, none of them mention that Xinjiang is China's largest administrative region and borders eight countries. Since there is no evidence to support the news caption, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption inaccurately states that Xinjiang is China's largest administrative region and borders eight countries, which is a geographical fact not present in the image or its content.",
+    "explanation": "The check result indicates that the caption does not match the image, as there is no direct visual representation of geographical boundaries or regions like Xinjiang in the image provided. Furthermore, the phrase 'Xinjiang is China's largest administrative region and borders eight countries' lacks contextual support within the image, and the surrounding content doesn't discuss or illustrate those geographical specifics. Hence, the caption appears to misleadingly present information unrelated to the image shown."
+  },
+  "inference_time": 5.394850969314575,
+  "ablation_type": "no_filters"
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "Stephen Hester the former RBS boss is devising a resuce strategy for insurer RSA which owns the More Than brand",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Proms 2011 | The Guardian",
+        "content": "",
+        "caption": "Tim Walker",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9811883568763733,
+        "text_similarity_score": 0.20149953663349152
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is very high (0.9811883568763733), suggesting that the candidate image is visually similar to the news image. However, the text similarity score is low (0.20149953663349152), indicating that the captions are not similar. Furthermore, the caption of the candidate is 'Tim Walker,' which doesn't match the news caption: 'Stephen Hester the former RBS boss is devising a resuce strategy for insurer RSA which owns the More Than brand'. Therefore, the evidence does not support that the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low text similarity score (0.20149953663349152) between the news caption and the candidate caption ('Tim Walker'). The image shows a man in a suit and tie, identified by the news caption as 'Stephen Hester the former RBS boss'. Because the confidence score of image check result is high, the verdict must be based on it. The caption in the news is not related to the candidate caption and doesn't accurately represent the image. Therefore, the caption misrepresents the image content.",
+    "validation_summary": "The image shows a man, but the candidate caption and image check result indicates a low similarity between the caption and image. Therefore, viewers would be misled about what they're seeing."
+  },
+  "inference_time": 6.639997482299805,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

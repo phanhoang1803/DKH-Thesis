@@ -1,0 +1,49 @@
+{
+  "caption": "Xinjiang is China s largest administrative region and borders eight countries",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Hazaras",
+      "Mark Getty",
+      "Getty Images",
+      "Image",
+      "Getty Images",
+      "Stock photography",
+      "Photograph",
+      "Kabul"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 9,
+      "explanation": "The provided caption talks about the geography of Xinjiang, while the image context discusses security presence and tension in the region. Therefore, there is a significant misalignment between the image context and the provided caption. The caption doesn't align with the visual content described.",
+      "supporting_evidences": [
+        "The image shows security forces patrolling a city street.",
+        "The context emphasizes heightened tension and security measures.",
+        "The caption describes Xinjiang's geography, unrelated to security concerns."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "information": "The image likely depicts a busy street scene in a city, possibly showing a multitude of vehicles, pedestrians, and security personnel, indicative of heightened security measures. The presence of paramilitary police suggests a tense atmosphere related to security issues and public safety.",
+      "caption": "Security forces patrol a city street amid heightened tension.",
+      "context": "This image aligns with the ongoing situation in regions like Xinjiang, where government surveillance and police presence have increased significantly due to concerns over separatism and potential violence related to ethnic tensions, specifically involving the Uighurs. In cities like Kashgar, where ethnic and religious minorities face restrictions, the evident police presence reflects the government's approach to managing unrest and dissent. The image serves as a visual representation of the discussions surrounding security measures, civil liberties, and the experiences of local populations living under intense scrutiny. The text detected in the news content implies concerns about civil rights, government oversight, and community responses to repression, which are visually underlined by the scene captured in the image."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a group of people in a mountainous region, some of whom are wearing traditional clothing. The news caption states that 'Xinjiang is China s largest administrative region and borders eight countries'. This caption is a geographical description of the region, whereas the image shows a group of people in a mountainous region. The image check result has a confidence score of 9, indicating a high level of certainty. The image check result indicates that the caption doesn't align with the visual content described.",
+    "validation_summary": "The caption describes the geography of Xinjiang, but the image shows a group of people in a mountainous region; viewers would be misled by the caption since it doesn't represent the scene in the image. Therefore, the image is out of context with the news caption provided."
+  },
+  "inference_time": 3.7431528568267822,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

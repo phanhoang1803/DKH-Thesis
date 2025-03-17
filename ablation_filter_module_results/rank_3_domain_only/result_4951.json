@@ -1,0 +1,58 @@
+{
+  "caption": "An early live shot from Jim Reid s collection with Douglas Hart centre",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Robert Smith",
+      "Zilker Metropolitan Park",
+      "Zilker",
+      "Austin City Limits Music Festival",
+      "Toyota Sports 800",
+      "The Cure",
+      "Car",
+      "Sports car",
+      "SEAT 600",
+      "Festival"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "The Jesus and Mary Chain on Psychocandy: It was a little miracle | Jesus and Mary Chain | The Guardian",
+        "content": "T h e   J e s u s   a n d   M a r y   C h a i n   o n   P s y c h o c a n d y :   ' I t   w a s   a   l i t t l e   m i r a c l e   . . .",
+        "caption": "An early live shot from Jim Reids collection, with Douglas Hart centre.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "The American Home Front and World War II (U.S. National Park Service)",
+        "content": "T h e   A m e r i c a n   H o m e   F r o n t   a n d   W o r l d   W a r   I I   ( U . S .   N a t i o n a l   P a r k   S e r v i c e )",
+        "caption": "Color illustration of a white man in a suit and wearing a Civil Defense helmet and armband holding a worried-looking white child. Behind them are suggestions of flames and a representation of the sign that V Homes can display.",
+        "domain": "www.nps.gov",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The first candidate has a caption that is verbatim to the news caption, 'An early live shot from Jim Reid’s collection, with Douglas Hart centre.' Therefore, there is a chance that the news image is accurately described. However, the Image Similarity Score for both candidates are 0.0 and the Text Similarity Score for the second candidate is also 0.0. Therefore, the second candidate does not provide any useful information.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: An early live shot from Jim Reid’s collection, with Douglas Hart centre."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 7. Therefore, the final determination \"MUST\" be based on the image check result. The image check result suggests that the image is accurately described in the caption. Therefore, the image is not out of context.",
+    "validation_summary": "The caption provides an accurate description of the image content and would not mislead viewers about what they're seeing, as it directly corresponds to the elements and individuals depicted in the photograph, based on the image check result alone. There is a high degree of certainty that the image and caption align, as the confidence score is 7 based on the image check result alone."
+  },
+  "inference_time": 3.6548914909362793,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

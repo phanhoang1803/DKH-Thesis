@@ -1,0 +1,38 @@
+{
+  "caption": "Jessica Vazquez left hugs her aunt Leticia Alcaraz as they await word on Alcaraz s daughter after a deadly shooting at Umpqua Community College",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Deadly rampage at Umpqua Community College in southern Oregon",
+        "content": "D e a d l y   r a m p a g e   a t   U m p q u a   C o m m u n i t y   C o l l e g e   i n   s o u t h e r n   O r e g o n",
+        "caption": "Friends and family are reunited with students at the local fairgrounds after a deadly shooting at Umpqua Community College in Roseburg, Ore.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The provided candidate describes a similar event (a deadly shooting at Umpqua Community College). However, the candidate doesn't mention the specific individuals or relationships (Jessica Vazquez, Leticia Alcaraz, and Leticia's daughter) described in the news caption. Without confirmation of these specific elements, I cannot confirm the caption's accuracy.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image depicts a group of people, including two women hugging, one of whom appears to be crying. The caption states that the image shows \"Jessica Vazquez left hugs her aunt Leticia Alcaraz as they await word on Alcaraz s daughter after a deadly shooting at Umpqua Community College.\" While the image does depict a somber scene that could be related to a tragedy, there is no way to independently confirm that the individuals are Jessica Vazquez and Leticia Alcaraz, or that they are awaiting news about Alcaraz's daughter after the Umpqua Community College shooting. Thus, although the image is consistent with the aftermath of a tragedy, the caption makes claims about specific individuals that cannot be verified from the image alone. The Image Check result also indicates a low similarity score, failing to verify the caption's accuracy.",
+    "validation_summary": "The caption provides specific names and relationships that are impossible to verify from the image alone, which makes it misleading as viewers are led to believe they are seeing specific individuals in relation to the Umpqua Community College shooting without visual confirmation. The image check result also indicated a low similarity score to the provided news content, which supports the determination that the image is OOC (Out of Context). There is no way to verify who the people are or why they are grieving based on the image alone. It could be related to the shooting, but it could also be related to something else entirely."
+  },
+  "inference_time": 5.352684497833252,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

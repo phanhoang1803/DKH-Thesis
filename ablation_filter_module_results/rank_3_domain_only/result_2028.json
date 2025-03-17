@@ -1,0 +1,54 @@
+{
+  "caption": "Angelique Kerber of Germany returns to Eugenie Bouchard of Canada",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Racket",
+      "Tennis",
+      "Tennis Racket",
+      "Soft tennis",
+      "Racketlon",
+      "Tennis player"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Simona Halep, Eugenie Bouchard advance to Wimbledon semifinals  The Denver Post",
+        "content": "S i m o n a   H a l e p ,   E u g e n i e   B o u c h a r d   a d v a n c e   t o   W i m b l e d o n   s e m i f i n a l s   . . .",
+        "caption": "Eugenie Bouchard of Canada plays a return to Angelique Kerber of Germany during their women's singles quarterfinal match at the All England Lawn Tennis Championships in Wimbledon, London, on July 2, 2014.",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Day 9 at Wimbledon",
+        "content": "D a y   9   a t   W i m b l e d o n",
+        "caption": "Eugenie Bouchard celebrates beating Angelique Kerber.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The news caption mentions 'Angelique Kerber of Germany returns to Eugenie Bouchard of Canada.' Candidate 1 mentions 'Eugenie Bouchard of Canada plays a return to Angelique Kerber of Germany during their women's singles quarterfinal match at the All England Lawn Tennis Championships in Wimbledon, London, on July 2, 2014.' The candidate caption confirms that both players are present and playing against each other. However, it does not directly confirm that Kerber is returning to Bouchard. Candidate 2 only confirms that Eugenie Bouchard celebrates beating Angelique Kerber but doesn't say anything about the action in the image.",
+      "supporting_evidences": [
+        "Candidate 1: Eugenie Bouchard of Canada plays a return to Angelique Kerber of Germany during their women's singles quarterfinal match at the All England Lawn Tennis Championships in Wimbledon, London, on July 2, 2014."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows Angelique Kerber hitting a tennis ball during a match. The caption states \"Angelique Kerber of Germany returns to Eugenie Bouchard of Canada.\" While the image shows Kerber hitting the ball, it doesn't explicitly confirm that she is returning a shot from Bouchard. The image check result highlights that while one of the candidates confirm that the two players are present, they don't explicitly state that Kerber is returning a shot from Bouchard. Given that the image only shows Kerber's action and the caption implies a specific interaction with Bouchard that is not directly verifiable from the image alone, it can be misleading. Since the confidence score is above 7, the decision is based on the image check result.",
+    "validation_summary": "The caption implies a specific action (Kerber returning a shot to Bouchard) that is not directly verifiable from the image, making the caption potentially misleading. While the players may have been playing each other, the image by itself cannot confirm the directionality of the shot as described in the caption."
+  },
+  "inference_time": 4.970666170120239,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

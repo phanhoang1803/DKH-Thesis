@@ -1,0 +1,45 @@
+{
+  "caption": "Ottawa Chris Neil checks New York Rangers Dan Girardi into the board as the Senators win again in overtime to tie the series 22",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "NHL 2016-17 photo of the night",
+        "content": "N H L   2 0 1 6 - 1 7   p h o t o   o f   t h e   n i g h t",
+        "caption": "April 9: Edmonton Oilers center Connor McDavid (97) celebrates his 100th point of the season off a goal by Leon Draisaitl (not pictured) in the third period against the Vancouver Canucks.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "NHL playoffs in pictures: conference quarter-finals | Sport | The Guardian",
+        "content": "N H L   p l a y o f f s   i n   p i c t u r e s :   c o n f e r e n c e   q u a r t e r - f i n a l s   |   S p o r t   |   T h e   . . .",
+        "caption": "NHL playoffs: Ottawa Senators New York Rangers",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity scores are both 0.0, indicating that neither candidate image closely resembles the news image. The caption similarity scores are also both 0.0, meaning there is no significant textual overlap between the news caption and the candidate captions. Therefore, based solely on the provided evidence, it is not possible to verify the accuracy of the news caption. The first candidate describes a different game and players. The second candidate only mentioned the teams involved but does not provide any details about the game or the players' actions described in the caption. Without more supporting information, I cannot confirm the elements or the claims made in the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low confidence score of 3 and a 'false' verdict. It also specifies that the image similarity scores and caption similarity scores are both 0.0, which indicates no visual or textual overlap between the news image, the caption, and candidate information. This suggests the caption does not accurately describe the image. Although it is difficult to assess definitively without a high confidence match, the low similarity scores point towards the caption being out of context. Therefore, relying on the image check result, the image is considered OOC.",
+    "validation_summary": "The image check determined there is no visual or textual similarity between the image and the caption. Viewers would likely be misled about what they are seeing in the image if they were to rely solely on the provided caption since it appears to be unrelated to the image's content and context as determined from the image check result's similarity measures and ultimate negative finding for accuracy of representation of the image's content by the caption in question based on information contained in the checked source material, hence, this appears to be an example where the caption is OOC, or, 'Out of Context'. Moreover, the image shows a hockey player being checked into the boards. The caption is supposed to summarize the events of the game. However, the image check determines that this is inaccurate.. Therefore the image appears to be OOC because the caption does not match the image, as determined by the image check, and based on a comprehensive comparison of the details present in both formats."
+  },
+  "inference_time": 5.1264119148254395,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

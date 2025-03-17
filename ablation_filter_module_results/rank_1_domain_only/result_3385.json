@@ -1,0 +1,43 @@
+{
+  "caption": "Novak Djokovic of Serbia celebrates his 67 76 63 62 victory against Andy Murray of Britain to capture his third consecutive Australian Open crown and fourth overall",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Soft tennis",
+      "Tennis",
+      "Racketlon",
+      "Tennis player"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Team USA rolls, Serbia comes back and Frances home court advantage: 6 takeaways from the mens basketball quarterfinals | CNN",
+        "content": "T e a m   U S A   r o l l s ,   S e r b i a   c o m e s   b a c k   a n d   F r a n c e ' s   h o m e   c o u r t   . . .",
+        "caption": "Team USA huddles after their victory against Brazil in Paris, on August 6.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. Therefore, the image and caption do not match the content of the news. Thus, the verdict is negative.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a mismatch between the image and the caption with a high confidence score of 1. The image shows Novak Djokovic playing tennis on a clay court, while the caption describes his victory against Andy Murray at the Australian Open. The Australian Open is typically played on a hard court, not a clay court, and the image shows Djokovic in action, not necessarily celebrating a victory. Therefore, the caption is misleading and does not accurately represent the content of the image.",
+    "validation_summary": "The image depicts Novak Djokovic playing tennis on a clay court, which contradicts the caption's claim of him celebrating a victory at the Australian Open. This discrepancy would mislead viewers about the context of the image."
+  },
+  "inference_time": 3.340588331222534,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

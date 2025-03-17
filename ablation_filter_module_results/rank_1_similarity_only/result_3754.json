@@ -1,0 +1,60 @@
+{
+  "caption": "The BBC s Helen Boaden was stateeducated",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Nicola Shindler",
+      "BBC Radio 4",
+      "Production company",
+      "Woman's Hour",
+      "BBC One",
+      "Channel 4",
+      "Television",
+      "Kanya King"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "BBC Radio 4 - Woman's Hour - The Power List 2013",
+        "content": "",
+        "caption": "",
+        "domain": "www.bbc.co.uk",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8412824869155884,
+        "text_similarity_score": 0.09338677674531937
+      },
+      {
+        "title": "MediaGuardian 100 shows influence of fee-paying schools in UK media | MediaGuardian 100 2014 | The Guardian",
+        "content": "M e d i a G u a r d i a n   1 0 0   s h o w s   i n f l u e n c e   o f   f e e - p a y i n g   s c h o o l s   i n   U K   . . .",
+        "caption": "The BBC's Helen Boaden was state-educated.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9948090314865112,
+        "text_similarity_score": 0.9071574807167053
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 2 has a very high image similarity score (0.9948090314865112) and a very high text similarity score (0.9071574807167053). The caption of candidate 2 exactly matches the news caption: \"The BBC's Helen Boaden was state-educated.\". Therefore, the news caption is very likely to be in context.",
+      "supporting_evidences": [
+        "The BBC's Helen Boaden was state-educated."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result shows that the caption \"The BBC's Helen Boaden was state-educated.\" is highly relevant to the image (similarity score of 0.9948090314865112). The text similarity score is also high (0.9071574807167053), indicating that the caption is accurately summarizing the news content related to the image. Therefore, the image is not out of context.",
+    "validation_summary": "The caption accurately describes the person in the image and is relevant to the accompanying news article. Viewers would not be misled by the caption's description of the image's content given the context of the news article, as verified by the image check result with high confidence."
+  },
+  "inference_time": 7.043940782546997,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

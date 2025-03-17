@@ -1,0 +1,51 @@
+{
+  "caption": "Sen Joni Ernst RIowa delivers the Republican response after President Obama s State of the Union address",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speaker",
+      "Speaker of the United States House of Representatives",
+      "United States House of Representatives",
+      "House Republican Conference",
+      "Legislator",
+      "Politics",
+      "Motion to vacate the chair",
+      "Mike Johnson",
+      "Kevin McCarthy",
+      "Thomas Massie"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Joni Ernst's State of the Union Republican response  full text | US politics | The Guardian",
+        "content": "J o n i   E r n s t ' s   S t a t e   o f   t h e   U n i o n   R e p u b l i c a n   r e s p o n s e      f u l l   t e x t   . . .",
+        "caption": "Senator Joni Ernst rehearses the Republican response to Barack Obamas State of the Union address.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.32957643270492554,
+        "text_similarity_score": 0.7433881759643555
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.32957643270492554 and the text similarity score is 0.7433881759643555. Since the image similarity score is less than 0.85, I should return False. The given caption is about \"Sen Joni Ernst RIowa delivers the Republican response after President Obama s State of the Union address\", while the candidate caption is about \"Senator Joni Ernst rehearses the Republican response to Barack Obama’s State of the Union address\". Although the two captions talk about the same event (Republican response to Barack Obama’s State of the Union address), the candidate caption mentioned \"rehearses\", while the news caption did not. Thus, the news caption is not describing the same scenario as the candidate caption. I would mark the news caption as out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image features a woman with short brown hair, wearing a light blue checkered blazer and a pearl necklace. She stands in front of an American flag and what appears to be the seal of the House of Representatives. The caption claims the photo shows \"Sen Joni Ernst RIowa delivers the Republican response after President Obama s State of the Union address.\" However, the woman in the photo is Nancy Pelosi. Therefore, the caption is incorrect and the image is out of context, with a high level of confidence.",
+    "validation_summary": "The image does not depict the person named in the caption, making the caption misleading. The image shows Nancy Pelosi, not Joni Ernst, making the caption incorrect and out of context."
+  },
+  "inference_time": 8.918359518051147,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

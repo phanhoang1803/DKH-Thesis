@@ -1,0 +1,48 @@
+{
+  "caption": "Amanda Seyfried after the Les Miserables musical number",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "www.pinterest.ch",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Photos: Backstage and behind the scenes at the Oscars",
+        "content": "P h o t o s :   B a c k s t a g e   a n d   b e h i n d   t h e   s c e n e s   a t   t h e   O s c a r s",
+        "caption": "Amanda Seyfried after the 'Les Miserables' musical number.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Photos: Backstage and behind the scenes at the Oscars",
+        "content": "P h o t o s :   B a c k s t a g e   a n d   b e h i n d   t h e   s c e n e s   a t   t h e   O s c a r s",
+        "caption": "Dancers and singers take the stage during the 'Les Miserables' performance.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are all 0.0, indicating that none of the candidate images match the news image. However, candidate 2 has the caption 'Amanda Seyfried after the 'Les Miserables' musical number.', which is almost identical to the news caption. This suggests the caption is likely accurate, but without an image match, I cannot be completely confident. Therefore, I'll mark it as potentially correct but requiring further verification.",
+      "supporting_evidences": [
+        "Candidate 2 caption: Amanda Seyfried after the 'Les Miserables' musical number."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a low similarity between the news image and the candidate images, but the caption of one candidate image is nearly identical to the news caption. The news caption claims the image is of Amanda Seyfried after the Les Miserables musical number. Looking at the image, the woman appears to be wearing a formal red gown, which could align with an event like a musical performance. However, the presence of other people in formal wear and what seems to be backstage setting does not concretely confirm that she is specifically 'after the Les Miserables musical number.' Without definitive evidence linking the image to the specific event, the caption is considered potentially misleading.",
+    "validation_summary": "Although the woman in the image could be Amanda Seyfried, the caption is likely misleading because it cannot be verified that she is specifically 'after the Les Miserables musical number'. The image check result also suggests it may not be directly related."
+  },
+  "inference_time": 4.323256731033325,
+  "ablation_type": "no_filters"
+}

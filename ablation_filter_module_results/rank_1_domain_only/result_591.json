@@ -1,0 +1,47 @@
+{
+  "caption": "The AFC is there for the taking it seems if the Bengals just could get themselves completely straightened out But will that happen",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Eight-man football",
+      "Six-man football",
+      "American football",
+      "Kick american football",
+      "Arena football",
+      "Sprint football",
+      "Team",
+      "Kick"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Bengals edge Steelers to keep playoff hopes alive as Ravens clinch AFC North | NFL | The Guardian",
+        "content": "B e n g a l s   e d g e   S t e e l e r s   t o   k e e p   p l a y o f f   h o p e s   a l i v e   a s   R a v e n s   c l i n c h   . . .",
+        "caption": "Khalil Herbert of the Cincinnati Bengals runs the ball up the field in the third quarter of Saturdays game against the Pittsburgh Steelers at Acrisure Stadium.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The news caption talks about the AFC and the Bengals needing to get straightened out. The provided candidate discusses a game between the Cincinnati Bengals and the Pittsburgh Steelers, but it focuses on a specific player, Khalil Herbert, and a particular play during the game. The candidate does not mention the AFC or the Bengals needing to improve, and the image similarity score is very low, indicating the images are unrelated. Therefore, the candidate does not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image displays an advertisement for a college football game between Tennessee and Texas A&M. The caption, however, talks about the AFC and the Cincinnati Bengals. This makes the caption entirely unrelated to the image, and someone viewing the image with this caption would be misled about its contents.",
+    "validation_summary": "The caption is unrelated to the image and would mislead viewers about the content of the image, as it is an advertisement for a college football game, not a discussion about the AFC and Cincinnati Bengals. Therefore, the image is out of context with the provided news caption, aligning with the Image Check's verdict and high confidence score."
+  },
+  "inference_time": 3.9582133293151855,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

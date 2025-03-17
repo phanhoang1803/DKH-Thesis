@@ -1,0 +1,42 @@
+{
+  "caption": "A day earlier the bank s chairman Marcus Agius had resigned in an attempt to take the heat off Bob Diamond",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Public speaking",
+      "Speech",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Bob Diamond's resignation: the late exchanges that led to his demise | Bob Diamond | The Guardian",
+        "content": "B o b   D i a m o n d ' s   r e s i g n a t i o n :   t h e   l a t e   e x c h a n g e s   t h a t   l e d   t o   h i s   . . .",
+        "caption": "Bob Diamond resigned after working at Barclays for 16 years, building up the investment side of the bank. Photograph: Dan Kitwood/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, strict decision rules do not apply. The news caption mentions Marcus Agius resigning to take the heat off Bob Diamond. The candidate caption mentions Bob Diamond resigning after working at Barclays. The candidate evidence does not provide any details about Marcus Agius's resignation or any attempt to take the heat off Bob Diamond. Therefore, the candidate does not fully support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image similarity and text similarity score, resulting in a verdict that the news caption does not accurately represent the image content. The image features a man in a suit, potentially in a business or presentation setting, with a backdrop showing a mining or construction site. In contrast, the caption discusses the resignation of Marcus Agius and its relation to Bob Diamond in the context of a Libor-rigging scandal. The candidate caption mentions Bob Diamond resigning after working at Barclays. The candidate evidence does not provide any details about Marcus Agius's resignation or any attempt to take the heat off Bob Diamond. Therefore, the candidate does not fully support the news caption. The visual content of the image does not align with the events described in the caption, rendering the caption out of context with the image. The primary basis for this evaluation is the image check result which has a confidence score of 3.",
+    "validation_summary": "The caption is out of context as it discusses a specific financial scandal involving Marcus Agius and Bob Diamond, while the image shows a man in a business setting unrelated to these individuals or the scandal. This discrepancy would mislead viewers about the context of the image and its connection to the news story described in the caption and article extract provided in the prompt content."
+  },
+  "inference_time": 4.077077865600586,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

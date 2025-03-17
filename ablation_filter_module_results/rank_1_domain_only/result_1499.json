@@ -1,0 +1,40 @@
+{
+  "caption": "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Three arrested after raid on slave factory in Rochdale | Manchester | The Guardian",
+        "content": "T h r e e   a r r e s t e d   a f t e r   r a i d   o n   ' s l a v e '   f a c t o r y   i n   R o c h d a l e   . . .",
+        "caption": "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever. Photograph: Christopher Furlong/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.0, and the caption similarity score is 0.0. According to the instructions, if Image Similarity Score < 0.85 AND Text Similarity Score < 0.7, analysis will be based on the captions and candidate to give the final decision. The candidate provides the exact caption as the news, meaning that the caption is likely to be the actual caption of the image. Therefore, the verdict is True.",
+      "supporting_evidences": [
+        "Candidate 1: Caption matches the news caption exactly, indicating strong support for the accuracy of the caption."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a high confidence score of 7. Based on the instructions, the final determination MUST be based on the image check result. The image similarity score is 0.0, and the caption similarity score is 0.0. The image check result indicates the caption does not match the image. The candidate provided has the exact caption as the news, indicating that the caption provided is likely to be the actual caption of the image. Therefore, the image is out of context.",
+    "validation_summary": "The image shows a police officer with a dog, while the caption discusses a raid on a factory related to human trafficking, creating a misleading impression about the image's content. The image is not related to the factory raid described in the caption."
+  },
+  "inference_time": 3.6235904693603516,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

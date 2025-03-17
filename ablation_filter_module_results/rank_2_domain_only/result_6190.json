@@ -1,0 +1,45 @@
+{
+  "caption": "Nathalie Moellhausen of Brazil competes with Yana Shemyakina of Ukraine in the team epee competition",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Best images from Aug. 11 at the Rio Olympics",
+        "content": "B e s t   i m a g e s   f r o m   A u g .   1 1   a t   t h e   R i o   O l y m p i c s",
+        "caption": "The United States volleyball team celebrates during the men's preliminary against Brazil.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Olympic dreams can end quickly, and the regret that follows can be difficult to take - Los Angeles Times",
+        "content": "O l y m p i c   d r e a m s   c a n   e n d   q u i c k l y ,   a n d   t h e   r e g r e t   t h a t   f o l l o w s   c a n   b e   . . .",
+        "caption": "Courtney Hurley of the United States and Yana Shemyakina of Ukraine, left, compete in the women's individual epee event at the 2016 Summer Olympics.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions have low image similarity scores (< 0.85) and low text similarity scores (< 0.7). \n\nCandidate 1 mentions volleyball, which is irrelevant to the news caption about a fencing (epee) competition. \n\nCandidate 2 mentions 'Courtney Hurley of the United States and Yana Shemyakina of Ukraine compete in the women's individual epee event.' This partially aligns with the news caption, which mentions 'Nathalie Moellhausen of Brazil competes with Yana Shemyakina of Ukraine in the team epee competition.' Both captions refer to Yana Shemyakina of Ukraine competing in epee. However, the news caption specifies 'Nathalie Moellhausen of Brazil' while candidate 2 mentions Courtney Hurley of the United States. Furthermore, the news caption refers to a 'team epee competition' while candidate 2 mentions an 'individual epee event.' Therefore, candidate 2 provides only partial support, as it confirms the involvement of Yana Shemyakina in epee but does not confirm the other athlete or the specific type of competition (team vs. individual). Thus, the news caption is not fully verified.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low text similarity score (< 0.7) and a low image similarity score (< 0.85) between the image and the candidate caption. Candidate 2 provides partial support, as it confirms the involvement of Yana Shemyakina in epee but does not confirm the other athlete or the specific type of competition (team vs. individual). Therefore, the news caption is not fully verified. Based on the image check result, I conclude that the image is out of context.",
+    "validation_summary": "The image check result indicates the caption is not fully verified due to low similarity scores, making it misleading to viewers about what they're seeing in the image. Viewers may be misled as the news caption is not fully verified."
+  },
+  "inference_time": 4.561569690704346,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "caption": "Clinton takes selfies with voters as New Hampshire polls open",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Anthony Weiner",
+      "Chelsea Clinton",
+      "United States",
+      "Democratic National Convention",
+      "Clinton Foundation",
+      "Politics",
+      "Concession"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Bill Clinton digs into Sanders in last-ditch pitch before New Hampshire vote | Bill Clinton | The Guardian",
+        "content": "B i l l   C l i n t o n   d i g s   i n t o   S a n d e r s   i n   l a s t - d i t c h   p i t c h   b e f o r e   N e w   . . .",
+        "caption": "Bill Clinton on Bernie Sanders campaign: When youre making a revolution, you cant be too careful with the facts.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Clinton fights back to take New Hampshire | World news | The Guardian",
+        "content": "C l i n t o n   f i g h t s   b a c k   t o   t a k e   N e w   H a m p s h i r e   |   W o r l d   n e w s   |   T h e   G u a r d i a n",
+        "caption": "Hillary Clinton waves as she arrives for a visit to a polling site at a school in Concord,  New Hampshire. Photograph: Justin Lane/EPA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are 0.0, which indicates that the images do not match the news image. Additionally, the caption similarity scores are also 0.0, meaning the captions don't match the news caption. The first candidate discusses Bill Clinton's remarks about Bernie Sanders, which is unrelated to the news caption about Hillary Clinton taking selfies with voters. The second candidate mentions Hillary Clinton arriving at a polling site in Concord, New Hampshire, which is somewhat related to the location mentioned in the news caption, but does not confirm the specific action of taking selfies with voters. Since neither candidate provides evidence supporting the claim that Hillary Clinton was taking selfies with voters in New Hampshire, the verdict is set to False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption inaccurately describes the image, as it states Clinton is taking selfies with voters, which is not substantiated by the image evidence.",
+    "explanation": "The image check result indicates a low confidence score and shows that the content of the image does not match the claims made in the caption. The caption alleges that Hillary Clinton is taking selfies with voters in New Hampshire. However, an analysis of the image content suggests that there is no clear visual evidence of her engaging in such activity. The image may depict her at a polling location, but it does not substantiate the specific action of taking selfies as stated in the caption. The detail about taking selfies is not visually confirmed, leading to the conclusion that the caption is misleading."
+  },
+  "inference_time": 6.323857069015503,
+  "ablation_type": "no_filters"
+}

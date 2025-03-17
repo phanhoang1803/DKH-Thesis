@@ -1,0 +1,49 @@
+{
+  "caption": "LEGO s building mission to revive US growth",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "LEGOLAND® Windsor Resort",
+      "Reuters",
+      "Legoland at Christmas",
+      "LEGO",
+      "create",
+      "ArtStation",
+      "Market",
+      "Market share"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "WordPress  Error",
+        "content": "",
+        "caption": "",
+        "domain": "lawncareandlandscape.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9352090954780579,
+        "text_similarity_score": 0.06876200437545776
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is less than 0.85 (0.9352090954780579) and the text similarity score is less than 0.7 (0.06876200437545776). Therefore, the caption does not accurately represent what the image shows and what the image is about.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image and caption are not well-aligned, with low similarity scores for both image and text content. The image shows a group of children playing with LEGOs at a table, while the caption discusses LEGO's business strategy to revive US growth, implying a connection between LEGO and overall economic growth in the US. This connection is not visually supported by the image, which simply depicts children playing. Therefore, the caption is misleading as it doesn't accurately reflect the image's content.",
+    "validation_summary": "The caption discusses LEGO's business strategy for US growth, but the image shows children playing with LEGOs, creating a disconnect. Viewers would be misled into thinking the image is about LEGO's broader business impact rather than children's play."
+  },
+  "inference_time": 6.214717149734497,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

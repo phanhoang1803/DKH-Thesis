@@ -1,0 +1,45 @@
+{
+  "caption": "People wave flags at the official Olympic Games handover party outside Buckingham Palace",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "With almost a roar, capital puts on a very British handover party | Olympic Games 2012 | The Guardian",
+        "content": "W i t h   a l m o s t   a   r o a r ,   c a p i t a l   p u t s   o n   a   v e r y   B r i t i s h   h a n d o v e r   p a r t y   . . .",
+        "caption": "London Mayor Boris Johnson, centre, waves the Olympic flag alongside, from left to right, Lord Colin Moynihan, London 2012 Chairman Lord Sebastian Coe, British Prime Minister Gordon Brown, football player David Beckham and Olympics Minister Tessa Jowell. Photograph: Elizabeth Dalziel/AP",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Olympics closing ceremony | Sport | The Guardian",
+        "content": "O l y m p i c s   c l o s i n g   c e r e m o n y   |   S p o r t   |   T h e   G u a r d i a n",
+        "caption": "Beijing Olympics closing ceremony",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are 0.0, which means the images in the candidates do not match the image described by the news caption. Additionally, the text similarity scores are also 0.0, indicating that the captions are not similar. Since both image and text similarity scores are low, I analyzed the captions. Neither of the candidates confirm the details in the news caption, which mentions 'People wave flags at the official Olympic Games handover party outside Buckingham Palace'. One candidate mentions London Mayor Boris Johnson waving the Olympic flag with other officials, and the other mentions the Beijing Olympics closing ceremony. These candidates do not confirm the specific event or location mentioned in the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts two British flags being waved against a partly cloudy sky. The caption claims that the image shows 'People wave flags at the official Olympic Games handover party outside Buckingham Palace'. The image does not provide any evidence of people participating in an Olympic Games handover party, nor does it show Buckingham Palace or any other specific location. The image simply shows flags being waved against a sky background. Therefore, the caption is inconsistent with the content of the image.",
+    "validation_summary": "The image shows British flags being waved in the sky, but it does not show any evidence of an Olympic handover party or Buckingham Palace, leading to a mismatch between the image and the caption's description. The caption is misleading because it provides event and location details that are not verifiable from the image content itself."
+  },
+  "inference_time": 4.84446907043457,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "caption": "This twofooted tackle on Morgan Schneiderlin meant that Mathieu Flamini was heading for an early bath Final score Cardiff City v Arsenal",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Morgan Schneiderlin",
+      "St Mary's Stadium",
+      "Southampton F.C.",
+      "Premier League",
+      "Arsenal F.C.",
+      "Manchester United F.C.",
+      "UEFA Europa League",
+      "Fulham F.C.",
+      "Liverpool F.C.",
+      "Mathieu Flamini"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8902594447135925,
+        "text_similarity_score": 0.04480579495429993
+      },
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.in",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8902594447135925,
+        "text_similarity_score": 0.04480579495429993
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidates have a high image similarity score (0.8902594447135925), suggesting the images are visually similar to the news image. However, the text similarity score is very low (0.04480579495429993) for both candidates, indicating that the captions do not match the news caption. Because the text similarity is low, and without access to the content, title, or further information about the candidates, it is not possible to confirm that the candidate image confirms the news caption. Thus, the final verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result shows a high image similarity score (0.8902594447135925), suggesting the images are visually similar to the news image. However, the text similarity score is very low (0.04480579495429993) for both candidates, indicating that the captions do not match the news caption. Based on the image check result, the image is out of context.",
+    "validation_summary": "The caption does not accurately represent the image content. Viewers would be misled about the game being played or the circumstances depicted in the image."
+  },
+  "inference_time": 7.234928369522095,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

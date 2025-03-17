@@ -1,0 +1,52 @@
+{
+  "caption": "Katie Ledecky waves to the crowd as the Spanish silver medalist Mireia Belmonte Garcia applauds during the medal ceremony for the 800 freestyle",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Olympics day seven  as it happened | Olympic Games 2012 | The Guardian",
+        "content": "O l y m p i c s   d a y   s e v e n      a s   i t   h a p p e n e d   |   O l y m p i c   G a m e s   2 0 1 2   |   T h e   . . .",
+        "caption": "Cuba's Leuris Pupo holds up his gold medal after winning the 25m rapid fire pistol final at the London 2012 Olympic Games.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Rio 2016 Olympic Games - Los Angeles Times",
+        "content": "R i o   2 0 1 6   O l y m p i c   G a m e s   -   L o s   A n g e l e s   T i m e s",
+        "caption": "RIO DE JANEIRO, BRAZIL, TUESDAY, AUGUST 9 2016. - U.S. boxer Carlos Balderas Jr. is tended to in his corner between rounds against Japan's Daisuke Narimatsu in a Men's Light (60kg) prelim at Riocentro Pavilion 6. (Robert Gauthier/Los Angeles Times)",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "U.S. loses to Croatia, 7-5, in men's water polo opener - Los Angeles Times",
+        "content": "U . S .   l o s e s   t o   C r o a t i a ,   7 - 5 ,   i n   m e n ' s   w a t e r   p o l o   o p e n e r   -   L o s   . . .",
+        "caption": "2476675_SP_8/12/16_olympics_RCG",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are all 0.0, which indicates that none of the candidate images match the news image. Additionally, the text similarity scores are also 0.0, meaning the captions do not match. Therefore, there is no evidence to support the claim that the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low similarity between the image and caption, with a confidence score of 2. This means there is strong evidence that the caption does not accurately represent the image. The image depicts Katie Ledecky on a podium wearing a gold medal and waving to the crowd while another woman wearing a medal applauds. While the caption mentions Katie Ledecky waving and a Spanish silver medalist applauding, the image check result strongly suggests the caption is not representative of the specific image. Therefore, the caption is considered out of context.",
+    "validation_summary": "The image shows a medal ceremony with Katie Ledecky waving and another person applauding, but the image check indicates the caption is not representative of this particular image, potentially misleading viewers about the specific event depicted. The low similarity score from the image check confirms this discrepancy."
+  },
+  "inference_time": 3.911386013031006,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

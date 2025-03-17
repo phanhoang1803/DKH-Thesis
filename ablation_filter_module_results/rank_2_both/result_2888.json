@@ -1,0 +1,54 @@
+{
+  "caption": "Pretoria South Africa Oscar Pistorius sits on his own before proceedings on day three of sentencing procedures at the high court Follow our live blog here",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Crime",
+      "Court",
+      "Supreme Court of Appeal",
+      "Culpable homicide",
+      "Criminal justice",
+      "Conviction",
+      "Judge",
+      "Sentence",
+      "Prosecutor",
+      "Oscar Pistorius"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Oscar Pistorius sentencing: 'he needs to pay for what he has done'  live | Reeva Steenkamp shooting | The Guardian",
+        "content": "O s c a r   P i s t o r i u s   s e n t e n c i n g :   ' h e   n e e d s   t o   p a y   f o r   w h a t   h e   h a s   d o n e   . . .",
+        "caption": "Oscar Pistorius in the dock during day four of sentencing procedures at the high court in Pretoria.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.30068567395210266,
+        "text_similarity_score": 0.7320159077644348
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.30068567395210266, which is less than 0.85. The text similarity score is 0.7320159077644348, which is greater than 0.7. Based on the instruction, the verdict should be false since the image similarity score is less than 0.85. The candidate caption says \"Oscar Pistorius in the dock during day four of sentencing procedures at the high court in Pretoria.\" This is somewhat similar to the news caption \"Pretoria South Africa Oscar Pistorius sits on his own before proceedings on day three of sentencing procedures at the high court\". They both discuss Oscar Pistorius in court. The news caption refers to day three of the sentencing procedures while the candidate refers to day four. Because the images aren't similar, I can't be more confident.",
+      "supporting_evidences": [
+        "The image similarity score is 0.30068567395210266, which is less than 0.85.",
+        "The text similarity score is 0.7320159077644348, which is greater than 0.7."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity score is 0.30068567395210266, which is less than 0.85, but the text similarity score is 0.7320159077644348, which is greater than 0.7. The image shows Oscar Pistorius sitting at a table in what appears to be a courtroom. The caption states, 'Pretoria South Africa Oscar Pistorius sits on his own before proceedings on day three of sentencing procedures at the high court Follow our live blog here'. Since the confidence score is above 7, I rely primarily on the image check result. The image check result states the images aren't that similar so I will mark OOC as true. However, the text is pretty similar. Based on the instruction, since the confidence score is above 7, the final determination is based on the image check. The news caption accurately represents what is shown in the image.",
+    "validation_summary": "The caption correctly identifies Oscar Pistorius in what appears to be a courtroom setting, accurately representing the image's content; viewers would not be misled about the scene depicted in the image based on the caption provided because the text similarity is above 0.7 although the image similarity is low at 0.30068567395210266. However, the score is above 7 so I must use the OOC from the image check, which says OOC=False. Therefore, the final answer is OOC=False. I can't make this determination with more confidence because the image similarity is low so I will say I have low confidence in the results, so I will edit the confidence score to 7 instead of 10 as requested since image similarity matters as well, and it says the images are quite different. Therefore, my final determination is that since the image check says False, I must assume it is correct even with the low similarity of images so the OOC is marked False, meaning the image is not out of context, but I have low confidence so it remains as confidence score of 7 which I will edit to."
+  },
+  "inference_time": 7.09846830368042,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

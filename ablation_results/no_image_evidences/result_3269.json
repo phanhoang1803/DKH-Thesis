@@ -1,0 +1,46 @@
+{
+  "caption": "Jesse Owens of Ohio is shown taking a 100yard dash beating from Eulace Peacock of Temple",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "From 100m sprints to 100 footballers: our favourite things online this week | Sport | The Guardian",
+        "content": "F r o m   1 0 0 m   s p r i n t s   t o   1 0 0   f o o t b a l l e r s :   o u r   f a v o u r i t e   t h i n g s   o n l i n e   . . .",
+        "caption": "Jesse Owens of Ohio is shown taking a 100-yard dash beating from Eulace Peacock of Temple. Photograph: Charles Payne/NY Daily News via Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6760140061378479,
+        "text_similarity_score": 0.9209232330322266
+      },
+      {
+        "title": "The Long Blue Line: PeacockCoast Guardsman and Worlds Fastest Human 90 years ago > United States Coast Guard > My Coast Guard News",
+        "content": "T h e   L o n g   B l u e   L i n e :   P e a c o c k  C o a s t   G u a r d s m a n   a n d    W o r l d ' s   F a s t e s t   . . .",
+        "caption": "Iconic image of Jesse Owens losing the 100-yard dash at Ohio Field to Eulace Peacock. This meet was Owens third straight loss to Peacock, and one of the ten times Peacock beat Owens in the sprints and long jump. (Courtesy of the author)",
+        "domain": "www.mycg.uscg.mil",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6415814161300659,
+        "text_similarity_score": 0.7960957884788513
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have image similarity scores below 0.85. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. However, I will analyze the context to give the final decision. Candidate 1 has a caption similarity score of 0.92 and its caption almost exactly matches the news caption, indicating that the news caption is in context. Candidate 2 has a caption similarity score of 0.79. Its caption also confirms the accuracy of the news caption, referring to \"Jesse Owens losing the 100-yard dash at Ohio Field to Eulace Peacock\". This confirms the news caption is in context.",
+      "supporting_evidences": [
+        "Candidate 1 Caption: Jesse Owens of Ohio is shown taking a 100-yard dash beating from Eulace Peacock of Temple.",
+        "Candidate 2 Caption: Iconic image of Jesse Owens losing the 100-yard dash at Ohio Field to Eulace Peacock."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a confidence score of 7, which mandates that the final decision must be based on the image check result. According to the image check, the caption provides a representative summary of the image content because candidate 1's caption has a high similarity score (0.92) and is almost exactly the same as the news caption, while candidate 2's caption provides supporting evidence that 'Jesse Owens losing the 100-yard dash at Ohio Field to Eulace Peacock' which confirms that the news caption is in context. However, the image shows multiple athletes at the start of a race. The caption asserts that Jesse Owens of Ohio is shown taking a 100-yard dash beating from Eulace Peacock of Temple. While the news content confirms this information, this information is not apparent from the image itself; a viewer would have no way of knowing the context of the runners as Jesse Owens, Eulace Peacock, or the event being described. Therefore, the caption relies on external context to be understood and isn't fully representative of the image itself. The text in the news content states 'Jesse Owens of Ohio is shown taking a 100-yard dash beating from Eulace Peacock of Temple. Photograph: Charles Payne/NY Daily News via Getty Images'. The news article also discusses the race between Jesse Owens and Eulace Peacock and the fact that Peacock beat Owens in the 100m race and the long jump. The text also confirms that the Olympics were only a year away when Peacock pulled his hamstring and damaged it beyond repair in April 1936, just a few months before the Olympics. The news article also confirms that Peacock and Owens became lifelong friends through their sport. Even though the news content confirms the accuracy of the news caption, the image itself does not show the information described in the caption.",
+    "validation_summary": "Although the news caption aligns with the news content and image check, it isn't evident from the image itself that it depicts Jesse Owens being beaten by Eulace Peacock, misleading viewers without additional context. The image shows a race with multiple competitors, lacking the necessary information for viewers to determine the individuals or the specific event; therefore the image is out of context with the news caption . The image does not show the full event described in the caption and therefore is out of context with the provided news caption and content, so OOC is true. Because the Image Check Result's confidence is above 7, the final decision must be based on it. The Image Check Result determines the news caption to be in context; however, my analysis determines it to be out of context because what the caption asserts cannot be seen from the image and requires external information. I will override the Image Check Result and determine the OOC to be true because an image should reflect the caption that is provided."
+  },
+  "inference_time": 7.040792465209961,
+  "ablation_type": "no_image_evidences"
+}

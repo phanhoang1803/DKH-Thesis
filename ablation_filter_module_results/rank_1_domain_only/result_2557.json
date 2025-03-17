@@ -1,0 +1,49 @@
+{
+  "caption": "Pope Francis right gestures as he talks with journalists during his flight from Manila to Rome on Monday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Debate",
+      "Seminar",
+      "Academic conference",
+      "Public speaking",
+      "Convention",
+      "Academy",
+      "Speech",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Rabbit Breeder to Pope: You Don't Know Rabbits",
+        "content": "R a b b i t   B r e e d e r   t o   P o p e :   Y o u   D o n ' t   K n o w   R a b b i t s",
+        "caption": "Pope Francis, right, gestures as he talks with journalists during his flight from Manila to Rome, Monday, Jan. 19, 2015.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "The provided candidate evidence has a low Image Similarity Score (0.0) and Text Similarity Score (0.0). Therefore, the rule-based decision is not applicable. However, after analyzing the content of the candidate, I found that the caption matches the candidate: \"Pope Francis, right, gestures as he talks with journalists during his flight from Manila to Rome, Monday, Jan. 19, 2015.\". This evidence confirms that the news image shows Pope Francis gesturing while talking to journalists on a flight from Manila to Rome. The date (Monday, Jan. 19, 2015) matches the news caption's 'Monday' and the action described aligns. Therefore, the candidate supports the news caption.",
+      "supporting_evidences": [
+        "Pope Francis, right, gestures as he talks with journalists during his flight from Manila to Rome, Monday, Jan. 19, 2015."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 9, indicating a high level of certainty. The provided caption states 'Pope Francis right gestures as he talks with journalists during his flight from Manila to Rome on Monday'. However, the image shows Pope Francis seated and listening to a speech, while another man is speaking at a podium. The news content mentions Pope Francis hosting a Google Hangout, but this information does not relate to the visual content of the image. Based on this analysis and the image check result, the caption is not a correct representation of the image content, since the image depicts a formal setting (possibly a United Nations assembly) where the Pope is listening, rather than 'talking with journalists'. Therefore, the image is out of context.",
+    "validation_summary": "The caption describes Pope Francis talking with journalists, while the image shows him seated and listening to a speaker at a podium, suggesting a formal assembly. Therefore, viewers would be misled about the image content by the caption."
+  },
+  "inference_time": 4.154287815093994,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

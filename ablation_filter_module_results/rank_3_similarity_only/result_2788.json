@@ -1,0 +1,54 @@
+{
+  "caption": "Beckham lets fly with a bottle of Bud as the celebrations begin",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "David Beckham's LA Galaxy career  in pictures | Football | The Guardian",
+        "content": "J o n n y   W e e k s \n \n T u e   2 0   N o v   2 0 1 2   0 9 . 0 0  G M T \n \n \n                         F i r s t   p u b l i s h e d   o n   T u e   2 0   N o v   2 0 1 2   0 9 . 0 0  G M T \n \n P h o t o g r a p h :   F r a z e r   H a r r i s o n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   R o b y n   B e c k / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   R o b y n   B e c k / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   R o b e r t   M o r a / W i r e I m a g e \n \n P h o t o g r a p h :   G a b r i e l   B o u y s / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   G i u s e p p e   C a c a c e / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   K e v o r k   D j a n s e z i a n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   G a b r i e l   B o u y s / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   K e v o r k   D j a n s e z i a n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   H a r r y   H o w / G e t t y   I m a g e s \n \n P h o t o g r a p h :   T o m   J e n k i n s \n \n P h o t o g r a p h :   C l a u d i o   V i l l a / G e t t y   I m a g e s \n \n P h o t o g r a p h :   M A R K   R A L S T O N / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   V i c t o r   D e c o l o n g o n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   D a v i d   L i v i n g s t o n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   H a r r y   H o w / G e t t y   I m a g e s \n \n P h o t o g r a p h :   C h r i s t o p h e r   P a s a t i e r i / G e t t y   I m a g e s \n \n P h o t o g r a p h :   S t e p h e n   D u n n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   A l e x   G a l l a r d o / R e u t e r s \n \n P h o t o g r a p h :   L u c y   N i c h o l s o n / R e u t e r s \n \n P h o t o g r a p h :   J e f f   G r o s s / G e t t y   I m a g e s \n \n P h o t o g r a p h :   B r e t   H a r t m a n / A P \n \n P h o t o g r a p h :   B r e t   H a r t m a n / A P \n \n P h o t o g r a p h :   M a r k   B l i n c h / R e u t e r s \n \n P h o t o g r a p h :   P a b l o   M a r t i n e z   M o n s i v a i s / A P \n \n P h o t o g r a p h :   T e d   S .   W a r r e n / A P",
+        "caption": "Beckham MLS: David Beckham celebrates with the MLS Cup",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9586701393127441,
+        "text_similarity_score": 0.510967493057251
+      },
+      {
+        "title": "David Beckham's LA Galaxy career  in pictures",
+        "content": "",
+        "caption": "Beckham MLS: David Beckham celebrates with the MLS Cup",
+        "domain": "www.inkl.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9363976716995239,
+        "text_similarity_score": 0.510967493057251
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The news caption states, \"Beckham lets fly with a bottle of Bud as the celebrations begin.\" Candidate 1 has an image similarity score of 0.9586701393127441 but a caption similarity score of 0.510967493057251. Candidate 2 has an image similarity score of 0.9363976716995239, but a caption similarity score of 0.510967493057251. Since both Image Similarity Scores are >= 0.85, but both Text Similarity Scores are < 0.7, the decision must be 'False'. Because the text similarity is low, the captions are not similar enough to support the given news caption. Although the images are similar, the details in the candidate caption do not refer to the 'bottle of Bud' mentioned in the news caption. The candidates refer to 'MLS Cup', but there is no reference to 'Bud'. This mismatch indicates the news caption may not accurately represent what the image shows, and is deemed out-of-context.",
+      "supporting_evidences": [
+        "Candidate 1 has an image similarity score of 0.9586701393127441 but a caption similarity score of 0.510967493057251.",
+        "Candidate 2 has an image similarity score of 0.9363976716995239, but a caption similarity score of 0.510967493057251.",
+        "The captions of the candidates refer to 'MLS Cup', but there is no reference to 'Bud'.",
+        "The news caption states 'Beckham lets fly with a bottle of Bud as the celebrations begin.'"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a locker room celebration with multiple soccer players, presumably celebrating a victory based on the presence of a trophy and celebratory champagne spraying. While the news caption mentions \"Beckham lets fly with a bottle of Bud as the celebrations begin,\" the image doesn't explicitly show a 'Bud' bottle. The image check result also indicates a low caption similarity score between the news caption and the candidate captions, primarily because the candidates do not refer to a 'Bud' bottle. This inconsistency between the news caption, which specifically mentions a brand of beer (Bud), and the visual evidence in the image, where the brand is not clearly identifiable, leads to the determination that the caption is misleading, making it OOC. The high image similarity scores in the image check indicate that the general context is correct (a celebration), but the specific detail of the 'Bud' bottle is not verifiable from the image, making the news caption unreliable and potentially misleading.",
+    "validation_summary": "The news caption specifies that Beckham is spraying a 'Bud' bottle, which is not explicitly visible in the image, making the caption misleading and therefore out of context. While a celebration is occurring, the detail about the specific brand of beer cannot be confirmed, thus presenting a potentially inaccurate depiction."
+  },
+  "inference_time": 7.091127157211304,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

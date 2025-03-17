@@ -1,0 +1,46 @@
+{
+  "caption": "Finland defenseman Sami Lepisto battles for the puck with Russia forward Alex Ovechkin on Wednesday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Ice hockey",
+      "College ice hockey",
+      "Hockey",
+      "Rink bandy",
+      "Inline hockey",
+      "Bandy",
+      "Skater hockey",
+      "Higher Education School",
+      "Rollerblade",
+      "Ice rink"
+    ],
+    "ablation_type": "no_text_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 7,
+      "confidence_score": 9,
+      "explanation": "The caption mentions specific players (Sami Lepisto and Alex Ovechkin) and teams (Finland and Russia). While the context describes hockey players in action, it doesn't provide specific player names or team affiliations. The context only mentions jersey numbers. Thus, the caption contains information not present in the image context, but the general context of a hockey game is consistent.",
+      "supporting_evidences": [
+        "The image context describes hockey players competing for the puck.",
+        "The caption describes a hockey player battling for the puck.",
+        "The image context mentions the presence of jerseys with numbers, implying a game setting.",
+        "The caption identifies the game setting by specifying players and teams."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "caption": "Hockey players in action during a game. Players wearing jerseys numbered 20, 27, and 19 are competing for the puck on the ice.",
+      "context": "The image captures a dynamic moment during an ice hockey game. Three players are actively engaged in a play, with one player in a white, blue, and red jersey marked with the number 20, battling for control of the puck against two players wearing red jerseys. The red jerseys are numbered 27 and 19. The scene unfolds on the ice, close to the goal net indicated by yellow line. The players are in full gear, including helmets and skates, highlighting the intensity and physical nature of the sport. The composition is tightly framed, focusing on the immediate action and competitive interaction between the players, set against the backdrop of the ice rink.",
+      "information": "The image shows a close-up view of an ice hockey match with three players vying for the puck. The players are wearing full protective gear, including helmets and padded uniforms. The game is being played on an ice rink, and the focus is on the action between the athletes."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a high confidence score (9) that the caption contains details not explicitly present in the image or the provided news article. Specifically, the caption names 'Sami Lepisto' and 'Alex Ovechkin' along with their respective teams 'Finland' and 'Russia', which are not mentioned in the article, although the article discusses a hockey match between Russia and Finland, the visual information is not mentioned in the text. While the article context does describe a hockey game, it doesn't mention visual specifics. Therefore, using the caption with this image without verifying the players and teams would be misleading.",
+    "validation_summary": "The caption includes player and team names not verifiable from the image or news article, making it potentially misleading. The high confidence score from the image check result confirms that the caption introduces details not supported by the available context."
+  },
+  "inference_time": 6.294611930847168,
+  "ablation_type": "no_text_evidences"
+}

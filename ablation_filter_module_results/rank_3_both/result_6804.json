@@ -1,0 +1,53 @@
+{
+  "caption": "A golden retriever dressed as a reindeer pulls a sleigh through the costume contest at the annual Tompkins Square Halloween Dog Parade in New York City",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Golden Retriever",
+      "Labrador Retriever",
+      "Nova Scotia Duck Tolling Retriever",
+      "Alopekis",
+      "American Bulldog",
+      "Dorgi",
+      "Bulldog",
+      "Hunting dog",
+      "Companion dog",
+      "Retriever"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Dogs parade in Halloween costumes",
+        "content": "D o g s   p a r a d e   i n   H a l l o w e e n   c o s t u m e s",
+        "caption": "A golden retriever dressed as a reindeer pulls a \"sleigh\" through the costume contest at the annual Tompkins Square Halloween Dog Parade in New York City.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9131594896316528,
+        "text_similarity_score": 0.9907181262969971
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate provides a caption that is nearly identical to the news caption, with a high image similarity score (0.913) and a high text similarity score (0.991). This strongly suggests that the candidate confirms the details in the news caption are accurate and the image is correctly represented. The candidate caption mentions a golden retriever dressed as a reindeer pulling a \"sleigh\" at the Tompkins Square Halloween Dog Parade in New York City, which aligns perfectly with the news caption.",
+      "supporting_evidences": [
+        "A golden retriever dressed as a reindeer pulls a \"sleigh\" through the costume contest at the annual Tompkins Square Halloween Dog Parade in New York City."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result confirms that the news caption accurately represents the image content. The image shows a golden retriever dressed as a reindeer pulling a sleigh at the Tompkins Square Halloween Dog Parade in New York City, which matches the description in the news caption. The high confidence score (10) indicates a strong certainty that the caption is not out of context.",
+    "validation_summary": "The caption accurately describes the image content, showing a golden retriever in a reindeer costume pulling a sleigh at a dog parade. Therefore, viewers would not be misled about the image's content."
+  },
+  "inference_time": 10.441802978515625,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

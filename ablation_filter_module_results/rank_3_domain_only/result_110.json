@@ -1,0 +1,45 @@
+{
+  "caption": "WalMart employs 13 million people in the US making it the country s largest employer",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Wal-Mart sees opportunities at Apec - BBC News",
+        "content": "T h i s   v i d e o   c a n   n o t   b e   p l a y e d \n \n T h e   A s i a   P a c i f i c   E c o n o m i c   C o o p e r a t i o n   ( A p e c )   s u m m i t   b e g i n s   i n   B e i j i n g   t o d a y . \n \n W h i l e   t h e r e ' s   a   b i g   f o c u s   o n   t h e   m e e t i n g s   b e t w e e n   s o m e   o f   t h e   w o r l d ' s   l a r g e s t   c o u n t r i e s ,   t h e r e   i s   a   s e c o n d ,   p a r a l l e l   c o n f e r e n c e   g o i n g   o n . \n \n T h i s   o n e   f e a t u r e s   t h e   C E O s   o f   s o m e   o f   w o r l d ' s   l a r g e s t   c o r p o r a t i o n s   w i t h   b i g   o p e r a t i o n s   i n   t h e   r e g i o n ,   l i k e   t h e   U S   r e t a i l i n g   g i a n t   W a l m a r t . \n \n T h e   B B C ' s   C e l i a   H a t t o n   r e p o r t s .",
+        "caption": "Wal-Mart",
+        "domain": "www.bbc.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Wal-Mart sees opportunities at Apec - BBC News",
+        "content": "T h i s   v i d e o   c a n   n o t   b e   p l a y e d \n \n T h e   A s i a   P a c i f i c   E c o n o m i c   C o o p e r a t i o n   ( A p e c )   s u m m i t   b e g i n s   i n   B e i j i n g   t o d a y . \n \n W h i l e   t h e r e ' s   a   b i g   f o c u s   o n   t h e   m e e t i n g s   b e t w e e n   s o m e   o f   t h e   w o r l d ' s   l a r g e s t   c o u n t r i e s ,   t h e r e   i s   a   s e c o n d ,   p a r a l l e l   c o n f e r e n c e   g o i n g   o n . \n \n T h i s   o n e   f e a t u r e s   t h e   C E O s   o f   s o m e   o f   w o r l d ' s   l a r g e s t   c o r p o r a t i o n s   w i t h   b i g   o p e r a t i o n s   i n   t h e   r e g i o n ,   l i k e   t h e   U S   r e t a i l i n g   g i a n t   W a l m a r t . \n \n T h e   B B C ' s   C e l i a   H a t t o n   r e p o r t s .",
+        "caption": "Wal-Mart",
+        "domain": "www.bbc.co.uk",
+        "source": "ImageEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 for both candidates, and the caption similarity score is also 0.0 for both. Therefore, the strict decision rules dictate further analysis. The caption states that Walmart employs 13 million people in the US, making it the country's largest employer. The provided candidates, which only state \"Wal-Mart\" without any additional information, do not provide any evidence to support the claim that Walmart employs 13 million people in the US, nor do they support that it is the country's largest employer. Therefore, the candidates do not provide any information related to the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a Walmart truck with the company's logo prominently displayed. The caption discusses WalMart employing 13 million people in the US, making it the country's largest employer. While the image shows a Walmart truck, it does not provide any information or visual cues related to the number of employees or the company's status as the largest employer in the US. The image check result also indicates that the caption does not accurately represent what the image shows. Therefore, the caption is out of context as it does not accurately represent the image content.",
+    "validation_summary": "The caption talks about Walmart's employment numbers, which are not visually represented or supported by the image of a Walmart truck. Viewers would be misled to associate the employment claim with the image of the truck when there's no direct connection between the two elements in the image itself."
+  },
+  "inference_time": 8.42596435546875,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

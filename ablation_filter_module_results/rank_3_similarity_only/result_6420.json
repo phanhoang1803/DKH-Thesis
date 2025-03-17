@@ -1,0 +1,58 @@
+{
+  "caption": "Apple CEO Tim Cook introduces the new iPad Pro during an Apple launch event",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "New reviews suggest the iPad Pro could be your next laptop",
+        "content": "N e w   r e v i e w s   s u g g e s t   t h e   i P a d   P r o   c o u l d   b e   y o u r   n e x t   l a p t o p",
+        "caption": "Apple CEO Tim Cook introduces the new iPad Pro during Apples launch event.",
+        "domain": "qz.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.20957612991333008,
+        "text_similarity_score": 0.9706501364707947
+      },
+      {
+        "title": "Apple event: 'greenest ever' MacBook Air and new iPad Pro announced  as it happened | Apple | The Guardian",
+        "content": "A p p l e   e v e n t :   ' g r e e n e s t   e v e r '   M a c B o o k   A i r   a n d   n e w   i P a d   P r o   . . .",
+        "caption": "Tim Cook introduces the new iPad Pro during an Apple launch event in New York.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.20608526468276978,
+        "text_similarity_score": 0.915522038936615
+      },
+      {
+        "title": "Why Apple is smarter than the stock market | Fortune",
+        "content": "W h y   A p p l e   i s   s m a r t e r   t h a n   t h e   s t o c k   m a r k e t   |   F o r t u n e",
+        "caption": "Apple CEO Tim Cook introduces the new iPad Pro during an Apple media event in San Francisco, California",
+        "domain": "fortune.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7755378484725952,
+        "text_similarity_score": 0.8965775966644287
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for all candidates are below 0.85. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image similarity score (below 0.85) between the provided image and the news caption, which automatically designates the caption as out-of-context. According to the news caption, Apple CEO Tim Cook introduces the new iPad Pro during an Apple launch event. The image shows Tim Cook holding an iPad displaying an image of Jupiter. While the caption accurately states Tim Cook is introducing the new iPad Pro, the specific visual context of the image (Jupiter on the screen) isn't inherently represented by the news caption. Based on the image check result, the caption is out of context.",
+    "validation_summary": "The image check result indicates that the image and the caption do not match. The caption doesn't fully represent what is shown in the image, misleading viewers about the actual content of the presentation during the launch event. Therefore, the caption is out of context (OOC = True)."
+  },
+  "inference_time": 8.961061477661133,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

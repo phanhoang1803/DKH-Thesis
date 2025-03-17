@@ -1,0 +1,45 @@
+{
+  "caption": "Miami Dolphins quarterback Ryan Tannehill looks to pass as San Diego Chargers outside linebacker Kyle Emanuel rushes during the first quarter at Qualcomm Stadium",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Kick american football",
+      "Eight-man football",
+      "Six-man football",
+      "American football",
+      "Sprint football",
+      "Kick"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Best of NFL Week 15",
+        "content": "B e s t   o f   N F L   W e e k   1 5",
+        "caption": "New Orleans Saints quarterback Drew Brees (9) runs from a tackle attempt by Detroit Lions defensive end Ezekiel Ansah (94) while Saints fullback Austin Johnson (35) blocks in the second quarter of the game at the Mercedes-Benz Superdome.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. This means the images and captions in the news article and candidate article do not match. The candidate caption describes Drew Brees running from a tackle attempt. The news caption describes Ryan Tannehill looking to pass. There is no information to support that the news caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image similarity score and a low text similarity score, meaning the candidate caption does not match the content of the image. The image shows two football players in red and black uniforms, one handing off the ball to the other. The news caption describes Ryan Tannehill looking to pass, which is not shown in the image. Therefore, the caption is misleading and out of context.",
+    "validation_summary": "The news caption misrepresents the image by describing an action that is not depicted, potentially misleading viewers about the content of the image and the players involved. The image check result supports this conclusion with low image and text similarity scores."
+  },
+  "inference_time": 4.253995656967163,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "caption": "Prince William and Kate are expected to leave Wales and move into Kensington Palace within the next few weeks",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Cadillac CTS-V",
+      "Jaguar XJ",
+      "Cadillac",
+      "Car",
+      "Executive car",
+      "Cadillac",
+      "official",
+      "Jaguar"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Prince William to leave armed forces | Prince William | The Guardian",
+        "content": "P r i n c e   W i l l i a m   t o   l e a v e   a r m e d   f o r c e s   |   P r i n c e   W i l l i a m   |   T h e   G u a r d i a n",
+        "caption": "Prince William and Kate are expected to leave Wales and move into Kensington Palace within the next few weeks. Photograph: Samir Hussein/WireImage",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2540169358253479,
+        "text_similarity_score": 0.8877077102661133
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is low (0.2540169358253479 < 0.85). The text similarity score is high (0.8877077102661133 >= 0.7). According to the rule, the verdict should be False, since the image similarity score is below 0.85, regardless of the text similarity score. Therefore, the news caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image features Prince Edward waving, standing near a black car with a security personnel in the background. The provided caption states that Prince William and Kate are expected to leave Wales and move into Kensington Palace within the next few weeks. There is a clear mismatch between the image and the caption because the individual in the image is Prince Edward, not Prince William and Kate. The text is discussing a move, while the image shows Prince Edward near a car, which bears no relevance to the subject of the caption. The image check result also confirms that the news caption is out of context because the image similarity score is low (0.2540169358253479 < 0.85), regardless of the text similarity score.",
+    "validation_summary": "The image shows Prince Edward, while the caption discusses Prince William and Kate moving, leading to a clear mismatch and making the caption out of context. Viewers would be misled about the content related to the image, given it does not feature the people mentioned in the caption."
+  },
+  "inference_time": 6.615585088729858,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "caption": "Actors Kieran Culkin Tavi Gevinson and Michael Cera attend the This Is Our Youth cast photo call",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Page not found  Test Star",
+        "content": "",
+        "caption": "",
+        "domain": "teststar.in",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7815834283828735,
+        "text_similarity_score": 0.09228242933750153
+      },
+      {
+        "title": "This is Our Youth review: an anthem for stewed youth | Broadway | The Guardian",
+        "content": "T h i s   i s   O u r   Y o u t h   r e v i e w :   a n   a n t h e m   f o r   s t e w e d   y o u t h   |   B r o a d w a y   . . .",
+        "caption": "This Is Our Youth cast, Kieran Culkin, Tavi Gevinson and Michael Cera,  at Cort Theatre in New York City",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.457926481962204,
+        "text_similarity_score": 0.8153412342071533
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions mention Kieran Culkin, Tavi Gevinson, and Michael Cera. Candidate 2 specifically mentions 'This Is Our Youth cast' and 'Cort Theatre in New York City', which aligns with the news caption mentioning 'This Is Our Youth cast photo call'. Although the image similarity scores are below 0.85 for both candidates, the textual similarity and the specific details in Candidate 2's caption provide a reasonable basis to support the news caption's accuracy. The candidate captions do not contain any information that would contradict the News Caption.",
+      "supporting_evidences": [
+        "Candidate 2 Caption: This Is Our Youth cast, Kieran Culkin, Tavi Gevinson and Michael Cera,  at Cort Theatre in New York City"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates the news caption is accurate based on supporting evidence from candidate captions that mention Kieran Culkin, Tavi Gevinson, and Michael Cera, and specifically 'This Is Our Youth cast'. However, after analyzing the image, it contains actors from the television show 'Freaks and Geeks', including Seth Rogen, Jason Segel, and James Franco. While the image check result finds supporting evidence from candidate captions, my assessment is that the image shows a cast photo of 'Freaks and Geeks' and does not show a cast photo call of 'This Is Our Youth'. Therefore, the caption is out of context.",
+    "validation_summary": "The caption suggests the image shows a cast photo call for 'This Is Our Youth', but the image actually depicts the cast of 'Freaks and Geeks', leading to a misrepresentation of the image's content. Viewers would be misled about the identity of the people in the image."
+  },
+  "inference_time": 9.503220081329346,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

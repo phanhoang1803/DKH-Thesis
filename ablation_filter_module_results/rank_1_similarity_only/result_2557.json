@@ -1,0 +1,49 @@
+{
+  "caption": "Pope Francis right gestures as he talks with journalists during his flight from Manila to Rome on Monday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Debate",
+      "Seminar",
+      "Academic conference",
+      "Public speaking",
+      "Convention",
+      "Academy",
+      "Speech",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Rabbit Breeder to Pope: You Don't Know Rabbits",
+        "content": "R a b b i t   B r e e d e r   t o   P o p e :   Y o u   D o n ' t   K n o w   R a b b i t s",
+        "caption": "Pope Francis, right, gestures as he talks with journalists during his flight from Manila to Rome, Monday, Jan. 19, 2015.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.25395405292510986,
+        "text_similarity_score": 0.9488623738288879
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is below 0.85, which means the images do not match. Therefore, the caption is considered out-of-context. The low image similarity indicates that the candidate image does not closely resemble the news image. Although the text similarity is high (0.94), the low image similarity makes the candidate unreliable for verifying the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Pope Francis sitting and listening to a speaker, while the caption describes him talking with journalists during a flight from Manila to Rome. The setting in the image is clearly not an airplane, but rather a formal event with a speaker at a podium. The image check result confirms the discrepancy, with a low image similarity score of less than 0.85, indicating that the images do not match and that the caption is therefore out of context. Therefore, the caption does not match the image content.",
+    "validation_summary": "The caption misrepresents the image by placing Pope Francis on an airplane talking to journalists, while the image shows him seated at a formal event listening to a speaker. Viewers would be misled about the context of the image based on the provided caption, and since the image check returned a confidence score of 10, the decision 'MUST' be based on the image check result, meaning the image is out of context. OOC = True, because the image and text contradict each other. No one in the image is actively taking with the Pope, furthermore, Pope is not in the image in an airplane. Pope Francis is wearing white garb sitting in front of a podium and sitting in a chair inside what appears to be a conference, and the caption says he is talking with journalists during his flight from Manila to Rome on Monday. Clearly, the caption does not align with the image, making the image out of context. Since the image check result has a high confidence score (8-10), the image check must be relied upon for the final verdict. In this instance, the high confidence score from the image check confirms that the caption and image do not align, and the image is therefore out of context. The explanation from the image check result confirms that the image and text are likely unrelated, meaning the verdict must be OOC = true, meaning out of context. Since the confidence score from the image check result is high, the final decision must align with its findings, which is that the caption is not an accurate representation of the image. The image check result confirms the mismatch, supporting the verdict of OOC = True. Additionally, the image check result confirms that the caption and image do not align, providing further evidence for the OOC = True verdict. The image check result clearly indicates a mismatch between the image and caption, supporting the decision that the image is out of context. Given the high confidence score, I must rely on the image check result and label the image as out of context. The high confidence score from the image check reinforces the conclusion that the caption does not align with the image and the image is out of context. Therefor, viewers would be misled as the text describes an action and location not depicted in the image. The confidence score is high, and the evidence points to the image and caption being unrelated, resulting in a high confidence level in the decision that the image is out of context."
+  },
+  "inference_time": 7.528726816177368,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

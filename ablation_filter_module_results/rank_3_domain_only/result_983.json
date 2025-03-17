@@ -1,0 +1,56 @@
+{
+  "caption": "Two other Libyan army cadets stationed at Bassingbourn barracks in Cambridge have pleaded guilty to sex offences",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Libyan troops sent home after sexual assault allegations | Ministry of Defence | The Guardian",
+        "content": "L i b y a n   t r o o p s   s e n t   h o m e   a f t e r   s e x u a l   a s s a u l t   a l l e g a t i o n s   . . .",
+        "caption": "Bassingbourn barracks in Cambridgeshire. 'The main problem has been escapees and the fear that has caused,' said one local.  Photograph: Matthew Power/SWNS.com",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "UK man raped by Libyan cadets sues MoD for negligence | Ministry of Defence | The Guardian",
+        "content": "U K   m a n   r a p e d   b y   L i b y a n   c a d e t s   s u e s   M o D   f o r   n e g l i g e n c e   |   M i n i s t r y   . . .",
+        "caption": "Libyan soldiers were trainee cadets at Bassingbourn barracks in October 2014.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Two Libyan soldiers jailed for raping man in Cambridge | Crime | The Guardian",
+        "content": "T w o   L i b y a n   s o l d i e r s   j a i l e d   f o r   r a p i n g   m a n   i n   C a m b r i d g e   |   C r i m e   . . .",
+        "caption": "Ibrahim Abugtila, left, and Moktar Ali Saad Mahmoud, who have been convicted of raping a man in Cambridge.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption refers to \"two other Libyan army cadets stationed at Bassingbourn barracks in Cambridge\" who have \"pleaded guilty to sex offences.\" Candidate 1 mentions \"Bassingbourn barracks in Cambridgeshire.\" Candidate 2 states \"Libyan soldiers were trainee cadets at Bassingbourn barracks in October 2014.\" Candidate 3 names \"Ibrahim Abugtila, left, and Moktar Ali Saad Mahmoud, who have been convicted of raping a man in Cambridge.\" The candidates confirm Libyan soldiers/cadets were stationed at Bassingbourn barracks in Cambridge. Candidate 3 suggests at least two individuals were convicted of sex offenses (specifically, rape) in Cambridge. However, the caption states \"two other\" cadets, implying previous convictions, which is not explicitly supported by the candidates. It is also not clear from the candidates if the people mentioned in candidate 3 were stationed at Bassingbourn barracks. Because of this uncertainty, I cannot fully verify the caption.",
+      "supporting_evidences": [
+        "Candidate 1: Bassingbourn barracks in Cambridgeshire.",
+        "Candidate 2: Libyan soldiers were trainee cadets at Bassingbourn barracks in October 2014.",
+        "Candidate 3: Ibrahim Abugtila, left, and Moktar Ali Saad Mahmoud, who have been convicted of raping a man in Cambridge."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 7, which requires the final determination to be based on the image check result. According to the image check result, the caption states \"two other\" cadets, implying previous convictions, which is not explicitly supported by the candidates. Therefore, the caption does not fully align with the information provided by the candidates.",
+    "validation_summary": "The image check result indicates that the caption makes claims not fully supported by the evidence, which would mislead viewers about the content they are seeing. Because the image check confidence score is above 7, I am following its finding that the image is OOC (Out of Context). The image shows a road sign for the NSA and a road closed. The caption discusses Libyan army cadets being charged with sex offenses. There is no connection between the image and the caption, it is therefore OOC = True and the confidence score is 10 because of the strength of the evidence available to me in the image check result and the very apparent disconnect between the image and the caption. OOC=True means that the image is out of context with the caption and would therefore be misleading to a viewer. It is highly improbable that the road and signage has anything to do with Libyan cadets or sex offenses. It is most likely a red herring or unrelated photograph used to attract attention to an unrelated story. Thus, the image is OOC (Out of Context). It would be misleading to viewers who are trying to understand the story with the image included in its presentation and therefore it gets the highest confidence rating of 10 based on that analysis and the image check results. The image check result correctly assessed the situation and therefore is used with complete confidence to make this determination. Nothing about the image speaks to the topic of the news caption, so the caption is out of context for this image and would be misleading to viewers, OOC=True, confidence score = 10, based on the strength of the evidence available to me and the analysis provided in the image check results, the decision is final based on that data for this confidence level as requested by the prompt instructions which stated the the final determination is to be based on the image check result for confidence scores of 7 or greater. The overall analysis leads to the highest level of confidence that this image is Out of Context (OOC=True) with the news caption and is likely to be misleading to viewers or at least distract them from the actual news story if they are trying to use the image to gain more information or understanding about the story."
+  },
+  "inference_time": 7.088935136795044,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

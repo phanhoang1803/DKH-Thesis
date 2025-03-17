@@ -1,0 +1,56 @@
+{
+  "caption": "A majority inspector arranges stickers at the Holmes School Senior Center in Philadelphia",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Democracy North Carolina",
+      "National Voter Registration Act of 1993",
+      "Voter registration",
+      "Ballot",
+      "Democracy",
+      "Election day",
+      "Election law",
+      "Election official",
+      "Electoral fraud",
+      "Voter turnout"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Read the Jan. 6 Committee Report Executive Summary - The New York Times",
+        "content": "R e a d   t h e   J a n .   6   C o m m i t t e e   R e p o r t   E x e c u t i v e   S u m m a r y   -   T h e   N e w   Y o r k   . . .",
+        "caption": "Page 1 of 154",
+        "domain": "www.nytimes.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "History Archives - The Atavist Magazine",
+        "content": "H i s t o r y   A r c h i v e s   -   T h e   A t a v i s t   M a g a z i n e",
+        "caption": "From Antarctica with Love",
+        "domain": "magazine.atavist.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores are both 0.0, which means the images in the candidate evidence do not match the image described by the news caption. The caption similarity scores are also both 0.0, which means the captions in the candidate evidence do not match the news caption. Furthermore, there is no overlap in the details provided in the caption ('A majority inspector arranges stickers at the Holmes School Senior Center in Philadelphia') and the text from the candidate evidence ('Page 1 of 154' and 'From Antarctica with Love'). Thus, it's not possible to confirm the news caption is correct.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the candidate evidence does not match the image or the caption in the news article, with both image and caption similarity scores being 0.0. The image shows a table with hands arranging items, an American flag, papers, and stickers. The caption claims 'A majority inspector arranges stickers at the Holmes School Senior Center in Philadelphia'. Given the image check's negative evidence and without specific elements to verify the caption's claims within the image itself (no inspector identification, no Holmes School Senior Center signage), the caption is considered out of context. The image itself shows hands working at a table with election-related materials, the presence of an American flag and stickers suggests it's related to voting, but there's no direct corroboration of an inspector or the specific location mentioned in the caption.",
+    "validation_summary": "The caption does not accurately represent the image, as the image check result shows no match between the candidate evidence and the image/caption, and specific details like the location and job title cannot be verified within the image itself. Viewers would be misled into believing the image specifically depicts activities at the Holmes School Senior Center in Philadelphia, conducted by a majority inspector, without clear visual evidence."
+  },
+  "inference_time": 6.983588695526123,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

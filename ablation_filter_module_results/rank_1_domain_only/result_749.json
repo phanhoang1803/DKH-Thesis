@@ -1,0 +1,47 @@
+{
+  "caption": "An egret flies at sunset on the bank of the Poyang Lake in Duchang County east China s Jiangxi Province",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "The week in wildlife  in pictures | Environment | The Guardian",
+        "content": "F r i   8   N o v   2 0 1 3   1 8 . 2 7  C E T \n \n P h o t o g r a p h :   G u i d o   J .   P a r r a / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   s t r i n g e r / E P A \n \n P h o t o g r a p h :   J e f f r e y   A r g u e d a s / E P A \n \n P h o t o g r a p h :   N i a l l   C a r s o n / P A \n \n P h o t o g r a p h :   M i k e   B l a k e / R e u t e r s \n \n P h o t o g r a p h :   X i n h u a / L a n d o v / B a r c r o f t   M e d i a \n \n P h o t o g r a p h :   S t r i n g e r / E P A \n \n P h o t o g r a p h :   N a t e   C h a p p e l l / B a r c r o f t   M e d i a \n \n P h o t o g r a p h :   F r a n c k   R o b i c h o n / E P A \n \n P h o t o g r a p h :   G a r e t h   F u l l e r / P A \n \n P h o t o g r a p h :   Z h a n g   J u n / X i n h u a   P r e s s / C o r b i s \n \n P h o t o g r a p h :   B u l e n t   K i l i c / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   P a u l   G o l d s t e i n / E x o d u s / R e x   F e a t u r e s \n \n P h o t o g r a p h :   M a r i n a   C a n o   /   B a r c r o f t   M e d i a \n \n P h o t o g r a p h :   B e n   B i r c h a l l / P A \n \n P h o t o g r a p h :   T h e   A s a h i   S h i m b u n   v i a   G e t t y   I m a g",
+        "caption": "Week in wildlife: Week in wildlife",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "The week in wildlife  in pictures | Environment | The Guardian",
+        "content": "T h e   w e e k   i n   w i l d l i f e      i n   p i c t u r e s   |   E n v i r o n m e n t   |   T h e   G u a r d i a n",
+        "caption": "An egret flies at sunset on the bank of the Poyang Lake in Duchang County, east China's Jiangxi Province, Aug. 2, 2015.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the strict decision rules, since the Image Similarity Score is 0.0 and Text Similarity Score is 0.0 for Candidate 1, and Image Similarity Score is 0.0 and Text Similarity Score is 0.0 for Candidate 2, further analysis is needed. Upon analyzing the candidates, Candidate 2 provides an identical caption as the news caption. Therefore, the caption is considered to be in context.",
+      "supporting_evidences": [
+        "An egret flies at sunset on the bank of the Poyang Lake in Duchang County, east China's Jiangxi Province, Aug. 2, 2015."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is in context based on a high confidence score. However, upon analyzing the image, the caption describes an egret flying at sunset. The image actually depicts a flock of birds, most likely pelicans based on their size and shape, flying in front of a setting sun. The type of birds is an important detail that is not the same between the caption and the image. Therefore, the caption is misleading because it misidentifies the type of birds in the image.",
+    "validation_summary": "The caption misidentifies the type of birds in the image, leading viewers to believe they are seeing an egret when it's a different type of bird. This misrepresentation makes the caption misleading and not accurately representative of the image content."
+  },
+  "inference_time": 4.474765777587891,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "caption": "Terrance W Gainer former Senate sergeantatarms and Capitol Police chief is heading security operations for a medicalmarijuana facility that has applied for a license in Hagerstown Md",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Mark Getty",
+      "Getty Images",
+      "Image",
+      "Stock photography",
+      "Getty Images",
+      "Photograph",
+      "United States Capitol",
+      "Sergeant at Arms of the United States Senate",
+      "past"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8982343673706055,
+        "text_similarity_score": 0.09353038668632507
+      },
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.in",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8982343673706055,
+        "text_similarity_score": 0.09353038668632507
+      },
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8982343673706055,
+        "text_similarity_score": 0.09353038668632507
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are high (>= 0.85), but the text similarity scores are low (< 0.7). According to the instructions, if Image Similarity Score is greater than or equal to 0.85 AND Text Similarity Score is less than 0.7, the verdict must be False. Therefore, the caption is out-of-context. The lack of text similarity, combined with the absence of any actual content or title in the candidates, makes it impossible to confirm the caption's accuracy. Without additional information, a confident assessment is not possible.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows an older man, presumably Terrance W Gainer, standing in a harvested field with trees in the background under a cloudy sky. The caption states that Terrance W Gainer is heading security operations for a medical marijuana facility. While the image does depict a man who could be Terrance W Gainer, there's no visible connection to the described medical marijuana facility. The image doesn't show any facility, marijuana plants, or any security-related activities. Therefore, the caption is considered out of context because the image does not provide any visual evidence to support the caption's claim about his current role or the facility he is supposedly working for.",
+    "validation_summary": "The caption describes Terrance W Gainer's role in a medical marijuana facility, but the image doesn't visually support this claim, showing only a man in a field. Without any visual connection to the described facility, viewers would be misled about the context of the image."
+  },
+  "inference_time": 6.556239128112793,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

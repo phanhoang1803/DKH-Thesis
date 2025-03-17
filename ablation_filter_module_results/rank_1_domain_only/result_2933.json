@@ -1,0 +1,48 @@
+{
+  "caption": "Maria Sharapova plays a shot during her women s singles semifinal match against Russia s Ekaterina Makarova",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Maria Sharapova",
+      "opening",
+      "French Open",
+      "Tennis",
+      "Tennis player",
+      "Athlete",
+      "Soft tennis",
+      "Serve",
+      "Set"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Russians Sharapova, Makarova prepare for semifinals showdown",
+        "content": "6 3 5 5 7 9 1 0 4 8 6 9 7 4 5 3 5 0 - A F P -   . . .",
+        "caption": "Russia's Maria Sharapova plays a shot during her women's singles match against Canada's Eugenie Bouchard on day nine of the 2015 Australian Open.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 which is very low and the caption similarity score is 0.0 which is also very low. The candidate caption mentions Maria Sharapova playing in the Australian Open, while the news caption mentions her playing against Ekaterina Makarova. Because the similarity scores are low and there is no clear evidence to support the news caption, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a high confidence score of 10, indicating a strong certainty that the caption does not accurately represent the image. The image shows Maria Sharapova on a tennis court, but there's no specific visual evidence to confirm she's playing against Ekaterina Makarova or that the match is a semifinal. The low similarity scores between the image content and caption confirm this discrepancy, leading to the determination that the caption is out of context.",
+    "validation_summary": "The caption falsely identifies Maria Sharapova's opponent and the match type, which misleads viewers about the context of the image. Based on the image and image check result, the caption is out of context."
+  },
+  "inference_time": 3.7620644569396973,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

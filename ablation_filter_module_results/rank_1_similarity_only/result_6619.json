@@ -1,0 +1,47 @@
+{
+  "caption": "In this Sept 14 2012 photo Republican presidential candidate Mitt Romney campaigns in the rain at Lake Erie College in Painesville Ohio",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Event",
+      "Audience",
+      "Fan"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Romney Campaign Dismisses Recent Wave Of Tough Polls | HuffPost Latest News",
+        "content": "R o m n e y   C a m p a i g n   D i s m i s s e s   R e c e n t   W a v e   O f   T o u g h   P o l l s   |   H u f f P o s t   . . .",
+        "caption": "FILE - In this Sept. 14, 2012 file photo, Republican presidential candidate, former Massachusetts Gov. Mitt Romney campaigns in the rain at Lake Erie College in Painesville, Ohio. Ohio is the presidential race's undisputed epicenter, and it's tilting toward Barack Obama. The revival of the local economy and the popularity of Obama's auto industry bailout are hampering Mitt Romney's call for Ohioans to return to the GOP-leaning ways that were crucial to George W. Bush. (AP Photo/David Richard, File)",
+        "domain": "www.huffpost.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.24291294813156128,
+        "text_similarity_score": 0.7237598299980164
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.24291294813156128, which is less than 0.85. The text similarity score is 0.7237598299980164, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False. The candidate caption and the news caption share details such as the date (Sept. 14, 2012), the person (Mitt Romney), and the location (Lake Erie College in Painesville, Ohio). This overlap in information contributes to the relatively high text similarity score, even though the image similarity score indicates a mismatch.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.24291294813156128",
+        "Text Similarity Score: 0.7237598299980164"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low image similarity score (0.2429) and a relatively high text similarity score (0.7237). According to the instructions, a low image similarity score necessitates marking the caption as out-of-context, even if the text similarity score is high. The image shows Barack Obama, while the caption refers to Mitt Romney. Therefore, the caption does not accurately represent the image content.",
+    "validation_summary": "The caption is misleading because it identifies the person in the image as Mitt Romney, but the image actually shows Barack Obama. This discrepancy between the caption and the image would mislead viewers about who is depicted."
+  },
+  "inference_time": 6.097060918807983,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

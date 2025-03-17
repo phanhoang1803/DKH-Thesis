@@ -1,0 +1,52 @@
+{
+  "caption": "Former secretary of state Hillary Clinton speaks to the media March 10 about recent allegations of an improperly used email account during her tenure at the State Department",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "AP sues State Dept. over Clinton e-mails",
+        "content": "6 3 5 6 1 6 6 9 7 5 6 5 7 6 0 8 4 7 - 1 - h i l l a r y .   . . .",
+        "caption": "Hillary Rodham Clinton speaks to the media about allegations of an improperly used e-mail account on March 10, 2015.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5331404805183411,
+        "text_similarity_score": 0.8151847720146179
+      },
+      {
+        "title": "Cyber security expert, strategists weigh in on the endless debate about Clinton emails | LAist",
+        "content": "C y b e r   s e c u r i t y   e x p e r t ,   s t r a t e g i s t s   w e i g h   i n   o n   t h e   e n d l e s s   d e b a t e   . . .",
+        "caption": "NEW YORK - MARCH 10: Former U.S. Secretary of State Hillary Clinton speaks to the media after keynoting a Women's Empowerment Event at the United Nations March 10, 2015 in New York City. Clinton answered questions about recent allegations of an improperly used email account during her tenure as secretary of state.  (Photo by Yana Paskova/Getty Images)",
+        "domain": "laist.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.35894066095352173,
+        "text_similarity_score": 0.8124892711639404
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions have high text similarity scores (above 0.7), but the image similarity scores are below 0.85. Therefore, I am unable to confirm that the candidate images are of the same event depicted in the news image. Based on the captions alone, both candidates reference Hillary Clinton speaking to the media on March 10 about allegations of an improperly used email account, which aligns with the news caption. However, due to the low image similarity scores, I can't definitively confirm the news caption is in context.",
+      "supporting_evidences": [
+        "Candidate 1: Caption Similarity Score: 0.8151847720146179",
+        "Candidate 2: Caption Similarity Score: 0.8124892711639404"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "Although the news caption mentions Hillary Clinton speaking to the media, and the image shows Hillary Clinton at a podium, the image check result indicates low image similarity scores between the news image and the candidate images, and thus I am unable to confirm that the candidate images are of the same event depicted in the news image. Because the image check result has a confidence score of 7, it should be the final decision. Thus, the news caption does not match the image content, indicating the image is out of context.",
+    "validation_summary": "Without confirming the event in the image, viewers would be misled about the context of Hillary Clinton's speech as described in the caption, because the event in the image is not verified to be about 'recent allegations of an improperly used email account'. Thus, the image is out of context according to the image check result, because the similarity score between the news image and the candidate images is low."
+  },
+  "inference_time": 6.5385825634002686,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

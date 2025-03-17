@@ -1,0 +1,43 @@
+{
+  "caption": "Prince Alfred Park pool in Sydney winner of the Walter Burley Griffin award for urban design",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "National architecture awards celebrate diverse choice of winners | Architecture | The Guardian",
+        "content": "N a t i o n a l   a r c h i t e c t u r e   a w a r d s   c e l e b r a t e   d i v e r s e   c h o i c e   o f   w i n n e r s   . . .",
+        "caption": "Prince Alfred Park pool in Sydney, winner of the Walter Burley Griffin award for urban design.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.24541176855564117,
+        "text_similarity_score": 0.9792459011077881
+      },
+      {
+        "title": "2014 National Architecture Awards: Walter Burley Griffin Award | ArchitectureAu",
+        "content": "2 0 1 4   N a t i o n a l   A r c h i t e c t u r e   A w a r d s :   W a l t e r   B u r l e y   G r i f f i n   A w a r d   . . .",
+        "caption": "Prince Alfred Park + Pool Upgrade by Neeson Murcutt Architects in AssociationwithCityof Sydney.",
+        "domain": "architectureau.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.19045215845108032,
+        "text_similarity_score": 0.7595524191856384
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are below 0.85 for both candidates. Additionally, candidate 2 has a text similarity score below 0.7. The caption is therefore out-of-context, despite the relatively high similarity score of candidate 1.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a uniquely designed building with a modern architectural style. It features a series of interconnected structures with rounded roofs supported by numerous vertical wooden beams. The facade consists of large glass windows and concrete sections. The surrounding area includes a landscaped area with greenery and paved walkways. The caption claims this is the Prince Alfred Park pool in Sydney. The image check result also indicates that the image and caption do not align. Therefore, the caption is out of context.",
+    "validation_summary": "The image depicts a modern building with distinct architectural features, but it is not related to the Prince Alfred Park pool as the caption suggests, thus misleading viewers about the image's content and location. The image check result further supports this conclusion."
+  },
+  "inference_time": 4.931578874588013,
+  "ablation_type": "no_image_evidences"
+}

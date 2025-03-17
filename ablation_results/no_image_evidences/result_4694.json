@@ -1,0 +1,36 @@
+{
+  "caption": "Patrick McQuaid Navy was deployed to Afghanistan as part of the initial invastion force then deployed to Iraq",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Amazing war tattoos illustrate veterans' pain, journey",
+        "content": "A m a z i n g   w a r   t a t t o o s   i l l u s t r a t e   v e t e r a n s '   p a i n ,   j o u r n e y",
+        "caption": "Patrick McQuaid, Navy, was deployed to Afghanistan as part of the initial invastion force, then deployed to Iraq.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.856864333152771,
+        "text_similarity_score": 0.9752656817436218
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided candidate has a high image similarity score (0.856864333152771) and a high text similarity score (0.9752656817436218). This satisfies the condition that if the image similarity score is >= 0.85 and the text similarity score is >= 0.7, then the verdict is True. Therefore, the caption is in-context, as the candidate's caption almost perfectly matches the news caption.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: Patrick McQuaid, Navy, was deployed to Afghanistan as part of the initial invastion force, then deployed to Iraq. Image Similarity Score: 0.856864333152771, Caption Similarity Score: 0.9752656817436218, Domain: www.usatoday.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "Although the image check result has a high confidence score of 10 with the supporting evidences indicating that the caption is in context, the news content describes the image as part of an online art exhibit featuring Iraq and Afghanistan veterans' tattoos. Therefore, the news caption provides additional context that is not present in the image and thus, the image is out of context.",
+    "validation_summary": "The caption only describes the person's military deployment history without providing the context of the art exhibit which would mislead viewers about the image's purpose and intent. Thus, the image is out of context because the caption is not fully representative of the news article content about the veteran tattoo art exhibit it accompanies."
+  },
+  "inference_time": 5.045370101928711,
+  "ablation_type": "no_image_evidences"
+}

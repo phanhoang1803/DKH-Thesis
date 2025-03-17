@@ -1,0 +1,48 @@
+{
+  "caption": "Florida State Seminoles wide receiver Kelvin Benjamin caught the winning touchdown with 13 seconds left",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Eight-man football",
+      "Six-man football",
+      "Canadian football",
+      "Kick american football",
+      "American football",
+      "Canada",
+      "Sprint football",
+      "Gridiron football",
+      "Kick"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "College football bowl action",
+        "content": "1 3 8 9 0 7 4 2 6 5 0 0 2 - U S P - N C A A -   . . .",
+        "caption": "Florida State quarterback Jameis Winston kisses the trophy after defeating the Auburn Tigers 34-31 in the BCS National Championship Game at the Rose Bowl.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, I cannot use the strict decision rules. The candidate caption mentions Florida State, but it discusses a different event (BCS National Championship Game) and a different player (Jameis Winston) than the news caption which mentions Kelvin Benjamin and a winning touchdown. The candidate does not support any part of the news caption, thus the news caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low confidence score of 2, signifying high uncertainty. However, despite the low confidence, the image check result also states that the candidate caption mentions Florida State, while the provided caption references Kelvin Benjamin and a winning touchdown. The image shows a football player wearing a burgundy and gold uniform with the number 10, in an outdoor football stadium. The news caption describes Kelvin Benjamin, a wide receiver, catching a touchdown. There is no evidence in the image that corroborates the news caption's claim about Kelvin Benjamin or Florida State. Therefore, based on the image check result with additional examination of the image, the caption is out of context.",
+    "validation_summary": "The caption is misleading because it describes an event and person not depicted in the image, potentially leading viewers to believe the image relates to Kelvin Benjamin or Florida State. The image displays a football player in a burgundy and gold uniform, which is not directly linked to the caption's content."
+  },
+  "inference_time": 4.406163930892944,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

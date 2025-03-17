@@ -1,0 +1,50 @@
+{
+  "caption": "Awardwinning gin from Australian distiller Four Pillars",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Wine",
+      "May wine",
+      "Burgundy wine",
+      "Glass bottle",
+      "Wine Bottle",
+      "Bottle",
+      "Glass",
+      "May",
+      "Burgundy"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Australia's gin revolution led by boutique distilleries | Food | The Guardian",
+        "content": "A u s t r a l i a ' s   g i n   r e v o l u t i o n   l e d   b y   b o u t i q u e   d i s t i l l e r i e s   |   F o o d   . . .",
+        "caption": "Award-winning gin from Australian distiller Four Pillars. Photograph: Anson Smart",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0, indicating a low match between the candidate image and the news image. However, the candidate caption is an exact match for the news caption. Although the image similarity is low, the exact match in the caption from a reputable domain (theguardian.com) does offer some supporting evidence that the news caption could be accurate, though the low image similarity reduces confidence.",
+      "supporting_evidences": [
+        "Candidate 1: The caption is an exact match, and the domain is www.theguardian.com, a reputable source."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result shows a low image similarity score (0.0) but an exact match for the caption. Despite the matching caption, the image displays a wine bottle, specifically a 2005 Etienne Sauzet Grand Cru wine, not gin from the Australian distiller Four Pillars. Therefore, the caption is misleading because it describes a product (gin) that is not depicted in the image (wine bottle). The high confidence score is justified because the image check provided conflicting data. However, the image content clearly contradicts the claim of the caption.",
+    "validation_summary": "The caption inaccurately describes the image content. The image shows a wine bottle, while the caption refers to Australian gin, misleading viewers about what is being presented."
+  },
+  "inference_time": 4.116044282913208,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

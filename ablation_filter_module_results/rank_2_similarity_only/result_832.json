@@ -1,0 +1,51 @@
+{
+  "caption": "Travellers face possible strikes at Heathrow and other BAA airports in a pay dispute with the Unite union",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Flight",
+      "Airplane",
+      "Airport",
+      "Heathrow Airport",
+      "Baggage",
+      "Airline ticket",
+      "Travel",
+      "Passenger",
+      "Due",
+      "check"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Bank Holiday travellers face chaos as hundreds of Heathrow workers to go on strike for an entire week in dispute over outsourcing of jobs | Daily Mail Online",
+        "content": "B a n k   H o l i d a y   t r a v e l l e r s   f a c e   c h a o s   a s   h u n d r e d s   o f   H e a t h r o w   w o r k e r s   . . .",
+        "caption": "Hundreds of workers at Heathrow Airport are to strike in a dispute over outsourcing of jobs(stock image)",
+        "domain": "www.dailymail.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3046402335166931,
+        "text_similarity_score": 0.7343906164169312
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.3046402335166931 and the text similarity score is 0.7343906164169312. Because the image similarity score is less than 0.85, the caption is considered out-of-context. Therefore, the verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a traveler sleeping on luggage next to a luggage cart at an airport. The caption discusses possible strikes at Heathrow and other BAA airports due to a pay dispute. While the image is taken at an airport operated by BAA and may depict a traveler affected by potential airport disruptions, it doesn't directly depict a strike, pay dispute, or any related activity. The image similarity score from the image check result is less than 0.85, therefore the caption is considered out-of-context.",
+    "validation_summary": "The image shows a traveler sleeping in an airport, while the caption talks about strikes, which are not visually represented in the image, potentially misleading viewers about the context of the image in relation to the news caption. The image is therefore out of context from the caption based on the image check result and analysis of the image content."
+  },
+  "inference_time": 5.1688830852508545,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

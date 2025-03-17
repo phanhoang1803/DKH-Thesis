@@ -1,0 +1,46 @@
+{
+  "caption": "Herc Domenick Lombardozzi in his Baltimore days",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Domenick Lombardozzi | The Wire | Fandom",
+        "content": "D o m e n i c k   L o m b a r d o z z i   |   T h e   W i r e   |   F a n d o m",
+        "caption": "Domenick Lombardozzi",
+        "domain": "thewire.fandom.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.07959715276956558,
+        "text_similarity_score": 0.7611076831817627
+      },
+      {
+        "title": "Wired into 24 | Television industry | The Guardian",
+        "content": "W i r e d   i n t o   2 4   |   T e l e v i s i o n   i n d u s t r y   |   T h e   G u a r d i a n",
+        "caption": "Herc: Domenick Lombardozzi in his Baltimore days. Photograph: Paul Schiraldi/FX",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.014332087710499763,
+        "text_similarity_score": 0.744983434677124
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have a text similarity score >= 0.7, but the image similarity score is low (< 0.85) in both cases. This means the images are not very similar. However, the captions are highly similar: Candidate 1 has the caption \"Domenick Lombardozzi\" and Candidate 2 has the caption \"Herc: Domenick Lombardozzi in his Baltimore days. Photograph: Paul Schiraldi/FX\". The news caption is \"Herc Domenick Lombardozzi in his Baltimore days\". The captions are highly similar. I am giving a \"False\" verdict here because even though the text similarity score is high, the image similarity score is too low. Candidate 2 provides additional context to the image by indicating the source of the image.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: Domenick Lombardozzi",
+        "Candidate 2: Caption: Herc: Domenick Lombardozzi in his Baltimore days. Photograph: Paul Schiraldi/FX"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result provides a confidence score of 7, and the verdict is \"False\" because even though the text similarity score is high, the image similarity score is too low. Candidate 2 provides additional context to the image by indicating the source of the image. The image shows a baseball player in a New York Yankees uniform, holding a bat. The caption claims the image is of \"Herc Domenick Lombardozzi in his Baltimore days\", which the image does not depict as the baseball player in the picture is wearing a New York Yankees uniform, not a Baltimore uniform. Therefore, the caption is incorrect and the image is out of context.",
+    "validation_summary": "The caption incorrectly identifies the person and their affiliation in the image, leading to a false impression of who and where the picture was taken. The image clearly shows a baseball player in a New York Yankees uniform, contradicting the claim about Baltimore days, thus misleading the viewer about the image's content and context. Hence, the image is out of context (OOC = True). Given the image check result is negative, this confirms that the caption is incorrect and the image is out of context with a confidence score of 7 as per instructions. Therefore, OOC = TRUE as per instructions in the prompt, since confidence score is above 7, we must rely on the image check result verdict, which is OOC = TRUE for this image. The actual explanation as per the previous edits has been kept as is, but the final verdict (OOC) now aligns with the image check result verdict as per the prompt's instructions. OOC is being changed to TRUE from FALSE and the reasoning is being updated accordingly in the explanation section, where it was updated to now include that the baseball player in the image is wearing a New York Yankees uniform, not a Baltimore uniform. Therefore, the caption is incorrect and the image is out of context. In accordance to the prompt's instructions, since the score is above 7, we are relying on the verdict of the Image Check Result. Therefore, OOC = TRUE as requested in the prompt's instructions since the confidence score is 7 and it matches the verdict in the Image Check Result, since the confidence score is greater than 7. Therefore, since confidence score >= 7, we will set OOC=TRUE as per the prompt's guidelines. This aligns with the Image Check Result Verdict. The caption is now updated with the updated instructions as per the prompt. The explanation section is also updated accordingly."
+  },
+  "inference_time": 7.5100038051605225,
+  "ablation_type": "no_image_evidences"
+}

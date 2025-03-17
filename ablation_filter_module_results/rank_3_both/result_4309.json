@@ -1,0 +1,43 @@
+{
+  "caption": "Amanda Seyfried after the Les Miserables musical number",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Musician",
+      "Performance M"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Photos: Backstage and behind the scenes at the Oscars",
+        "content": "P h o t o s :   B a c k s t a g e   a n d   b e h i n d   t h e   s c e n e s   a t   t h e   O s c a r s",
+        "caption": "Amanda Seyfried after the 'Les Miserables' musical number.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3264607787132263,
+        "text_similarity_score": 0.9697455763816833
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is below 0.85, which indicates that the images are not similar. Although the caption similarity score is high, the image similarity is more important here. Thus, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a woman with blonde hair wearing a gray jacket and a patterned hat, holding a large key. The caption claims the image shows \"Amanda Seyfried after the Les Miserables musical number.\" However, without additional information, the image alone cannot confirm that it is Amanda Seyfried or that it is related to Les Miserables. The image check result confirms that the images are dissimilar, suggesting the caption is not contextually related to the image. Therefore, the caption is out of context.",
+    "validation_summary": "The caption inaccurately identifies the woman in the image and implies a connection to 'Les Miserables' that cannot be verified by the image alone, misleading viewers about the image's content and context. The image check result supports this conclusion."
+  },
+  "inference_time": 5.367656707763672,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

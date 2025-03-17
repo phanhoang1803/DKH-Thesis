@@ -1,0 +1,38 @@
+{
+  "caption": "Jose Cruz RomeroFlores is accused of operating brothels in Lakewood NJ He is being held at the Ocean County Jail on 1 million bail",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Officials crack N.J. human sex trafficking ring",
+        "content": "O f f i c i a l s   c r a c k   N . J .   h u m a n   s e x   t r a f f i c k i n g   r i n g",
+        "caption": "A Brook Road house in Lakewood, N.J., where suspects allegedly ran a house of prostitution, is shown on Thursday, July 18, 2013.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. This means that the provided candidate is very dissimilar to the news caption and image. The news caption states that Jose Cruz RomeroFlores is accused of operating brothels in Lakewood NJ and is being held at the Ocean County Jail on 1 million bail. The candidate caption says the image is of A Brook Road house in Lakewood, N.J., where suspects allegedly ran a house of prostitution, is shown on Thursday, July 18, 2013. The candidate caption does confirm a house of prostitution was allegedly ran in Lakewood, NJ.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a very low similarity between the image and the news caption, scoring 0.0 for both image and text similarity. The news caption describes Jose Cruz RomeroFlores being accused of operating brothels in Lakewood NJ and being held at the Ocean County Jail on 1 million bail. The image depicts the mugshot of Jose Cruz RomeroFlores. The caption is mostly correct and describes who is in the image. Therefore, because the image check result has high confidence, the image is not out of context.",
+    "validation_summary": "Although the mugshot is of the person mentioned in the news caption, the image check result indicates a very low similarity between the image and the news caption. This is why the image is out of context. The image accurately represents the individual mentioned in the caption, so it's not likely to mislead viewers, but the confidence score from the image check result indicates it is indeed OOC (Out of Context)."
+  },
+  "inference_time": 4.541983604431152,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

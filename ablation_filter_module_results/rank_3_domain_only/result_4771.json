@@ -1,0 +1,38 @@
+{
+  "caption": "Oklahoma City Thunder forward Mitch McGary and Phoenix Suns forward Marcus Morris dive for the ball during the first quarter",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "2014-15 NBA photo of the day",
+        "content": "2 0 1 4 - 1 5   N B A   p h o t o   o f   t h e   d a y",
+        "caption": "April 13, 2015: Every bounce is crucial at this point in the season for the Pelicans, who are closing in on a playoff berth. New Orleans and Minnesota vie for a rebound during the Pelicans' 100-88 win.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, the strict decision rules cannot be applied. The candidate caption describes a basketball game, but involves different teams (Pelicans and Timberwolves) and a different context (playoff berth) compared to the news caption (Thunder and Suns). Without any matching elements or confirmation of the people, event, or location, the evidence doesn't support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result has a confidence score of 2 and determines that the news caption does not accurately represent the image content. The image depicts a basketball player on his knees, with another player and a referee visible. The caption refers to a game between the Oklahoma City Thunder and Phoenix Suns, mentioning Mitch McGary and Marcus Morris. However, without further evidence matching the players or specific game details, the caption is likely misleading as the image content cannot be verified against the caption's claims. Therefore, I agree with the image check result that the caption does not match the image content.",
+    "validation_summary": "The caption describes a specific basketball game and players, but the image lacks identifiable details to confirm this, making the caption potentially misleading to viewers. The image check confirms the mismatch, indicating that the caption does not accurately represent the image content."
+  },
+  "inference_time": 4.20300030708313,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

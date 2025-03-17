@@ -1,0 +1,40 @@
+{
+  "caption": "One of China s elite takes tea in Shanghai many observers feel that only a crisis could prompt major change",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Fears grow over pace of reform  as China ushers in new leaders | China | The Guardian",
+        "content": "F e a r s   g r o w   o v e r   p a c e   o f   r e f o r m   a s   C h i n a   u s h e r s   i n   n e w   l e a d e r s   . . .",
+        "caption": "One of China's elite takes tea in Shanghai: many observers feel that only a crisis could prompt major change. Photograph: Xie Guang Hui/Corbis",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.18405477702617645,
+        "text_similarity_score": 0.902884304523468
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.18405477702617645 which is less than 0.85 and the text similarity score is 0.902884304523468 which is greater than 0.7. According to the strict decision rules, the verdict should be False. The low image similarity score indicates that the candidate image does not closely match the news image. Therefore, even with a high caption similarity score, the evidence does not confirm the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Pope Francis meeting with a woman, likely a political figure, and another man standing behind them, with the South Korean flag in the background. The caption describes \"One of China s elite takes tea in Shanghai\" which is completely unrelated to the image content. Therefore, the caption is out of context.",
+    "validation_summary": "The caption describes an event in Shanghai, China, while the image shows a meeting in South Korea, potentially misleading viewers about the image's actual context and content."
+  },
+  "inference_time": 4.306905269622803,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

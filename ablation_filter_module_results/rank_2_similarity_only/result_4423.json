@@ -1,0 +1,53 @@
+{
+  "caption": "Gordon Brown s radical model for Scotland within the UK will alarm Labour traditionalists",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Businessperson",
+      "Tower M",
+      "Clock"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Gordon Brown calls for Scotland to have right to set tax and welfare policies | Scottish independence | The Guardian",
+        "content": "G o r d o n   B r o w n   c a l l s   f o r   S c o t l a n d   t o   h a v e   r i g h t   t o   s e t   t a x   a n d   . . .",
+        "caption": "Gordon Brown's radical model for Scotland within the UK will alarm Labour traditionalists. Photograph: Lewis Whyld/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.33264273405075073,
+        "text_similarity_score": 0.9556400775909424
+      },
+      {
+        "title": "Gordon Brown calls for Scotland to have right to set tax and welfare policies | Scottish independence | The Guardian",
+        "content": "G o r d o n   B r o w n   c a l l s   f o r   S c o t l a n d   t o   h a v e   r i g h t   t o   s e t   t a x   a n d   . . .",
+        "caption": "Gordon Brown's radical model for Scotland within the UK will alarm Labour traditionalists. Photograph: Lewis Whyld/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.30793604254722595,
+        "text_similarity_score": 0.9556400775909424
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are below 0.85, specifically 0.33264273405075073 and 0.30793604254722595. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that both candidates have image similarity scores below 0.85 (0.33264273405075073 and 0.30793604254722595). As per instructions, a score below 0.85 dictates the caption must be classified as OOC (Out of Context), regardless of text similarity. The image depicts three individuals (two women and one man) in front of a cityscape, including prominent buildings with clock towers and spires. The caption refers to Gordon Brown and his political model for Scotland, which isn't visually represented in the image. The image does not show Gordon Brown and contains no specific visual information related to his proposals or the Labour party's internal reactions. Therefore, the image fails to support the caption's claims, confirming that the caption is OOC.",
+    "validation_summary": "The image features three individuals in a city setting, while the caption discusses Gordon Brown's political model; the visual content doesn't align with the textual content, leading to a misrepresentation. The image check confirms this mismatch, so the caption is out of context because the image does not show the person mentioned in the article's headline and body, or anything regarding the political plan mentioned in the caption/article itself either. The caption does not correctly represent the image content, so it is out of context (OOC = True). This is because the image check similarity scores are below 0.85 (0.33264273405075073 and 0.30793604254722595)."
+  },
+  "inference_time": 6.031317710876465,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

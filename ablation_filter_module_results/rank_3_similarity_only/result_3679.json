@@ -1,0 +1,51 @@
+{
+  "caption": "President Rousseff Below that green and yellow jersey you represent a powerful legacy of the Brazilian people",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Katinka Hosszú",
+      "Rio de Janeiro",
+      "just",
+      "Swimming",
+      "Olympic Games",
+      "Kuwait",
+      "Swimming",
+      "Human",
+      "SAT",
+      "Fun"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Brazil 'ready' for football World Cup, says Rousseff - BBC News",
+        "content": "B r a z i l   ' r e a d y '   f o r   f o o t b a l l   W o r l d   C u p ,   s a y s   R o u s s e f f   -   B B C   N e w s",
+        "caption": "President Rousseff: \"Below that green and yellow jersey you represent a powerful legacy of the Brazilian people\"",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.29890456795692444,
+        "text_similarity_score": 0.9686863422393799
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is low (0.29890456795692444 < 0.85). Although the text similarity score is high (0.9686863422393799 > 0.7), according to the strict decision rules, the caption must be marked as out-of-context because the image similarity score is below 0.85. Thus, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the caption is out of context with a confidence score of 3. The image depicts beach volleyball players and fans, with one player high-fiving a fan wearing a green wig and a yellow jersey, possibly a Brazilian flag. The caption refers to President Rousseff representing a legacy of the Brazilian people. There is no visual connection between the image content and the caption's reference to President Rousseff. Therefore, the caption is out of context as it does not accurately represent what is shown in the image.",
+    "validation_summary": "The caption is unrelated to the image content, misleading viewers about the image's subject matter by incorrectly associating it with President Rousseff's legacy, while the image shows beach volleyball players and fans interacting during a game, providing a completely different context than what the caption implies. Therefore, the caption does not provide an accurate or representative summary of the image content, making it out of context and potentially misleading to viewers due to the incorrect association implied."
+  },
+  "inference_time": 7.204551696777344,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

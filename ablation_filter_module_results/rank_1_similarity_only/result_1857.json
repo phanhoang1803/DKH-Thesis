@@ -1,0 +1,45 @@
+{
+  "caption": "President Obama pauses as he speaks on the shooting in Dallas on the sidelines of the NATO Summit at a hotel in Warsaw Friday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speech",
+      "Public speaking",
+      "Orator",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Obama to cut short European trip after 'vicious' attacks on Dallas police",
+        "content": "O b a m a   t o   c u t   s h o r t   E u r o p e a n   t r i p   a f t e r   ' v i c i o u s '   a t t a c k s   o n   D a l l a s   . . .",
+        "caption": "President Obama pauses as he speaks on the shooting in Dallas on the sidelines of the NATO Summit at a hotel in Warsaw Friday.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3847843110561371,
+        "text_similarity_score": 0.9866794347763062
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.3847843110561371, which is less than 0.85. Therefore, according to the instructions, the caption must be marked as out-of-context, even though the text similarity score is 0.9866794347763062.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image similarity score (0.3847843110561371) despite a high text similarity score (0.9866794347763062). The image depicts President Obama at a podium, seemingly giving a speech. The caption states he is speaking on the shooting in Dallas on the sidelines of the NATO Summit at a hotel in Warsaw. Although the text is related to the news content, the low image similarity score suggests that the image doesn't strongly support the caption's claim. Therefore, based on the image check result (confidence score 2), the caption is considered out of context.",
+    "validation_summary": "The image and caption have low similarity score making the image-caption relationship out of context. Viewers would be misled about the image's content in relation to the caption's description of the event being covered in the image.. This is because the image similarity score is low which indicates a mismatch between the image and caption and therefore the caption is deemed out of context.)"
+  },
+  "inference_time": 5.419375419616699,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

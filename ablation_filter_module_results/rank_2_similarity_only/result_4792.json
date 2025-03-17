@@ -1,0 +1,54 @@
+{
+  "caption": "The writer Etgar Keret at the Edinburgh International Book Festival",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Etgar Keret",
+      "Street dance",
+      "Hip-hop dance",
+      "Modern dance",
+      "Street",
+      "Hip-hop",
+      "Photograph",
+      "Information",
+      "Performance M",
+      "Citation"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Translators Are Like Ninjas | World Literature Today",
+        "content": "T r a n s l a t o r s   A r e   L i k e   N i n j a s   |   W o r l d   L i t e r a t u r e   T o d a y",
+        "caption": "Nathan Englander and Etgar Keret Nathan Englander and Etgar Keret at the Edinburgh International Book Festival",
+        "domain": "www.worldliteraturetoday.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1427043378353119,
+        "text_similarity_score": 0.7694752812385559
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is low (0.1427043378353119), but the caption similarity score is high (0.7694752812385559). According to the strict decision rules, when the image similarity score is less than 0.85, we should analyze the captions and candidate information. In this case, the candidate caption is 'Nathan Englander and Etgar Keret Nathan Englander and Etgar Keret at the Edinburgh International Book Festival', and the news caption is 'The writer Etgar Keret at the Edinburgh International Book Festival'. Both captions mention 'Etgar Keret' at the 'Edinburgh International Book Festival'. However, the candidate caption also mentions 'Nathan Englander'. Without the actual image to confirm if Nathan Englander is in the image or other information to support the caption, I cannot confidently confirm that the news caption accurately represents the image. Thus, the verdict is 'False'.",
+      "supporting_evidences": [
+        "The candidate caption mentions 'Etgar Keret' at the 'Edinburgh International Book Festival', which aligns with the news caption.",
+        "The candidate caption also mentions 'Nathan Englander', which is not mentioned in the news caption."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows a man with dark curly hair, wearing a red shirt and grey pants, jumping in the air against a blue backdrop. While the news caption identifies the man as \"The writer Etgar Keret at the Edinburgh International Book Festival\", the image alone does not confirm this. The Image Check Result is 'False' because while the candidate caption contains \"Etgar Keret at the Edinburgh International Book Festival\", the candidate caption mentions \"Nathan Englander and Etgar Keret\", and without additional verification I cannot confirm that the news caption accurately represents the image. Given that the image check result has a confidence score between 7 and 10, the final determination 'MUST' be based on the image check result.",
+    "validation_summary": "The caption identifies the person in the image as Etgar Keret at the Edinburgh International Book Festival, but the image itself doesn't provide sufficient evidence to support this claim. A viewer may be misled if they assume the image definitively shows Etgar Keret at the book festival based solely on the caption."
+  },
+  "inference_time": 6.223358869552612,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "caption": "Shout out to Andy Murray who cruised into the third round with a commanding 61 61 64 victory over a disappointing Robin Haase",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Table tennis",
+      "Racketlon",
+      "Tennis",
+      "Soft tennis",
+      "Racket",
+      "Tennis player"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 7,
+      "confidence_score": 8,
+      "explanation": "The original caption mentions a specific match between Andy Murray and Robin Haase, including the score. While the image context describes a tennis match, it doesn't specify the players or the outcome. The provided caption is much more specific, so it only 'almost' aligns, as it captures the general context of a tennis match but adds specific details not necessarily evident in the image alone.",
+      "supporting_evidences": [
+        "The image context confirms the presence of a tennis match with players and a crowd.",
+        "The caption describes a tennis match, specifically mentioning players and scores.",
+        "The caption provides specific details (players, score) that might not be directly visible in the image."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image likely depicts a moment from a competitive tennis match, featuring players engaged in action on a grass court, possibly at a renowned tournament like Wimbledon. Key elements visible include players in tennis attire, their rackets, the ball, and a lively crowd in the background, illustrating the intensity of the game and the atmosphere of a major sporting event. The focus may be on the competitors and their athleticism, highlighting techniques and movements associated with tennis play.",
+      "caption": "Tennis match in action, highlighting two competing players during a high-stakes game.",
+      "context": "The image correlates with a recent news event from Wimbledon, a prestigious tennis tournament held annually in London. The news caption specifically mentions Andy Murray's victory over Robin Haase, framing the match as a commanding performance showcasing Murray’s dominance. The context of Murray's success supports the visual narrative of athletes striving for excellence in the championship setting, with cheers from the crowd enhancing the competitive atmosphere of the sport. The detected entities, including 'table tennis', 'racketlon', and 'tennis', reflect the broader tennis context, with an emphasis on the specific nuances of professional-level tennis depicted in the image."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a strong alignment between the image and the news content but points out that the caption includes specific details (names, scores) that are not directly verifiable from the image itself. While the image depicts a tennis player in action, suggesting a tennis match, it doesn't explicitly confirm that the player is Andy Murray, that his opponent is Robin Haase, or that the score was 6-1, 6-1, 6-4. The image check suggests that the caption 'almost aligns' because it refers to a tennis match generally, which the image confirms, but it includes specific details that the image doesn't verify. Based on this, the caption contains information that may mislead viewers, as it ascribes events to the image which are not directly seen in it.",
+    "validation_summary": "The caption provides specific details about a tennis match that are not verifiable from the image alone, potentially misleading viewers about the image's content. While the image shows a tennis player in action, the caption adds details that aren't necessarily true based solely on the image's visual information."
+  },
+  "inference_time": 6.344715595245361,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

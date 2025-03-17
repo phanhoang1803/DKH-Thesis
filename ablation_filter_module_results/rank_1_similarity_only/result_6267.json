@@ -1,0 +1,53 @@
+{
+  "caption": "Julian Savea has scored 38 tries in 39 Test starts for New Zealand who meet South Africa in the Rugby World Cup semifinal",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Billy Vunipola",
+      "Premiership Rugby",
+      "Wasps RFC",
+      "Touch football",
+      "Rugby Player",
+      "Touch rugby",
+      "Rugby union",
+      "Rugby football",
+      "American football"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "New Zealand winger Julian Savea heading for hero status | Rugby World Cup 2015 | The Guardian",
+        "content": "N e w   Z e a l a n d   w i n g e r   J u l i a n   S a v e a   h e a d i n g   f o r   h e r o   s t a t u s   |   R u g b y   . . .",
+        "caption": "Julian Savea has scored 38 tries in 39 Test starts for New Zealand, who meet South Africa in the Rugby World Cup semi-final.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.771675705909729,
+        "text_similarity_score": 0.9747771620750427
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.771675705909729, which is less than 0.85. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. In this case, the text similarity score is 0.9747771620750427, which is greater than 0.7. However, since the image similarity score is less than 0.85, the final verdict is 'False'.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.771675705909729",
+        "Text Similarity Score: 0.9747771620750427"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image similarity score is 0.771675705909729, which is less than 0.85. Although the text similarity score is high (0.9747771620750427), the instructions state that if the image similarity score is below 0.85, the caption must be marked as out-of-context. The image shows a rugby player in a black and yellow jersey running with the ball. The caption discusses Julian Savea and his statistics for the New Zealand team. While it's possible the image could be of Julian Savea, the image score does not support it.",
+    "validation_summary": "The caption discusses a specific player and his achievements, but the image check indicates the photo's relevance is too low to support the association, potentially misleading viewers. The image similarity score is below the threshold, leading to an out-of-context determination."
+  },
+  "inference_time": 6.1972715854644775,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

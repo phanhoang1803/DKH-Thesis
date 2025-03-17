@@ -1,0 +1,49 @@
+{
+  "caption": "Pitlochry Dam in Perthshire Scotland",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Global Positioning System",
+      "Design",
+      "Vantaa",
+      "Waze",
+      "Tunnel",
+      "GPS signals",
+      "Beacons",
+      "Planning",
+      "Installation"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 9,
+      "confidence_score": 10,
+      "explanation": "The caption \"Pitlochry Dam in Perthshire Scotland\" accurately identifies the location and subject of the image, as confirmed by the image context which describes an aerial view of the Pitlochry Dam in Perthshire, Scotland. The caption is concise but does not misrepresent any information present in the image or context. The image context details the landscape and engineering of the dam, which the caption, while brief, does not contradict or omit misleadingly.",
+      "supporting_evidences": [
+        "The image context describes the scene as the Pitlochry Dam in Perthshire, Scotland.",
+        "The caption directly states the same location and subject."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image depicts an aerial view of the Pitlochry Dam located in Perthshire, Scotland. The dam is situated in a mountainous region and is surrounded by a lush green landscape. The water reservoir created by the dam reflects the towering trees and hillsides. It appears to be a sunny day with clear skies, adding to the vibrant colors of the environment. The dam structure is clearly visible, showcasing its significant engineering with a wider reservoir that narrows down as it flows over the dam.",
+      "caption": "Aerial view of Pitlochry Dam in Perthshire, Scotland, surrounded by green landscapes.",
+      "context": "The Pitlochry Dam is a notable hydroelectric facility in Scotland, which is part of the renewable energy initiatives in the country. The dam not only provides hydroelectric power but also contributes to local tourism and recreation, allowing opportunities for outdoor activities such as fishing and hiking in the area. This image coincides with ongoing efforts and funding for renewable energy projects, as mentioned in the news content discussing investments in sustainable energy sources like hydropower. TLS Hydro Power's recent bond issuance is part of the broader clean energy movement within Scotland and England, aiming to encourage investments that support eco-friendly energy solutions while offering attractive returns to investors."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows the inside of a tunnel with lights along the ceiling and a view of trees at the exit. The red streaks suggest moving cars. The caption mentions Pitlochry Dam in Perthshire, Scotland. However, the image does not show any dam. Since the image and caption do not match, the image is out of context.",
+    "validation_summary": "The image shows the inside of a tunnel, while the caption refers to Pitlochry Dam, making the image out of context. Viewers would be misled as the image doesn't represent the location mentioned in the caption."
+  },
+  "inference_time": 3.7107367515563965,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "caption": "Helen Glover and Heather Stanning celebrate winning more golds for Great Britain",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Kerri Walsh Jennings",
+      "Beach volleyball",
+      "Volleyball",
+      "Olympic Games",
+      "Brazil",
+      "United States",
+      "Beach",
+      "Team"
+    ],
+    "ablation_type": "no_text_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 1,
+      "confidence_score": 10,
+      "explanation": "The caption describes a celebration by Helen Glover and Heather Stanning after winning gold, which is completely different from the provided image context that depicts a beach volleyball match at the Olympic Games in Brazil. The image context mentions volleyball players, a sand court, and spectators, none of which align with the caption's description of a specific athlete's celebration.",
+      "supporting_evidences": [
+        "The image shows a beach volleyball match, not a celebration by Helen Glover and Heather Stanning.",
+        "The caption mentions specific athletes (Helen Glover and Heather Stanning), while the image context describes general beach volleyball players.",
+        "The image is about a sporting event (beach volleyball), while the caption is about a specific achievement (winning gold).",
+        "There is no mention of Great Britain or winning gold in the image context."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Beach volleyball players in action during a match at the Olympic Games in Brazil.",
+      "context": "The image shows a beach volleyball match, presumably at the Olympic Games in Brazil, given the context and entities. Two teams are visible, one with players in green and yellow outfits, and another team celebrating, suggesting a victory or significant play. The players are on a sand court with a volleyball net in the background. A photographer is capturing the game and there are spectators in the background. The overall scene conveys the intensity and excitement of a competitive sports event within the Olympic Games setting.",
+      "information": "The image captures a moment during a beach volleyball match featuring two teams. One team is wearing green and yellow outfits. There is a photographer capturing images of the game. There are people in the background watching the match."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts a beach volleyball match, featuring female athletes in bikinis on a sand court with spectators in the background. This scene is vastly different from the caption's description of Helen Glover and Heather Stanning celebrating a gold medal win. The image check result strongly confirms that the caption is misleading because it inaccurately represents the event shown in the image.",
+    "validation_summary": "The image shows a beach volleyball game, not Helen Glover and Heather Stanning celebrating a win, thus the caption misrepresents the image content, leading viewers to believe the image is related to the athletes mentioned in the caption when it is not. The caption is therefore out of context to the image's actual content and setting, making the image misleading to viewers looking for context related to those athletes and their celebration of winning golds for Great Britain (as the title describes). Furthermore, there is nothing to indicate the photograph shows Helen Glover and Heather Stanning or that the image is related to Great Britain."
+  },
+  "inference_time": 5.9287543296813965,
+  "ablation_type": "no_text_evidences"
+}

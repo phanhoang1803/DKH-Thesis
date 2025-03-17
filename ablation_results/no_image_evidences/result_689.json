@@ -1,0 +1,34 @@
+{
+  "caption": "Winsford Mine runs under Cheshire four miles easttowest and three miles northtosouth",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Winsford Salt Mine: Plan to extend hazardous waste storage until 2045",
+        "content": "W i n s f o r d   S a l t   M i n e :   P l a n   t o   e x t e n d   h a z a r d o u s   w a s t e   s t o r a g e   u n t i l   2 0 4 5",
+        "caption": "Winsford Mine runs under Cheshire four miles east-to-west and three miles north-to-south",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.023689983412623405,
+        "text_similarity_score": 0.9470888376235962
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.023689983412623405, which is less than 0.85. The text similarity score is 0.9470888376235962, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than or equal to 0.7, the verdict should be 'False'. The low image similarity suggests that the images do not match. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption does not accurately represent the image content, as it provides a factual statement about the Winsford Mine while the image likely depicts an unrelated scene or subject.",
+    "explanation": "The image check result indicates a very low similarity score (0.023), suggesting that the image shown does not resemble what would be expected if the caption were accurate. Although the caption mentions the Winsford Mine's dimensions in Cheshire, without seeing the actual content of the image, it is reasonable to conclude that the visual does not relate to the mine or may depict something entirely different. Thus, the caption misrepresents the image content, affirming an Out of Context classification."
+  },
+  "inference_time": 10.53422212600708,
+  "ablation_type": "no_image_evidences"
+}

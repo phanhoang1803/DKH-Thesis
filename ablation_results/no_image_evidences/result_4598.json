@@ -1,0 +1,48 @@
+{
+  "caption": "A photo of Francis decorates the back of a tricycle taxi in Havana",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Hyundai Atos",
+      "Suzuki Alto",
+      "Fiat 600",
+      "Car",
+      "Austin A35",
+      "A-segment",
+      "Kei car",
+      "Fiat",
+      "Suzuki",
+      "Hyundai"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "The Pope's Visit Will Stretch Cuba's Overworked Hotels And Eateries | KERA News",
+        "content": "T h e   P o p e ' s   V i s i t   W i l l   S t r e t c h   C u b a ' s   O v e r w o r k e d   H o t e l s   A n d   . . .",
+        "caption": "A photo of Pope Francis decorates the back of a tricycle taxi in Havana on Friday.",
+        "domain": "www.keranews.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8315459489822388,
+        "text_similarity_score": 0.9282802939414978
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.8315459489822388 and the text similarity score is 0.9282802939414978. Based on the instruction, since the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Thus, the verdict is False.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.8315459489822388",
+        "Caption Similarity Score: 0.9282802939414978"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is out of context with a confidence score of 10. The image similarity score is 0.8315459489822388, which is less than the threshold of 0.85, leading to the determination that the caption is out of context, despite a high caption similarity score of 0.9282802939414978. Although the image does show a tricycle taxi with a photo of Francis, the overall scene involves other people and elements that the caption omits, making it not fully representative of the image content.",
+    "validation_summary": "The caption focuses on a single element (a photo of Francis) while ignoring the broader context of the image, which includes people and the surrounding Havana street, potentially misleading viewers about the overall scene. Based on the image check result, the image is determined to be out of context with the caption provided, as the image similarity score is below the defined threshold, despite a high caption similarity score showing that the caption does correctly identify something that is in the photo. Because the image similarity is too low, the caption is not an adequate representation of the photo's contents and therefore is out of context (OOC = True)."
+  },
+  "inference_time": 7.082646131515503,
+  "ablation_type": "no_image_evidences"
+}

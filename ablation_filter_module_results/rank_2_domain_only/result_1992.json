@@ -1,0 +1,45 @@
+{
+  "caption": "Gordon Brown speaking at the G8 summit 2008 in Japan",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Presentation",
+      "Public speaking",
+      "Lecture",
+      "Speech",
+      "Meter",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Gordon Brown fails to thaw UK relations with Russia at G8 summit | G8 | The Guardian",
+        "content": "G o r d o n   B r o w n   f a i l s   t o   t h a w   U K   r e l a t i o n s   w i t h   R u s s i a   a t   G 8   s u m m i t   . . .",
+        "caption": "Gordon Brown speaks with the Russian president, Dmitry Medvedev, at the G8 summit in Japan. Photograph: EPA/ Dmitry Astakhov Pool",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0, and the caption similarity score is 0.0. Therefore, automatic decision rules do not apply. The candidate caption mentions Gordon Brown and the G8 summit in Japan. However, it also mentions Dmitry Medvedev, which is not explicitly stated in the news caption. Without more evidence to confirm all aspects of the news caption, a definitive determination cannot be made. Therefore, the caption is considered to be out of context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows Gordon Brown speaking at a podium with the \"G8 Hokkaido Toyako Summit 2008\" logo visible. The news caption states \"Gordon Brown speaking at the G8 summit 2008 in Japan\". The image check result indicates a low confidence score of 3 and identifies the caption as potentially out of context due to the mention of Dmitry Medvedev in the news content, which is not directly verifiable from the image. However, given that the image visually confirms Gordon Brown at the G8 summit, the primary claim of the caption aligns with the image content. Despite the limitations and the image check result, the core information is consistent. However, since the caption is not misleading but the automatic check suggests that there are extra information not verifiable from the image, it is out of context.",
+    "validation_summary": "The caption is generally consistent with the image, showing Gordon Brown at the G8 summit, but the news content includes details not verifiable from the image, making the caption out of context according to the image check result. Viewers might assume the image directly supports the entire news content, which is not the case."
+  },
+  "inference_time": 4.434839487075806,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

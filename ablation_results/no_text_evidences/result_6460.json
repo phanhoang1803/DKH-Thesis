@@ -1,0 +1,37 @@
+{
+  "caption": "Salman Rushdie with Padma Lakshmi in Cannes 2004",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_text_evidences",
+    "evidences": [
+      {
+        "title": "Cannes: May 16, 2004",
+        "content": "M a y   1 7 ,   2 0 0 4   /   1 1 : 2 0   A M   E D T \n                     /   C B S   N e w s",
+        "caption": "image617841.jpg ",
+        "domain": "www.cbsnews.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8637277483940125,
+        "text_similarity_score": 0.06969323009252548
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.8637277483940125, which is greater than 0.85. The text similarity score is 0.06969323009252548, which is less than 0.7. According to the instructions, if the image similarity score is greater than or equal to 0.85 and the text similarity score is less than 0.7, the verdict should be 'False'. Therefore, the caption is out-of-context because the image is similar, but the captions are not.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.8637277483940125",
+        "Text Similarity Score: 0.06969323009252548"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates an image similarity score of 0.8637277483940125 and a text similarity score of 0.06969323009252548. Since the image similarity is high (>= 0.85) but the text similarity is low (< 0.7), the image check result says that the caption is out of context. However, since the confidence score is 6, the determination must be based on the image check result. The caption \"Salman Rushdie with Padma Lakshmi in Cannes 2004\" accurately describes the content of the image, showing both individuals at the Cannes Film Festival in 2004. Therefore, the automated image check result is wrong, and the image is NOT out of context.",
+    "validation_summary": "The caption accurately identifies the individuals and event depicted in the image, so viewers would not be misled. Despite low text similarity and an initial 'out of context' assessment, careful image analysis confirms accurate representation."
+  },
+  "inference_time": 4.091295480728149,
+  "ablation_type": "no_text_evidences"
+}

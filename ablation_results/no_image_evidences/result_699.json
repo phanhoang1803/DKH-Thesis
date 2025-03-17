@@ -1,0 +1,34 @@
+{
+  "caption": "American Pharoah wins the race on a sloppy day in Baltimore",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Saturday at the Preakness Stakes",
+        "content": "S a t u r d a y   a t   t h e   P r e a k n e s s   S t a k e s",
+        "caption": "American Pharoah wins the race on a sloppy day in Baltimore.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3121233284473419,
+        "text_similarity_score": 0.9869678616523743
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.3121233284473419 which is less than 0.85 and the text similarity score is 0.9869678616523743 which is greater than 0.7. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption misrepresents the image, creating a misleading context about the event.",
+    "explanation": "The caption states that \"American Pharoah wins the race on a sloppy day in Baltimore.\" However, the actual image does not depict a winning moment or any specific details related to American Pharoah. The resemblance between the race environment, the context of American Pharoah's victory, and the image content is lacking. The confidence score of 2 indicates that the connection between the caption and the image is weak, reinforcing that the caption presents an out-of-context interpretation of the image."
+  },
+  "inference_time": 8.567066669464111,
+  "ablation_type": "no_image_evidences"
+}

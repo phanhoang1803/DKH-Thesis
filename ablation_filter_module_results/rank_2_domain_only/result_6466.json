@@ -1,0 +1,40 @@
+{
+  "caption": "Diego Costa has been in excellent form for Chelsea but has not trained regularly due to hamstring problems",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Athlete"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Spains Vicente del Bosque selects Diego Costa despite hamstring fears | Spain | The Guardian",
+        "content": "S p a i n ' s   V i c e n t e   d e l   B o s q u e   s e l e c t s   D i e g o   C o s t a   d e s p i t e   h a m s t r i n g   . . .",
+        "caption": "Diego Costa has been in excellent form for Chelsea but has not trained regularly due to hamstring problems. Photograph: Carlos Costa/NurPhoto/Corbis",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0, and the text similarity score is 0.0. The caption in the candidate evidence is exactly the same as the news caption. However, due to the low image similarity score and text similarity score, the news caption is determined to be out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Diego Costa with his hands on his head, looking distressed or frustrated. The caption mentions his excellent form for Chelsea and hamstring problems, which doesn't directly correlate with the image of him looking upset. While the text discusses his hamstring issues, the image suggests a broader sense of disappointment or concern, making the caption's focus on physical condition insufficient to represent the emotional context conveyed by the image. The image check result confirms the discrepancy between the image and the caption. Therefore, the image is out of context.",
+    "validation_summary": "The caption focuses on Diego Costa's form and hamstring problems, which does not align with the image of him looking distressed, misleading viewers about the visual context. The image check results support that the caption is out of context."
+  },
+  "inference_time": 3.7165985107421875,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

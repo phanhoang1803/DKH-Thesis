@@ -1,0 +1,54 @@
+{
+  "caption": "Kit Harington as Jon Snow and Sophie Turner as Sansa Stark in HBO s Game of Thrones",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Indochinese rhesus macaque",
+      "Japanese macaque",
+      "Sea otter",
+      "Otters",
+      "Chimpanzee",
+      "Walrus",
+      "Sloths",
+      "Japan",
+      "Sea",
+      "Marmoset"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "The Jon Snow Sequel Could Just End Up Being Game Of Thrones Season 9",
+        "content": "T h e   J o n   S n o w   S e q u e l   C o u l d   J u s t   E n d   U p   B e i n g   G a m e   O f   T h r o n e s   S e a s o n   9",
+        "caption": "Kit Harington as Jon Snow and Sophie Turner as Sansa Stark in Game of Thrones season 8",
+        "domain": "screenrant.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2068948745727539,
+        "text_similarity_score": 0.9471392035484314
+      },
+      {
+        "title": "Sophie Turner: Kit Harington deserves more money than me on 'Game of Thrones'",
+        "content": "S o p h i e   T u r n e r :   K i t   H a r i n g t o n   d e s e r v e s   m o r e   m o n e y   t h a n   m e   o n   ' G a m e   . . .",
+        "caption": "Sophie Turner as Sansa Stark and Kit Harington as Jon Snow in Game of Thrones (Credit: HBO)",
+        "domain": "uk.news.yahoo.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2038564682006836,
+        "text_similarity_score": 0.9541661143302917
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are below 0.85. Therefore, according to the instructions, the verdict must be 'False'. Even though the caption similarity scores are high (greater than 0.7), the low image similarity indicates that the candidate images do not match the news image, making the captions out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption does not accurately represent the image, as it fails to match the individuals or context presented.",
+    "explanation": "The image check result indicates a low similarity score between the image and caption, leading to a determination that the caption is out of context. The news caption claims, \"Kit Harington as Jon Snow and Sophie Turner as Sansa Stark in HBO's Game of Thrones,\" referring to two specific characters in the show. However, the associated image does not feature either individual or their respective characters in any recognizable manner. Given the confidence score of 2, it suggests a significant disconnect between the caption content and the visual evidence, reinforcing the idea that viewers would be misled by the claim, as they do not see Jon Snow and Sansa Stark as implied."
+  },
+  "inference_time": 10.18625545501709,
+  "ablation_type": "no_image_evidences"
+}

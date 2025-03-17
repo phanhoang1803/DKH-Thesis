@@ -1,0 +1,43 @@
+{
+  "caption": "Democratic presidential candidate Hillary Clinton last month in Reno Nev",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Clinton on foundation: Winding down some of these programs takes time",
+        "content": "C l i n t o n   o n   f o u n d a t i o n :   ' W i n d i n g   d o w n   s o m e   o f   t h e s e   p r o g r a m s   t a k e s   . . .",
+        "caption": "Democratic presidential candidate Hillary Clinton speaks at a campaign event at Truckee Meadows Community College, in Reno, Nev., Thursday, Aug. 25, 2016. (AP Photo/Carolyn Kaster)",
+        "domain": "abcnews4.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2318427860736847,
+        "text_similarity_score": 0.7452110648155212
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.2318427860736847, which is less than 0.85. The text similarity score is 0.7452110648155212, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than 0.7, the verdict should be False. The candidate caption says that Hillary Clinton speaks at a campaign event at Truckee Meadows Community College, in Reno, Nev., Thursday, Aug. 25, 2016. The news caption says that Hillary Clinton was in Reno Nev last month. The candidate caption confirms the news caption.",
+      "supporting_evidences": [
+        "The candidate caption mentions Hillary Clinton speaking at a campaign event in Reno, Nevada.",
+        "The text similarity score is 0.7452110648155212, indicating a high degree of similarity between the news and candidate captions."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low image similarity score (0.2318427860736847) but a high text similarity score (0.7452110648155212) between the news caption and a candidate caption which specifies Hillary Clinton at a campaign event in Reno, Nevada. Because the confidence score is 7, the decision must be based on the image check result. Therefore, the news caption accurately represents the image content because the candidate caption confirms the news caption.",
+    "validation_summary": "The image check result confirms that the news caption accurately represents the image content, indicating that viewers would not be misled about what they're seeing; the high text similarity between the news caption and the candidate caption supports this conclusion because the candidate caption confirms the news caption, despite the low image similarity score. Therefore, the news caption is representative of the image content."
+  },
+  "inference_time": 5.6786208152771,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

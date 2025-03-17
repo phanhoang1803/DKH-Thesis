@@ -1,0 +1,47 @@
+{
+  "caption": "Mitt Romney holds a campaign rally Friday at Canton Hoover High School in North Canton Ohio",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Flag",
+      "Flag Day",
+      "Flag Day"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Obama, Romney campaign with eye on storm forecast",
+        "content": "O b a m a ,   R o m n e y   c a m p a i g n   w i t h   e y e   o n   s t o r m   f o r e c a s t",
+        "caption": "Mitt Romney holds a campaign rally Friday at Canton Hoover High School in North Canton, Ohio.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3809208571910858,
+        "text_similarity_score": 0.9909824728965759
+      },
+      {
+        "title": "Romney and Ryan energize North Canton crowd",
+        "content": "R o m n e y   a n d   R y a n   e n e r g i z e   N o r t h   C a n t o n   c r o w d",
+        "caption": "Republican presidential candidate, former Massachusetts Gov. Mitt Romney (left) and his running mate Rep. Paul Ryan, R-Wis. wave to supporters at a \"victory rally\" at North Canton Hoover High School, Friday in North Canton. (Michael Chritton/Akron Beacon Journal)",
+        "domain": "www.beaconjournal.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2601970136165619,
+        "text_similarity_score": 0.7579115033149719
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are low in both candidates (0.3809208571910858 and 0.2601970136165619 respectively), indicating that the images in the candidates do not strongly match the news image. Although the caption similarity score of Candidate 1 is high (0.9909824728965759), the low image similarity score means that the candidate does not confirm the caption accurately represents the image. Similarly, Candidate 2 has a low image similarity score (0.2601970136165619) and a lower caption similarity score (0.7579115033149719), further indicating that the candidate provides weak evidence to support the caption. Thus, based on the strict decision rules, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a low image similarity score with the candidates. The image shows Mitt Romney with other people standing in front of a bus with the words 'JOBS, TAKE-HOME PAY' written on it. There are people in the background and an arm pointing towards them. The caption states that Mitt Romney held a campaign rally Friday at Canton Hoover High School in North Canton Ohio. Based on the image content, there is no visible evidence to confirm that the image was taken at Canton Hoover High School in North Canton Ohio. Therefore, the caption is considered out of context.",
+    "validation_summary": "The image doesn't provide enough information to support the claim that it took place at Canton Hoover High School, making the caption misleading. Without visual confirmation of the location, viewers could be misled about where the event occurred."
+  },
+  "inference_time": 4.811874628067017,
+  "ablation_type": "no_image_evidences"
+}

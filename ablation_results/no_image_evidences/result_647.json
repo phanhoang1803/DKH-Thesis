@@ -1,0 +1,46 @@
+{
+  "caption": "This aerial image shows flooded areas on the campus of Louisiana State University on Aug 13 2016 in Baton Rouge",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Palaima: How we define happiness says a lot about who we are",
+        "content": "P a l a i m a :   H o w   w e   d e f i n e   h a p p i n e s s   s a y s   a   l o t   a b o u t   w h o   w e   a r e",
+        "caption": "This aerial image shows flooded areas on the campus of Louisiana State University on Aug. 13 in Baton Rouge, La. (Patrick Dennis/The Advocate via AP)",
+        "domain": "www.statesman.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6348139643669128,
+        "text_similarity_score": 0.909848690032959
+      },
+      {
+        "title": "Louisiana Floods Overtop Levee, Inundating [40,000] Homes | Climate Signals",
+        "content": "L o u i s i a n a   F l o o d s   O v e r t o p   L e v e e ,   I n u n d a t i n g   [ 4 0 , 0 0 0 ]   H o m e s   . . .",
+        "caption": "This aerial image shows flooded areas on and near the campus of Louisiana State University (LSU), Saturday, Aug. 13, 2016, in Baton Rouge, La. Photo: Patrick Dennis / The Advocate via AP",
+        "domain": "www.climatesignals.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6321884393692017,
+        "text_similarity_score": 0.9114563465118408
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both candidate captions have high similarity scores (0.909 and 0.911) with the news caption, and the image similarity scores are around 0.63, suggesting similar but not identical images. Since the image similarity scores are below 0.85, I cannot definitively confirm the caption's accuracy based on the strict rules. However, because both captions explicitly mention an aerial image showing flooded areas on the campus of Louisiana State University on Aug. 13, 2016, in Baton Rouge, La., I can infer that the news caption is very likely to be accurate despite the lower image similarity. Therefore, I mark the verdict as True.",
+      "supporting_evidences": [
+        "Candidate 1: Caption - This aerial image shows flooded areas on the campus of Louisiana State University on Aug. 13 in Baton Rouge, La.",
+        "Candidate 2: Caption - This aerial image shows flooded areas on and near the campus of Louisiana State University (LSU), Saturday, Aug. 13, 2016, in Baton Rouge, La."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "validation_summary": "The caption accurately describes the image as it focuses on flooded areas on the Louisiana State University campus during the specified date.",
+    "explanation": "The analysis of the image aligns perfectly with the news caption, which states that it depicts flooded areas on the campus of Louisiana State University on August 13, 2016, in Baton Rouge. The characteristics of the image clearly show areas of large puddles and flooding, which corroborate the described conditions in the caption. With a high confidence score of 10, it is concluded that there is a direct and correct representation of the image content as per the caption."
+  },
+  "inference_time": 10.318321943283081,
+  "ablation_type": "no_image_evidences"
+}

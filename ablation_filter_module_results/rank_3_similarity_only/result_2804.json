@@ -1,0 +1,72 @@
+{
+  "caption": "Maria Sharapova reacts during her match against Vitalia Diatchenko on Day four of the French Open at Roland Garros in 2015",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Maria Sharapova",
+      "2015 French Open",
+      "2013 Australian Open",
+      "Vitalia Diatchenko",
+      "Tennis player",
+      "Tennis",
+      "Athlete",
+      "Soft tennis",
+      "Graham Denholm",
+      "Skirt"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Maria Sharapova in pictures - USA Today",
+        "content": "",
+        "caption": "Maria Sharapova reacts during her match against Vitalia Diatchenko on Day four of the French Open at Roland Garros in 2015.",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9138597249984741,
+        "text_similarity_score": 0.9874699115753174
+      },
+      {
+        "title": "Maria Sharapova in pictures - USA Today",
+        "content": "",
+        "caption": "Maria Sharapova reacts during her match against Vitalia Diatchenko on Day four of the French Open at Roland Garros in 2015.",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9138597249984741,
+        "text_similarity_score": 0.9874699115753174
+      },
+      {
+        "title": "Checking your browser before accessing. Just a moment...",
+        "content": "",
+        "caption": "",
+        "domain": "www.enshaatel.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9138597249984741,
+        "text_similarity_score": 0.07042014598846436
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the provided candidates, the image caption is highly likely to be accurate. Candidate 1 and Candidate 2 both have high image similarity scores (0.9138597249984741) and text similarity scores (0.9874699115753174). This suggests that the images in these candidates are very similar to the news image, and their captions are nearly identical to the news caption. Therefore, it is very likely that the news caption accurately represents the image. Candidate 3 has a high image similarity score but a low text similarity score, so the content is not consistent with the news caption.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.9138597249984741, Caption Similarity Score: 0.9874699115753174",
+        "Candidate 2: Image Similarity Score: 0.9138597249984741, Caption Similarity Score: 0.9874699115753174"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result shows a high confidence score (10) and provides supporting evidence from candidates with high image and caption similarity scores. This strongly suggests that the news caption accurately represents the image content. The image depicts Maria Sharapova on a tennis court, reacting during a match, which aligns with the caption's description of her playing against Vitalia Diatchenko at the French Open in 2015. Therefore, the caption is likely a correct representative summary of the image content.",
+    "validation_summary": "The high image and caption similarity scores from the image check indicate that the caption accurately represents the image of Maria Sharapova playing tennis. Viewers would not be misled about the context of the image based on the provided caption."
+  },
+  "inference_time": 8.160342454910278,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

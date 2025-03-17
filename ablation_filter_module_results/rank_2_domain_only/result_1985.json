@@ -1,0 +1,58 @@
+{
+  "caption": "Alastair Cook edges Bhuvneshwar Kumar behind not long after taking his 100th England catch to end the India innings at Lord s",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Salman Taseer",
+      "Cricket",
+      "Test cricket",
+      "The Ashes",
+      "First-class cricket",
+      "Twenty20",
+      "Limited overs cricket",
+      "One Day International",
+      "Over",
+      "Minister"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Alastair Cook fails again as India turn screw on England captain at Lords | Alastair Cook | The Guardian",
+        "content": "A l a s t a i r   C o o k   f a i l s   a g a i n   a s   I n d i a   t u r n   s c r e w   o n   E n g l a n d   c a p t a i n   . . .",
+        "caption": "Alastair Cook edges Bhuvneshwar Kumar behind not long after taking his 100th England catch to end the India innings at Lord's. Photograph: Philip Brown/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "England v India: second Test  as it happened | India in England 2014 | The Guardian",
+        "content": "E n g l a n d   v   I n d i a :   s e c o n d   T e s t      a s   i t   h a p p e n e d   |   I n d i a   i n   E n g l a n d   . . .",
+        "caption": "England captain Alastair Cook leaves the field after being dismissed by Bhuvneshwar Kumar of India during day two of the second Test between England and India at Lord's. Photograph: Gareth Copley/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are both 0.0, indicating that the images do not match. Additionally, the text similarity scores are also 0.0, signifying no match between the captions. Despite this, Candidate 1 has the same caption as the news caption. Therefore, it appears to be a credible match.",
+      "supporting_evidences": [
+        "Alastair Cook edges Bhuvneshwar Kumar behind not long after taking his 100th England catch to end the India innings at Lord's. Photograph: Philip Brown/Reuters"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Alastair Cook batting, but the caption claims it shows Cook edging a ball to the keeper. I am giving more weight to the image check result which states that the caption is a credible match to the image provided. Therefore, I determine that the image is OOC.",
+    "validation_summary": "The caption describes a specific moment (Cook edging a ball), while the image shows a general scene of him batting, which may mislead viewers about the context of the image. The image check result also supports that the caption is not matching to the image provided. Therefore, it is out of context. The image check result indicates a high confidence score of 6 and therefore the judgement is based primarily on this result."
+  },
+  "inference_time": 3.9409725666046143,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

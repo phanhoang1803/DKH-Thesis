@@ -1,0 +1,52 @@
+{
+  "caption": "DES MOINES IA DECEMBER 10 Republican presidential candidates",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "First Avenue",
+      "Prince",
+      "Purple Rain",
+      "The Revolution",
+      "Artist",
+      "Paisley Park",
+      "Celebrity",
+      "Bob Dylan",
+      "Randy Runtsch",
+      "David Bowie"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 8,
+      "confidence_score": 9,
+      "explanation": "The caption provides a basic identification of the image content: Republican presidential candidates in Des Moines, Iowa, in December. The image context confirms this by describing a crowded political event with Republican candidates and attendees. While the original caption lacks detail about the event type (e.g., rally, town hall) and the engagement between candidates and voters, it accurately identifies the key subjects and location. The context provides additional details about the campaigning activities and voter engagement, which are consistent with the caption's basic description.",
+      "supporting_evidences": [
+        "The image displays Republican presidential candidates.",
+        "The event takes place in Des Moines, Iowa.",
+        "The event occurs in December.",
+        "The context mentions campaigning activities and voter engagement which are consistent with a political event."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image displays a crowded political event featuring Republican presidential candidates, with many attendees engaged in conversations and interactions. The environment conveys a sense of urgency and enthusiasm among the participants, likely indicative of campaigning activities. There are banners and signs visible, which might contain slogans or names of the candidates.",
+      "caption": "Republican presidential candidates engage with voters at a political rally in Des Moines, Iowa, on December 10.",
+      "context": "This event is part of the campaigning activities ahead of the Republican primaries for the 2012 presidential election. The image captures a significant moment reflecting the dynamics of the GOP presidential field during a time of notable volatility among candidates. Voter engagement and face-to-face interactions are crucial elements of the campaign strategy, especially in key states like Iowa, where the political landscape is heavily influenced by grassroots support. The excitement or discontent felt by the voters, as highlighted in recent polls, resonates in gatherings like this, as attendees could express their preferences or opinions regarding the candidates. The detection of notable entities associated with music and culture (like Prince and Bob Dylan) suggests a need for cultural resonance that candidates may harness to connect with a broader audience, although their writings don't directly correlate with the political context of this event."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a crowd of people looking at a wall with stars and names of musicians on it, while the caption states that the image depicts Republican presidential candidates. Because the image does not depict the people mentioned in the caption, the caption is incorrect and misleading.",
+    "validation_summary": "The image does not show the people described in the caption. Therefore, the caption is misleading."
+  },
+  "inference_time": 4.857820272445679,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

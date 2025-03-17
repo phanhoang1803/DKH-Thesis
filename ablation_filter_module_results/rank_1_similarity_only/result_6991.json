@@ -1,0 +1,40 @@
+{
+  "caption": "Charles Woodson climbs the stairs to the roof to give a tour of Woodley Park Tower Woodson who is called Mr Charles by residents knows every inch of the building",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Soompi",
+        "content": "",
+        "caption": "",
+        "domain": "www.soompi.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9326431751251221,
+        "text_similarity_score": 0.10452932119369507
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.9326431751251221, which is greater than 0.85. However, the text similarity score is 0.10452932119369507, which is less than 0.7. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a man, presumably Charles Woodson, surrounded by reporters holding microphones. He is wearing a black baseball cap, sunglasses, and a scarf. The image check result confirms a high image similarity score (0.9326431751251221) but a low text similarity score (0.10452932119369507). The caption states that Charles Woodson is climbing stairs to give a tour of Woodley Park Tower. This does not align with the image, which shows him surrounded by reporters. The caption implies he is giving a tour, but the image suggests he is being interviewed or speaking to the press. Therefore, the caption does not accurately represent the image content.",
+    "validation_summary": "The caption misrepresents the image by suggesting Charles Woodson is giving a tour, while the image shows him surrounded by reporters, implying an interview or press conference. Viewers would be misled about the context of the image."
+  },
+  "inference_time": 6.545614242553711,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

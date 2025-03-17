@@ -1,0 +1,47 @@
+{
+  "caption": "Elected mayor scheme opposed by the community secretary Eric Pickles and Tory local council leaders",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Leader of Wiltshire council: 'The cuts have been manageable' | Local government | The Guardian",
+        "content": "J a n e - S c o t t - l e a d e r - o f - W i l t - 0 0 6 .   . . .",
+        "caption": "Wiltshire council leader, Jane Scott: 'We haven't closed one library.' Photograph: Sam Frost for the Guardian",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Eric Pickles: Public enemy number one? | Eric Pickles | The Guardian",
+        "content": "E r i c   P i c k l e s :   P u b l i c   e n e m y   n u m b e r   o n e ?   |   E r i c   P i c k l e s   |   T h e   G u a r d i a n",
+        "caption": "Hes a wily old fox ... Eric Pickles, the secretary of state for communities and local government. Photograph: Eddie Mulholland / Rex Features",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption mentions \"Elected mayor scheme opposed by the community secretary Eric Pickles and Tory local council leaders.\" Candidate 2 mentions Eric Pickles as the secretary of state for communities and local government. However, there is no evidence confirming the opposition to the \"elected mayor scheme\" or involvement of Tory local council leaders. Therefore, the caption is only partially supported by the available evidence.",
+      "supporting_evidences": [
+        "‘He’s a wily old fox’ ... Eric Pickles, the secretary of state for communities and local government. Photograph: Eddie Mulholland / Rex Features"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows a person wearing a mayoral chain. The caption mentions \"Elected mayor scheme opposed by the community secretary Eric Pickles and Tory local council leaders.\" While the news content mentions Eric Pickles as the secretary of state for communities and local government, the image check indicates there's no evidence supporting the opposition to the \"elected mayor scheme\" or the involvement of Tory local council leaders. Therefore, the caption is only partially supported by the available evidence, making it potentially misleading.",
+    "validation_summary": "The image shows a mayor's chain, while the caption discusses opposition to an elected mayor scheme, creating a potential mismatch between the visual and the claim. The caption is only partially supported by the available evidence."
+  },
+  "inference_time": 3.6025044918060303,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

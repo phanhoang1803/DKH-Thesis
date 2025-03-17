@@ -1,0 +1,54 @@
+{
+  "caption": "Democratic presidential candidate Hillary Clinton talks about her counterterrorism strategy during a campaign stop in Minneapolis",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Event"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Hillary Clinton outlines plan to fight homegrown terrorism and Isis | Hillary Clinton | The Guardian",
+        "content": "H i l l a r y   C l i n t o n   o u t l i n e s   p l a n   t o   f i g h t   h o m e g r o w n   t e r r o r i s m   a n d   . . .",
+        "caption": "Democratic presidential candidate Hillary Clinton talks about her counterterrorism strategy during a campaign stop in Minneapolis.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5287879705429077,
+        "text_similarity_score": 0.9852915406227112
+      },
+      {
+        "title": "Clinton Condemns ISIS for 'Genocide' Against Religious Minorities",
+        "content": "C l i n t o n   C o n d e m n s   I S I S   f o r   ' G e n o c i d e '   A g a i n s t   R e l i g i o u s   M i n o r i t i e s",
+        "caption": "Democratic presidential candidate Hillary Clinton talks about her counterterrorism strategy during a campaign stop in Minneapolis, Minnesota, December 15, 2015.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6839444041252136,
+        "text_similarity_score": 0.9485750794410706
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions have high text similarity scores (0.9852915406227112 and 0.9485750794410706 respectively), suggesting they are very similar to the news caption. However, the image similarity scores are low (0.5287879705429077 and 0.6839444041252136 respectively), indicating that the images in the candidates do not closely match the news image. Since the image similarity scores are below the threshold of 0.85, I cannot confidently confirm that the candidate images depict the same event described in the news caption. Therefore, I am marking the caption as out-of-context due to the low image similarity scores, despite the high text similarity scores.",
+      "supporting_evidences": [
+        "Candidate 1: Caption Similarity Score: 0.9852915406227112, Image Similarity Score: 0.5287879705429077",
+        "Candidate 2: Caption Similarity Score: 0.9485750794410706, Image Similarity Score: 0.6839444041252136"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows Hillary Clinton waving to a crowd with a person in a suit standing behind her. The caption states she is talking about her counterterrorism strategy during a campaign stop in Minneapolis. While the image could potentially be from a campaign stop in Minneapolis, there is nothing visible in the image that confirms she is discussing her counterterrorism strategy. The image check result also indicates that the candidate captions do not match the image, which supports the determination that the caption is out of context.",
+    "validation_summary": "The caption suggests Hillary Clinton is actively discussing her counterterrorism strategy, but the image only shows her waving, misleading viewers about the context of the image. Because the image check produced a confidence score between 7 and 10, I am marking this as out of context based on the image check result."
+  },
+  "inference_time": 6.546327590942383,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

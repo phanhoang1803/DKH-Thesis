@@ -1,0 +1,52 @@
+{
+  "caption": "Nicolas Sarkozy and Carla Bruni are met by the Prince of Wales and the Duchess of Cornwall as they arrive at Heathrow airport",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "BBC NEWS | In Pictures | In pictures: French state visit",
+        "content": "",
+        "caption": "The Prince of Wales and Duchess of Cornwall with President Sarkozy and his wife, Carla Bruni",
+        "domain": "news.bbc.co.uk",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7430542707443237,
+        "text_similarity_score": 0.6990323662757874
+      },
+      {
+        "title": "Sarkozy embarks on UK visit | World news | The Guardian",
+        "content": "W e d   2 6   M a r   2 0 0 8   1 7 . 3 1  G M T \n \n \n                         F i r s t   p u b l i s h e d   o n   W e d   2 6   M a r   2 0 0 8   1 7 . 3 1  G M T \n \n P h o t o g r a p h :   S t e v e   P a r s o n s / P A \n \n P h o t o g r a p h :   D a n   K i t w o o d / G e t t y \n \n P h o t o g r a p h :   C a v a n   P a w s o n / P A \n \n P h o t o g r a p h :   P e t e r   M a c D i a r m i d / G e t t y \n \n P h o t o g r a p h :   P o o l / P A \n \n P h o t o g r a p h :   C a v a n   P a w s o n / P A \n \n P h o t o g r a p h :   L e w i s   W h y l d / P A \n \n P h o t o g r a p h :   E r i c   F e f e r b e r g / A F P \n \n P h o t o g r a p h :   P o o l / P A \n \n P h o t o g r a p h :   P o o l / P A \n \n P h o t o g r a p h :   L e w i s   W h y l d / P A \n \n P h o t o g r a p h :   P o o l / A P \n \n P h o t o g r a p h :   P o o l / P A \n \n P h o t o g r a p h :   P o o l / P A \n \n P h o t o g r a p h :   P o o l / P A",
+        "caption": "Sarkozy State Visit",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9753251075744629,
+        "text_similarity_score": 0.2749592959880829
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "Based on the analysis of the provided candidate evidences, the news caption appears to be in-context. Candidate 2 has a high image similarity score (0.9753251075744629), indicating that the images are very similar. Although the text similarity score is low (0.2749592959880829), the caption 'Sarkozy State Visit' suggests that the image captures an event related to Nicolas Sarkozy's state visit, which aligns with the news caption mentioning Nicolas Sarkozy. Candidate 1 has Image Similarity Score of 0.7430542707443237 and Text Similarity Score of 0.6990323662757874. It shows that Prince of Wales and Duchess of Cornwall with President Sarkozy and his wife, Carla Bruni are together, which again aligns with the news caption. Considering these points, the news caption accurately represents the content of the image.",
+      "supporting_evidences": [
+        "Candidate 2: Image Similarity Score: 0.9753251075744629, Caption: Sarkozy State Visit",
+        "Candidate 1: Image Similarity Score: 0.7430542707443237, Caption: The Prince of Wales and Duchess of Cornwall with President Sarkozy and his wife, Carla Bruni"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "While the image shows Nicolas Sarkozy, Carla Bruni, the Prince of Wales, and the Duchess of Cornwall, it portrays a specific action - the Prince of Wales kissing Carla Bruni's hand. The caption describes them simply meeting at Heathrow airport, which, although factually possible, omits the detail of the hand-kissing gesture. This omission could be misleading because the image captures a moment that is potentially more significant than a simple greeting.",
+    "validation_summary": "The image shows more than just a simple meeting; the omission of the hand-kissing gesture could be considered misleading. Thus, the caption is out of context since it omits critical elements in the picture and makes it misleading to the public about the actual interaction between those shown in the image. It omits important aspects of the depicted scene, potentially misrepresenting the nature of the interaction to viewers. Therefore, the caption provides an incomplete and potentially misleading impression of the event captured in the image, making it out of context with the image itself. It is Out of Context (OOC = True). The high confidence score is based on the image check result analysis, which supports the caption but does not address whether there is more to the image than what meets the eye. In this case, there is more to the image, making it misleading and leading to OOC = True (Out of Context). The Image Check Result supports the caption, which is the general meeting between the parties involved. However, based on my analysis, the caption misses a key point on what's happening, as seen in the image. This creates a misleading situation; hence, the caption is OOC = True (Out of Context). The Image Check Result does not address this point, so the final verdict is made on my own analysis and given the high confidence score, the OOC value is 9 (high confidence that the caption is OOC = True). Therefore, my analysis contradicts the findings of the Image Check Result, and the final answer (verdict) is based on my own analysis of the picture itself and what is depicted in the image. This case shows the Image Check Results is unable to address the core issue of whether a given image caption is appropriate for the image. It just verifies that the individuals in the image matches the caption. However, it does not address the details shown in the image and whether such details require a more appropriate caption than the simple summary caption provided. So in cases such as this, the Image Check Results will show a result that supports a misleading summary. In conclusion, the Image Check Result does not address the context of the image and it can cause a misleading conclusion when generating an OOC determination. The determination relies on other facts not captured by an Image Check Result, as seen in the case of the given image and image caption pair. This is a very important point that needs to be added to the OOC Determination guidelines for future cases. In this case, the confidence level is lowered from 10 to 9 because a determination of image context is an arbitrary call on human judgment and thus involves some level of doubt (i.e., the reviewer may be wrong). However, it is difficult to change this case from True to False, as the facts point to True being the correct answer. Nevertheless, the confidence has been lowered one notch from a 10 to a 9. There are also minor differences in the clothing colors, background settings, and the overall image composition when comparing the given image to the images in the Image Check Results. This leads to slight differences in text and image similarity scores, indicating that the overall match is not 100% perfect, which does have a slight effect on the overall conclusion, as well. Since there is no perfect match, this makes the confidence of whether to make a switch from an OOC to a not-OOC call a bit difficult and this leads to some levels of doubt. For this reason, the final confidence score is 9 and not 10. Nevertheless, due to the reasons given above, OOC = True remains to be the final, correct answer. In this type of case, the Image Check Results needs to focus on the image background/setting and other objects shown in the image (e.g., hand-kissing). These facts would allow for a more appropriate determination as to whether the image caption is fitting to the context of the image. The Image Check Results needs to do more than just match who is in the image to the words in the caption; it needs to address other facts, as well (e.g., context of the image, is the image more than just a mere depiction of the entities in the image matching the individuals mentioned in the image caption, and does the image have facts or details that the image caption is overlooking, which thus cause the image caption to be misleading or incomplete). For all these reasons, final OOC = True and confidence_score = 9 is the most reasonable outcome, and this outcome follows the Image OOC Determination Task correctly. To ignore the image itself would be unreasonable. So in this case, the human analyst's analysis trumps the automated analysis of the Image Check Results, even though in most cases the Image Check Results would and should be the driving force behind making a final OOC Determination. Since this OOC Determination hinges on the image itself, that analysis is more important than the facts or the text (caption). When the image itself shows the important context needed for determining OOC or not-OOC, then the analysis of that image must take the highest priority, as in the case of this particular problem. So that is the reason for going against the grain and assigning OOC = True despite what the Image Check Results has indicated. However, if the OOC determination hinges on text or some other facts (e.g., names), then it would be a very different story and the automated checks from Image Check Results would take precedence. Thus, we have to make different determinations based on different facts."
+  },
+  "inference_time": 13.826200008392334,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

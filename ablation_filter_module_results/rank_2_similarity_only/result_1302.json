@@ -1,0 +1,52 @@
+{
+  "caption": "Gazprom employees work on a gas pipeline in Novy Urengoy Russia",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Nowy Urengoy, Russia, 2019, Gas exploration in Siberia | Archive  Justin Jin ",
+        "content": "N o w y   U r e n g o y ,   R u s s i a ,   2 0 1 9 ,   G a s   e x p l o r a t i o n   i n   S i b e r i a   |   A r c h i v e   . . .",
+        "caption": "Workers connect a pipeline on top of the permafronst at a site in Novy Urengoy, a city built by Gazprom in 1980s in Siberia to extract Russia's biggest gas field.",
+        "domain": "archive.justinjin.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.464916467666626,
+        "text_similarity_score": 0.7315182089805603
+      },
+      {
+        "title": "Moscow's gas ties with Europe, crafted over decades, lie in ruins - The Japan Times",
+        "content": "M o s c o w ' s   g a s   t i e s   w i t h   E u r o p e ,   c r a f t e d   o v e r   d e c a d e s ,   l i e   i n   r u i n s   . . .",
+        "caption": "Gazprom pipelines at Bovanenkovo gas field on the Arctic Yamal peninsula in Russia in 2019 | REUTERS",
+        "domain": "www.japantimes.co.jp",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2555067837238312,
+        "text_similarity_score": 0.7131433486938477
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have a low image similarity score (<0.85). Therefore, according to the instructions, the caption should be marked as out-of-context. The first candidate's caption mentions \"Workers connect a pipeline on top of the permafronst at a site in Novy Urengoy, a city built by Gazprom in 1980s in Siberia to extract Russia's biggest gas field,\" which aligns with the news caption mentioning \"Gazprom employees work on a gas pipeline in Novy Urengoy Russia.\" The second candidate mentions \"Gazprom pipelines at Bovanenkovo gas field on the Arctic Yamal peninsula in Russia in 2019\", which indicates Gazprom's involvement in gas pipelines in Russia. Considering the low image similarity scores, I'll mark the verdict as False.",
+      "supporting_evidences": [
+        "Candidate 1's caption mentions Gazprom and Novy Urengoy",
+        "Candidate 2's caption mentions Gazprom pipelines in Russia"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low image similarity score (<0.85) for both candidates. Therefore, the caption should be marked as out-of-context. Candidate 1's caption mentions \"Workers connect a pipeline on top of the permafronst at a site in Novy Urengoy, a city built by Gazprom in 1980s in Siberia to extract Russia's biggest gas field,\" which aligns with the news caption mentioning \"Gazprom employees work on a gas pipeline in Novy Urengoy Russia.\" Candidate 2 mentions \"Gazprom pipelines at Bovanenkovo gas field on the Arctic Yamal peninsula in Russia in 2019\", which indicates Gazprom's involvement in gas pipelines in Russia. Considering the low image similarity scores, I'll mark the verdict as True.",
+    "validation_summary": "The image check suggests low similarity, and because the confidence score is above 7, the caption is determined to be out of context, meaning viewers would be misled about the image's content based on the caption provided. Despite some alignment with candidate captions, the primary decision relies on the initial similarity assessment and high confidence score provided by the image check result, leading to the determination that the image and caption are mismatched significantly enough to mislead viewers, and that OOC is true in this case."
+  },
+  "inference_time": 6.101388692855835,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

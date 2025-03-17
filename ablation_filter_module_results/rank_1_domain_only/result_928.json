@@ -1,0 +1,48 @@
+{
+  "caption": "A wounded man is photographed on the floor of a makeshift hospital in the rebelheld area of Douma Syria following shelling and air raids by Syrian government forces",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "The 20 photographs of the week | Art and design | The Guardian",
+        "content": "T h e   g l o b a l   m i g r a n t   c r i s i s ,   t h e   W o r l d   A t h l e t i c s   C h a m p i o n s h i p s   i n   B e i j i n g ,   t h e   r e b u i l d i n g   o f   G a z a      t h e   b e s t   p h o t o g r a p h y   i n   n e w s ,   c u l t u r e   a n d   s p o r t   f r o m   a r o u n d   t h e   w o r l d   t h i s   w e e k \n \n J i m   P o w e l l \n \n S a t   2 9   A u g   2 0 1 5   1 4 . 1 8  C E S T \n \n \n                         L a s t   m o d i f i e d   o n   T u e   3 1   A u g   2 0 2 1   1 6 . 2 3  C E S T \n \n P h o t o g r a p h :   B e r n a d e t t   S z a b o / R e u t e r s \n \n P h o t o g r a p h :   M a r k o   D j u r i c a / R e u t e r s \n \n P h o t o g r a p h :   A d r i a n   D e n n i s / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   L i   M i n g / X i n h u a / C o r b i s \n \n P h o t o g r a p h :   P i y a l   A d h i k a r y / E P A \n \n P h o t o g r a p h :   A n u p a m   N a t h / A P \n \n P h o t o g r a p h :   M o h a m m e d   A b e d / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   A P \n \n P h o t o g r a p h :   A b d   D o u m a n y / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   W i n   M c N a m e e / G e t t y   I m a g e s \n \n P h o t o g r a p h :   A t h i t   P e r a w o n g m e t h a / R e u t e r s \n \n P h o t o g r a p h :   D a v i d   R a m o s / G e t t y   I m a g e s \n \n P h o t o g r a p h :   N a s a / R e u t e r s \n \n P h o t o g r a p h :   K e v i n   L a m a r q u e / R e u t e r s \n \n P h o t o g r a p h :   C a r l o s   B a r r i a / R e u t e r s \n \n P h o t o g r a p h :   T e d   S   W a r r e n / A P \n \n P h o t o g r a p h :   G i l l e s   A d t / R e u t e r s \n \n P h o t o g r a p h :   J o s e   M i g u e l   G o m e z / R e u t e r s \n \n P h o t o g r a p h :   B i l a l   H u s s e i n / A P \n \n P h o t o g r a p h :   R o l e x   D e l a   P e n a / E P A",
+        "caption": "A wounded man is photographed on the floor of a makeshift hospital in the rebel-held area of Douma,  Syria, following shelling and air raids by Syrian government forces",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "The 20 photographs of the week | Art and design | The Guardian",
+        "content": "T h e   2 0   p h o t o g r a p h s   o f   t h e   w e e k   |   A r t   a n d   d e s i g n   |   T h e   G u a r d i a n",
+        "caption": "A wounded man is photographed on the floor of a makeshift hospital in the rebel-held area of Douma,  Syria, following shelling and air raids by Syrian government forces",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The image similarity scores are 0.0, which means the images do not match. The text similarity scores are 0.0, which means the captions also do not match. However, the captions in the candidate evidence are identical to the news caption. I will evaluate them. Both candidate captions describe \"A wounded man is photographed on the floor of a makeshift hospital in the rebel-held area of Douma, Syria, following shelling and air raids by Syrian government forces\". Since the supporting evidences provide the exact same caption, the caption is supported. However, since the image similarity is low, it is hard to confirm whether the caption accurately represent the image. Therefore, the final verdict is false.",
+      "supporting_evidences": [
+        "A wounded man is photographed on the floor of a makeshift hospital in the rebel-held area of Douma,  Syria, following shelling and air raids by Syrian government forces",
+        "A wounded man is photographed on the floor of a makeshift hospital in the rebel-held area of Douma,  Syria, following shelling and air raids by Syrian government forces"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result suggests the images don't match, but the caption in the evidence accurately describes the image: a wounded man lying on the floor of a makeshift hospital. The news content confirms the same caption. However, as the image check presents low similarity, although the caption seems valid, it can't be fully confirmed that it accurately represents the image. Therefore, the final decision leans toward the image being out of context, because the actual image is quite graphic and the caption does not describe it in detail, therefore it is somewhat misleading.",
+    "validation_summary": "While the caption describes a wounded man in a hospital, it fails to convey the graphic nature of the image, potentially misleading viewers about the severity of the situation. The lack of image similarity confirmed by the image check result increases the chance of the image being out of context since the image and the text were not found to be representative."
+  },
+  "inference_time": 4.424860239028931,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

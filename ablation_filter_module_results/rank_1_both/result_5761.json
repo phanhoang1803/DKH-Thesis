@@ -1,0 +1,51 @@
+{
+  "caption": "Sam Ricketts wears the nickname of Gary Speed on his boot",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Blackburn Rovers v Wigan Athletic - in pictures | Football | The Guardian",
+        "content": "M o n   7   M a y   2 0 1 2   2 1 . 1 5  B S T \n \n \n                         F i r s t   p u b l i s h e d   o n   M o n   7   M a y   2 0 1 2   2 1 . 1 5  B S T \n \n P h o t o g r a p h :   J a s o n   C a i r n d u f f / A c t i o n   I m a g e s \n \n P h o t o g r a p h :   J a s o n   C a i r n d u f f / A c t i o n   I m a g e s \n \n P h o t o g r a p h :   A n d r e w   Y a t e s / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   C l i v e   B r u n s k i l l / G e t t y   I m a g e s \n \n P h o t o g r a p h :   L a u r e n c e   G r i f f i t h s / G e t t y   I m a g e s \n \n P h o t o g r a p h :   C a r l   R e c i n e / A c t i o n   I m a g e s \n \n P h o t o g r a p h :   C l i v e   B r u n s k i l l / G e t t y   I m a g e s \n \n P h o t o g r a p h :   C l i v e   B r u n s k i l l / G e t t y   I m a g e s \n \n P h o t o g r a p h :   C a r l   R e c i n e / A c t i o n   I m a g e s \n \n P h o t o g r a p h :   C l i v e   B r u n s k i l l / G e t t y   I m a g e s \n \n P h o t o g r a p h :   C l i v e   B r u n s k i l l / G e t t y   I m a g e s \n \n P h o t o g r a p h :   C a r l   R e c i n e / A c t i o n   I m a g e s \n \n P h o t o g r a p h :   C a r l   R e c i n e / A c t i o n   I m a g e s \n \n P h o t o g r a p h :   P e t e r   B y r n e / P A \n \n P h o t o g r a p h :   C l i v e   B r u n s k i l l / G e t t y   I m a g e s \n \n P h o t o g r a p h :   A n d r e w   Y a t e s / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   P e t e r   B y r n e / P A \n \n P h o t o g r a p h :   L a u r e n c e   G r i f f i t h s / G e t t y   I m a g e s",
+        "caption": "Blackburn v Wigan: Scott Dann challenges Victor Moses",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9837414026260376,
+        "text_similarity_score": 0.11708131432533264
+      },
+      {
+        "title": "Gary Speed Memorial Match - in pictures | Football | The Guardian",
+        "content": "G a r y   S p e e d   M e m o r i a l   M a t c h   -   i n   p i c t u r e s   |   F o o t b a l l   |   T h e   G u a r d i a n",
+        "caption": "Wales v Costa Rica: Wales' Ricketts wears the nickname of Gary Speed on his boot ",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2398005872964859,
+        "text_similarity_score": 0.7282782196998596
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "Based on the provided candidates, Candidate 2 offers substantial evidence supporting the news caption's accuracy. Candidate 2 directly mentions \"Wales' Ricketts wears the nickname of Gary Speed on his boot,\" which aligns almost perfectly with the news caption \"Sam Ricketts wears the nickname of Gary Speed on his boot.\" The caption similarity score is 0.728, which indicates high similarity between the captions. While the image similarity score for Candidate 2 is only 0.239, the strong textual match in the captions is crucial in this context. Thus the news image is likely to be in context, and the claim in the caption is accurately represented in the image. Candidate 1 has a high image similarity score, but a low caption similarity score, so it should not be used.",
+      "supporting_evidences": [
+        "Candidate 2: Caption mentions \"Wales' Ricketts wears the nickname of Gary Speed on his boot\", matching the news caption's content."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a soccer game in progress with multiple players on the field. While the news content and supporting evidences suggest that Sam Ricketts wore the nickname of Gary Speed on his boot, this detail is not visible or discernible from the image itself. Therefore, a viewer would not be able to verify the claim about the boot based on the image alone. The image check result confirms this, but the image alone doesn't show the detail mentioned in the caption.",
+    "validation_summary": "The image doesn't show the detail about Sam Ricketts' boot, making it impossible to verify the caption's claim from the image alone. The image, in its current form, does not represent the news caption."
+  },
+  "inference_time": 5.842756748199463,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

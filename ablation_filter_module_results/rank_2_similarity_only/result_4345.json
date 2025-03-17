@@ -1,0 +1,58 @@
+{
+  "caption": "President Obama looks on as Polish President Bronislaw Komorowski gestures during a meeting with Polish and US soldiers at the military airport in Warsaw Poland on Tuesday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "United States presidential debates",
+      "United States",
+      "ready",
+      "Flag of the United States",
+      "Flag",
+      "Memorial Day",
+      "Debate",
+      "Veterans Day"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "President Obama Shakes Hands With Polish President Komorow | Flickr",
+        "content": "P r e s i d e n t   O b a m a   S h a k e s   H a n d s   W i t h   P o l i s h   P r e s i d e n t   K o m o r o w    |   F l i c k r",
+        "caption": "President Obama Shakes Hands With Polish President Komorowski After Speaking to U.S. and Polish Airmen | by U.S. Department of State",
+        "domain": "www.flickr.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.36472782492637634,
+        "text_similarity_score": 0.801120936870575
+      },
+      {
+        "title": "US to send more troops and equipment to eastern Europe | Daily Mail Online",
+        "content": "U S   t o   s e n d   m o r e   t r o o p s   a n d   e q u i p m e n t   t o   e a s t e r n   E u r o p e   |   D a i l y   . . .",
+        "caption": "Polish President Bronislaw Komorowski welcomes U.S. President Barack Obama at his Belweder residence in Warsaw, Poland",
+        "domain": "www.dailymail.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5405061841011047,
+        "text_similarity_score": 0.7870784401893616
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have 'low' image similarity scores (< 0.85). Therefore, I cannot confirm the caption accurately represents the image based on the automatic decision rules. However, both captions mention Polish President and Obama. Therefore, there may be a chance that the news caption aligns with the image context, but I am not so certain. I would mark 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a meeting between people with the flags of the United States and Ukraine in the background. The caption describes a meeting in Poland with Polish and US soldiers. The image check also had a low image similarity. Therefore, the caption does not match the image content.",
+    "validation_summary": "The caption is out of context because it describes a meeting in Poland with Polish and US soldiers, while the image shows a meeting with flags of the United States and Ukraine and different people present. Viewers would be misled about the location and participants of the meeting depicted in the image."
+  },
+  "inference_time": 4.827569246292114,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

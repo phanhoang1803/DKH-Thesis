@@ -1,0 +1,55 @@
+{
+  "caption": "Donald Trump speaks during a campaign stop on Feb 19 2016 in North Charleston SC",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Academic conference",
+      "Speech",
+      "Seminar",
+      "Convention",
+      "Debate",
+      "Public speaking",
+      "Audience",
+      "Flag",
+      "Academy",
+      "Flag Day"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "South Carolina GOP Primary voters caught between Trump and the establishment - National | Globalnews.ca",
+        "content": "S o u t h   C a r o l i n a   G O P   P r i m a r y   v o t e r s   c a u g h t   b e t w e e n   T r u m p   a n d   t h e   . . .",
+        "caption": "Republican presidential candidate Donald Trump speaks during a campaign stop Friday, Feb. 19, 2016, in North Charleston, S.C. ",
+        "domain": "globalnews.ca",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7638276815414429,
+        "text_similarity_score": 0.9282528162002563
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.7638276815414429, which is less than 0.85. The text similarity score is 0.9282528162002563, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.The candidate caption is \"Republican presidential candidate Donald Trump speaks during a campaign stop Friday, Feb. 19, 2016, in North Charleston, S.C.\", and the news caption is \"Donald Trump speaks during a campaign stop on Feb 19 2016 in North Charleston SC\". The candidate caption accurately describes what the image shows.",
+      "supporting_evidences": [
+        "The image similarity score is 0.7638276815414429, which is less than 0.85.",
+        "The text similarity score is 0.9282528162002563, which is greater than 0.7.",
+        "The candidate caption is \"Republican presidential candidate Donald Trump speaks during a campaign stop Friday, Feb. 19, 2016, in North Charleston, S.C.\", and the news caption is \"Donald Trump speaks during a campaign stop on Feb 19 2016 in North Charleston SC\"."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image similarity score is 0.7638276815414429, which is less than the threshold of 0.85. While the text similarity score is high at 0.9282528162002563, the instruction states that if the image similarity score is less than 0.85, the caption must be marked as out-of-context, regardless of the text similarity score. Therefore, the verdict is that the image is out of context, despite the accurate description of the scene in the caption. The candidate caption, \"Republican presidential candidate Donald Trump speaks during a campaign stop Friday, Feb. 19, 2016, in North Charleston, S.C.,\" is more representative of the image than the news caption.",
+    "validation_summary": "The image similarity score is below the threshold, indicating the caption doesn't accurately represent the image's content, despite the high text similarity. Viewers might be misled about the specific context of the image."
+  },
+  "inference_time": 6.0984578132629395,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

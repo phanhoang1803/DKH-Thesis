@@ -1,0 +1,37 @@
+{
+  "caption": "Obi a male pygmy hippo calf swims at the Melbourne zoo Australia Pygmy hippos are endangered in the wild",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "The week in wildlife  in pictures | Environment | The Guardian",
+        "content": "T h e   w e e k   i n   w i l d l i f e      i n   p i c t u r e s   |   E n v i r o n m e n t   |   T h e   G u a r d i a n",
+        "caption": ".Obi a male Pygmy Hippo calf swims with his mother Petre at the Melbourne Zoo, Melbourne, Thursday, June 18, 2015. Pygmy Hippos are endangered in the wild.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3492788076400757,
+        "text_similarity_score": 0.931571900844574
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.3492788076400757, which is less than 0.85. Also, the text similarity score is 0.931571900844574, which is greater than 0.7. Based on the instructions, the verdict should be False. The candidate caption refers to 'Obi a male Pygmy Hippo calf swims with his mother Petre at the Melbourne Zoo'. The news caption refers to 'Obi a male pygmy hippo calf swims at the Melbourne zoo Australia Pygmy hippos are endangered in the wild'. The captions are highly similar, but the low image similarity suggests the images might not align directly, thus affecting the context.",
+      "supporting_evidences": [
+        "The image similarity score is 0.3492788076400757.",
+        "The text similarity score is 0.931571900844574."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image similarity score is 0.3492788076400757, which is less than 0.85. Also, the text similarity score is 0.931571900844574, which is greater than 0.7. Based on the instructions, the verdict should be False. The candidate caption refers to 'Obi a male Pygmy Hippo calf swims with his mother Petre at the Melbourne Zoo'. The news caption refers to 'Obi a male pygmy hippo calf swims at the Melbourne zoo Australia Pygmy hippos are endangered in the wild'. The captions are highly similar, but the low image similarity suggests the images might not align directly, thus affecting the context. However, since the confidence score is 7, the final determination must be based on the image check result, which is False.",
+    "validation_summary": "The caption accurately describes the image of Obi, a male pygmy hippo calf, at the Melbourne Zoo, and correctly mentions that pygmy hippos are endangered, thus would not be misleading. Although the image similarity is low, the text similarity and the confidence score require the verdict to be False, meaning the image is not out of context, since the caption provides a correct representative summary of the image content based on the image check result analysis and instructions. This is the final determination because the confidence score is between 7-10 (inclusive)."
+  },
+  "inference_time": 4.999497175216675,
+  "ablation_type": "no_image_evidences"
+}

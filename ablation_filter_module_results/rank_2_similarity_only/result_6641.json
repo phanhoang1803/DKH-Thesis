@@ -1,0 +1,61 @@
+{
+  "caption": "British singer Duffy was the star of last night s Brits scooping three awards",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "150 The Feeks  with family ,fans and friends. ideas | rory, joey & rory, joey and rory feek",
+        "content": "",
+        "caption": "a man and woman singing into microphones while holding guitars",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9551323056221008,
+        "text_similarity_score": 0.1573352813720703
+      },
+      {
+        "title": "TV ratings: Duffy's Brits triumph pulls 5.2m viewers | Brit awards 2009 | The Guardian",
+        "content": "T V   r a t i n g s :   D u f f y ' s   B r i t s   t r i u m p h   p u l l s   5 . 2 m   v i e w e r s   |   B r i t   a w a r d s   . . .",
+        "caption": "British singer Duffy was the star of last night's Brits, scooping three awards. Photograph: Luke Macgregor/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.20459850132465363,
+        "text_similarity_score": 0.9155629873275757
+      },
+      {
+        "title": "TV ratings: Duffy's Brits triumph pulls 5.2m viewers | Brit awards 2009 | The Guardian",
+        "content": "T V   r a t i n g s :   D u f f y ' s   B r i t s   t r i u m p h   p u l l s   5 . 2 m   v i e w e r s   |   B r i t   a w a r d s   . . .",
+        "caption": "British singer Duffy was the star of last night's Brits, scooping three awards. Photograph: Luke Macgregor/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.19986484944820404,
+        "text_similarity_score": 0.9155629873275757
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "Based on the provided candidates, I have determined that the news caption \"British singer Duffy was the star of last night s Brits scooping three awards\" is likely to be in context. Candidate 2 and 3 have caption similarity scores of 0.9155629873275757, and although their image similarity scores are below 0.85, the captions themselves are nearly identical to the news caption. This suggests that the news caption accurately reflects the content described in these candidates, specifically referencing Duffy's success at the Brits awards. While a higher image similarity score would increase confidence, the strong caption similarity across multiple candidates pointing to the same event supports the accuracy of the news caption. Candidate 1 has a low image similarity and caption similarity, so it does not contribute to the decision.",
+      "supporting_evidences": [
+        "Candidate 2: Caption: British singer Duffy was the star of last night's Brits, scooping three awards. Photograph: Luke Macgregor/Reuters; Caption Similarity Score: 0.9155629873275757",
+        "Candidate 3: Caption: British singer Duffy was the star of last night's Brits, scooping three awards. Photograph: Luke Macgregor/Reuters; Caption Similarity Score: 0.9155629873275757"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a man playing a guitar and a woman singing into a microphone. They appear to be performing a duet, potentially in a studio setting given the presence of a keyboard in the background. The caption states that \"British singer Duffy was the star of last night s Brits scooping three awards\". The image does not contain Duffy, nor does it show any visual evidence of the Brits awards. Therefore, the caption is not representative of the image content. The image check result corroborates this, suggesting the image is not related to Duffy or the Brits awards.",
+    "validation_summary": "The image does not depict Duffy or the Brits awards, thus the caption would mislead viewers about the image content. The image features a male and female duet performing in a studio and has nothing to do with the British singer Duffy or her awards from the Brits, according to the picture's depiction."
+  },
+  "inference_time": 6.176447153091431,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

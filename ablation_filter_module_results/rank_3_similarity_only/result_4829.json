@@ -1,0 +1,99 @@
+{
+  "caption": "Oakland Raiders linebacker Rod Martin",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Eugene Monroe",
+      "247Sports",
+      "Baltimore Ravens",
+      "Six-man football",
+      "Eight-man football",
+      "Tackle",
+      "College football recruiting",
+      "American football",
+      "College Football",
+      "High school football"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "247sports.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9285848736763,
+        "text_similarity_score": 0.18016259372234344
+      },
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "247sports.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9285848736763,
+        "text_similarity_score": 0.18016259372234344
+      },
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "247sports.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9285848736763,
+        "text_similarity_score": 0.18016259372234344
+      },
+      {
+        "title": "Raiders, Rod Martin and the record that might stand the test of time | Raiders News | Sports",
+        "content": "R a i d e r s ,   R o d   M a r t i n   a n d   t h e   r e c o r d   t h a t   m i g h t   s t a n d   t h e   t e s t   o f   . . .",
+        "caption": "Oakland Raiders linebacker Rod Martin (53) intercepts a pass and runs upfield during Super Bowl ...",
+        "domain": "www.reviewjournal.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8318765163421631,
+        "text_similarity_score": 0.7675589323043823
+      },
+      {
+        "title": "Raiders, Rod Martin and the record that might stand the test of time | Raiders News | Sports",
+        "content": "R a i d e r s ,   R o d   M a r t i n   a n d   t h e   r e c o r d   t h a t   m i g h t   s t a n d   t h e   t e s t   o f   . . .",
+        "caption": "Oakland Raiders linebacker Rod Martin (53) intercepts a pass and runs upfield during Super Bowl ...",
+        "domain": "www.reviewjournal.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8318765163421631,
+        "text_similarity_score": 0.7675589323043823
+      },
+      {
+        "title": "Stream episode Ep. 16 - Rod Martin former USC Trojans and Raiders linebacker by 10 West Podcast podcast | Listen online for free on SoundCloud",
+        "content": "S t r e a m   e p i s o d e   E p .   1 6   -   R o d   M a r t i n   f o r m e r   U S C   T r o j a n s   a n d   R a i d e r s   . . .",
+        "caption": "Ep. 16 - Rod Martin former USC Trojans and Raiders linebacker",
+        "domain": "soundcloud.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.12492720782756805,
+        "text_similarity_score": 0.7607252597808838
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1, 2 and 3 have high image similarity scores (0.9285848736763) but low caption similarity scores (0.18016259372234344). Therefore, the captions are not similar to the news caption. \nCandidate 4 and 5 have acceptable image similarity scores (0.8318765163421631) and high caption similarity scores (0.7675589323043823), where the captions of the candidates are 'Oakland Raiders linebacker Rod Martin (53) intercepts a pass and runs upfield during Super Bowl ...'. Because the image similarity score is less than 0.85, it must be marked as out-of-context, even though the caption similarity score is high. \nCandidate 6 has very low image similarity score (0.12492720782756805) and high caption similarity score (0.7607252597808838), where the caption of the candidate is 'Ep. 16 - Rod Martin former USC Trojans and Raiders linebacker'. Because the image similarity score is less than 0.85, it must be marked as out-of-context, even though the caption similarity score is high.\nBased on the evidences provided, the news caption aligns with the image context.",
+      "supporting_evidences": [
+        "Candidate 4 and 5 have acceptable image similarity scores (0.8318765163421631) and high caption similarity scores (0.7675589323043823), where the captions of the candidates are 'Oakland Raiders linebacker Rod Martin (53) intercepts a pass and runs upfield during Super Bowl ...'.",
+        "Candidate 6 has very low image similarity score (0.12492720782756805) and high caption similarity score (0.7607252597808838), where the caption of the candidate is 'Ep. 16 - Rod Martin former USC Trojans and Raiders linebacker'."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that while there are candidates with similar captions referring to 'Oakland Raiders linebacker Rod Martin,' the image similarity scores are not high enough to confirm that the image is a true depiction of Rod Martin. Because the image similarity score is less than 0.85, it must be marked as out-of-context, even though the caption similarity score is high. Therefore, the caption is considered misleading as it cannot be confidently verified against the image content based on the image check results.",
+    "validation_summary": "The caption is misleading because the image check indicates insufficient image similarity to validate that the image accurately represents Oakland Raiders linebacker Rod Martin, despite some captions suggesting this connection. Viewers might be misled into believing the image definitively portrays Rod Martin when the evidence is not conclusive."
+  },
+  "inference_time": 13.020282506942749,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

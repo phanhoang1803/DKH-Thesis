@@ -1,0 +1,51 @@
+{
+  "caption": "Gordon Brown speaking at the G8 summit 2008 in Japan",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Presentation",
+      "Public speaking",
+      "Lecture",
+      "Speech",
+      "Meter",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Gordon Brown fails to thaw UK relations with Russia at G8 summit | G8 | The Guardian",
+        "content": "G o r d o n   B r o w n   f a i l s   t o   t h a w   U K   r e l a t i o n s   w i t h   R u s s i a   a t   G 8   s u m m i t   . . .",
+        "caption": "Gordon Brown speaks with the Russian president, Dmitry Medvedev, at the G8 summit in Japan. Photograph: EPA/ Dmitry Astakhov Pool",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3034322261810303,
+        "text_similarity_score": 0.7691568732261658
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.3034322261810303, which is less than 0.85. The text similarity score is 0.7691568732261658, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than 0.7, the verdict should be 'False'. The candidate caption refers to Gordon Brown speaking at the G8 summit in Japan. The presence of Dmitry Medvedev in the candidate caption adds additional context that could be present in the news image. However, without the image, I cannot determine if this additional context is accurate and aligns with the news image. Thus, I will mark this as False.",
+      "supporting_evidences": [
+        "The image similarity score is 0.3034322261810303",
+        "The text similarity score is 0.7691568732261658",
+        "The candidate caption mentions Gordon Brown speaking with Dmitry Medvedev at the G8 summit in Japan"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a confidence score of 7, which means the final determination must be based on the image check result. The image check result states that the image similarity score is 0.3034322261810303, which is less than 0.85. The text similarity score is 0.7691568732261658, which is greater than 0.7. Thus, the verdict according to the instructions is 'False'. This indicates the caption does not accurately represent the image.",
+    "validation_summary": "The image check results indicate that the caption does not accurately represent the image with a low image similarity score and a relatively higher text similarity score, leading to a determination that the caption is out of context. Viewers would be misled as the image does not match the claims made by the caption, according to the image check analysis and instructions for confidence scores 7-10."
+  },
+  "inference_time": 6.067293882369995,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

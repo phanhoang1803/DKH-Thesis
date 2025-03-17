@@ -1,0 +1,33 @@
+{
+  "caption": "Idomeni GreeceA woman bathes a child at railway tracks at a makeshift camp at the GreekMacedonian border",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 10,
+      "explanation": "The caption describes a scene of a woman bathing a child at a makeshift camp near railway tracks at the Greek-Macedonian border. However, the image context describes a woman carrying a baby while walking along railway tracks with other people. These two scenes are completely different, with one involving bathing and the other involving walking. Therefore, the caption does not align with the image context.",
+      "supporting_evidences": [
+        "The caption mentions 'bathing a child', which is not present in the image context.",
+        "The caption describes a 'makeshift camp', while the context describes people walking along railway tracks in a rural setting."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "A woman carrying a baby walks along railway tracks with other people.",
+      "context": "The image shows a woman with a headscarf carrying a sleeping baby, walking on railway tracks. Several other people, including a woman carrying a child on her shoulders, are also walking along the tracks in the same direction. The setting appears to be a rural area with vegetation on either side of the tracks and a clear sky above. The photograph evokes a sense of displacement, journey, and potentially, the challenges faced by refugees or migrants.",
+      "information": "The image shows a group of people walking along a railway track. In the foreground, a woman with a blue headscarf is carrying a sleeping baby. Behind her, another woman carries a young child on her shoulders. More people can be seen walking along the tracks in the distance. The photo was taken during the daytime."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a woman carrying a baby and walking along railway tracks with other people, while the caption describes a woman bathing a child at a makeshift camp near railway tracks. The image check result confirms that the caption does not align with the image content, specifically because 'bathing a child' is not depicted in the image. The caption misleadingly suggests a scene of bathing at a camp, which is not supported by the visual evidence. Therefore, the image is out of context.",
+    "validation_summary": "The caption describes a scene of bathing that is not visible in the image, potentially misleading viewers about the situation depicted. The actual image shows a woman carrying a baby while walking along railway tracks with other people, which is very different from bathing a child in a camp setting as suggested by the caption."
+  },
+  "inference_time": 6.674771785736084,
+  "ablation_type": "no_image_evidences"
+}

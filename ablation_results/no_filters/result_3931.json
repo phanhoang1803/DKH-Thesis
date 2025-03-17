@@ -1,0 +1,55 @@
+{
+  "caption": "Herc Domenick Lombardozzi in his Baltimore days",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "IIS 10.0 Detailed Error - 404.0 - Not Found",
+        "content": "",
+        "caption": "",
+        "domain": "www.ncccc.gov.eg",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Derek Jeter's All-Star Game history",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Wired into 24 | Television industry | The Guardian",
+        "content": "W i r e d   i n t o   2 4   |   T e l e v i s i o n   i n d u s t r y   |   T h e   G u a r d i a n",
+        "caption": "Herc: Domenick Lombardozzi in his Baltimore days. Photograph: Paul Schiraldi/FX",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Wired into 24 | Television industry | The Guardian",
+        "content": "T h e - W i r e - - - H e r c - - - D o m e n i c - 0 0 1 .   . . .",
+        "caption": "Herc: Domenick Lombardozzi in his Baltimore days. Photograph: Paul Schiraldi/FX",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity scores are all 0.0, and the text similarity scores are also 0.0. This means the images and captions in the candidates do not strongly match the news image and caption. However, candidate 3 and 4 have the exact caption as the news item and is attributed to Paul Schiraldi/FX. This supports the news caption.",
+      "supporting_evidences": [
+        "Herc: Domenick Lombardozzi in his Baltimore days. Photograph: Paul Schiraldi/FX"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 7, and the verdict is True, which means the news caption does provide a correct representative summary of the image content. The caption mentions Herc Domenick Lombardozzi in his Baltimore days, but the image shows a baseball player in a New York Yankees uniform. This contradicts the caption's claim that the image is of Domenick Lombardozzi in his Baltimore days. Thus, the image is out of context.",
+    "validation_summary": "The image shows a baseball player in a New York Yankees uniform, which contradicts the caption's claim that it is of Domenick Lombardozzi in his Baltimore days, misleading viewers about the image's content and context. Therefore, the image is out of context."
+  },
+  "inference_time": 4.837957382202148,
+  "ablation_type": "no_filters"
+}

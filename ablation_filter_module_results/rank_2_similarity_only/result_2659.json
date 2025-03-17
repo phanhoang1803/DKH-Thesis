@@ -1,0 +1,49 @@
+{
+  "caption": "Group G Cristiano Ronaldo reacts during Portugal s loss to Germany",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Cristiano Ronaldo + Real Madrid | Page 19 of 28 | Football | The Guardian",
+        "content": "I n   a   w e e k   d o m i n a t e d   b y   t h e   s e m i - f i n a l s   o f   t h e   C h a m p i o n s   L e a g u e ,   J a m e s   R i c h a r d s o n   d e l v e s   t h r o u g h   t h e   h i g h l i g h t s   o f   t h e   E u r o p e a n   p r e s s   r e a c t i o n   t o   t h e   r e s u l t s \n \n T h e   R e a l   M a d r i d   s t a r   f e a t u r e s   a s   a   c l o w n ,   a   g l a d i a t o r   a n d   h i s   r o t u n d   n a m e s a k e",
+        "caption": "",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9746653437614441,
+        "text_similarity_score": 0.05798950046300888
+      },
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "knapwell.info",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8911948800086975,
+        "text_similarity_score": 0.05798950046300888
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "Both candidate images have low caption similarity scores (< 0.7). Also, the image similarity score is high (>= 0.85) for candidate 1 and also low (< 0.85) for candidate 2. Thus, based on the instruction, I should return 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is inaccurate. The candidate images have low caption similarity scores (< 0.7), and one candidate has a high image similarity score (>= 0.85) while the other has a low image similarity score (< 0.85). The image shows Cristiano Ronaldo in a white jersey playing soccer against a goalkeeper in an orange jersey, with a crowd in the background. The caption mentions \"Group G Cristiano Ronaldo reacts during Portugal s loss to Germany\", implying the image depicts Ronaldo playing for Portugal against Germany, which is inconsistent with the image. Therefore, the image is out of context.",
+    "validation_summary": "The caption inaccurately represents the image content by implying the photo shows Ronaldo playing for Portugal against Germany, when the image displays different details. The image does not support the caption's claim, leading to a false impression."
+  },
+  "inference_time": 6.915887117385864,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

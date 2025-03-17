@@ -1,0 +1,50 @@
+{
+  "caption": "Daniel DayLewis wins the Oscar for best actor for his role in Lincoln",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Ben Affleck",
+      "85th Academy Awards",
+      "Argo",
+      "Academy Awards",
+      "Academy Award for Best Picture",
+      "Academy of Motion Picture Arts and Sciences",
+      "Academy Award for Best Actor in a Leading Role",
+      "Prize",
+      "Academy Award for Best Actress in a Leading Role"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Lincoln secures Daniel Day-Lewis a record third best actor Oscar | Film | The Guardian",
+        "content": "L i n c o l n   s e c u r e s   D a n i e l   D a y - L e w i s   a   r e c o r d   t h i r d   b e s t   a c t o r   O s c a r   . . .",
+        "caption": "Hat trick  Daniel Day-Lewis's portrayal of Lincoln wins him his third Oscar",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.49834054708480835,
+        "text_similarity_score": 0.7347850203514099
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is below 0.85, and the text similarity score is also below 0.7. Therefore, even though the candidate caption mentions Daniel Day-Lewis winning an Oscar for portraying Lincoln, without a high image similarity score, it's not possible to confirm that the candidate image aligns with the news image. Thus, the caption is considered out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low image similarity score (below 0.85) and a low text similarity score (below 0.7). This suggests that the image content doesn't strongly correlate with the caption's claim about Daniel Day-Lewis winning an Oscar for his role in Lincoln. While the image does show Daniel Day-Lewis holding an Oscar, the low similarity scores suggest the image may not be directly related to the specific event mentioned in the caption (winning for Lincoln). Therefore, using this image with the specified caption could mislead viewers, as it implies a direct connection that cannot be verified based on the image and its similarity scores.",
+    "validation_summary": "The low image and text similarity scores suggest the image does not directly support the caption's claim about Daniel Day-Lewis winning an Oscar for his role in Lincoln, potentially misleading viewers about the context of the image. The image check result indicated a low image similarity score (below 0.85) and a low text similarity score (below 0.7). Therefore, the caption is considered out-of-context."
+  },
+  "inference_time": 6.252985715866089,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

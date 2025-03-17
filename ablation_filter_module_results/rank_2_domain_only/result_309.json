@@ -1,0 +1,47 @@
+{
+  "caption": "One of China s elite takes tea in Shanghai many observers feel that only a crisis could prompt major change",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Fears grow over pace of reform  as China ushers in new leaders | China | The Guardian",
+        "content": "F e a r s   g r o w   o v e r   p a c e   o f   r e f o r m   a s   C h i n a   u s h e r s   i n   n e w   l e a d e r s   . . .",
+        "caption": "One of China's elite takes tea in Shanghai: many observers feel that only a crisis could prompt major change. Photograph: Xie Guang Hui/Corbis",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "All Archives - The Atavist Magazine",
+        "content": "A l l   A r c h i v e s   -   T h e   A t a v i s t   M a g a z i n e",
+        "caption": "Adolfo Davis at age 15",
+        "domain": "magazine.atavist.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both the image similarity and text similarity scores are 0.0, indicating a low degree of similarity between the news caption and candidate captions. However, candidate 1 has the exact same caption as the news item, suggesting it might be the original source or a direct copy. The domain 'www.theguardian.com' is a reputable news source, giving some credence to the claim. However, without visual confirmation or additional context provided by a higher image similarity score, it's difficult to confirm the accuracy with certainty. The second candidate is irrelevant. Therefore, while there's a matching caption, the lack of corroborating evidence (image similarity) prevents a definitive 'True' verdict.",
+      "supporting_evidences": [
+        "Candidate 1: Caption matches the news caption verbatim and is from a reputable domain (www.theguardian.com)."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Pope Francis, a man in a white outfit, and a woman in a pink shirt sitting in chairs and engaged in conversation. There is a South Korean flag in the background. The provided caption talks about China's elite drinking tea in Shanghai and potential reforms. The image has nothing to do with the content of the caption; thus, the image is out of context. The image check result also indicates a low image similarity and confirms that the caption is not representative of the image.",
+    "validation_summary": "The image depicts Pope Francis meeting with a woman, likely in South Korea, which is completely unrelated to the caption's claim about China's elite taking tea in Shanghai. Viewers would be severely misled about the content of the article if presented with this image and the associated caption."
+  },
+  "inference_time": 4.600252628326416,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "caption": "Kansas State fans celebrate victory following an NCAA college basketball game against Kansas at Bramlage Coliseum in Manhattan Kan",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Jamari Traylor",
+      "Thad Matta",
+      "John Currie",
+      "Kansas Jayhawks men's basketball",
+      "Fan",
+      "Big 12 Conference",
+      "Basketball",
+      "Kansas State University",
+      "Court",
+      "identified"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Kansas State fans storm court after upsetting No. 9 Kansas",
+        "content": "K a n s a s   S t a t e   f a n s   s t o r m   c o u r t   a f t e r   u p s e t t i n g   N o .   9   K a n s a s",
+        "caption": "Kansas State fans rush the floor following an NCAA college basketball game against Kansas at Bramlage Coliseum in Manhattan, Kan.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Past and future conference mates Colorado and Kansas State to meet in women's NCAA Tournament | AP News",
+        "content": "P a s t   a n d   f u t u r e   c o n f e r e n c e   m a t e s   C o l o r a d o   a n d   K a n s a s   S t a t e   t o   m e e t   . . .",
+        "caption": "Kansas State guard Serena Sundell celebrates after making a basket during the second half of a first-round college basketball game against Portland in the women's NCAA Tournament in Manhattan, Kan., Friday, March 22, 2024, in Manhattan, Kan. Kansas State won 78-65. (AP Photo/Charlie Riedel)",
+        "domain": "apnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates describe Kansas State fans at Bramlage Coliseum in Manhattan, Kan., after a basketball game against Kansas. Candidate 1 explicitly mentions fans rushing the floor. The news caption refers to 'Kansas State fans celebrate victory following an NCAA college basketball game against Kansas at Bramlage Coliseum in Manhattan Kan', and though the exact wording isn't identical, the context is similar, suggesting that the fans are celebrating a victory against Kansas at the same location. However, without a high image similarity score or direct confirmation that the image shows the victory celebration described in the news caption, a definitive 'True' verdict cannot be given.",
+      "supporting_evidences": [
+        "Kansas State fans rush the floor following an NCAA college basketball game against Kansas at Bramlage Coliseum in Manhattan, Kan."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The Image Check Result indicates that the provided news caption relates to Kansas State fans celebrating a victory after a basketball game against Kansas at Bramlage Coliseum in Manhattan, Kan. The supporting evidence states, 'Kansas State fans rush the floor following an NCAA college basketball game against Kansas at Bramlage Coliseum in Manhattan, Kan.' While the caption mentions a celebration and the supporting evidence mentions fans rushing the floor, the image depicts a large crowd of people with what appear to be oversized faces on sticks, suggesting a generic crowd scene rather than a specific celebration or rushing of the floor. The Image Check Result assigns a confidence score of 7 and determines the image is Out of Context, due to uncertainty in matching the action with the image content. Therefore, I concur with this assessment.",
+    "validation_summary": "The caption references Kansas State fans celebrating a victory, but the image depicts a crowd with oversized faces on sticks, potentially misleading viewers about the specific event shown, and the exact action taking place within the image is ambiguous relative to the caption's claim of a victory celebration, hence the image is Out of Context (OOC=True). The image does not clearly show a victory celebration or rushing of the floor, hence the image is Out of Context (OOC = True)."
+  },
+  "inference_time": 4.79111909866333,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

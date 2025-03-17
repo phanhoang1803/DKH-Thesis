@@ -1,0 +1,60 @@
+{
+  "caption": "Clinton and Sanders during the singing of the national anthem",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Awards ceremony",
+      "Talent show",
+      "5hy",
+      "Convention",
+      "Ceremony",
+      "X",
+      "Award"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Sanders and Clinton vie to be Obama's heir for black South Carolinians | US elections 2016 | The Guardian",
+        "content": "S a n d e r s   a n d   C l i n t o n   v i e   t o   b e   O b a m a ' s   h e i r   f o r   b l a c k   S o u t h   . . .",
+        "caption": "People sing the national anthem before a speech by Democratic presidential candidate Hillary Clinton at the Williamsburg County Recreation Center in Kingstree, South Carolina on Thursday.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Hollywood hipsters and 60s rebels lend Bernie Sanders their glamour | Bernie Sanders | The Guardian",
+        "content": "H o l l y w o o d   h i p s t e r s   a n d   6 0 s   r e b e l s   l e n d   B e r n i e   S a n d e r s   t h e i r   . . .",
+        "caption": "Bernie Sanders, with Vampire Weekends lead singer, Ezra Koenig, at a campaign event in Iowa last month.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Hillary Clinton's Lead Over Bernie Sanders Swells After Strong Super Tuesday",
+        "content": "H i l l a r y   C l i n t o n ' s   L e a d   O v e r   B e r n i e   S a n d e r s   S w e l l s   A f t e r   S t r o n g   . . .",
+        "caption": "Democratic presidential candidate, Hillary Clinton speaks during a rally at the Charles H. Wright Museum of African American History, Monday, March 7, 2016, in Detroit, Mich.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The provided candidates do not have image similarity scores above 0.85, and text similarity scores are also low, indicating no direct match. None of the captions mention Clinton and Sanders together during the singing of the national anthem. The candidates discuss Hillary Clinton and Bernie Sanders separately at different events. Therefore, there's no support for the news caption's accuracy.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low similarity between the provided candidates and the news caption, suggesting a mismatch. The image depicts Hillary Clinton and Bernie Sanders standing on a stage with a CNN logo and an American flag backdrop. Sanders is placing his hand over his heart. The caption states that the image shows Clinton and Sanders during the singing of the national anthem. Although the image shows them together, the gesture of Sanders placing his hand over his heart could be indicative of the national anthem being sung, there's no definitive proof within the image to confirm this, thus it is out of context.",
+    "validation_summary": "The image shows Clinton and Sanders on stage, but the caption's claim about them singing the national anthem is not directly supported by the image and therefore could mislead viewers about the context of the photo. Because the confidence score is 9, the image check result is the basis for the final determination that the caption is out of context (OOC = True)."
+  },
+  "inference_time": 3.9231483936309814,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "caption": "A Sikh worker on the assembly line at Ford s Dagenham plant in 1970",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Asian Britain: A Photographic History - in pictures | Society | The Guardian",
+        "content": "S a r a h   G i l b e r t \n \n W e d   6   N o v   2 0 1 3   1 9 . 1 1  C E T \n \n \n                         F i r s t   p u b l i s h e d   o n   W e d   6   N o v   2 0 1 3   1 9 . 1 1  C E T \n \n P h o t o g r a p h :   L o n d o n   S t e r e o s c o p i c   C o m p a n y / G e t t y   I m a g e s \n \n P h o t o g r a p h :   P a u l   P o p p e r / P o p p e r f o t o / G e t t y   I m a g e s \n \n P h o t o g r a p h :   T o p i c a l   P r e s s   A g e n c y / G e t t y   I m a g e s \n \n P h o t o g r a p h :   G e n e r a l   P h o t o g r a p h i c   A g e n c y / G e t t y   I m a g e s \n \n P h o t o g r a p h :   A .   R .   T a n n e r / G e t t y   I m a g e s \n \n P h o t o g r a p h :   C e n t r a l   P r e s s / G e t t y   I m a g e s \n \n P h o t o g r a p h :   P o p p e r f o t o / G e t t y   I m a g e s \n \n P h o t o g r a p h :   E v e n i n g   S t a n d a r d / G e t t y   I m a g e s \n \n P h o t o g r a p h :   E v e n i n g   S t a n d a r d / G e t t y   I m a g e s \n \n P h o t o g r a p h :   E v e n i n g   S t a n d a r d / G e t t y   I m a g e s \n \n P h o t o g r a p h :   J o h n   D o w n i n g / G e t t y   I m a g e s \n \n P h o t o g r a p h :   T e r r y   S m i t h / T i m e   &   L i f e   P i c t u r e s / G e t t y   I m a g e",
+        "caption": "Asian Britain: Assembly Line Worker",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Asian Britain: A Photographic History - in pictures | Society | The Guardian",
+        "content": "A s i a n   B r i t a i n :   A   P h o t o g r a p h i c   H i s t o r y   -   i n   p i c t u r e s   |   S o c i e t y   . . .",
+        "caption": "Asian Britain: Assembly Line Worker",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Deadly partition: 70 years after the British exit from India, survivors of the ensuing chaos tell their harrowing tales",
+        "content": "D e a d l y   p a r t i t i o n :   7 0   y e a r s   a f t e r   t h e   B r i t i s h   e x i t   f r o m   I n d i a   . . .",
+        "caption": "Death",
+        "domain": "www.thetimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are all 0.0, indicating that none of the candidate images match the news image. Additionally, the caption similarity scores are also very low (0.0), suggesting the captions of the candidates do not align with the news caption. The first two candidates mention \"Asian Britain: Assembly Line Worker,\" which shares some keywords with the news caption (\"Assembly Line Worker\"). However, without an image match or stronger caption similarity, it's insufficient to confirm the news caption. The third candidate, simply titled \"Death\", has no relation with the news caption. Due to the lack of supporting evidence, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result has a confidence score of 2, which is lower than 7, but still helpful. The image check result indicates that the captions of the candidates do not align with the news caption. The image shows several men working on a car assembly line. The news caption states 'A Sikh worker on the assembly line at Ford s Dagenham plant in 1970'. While the image does show workers on an assembly line, there's no definitive evidence to confirm that one of the workers is Sikh, or that the plant is Ford's Dagenham plant, or that the picture was taken in 1970. Therefore, the caption is deemed out of context.",
+    "validation_summary": "The caption cannot be verified based on the image, as there's no definitive way to confirm the worker's religion or the specific plant and year the image was taken. This discrepancy could mislead viewers about the context of the image."
+  },
+  "inference_time": 4.230601787567139,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

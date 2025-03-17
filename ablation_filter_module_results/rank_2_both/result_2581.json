@@ -1,0 +1,51 @@
+{
+  "caption": "Steve Coogan and Rob Brydon on the set of the second series of The Trip",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "David Walliams swims the Thames - in pictures | Television & radio | The Guardian",
+        "content": "M o n   1 2   S e p   2 0 1 1   1 4 . 3 6  B S T \n \n \n                         F i r s t   p u b l i s h e d   o n   M o n   1 2   S e p   2 0 1 1   1 4 . 3 6  B S T \n \n P h o t o g r a p h :   R h i a n   A P   G r u f f y d d / C o m i c   R e l i e f \n \n P h o t o g r a p h :   D e s   W i l l i e / C o m i c   R e l i e f / P A \n \n P h o t o g r a p h :   S t e v e   P a r s o n s / P A \n \n P h o t o g r a p h :   S t e v e   P a r s o n s / P A \n \n P h o t o g r a p h :   R h i a n   A P   G r u f f y d d / P A \n \n P h o t o g r a p h :   D e s   W i l l i e / C o m i c   R e l i e f \n \n P h o t o g r a p h :   D e s   W i l l i e / P A \n \n P h o t o g r a p h :   R h i a n   A P   G r u f f y d d / P A \n \n P h o t o g r a p h :   L u c i l l e   F l o o d / C o m i c   R e l i e f \n \n P h o t o g r a p h :   D e s   W i l l i e / P A",
+        "caption": "David Walliams Thames : Rob Brydon",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9798131585121155,
+        "text_similarity_score": 0.5170987248420715
+      },
+      {
+        "title": "First Alan Partridge, now The Trip  Sky's Steve Coogan land grab | Television & radio | The Guardian",
+        "content": "F i r s t   A l a n   P a r t r i d g e ,   n o w   T h e   T r i p      S k y ' s   S t e v e   C o o g a n   l a n d   g r a b   . . .",
+        "caption": "Steve Coogan (left) and Rob Brydon on the set of the second series of The Trip.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "text_similarity_score": 0.9360087513923645
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the strict decision rules, Candidate 2 has a very low image similarity score (0.0) and a high caption similarity score (0.9360087513923645). Because the image similarity score is less than 0.85, the caption must be marked as out-of-context, even though the text similarity score is high. Candidate 1 has a high image similarity score (0.9798131585121155) but a low text similarity score (0.5170987248420715). Because the image similarity score is greater than or equal to 0.85 and the text similarity score is less than 0.7, the caption is out-of-context.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.9798131585121155, Caption Similarity Score: 0.5170987248420715",
+        "Candidate 2: Image Similarity Score: 0.0, Caption Similarity Score: 0.9360087513923645"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is out of context. Candidate 1 has a high image similarity score (0.9798131585121155) but a low text similarity score (0.5170987248420715). Candidate 2 has a very low image similarity score (0.0) and a high caption similarity score (0.9360087513923645). The image depicts a group of people participating in some kind of water activity, with some in inflatable boats and one person swimming. The caption refers to Steve Coogan and Rob Brydon on the set of The Trip, which doesn't align with the scene in the image. Therefore, the caption is misleading and out of context.",
+    "validation_summary": "The caption does not accurately represent the image content, as it mentions actors in a specific show while the image displays a water activity involving multiple people. Viewers would be misled about the content of the image by reading the caption."
+  },
+  "inference_time": 6.021315336227417,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

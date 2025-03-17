@@ -1,0 +1,61 @@
+{
+  "caption": "Mitt Romney and President Obama meet during a town hallstyle debate at Hofstra University",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "United States",
+      "Politics",
+      "Political campaign",
+      "Mitt Romney 2012 presidential campaign",
+      "Campaign advertising",
+      "Getty Images",
+      "Political science",
+      "Stephen M. Caliendo"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Live: Obama, Romney clash in town hall debate",
+        "content": "L i v e :   O b a m a ,   R o m n e y   c l a s h   i n   t o w n   h a l l   d e b a t e",
+        "caption": "Mitt Romney and President Obama meet during a town hall-style debate at Hofstra University.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5368168354034424,
+        "text_similarity_score": 0.9613183736801147
+      },
+      {
+        "title": "5 things to look for: Obama vs. Romney, Round 3",
+        "content": "5   t h i n g s   t o   l o o k   f o r :   O b a m a   v s .   R o m n e y ,   R o u n d   3",
+        "caption": "Mitt Romney and Barack Obama shake hands prior to the start of a town hall style debate at Hofstra University Oct. 16 in Hempstead, New York",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.48973146080970764,
+        "text_similarity_score": 0.775859534740448
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have image similarity scores below 0.85. Candidate 1 has a high text similarity score of 0.9613183736801147. Candidate 2 has a text similarity score of 0.775859534740448. Since the image similarity scores are below 0.85, based on the instructions, the verdict must be false. The captions are similar and mention the same event: Mitt Romney and Barack Obama meeting during a town hall-style debate at Hofstra University. However, the image similarity scores being below the threshold indicates the images do not match well enough to conclude that the caption is in context.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.5368168354034424, Caption Similarity Score: 0.9613183736801147",
+        "Candidate 2: Image Similarity Score: 0.48973146080970764, Caption Similarity Score: 0.775859534740448"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity scores between the given image and the images associated with the candidate captions are below the set threshold of 0.85. Although the captions are similar in that they both reference Mitt Romney and Barack Obama in some type of debate setting at Hofstra University, the image similarity scores not meeting the threshold means that the images do not match well enough to suggest that the caption is an accurate representation of the image. Therefore, based on the image check result, the image is out of context.",
+    "validation_summary": "The caption references Mitt Romney and Barack Obama during a town hall debate; however, the image check result indicates that the images do not match strongly enough to suggest that the caption is accurate, meaning that viewers would be misled about what they're seeing if they believed that the caption was an accurate descriptor of the image. The image is, therefore, out of context."
+  },
+  "inference_time": 5.158519506454468,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

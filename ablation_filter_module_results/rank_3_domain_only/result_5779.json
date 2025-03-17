@@ -1,0 +1,45 @@
+{
+  "caption": "Republican senator Chuck Grassley delivers remarks during a judiciary committee meeting to work on immigration reform",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "In pictures: Brett Kavanaugh's confirmation hearings | CNN Politics",
+        "content": "I n   p i c t u r e s :   B r e t t   K a v a n a u g h ' s   c o n f i r m a t i o n   h e a r i n g s   |   C N N   P o l i t i c s",
+        "caption": "Sen. Chuck Grassley, the Republican chairman of the Senate Judiciary Committee, delivers his opening remarks Tuesday more than an hour after the hearing began.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Rep. Mike Johnson wins vote to remain House speaker | CNN Politics",
+        "content": "R e p .   M i k e   J o h n s o n   w i n s   v o t e   t o   r e m a i n   H o u s e   s p e a k e r   |   C N N   P o l i t i c s",
+        "caption": "Rep. Pete Aguilar delivers a nomination speech for Rep. Hakeem Jeffries during the first session of the 119th Congress ahead of the vote for Speaker of the House in the House Chamber at the US Capitol in Washington, DC, on January 3, 2025.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are 0.0, indicating that the images in the candidates do not match the image described by the news caption. Additionally, the caption similarity scores are also 0.0, implying that the captions of the candidates do not align with the news caption. Candidate 1 mentions Chuck Grassley in the Senate Judiciary Committee, which has a weak alignment with the news caption. However, candidate 2 is about a different person, Pete Aguilar, and a different event. Therefore, the news caption is out-of-context. Since there's no strong evidence to support the caption's accuracy, the verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a man in a suit, identified as Al Sharpton. The caption states that Republican senator Chuck Grassley delivers remarks during a judiciary committee meeting to work on immigration reform. The image does not contain Chuck Grassley or any elements related to immigration reform. Therefore, the caption is misleading and does not accurately represent the image content, thus out of context.",
+    "validation_summary": "The image features Al Sharpton, whereas the caption describes Chuck Grassley speaking about immigration reform, which is not shown in the image, making it misleading. The caption is completely unrelated to the content of the image and would confuse viewers about the context."
+  },
+  "inference_time": 3.9322733879089355,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

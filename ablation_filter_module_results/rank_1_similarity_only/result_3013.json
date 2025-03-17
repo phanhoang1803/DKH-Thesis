@@ -1,0 +1,62 @@
+{
+  "caption": "The secretary of defence Chuck Hagel and chairman of the joint chiefs of staff General Martin Dempsey",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Long Island",
+      "Columbia",
+      "Ceremony",
+      "left",
+      "Graduation",
+      "Funeral",
+      "Navy",
+      "Times Union",
+      "West Point",
+      "United States Military Academy"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Access to this page has been denied",
+        "content": "",
+        "caption": "",
+        "domain": "www.timesunion.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.947728157043457,
+        "text_similarity_score": 0.09274783730506897
+      },
+      {
+        "title": "Hagel: US Pledges to Stand with Ukrainian People",
+        "content": "H a g e l :   U S   P l e d g e s   t o   S t a n d   w i t h   U k r a i n i a n   P e o p l e",
+        "caption": "U.S. Secretary of Defense Chuck Hagel (R) and Chairman of the Joint Chiefs of Staff U.S. Army General Martin Dempsey (L) testify before the Senate Armed Services Committee on Capitol Hill in Washington, March 5, 2014.",
+        "domain": "www.voanews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.38879674673080444,
+        "text_similarity_score": 0.836925208568573
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "We have two candidates to evaluate the news caption. Candidate 1 has a high image similarity score (0.947728157043457) but a low text similarity score (0.09274783730506897). According to the instructions, if the image similarity score is >= 0.85 AND the text similarity score is < 0.7, we should immediately return \"False\". Therefore, based on Candidate 1 alone, the verdict would be \"False.\" Candidate 2 has a lower image similarity score (0.38879674673080444) and a higher text similarity score (0.836925208568573). Since the image similarity score is below 0.85, we must rely on caption analysis. The caption of Candidate 2 explicitly mentions \"U.S. Secretary of Defense Chuck Hagel\" and \"Chairman of the Joint Chiefs of Staff U.S. Army General Martin Dempsey,\" which aligns perfectly with the news caption: \"The secretary of defence Chuck Hagel and chairman of the joint chiefs of staff General Martin Dempsey.\" This provides strong evidence that the news caption accurately represents the image. Although the image similarity score for Candidate 2 is low, the high text similarity and precise matching of individuals named in both captions suggest that Candidate 2 is describing a similar scene or event, making the news caption contextual.",
+      "supporting_evidences": [
+        "Candidate 2's caption explicitly names Chuck Hagel and Martin Dempsey, matching the news caption."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 9, which means the final determination must be based on the image check result. The image check result states that 'Candidate 2's caption explicitly names Chuck Hagel and Martin Dempsey, matching the news caption.' Therefore, the caption accurately describes the image, and the image is not out of context.",
+    "validation_summary": "The caption accurately identifies the individuals in the image, Chuck Hagel and Martin Dempsey, and therefore would not mislead viewers about the image's content. The image check confirms the accuracy of the caption's description of the image content, indicating it is not out of context (OOC = False)."
+  },
+  "inference_time": 7.0615763664245605,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

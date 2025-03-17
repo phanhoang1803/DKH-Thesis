@@ -1,0 +1,37 @@
+{
+  "caption": "Democrat Chad Taylor left talks to his attorney Pedro Irigonegaray after arguments before the Kansas supreme court",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Kansas Democrats may stymie GOP with obscure name on Senate ballot | US politics | The Guardian",
+        "content": "K a n s a s   D e m o c r a t s   m a y   s t y m i e   G O P   w i t h   o b s c u r e   n a m e   o n   S e n a t e   b a l l o t   . . .",
+        "caption": "Democrat Chad Taylor, left,  talks to his attorney Pedro Irigonegaray after arguments before the Kansas supreme court.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.38858550786972046,
+        "text_similarity_score": 0.9453813433647156
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.38858550786972046, which is less than 0.85. According to the rule, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is false.",
+      "supporting_evidences": [
+        "Image Similarity Score < 0.85",
+        "Text Similarity Score >= 0.7"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result shows a low image similarity score (0.38858550786972046), which is significantly below the threshold of 0.85. This low score indicates that the image content and the caption are not well-aligned. The image shows Oscar Pistorius in what appears to be a courtroom setting, while the caption discusses Democrat Chad Taylor and a legal dispute in Kansas. This discrepancy confirms that the caption does not accurately represent the image's content, leading to the determination that the image is out of context.",
+    "validation_summary": "The image shows Oscar Pistorius in court, whereas the caption describes Chad Taylor's legal issues, misleading viewers by presenting unrelated information. This makes the image out of context as it does not align with the caption's subject matter."
+  },
+  "inference_time": 4.439311265945435,
+  "ablation_type": "no_image_evidences"
+}

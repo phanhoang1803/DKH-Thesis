@@ -1,0 +1,43 @@
+{
+  "caption": "President Obama returns to the White House after traveling to the Florida Everglades on April 22 2015",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "STX IT20 RISK.5RV NR EO",
+      "Formal wear"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 9,
+      "confidence_score": 10,
+      "explanation": "The caption accurately describes the image. It mentions President Obama's return to the White House after a trip to the Florida Everglades on April 22, 2015, which is consistent with the visual information and context provided. The image depicts Obama walking towards the White House, and the context confirms the date and location of his visit. Therefore, the caption aligns well with the image context.",
+      "supporting_evidences": [
+        "The caption mentions President Obama's return to the White House.",
+        "The caption specifies the date of the event as April 22, 2015.",
+        "The caption refers to Obama's travel to the Florida Everglades."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image depicts President Barack Obama walking towards the White House after a visit to the Florida Everglades on April 22, 2015. He is dressed in formal attire, specifically a dark suit and a light-colored dress shirt, with a solemn expression on his face. The backdrop features the White House, with its iconic architecture and a clear sky. The presence of security personnel indicates the heightened security surrounding the building, typical for presidential events. Given the context surrounding the event, Obama appears reflective, potentially indicating the serious nature of the recent events mentioned in the news content.",
+      "caption": "President Barack Obama returns to the White House after a visit to the Florida Everglades amid national concerns regarding a controversial drone strike.",
+      "context": "On April 22, 2015, President Obama returned to the White House after visiting the Florida Everglades, a trip integral to his environmental initiatives. This visit comes shortly after he publicly expressed his deep regret regarding a tragic incident involving a drone strike in Pakistan that resulted in the deaths of two American hostages. This incident has sparked significant media attention and political discourse around national security, the ethics of drone strikes, and the responsibilities of the government. Obama's solemn demeanor in the image reflects the weight of the recent events and the expressing of condolences to the families affected, marking a pivotal moment in his presidency concerning counterterrorism operations and the controversial tactics employed."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows President Obama in a suit, walking outdoors on a grassy area. The associated news content discusses Obama expressing condolences for a drone strike that accidentally killed hostages and other Americans associated with Al-Qaeda, along with related political fallout. The news content has absolutely nothing to do with the image. The caption mentions President Obama returning to the White House after visiting Florida Everglades. The image check reports high alignment and confidence scores for the caption. However, despite the high alignment score, the image is still considered out of context because a reader of the news article would be misled into thinking that the image shows Obama returning from the Florida Everglades, when the article discusses his comments on a drone strike.",
+    "validation_summary": "The image is out of context because it is not related to the news story about the drone strike. Although the image check gives a high score to the caption, readers would be misled about the content of the image relative to the news content it is associated with."
+  },
+  "inference_time": 5.913600921630859,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

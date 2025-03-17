@@ -1,0 +1,43 @@
+{
+  "caption": "Chiefs K Ryan Succop signs autographs July 24 2014 in St Joseph Mo",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Picket fence",
+      "Team",
+      "Fence",
+      "Picketing"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "2014 NFL training camp action",
+        "content": "2 0 1 4   N F L   t r a i n i n g   c a m p   a c t i o n",
+        "caption": "Dallas Cowboys tight end Dallas Walker (86) is defended by Oakland Raiders cornerback Keith McGill (39) at scrimmage against the Dallas Cowboys at River Ridge Fields.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Thus, the strict decision rules do not apply. The candidate caption does not contain any information that helps verify the news caption. The news caption mentions K Ryan Succop, the date (July 24 2014), and the location (St Joseph Mo). However, the candidate caption talks about Dallas Cowboys and Oakland Raiders, which is completely different from the news caption. Therefore, the news caption is not verified.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 10, which is in the range of 7-10. Therefore, the final decision must be based on the image check result. The image check result has a verdict of False, which means the caption does not match the image content. Therefore, the image is out of context. The image shows a group of people standing behind a white fence. A man in a football jersey with the name 'SUCCOP' and the number '6' is signing autographs. The caption states 'Chiefs K Ryan Succop signs autographs July 24 2014 in St Joseph Mo'. While the image does show someone who appears to be Ryan Succop signing autographs, the news content is about Dallas Cowboys and Oakland Raiders, which is unrelated to the image and caption. Thus, the caption is misleading.",
+    "validation_summary": "The caption accurately describes the image of Ryan Succop signing autographs, but the accompanying news content is about a completely unrelated topic (Dallas Cowboys and Oakland Raiders), making the image use misleading. The image is out of context as it does not relate to the news content provided."
+  },
+  "inference_time": 5.07192325592041,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

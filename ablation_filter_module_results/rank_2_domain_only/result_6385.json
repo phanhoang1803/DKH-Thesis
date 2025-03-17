@@ -1,0 +1,48 @@
+{
+  "caption": "Donald Trump speaks at Saint Anselm College in Manchester New Hampshire on June 13",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Everything You Need to Know About the Republican Convention Committee Meetings - ABC News",
+        "content": "E v e r y t h i n g   Y o u   N e e d   t o   K n o w   A b o u t   t h e   R e p u b l i c a n   C o n v e n t i o n   . . .",
+        "caption": "In this June 13, 2016, file photo, Republican presidential candidate Donald Trump speaks at Saint Anselm College in Manchester, N.H.",
+        "domain": "abcnews.go.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Experts Weigh In on Trump's and Clinton's Plans to Stop Another Mass Shooting  - ABC News",
+        "content": "E x p e r t s   W e i g h   I n   o n   T r u m p ' s   a n d   C l i n t o n ' s   P l a n s   t o   S t o p   A n o t h e r   . . .",
+        "caption": "Donald Trump speaks during an event at St. Anselm College New Hampshire Institute of Politics in Manchester, N.H., June 13, 2016. Hillary Clinton speaks at the New Jersey primary night rally, June 7, 2016, in the Brooklyn Borough of New York. ",
+        "domain": "abcnews.go.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The provided captions from the candidate evidences partially support the news caption. Candidate 1 mentions \"Donald Trump speaks at Saint Anselm College in Manchester, N.H.\" which aligns with the news caption \"Donald Trump speaks at Saint Anselm College in Manchester New Hampshire\". Candidate 2 also confirms \"Donald Trump speaks during an event at St. Anselm College New Hampshire Institute of Politics in Manchester, N.H.\" However, neither candidate confirms the specific date of \"June 13\" in the news caption. Therefore, the evidence only partially supports the caption.",
+      "supporting_evidences": [
+        "In this June 13, 2016, file photo, Republican presidential candidate Donald Trump speaks at Saint Anselm College in Manchester, N.H.",
+        "Donald Trump speaks during an event at St. Anselm College New Hampshire Institute of Politics in Manchester, N.H., June 13, 2016."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the provided captions partially support the news caption. Specifically, the candidates confirm that Donald Trump spoke at Saint Anselm College in Manchester, New Hampshire, which aligns with the news caption. However, there is no confirmation about the specific date of June 13 in the image itself. The image shows Mike Pence and not Donald Trump, therefore the caption is incorrect.",
+    "validation_summary": "The caption mentions Donald Trump but the image displays Mike Pence, misleading viewers about the person in the image and the location of the event. Therefore the caption is out of context of the image's true content and should be considered misleading."
+  },
+  "inference_time": 4.159420013427734,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

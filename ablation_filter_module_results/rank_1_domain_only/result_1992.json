@@ -1,0 +1,45 @@
+{
+  "caption": "Gordon Brown speaking at the G8 summit 2008 in Japan",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Presentation",
+      "Public speaking",
+      "Lecture",
+      "Speech",
+      "Meter",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Gordon Brown fails to thaw UK relations with Russia at G8 summit | G8 | The Guardian",
+        "content": "G o r d o n   B r o w n   f a i l s   t o   t h a w   U K   r e l a t i o n s   w i t h   R u s s i a   a t   G 8   s u m m i t   . . .",
+        "caption": "Gordon Brown speaks with the Russian president, Dmitry Medvedev, at the G8 summit in Japan. Photograph: EPA/ Dmitry Astakhov Pool",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, a decision cannot be made based on these scores. The candidate caption mentions 'Gordon Brown speaks with the Russian president, Dmitry Medvedev, at the G8 summit in Japan.' The news caption states, 'Gordon Brown speaking at the G8 summit 2008 in Japan'. While the candidate caption confirms the presence of Gordon Brown and the G8 summit in Japan, it also mentions Dmitry Medvedev, which isn't explicitly mentioned in the news caption. Without further information to confirm that the news caption accurately reflects the image content, I cannot confirm it. Therefore, the verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 6. The image check result states, \"The candidate caption mentions 'Gordon Brown speaks with the Russian president, Dmitry Medvedev, at the G8 summit in Japan.' The news caption states, 'Gordon Brown speaking at the G8 summit 2008 in Japan'. While the candidate caption confirms the presence of Gordon Brown and the G8 summit in Japan, it also mentions Dmitry Medvedev, which isn't explicitly mentioned in the news caption. Without further information to confirm that the news caption accurately reflects the image content, I cannot confirm it. Therefore, the verdict is 'False'.\" Given the evidence, the image is out of context.",
+    "validation_summary": "The image check result indicates the news caption is 'False' because it omits the presence of Dmitry Medvedev at the G8 summit, which the candidate caption includes. Viewers might be misled because the news caption omits a key individual present in the image during the G8 summit, making the caption inaccurate."
+  },
+  "inference_time": 3.8719701766967773,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

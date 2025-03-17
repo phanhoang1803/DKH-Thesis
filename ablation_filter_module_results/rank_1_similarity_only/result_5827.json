@@ -1,0 +1,50 @@
+{
+  "caption": "From left Al Gore Lorraine Bracco Kennedy and Cheryl Hines attend an award dinner at the Robert F Kennedy Center for Justice and Human Rights in 2011",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Behind the Candelabra",
+      "65th Primetime Emmy Awards",
+      "STX IT20 RISK.5RV NR EO",
+      "Emmy Awards",
+      "Primetime Emmy Award for Outstanding Lead Actor in a Limited or Anthology Series or Movie",
+      "Formal wear",
+      "Model M keyboard",
+      "USA Today",
+      "Michael Douglas"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "2013 Emmy Awards highlights - USA Today",
+        "content": "",
+        "caption": "Starlet sisters Zooey, left, and Emily Deschanel present the award for supporting  actor in a comedy series at the 2013 Emmy Awards.",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9326401352882385,
+        "text_similarity_score": 0.28085699677467346
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.9326401352882385 and the text similarity score is 0.28085699677467346. According to the strict decision rules, if the image similarity score is greater than or equal to 0.85 and the text similarity score is less than 0.7, the verdict should immediately be false. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image similarity score is 0.9326401352882385, and the text similarity score is 0.28085699677467346. Based on the decision rules, if the image similarity score is greater than or equal to 0.85 and the text similarity score is less than 0.7, the verdict should immediately be false. The caption states, 'From left Al Gore Lorraine Bracco Kennedy and Cheryl Hines attend an award dinner at the Robert F Kennedy Center for Justice and Human Rights in 2011,' but the image shows two women in evening gowns, who do not appear to be any of the individuals mentioned in the caption. Thus, the caption is out of context.",
+    "validation_summary": "The caption incorrectly identifies the individuals in the image, presenting a false depiction of the event and attendees. The image features two women in evening gowns, none of whom are Al Gore, Lorraine Bracco, or Cheryl Hines."
+  },
+  "inference_time": 5.415109157562256,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

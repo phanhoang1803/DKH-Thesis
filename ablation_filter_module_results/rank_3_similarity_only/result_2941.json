@@ -1,0 +1,47 @@
+{
+  "caption": "Australia costars Hugh Jackman left and Nicole Kidman presented for best original score award",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Red carpet",
+      "Carpet",
+      "Fashion",
+      "Fashion show",
+      "Red",
+      "Performance M"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Australia (2008) - User reviews - IMDb",
+        "content": "A u s t r a l i a   ( 2 0 0 8 )   -   U s e r   r e v i e w s   -   I M D b",
+        "caption": "Nicole Kidman and Hugh Jackman in Australia (2008)",
+        "domain": "www.imdb.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1915750354528427,
+        "text_similarity_score": 0.7035714387893677
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.1915750354528427 which is less than 0.85 and the text similarity score is 0.7035714387893677 which is greater than 0.7. According to the strict decision rules, the verdict must be 'False'. The images are not similar and without further information it is not possible to confirm that the caption represents the content of the image. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 2, indicating a low confidence in its assessment. However, the image similarity score is only 0.1915750354528427 (less than 0.85), indicating significant differences between the reference image and the current image. The text similarity score is 0.7035714387893677 which is above the threshold. The image shows Nicole Kidman and Tom Cruise on a red carpet, surrounded by photographers and people in suits. The caption mentions Hugh Jackman and Nicole Kidman presenting an award. While Nicole Kidman is in the image, Hugh Jackman is not, and the event depicted appears to be a red carpet appearance rather than an awards presentation. Given the low image similarity and the discrepancy regarding Hugh Jackman's presence, the caption misrepresents the image content. Therefore, the image is out of context.",
+    "validation_summary": "The caption mentions Hugh Jackman and an award presentation, which are not evident in the image showing Nicole Kidman and Tom Cruise on a red carpet, making the caption misleading. The absence of Hugh Jackman in the image, despite being mentioned in the caption, is a critical inconsistency, leading to the conclusion that the caption is out of context."
+  },
+  "inference_time": 7.8289806842803955,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

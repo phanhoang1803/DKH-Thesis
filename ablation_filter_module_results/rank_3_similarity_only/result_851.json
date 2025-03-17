@@ -1,0 +1,69 @@
+{
+  "caption": "Sunset in Lahaina on Maui Hawaii",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Canoe",
+      "Kayak",
+      "Sea",
+      "Sea kayak",
+      "Skiff",
+      "Dinghy",
+      "Personal watercraft",
+      "Watercraft",
+      "Sunset",
+      "0"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Lahaina Sunset - Cesere Brothers",
+        "content": "L a h a i n a   S u n s e t   -   C e s e r e   B r o t h e r s",
+        "caption": "Lahaina Sunset",
+        "domain": "www.ceserebrothers.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.39491692185401917,
+        "text_similarity_score": 0.8354654908180237
+      },
+      {
+        "title": "Lahaina Maui Sunset Photograph by Glen Thuncher - Pixels",
+        "content": "L a h a i n a   M a u i   S u n s e t   P h o t o g r a p h   b y   G l e n   T h u n c h e r   -   P i x e l s",
+        "caption": "Sunset Photograph - Lahaina Maui Sunset by Glen Thuncher",
+        "domain": "pixels.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5304397940635681,
+        "text_similarity_score": 0.8249236345291138
+      },
+      {
+        "title": "Where to Find Stunning Views of the Maui Sunset | PMI Maui",
+        "content": "W h e r e   t o   F i n d   S t u n n i n g   V i e w s   o f   t h e   M a u i   S u n s e t   |   P M I   M a u i",
+        "caption": "View of the Maui sunset and palm trees",
+        "domain": "pmimaui.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.39331886172294617,
+        "text_similarity_score": 0.7765847444534302
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are all below 0.85. Although the caption similarity scores are above 0.7, the image similarity is too low for the captions to be considered a match. Therefore, the caption is out of context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows three people kayaking on a body of water during a sunset. The caption states that the image is of a sunset in Lahaina on Maui, Hawaii. The image check result indicates that the image similarity is too low for the captions to be considered a match. Given the low image similarity score and the image depicting people kayaking and not a specific location, the caption is likely incorrect. Therefore, the image is out of context.",
+    "validation_summary": "The caption claims the image is of a sunset in Lahaina, Maui, Hawaii. However, the image primarily shows people kayaking during a sunset, and the image check results indicate a low similarity score between the image and caption, suggesting the caption is inaccurate."
+  },
+  "inference_time": 5.042103052139282,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

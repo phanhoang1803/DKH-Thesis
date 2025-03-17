@@ -1,0 +1,45 @@
+{
+  "caption": "Pau Gasol left of Spain in action against Paul George of the United States during the men s basketball semifinal game",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Basketball",
+      "Basketball Women",
+      "Slam dunk",
+      "Netball",
+      "Block"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Olympic Gold: A Look Back At Team USA's Victory",
+        "content": "O l y m p i c   G o l d :   A   L o o k   B a c k   A t   T e a m   U S A ' s   V i c t o r y",
+        "caption": "July 24, 2016; Los Angeles, CA, USA; USA guard Kevin Durant (5) speaks with center DeMarcus Cousins (left) and guard Kyrie Irving (right) before game action against China in the first half during an exhibition basketball game at Staples Center. Mandatory Credit: Gary A. Vasquez-USA TODAY Sports",
+        "domain": "hoopshabit.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Spurs make it official, sign Pau Gasol  Orlando Sentinel",
+        "content": "S p u r s   m a k e   i t   o f f i c i a l ,   s i g n   P a u   G a s o l      O r l a n d o   S e n t i n e l",
+        "caption": "Pau Gasol shoots over the 76ers' Jahlil Okafor during the...",
+        "domain": "www.orlandosentinel.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are 0.0, indicating that the candidate images do not match the image described by the news caption. Furthermore, the caption similarity scores are also 0.0, meaning the candidate captions are not similar to the news caption. Candidate 1 features Kevin Durant, DeMarcus Cousins, and Kyrie Irving playing against China, while the news caption describes Pau Gasol of Spain playing against Paul George of the United States. Candidate 2 features Pau Gasol playing against Jahlil Okafor of the 76ers. Neither candidate provides any information that confirms the details in the news caption. Therefore, based on the available evidence, the news caption is not verifiable.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result returned a confidence score of 2, indicating a low match between the candidate images and the news caption. The similarity scores for both candidate images and captions are 0.0, implying no alignment with the news caption. The provided image shows a basketball player in a white jersey attempting a shot, with another player in a blue jersey defending. The caption mentions Pau Gasol of Spain playing against Paul George of the United States. While the image displays elements of a basketball game, there is no definitive way to confirm it is Pau Gasol playing against Paul George. Therefore, the caption is considered out of context.",
+    "validation_summary": "The news caption's claims regarding the players and their teams cannot be verified from the image, so it would mislead viewers about the context of the picture. Based on the image check results, the image does not support the news caption's description of Pau Gasol playing against Paul George in a basketball game."
+  },
+  "inference_time": 4.368539094924927,
+  "ablation_type": "no_filters"
+}

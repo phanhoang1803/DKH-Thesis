@@ -1,0 +1,62 @@
+{
+  "caption": "Joel McHale left and jockey Victor Espinoza onstage",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Video and photos: Emotional Caitlyn Jenner accepts Ashe Courage Award at ESPYs  Orange County Register",
+        "content": "V i d e o   a n d   p h o t o s :   E m o t i o n a l   C a i t l y n   J e n n e r   a c c e p t s   A s h e   C o u r a g e   . . .",
+        "caption": "Host Joel McHale and jockey Victor Espinoza walk onstage during...",
+        "domain": "www.ocregister.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5416316986083984,
+        "text_similarity_score": 0.9109926819801331
+      },
+      {
+        "title": "2015 ESPY Awards show",
+        "content": "2 0 1 5   E S P Y   A w a r d s   s h o w",
+        "caption": "Presenter Joel McHale, left, and jockey Victor Espinoza onstage at the ESPY Awards at the Microsoft Theater on Wednesday, July 15, 2015, in Los Angeles. (Photo by Chris Pizzello/Invision/AP)",
+        "domain": "www.oklahoman.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9638763666152954,
+        "text_similarity_score": 0.8101882934570312
+      },
+      {
+        "title": "2015 ESPY Awards show",
+        "content": "2 0 1 5   E S P Y   A w a r d s   s h o w",
+        "caption": "Jockey Victor Espinoza, left, and presenter Joel McHale onstage at the ESPY Awards at the Microsoft Theater on Wednesday, July 15, 2015, in Los Angeles. (Photo by Chris Pizzello/Invision/AP)",
+        "domain": "www.oklahoman.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5279338359832764,
+        "text_similarity_score": 0.8076052069664001
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the candidate evidences, the news caption \"Joel McHale left and jockey Victor Espinoza onstage\" is accurate. Candidate 2 has an image similarity score of 0.9638763666152954 (≥ 0.85) and a text similarity score of 0.8101882934570312 (≥ 0.7). Candidate 1 has a high text similarity score 0.9109926819801331 (≥ 0.7). Candidate 3 has a high text similarity score 0.8076052069664001 (≥ 0.7). All three candidates also mention Joel McHale and Victor Espinoza are on stage together, thus confirming the news caption.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: Host Joel McHale and jockey Victor Espinoza walk onstage during...",
+        "Candidate 2: Caption: Presenter Joel McHale, left, and jockey Victor Espinoza onstage at the ESPY Awards at the Microsoft Theater on Wednesday, July 15, 2015, in Los Angeles.",
+        "Candidate 3: Caption: Jockey Victor Espinoza, left, and presenter Joel McHale onstage at the ESPY Awards at the Microsoft Theater on Wednesday, July 15, 2015, in Los Angeles."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 10, indicating a high degree of certainty. The image check result states that the news caption \"Joel McHale left and jockey Victor Espinoza onstage\" is accurate, supported by multiple candidate evidences. The candidate evidences also have a high degree of text and image similarity, confirming that the people mentioned in the caption are indeed in the image. Therefore, based on the image check result, the image is not out of context.",
+    "validation_summary": "The caption accurately identifies the people in the image and their presence on stage, so viewers are unlikely to be misled about what they are seeing. The high confidence score of the image check further supports this assessment."
+  },
+  "inference_time": 7.576579809188843,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

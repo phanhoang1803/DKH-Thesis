@@ -1,0 +1,52 @@
+{
+  "caption": "Vice President Joe Biden talks about the future of photonics during his visit to Canal Ponds in Greece Monday July 27 2015",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "United States presidential election debates, 2016",
+      "United States",
+      "Debate",
+      "Commission on Presidential Debates",
+      "Politics",
+      "General election",
+      "Presidential nominee",
+      "Candidate",
+      "succeeding"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Biden, Cuomo announce photonics investment",
+        "content": "B i d e n ,   C u o m o   a n n o u n c e   p h o t o n i c s   i n v e s t m e n t",
+        "caption": "Photographer's tweet from Canal Ponds in Greece: \"So what happens when you have to stay in place?  Chuckwagon for the officers.\" Vice President Joe Biden is visiting to discuss a photonics hub in the area.",
+        "domain": "www.democratandchronicle.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Biden, Cuomo announce photonics investment",
+        "content": "B i d e n ,   C u o m o   a n n o u n c e   p h o t o n i c s   i n v e s t m e n t",
+        "caption": "The presidential seal is affixed to a podium at Canal \nPonds in Greece in preparation for Vice President Joe Biden's announcement about photonics.",
+        "domain": "www.democratandchronicle.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The news caption states that Vice President Joe Biden talked about the future of photonics during his visit to Canal Ponds in Greece on Monday, July 27, 2015. Candidate 1 mentions Joe Biden visiting Canal Ponds in Greece to discuss a photonics hub. Candidate 2 mentions the presidential seal being affixed to a podium at Canal Ponds in Greece in preparation for Vice President Joe Biden's announcement about photonics. However, the candidates do not explicitly confirm the date (July 27, 2015) or that Biden was specifically talking about the future of photonics. Given that key details are missing, the caption is not fully verified.",
+      "supporting_evidences": [
+        "Candidate 1: Photographer's tweet from Canal Ponds in Greece: \"So what happens when you have to stay in place? Chuckwagon for the officers.\" Vice President Joe Biden is visiting to discuss a photonics hub in the area.",
+        "Candidate 2: The presidential seal is affixed to a podium at Canal \nPonds in Greece in preparation for Vice President Joe Biden's announcement about photonics."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts a stage set up for what appears to be a debate or formal discussion. There are people seated at a table and others working on the set, including individuals on a ladder. There is a large eagle emblem on the wall. The caption, however, describes Vice President Joe Biden talking about photonics during a visit to Canal Ponds in Greece. The image does not show Joe Biden, photonics equipment, or anything related to Canal Ponds in Greece. The scene depicted in the photo is markedly different from the scene described in the caption, suggesting a mismatch between the visual content and the caption's description.",
+    "validation_summary": "The image shows a stage set, while the caption describes Joe Biden discussing photonics in Greece, leading to a high likelihood of viewers being misled about the image's content. The image check result corroborates this with a confidence score of 6 and states that key details are missing, indicating that the caption is not fully verified."
+  },
+  "inference_time": 4.4689342975616455,
+  "ablation_type": "no_filters"
+}

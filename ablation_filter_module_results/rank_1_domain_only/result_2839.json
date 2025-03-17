@@ -1,0 +1,38 @@
+{
+  "caption": "Hillary Clinton pressed on email server during Iowa town hall",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Hillary Clinton to turn over private email server to Justice | CNN Politics",
+        "content": "H i l l a r y   C l i n t o n   t o   t u r n   o v e r   p r i v a t e   e m a i l   s e r v e r   t o   J u s t i c e   |   C N N   . . .",
+        "caption": "Democratic presidential candidate Hillary Clinton takes questions from reporters following a town hall meeting at Exeter High School August 10, 2015 in Exeter, New Hampshire.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0, which means that the images do not match and the captions do not match. The candidate caption mentions Hillary Clinton taking questions from reporters following a town hall meeting at Exeter High School August 10, 2015 in Exeter, New Hampshire. The news caption mentions Hillary Clinton pressed on email server during Iowa town hall. The candidate caption does not provide any information related to the news caption so the verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the images do not match, and the captions also do not match. The confidence score is high (2, adjusted to 10 due to the instructions) which means that the image is out of context. The news caption mentions Hillary Clinton pressed on email server during Iowa town hall, while the image shows Hillary Clinton speaking at an event with \"USHCC\" logos in the background, seemingly unrelated to the specific claim in the caption.",
+    "validation_summary": "The caption and image do not match, suggesting the image is used out of context. Viewers would be misled about the specific event or topic being discussed by Hillary Clinton in the image based on the caption's claim about an Iowa town hall and email server issues."
+  },
+  "inference_time": 5.3142523765563965,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

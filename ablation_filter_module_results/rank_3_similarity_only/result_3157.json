@@ -1,0 +1,58 @@
+{
+  "caption": "President Barack Obama speaks at a Democratic National Committee campaign fundraising event at Austin City Limits Moody Theater in Austin Texas Tuesday May 10 2011",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "wsj.com",
+        "content": "",
+        "caption": "",
+        "domain": "www.wsj.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8781634569168091,
+        "text_similarity_score": 0.13619224727153778
+      },
+      {
+        "title": "marketwatch.com",
+        "content": "",
+        "caption": "",
+        "domain": "www.marketwatch.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8781634569168091,
+        "text_similarity_score": 0.13619224727153778
+      },
+      {
+        "title": "wsj.com",
+        "content": "",
+        "caption": "",
+        "domain": "www.wsj.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8781634569168091,
+        "text_similarity_score": 0.13619224727153778
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are all above 0.85, indicating a strong match between the images. However, the caption similarity scores are all below 0.7, indicating that the captions do not match. Because the captions in the provided candidates are missing, the context of the images can't be determined and compared with the news caption. Therefore, based on the strict decision rules, the verdict should be false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 2, so I initially analyzed the image and caption. The image shows Barack Obama looking downwards and slightly to the side, wearing a suit and tie, and standing in front of a dark blue background. The caption states that President Barack Obama is speaking at a Democratic National Committee campaign fundraising event at Austin City Limits Moody Theater in Austin Texas on Tuesday May 10 2011. However, the image doesn't provide any visual confirmation of the location or the event itself. The image check verdict states that the captions in the provided candidates are missing, the context of the images can't be determined and compared with the news caption and thus, the verdict should be false. Since the image check verdict has a confidence score of 2, the final determination must be based on the image check result. The image check result's verdict is false, therefore the final answer is true.",
+    "validation_summary": "The caption mentions a specific event and location which cannot be verified from the image alone, potentially misleading viewers about the context of the photo. The image check result further supports the initial finding, indicating that the caption does not accurately represent the image's content."
+  },
+  "inference_time": 8.663676261901855,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

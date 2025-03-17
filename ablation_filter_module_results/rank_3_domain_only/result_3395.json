@@ -1,0 +1,45 @@
+{
+  "caption": "Andrew MedichiniAssociated Press Pope Francis celebrates a Mass in St Peter s Basilica at the Vatican Saturday Nov 23 2013",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "San Diego bishop among 20 elevated to cardinal  San Diego Union-Tribune",
+        "content": "S a n   D i e g o   b i s h o p   a m o n g   2 0   e l e v a t e d   t o   c a r d i n a l      S a n   D i e g o   U n i o n   . . .",
+        "caption": "Pope Francis prays in front of new Cardinals during consistory...",
+        "domain": "www.sandiegouniontribune.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Former Pope Benedict aide's book said to expose  'dark maneuvers' - Los Angeles Times",
+        "content": "F o r m e r   P o p e   B e n e d i c t   a i d e ' s   b o o k   s a i d   t o   e x p o s e   ' d a r k   m a n e u v e r s   . . .",
+        "caption": "A man in a red head covering in a church ",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "Both candidates have low image and text similarity scores. Candidate 1 mentions 'Pope Francis' which aligns with the news caption. However, the event details don't match. Candidate 2 mentions a 'man in a red head covering in a church' which could be related to the news caption but lacks specific details such as name or location. Because the image similarity score is low and the caption similarity score is also low, I cannot verify that the news caption accurately represents the image. There is no specific detail extracted from the candidates that allows to confirm that the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low image and text similarity score between the image and the provided news caption, and I concur. The image depicts Pope Francis greeting individuals, including Joe Biden and John Boehner, at a podium, likely during an address to Congress. The caption, however, describes Pope Francis celebrating Mass in St. Peter's Basilica, which is completely different from what is shown in the image. Therefore, the caption misrepresents the image content.",
+    "validation_summary": "The caption incorrectly describes the image as Pope Francis celebrating Mass at the Vatican, while the image actually shows him greeting political figures at a podium, leading to a misrepresentation of the image's content to viewers. Given the high confidence score from the image check, the caption is considered out of context."
+  },
+  "inference_time": 4.326246500015259,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

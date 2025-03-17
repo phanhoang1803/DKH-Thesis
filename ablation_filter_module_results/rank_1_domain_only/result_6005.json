@@ -1,0 +1,40 @@
+{
+  "caption": "Democratic presidential candidate Bernie Sanders speaks at an event sponsored by Institute of Politics at the University of Chicago recently",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "This is the best indication yet that Bernie Sanders is serious about winning | Vox",
+        "content": "T h i s   i s   t h e   b e s t   i n d i c a t i o n   y e t   t h a t   B e r n i e   S a n d e r s   i s   s e r i o u s   . . .",
+        "caption": "Democratic presidential candidate Senator Bernie Sanders (I-VT) speaks to guests at an event sponsored by Institute of Politics at the University of Chicago on September 28, 2015, in Chicago, Illinois.",
+        "domain": "www.vox.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. According to the instructions, I should perform analysis based on the captions and candidate to give the final decision. The candidate caption refers to 'Democratic presidential candidate Senator Bernie Sanders (I-VT) speaks to guests at an event sponsored by Institute of Politics at the University of Chicago on September 28, 2015, in Chicago, Illinois.' This confirms that Bernie Sanders was a Democratic presidential candidate and spoke at an event sponsored by the Institute of Politics at the University of Chicago. However, it also specifies a date (September 28, 2015), which is not mentioned in the original news caption. Since the date is not confirmed by the provided evidence, and there is no way to confirm the exact date of the event shown in the image, I cannot fully verify the caption.",
+      "supporting_evidences": [
+        "Democratic presidential candidate Senator Bernie Sanders (I-VT) speaks to guests at an event sponsored by Institute of Politics at the University of Chicago on September 28, 2015, in Chicago, Illinois."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows Barack Obama, not Bernie Sanders as the caption claims. The news content is about Bernie Sanders, but the image does not depict him. Therefore, the caption is misleading and the image is out of context. The image check result also has a high confidence score of 6, further supporting the determination of OOC=True.",
+    "validation_summary": "The caption incorrectly identifies the person in the image as Bernie Sanders instead of Barack Obama, misleading viewers about the image's content. The image is therefore out of context with the caption provided, given the misidentification of the individual depicted."
+  },
+  "inference_time": 4.788089036941528,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

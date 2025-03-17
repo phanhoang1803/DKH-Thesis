@@ -1,0 +1,45 @@
+{
+  "caption": "China has maintained tight security in Xinjiang amid fears of Uighur separatism",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Boston police comb Watertown for bombing suspect  in pictures | US news | The Guardian",
+        "content": "F r i   1 9   A p r   2 0 1 3   1 2 . 3 9  B S T \n \n \n                         F i r s t   p u b l i s h e d   o n   F r i   1 9   A p r   2 0 1 3   1 2 . 3 9  B S T \n \n P h o t o g r a p h :   M a r i o   T a m a / G e t t y   I m a g e s \n \n P h o t o g r a p h :   L u c a s   J a c k s o n / R e u t e r s \n \n P h o t o g r a p h :   M a r i o   T a m a / G e t t y   I m a g e s \n \n P h o t o g r a p h :   X i n h u a   / L a n d o v   /   B a r c r o f t   M e d i a / B a r c r o f t   M e d i a \n \n P h o t o g r a p h :   K a y a n a   S z y m c z a k / G e t t y   I m a g e s \n \n P h o t o g r a p h :   K a y a n a   S z y m c z a k / G e t t y   I m a g e s \n \n P h o t o g r a p h :   J o h n   M o t t e r n / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   M a t t   C a m p b e l l / E P A \n \n P h o t o g r a p h :   A l l i s o n   S h e l l e y / G e t t y   I m a g e s \n \n P h o t o g r a p h :   C J   G u n t h e r / E P A \n \n P h o t o g r a p h :   R e x   F e a t u r e s / Z u m a \n \n P h o t o g r a p h :   C h a r l e s   K r u p a / A P \n \n P h o t o g r a p h :   D a r r e n   M c C o l l e s t e r / G e t t y   I m a g e s \n \n P h o t o g r a p h :   M a t t   C a m p b e l l / E P A \n \n P h o t o g r a p h :   M a t t   C a m p b e l l / E P A \n \n P h o t o g r a p h :   B a r c r o f t   M e d i a \n \n P h o t o g r a p h :   B a r c r o f t   M e d i a \n \n P h o t o g r a p h :   D a r r e n   M c C o l l e s t e r / G e t t y   I m a g e s \n \n P h o t o g r a p h :   S t a n   H o n d a / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   D a r r e n   M c C o l l e s t e r / G e t t y   I m a g e s",
+        "caption": "Watertown crime scene: Metro SWAT members hang off the back of a truck",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Uighurs sent back from Thailand were on way to join jihad, says China | China | The Guardian",
+        "content": "U i g h u r s   s e n t   b a c k   f r o m   T h a i l a n d   w e r e   o n   w a y   t o   j o i n   j i h a d ,   s a y s   . . .",
+        "caption": "Uighurs protest about the deportations outside the Thai embassy in Ankara, Turkey.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The news caption discusses the security situation in Xinjiang and concerns regarding Uighur separatism. Candidate 1 describes a crime scene in Watertown, which is irrelevant to the news caption. Candidate 2 mentions Uighurs protesting deportations in Ankara, Turkey. While this relates to Uighurs, it doesn't directly confirm the security situation in Xinjiang or Uighur separatism mentioned in the news caption. Since the image similarity scores are both 0.0, and the text similarity scores are below 0.7, the candidates do not provide sufficient evidence to support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows armed SWAT officers in tactical gear, which is a generic depiction of law enforcement or security forces. The caption talks about security in Xinjiang due to Uighur separatism, but the image does not provide any evidence linking the scene to Xinjiang or Uighurs. There are no visual cues that indicate a specific location or cultural context related to the caption's content. The image might suggest a heightened security situation, but it doesn't specifically reflect the news content about China's policies in Xinjiang. The image check result indicates the supporting evidence is weak and that the candidates do not sufficiently support the news caption. Therefore, the image is out of context because it doesn't directly or clearly relate to the events or issues described in the news caption.",
+    "validation_summary": "The image shows armed officers, which doesn't directly relate to the news content about Xinjiang and Uighur separatism, misleading viewers into thinking the image is depicting that specific situation when it's not. Therefore, the image is used out of context of the news story."
+  },
+  "inference_time": 5.764918565750122,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

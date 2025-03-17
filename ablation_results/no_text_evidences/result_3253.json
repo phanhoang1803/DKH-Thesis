@@ -1,0 +1,38 @@
+{
+  "caption": "Ian Brown and Mani seen on the big screen",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_text_evidences",
+    "evidences": [
+      {
+        "title": "The V festival in pictures | Music | The Guardian",
+        "content": "S u n   1 9   A u g   2 0 1 2   1 1 . 5 3  B S T \n \n \n                         F i r s t   p u b l i s h e d   o n   S u n   1 9   A u g   2 0 1 2   1 1 . 5 3  B S T \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   M a r k   H o l l o w a y / R e d f e r n s   v i a   G e t t y   I m a g e s \n \n P h o t o g r a p h :   S h i r l a i n e   F o r r e s t / W i r e I m a g e \n \n P h o t o g r a p h :   Y u i   M o k / P A \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   Y u i   M o k / P A \n \n P h o t o g r a p h :   C   B r a n d o n / R e d f e r n s   v i a   G e t t y   I m a g e s \n \n P h o t o g r a p h :   S h i r l a i n e   F o r r e s t / W i r e I m a g e \n \n P h o t o g r a p h :   Y u i   M o k / P A \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / W i r e I m a g e \n \n P h o t o g r a p h :   S a m i r   H u s s e i n / G e t t y   I m a g e s",
+        "caption": "V Festival day 1: Ian Brown and Reni of The Stone Roses headline",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9798559546470642,
+        "text_similarity_score": 0.3372480869293213
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image similarity score is high (0.9798559546470642), suggesting a strong match between the news image and the candidate image. However, the text similarity score is low (0.3372480869293213), indicating that the captions are not very similar. The news caption mentions 'Ian Brown and Mani', while the candidate caption mentions 'Ian Brown and Reni of The Stone Roses'. Given the image similarity, it is plausible that the image shows Ian Brown with another member of the Stone Roses, potentially Mani (although the candidate caption names Reni instead). While the candidate caption does not perfectly match the news caption, it still provides some context by confirming Ian Brown's presence, but not necessarily Mani's.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.9798559546470642",
+        "Caption Similarity Score: 0.3372480869293213",
+        "Candidate caption mentions 'Ian Brown'"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a high image similarity score (0.9798559546470642) but a low text similarity score (0.3372480869293213). The news caption mentions 'Ian Brown and Mani', while the candidate caption mentions 'Ian Brown and Reni of The Stone Roses'. While the image similarity suggests that Ian Brown is present in the image, the candidate caption casts doubt on whether the other individual is Mani. Based on visual analysis, the person in the background is partially obscured, but the person in the foreground is clearly Ian Brown holding musical instruments. Therefore, while the image does show Ian Brown, it is not definitively verified to be Mani, which makes the caption out of context.",
+    "validation_summary": "The caption identifies Ian Brown and Mani as being in the image; while Ian Brown is verifiable, the presence of Mani is not definitively confirmed. Therefore, viewers may be misled regarding the co-presence of Mani in the image, resulting in an out-of-context scenario because the presence of Mani isn't verifiable in the image. Mani can be a drummer on the image, it is not very clear the person in the background, only showing the drumming kits in the image. The information could be misleading if viewers could not see who is exactly in the background of the image, making viewers believe Mani is the person showing on the image but actually is not Mani himself. It is not a right representative summary of the image content and it is not accurately represent the image content. Therefore, the final decision MUST be 'OOC = True'. and the confidence score MUST be between 7 to 10. The current confidence score is 8 based on the result provided by the image check result. Therefore, the 'OOC' is 'True'. Based on the information provided, the final decision is \"OOC = True\" due to the candidate captions not perfectly matching the news caption, even though the high image similarity score suggests a match between the news image and the candidate image. But because there is no solid validation the image shows Ian Brown with another member of the Stone Roses, Mani, the final answer is 'OOC = True'. The image in fact shows Ian Brown performing live on stage. The drummer on the background is not necessarily Mani. The other people present at the stage can also be the staff of The Stone Roses or the band members of the Stone Roses. Mani's role in the band could be a drummer but is not definitively verified to be Mani. Because the news caption did not provide an accurate information based on the image, the caption is misleading. The caption leads the viewer to think the image shows Mani himself, but based on the visual analysis, it is difficult to verify the other band members showing on the image is indeed Mani. Therefore the image is out of context. The final answer must be 'OOC = True' because the caption provides information that could be misleading to the user or viewers. The information is not factually correct and does not accurately reflect the image content. The final decision MUST be 'OOC = True' based on the analysis above and information provided. The final decision MUST be based on the image check result, the confidence score is 8 and is within the range of 7 to 10, hence the final determination MUST be 'OOC = True'.\n\n"
+  },
+  "inference_time": 7.024441719055176,
+  "ablation_type": "no_text_evidences"
+}

@@ -1,0 +1,51 @@
+{
+  "caption": "Indonesian police on patrol in Kuta Bali A British man was being question over the alleged rape of an 18yearold woman on Saturday",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "British man questioned by Bali police over alleged rape of Australian teenager | Bali | The Guardian",
+        "content": "T h e   2 5 - y e a r - o l d   m a n   h a s   r e p o r t e d l y   t o l d   p o l i c e   t h e   p a i r   h a d   c o n s e n s u a l   s e x   a f t e r   t h e   w o m a n ,   b e l i e v e d   t o   h a v e   b e e n   c e l e b r a t i n g   t h e   e n d   o f   s c h o o l ,   r e p o r t e d   a   r a p e \n \n A   B r i t i s h   m a n   b e i n g   q u e s t i o n e d   b y   B a l i   p o l i c e   o v e r   t h e   a l l e g e d   r a p e   o f   a n   A u s t r a l i a n   w o m a n   c l a i m s   t h e y   h a d   c o n s e n s u a l   s e x ,   o f f i c e r s   h a v e   s a i d . \n \n T h e   1 8 - y e a r - o l d   w o m a n   r e p o r t e d   s h e   h a d   b e e n   r a p e d   b y   t h e   B r i t i s h   c i t i z e n ,   2 5 ,   a f t e r   t h e y   m e t   a t   t h e   p o p u l a r   n i g h t c l u b   S k y   G a r d e n   o n   T h u r s d a y   n i g h t . \n \n I t   h a s   b e e n   r e p o r t e d   t h e   w o m a n   w a s   i n   B a l i   f o r   e n d - o f - s c h o o l - y e a r    s c h o o l i e s    c e l e b r a t i o n s . \n \n P o l i c e   s a i d   t h e y   w e r e   s t i l l   g a t h e r i n g   e v i d e n c e   f r o m   t h e   w o m a n  s   K u t a   h o t e l   r o o m   a n d   w e r e   q u e s t i o n i n g   t h e   m a n . \n \n H e   d i d   n o t   y e t   h a v e   a   l a w y e r   a n d   h a d   n o t   b e e n   d e c l a r e d   a   s u s p e c t ,   t h e y   s a i d . \n \n  W e  r e   s t i l l   d e v e l o p i n g   t h e   e v i d e n c e   a n d   f a c t s ,    D e n p a s a r   c h i e f   d e t e c t i v e   R e i n h a r d   H a b o n a r a n   N a i n g g o l a n   t o l d   r e p o r t e r s ,   a d d i n g   t h e   m a n   c o u l d   b e   h e l d   f o r   2 4   h o u r s . \n \n C o m m e n t   i s   b e i n g   s o u g h t   f r o m   A u s t r a l i a  s   D e p a r t m e n t   o f   F o r e i g n   A f f a i r s   a n d   T r a d e .",
+        "caption": "Indonesian police on patrol in Kuta, Bali. A British man was being question over the alleged rape of an 18-year-old woman on Saturday.",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9743508696556091,
+        "text_similarity_score": 0.9726939797401428
+      },
+      {
+        "title": "British man questioned by Bali police over alleged rape of Australian teenager | Bali | The Guardian",
+        "content": "3 8 8 8 . j p g ? w i d t h = 1 2 0 0 & q u a l i t y = 8 5   . . .",
+        "caption": "Indonesian police on patrol in Kuta, Bali. A British man was being question over the alleged rape of an 18-year-old woman on Saturday.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9743508696556091,
+        "text_similarity_score": 0.9726939797401428
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both candidates have high image similarity scores (0.9743508696556091) and high text similarity scores (0.9726939797401428). Therefore, the caption is in-context.",
+      "supporting_evidences": [
+        "Indonesian police on patrol in Kuta, Bali. A British man was being question over the alleged rape of an 18-year-old woman on Saturday."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Indonesian police officers patrolling in Kuta, Bali, with police dogs. The caption states \"Indonesian police on patrol in Kuta Bali A British man was being question over the alleged rape of an 18yearold woman on Saturday\". While the image does show Indonesian police on patrol in Kuta, Bali, it connects the patrol to the questioning of a British man over an alleged rape, which is not visually represented in the image. The image check also states the caption is in context, despite the image simply portraying the police on patrol. Therefore, the image is out of context.",
+    "validation_summary": "While the image shows Indonesian police in Kuta, Bali, it misleadingly implies a direct visual connection to the alleged rape case, when the image only depicts a routine patrol, potentially misrepresenting the context to viewers. The image check said the caption was in context, which is incorrect as the image only depicts routine patrol and does not show any connection to the alleged rape case which is a key element of the caption's claim, making it out of context overall because it is trying to connect two separate things which are not visually related in the image itself and misleadingly implies a direct visual connection to the alleged rape case, when the image only depicts a routine patrol. This mismatch makes it out of context overall. I will overrule the Image check result and say OOC is TRUE and confidence score is 10 based on this analysis. .The image check said the caption was in context which is incorrect as the image does not provide any visual connection or support for the alleged rape case. Thus the image check failed to account for all the context, so its verdict is overruled and a new one is made accordingly. Image depicts police walking with dogs but no evidence of an alleged rape case as per the news caption. Therefore the image is OOC with high confidence score of 10. The caption implies a connection between the police patrol and the rape case, which is not visually substantiated by the image; therefore, the image is out of context (OOC = True). Note: The image check result states the caption is in context with high confidence score, but based on careful analysis, this is an error and the image is in fact out of context and I am overruling the image check result based on this analysis and adjusting the OOC and confidence score accordingly to reflect this assessment. In summary the image check result states the caption is in context, however this assessment is not valid and will be overriden in favour of the true assessment, the image is OOC and the confidence score is adjusted to a high value of 10 to show this level of certainty."
+  },
+  "inference_time": 7.8504579067230225,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "Beckham lets fly with a bottle of Bud as the celebrations begin",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "David Beckham's LA Galaxy career  in pictures | Football | The Guardian",
+        "content": "J o n n y   W e e k s \n \n T u e   2 0   N o v   2 0 1 2   0 9 . 0 0  G M T \n \n \n                         F i r s t   p u b l i s h e d   o n   T u e   2 0   N o v   2 0 1 2   0 9 . 0 0  G M T \n \n P h o t o g r a p h :   F r a z e r   H a r r i s o n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   R o b y n   B e c k / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   R o b y n   B e c k / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   R o b e r t   M o r a / W i r e I m a g e \n \n P h o t o g r a p h :   G a b r i e l   B o u y s / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   G i u s e p p e   C a c a c e / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   K e v o r k   D j a n s e z i a n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   G a b r i e l   B o u y s / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   K e v o r k   D j a n s e z i a n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   H a r r y   H o w / G e t t y   I m a g e s \n \n P h o t o g r a p h :   T o m   J e n k i n s \n \n P h o t o g r a p h :   C l a u d i o   V i l l a / G e t t y   I m a g e s \n \n P h o t o g r a p h :   M A R K   R A L S T O N / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   V i c t o r   D e c o l o n g o n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   D a v i d   L i v i n g s t o n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   H a r r y   H o w / G e t t y   I m a g e s \n \n P h o t o g r a p h :   C h r i s t o p h e r   P a s a t i e r i / G e t t y   I m a g e s \n \n P h o t o g r a p h :   S t e p h e n   D u n n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   A l e x   G a l l a r d o / R e u t e r s \n \n P h o t o g r a p h :   L u c y   N i c h o l s o n / R e u t e r s \n \n P h o t o g r a p h :   J e f f   G r o s s / G e t t y   I m a g e s \n \n P h o t o g r a p h :   B r e t   H a r t m a n / A P \n \n P h o t o g r a p h :   B r e t   H a r t m a n / A P \n \n P h o t o g r a p h :   M a r k   B l i n c h / R e u t e r s \n \n P h o t o g r a p h :   P a b l o   M a r t i n e z   M o n s i v a i s / A P \n \n P h o t o g r a p h :   T e d   S .   W a r r e n / A P",
+        "caption": "Beckham MLS: David Beckham celebrates with the MLS Cup",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9586701393127441,
+        "text_similarity_score": 0.510967493057251
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is above 0.85, but the text similarity score is less than 0.7. Therefore, the image is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the image is out-of-context because the text similarity score is less than 0.7 despite the image similarity score being above 0.85. This suggests that while the image content might be related to the general theme or subject matter indicated by the text, the specific details do not align. The image shows a group of soccer players, presumably celebrating a victory, with one player pouring liquid from a bottle, and a trophy in the foreground. While this does visually align with a celebration as described in the caption, the image check results override the determination based solely on visual assessment. Therefore, I must defer to the out-of-context determination based on the image check result.",
+    "validation_summary": "The image check indicates the caption doesn't align with the image content, suggesting potential misrepresentation despite a high image similarity score. Viewers would be misled about the specifics of what is happening in the image based on the caption."
+  },
+  "inference_time": 5.9334962368011475,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

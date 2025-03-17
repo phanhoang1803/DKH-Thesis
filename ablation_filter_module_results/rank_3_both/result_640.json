@@ -1,0 +1,52 @@
+{
+  "caption": "A building burns after an explosion on Second Avenue on March 26 2015 in New York City",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Blast, fire erupt in NYC's East Village; 19 hurt",
+        "content": "6 3 5 6 2 9 8 5 0 5 7 2 4 7 3 4 6 4 - G T Y -   . . .",
+        "caption": "A building burns after an explosion on Second Avenue on March 26, 2015, in New York City.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9461617469787598,
+        "text_similarity_score": 0.9828755855560303
+      },
+      {
+        "title": "Explosion, fire rips building in NYC's East Village",
+        "content": "E x p l o s i o n ,   f i r e   r i p s   b u i l d i n g   i n   N Y C ' s   E a s t   V i l l a g e",
+        "caption": "A building burns after an explosion on Second Avenue on March 26, 2015, in New York City.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9456583857536316,
+        "text_similarity_score": 0.9828755855560303
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both candidate captions are almost identical to the news caption, with very high similarity scores (0.946 and 0.945 for image similarity, and 0.982 for text similarity). They confirm the event, location (Second Avenue, New York City), and date (March 26, 2015) mentioned in the news caption, indicating the news caption is accurate.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: A building burns after an explosion on Second Avenue on March 26, 2015, in New York City. Image Similarity Score: 0.9461617469787598, Caption Similarity Score: 0.9828755855560303",
+        "Candidate 2: Caption: A building burns after an explosion on Second Avenue on March 26, 2015, in New York City. Image Similarity Score: 0.9456583857536316, Caption Similarity Score: 0.9828755855560303"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high degree of similarity between the provided image and other images associated with the news caption. Both image similarity scores (0.946 and 0.945) and caption similarity scores (0.982) are very high. The candidate captions confirm the event, location (Second Avenue, New York City), and date (March 26, 2015) mentioned in the news caption. Based on the image check result, the news caption accurately represents the image content.",
+    "validation_summary": "The high similarity scores from the image check confirm that the caption accurately represents the image, indicating that viewers would not be misled. The caption provides an accurate summary of the event depicted in the image."
+  },
+  "inference_time": 4.991616725921631,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "caption": "Los Angeles Kings right wing Justin Williams celebrates with teammates after scoring a goal during the first period",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Ice hockey",
+      "College ice hockey",
+      "Floor hockey",
+      "Ringette",
+      "Rink bandy",
+      "Bandy",
+      "Hockey",
+      "Inline hockey",
+      "Goalkeeper",
+      "Higher Education School"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Justin Williams helps Kings end slide with 4-2 win over Tampa Bay - Los Angeles Times",
+        "content": "J u s t i n   W i l l i a m s   h e l p s   K i n g s   e n d   s l i d e   w i t h   4 - 2   w i n   o v e r   T a m p a   B a y   . . .",
+        "caption": "Kings right wing Justin Williams celebrates with teammate Trevor Lewis, left, after scoring in the first period, the first of his two goals in the game Saturday at Tampa Bay.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.816944420337677,
+        "text_similarity_score": 0.8588582277297974
+      },
+      {
+        "title": "Kings top Sharks in Game 7",
+        "content": "K i n g s   t o p   S h a r k s   i n   G a m e   7",
+        "caption": "Los Angeles Kings right wing Justin Williams (14) celebrates with teammates Trevor Lewis (22) and Dustin Brown (23) after scoring a goal against the San Jose Sharks in the second period.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8274088501930237,
+        "text_similarity_score": 0.7871767282485962
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "Both candidate captions describe Justin Williams celebrating with teammates after scoring a goal. Candidate 1 has a image similarity score of 0.8169 and a caption similarity score of 0.8589. Candidate 2 has a image similarity score of 0.8274 and a caption similarity score of 0.7872. Although both image similarity scores are less than 0.85, both captions are in context of the news caption. The news caption states that \"Los Angeles Kings right wing Justin Williams celebrates with teammates after scoring a goal during the first period\", candidate 1 caption states that \"Kings right wing Justin Williams celebrates with teammate Trevor Lewis, left, after scoring in the first period, the first of his two goals in the game Saturday at Tampa Bay\", and candidate 2 caption states that \"Los Angeles Kings right wing Justin Williams (14) celebrates with teammates Trevor Lewis (22) and Dustin Brown (23) after scoring a goal against the San Jose Sharks in the second period.\".",
+      "supporting_evidences": [
+        "Candidate 1: Caption: Kings right wing Justin Williams celebrates with teammate Trevor Lewis, left, after scoring in the first period, the first of his two goals in the game Saturday at Tampa Bay. Image Similarity Score: 0.816944420337677; Caption Similarity Score: 0.8588582277297974",
+        "Candidate 2: Caption: Los Angeles Kings right wing Justin Williams (14) celebrates with teammates Trevor Lewis (22) and Dustin Brown (23) after scoring a goal against the San Jose Sharks in the second period. Image Similarity Score: 0.8274088501930237; Caption Similarity Score: 0.7871767282485962"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 9,
+    "explanation": "Based on the image check result, the caption accurately represents the image. The news caption describes Justin Williams celebrating with teammates after scoring a goal. The image check result provides supporting evidence from two candidate captions that also describe Justin Williams celebrating with teammates after scoring a goal. The image similarity scores of the candidate captions are 0.8169 and 0.8274, and the caption similarity scores are 0.8589 and 0.7872, respectively.",
+    "validation_summary": "The caption accurately describes the image, showing Justin Williams celebrating with his teammates after scoring a goal, so viewers would not be misled. The image check result supports this conclusion."
+  },
+  "inference_time": 7.891003131866455,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

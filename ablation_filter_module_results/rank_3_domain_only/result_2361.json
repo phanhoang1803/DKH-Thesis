@@ -1,0 +1,60 @@
+{
+  "caption": "Nigel Farage and Nick Clegg during the first debate",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Traffic sign",
+      "Traffic",
+      "Sign"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Nick Clegg aims to show emotional side in second debate with Nigel Farage | Nick Clegg | The Guardian",
+        "content": "N i c k   C l e g g   a i m s   t o   s h o w   e m o t i o n a l   s i d e   i n   s e c o n d   d e b a t e   w i t h   N i g e l   . . .",
+        "caption": "Nigel Farage and Nick Clegg during the first debate.  Photograph: Ian West/AFP/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Nick Clegg v Nigel Farage, round 2: getting the facts checked first | Brexit | The Guardian",
+        "content": "N i c k   C l e g g   v   N i g e l   F a r a g e ,   r o u n d   2 :   g e t t i n g   t h e   f a c t s   c h e c k e d   . . .",
+        "caption": "The first of the two debates was hosted by LBC radio presenter Nick Ferrari. Photograph: Ian West/AFP/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Things we learned from the Clegg v Farage debate - in gifs | Nick Clegg | The Guardian",
+        "content": "T h i n g s   w e   l e a r n e d   f r o m   t h e   C l e g g   v   F a r a g e   d e b a t e   -   i n   g i f s   |   N i c k   . . .",
+        "caption": "Deputy prime minister Nick Clegg and Ukip leader Nigel Farage debate Britains future in the European Union. Photograph: Ian West/AFP/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption mentions Nigel Farage and Nick Clegg during the first debate. Candidate 1 has the exact same caption. Candidate 2 mentions the first debate hosted by Nick Ferrari. Candidate 3 mentions Nick Clegg and Nigel Farage debate Britain's future in the European Union. Therefore, the news caption is likely accurate.",
+      "supporting_evidences": [
+        "Nigel Farage and Nick Clegg during the first debate. Photograph: Ian West/AFP/Getty Images",
+        "The first of the two debates was hosted by LBC radio presenter Nick Ferrari. Photograph: Ian West/AFP/Getty Images",
+        "Deputy prime minister Nick Clegg and Ukip leader Nigel Farage debate Britain’s future in the European Union. Photograph: Ian West/AFP/Getty Images"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows Nigel Farage standing near a 'No Right Turn' sign. The caption states, \"Nigel Farage and Nick Clegg during the first debate.\" The image only shows Nigel Farage; Nick Clegg is not present. The image does not depict a debate, so the caption is misleading. The 'Image Check Result' suggests the caption is accurate, but the image itself directly contradicts that claim. Therefore, despite the high confidence score of the Image Check Result, the actual image evidence prevails, and the image is Out of Context.",
+    "validation_summary": "The image shows only Nigel Farage and does not depict a debate, contradicting the caption which mentions both Farage and Clegg during a debate, misleading viewers about the image content. Despite the Image Check Result indicating accuracy, the visual evidence in the image overrides that assessment, proving the caption inaccurate to the image content itself."
+  },
+  "inference_time": 3.7849180698394775,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

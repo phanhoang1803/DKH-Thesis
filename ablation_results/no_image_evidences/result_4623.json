@@ -1,0 +1,43 @@
+{
+  "caption": "Michael Cera on the set of Crystal Fairy",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Pete Doherty",
+      "Getty Images",
+      "Getty Images",
+      "Actor",
+      "Photograph",
+      "London",
+      "Image",
+      "stock.xchng"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Michael Cera: from Superbad star to mescaline-soaked drug adventurer | Michael Cera | The Guardian",
+        "content": "M i c h a e l   C e r a :   f r o m   S u p e r b a d   s t a r   t o   m e s c a l i n e - s o a k e d   d r u g   . . .",
+        "caption": "Michael Cera on the set of Crystal Fairy",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2345506250858307,
+        "text_similarity_score": 1.0000001192092896
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.2345506250858307, which is less than 0.85. Therefore, according to the instructions, the caption is out-of-context. The text similarity score is 1.0000001192092896, which is greater than 0.7, but it does not matter because the image similarity score is too low.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result shows that the image similarity score is low (0.2345506250858307), indicating that the image content does not align well with the caption. Although the text similarity is high (1.0000001192092896), the low image similarity score takes precedence as per the instructions. The image shows a man in a pink sweater walking down a street. The caption identifies him as Michael Cera on the set of 'Crystal Fairy'. Without external validation, I cannot definitively confirm that the man in the image is Michael Cera or that the setting is related to the movie 'Crystal Fairy'. However, the low image similarity score returned by the image check suggests that the caption is out of context, meaning the image's visual content does not strongly support the claim made by the caption.",
+    "validation_summary": "The low image similarity score suggests the image is out of context, implying the image's visual content does not strongly support the claim made by the caption. Viewers may be misled about the image's connection to Michael Cera or the movie 'Crystal Fairy'. While the text similarity may be high, the image similarity score suggests that the image and caption are not related with high confidence, so it should be considered out-of-context. The man may or may not be Michael Cera, and he may or may not be on the set of Crystal Fairy. I cannot be certain based on the image alone."
+  },
+  "inference_time": 5.950399875640869,
+  "ablation_type": "no_image_evidences"
+}

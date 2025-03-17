@@ -1,0 +1,42 @@
+{
+  "caption": "Norbert Hofer addresses a news conference in Vienna Austria May 24 2016",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Debate"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Norbert Hofer steps down as leader of Austrian far-right party | Euronews",
+        "content": "N o r b e r t   H o f e r   s t e p s   d o w n   a s   l e a d e r   o f   A u s t r i a n   f a r - r i g h t   p a r t y   . . .",
+        "caption": "Norbert Hofer during a press conference in Vienna, Austria on May 20, 2019.",
+        "domain": "www.euronews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.328811377286911,
+        "text_similarity_score": 0.9155761003494263
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.328811377286911, which is less than 0.85. The text similarity score is 0.9155761003494263, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image similarity score is low (0.328811377286911) while the text similarity is high (0.9155761003494263). The instruction states that if the image similarity is less than 0.85, the caption should be marked as out-of-context. The image depicts a man at a podium addressing a crowd of people, who are clapping. The caption states \"Norbert Hofer addresses a news conference in Vienna Austria May 24 2016\", and the content of the news article is about European politicians making comments about Muslims. Given the instruction that we should follow the image check result, the caption is considered out of context.",
+    "validation_summary": "The image and caption do not align, as the visual content doesn't corroborate the specific details of the event described. The caption is therefore misleading as it provides a specific context that isn't supported by the image itself."
+  },
+  "inference_time": 5.098297357559204,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "caption": "Protesters shout next to a bus carrying some members of Brazil s national team The sign reads in Portuguese There will be not Cup There will be a strike",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Public pessimism reigns in Brazil as World Cup looms",
+        "content": "P u b l i c   p e s s i m i s m   r e i g n s   i n   B r a z i l   a s   W o r l d   C u p   l o o m s",
+        "caption": "Protesters shout next to a bus carrying some members of Brazil's national team The sign reads in Portuguese \"There will be not Cup. There will be a strike.\"",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2144940048456192,
+        "text_similarity_score": 0.9798662662506104
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is low (0.2144940048456192), indicating that the candidate image and the news image are not very similar. However, the text similarity score is high (0.9798662662506104), suggesting that the captions are very similar. Despite the high text similarity, the low image similarity prevents a definitive confirmation that the caption accurately represents the news image. The candidate caption describes protesters shouting next to a bus carrying members of Brazil's national team with a sign saying \"There will be not Cup. There will be a strike.\" Without a high image similarity score, it's difficult to be certain that the news image depicts the same scene as described in the candidate caption. While the captions align well, the images may show different contexts or events. Therefore, a 'False' verdict is appropriate due to the uncertain image context, despite the strong caption similarity.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.2144940048456192",
+        "Text Similarity Score: 0.9798662662506104",
+        "Candidate Caption: Protesters shout next to a bus carrying some members of Brazil's national team The sign reads in Portuguese \"There will be not Cup. There will be a strike.\""
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low image similarity score (0.2144940048456192) and a high text similarity score (0.9798662662506104). The low image similarity suggests the image doesn't depict the scene described in the caption, which mentions protesters, a bus carrying the Brazilian national team, and a sign about a strike. The image shows various national flags waving in front of buildings and mountains. Since the image doesn't contain any elements mentioned in the caption, such as protesters or a bus, the caption is not representative of the image's content. Therefore, the image is out of context.",
+    "validation_summary": "The caption describes a protest scene, but the image shows flags in front of a landscape, misleading viewers about the context of the image. Given the significant mismatch between the caption and image content, the image is out of context."
+  },
+  "inference_time": 5.920598268508911,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

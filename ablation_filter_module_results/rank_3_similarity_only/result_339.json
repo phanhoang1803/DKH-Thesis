@@ -1,0 +1,67 @@
+{
+  "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Cadbury",
+      "Chocolate bar",
+      "Chocolate",
+      "Candy",
+      "Kraft Foods",
+      "Fudge",
+      "Sweet dish",
+      "Wrigley"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Healthier chocolate and other incredible discoveries of the week",
+        "content": "6 3 5 6 3 1 2 6 7 1 4 0 4 5 0 7 5 3 - A P - D a r k -   . . .",
+        "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.36464327573776245,
+        "text_similarity_score": 0.9921733736991882
+      },
+      {
+        "title": "Healthier chocolate and other incredible discoveries of the week",
+        "content": "6 3 5 6 3 1 2 6 7 1 4 0 4 5 0 7 5 3 - A P - D a r k -   . . .",
+        "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.34615379571914673,
+        "text_similarity_score": 0.9921733736991882
+      },
+      {
+        "title": "Healthier chocolate and other incredible discoveries of the week",
+        "content": "6 3 5 6 3 1 2 6 7 1 4 0 4 5 0 7 5 3 - A P - D a r k -   . . .",
+        "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.34559166431427,
+        "text_similarity_score": 0.9921733736991882
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores for all provided candidates are below 0.85. Therefore, based on the instructions, the caption is considered out-of-context without further analysis.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result returned a verdict of False, indicating the caption is considered out-of-context. The image shows various boxes and assortments of Green & Black's brand chocolates. The caption mentions \"Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York\". Based on the image, there's no indication that the chocolates are Japanese plum flavored, made with plum wine, or that they were prepared in New York. The details provided in the caption do not match the visual content of the image, specifically the brand and type of chocolates depicted.",
+    "validation_summary": "The caption describes specific chocolate flavors and origin that are not visible or suggested in the image of Green & Black's chocolates, misleading viewers about the image content. The image check result confirms this discrepancy."
+  },
+  "inference_time": 10.31519627571106,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

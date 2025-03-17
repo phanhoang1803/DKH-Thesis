@@ -1,0 +1,49 @@
+{
+  "caption": "President Obama looks on as Polish President Bronislaw Komorowski gestures during a meeting with Polish and US soldiers at the military airport in Warsaw Poland on Tuesday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "United States presidential debates",
+      "United States",
+      "ready",
+      "Flag of the United States",
+      "Flag",
+      "Memorial Day",
+      "Debate",
+      "Veterans Day"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "President Obama Shakes Hands With Polish President Komorow | Flickr",
+        "content": "P r e s i d e n t   O b a m a   S h a k e s   H a n d s   W i t h   P o l i s h   P r e s i d e n t   K o m o r o w    |   F l i c k r",
+        "caption": "President Obama Shakes Hands With Polish President Komorowski After Speaking to U.S. and Polish Airmen | by U.S. Department of State",
+        "domain": "www.flickr.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.36472782492637634,
+        "text_similarity_score": 0.801120936870575
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.36472782492637634, which is less than 0.85. The text similarity score is 0.801120936870575, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. The candidate caption mentions 'President Obama Shakes Hands With Polish President Komorowski After Speaking to U.S. and Polish Airmen' which aligns with the news caption mentioning 'President Obama looks on as Polish President Bronislaw Komorowski gestures during a meeting with Polish and US soldiers'. However, due to the low image similarity, I cannot confidently confirm that the candidate image context matches the news image context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 6. The image check identified a low image similarity score of 0.36, and a text similarity score of 0.80. As per the instructions, a high confidence score indicates the final decision should be based on the image check result. The image check result has a verdict of OOC (Out of Context) and therefore, I must follow that verdict. In this image, a group of people are sitting in a circle having a discussion. There are flags of the USA and Ukraine visible in the background. The caption, however, mentions that President Obama met with Polish and US soldiers in Poland. While the news content does include the fact that Obama and Komorowski met, the image does not reflect this specific interaction. Therefore the caption does not accurately represent the image content and is out of context.",
+    "validation_summary": "The caption describes a meeting between President Obama, Polish President Bronislaw Komorowski and soldiers, which is not visually supported by the image, leading to a mismatch between the textual description and the visual representation and creating a false impression of the image content. Therefore, the caption misrepresents the image content and is out of context, as the caption doesn't accurately reflect what's visible in the image."
+  },
+  "inference_time": 6.368664979934692,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

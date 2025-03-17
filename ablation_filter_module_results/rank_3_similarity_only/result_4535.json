@@ -1,0 +1,98 @@
+{
+  "caption": "Jeremy Clarkson leaving his home in London",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Matt LeBlanc",
+      "Top Gear",
+      "Car",
+      "BBC Radio 2",
+      "Getty Images",
+      "Getty Images",
+      "London",
+      "stock.xchng"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9291378855705261,
+        "text_similarity_score": 0.0926876813173294
+      },
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.co.uk",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9291378855705261,
+        "text_similarity_score": 0.0926876813173294
+      },
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.co.uk",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9291378855705261,
+        "text_similarity_score": 0.0926876813173294
+      },
+      {
+        "title": "Top Gear Shouldn't Go on Without Jeremy Clarkson | WIRED",
+        "content": "T o p   G e a r   S h o u l d n ' t   G o   o n   W i t h o u t   J e r e m y   C l a r k s o n   |   W I R E D",
+        "caption": "Jeremy Clarkson seen leaving his West London home on March 16 2015 in London England.",
+        "domain": "www.wired.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.19382105767726898,
+        "text_similarity_score": 0.9059865474700928
+      },
+      {
+        "title": "Jeremy Clarkson: Top Gear suspension set to cost BBC millions in payouts to foreign channels | The Independent | The Independent",
+        "content": "J e r e m y   C l a r k s o n :   T o p   G e a r   s u s p e n s i o n   s e t   t o   c o s t   B B C   m i l l i o n s   i n   . . .",
+        "caption": "Jeremy Clarkson leaves his home in London following his suspension from Top Gear",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.14765356481075287,
+        "text_similarity_score": 0.886886715888977
+      },
+      {
+        "title": "BBC will not renew Jeremy Clarkson's 'Top Gear' contract - Los Angeles Times",
+        "content": "B B C   w i l l   n o t   r e n e w   J e r e m y   C l a r k s o n ' s   ' T o p   G e a r '   c o n t r a c t   -   L o s   . . .",
+        "caption": "Top Gear host Jeremy Clarkson leaves his home in London earlier this month.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2529586851596832,
+        "text_similarity_score": 0.8687795400619507
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption states 'Jeremy Clarkson leaving his home in London.'\n\nCandidate 1, 2, and 3 all have high image similarity scores (0.929) suggesting the images are very similar, however, the text similarity scores are very low (0.092). According to the instructions, a high image similarity score and a low text similarity score must return 'False'. However, the image scores are very close and must be validated. Due to the lack of information, these candidates cannot be used.\n\nCandidate 4 has a lower image similarity score (0.193) but a high caption similarity score (0.905), with the caption 'Jeremy Clarkson seen leaving his West London home on March 16 2015 in London England.' This candidate supports the news caption that Jeremy Clarkson was leaving his home in London.\n\nCandidate 5 has a lower image similarity score (0.147) but a high caption similarity score (0.886), with the caption 'Jeremy Clarkson leaves his home in London following his suspension from Top Gear'. This candidate supports the news caption that Jeremy Clarkson was leaving his home in London.\n\nCandidate 6 has a lower image similarity score (0.252) but a high caption similarity score (0.868), with the caption 'Top Gear host Jeremy Clarkson leaves his home in London earlier this month.' This candidate supports the news caption that Jeremy Clarkson was leaving his home in London.\n\nSince multiple candidates with high text similarity scores support the news caption, the verdict is 'True'.",
+      "supporting_evidences": [
+        "Candidate 4: Caption - Jeremy Clarkson seen leaving his West London home on March 16 2015 in London England. Image Similarity Score: 0.19382105767726898, Caption Similarity Score: 0.9059865474700928",
+        "Candidate 5: Caption - Jeremy Clarkson leaves his home in London following his suspension from Top Gear. Image Similarity Score: 0.14765356481075287, Caption Similarity Score: 0.886886715888977",
+        "Candidate 6: Caption - Top Gear host Jeremy Clarkson leaves his home in London earlier this month. Image Similarity Score: 0.2529586851596832, Caption Similarity Score: 0.8687795400619507"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score of 8 and a verdict of 'True', suggesting the caption 'Jeremy Clarkson leaving his home in London' accurately represents the image content. However, the image depicts Jeremy Clarkson standing next to a car with an American flag design, which does not align with the caption's claim of him leaving his home in London. The image shows Clarkson is standing next to a car with the American flag painted on it. This suggests he is filming a segment, or participating in an event with a car with an American theme. Thus the caption is misleading, suggesting he is merely leaving his London home. The image is therefore out of context.",
+    "validation_summary": "The image shows Jeremy Clarkson next to an American flag-themed car, creating a misleading impression that is not accurately reflected by the caption 'Jeremy Clarkson leaving his home in London.' The caption fails to provide context to the photo, causing the image to be out of context, despite the image check's prior determination due to high text similarity from other possible supporting captions of Jeremy Clarkson leaving his London home. Since the image check result has a score of 7-10, the final determination must be based on the image check result. However, based on my own analysis, the initial image check was in error due to the nature of the supporting images. Since the Image check was in error, I must make the adjustment based on my own analysis."
+  },
+  "inference_time": 13.942296504974365,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

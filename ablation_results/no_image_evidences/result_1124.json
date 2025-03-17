@@ -1,0 +1,57 @@
+{
+  "caption": "Peabody Energy headquarters in St Louis",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Peabody Energy",
+      "Peabody Energy",
+      "Coal",
+      "St. Louis",
+      "Bankruptcy",
+      "Business",
+      "Economy",
+      "Company",
+      "Chapter 11, Title 11, United States Code"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Bankrupt Peabody Energy wants to pay execs up to $12 million in bonuses  The Denver Post",
+        "content": "B a n k r u p t   P e a b o d y   E n e r g y   w a n t s   t o   p a y   e x e c s   u p   t o   $ 1 2   m i l l i o n   i n   . . .",
+        "caption": "Peabody Energy headquarters in St. Louis. ",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6709858775138855,
+        "text_similarity_score": 0.9826996922492981
+      },
+      {
+        "title": "Peabody Energy Extends Global HQ Lease in St. Louis - Commercial Property Executive",
+        "content": "P e a b o d y   E n e r g y   E x t e n d s   G l o b a l   H Q   L e a s e   i n   S t .   L o u i s   -   C o m m e r c i a l   . . .",
+        "caption": "Peabody Plaza, 701 Market St. ",
+        "domain": "www.commercialsearch.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3803313672542572,
+        "text_similarity_score": 0.702283501625061
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Based on the provided candidates, I can determine if the news caption \"Peabody Energy headquarters in St Louis\" accurately represents the image. \n\nCandidate 1 has an image similarity score of 0.6709858775138855 and a text similarity score of 0.9826996922492981. The caption is \"Peabody Energy headquarters in St. Louis.\" This candidate has a high text similarity score, suggesting the caption is very similar to the news caption. However, the image similarity score is below 0.85, so this does not meet the strict criteria for a \"True\" verdict. However, it does suggest that the image is related. \n\nCandidate 2 has an image similarity score of 0.3803313672542572 and a text similarity score of 0.702283501625061. The caption is \"Peabody Plaza, 701 Market St.\" The text similarity is also above 0.7, which means it's similar but it's not exactly the same with the News caption, and the image similarity score is low. \n\nConsidering both candidates, the first candidate provides better, but not perfect, evidence. Since the image similarity score of Candidate 1 is 0.6709858775138855, which is below 0.85, I must mark this as out-of-context.",
+      "supporting_evidences": [
+        "Candidate 1 has a caption that is almost identical to the news caption.",
+        "Candidate 1 has a relatively higher image similarity (0.67) compared to candidate 2 (0.38)",
+        "Candidate 2 mentions \"Peabody Plaza, 701 Market St\", which may be a more specific location."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "validation_summary": "The caption suggests that the image depicts Peabody Energy headquarters, but discrepancies in image content indicate this is misleading.",
+    "explanation": "The caption states \"Peabody Energy headquarters in St Louis,\" implying that the image depicts the main office or headquarters of Peabody Energy in St. Louis. However, the check results indicate that there is a reasonable amount of doubt about this representation, as evidenced by the image similarity scores that fell below the threshold for high confidence in accuracy. Candidate 1, with a similarity score of around 0.67, indicated a connection but was not strong enough to state confidently that the image specifically depicts the Peabody Energy headquarters. Additionally, Candidate 2 identified a caption referring to \"Peabody Plaza, 701 Market St,\" suggesting a more specific or possibly different context. This implies that while the image may be related to Peabody Energy, it does not definitively confirm that it depicts the company's headquarters, leading to the conclusion that the caption misrepresents the image."
+  },
+  "inference_time": 8.659590482711792,
+  "ablation_type": "no_image_evidences"
+}

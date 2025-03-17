@@ -1,0 +1,70 @@
+{
+  "caption": "The MyNameIs coalition will demonstrate Sunday at 11am across the street from Facebook s Menlo Park headquarters in California",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Page not found  Test Star",
+        "content": "",
+        "caption": "",
+        "domain": "teststar.in",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9720841646194458,
+        "text_similarity_score": 0.149132639169693
+      },
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "www.dailymail.co.uk",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9639184474945068,
+        "text_similarity_score": 0.149132639169693
+      },
+      {
+        "title": "Facebook users plan protest against site's 'real name' policy at headquarters | Facebook | The Guardian",
+        "content": "7 a e 2 d c 8 5 - c a d e - 4 e 8 9 - 8 d b 8 -   . . .",
+        "caption": "The #MyNameIs coalition will demonstrate Sunday at 11am across the street from Facebooks Menlo Park headquarters in California.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9905239343643188,
+        "text_similarity_score": 0.965168833732605
+      },
+      {
+        "title": "Facebook users plan protest against site's 'real name' policy at headquarters | Facebook | The Guardian",
+        "content": "F a c e b o o k   u s e r s   p l a n   p r o t e s t   a g a i n s t   s i t e ' s   ' r e a l   n a m e '   p o l i c y   a t   . . .",
+        "caption": "The #MyNameIs coalition will demonstrate Sunday at 11am across the street from Facebooks Menlo Park headquarters in California.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9904783368110657,
+        "text_similarity_score": 0.965168833732605
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 3 and 4 have a high image similarity score (0.9905239343643188 and 0.9904783368110657) and a high text similarity score (0.965168833732605). This suggests that the caption accurately represents what the news image shows and what the image is about. The captions of the candidate images are identical to the news caption, indicating a strong match. Thus, the related candidates provide evidence that proves the caption accurately represents what the news image shows and what the image is about.",
+      "supporting_evidences": [
+        "Candidate 3",
+        "Candidate 4"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a person using a laptop, seemingly browsing a social media website. There is also a phone next to the laptop. The caption describes a planned demonstration against Facebook's \"real name\" policy. The image does not depict a demonstration, nor does it obviously relate to the \"real name\" policy debate or the #MyNameIs coalition. While the news content does mention Facebook, the image itself doesn't provide any visual confirmation of the claims made in the caption. Therefore, the image is out of context, as it does not accurately represent the subject of the news caption or article.",
+    "validation_summary": "The image shows a person using a laptop, which does not reflect the caption's claim about a demonstration against Facebook's \"real name\" policy; thus, the image and caption are unrelated. Viewers would be misled into thinking the image is of an event related to the demonstration."
+  },
+  "inference_time": 12.680002450942993,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

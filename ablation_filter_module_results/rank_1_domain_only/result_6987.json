@@ -1,0 +1,43 @@
+{
+  "caption": "Texas Health Presbyterian Hospital Dallas staff line the drive that exits the emergency room as they wait for an ambulance carrying Pham to depart on Oct 16",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "light-hearted",
+      "Ceremony"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 9,
+      "explanation": "The image context describes a press conference with officials and medical personnel, likely discussing a health-related issue or Nina Pham's recovery from Ebola. The caption describes hospital staff lining up for an ambulance carrying Pham. These scenarios do not align. The context is about a press conference, while the caption is about Pham leaving the hospital. This suggests a significant discrepancy, making the caption a poor description of the image's actual content. The caption does not correctly convey what the image is about.",
+      "supporting_evidences": [
+        "The image context mentions a press conference or public address.",
+        "The caption describes hospital staff lining up for an ambulance carrying Pham.",
+        "The press conference setting with officials and medical personnel differs from the ambulance departure described in the caption."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "A press conference featuring officials and medical personnel, likely discussing a health-related issue.",
+      "context": "The image shows a press conference or public address, likely related to the Ebola outbreak given the news content. A woman, presumably a medical professional or official, is speaking to a crowd of reporters, with microphones visible in front of her. An authority figure, wearing what appears to be a police or sheriff's uniform, stands to her left. Other individuals, possibly medical staff or family members, are also present. The setting appears to be outdoors, with tents in the background. Given the news context, it is possible the speakers are discussing Nina Pham's recovery from Ebola, and addressing the public. The overall atmosphere is serious, with a focus on communicating important information to the public.",
+      "information": "The image captures a press conference featuring a woman speaking to reporters, surrounded by officials and medical personnel, against an outdoor backdrop with tents."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a press conference with people gathered around, including a man in a police uniform and a woman speaking. The caption describes hospital staff lining up to see an ambulance with Nina Pham leaving the hospital. These scenarios do not align. Therefore, the caption does not accurately describe the image content.",
+    "validation_summary": "The image depicts a press conference, not the scene described in the caption about Nina Pham leaving the hospital, which would mislead viewers about the image's context and content if paired together. Therefore, the caption is considered out of context for the image provided since the scene in the picture is completely unrelated to the scene in the caption of hospital workers lining up for an ambulance departure of Nina Pham. The image instead shows a police officer and press conference-like situation, thus leading to the OOC verdict because the caption is not an accurate representation of the image content."
+  },
+  "inference_time": 4.435634613037109,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

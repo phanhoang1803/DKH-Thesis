@@ -1,0 +1,46 @@
+{
+  "caption": "Presidential hopeful Bernie Sanders on stage for a commercial break during the Democratic Presidential Town Hall forum in Sheslow Auditorium on the Drake University campus Monday evening Jan 25 2016",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speech",
+      "Public speaking",
+      "Convention",
+      "Audience"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "26 photos: CNN Democratic Presidential Town Hall forum",
+        "content": "2 6   p h o t o s :   C N N   D e m o c r a t i c   P r e s i d e n t i a l   T o w n   H a l l   f o r u m",
+        "caption": "Presidential hopeful, Bernie Sanders on stage for a commercial break during the Democratic Presidential Town Hall forum in Sheslow Auditorium on the Drake University campus Monday evening, Jan. 25, 2016.",
+        "domain": "www.desmoinesregister.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "26 photos: CNN Democratic Presidential Town Hall forum",
+        "content": "2 6   p h o t o s :   C N N   D e m o c r a t i c   P r e s i d e n t i a l   T o w n   H a l l   f o r u m",
+        "caption": "Presidential hopeful, Martin O'Malley on stage during the Democratic Presidential Town Hall forum in Sheslow Auditorium on the Drake University campus Monday evening, Jan. 25, 2016.",
+        "domain": "www.desmoinesregister.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have a low image similarity score (<0.85) and a low text similarity score (<0.7). The first candidate's caption is nearly identical to the news caption, except for minor punctuation. It mentions Bernie Sanders on stage at the Democratic Presidential Town Hall forum in Sheslow Auditorium on the Drake University campus on Monday evening, Jan. 25, 2016. The second candidate's caption, however, mentions Martin O'Malley, which contradicts the news caption mentioning Bernie Sanders. The lack of image similarity and the conflicting information in the second candidate makes it difficult to fully verify the news caption, but the first candidate's caption is close enough to the news caption that it warrants a low confidence True verdict.",
+      "supporting_evidences": [
+        "Presidential hopeful, Bernie Sanders on stage for a commercial break during the Democratic Presidential Town Hall forum in Sheslow Auditorium on the Drake University campus Monday evening, Jan. 25, 2016."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image shows Bernie Sanders standing on a stage with CNN logos in the background. He is wearing a suit and tie and gesturing with his left hand. The news caption says, Presidential hopeful Bernie Sanders on stage for a commercial break during the Democratic Presidential Town Hall forum in Sheslow Auditorium on the Drake University campus Monday evening Jan 25 2016. This is a correct representation of the image content. The Image Check Result has a confidence score of 6, meaning that the first candidate's caption closely matches the news caption and the second caption has conflicting information, thus supporting a True verdict.",
+    "validation_summary": "The caption accurately identifies Bernie Sanders on stage at a Democratic Town Hall forum, which aligns with the visual content of the image and would not mislead viewers about the scene depicted. The image check result also supports this alignment."
+  },
+  "inference_time": 4.563517093658447,
+  "ablation_type": "no_filters"
+}

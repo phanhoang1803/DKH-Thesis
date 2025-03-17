@@ -1,0 +1,52 @@
+{
+  "caption": "Ruth Shearn and her daughter Alexis",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Livonia",
+      "Intellectual disability",
+      "Special needs",
+      "Handcuffs",
+      "Down syndrome",
+      "Workday",
+      "Disability",
+      "Theft"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Help! My child is taller than me | Family | The Guardian",
+        "content": "H e l p !   M y   c h i l d   i s   t a l l e r   t h a n   m e   |   F a m i l y   |   T h e   G u a r d i a n",
+        "caption": "Ruth Shearn and her daughter, Alexis.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2402486801147461,
+        "text_similarity_score": 0.9779943227767944
+      },
+      {
+        "title": "Mum spends time on Alex's future - Manchester Evening News",
+        "content": "M u m   s p e n d s   t i m e   o n   A l e x ' s   f u t u r e   -   M a n c h e s t e r   E v e n i n g   N e w s",
+        "caption": "KEY TO THE FUTURE: Ruth Shearn with her daughter Alex",
+        "domain": "www.manchestereveningnews.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1733005791902542,
+        "text_similarity_score": 0.8267697691917419
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidates have low image similarity scores (< 0.85). Therefore, according to the instructions, the caption must be marked as out-of-context. Moreover, even though the text similarity score of candidate 1 is high (0.9779943227767944), and the caption is very similar to the news caption, the image similarity score is too low (0.2402486801147461). This is also the case for candidate 2. Therefore, the final verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low image similarity score between the provided image and the images associated with the news caption \"Ruth Shearn and her daughter Alexis\". Despite potentially high text similarity in some candidates, the significant disparity in image content leads to the conclusion that the caption is out of context. The image features two women, but without a reliable match to the news article's visual data, the caption cannot be validated as an accurate representation of the image's content. Therefore, it's likely that viewers would be misled about what they are seeing if they associate this image with the provided caption.",
+    "validation_summary": "The image check reveals a mismatch between the image and the provided caption, suggesting that the caption does not accurately represent the people shown in the image. This discrepancy would likely mislead viewers about the content's visual context, leading to an incorrect interpretation of the news story if the image were associated with the article based on the caption alone."
+  },
+  "inference_time": 4.874388217926025,
+  "ablation_type": "no_image_evidences"
+}

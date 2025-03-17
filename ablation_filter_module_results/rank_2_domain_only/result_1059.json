@@ -1,0 +1,38 @@
+{
+  "caption": "A British soldier stops a group of Iraqis at a checkpoint on the road to Basra",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "War After the War | The New Yorker",
+        "content": "W a r   A f t e r   t h e   W a r   |   T h e   N e w   Y o r k e r",
+        "caption": "Under the watch of an American soldier young Iraqis gather in the Al Mansour district of Baghdad. The decision to...",
+        "domain": "www.newyorker.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, I will analyze the content of the candidate to make the final decision. The candidate mentions \"young Iraqis gather in the Al Mansour district of Baghdad\" whereas the news caption says \"A British soldier stops a group of Iraqis at a checkpoint on the road to Basra\". The candidate does not support the news caption. Thus, the verdict is \"False\".",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low similarity between the image and the news caption, leading to the initial 'False' verdict. The image depicts two soldiers standing near a tank with a dog walking on the road. In contrast, the news caption describes a British soldier stopping a group of Iraqis at a checkpoint on the road to Basra. The individuals and setting in the image do not align with the caption's description, indicating a mismatch and a high likelihood of the image being out of context. The high confidence score reflects the clear discrepancy between the visual content and the textual description.",
+    "validation_summary": "The image and caption are contradictory; the photo shows soldiers and a tank, while the caption describes a soldier stopping Iraqis at a checkpoint. Viewers would be misled about the context of the image if paired with this caption, making it out of context."
+  },
+  "inference_time": 4.033498764038086,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

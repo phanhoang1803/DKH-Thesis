@@ -1,0 +1,34 @@
+{
+  "caption": "Common cause Alan Johnson Diana Johnson and Karl Turner make the case for Hull",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Fighting back for Hull's future | Politics | The Guardian",
+        "content": "F i g h t i n g   b a c k   f o r   H u l l ' s   f u t u r e   |   P o l i t i c s   |   T h e   G u a r d i a n",
+        "caption": "Common cause: Alan Johnson, Diana Johnson and Karl Turner make the case for Hull.  Photograph: Ed Jacobs",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3621410131454468,
+        "text_similarity_score": 0.8889899253845215
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.3621410131454468 which is less than 0.85 and the text similarity score is 0.8889899253845215 which is greater than 0.7. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is out of context with a confidence score of 2, which is less than 7. This necessitates a closer look. The image displays a panel discussion setting, featuring several individuals seated at a table or chairs, with microphones. The backdrop includes the BBC Radio 5 live logo prominently. The image shows people participating in a radio show or podcast while the caption talks about Alan Johnson Diana Johnson and Karl Turner making the case for Hull. Therefore, the caption doesn't match the image content.",
+    "validation_summary": "The caption mentions specific individuals making a case for Hull, but the image depicts a general panel discussion with the BBC Radio 5 live logo, misleading viewers about the image's content and context, as the text similarity is high while the image similarity is low leading to an out of context verdict. The image check result confirms this assessment."
+  },
+  "inference_time": 4.944281578063965,
+  "ablation_type": "no_image_evidences"
+}

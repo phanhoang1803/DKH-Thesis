@@ -1,0 +1,51 @@
+{
+  "caption": "David Bowie performs as Ziggy Stardust in Los Angeles in 1973",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "David Bowie at 65: a life in pictures | Music | The Guardian",
+        "content": "S u n   8   J a n   2 0 1 2   1 5 . 3 0  C E T \n \n \n                         F i r s t   p u b l i s h e d   o n   S u n   8   J a n   2 0 1 2   1 5 . 3 0  C E T \n \n P h o t o g r a p h :   C A / G e t t y   I m a g e s / R e d f e r n s \n \n P h o t o g r a p h :   R a y   S t e v e n s o n / R e x   F e a t u r e s \n \n P h o t o g r a p h :   R o g e r   B a m b e r / R e x   F e a t u r e s \n \n P h o t o g r a p h :   M i c h a e l   P u t l a n d / G e t t y   I m a g e s \n \n P h o t o g r a p h :   M a s a y o s h i   S u k i t a / B u r e a u   L . A .   C o l l e c t i o n / C o r b i s \n \n P h o t o g r a p h :   I l p o   M u s t o / R e x   F e a t u r e s \n \n P h o t o g r a p h :   B i l l   O r c h a r d / R e x   F e a t u r e s \n \n P h o t o g r a p h :   G i j s b e r t   H a n e k r o o t / R e d f e r n s \n \n P h o t o g r a p h :   S i p a   P r e s s / R e x   F e a t u r e s \n \n P h o t o g r a p h :   M i c h a e l   O c h s / G e t t y   I m a g e s \n \n P h o t o g r a p h :   S t e v e   S c h a p i r o / C o r b i s \n \n P h o t o g r a p h :   E v e r e t t   C o l l e c t i o n / R e x   F e a t u r e \n \n P h o t o g r a p h :   C h r i s t i a n   S i m o n p i e t r i / C o r b i s \n \n P h o t o g r a p h :   D e n i s   O ' R e g a n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   D e n i s   O ' R e g a n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   D e n i s   O ' R e g a n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   L i v e   P r e s s / R e x   F e a t u r e s \n \n P h o t o g r a p h :   P e t e r   B r o o k e r / R e x   F e a t u r e s \n \n P h o t o g r a p h :   K   M a z u r / W i r e I m a g e \n \n P h o t o g r a p h :   E d   C h a p m a n / P A",
+        "caption": "David Bowie 65th Birthday: 1974: Bowie with eyepatch recording Rebel Rebel",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9963589310646057,
+        "text_similarity_score": 0.5845335721969604
+      },
+      {
+        "title": "PHOTOS: How David Bowie transformed into a cultural icon | PBS News",
+        "content": "P H O T O S :   H o w   D a v i d   B o w i e   t r a n s f o r m e d   i n t o   a   c u l t u r a l   i c o n   |   P B S   N e w s",
+        "caption": "Musician David Bowie performs onstage during his \"Ziggy Stardust\" era in 1973 in Los Angeles. The legendary music man died after an 18-month battle with cancer. He was 69. Photo by: Michael Ochs Archives/Getty Images",
+        "domain": "www.pbs.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.35025554895401,
+        "text_similarity_score": 0.7738211154937744
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1 has a high image similarity score (0.9963589310646057), but a low caption similarity score (0.5845335721969604). According to the strict decision rules, this leads to a verdict of 'False'. However, Candidate 2 has a low image similarity score (0.35025554895401) but a high caption similarity score (0.7738211154937744). According to the instructions, since the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high, which leads to a verdict of 'False'. However, both candidates mention David Bowie performing in the \"Ziggy Stardust\" era. Candidate 2 explicitly mentions the year 1973 and Los Angeles, matching the news caption exactly. While the image similarity is low, the caption's content strongly supports the news caption's accuracy. Therefore, I'm marking the verdict as True.",
+      "supporting_evidences": [
+        "Candidate 2: Caption mentions David Bowie, 'Ziggy Stardust' era, 1973, and Los Angeles."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image shows David Bowie performing with a guitar, wearing a red outfit and an eye patch. The caption states that it shows David Bowie performing as Ziggy Stardust in Los Angeles in 1973. The image check result confirms that the caption accurately represents the image content. The supporting evidences indicates that the candidate caption mentions David Bowie, the 'Ziggy Stardust' era, 1973, and Los Angeles.",
+    "validation_summary": "The caption correctly identifies David Bowie as Ziggy Stardust in the image, so viewers would not be misled about the image's content. The image check result confirms the accuracy of the caption, strengthening the determination that the image is not out of context."
+  },
+  "inference_time": 6.342103719711304,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

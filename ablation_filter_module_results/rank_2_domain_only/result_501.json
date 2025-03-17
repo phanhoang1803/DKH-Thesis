@@ -1,0 +1,41 @@
+{
+  "caption": "Lawyers for Palestinian authority argue that group does not have money to compensate Americans affected by attacks between 2002 and 2004",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "US government intervenes in lawsuit payments over Palestinian terror attacks | Obama administration | The Guardian",
+        "content": "U S   g o v e r n m e n t   i n t e r v e n e s   i n   l a w s u i t   p a y m e n t s   o v e r   P a l e s t i n i a n   . . .",
+        "caption": "Lawyers for Palestinian authority argue that group does not have money to compensate Americans affected by attacks between 2002 and 2004.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate evidence has a caption that exactly matches the news caption. Furthermore, the domain is a reliable news source (www.theguardian.com). Therefore, the caption is considered in-context.",
+      "supporting_evidences": [
+        "Caption: Lawyers for Palestinian authority argue that group does not have money to compensate Americans affected by attacks between 2002 and 2004.",
+        "Domain: www.theguardian.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts two British flags waving against a blue sky with clouds. The flags are the central focus. The caption states, \"Lawyers for Palestinian authority argue that group does not have money to compensate Americans affected by attacks between 2002 and 2004.\" The image does not show anything related to the Palestinian authority, lawyers, money, Americans, or attacks. The caption is therefore unrelated to the image content.",
+    "validation_summary": "The image shows British flags, while the caption discusses the Palestinian Authority's finances, which is completely unrelated and would mislead viewers about the image's content and context. Therefore, the image is out of context."
+  },
+  "inference_time": 4.1709794998168945,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

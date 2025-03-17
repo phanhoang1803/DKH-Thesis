@@ -1,0 +1,51 @@
+{
+  "caption": "Donald Trump speaks during a campaign stop on Feb 19 2016 in North Charleston SC",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Academic conference",
+      "Speech",
+      "Seminar",
+      "Convention",
+      "Debate",
+      "Public speaking",
+      "Audience",
+      "Flag",
+      "Academy",
+      "Flag Day"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Mexico OKs new Trump trademarks for hotels and tourism | AP News",
+        "content": "M e x i c o   O K s   n e w   T r u m p   t r a d e m a r k s   f o r   h o t e l s   a n d   t o u r i s m   |   A P   N e w s",
+        "caption": "FILE - In this Feb. 19, 2016 file photo, Republican presidential candidate Donald Trump speaks during a campaign stop in North Charleston, S.C. Then-candidate Trump gave a stump speech in which he railed against American jobs moving to Mexico: We lose our jobs, we close our factories, Mexico gets all of the work, he said. We get nothing. That same day a law firm in Mexico City quietly filed for trademarks that would authorize the Trump brand to set up shop in a country with which he has sparred over trade, migration and the planned border wall. (AP Photo/Matt Rourke, File)",
+        "domain": "apnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0, which are both very low. Analyzing the content of the candidate, it is from apnews.com and the caption states \"FILE - In this Feb. 19, 2016 file photo, Republican presidential candidate Donald Trump speaks during a campaign stop in North Charleston, S.C.\". The news caption is \"Donald Trump speaks during a campaign stop on Feb 19 2016 in North Charleston SC\". Although the candidate confirms the elements (people, event, location, date) of the caption, the image similarity score is too low to determine if the caption accurately represents the image. Thus, the verdict is false.",
+      "supporting_evidences": [
+        "FILE - In this Feb. 19, 2016 file photo, Republican presidential candidate Donald Trump speaks during a campaign stop in North Charleston, S.C."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result has a confidence score of 6, which is less than 7. However, given the supporting evidence from the image check result, and after analyzing the image, the caption is misleading. The image check result indicates low image and caption similarity scores, and the caption does accurately describe the event depicted in the image (Donald Trump speaking at a campaign stop in North Charleston, SC on Feb 19, 2016). However, the low image similarity score suggests that while the elements of the caption are correct, the image itself might not be representative of the described event. Given this discrepancy and to be conservative, the verdict is OOC=True. The image shows Donald Trump speaking behind a podium with a crowd of people in the foreground, with the American flag as a backdrop. The news content discusses Donald Trump's victory in the South Carolina primary and the events surrounding it. The caption is somewhat misleading because the image only shows a small portion of the campaign event and does not convey the broader context of the election results and related events discussed in the news article.",
+    "validation_summary": "While factually correct, the caption doesn't fully represent the broader context of the news article, potentially misleading viewers about the image's significance. The image check result also indicates low image and caption similarity scores, suggesting the image might not be representative of the event."
+  },
+  "inference_time": 4.989637613296509,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

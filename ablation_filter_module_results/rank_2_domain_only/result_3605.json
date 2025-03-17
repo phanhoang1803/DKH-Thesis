@@ -1,0 +1,51 @@
+{
+  "caption": "Supporters cheer as Sanders gives his concession speech in Henderson Nev",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Animation",
+      "Stable Diffusion",
+      "Artificial intelligence art",
+      "realistic",
+      "Artificial intelligence",
+      "create",
+      "Image",
+      "open",
+      "Computer animation",
+      "Prompt engineering"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 7,
+      "confidence_score": 9,
+      "explanation": "The caption mentions supporters cheering and Sanders giving a concession speech in Henderson, Nevada. However, the image context describes Sanders at a podium with an American flag backdrop, indicating a political speech or rally, but doesn't confirm it's a concession speech or that supporters are cheering, nor does it place the event in Henderson, Nevada. Therefore, while the image context aligns with Sanders giving a speech, the specific details in the caption are not fully supported by the image context.",
+      "supporting_evidences": [
+        "The image shows Bernie Sanders at a podium with an American flag backdrop, supporting the notion of a political event.",
+        "The podium has a sign saying 'A FUTURE TO BELIEVE IN berniesanders.com,' further indicating a political rally or speech.",
+        "The image context does not specify if it's a concession speech."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Bernie Sanders speaking at a podium with an American flag backdrop.",
+      "context": "The image features Bernie Sanders at a podium, seemingly during a speech or rally, indicated by his raised fists and the microphone. A sign on the podium reads \"A FUTURE TO BELIEVE IN berniesanders.com.\" The backdrop is an American flag design with white stars on a blue field. This suggests a political event, likely a campaign rally or speech. Sanders is wearing a suit and glasses, projecting a formal yet passionate demeanor. The overall impression is one of political engagement and enthusiasm.",
+      "information": "The image shows Bernie Sanders at a podium with his fists raised. The sign on the podium says 'A FUTURE TO BELIEVE IN berniesanders.com.' The background is the American flag."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a confidence score of 9, thus the final determination is based on it. The image features Bernie Sanders at a podium with an American flag backdrop, which suggests a political speech or rally. However, there is no explicit evidence within the image confirming that it depicts Sanders giving a 'concession speech' or that 'supporters' are 'cheering.' Additionally, the image does not place the event in 'Henderson, Nevada'. Therefore, the caption is considered out of context as it includes details not verifiable within the visual information provided, potentially misleading viewers about the specific event being depicted.",
+    "validation_summary": "The caption's claim of a 'concession speech' and 'cheering supporters' in 'Henderson, Nevada' are not supported by the image, which simply shows Sanders at a podium, potentially misleading viewers about the context of the image. Therefore, the caption is out of context of the image provided as the image does not show a concession speech nor cheering supporters nor a specific location of Henderson, Nevada. It shows Bernie Sanders at a political rally speech."
+  },
+  "inference_time": 4.782793998718262,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

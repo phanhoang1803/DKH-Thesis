@@ -1,0 +1,43 @@
+{
+  "caption": "Chiefs K Ryan Succop signs autographs July 24 2014 in St Joseph Mo",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Picket fence",
+      "Team",
+      "Fence",
+      "Picketing"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "2014 NFL training camp action",
+        "content": "2 0 1 4   N F L   t r a i n i n g   c a m p   a c t i o n",
+        "caption": "Dallas Cowboys tight end Dallas Walker (86) is defended by Oakland Raiders cornerback Keith McGill (39) at scrimmage against the Dallas Cowboys at River Ridge Fields.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, the strict decision rules do not provide a decision. Based on the information, the candidate talks about Dallas Cowboys tight end Dallas Walker and Oakland Raiders cornerback Keith McGill. However, the news caption is about Chiefs K Ryan Succop signing autographs July 24 2014 in St Joseph Mo. The entities mentioned are different, and there is no mention of the news information. Therefore, the verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 10, indicating a high level of certainty. The image check result states that the image and news caption have different entities and there is no mention of the news information in the image. The image shows a group of people standing behind a white picket fence, with one person in a football jersey signing autographs. Therefore, the caption does not match the image content.",
+    "validation_summary": "The image does not show the event described in the caption, potentially misleading viewers about the context of the image. The news caption is about Chiefs K Ryan Succop signing autographs, which is not verified or mentioned in the image."
+  },
+  "inference_time": 3.740968704223633,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

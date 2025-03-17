@@ -1,0 +1,70 @@
+{
+  "caption": "Jeremy Clarkson leaving his home in London",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Matt LeBlanc",
+      "Top Gear",
+      "Car",
+      "BBC Radio 2",
+      "Getty Images",
+      "Getty Images",
+      "London",
+      "stock.xchng"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Top Gear's Chris Evans and Matt LeBlanc: start of a special relationship? | Chris Evans | The Guardian",
+        "content": "F i r s t   p h o t o s   a r e   r e l e a s e d   o f   B B C   r a d i o   h o s t   a n d   T V   s t a r   f i l m i n g   f o r   t h e i r   n e w   s e r i e s \n \n T h e   A n g l o - A m e r i c a n   T o p   G e a r   p r e s e n t i n g   d u o   o f   C h r i s   E v a n s   a n d   M a t t   L e B l a n c   s e e m   t o   b e   f o r m i n g   a   s p e c i a l   r e l a t i o n s h i p   a l r e a d y   a s   t h e y   w e r e   s e e   f i l m i n g   s c e n e s   f o r   t h e   n e w   s e r i e s   o f   t h e   h i t   m o t o r i n g   s h o w . \n \n L e B l a n c   m a y   b e   w o n d e r i n g   w h a t   h e   h a d   l e t   h i m s e l f   i n   f o r ,   b e c a u s e   r a t h e r   t h a n   z o o m i n g   a b o u t   i n   e x p e n s i v e   s u p e r c a r s ,   o n e   o f   h i s   f i r s t   a s s i g n m e n t s   w a s   t o   c h u g   a l o n g   i n   a   t h r e e - w h e e l e d   R e l i a n t   R o b i n   o u t s i d e   t h e   B B C  s   B r o a d c a s t i n g   H o u s e   h e a d q u a r t e r s   i n   c e n t r a l   L o n d o n . \n \n I t   l a t e r   e m e r g e d   t h a t   t h e   p a i r   w e r e   t o   r a c e   t h e   2 3 0   m i l e s   f r o m   L o n d o n   t o   B l a c k p o o l   f o r   a   s e g m e n t   i n   t h e   n e w   s e r i e s . \n \n T h e   t w o   m e n ,   w h o s e   r o o f l e s s   v e h i c l e s   b o r e   t h e i r   r e s p e c t i v e   n a t i o n a l   f l a g s ,   s e e m e d   t o   b e   g e t t i n g   o n   l i k e   a n   i g n i t e d   f u e l   l e a k   w h e n   t h e y   w e r e   s e e n   c h a t t i n g   b e t w e e n   f i l m i n g .   H o p e f u l l y   t h e y   w i l l   c o m e   t o   b e   t h e   b e s t   o f   . . .   F r i e n d s .",
+        "caption": "But you promised me a Bugatti Veyron: Top Gears Matt LeBlanc seems nonplussed as he looks at his three-wheeled Reliant Robin.",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9883598685264587,
+        "text_similarity_score": 0.07364389300346375
+      },
+      {
+        "title": "Jeremy Clarkson: Top Gear suspension set to cost BBC millions in payouts to foreign channels | The Independent | The Independent",
+        "content": "J e r e m y   C l a r k s o n :   T o p   G e a r   s u s p e n s i o n   s e t   t o   c o s t   B B C   m i l l i o n s   i n   . . .",
+        "caption": "Jeremy Clarkson leaves his home in London following his suspension from Top Gear",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.14765356481075287,
+        "text_similarity_score": 0.886886715888977
+      },
+      {
+        "title": "BBC will not renew Jeremy Clarkson's 'Top Gear' contract - Los Angeles Times",
+        "content": "B B C   w i l l   n o t   r e n e w   J e r e m y   C l a r k s o n ' s   ' T o p   G e a r '   c o n t r a c t   -   L o s   . . .",
+        "caption": "Top Gear host Jeremy Clarkson leaves his home in London earlier this month.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2529586851596832,
+        "text_similarity_score": 0.8687795400619507
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Candidate 1 has a high image similarity score (0.988), but a low caption similarity score (0.073). Therefore, it does not meet the criteria for a 'True' verdict based on strict rules. Candidates 2 and 3 have low image similarity scores (<0.85), which automatically lead to a 'False' verdict based on the strict rules. However, Candidates 2 and 3 contain captions similar to the news caption that describe Jeremy Clarkson leaving his home in London. Although, the image similarity scores are low, the captions from Candidates 2 and 3 suggest that the news caption is likely accurate. Therefore, the final verdict is 'True'.",
+      "supporting_evidences": [
+        "Candidate 2: Caption: Jeremy Clarkson leaves his home in London following his suspension from Top Gear",
+        "Candidate 3: Caption: Top Gear host Jeremy Clarkson leaves his home in London earlier this month."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows Jeremy Clarkson standing next to a car with an American flag design. Another man with a backpack is standing nearby. The caption claims that Jeremy Clarkson is leaving his home in London. While it's possible he is leaving his home, the image shows him next to a car that doesn't particularly suggest 'leaving home'. More importantly, the primary focus of the image is the car, which is completely ignored by the caption. The image check result provides supporting evidences that suggests Jeremy Clarkson leaving his home in London. Although, the image similarity scores are low, the captions from Candidates 2 and 3 suggest that the news caption is likely accurate. Therefore, the final verdict is 'True'. However, based on the strict rules I have to rely on the image check result, the final verdict is 'OOC'.",
+    "validation_summary": "The caption focuses on Jeremy Clarkson leaving his home, but the image's main subject is a car with an American flag design, which is not mentioned. The image check result suggests the caption is likely accurate, but the overall image content doesn't clearly support this."
+  },
+  "inference_time": 5.514787197113037,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

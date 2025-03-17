@@ -1,0 +1,36 @@
+{
+  "caption": "Brooks Headley James Beard winner and former pastry chef at Del Posto picks up some cucumbers from the basement of Superiority Burger This is not about health food Headley said",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "",
+        "content": "   ",
+        "caption": " Brooks Headley, James Beard winner and former pastry chef at Del Posto, picks up some cucumbers from the basement of Superiority Burger. This is not about health food, Headley said. ",
+        "domain": "www.iusm.co.kr",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.30697759985923767,
+        "text_similarity_score": 0.9335240125656128
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.30697759985923767, which is less than 0.85. However, the text similarity score is 0.9335240125656128, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than or equal to 0.7, the verdict should be 'False'. Because the caption in the candidate evidence matches the news caption almost exactly, I can with very high confidence say that the candidate supports the news caption.",
+      "supporting_evidences": [
+        "Caption: ▲ Brooks Headley, James Beard winner and former pastry chef at Del Posto, picks up some cucumbers from the basement of Superiority Burger. “This is not about health food,” Headley said. 워싱턴포스트"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high text similarity score (0.9335240125656128) and a lower image similarity score (0.30697759985923767). Because the text similarity is greater than 0.7, the image check result suggests that the caption is representative of the image content. Given the high confidence score and the positive indication from the image check result, the caption is not considered out of context.",
+    "validation_summary": "The caption accurately describes the person and the context shown in the image, so viewers would not be misled about what they're seeing. The image check supports that the caption is representative of the image."
+  },
+  "inference_time": 4.925813436508179,
+  "ablation_type": "no_image_evidences"
+}

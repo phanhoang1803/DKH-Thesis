@@ -1,0 +1,43 @@
+{
+  "caption": "Obama supporters celebrate his early win in front of the White House",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Ginkgo",
+      "Tree",
+      "Fire",
+      "Northern maidenhair fern"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Watching Trump Win from the White House | The New Yorker",
+        "content": "W a t c h i n g   T r u m p   W i n   f r o m   t h e   W h i t e   H o u s e   |   T h e   N e w   Y o r k e r",
+        "caption": "As the reality of Donald Trumps Election Night victory became clear President Obama reminded his staff that most of the...",
+        "domain": "www.newyorker.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0, so the strict decision rules don't apply. The candidate caption discusses Donald Trump's election night victory and Obama's reaction, which has nothing to do with Obama supporters celebrating his early win in front of the White House. Therefore, the candidate evidence does not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a strong mismatch between the image and the caption. The image check result provided a confidence score of 10, which means I must rely on its verdict. The image shows a crowd of people, some of whom are climbing a tree at night with lights in the background. The caption claims that the image depicts Obama supporters celebrating his early win in front of the White House. The image check result confirms the image content does not support the caption's claims. Therefore, the caption is out of context.",
+    "validation_summary": "The caption incorrectly identifies the people in the image and the location, leading to a false impression of what the image depicts. Viewers would be misled about the image's content."
+  },
+  "inference_time": 3.7623941898345947,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

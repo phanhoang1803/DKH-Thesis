@@ -1,0 +1,60 @@
+{
+  "caption": "George Osborne and Eric Pickles favour changes to planning regulations but oppose developments in their own backyards",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Tree"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Ministers accused of 'hypocrisy' over relaxation of planning regulations | Planning policy | The Guardian",
+        "content": "M i n i s t e r s   a c c u s e d   o f   ' h y p o c r i s y '   o v e r   r e l a x a t i o n   o f   p l a n n i n g   . . .",
+        "caption": "George Osborne and Eric Pickles favour changes to planning regulations but oppose developments in their own backyards. Photograph: Martin Argles for the Guardian",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.311585396528244,
+        "text_similarity_score": 0.942597508430481
+      },
+      {
+        "title": "Ministers accused of 'hypocrisy' over relaxation of planning regulations | Planning policy | The Guardian",
+        "content": "M i n i s t e r s   a c c u s e d   o f   ' h y p o c r i s y '   o v e r   r e l a x a t i o n   o f   p l a n n i n g   . . .",
+        "caption": "George Osborne and Eric Pickles favour changes to planning regulations but oppose developments in their own backyards. Photograph: Martin Argles for the Guardian",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.30437445640563965,
+        "text_similarity_score": 0.942597508430481
+      },
+      {
+        "title": "Ministers accused of 'hypocrisy' over relaxation of planning regulations | Planning policy | The Guardian",
+        "content": "M i n i s t e r s   a c c u s e d   o f   ' h y p o c r i s y '   o v e r   r e l a x a t i o n   o f   p l a n n i n g   . . .",
+        "caption": "George Osborne and Eric Pickles favour changes to planning regulations but oppose developments in their own backyards. Photograph: Martin Argles for the Guardian",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.30423957109451294,
+        "text_similarity_score": 0.942597508430481
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores are all below 0.85. Therefore, the caption is out-of-context, even though the text similarity scores are high. Because the image similarity scores are low, it is impossible to tell if the captions match the image content.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The Image Check Result has a confidence score of 10, which means the final determination MUST be based on the image check result. The image check result states that the caption is out-of-context because the image similarity scores are all below 0.85. This means that there is not enough similarity between the image and the text to claim it is in context.",
+    "validation_summary": "The caption is out of context because it does not accurately describe the image. Viewers would be misled about what they're seeing if the caption accompanied the image."
+  },
+  "inference_time": 6.2987024784088135,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

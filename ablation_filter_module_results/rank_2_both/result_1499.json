@@ -1,0 +1,40 @@
+{
+  "caption": "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Three arrested after raid on slave factory in Rochdale | Manchester | The Guardian",
+        "content": "T h r e e   a r r e s t e d   a f t e r   r a i d   o n   ' s l a v e '   f a c t o r y   i n   R o c h d a l e   . . .",
+        "caption": "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever. Photograph: Christopher Furlong/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3113730847835541,
+        "text_similarity_score": 0.9473894834518433
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is low (0.3113730847835541), and the text similarity score is high (0.9473894834518433). According to the instructions, because the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the final decision is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts a police officer with a K-9 unit at what appears to be a baseball stadium. The officer is wearing tactical gear and the dog is on duty. The caption, however, describes a police raid on a factory in Rochdale following arrests related to human trafficking. There is no visual evidence in the image to support the claim of a factory raid or arrests related to Operation Retriever. Thus, the image is out of context, as it does not accurately represent the news content described in the caption.",
+    "validation_summary": "The image shows a police officer with a dog at a baseball stadium, which is completely unrelated to the caption's description of a factory raid and arrests related to human trafficking, making the image out of context. The use of this image alongside the caption would mislead viewers about the actual content of the news story."
+  },
+  "inference_time": 4.067735433578491,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

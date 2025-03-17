@@ -37,7 +37,7 @@ import io
 import os
 from bs4 import NavigableString
 import json
-from utils import get_captions_from_page, save_html, download_and_save_image
+from utils import get_captions_from_page, save_html, download_and_save_image, merge_search_results
 import time
 from concurrent.futures import ProcessPoolExecutor
 import os
@@ -87,78 +87,13 @@ def parse_arguments():
     args = parser.parse_args()
     return args
 
-def merge_search_results(exact_res, broad_res):
-    # Start with a copy of the structure from the first response
-    merged = exact_res.copy()
-    
-    # Get existing image items
-    exact_items = exact_res.get('items', [])
-    broad_items = broad_res.get('items', [])
-    
-    # Create a set of URLs we've already seen to avoid duplicates
-    seen_urls = set(item.get('link') for item in exact_items)
-    
-    # Add unique items from the broad search
-    unique_broad_items = [item for item in broad_items if item.get('link') not in seen_urls]
-    
-    # Update the merged result's items
-    if 'items' in merged:
-        merged['items'].extend(unique_broad_items)
-    else:
-        merged['items'] = unique_broad_items
-    
-    # Update counts
-    if 'searchInformation' in merged:
-        # Update total results count (approximate)
-        exact_count = int(exact_res.get('searchInformation', {}).get('totalResults', 0))
-        broad_count = int(broad_res.get('searchInformation', {}).get('totalResults', 0))
-        merged['searchInformation']['totalResults'] = str(exact_count + broad_count)
-    
-    return merged
-
 def google_search(search_term, api_key, cse_id, how_many_queries, **kwargs):
-    ALLOWED_DOMAIN = [
-            # Major News Organizations
-            "theguardian.com", "usatoday.com", "bbc.com", "bbc.co.uk", "cnn.com", 
-            "edition.cnn.com", "latimes.com", "independent.co.uk", "nbcnews.com", 
-            "npr.org", "aljazeera.com", "apnews.com", "cbsnews.com", "abcnews.go.com", 
-            "pbs.org", "abc.net.au", "vox.com", "euronews.com",
-            
-            # Newspapers
-            "denverpost.com", "tennessean.com", "thetimes.com", "sandiegouniontribune.com",
-            "nytimes.com", "washingtontimes.com",
-            
-            # Magazines/Long-form Journalism
-            "magazine.atavist.com", "newyorker.com", "theatlantic.com", "vanityfair.com",
-            "economist.com", "ffxnow.com", "laist.com", "hudson.org", "rollcall.com",
-            "nps.gov", "reuters.com"
-        ]
-    
-    EXCLUDE_KEYWORDS = [
-        'stock photography',
-        'stock photo',
-        'stock photos',
-        'stock photo images',
-        'stock photo images',
-        'gallery',
-        'archive',
-        'wallpaper',
-        'collection',
-        'photo',
-        'photos'
-    ]
-    
-    # domains = " site:" + " OR site:".join(ALLOWED_DOMAIN)
-    # exclude_keywords = " OR ".join([f'"{keyword}"' for keyword in EXCLUDE_KEYWORDS])
-    # search_term = search_term + domains + " -" + exclude_keywords
-    
     service = build("customsearch", "v1", developerKey=api_key)
     res_list = []
     for i in range(0,how_many_queries):
         start = i*10 + 1
-        # res = service.cse().list(q=f"\"{search_term}\"", searchType='image', lr='lang_en', num = 10, start=start, cx=cse_id, **kwargs).execute()
-        # res = service.cse().list(q=search_term, searchType='image', lr='lang_en', num = 10, start=start, cx=cse_id, **kwargs).execute()
         
+        # F
         exact_res = service.cse().list(
             q=f"\"{search_term}\"", 
             searchType='image', 
@@ -183,8 +118,6 @@ def google_search(search_term, api_key, cse_id, how_many_queries, **kwargs):
         # Merge the results
         combined_results = merge_search_results(exact_res, broad_res)
         res_list.append(combined_results)
-        
-        # res_list.append(res)
     return res_list
 
 def init_files_and_paths(args):
@@ -299,17 +232,7 @@ def get_direct_search_annotation(search_results_lists, save_folder_path):
             executor.submit(process_single_item, item_data): item_data
             for item_data in items_to_process
         }
-        
-        # for future in cf.as_completed(futures, timeout=60):
-        #     try:
-        #         result = future.result(timeout=30)
-        #         if result:
-        #             category, image = result
-        #             results[category].append(image)
-        #     except Exception as e:
-        #         item_data = futures[future]
-        #         print(f'Failed to process item {item_data[1]}: {str(e)}')
-        
+
         try:
             for future in cf.as_completed(futures, timeout=60):  # Global timeout
                 try:
@@ -360,10 +283,13 @@ def main():
                   else (start_counter + 2*args.how_many if args.how_many > 0 
                         else len(clip_data_annotations)))
     
-    try:
-        with open(args.random_index_path, 'r') as f:
-            random_indices = [int(line.strip()) for line in f.readlines()]
-    except FileNotFoundError:
+    if args.random_index_path:
+        try:
+            with open(args.random_index_path, 'r') as f:
+                random_indices = [int(line.strip()) for line in f.readlines()]
+        except Exception as e:
+            print(f"Error in reading random indices file: {str(e)}")
+    else:
         random_indices = list(range(start_counter, end_counter))
             
     # Select even indices in random_indices which are between start_counter and end_counter
@@ -379,6 +305,7 @@ def main():
             
     # Remove duplicate indices
     indices = list(set(indices))
+    indices.sort()
     print(f"Processing items from {indices[0]} to {indices[-1]}")
     
     # Main processing loop
@@ -417,34 +344,6 @@ def main():
             }
             
             try:
-                # with open(json_download_file_name, 'r') as f:
-                #     current_data = json.load(f)
-                # current_data.update(new_entry)
-                # with open(json_download_file_name, 'w') as f:
-                #     json.dump(current_data, f)
-                # Use file locking to prevent race conditions
-                
-                # LINUX
-                # import fcntl
-                
-                # with open(json_download_file_name, 'r+') as f:
-                #     # Acquire an exclusive lock
-                #     fcntl.flock(f, fcntl.LOCK_EX)
-                    
-                #     try:
-                #         current_data = json.load(f)
-                #         current_data.update(new_entry)
-                        
-                #         # Go back to the beginning of the file
-                #         f.seek(0)
-                #         # Write the updated data
-                #         json.dump(current_data, f)
-                #         # Truncate in case the new data is smaller than the old data
-                #         f.truncate()
-                #     finally:
-                #         # Release the lock
-                #         fcntl.flock(f, fcntl.LOCK_UN)
-                
                 # WINDOWS
                 from filelock import FileLock
                 lock_file = f"{json_download_file_name}.lock"

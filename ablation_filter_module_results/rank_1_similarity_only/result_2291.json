@@ -1,0 +1,51 @@
+{
+  "caption": "First Lady Michelle Obama with her daughters Malia and Sasha visit Museum of Terracotta Warriors on March 24 during a visit to the historic excavation site in Xian China",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Nato summit protests - in pictures | World news | The Guardian",
+        "content": "M o n   2 1   M a y   2 0 1 2   1 4 . 5 9  B S T \n \n \n                         F i r s t   p u b l i s h e d   o n   M o n   2 1   M a y   2 0 1 2   1 4 . 5 9  B S T \n \n P h o t o g r a p h :   A n d r e w   K e l l y / R e u t e r s \n \n P h o t o g r a p h :   S c o t t   O l s o n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   J o s h u a   L o t t / G e t t y   I m a g e s \n \n P h o t o g r a p h :   J o s h u a   L o t t / G e t t y   I m a g e s \n \n P h o t o g r a p h :   S p e n c e r   P l a t t / G e t t y   I m a g e s \n \n P h o t o g r a p h :   J o h n   S m i e r c i a k / E P A \n \n P h o t o g r a p h :   A n d r e w   K e l l y / R e u t e r s \n \n P h o t o g r a p h :   A d r e e s   L a t i f / R e u t e r s \n \n P h o t o g r a p h :   J o h n   S m i e r c i a k / E P A \n \n P h o t o g r a p h :   J o h n   S m i e r c i a k / E P A \n \n P h o t o g r a p h :   E r i c   T h a y e r / R e u t e r s \n \n P h o t o g r a p h :   J o e   C o m p e a n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   C h a r l e s   R e x   A r b o g a s t / A P \n \n P h o t o g r a p h :   T a s o s   K a t o p o d i s / A F P / G e t t y   I m a g e s",
+        "caption": "NATO summit protests: A protester stands at the Art Institute",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9886775016784668,
+        "text_similarity_score": 0.22373971343040466
+      },
+      {
+        "title": "Terracotta Army: Legacy of the First Emperor of China Cincinnati",
+        "content": "T e r r a c o t t a   A r m y :   L e g a c y   o f   t h e   F i r s t   E m p e r o r   o f   C h i n a   C i n c i n n a t i",
+        "caption": "XI'AN, CHINA - MARCH 24: First Lady Michelle Obama with her daughters Malia Obama and Sasha Obama visit Museum of Terracotta Warriors during a visit to the historic excavation site on March 24, 2014 in Xi'an, China. Michelle Obama's one-week-long visit in China will be focused on educational and cultural exchanges. (Photo by Feng Li/Getty Images)",
+        "domain": "www.daytondailynews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1470690220594406,
+        "text_similarity_score": 0.8966468572616577
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "We evaluate the provided news caption against the candidate captions to determine if the news caption accurately represents the image. The news caption states: \"First Lady Michelle Obama with her daughters Malia and Sasha visit Museum of Terracotta Warriors on March 24 during a visit to the historic excavation site in Xian China.\" \n\nCandidate 1 has a low image similarity score (0.9886775016784668) and low caption similarity score (0.22373971343040466). The image similarity is high, meaning the image is similar, however, based on the caption alone, this candidate does not strongly support the news caption's claim.\n\nCandidate 2 has a low image similarity score (0.1470690220594406), but high caption similarity score (0.8966468572616577). The caption reads: \"XI'AN, CHINA - MARCH 24: First Lady Michelle Obama with her daughters Malia Obama and Sasha Obama visit Museum of Terracotta Warriors during a visit to the historic excavation site on March 24, 2014 in Xi'an, China. Michelle Obama's one-week-long visit in China will be focused on educational and cultural exchanges. (Photo by Feng Li/Getty Images)\" This caption confirms that Michelle Obama and her daughters visited the Museum of Terracotta Warriors in Xi'an on March 24. Despite the low image similarity, the high caption similarity strongly supports the news caption.",
+      "supporting_evidences": [
+        "Candidate 2: Caption matches the news caption, confirming Michelle Obama's visit to the Museum of Terracotta Warriors with her daughters on March 24 in Xi'an."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a group of police officers in riot gear facing a man with his arms outstretched. The caption describes First Lady Michelle Obama and her daughters visiting the Museum of Terracotta Warriors in China. The image content does not match the caption description. The image check result confirms this mismatch with a confidence score of 10, stating that the caption is not representative of the image content.",
+    "validation_summary": "The image shows a protest scene with police, while the caption describes a visit by Michelle Obama to a museum in China, which would mislead viewers about the image content. The image and caption are entirely unrelated and misrepresent the scene in the image."
+  },
+  "inference_time": 7.082681179046631,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

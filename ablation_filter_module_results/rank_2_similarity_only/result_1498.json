@@ -1,0 +1,61 @@
+{
+  "caption": "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Crime",
+      "Thames Valley Police",
+      "United Kingdom",
+      "Law enforcement in the United Kingdom",
+      "Police dog",
+      "Attempted murder",
+      "Image",
+      "Murder–suicide"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Three arrested after raid on slave factory in Rochdale | Manchester | The Guardian",
+        "content": "T h r e e   a r r e s t e d   a f t e r   r a i d   o n   ' s l a v e '   f a c t o r y   i n   R o c h d a l e   . . .",
+        "caption": "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever. Photograph: Christopher Furlong/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9980393648147583,
+        "text_similarity_score": 0.9473894834518433
+      },
+      {
+        "title": "Three arrested after raid on slave factory in Rochdale | Manchester | The Guardian",
+        "content": "T h r e e   a r r e s t e d   a f t e r   r a i d   o n   ' s l a v e '   f a c t o r y   i n   R o c h d a l e   . . .",
+        "caption": "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever. Photograph: Christopher Furlong/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9974138140678406,
+        "text_similarity_score": 0.9473894834518433
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both candidates have very high image similarity scores (0.9980393648147583 and 0.9974138140678406) and text similarity scores (0.9473894834518433). The captions of the candidates exactly match the news caption, and the domain is a reputable news source (www.theguardian.com). Therefore, the caption accurately represents what the news image shows and what the image is about.",
+      "supporting_evidences": [
+        "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever. Photograph: Christopher Furlong/Getty Images",
+        "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever. Photograph: Christopher Furlong/Getty Images"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 10, indicating very high certainty. The explanation states that both candidates have very high image similarity scores and text similarity scores, meaning that the captions of the candidates exactly match the news caption. The domain is a reputable news source. Therefore, the caption accurately represents what the news image shows and what the image is about, and the image is not out of context.",
+    "validation_summary": "The image is accurately represented by the caption, with high confidence based on strong image and text similarity scores from reputable news sources. Viewers would not be misled about the image's content based on the provided caption and supporting evidence."
+  },
+  "inference_time": 5.297383069992065,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

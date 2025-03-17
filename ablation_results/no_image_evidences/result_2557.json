@@ -1,0 +1,52 @@
+{
+  "caption": "Pope Francis right gestures as he talks with journalists during his flight from Manila to Rome on Monday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Debate",
+      "Seminar",
+      "Academic conference",
+      "Public speaking",
+      "Convention",
+      "Academy",
+      "Speech",
+      "Audience"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Rabbit Breeder to Pope: You Don't Know Rabbits",
+        "content": "R a b b i t   B r e e d e r   t o   P o p e :   Y o u   D o n ' t   K n o w   R a b b i t s",
+        "caption": "Pope Francis, right, gestures as he talks with journalists during his flight from Manila to Rome, Monday, Jan. 19, 2015.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.25395405292510986,
+        "text_similarity_score": 0.9488623738288879
+      },
+      {
+        "title": "Pope: Catholics need not breed 'like rabbits'",
+        "content": "6 3 5 5 7 2 8 5 7 9 6 6 6 1 4 2 9 9 - E P A -   . . .",
+        "caption": "Pope Francis gestures as he talks with journalists on the plane during the flight from Manila to Rome, 19 January 2015.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.20818796753883362,
+        "text_similarity_score": 0.8528649806976318
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are below 0.85, indicating that the images do not strongly match. Therefore, according to the instructions, the caption should be marked as out-of-context, even though the text similarity scores are high. The text similarity scores are 0.9488623738288879 and 0.8528649806976318, respectively. Since the image similarity scores are low (0.25395405292510986 and 0.20818796753883362), the captions must be considered out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result provides a confidence score of 2, necessitating a detailed review. The image shows Pope Francis seated, seemingly at a United Nations event, with Ban Ki-moon at a podium. Security personnel and other individuals are also visible in the background. This contrasts sharply with the caption, which describes Pope Francis 'talking with journalists during his flight from Manila to Rome'. There is no visual evidence within the image to support the claim that Pope Francis is on a flight, interacting with journalists, or that the setting is related to travel from Manila to Rome. The image clearly depicts an official event, likely at the UN, which is a different context altogether. Therefore, the caption is misleading and does not accurately represent the image content.",
+    "validation_summary": "The caption is misleading as it describes Pope Francis talking to journalists on a flight, while the image shows him at a formal event, likely at the United Nations. The image does not support the caption's claim, making it out of context and likely to mislead viewers."
+  },
+  "inference_time": 5.322759389877319,
+  "ablation_type": "no_image_evidences"
+}

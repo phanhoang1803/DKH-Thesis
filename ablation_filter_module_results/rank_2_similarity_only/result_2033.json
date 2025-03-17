@@ -1,0 +1,49 @@
+{
+  "caption": "Adam Lallana prepares to kick off with Philippe Coutinho",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Goalkeeper stops shot",
+      "Ball",
+      "Ball",
+      "Stadium",
+      "International rules football",
+      "Footballer",
+      "Goalkeeper",
+      "Kick"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Premier League: Liverpool v Arsenal  in pictures | Football | The Guardian",
+        "content": "P r e m i e r   L e a g u e :   L i v e r p o o l   v   A r s e n a l      i n   p i c t u r e s   |   F o o t b a l l   |   T h e   . . .",
+        "caption": "Adam Lallana prepares to kick off with Philippe Coutinho",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5398562550544739,
+        "text_similarity_score": 1.0000001192092896
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score (0.5398562550544739) is below the threshold of 0.85. Therefore, the caption is considered out-of-context. While the text similarity score is high (1.0000001192092896), the low image similarity indicates that the candidate image does not closely match the news image. Without a strong visual match, the similarity in the captions alone is not sufficient to confirm that the news caption accurately represents the image content. The evidence suggests the candidate image is a different image and thus the caption does not match the news image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the image is out of context. The similarity score between the news image and the candidate image associated with the caption 'Adam Lallana prepares to kick off with Philippe Coutinho' is low (0.5398562550544739), failing to meet the threshold of 0.85. This suggests that the candidate image does not accurately represent the news image. The news image displays Adam Lallana on his knees with his arms outstretched, celebrating a goal. The caption's claim that he is preparing to kick off with Philippe Coutinho doesn't correspond with the visual content. Therefore, the caption misrepresents the image content.",
+    "validation_summary": "The caption misrepresents the image content by stating Adam Lallana prepares to kick off with Philippe Coutinho, while the image shows him celebrating a goal. Viewers would be misled about what is happening in the picture if they were to read this caption with the image presented to them as it is.  Therefore, the image is considered OOC due to significant discrepancy between caption and image content, as confirmed by the low image similarity score in the automated check result, which overrides any counterarguments."
+  },
+  "inference_time": 6.12183690071106,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

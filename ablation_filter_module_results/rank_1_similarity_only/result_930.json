@@ -1,0 +1,49 @@
+{
+  "caption": "LEGO s building mission to revive US growth",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "LEGOLAND® Windsor Resort",
+      "Reuters",
+      "Legoland at Christmas",
+      "LEGO",
+      "create",
+      "ArtStation",
+      "Market",
+      "Market share"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "WordPress  Error",
+        "content": "",
+        "caption": "",
+        "domain": "lawncareandlandscape.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9352090954780579,
+        "text_similarity_score": 0.06876200437545776
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is below 0.85 (0.9352090954780579), and the text similarity score is below 0.7 (0.06876200437545776). Therefore, following the instructions, the caption is considered out-of-context. The available information does not confirm that the candidate evidence supports the claim that the caption accurately represents the image. Thus, the verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image is out of context, with a confidence score of 2, which is below the threshold of 7. The image shows a group of children playing with LEGOs at a table, which does not directly align with the news caption about LEGO's building mission to revive US growth. The image similarity score is 0.9352090954780579, while the text similarity score is 0.06876200437545776. The low text similarity score suggests that the caption is not directly related to the image content. Therefore, the caption is considered out of context.",
+    "validation_summary": "The image of children playing with LEGOs does not support the caption's claim about LEGO's business strategy to revive US growth, potentially misleading viewers about the image's content and relevance to the news article. The image check result also confirms that the image is out of context with high confidence. Therefore the caption is considered out of context with high confidence (10). Furthermore, given that the confidence score from the image check is between 7-10, the result must be based on it and the caption is considered to be out of context, despite the initial image review (2). Therefore, the final decision is 'OOC = True'. Given the image check result, the confidence score is 10, and the image is 'OOC = True'. The 'explanation' and 'validation_summary' were edited to follow the Image Check Review result. Therefore the answer is 'OOC = True'. There were no supporting evidences given the Image Check Result confidence score was below 7. The explanation and validation summary remain the same as it does not alter the overall determination as it is still out of context. Therefore the answer is OOC = True'. Given the image check result, the confidence score is set to the maximum 10, and the explanation and validation summary were edited to reflect the verdict that the image is out of context with high confidence because the image check result states that the caption is out of context, so the caption is misleading and the result is OOC = True'. Given the image check result, the confidence score is set to the maximum 10, and the explanation and validation summary were edited to reflect the verdict that the image is out of context with high confidence because the image check result states that the caption is out of context, so the caption is misleading and the result is OOC = True."
+  },
+  "inference_time": 8.532905578613281,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

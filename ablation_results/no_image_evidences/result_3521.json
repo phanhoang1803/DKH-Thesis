@@ -1,0 +1,46 @@
+{
+  "caption": "Nick Clegg visited the Scottish Association for Mental Health in Glasgow during his party conference",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Clegg bids to end the outrageous discrimination in mental healthcare | Mental health | The Guardian",
+        "content": "C l e g g   b i d s   t o   e n d   t h e   ' o u t r a g e o u s   d i s c r i m i n a t i o n '   i n   m e n t a l   . . .",
+        "caption": "Nick Clegg during a visit to the Scottish Association for Mental Health in Glasgow.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.30508700013160706,
+        "text_similarity_score": 0.8879568576812744
+      },
+      {
+        "title": "Lib Dem Conference: Nick Clegg pledges to end the shortfall in mental health treatment | The Independent | The Independent",
+        "content": "L i b   D e m   C o n f e r e n c e :   N i c k   C l e g g   p l e d g e s   t o   e n d   t h e   s h o r t f a l l   i n   . . .",
+        "caption": "Deputy Prime Nick Clegg during a visit to the Scottish Association for Mental Health in Glasgow on Tuesday",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3021501898765564,
+        "text_similarity_score": 0.8393038511276245
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have low image similarity scores (below 0.85), indicating that the images in the candidates do not closely match the news image. Although the caption similarity scores are high (above 0.7), the low image similarity scores indicate the caption might be out-of-context. Both candidate captions include similar information to the news caption, such as Nick Clegg visiting the Scottish Association for Mental Health in Glasgow. However, given the low image similarity scores, I cannot confidently confirm that the candidate images match the news image. Therefore, the verdict is False.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.30508700013160706, Caption Similarity Score: 0.8879568576812744",
+        "Candidate 2: Image Similarity Score: 0.3021501898765564, Caption Similarity Score: 0.8393038511276245"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result shows a low image similarity score between the provided image and the candidate images, indicating the caption might be out of context. While the news content discusses Nick Clegg's visit to the Scottish Association for Mental Health in Glasgow, the image shows Nick Clegg under an umbrella with the Liberal Democrats logo, likely during the party conference mentioned in the news content. Without a stronger match from the image check, especially concerning visual elements, I cannot verify that the image accurately represents the specific event mentioned in the caption. Therefore, it's likely the caption is out of context.",
+    "validation_summary": "The image cannot be confidently verified as representing Nick Clegg's visit to the Scottish Association for Mental Health, making it potentially misleading. The image shows Nick Clegg during what appears to be a Liberal Democrats event but lacks specific confirmation of the stated event, thus requiring caution in its interpretation regarding the provided caption and news content. Given the image check result I am making the decision based on that result since the confidence score is between 7-10, therefore the verdict is that it is out of context (OOC=True). That said, the image has a high likelihood of representing an event around the time the news was announced, even if it does not specifically match the exact location and event mentioned in the provided caption and news article. The caption is quite specific and the image is generic (but related), thus requiring a verdict of OOC=True. The image similarity check has a high false positive rate which also adds to the difficulty of the task and adds uncertainty."
+  },
+  "inference_time": 6.075937271118164,
+  "ablation_type": "no_image_evidences"
+}

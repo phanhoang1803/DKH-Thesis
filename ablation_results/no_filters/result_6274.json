@@ -1,0 +1,41 @@
+{
+  "caption": "North Carolina Tar Heels forward Brice Johnson pulls down a rebound between Florida State Seminoles guards Terance Mann and Xavier RathanMayes in the first half",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Brice Johnson scores 39 to lead No. 7 UNC past Florida State",
+        "content": "B r i c e   J o h n s o n   s c o r e s   3 9   t o   l e a d   N o .   7   U N C   p a s t   F l o r i d a   S t a t e",
+        "caption": "North Carolina Tar Heels forward Brice Johnson (11) pulls down a rebound between Florida State Seminoles guards Terance Mann (14) and Xavier Rathan-Mayes (22) in the first half.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "FSU Basketball: An Urgent Need to Break The Tar Heels Curse",
+        "content": "F S U   B a s k e t b a l l :   A n   U r g e n t   N e e d   t o   B r e a k   T h e   T a r   H e e l s   C u r s e",
+        "caption": "Mar 11, 2012; Atlanta, GA, USA; Florida State Seminoles head coach Leonard Hamilton accepts the ACC tournament trophy from commissioner John Swofford (left) after defeating the North Carolina Tar Heels 85-82 in the finals of the 2012 ACC Men",
+        "domain": "chopchat.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The first candidate has a caption that exactly matches the news caption. It identifies Brice Johnson, Terance Mann, and Xavier Rathan-Mayes as players involved in a rebound during the first half of a game between the North Carolina Tar Heels and the Florida State Seminoles. The domain is www.usatoday.com which is a well known source. However, since the image similarity score is 0, the images do not match. Thus, I cannot fully verify the image.",
+      "supporting_evidences": [
+        "Candidate 1: Caption matches the news caption and identifies the players and teams involved."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (7) but determines that the images do not match, and the caption is therefore incorrect. The caption claims to show Brice Johnson, Terance Mann, and Xavier Rathan-Mayes in a game between North Carolina and Florida State. Since the image similarity score is 0, the image content contradicts the caption's claim. Therefore, the image is out of context.",
+    "validation_summary": "The image does not depict the players or teams described in the caption, misleading viewers about the image's content. The high confidence score from the image check confirms the mismatch."
+  },
+  "inference_time": 3.9200873374938965,
+  "ablation_type": "no_filters"
+}

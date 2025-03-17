@@ -1,0 +1,41 @@
+{
+  "caption": "John Podesta on the campaign trail with Hillary Clinton in Iowa in January",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 9,
+      "confidence_score": 10,
+      "explanation": "The caption accurately describes the image context, mentioning John Podesta and Hillary Clinton on the campaign trail in Iowa in January. The image information confirms these details, indicating that the image shows both individuals at a campaign event in Iowa, with both displaying enthusiasm and commitment. The caption aligns well with the key elements of the image context.",
+      "supporting_evidences": [
+        "The caption mentions John Podesta and Hillary Clinton.",
+        "The caption specifies the location as Iowa.",
+        "The caption includes the time frame as January.",
+        "The image context confirms these details."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image shows John Podesta standing alongside Hillary Clinton on the campaign trail during a visit to Iowa in January. Podesta is dressed in formal attire, likely a suit and tie, and is engaged with the crowd or media. Hillary Clinton appears confident and is making gestures that indicate she is speaking, possibly addressing supporters or the press. Both figures display expressions of enthusiasm and commitment to the campaign, embodying the energy typical of a political rally during the presidential campaign.",
+      "caption": "John Podesta campaigning with Hillary Clinton in Iowa, January 2016.",
+      "context": "This image captures a key moment from the 2016 presidential campaign, highlighting the partnership between John Podesta and Hillary Clinton. As the Chairman of Clinton's campaign, Podesta played a significant role behind the scenes and in public appearances. The setting is an energetic campaign event in Iowa, which is crucial for candidates seeking the Democratic nomination. The imagery showcases the camaraderie and teamwork between Podesta and Clinton, aiming to rally support from voters. This moment is set against the backdrop of the campaign's broader narrative, which was later impacted by the release of Podesta's emails, revealing personal insights and political maneuverings that stirred controversy during the election cycle."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows John Podesta. The caption says, \"John Podesta on the campaign trail with Hillary Clinton in Iowa in January.\" The image itself doesn't show Hillary Clinton. Therefore, the image is out of context because the caption implies both are present in the image, but the image only contains John Podesta.",
+    "validation_summary": "The image is out of context because it only shows John Podesta, whereas the caption implies that both John Podesta and Hillary Clinton are present in the image. Viewers would be misled about who is shown in the image."
+  },
+  "inference_time": 5.159592151641846,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

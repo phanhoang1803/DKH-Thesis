@@ -762,7 +762,7 @@ class TextEvidencesModule(BaseEvidencesModule):
                 
         # Filter by image similarity if reference image is provided
         if reference_image:
-            print(f"Filtering by image similarity in TextEvidencesModule for {len(filtered_evidence)} evidences")
+            # print(f"Filtering by image similarity in TextEvidencesModule for {len(filtered_evidence)} evidences")
             filtered_evidence = self.filter_evidence_by_image_similarity_parallel(
                 filtered_evidence, 
                 reference_image, 
@@ -772,7 +772,7 @@ class TextEvidencesModule(BaseEvidencesModule):
             )
         
         # Filter by similarity to query
-        if query != "":
+        if query and query != "":
             evidence_scores = self.filter_by_similarity(query, filtered_evidence, threshold)
             
             # If we don't have enough results meeting the threshold, include top results
@@ -784,8 +784,6 @@ class TextEvidencesModule(BaseEvidencesModule):
         
         if sort_by_text_score:
             filtered_evidence.sort(key=lambda x: x.text_similarity_score, reverse=True)
-        else:
-            filtered_evidence.sort(key=lambda x: x.image_similarity_score, reverse=True)
                     
         # Filter by unique domain+title combinations
         if use_filter_by_unique_domain_title:
@@ -804,10 +802,10 @@ class ImageEvidencesModule(BaseEvidencesModule):
         # Initialize the ViT model and processor
         self._initialize_vit_model()
         
-    def get_entities_by_index(self, index: Union[int, str]) -> List[str]:
+    def get_entities_by_index(self, index: Union[int, str], threshold: float = 0.0, min_results: int = 0, return_scores: bool = False) -> List[str]:
         """Retrieve entities for a specific image index."""
         folder_path = self.get_item_folder_path(index)
-        print(f"Folder path: {folder_path}")
+        # print(f"Folder path: {folder_path}")
         if not folder_path:
             return []
         
@@ -816,7 +814,23 @@ class ImageEvidencesModule(BaseEvidencesModule):
             with open(annotation_file, 'r', encoding='utf-8') as file:
                 annotation_data = json.load(file)
                 
-            return annotation_data.get("entities", [])
+            entities = annotation_data.get("entities", [])
+            entities_scores = annotation_data.get("entities_scores", [])
+            
+            # If dont have entities scores, get first min_results entities
+            if entities_scores is None or len(entities_scores) == 0:
+                if return_scores:
+                    return entities[:min_results], None
+                return entities[:min_results]
+            
+            # Filter entities by threshold and min_results
+            filtered_entities = [entity for entity, score in zip(entities, entities_scores) if score >= threshold]
+            if len(filtered_entities) < min_results:
+                filtered_entities = entities[:min_results]
+                
+            if return_scores:
+                return filtered_entities, entities_scores[:len(filtered_entities)]
+            return filtered_entities
         
         except (FileNotFoundError, json.JSONDecodeError) as e:
             print(f"Error loading inverse annotation file for index {index}: {str(e)}")
@@ -894,7 +908,7 @@ class ImageEvidencesModule(BaseEvidencesModule):
                         image_data=image_data,  # Empty image data
                         title=item.get('title', ''),
                         caption=extract_caption(item.get('caption')),
-                        content=get_content(item),
+                        content=' '.join(get_content(item)[:30000]),
                         source="ImageEvidencesModule"
                     ))
             
@@ -913,7 +927,7 @@ class ImageEvidencesModule(BaseEvidencesModule):
             filtered_evidence = self.filter_evidence_by_excluding_domains(filtered_evidence, self.EXCLUDED_DOMAINS)
         
         if reference_image:
-            print(f"Filtering by image similarity in ImageEvidencesModule for {len(filtered_evidence)} evidences")
+            # print(f"Filtering by image similarity in ImageEvidencesModule for {len(filtered_evidence)} evidences")
             filtered_evidence = self.filter_evidence_by_image_similarity_parallel(
                 filtered_evidence, 
                 reference_image, 
@@ -922,7 +936,7 @@ class ImageEvidencesModule(BaseEvidencesModule):
                 min_results=min_results
             )
         
-        if query != "":
+        if query and query != "":
             evidence_scores = self.filter_by_similarity(query, filtered_evidence, threshold)
             
             # If we don't have enough results meeting the threshold, include top results

@@ -1,0 +1,47 @@
+{
+  "caption": "Migrants crowd the deck of their wooden boat off the coast of Libya the HMS Bulwark is being withdrawn from search and rescue operations",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Britain replaces migrant search and rescue ship with smaller naval vessel | Migration | The Guardian",
+        "content": "B r i t a i n   r e p l a c e s   m i g r a n t   s e a r c h   a n d   r e s c u e   s h i p   w i t h   s m a l l e r   n a v a l   . . .",
+        "caption": "Migrants crowd the deck of their wooden boat off the coast of Libya: the HMS Bulwark is being withdrawn from search and rescue operations.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Italian coastguards: military action will not solve Mediterranean migrant crisis | Migration | The Guardian",
+        "content": "I t a l i a n   c o a s t g u a r d s :   m i l i t a r y   a c t i o n   w i l l   n o t   s o l v e   M e d i t e r r a n e a n   . . .",
+        "caption": "Migrants crowd the deck of their wooden boat off the coast of Libya.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are 0.0 in both candidates, indicating the images do not match. The text similarity scores are also 0.0 in both candidates, indicating captions do not match. However, Candidate 1 has the exact same caption as the news. Due to the low confidence, I can't confirm if this is true.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: Migrants crowd the deck of their wooden boat off the coast of Libya: the HMS Bulwark is being withdrawn from search and rescue operations."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a ship with crew members and equipment on deck, with buoys being lifted by a crane over a blue ocean. The caption states that it shows migrants crowding the deck of a wooden boat off the coast of Libya as the HMS Bulwark is being withdrawn from search and rescue operations. This caption does not accurately represent the image content. There are no migrants visible in the picture, and the ship in the picture doesn't appear to be a small wooden boat, rather a larger vessel.",
+    "validation_summary": "The caption is misleading as it inaccurately describes the image, potentially causing viewers to misunderstand the scene and its context in relation to the news article. The image depicts a ship with crew and equipment, which is entirely different from the 'migrants crowding the deck of their wooden boat' as the caption suggests."
+  },
+  "inference_time": 4.340186834335327,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

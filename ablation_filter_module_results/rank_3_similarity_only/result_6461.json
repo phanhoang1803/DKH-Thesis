@@ -1,0 +1,72 @@
+{
+  "caption": "Salman Rushdie with Padma Lakshmi in Cannes 2004",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Kevin Spacey",
+      "Julia Louis-Dreyfus",
+      "Anthony Rapp",
+      "Veep",
+      "The Affair",
+      "Actor",
+      "House of Cards",
+      "Seinfeld",
+      "Television",
+      "Showtime"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "www.lux.iol.pt",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9284126162528992,
+        "text_similarity_score": 0.00847611390054226
+      },
+      {
+        "title": "Salman Rushdie is injured after being stabbed ahead of speech in New York | Daily Mail Online",
+        "content": "S a l m a n   R u s h d i e   i s   i n j u r e d   a f t e r   b e i n g   s t a b b e d   a h e a d   o f   s p e e c h   i n   . . .",
+        "caption": "Salman Rushdie (right) together with his fourth wife, model and Top Chef host Padma Lakshimi attending the Cannes Film Festival in 2004",
+        "domain": "www.dailymail.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5456809997558594,
+        "text_similarity_score": 0.8294905424118042
+      },
+      {
+        "title": "Padma Lakshmi and Salman Rushdie during 2004 Cannes Film Festival MTV... | WireImage  | 130917634",
+        "content": "P a d m a   L a k s h m i   a n d   S a l m a n   R u s h d i e   d u r i n g   2 0 0 4   C a n n e s   F i l m   F e s t i v a l   . . .",
+        "caption": "Padma Lakshmi and Salman Rushdie...",
+        "domain": "www.wireimage.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4822066128253937,
+        "text_similarity_score": 0.7050851583480835
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "We evaluate the relevance of the news caption 'Salman Rushdie with Padma Lakshmi in Cannes 2004' based on the provided candidate evidences. Candidate 1 has a high image similarity score (0.9284126162528992), indicating a strong match between the candidate image and the news image. However, its caption similarity score is very low (0.00847611390054226), suggesting the caption in Candidate 1 does not align well with the news caption. Candidate 2 has an image similarity score of 0.5456809997558594 and a caption similarity score of 0.8294905424118042. Although the image similarity is low, the caption similarity is high and explicitly mentions 'Salman Rushdie' with 'Padma Lakshimi' at the 'Cannes Film Festival in 2004', closely matching the news caption. Candidate 3 has a low image similarity score of 0.4822066128253937 but has caption mentions both 'Padma Lakshmi and Salman Rushdie'. Given that Candidate 2's caption explicitly confirms the presence of both individuals in Cannes 2004 and has a high caption similarity score, we determine the news caption is likely accurate. Candidate 1 has a high image similarity score, but low caption similarity.",
+      "supporting_evidences": [
+        "Candidate 2: Caption mentions 'Salman Rushdie' with 'Padma Lakshimi' at the 'Cannes Film Festival in 2004'.",
+        "Candidate 3: Caption mentions 'Padma Lakshmi and Salman Rushdie'."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the provided caption is not representative of the image content. Despite candidate 2 caption mentioning Salman Rushdie and Padma Lakshmi in Cannes 2004 and high caption similarity, the image candidate's image similarity is low at 0.5456. The provided image shows Kevin Spacey and Julia Louis-Dreyfus in what appears to be an indoor event.",
+    "validation_summary": "The caption suggests the image contains Salman Rushdie and Padma Lakshmi, when in reality, the image displays Kevin Spacey and Julia Louis-Dreyfus, misleading viewers about the image's content and subject matter. The image check has confirmed the mismatch of caption and image content.. Therefore, the caption is out of context.)"
+  },
+  "inference_time": 12.011793613433838,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

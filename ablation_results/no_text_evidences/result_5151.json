@@ -1,0 +1,45 @@
+{
+  "caption": "Erik Lamela rounds Manchester City s Willy Caballero to score the fourth goal for Tottenham",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Steven Gerrard",
+      "Frank Lampard",
+      "Liverpool F.C.",
+      "UEFA Champions League",
+      "Anfield",
+      "Riath Al-Samarrai",
+      "PFC Ludogorets Razgrad",
+      "Gaelic football",
+      "other",
+      "just"
+    ],
+    "ablation_type": "no_text_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 9,
+      "explanation": "The caption mentions Erik Lamela scoring a goal against Manchester City, but the image context describes Steven Gerrard kicking a ball during a match against Tottenham. These details do not align. The caption and the context refer to completely different players and teams. The caption also focuses on a goal-scoring action, while the context describes a general play involving Steven Gerrard.",
+      "supporting_evidences": [
+        "The caption mentions Erik Lamela and Manchester City, while the context involves Steven Gerrard and Tottenham.",
+        "The caption describes a goal-scoring event, while the context describes a general soccer play.",
+        "The image context doesn't mention anything about Erik Lamela or Manchester City."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Soccer match scene featuring Steven Gerrard kicking the ball, with Tottenham players nearby and a crowd in the background.",
+      "context": "The image captures a dynamic moment from a soccer match, specifically featuring Steven Gerrard in a red Liverpool F.C. uniform kicking the ball. Several Tottenham players are in close proximity, seemingly attempting to defend or intercept the ball. A large crowd of spectators fills the background, watching the game. Signage is visible above the crowd.",
+      "information": "The image shows Steven Gerrard in a Liverpool F.C. uniform kicking a soccer ball during a match against Tottenham. Several Tottenham players are nearby, and a crowd is watching the game."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the caption is inaccurate. The image depicts Steven Gerrard of Liverpool kicking a ball during a match, likely against Tottenham, as evidenced by the opposing team's white jerseys. The caption, however, describes Erik Lamela scoring against Manchester City, which is completely different from what the image shows. The presence of Steven Gerrard and Tottenham players in the image contradicts the caption's claim about Erik Lamela and Manchester City. Therefore, the caption misrepresents the image content.",
+    "validation_summary": "The caption incorrectly identifies the players and teams involved in the scene, misrepresenting the context of the image. Viewers would be misled into thinking the image shows a goal by Erik Lamela against Manchester City, which is not the case."
+  },
+  "inference_time": 4.982754468917847,
+  "ablation_type": "no_text_evidences"
+}

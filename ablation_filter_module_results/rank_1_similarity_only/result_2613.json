@@ -1,0 +1,51 @@
+{
+  "caption": "Brave New World Barack Obama signs his first act as president in the US Capitol building on 20 January 2009",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "www.oleantimesherald.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9839599132537842,
+        "text_similarity_score": 0.045828092843294144
+      },
+      {
+        "title": "Gary Younge",
+        "content": "G a r y   Y o u n g e",
+        "caption": "\n\nBrave New World?  Barack Obama signs his first act as president in the US Capitol building on 20 January 2009. Photograph: Molly Riley/AP/PA Photos\n",
+        "domain": "www.garyyounge.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6891794204711914,
+        "text_similarity_score": 0.9401118159294128
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the provided candidates, the second candidate has a high caption similarity score (0.9401118159294128) with the news caption and describes the same event: Barack Obama signing his first act as president in the US Capitol building on 20 January 2009. The image similarity score is 0.6891794204711914, but since the caption of the second candidate is almost the same as the news caption, it is highly likely that the news caption accurately represents the image. Thus, the verdict is true.",
+      "supporting_evidences": [
+        "Candidate 2: Caption similarity score is 0.9401118159294128, and the caption describes the same event."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high caption similarity between the provided news caption and a candidate caption describing Barack Obama signing his first act as president in the US Capitol building on January 20, 2009. However, the image shows Obama in a meeting, gesturing with his hand, and does not depict the specific event of him signing his first act as president. Therefore, despite the high caption similarity score with the candidate, the provided caption is misleading as it does not accurately represent the image content. The image shows Obama in a suit, addressing people at a table, with an American flag visible in the background. The caption suggests a formal signing ceremony at the US Capitol building which is not shown in the image.",
+    "validation_summary": "The caption claims Obama is signing his first act as president at the US Capitol, but the image shows him in a meeting, making the caption misleading. Viewers would be misled about the image's content based on the provided caption, despite a candidate having a similar caption during image check. Therefore, the provided caption is out of context for the image shown here, leading to a verdict of OOC=True. If the caption was 'Obama in meeting' or 'Obama speaking' it would be more accurate for the image provided to me above, but given the content, this caption is misleading and out of context for this image. For that reason, I am labeling the article as Out of Context. Also, for that reason, the caption is misleading to the picture I've been given, and is out of context."
+  },
+  "inference_time": 7.256717681884766,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

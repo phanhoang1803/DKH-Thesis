@@ -1,0 +1,40 @@
+{
+  "caption": "Kenwood House on Hampstead Heath London England",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Pretty in pink: what spring looks like in infrared  in pictures | Art and design | The Guardian",
+        "content": "D e e p   m a g e n t a s ,   d a z z l i n g   f u s c h i a s   a n d   c a n d y f l o s s   b l o o m s :   h e r e  s   t h e   h o t   f l u s h   o f   s p r i n g ,   e n h a n c e d   b y   i n f r a r e d   p h o t o g r a p h y \n \n T u e   3   M a r   2 0 1 5   0 7 . 0 0  G M T \n \n \n                         L a s t   m o d i f i e d   o n   T h u   2 6   M a r   2 0 2 0   1 4 . 4 3  G M T \n \n P h o t o g r a p h :   T w e n t y 2 0 / C o r b i s \n \n P h o t o g r a p h :   D a l e   O ' D e l l / A l a m y \n \n P h o t o g r a p h :   M a r k   O a t n e y / G e t t y   I m a g e s \n \n P h o t o g r a p h :   A n d r e w   H e f t e r / F l i c k r / G e t t y   I m a g e s \n \n P h o t o g r a p h :   N e v a d a   W i e r / C o r b i s \n \n P h o t o g r a p h :   F l o r i n   M i h a i / A l a m y \n \n P h o t o g r a p h :   V i i - S t u d i o / G e t t y   I m a g e s \n \n P h o t o g r a p h :   R y a n   P a l m e r / S c i e n c e   F a c t i o n / C o r b i s \n \n P h o t o g r a p h :   R i k   A m a r / F l i c k r / G e t t y   I m a g e s \n \n P h o t o g r a p h :   D a l e   O ' D e l l / A l a m y \n \n P h o t o g r a p h :   N a d i a   I s a k o v a / A l a m y \n \n P h o t o g r a p h :   W i l l i a m   L e e / A l a m y \n \n P h o t o g r a p h :   M i c h a e l   V i t t i / A l a m y \n \n P h o t o g r a p h :   D o n o v a n   R e e s e / G e t t y   I m a g e s \n \n P h o t o g r a p h :   R e d s h i f t   P h o t o g r a p h y / A l a m y \n \n P h o t o g r a p h :   B i l l   G r a c e y / F l i c k r   R F / G e t t y \n \n P h o t o g r a p h :   D a l e   O ' D e l l / A l a m y",
+        "caption": "Kenwood House on Hampstead Heath, London, England.",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided candidate evidence has a similarity score of 0.0 for both image and caption, so the strict decision rules do not apply. However, the caption in the candidate is identical to the news caption: \"Kenwood House on Hampstead Heath, London, England.\" The domain is www.theguardian.com, a reliable source. This confirms that the news caption accurately describes the image.",
+      "supporting_evidences": [
+        "Kenwood House on Hampstead Heath, London, England."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "Although the image shows a landscape with trees and people on a hill, and a building in the background, the scene is presented with an unusual color palette, potentially due to infrared photography. The sky is a reddish-brown hue, and the trees appear in shades of white and light blue. This is not what would normally be expected when viewing a scene of Kenwood House on Hampstead Heath. Given that the image check result confirms that the candidate caption \"Kenwood House on Hampstead Heath, London, England\" does match the news caption, the overall context remains misleading because the image's unusual color scheme does not align with what a viewer would typically expect to see at Kenwood House. Therefore, the image is considered to be OOC. The atypical colors alter the viewers perception of the scene, the color is not representative of Kenwood House, so this is OOC.",
+    "validation_summary": "The image's atypical colors, likely due to infrared photography, are not representative of Kenwood House, making the image misleading. The distorted colours will alter a viewers perception of the location and therefore makes this OOC.. because the image of Kenwood House shown is not representative of Kenwood house due to the colour distortion."
+  },
+  "inference_time": 4.281321048736572,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

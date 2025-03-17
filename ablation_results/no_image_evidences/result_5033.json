@@ -1,0 +1,36 @@
+{
+  "caption": "Polish Border Guard officers inside Warsaw Chopin airport in Warsaw Poland on March 22 2016",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Travel chaos as Europe freezes air, rail links with Brussels | The Peninsula Qatar",
+        "content": "T r a v e l   c h a o s   a s   E u r o p e   f r e e z e s   a i r ,   r a i l   l i n k s   w i t h   B r u s s e l s   |   T h e   . . .",
+        "caption": "Polish Border Guard officers inside Warsaw Chopin airport, in Warsaw, Poland, 22 March 2016. EPA/BARTLOMIEJ ZBOROWSKI",
+        "domain": "thepeninsulaqatar.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3634200394153595,
+        "text_similarity_score": 0.9282315969467163
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.3634200394153595, which is less than 0.85. The text similarity score is 0.9282315969467163, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False. The supporting evidence is that the candidate caption mentions Polish Border Guard officers inside Warsaw Chopin airport, in Warsaw, Poland, on March 22, 2016, which aligns with the news caption. However, the low image similarity score indicates that the images do not match, leading to the 'False' verdict.",
+      "supporting_evidences": [
+        "Candidate caption mentions Polish Border Guard officers inside Warsaw Chopin airport, in Warsaw, Poland, on March 22, 2016."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows soldiers and tanks that appear to be from World War II, while the provided caption describes Polish Border Guard officers inside Warsaw Chopin airport. The image check result shows the similarity score is 0.36 which is less than 0.85 and the text similarity score is 0.92 which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the image and caption are unrelated, indicating the caption is out of context.",
+    "validation_summary": "The image depicts a historical military scene, starkly contrasting with the caption's mention of Polish border guards in an airport, leading to a false impression of the image's content and context. The low image similarity score confirms that the caption is unrelated to the image content, misleading viewers about what is being shown in the image."
+  },
+  "inference_time": 5.300320148468018,
+  "ablation_type": "no_image_evidences"
+}

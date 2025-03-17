@@ -1,0 +1,47 @@
+{
+  "caption": "A man clears snow from his car in the Chinatown neighborhood of New York",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Calhan",
+      "Ford Crown Victoria Police Interceptor",
+      "Ford Motor Company",
+      "Denver Metropolitan Area",
+      "Snow",
+      "Car",
+      "Blowing snow",
+      "National Weather Service"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Massive winter storm packs snowy punch | CNN",
+        "content": "M a s s i v e   w i n t e r   s t o r m   p a c k s   s n o w y   p u n c h   |   C N N",
+        "caption": "A man clears snow off his car in West Reading, Pennsylvania, on Tuesday, February 2.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate does not provide enough information to support the claim that 'A man clears snow from his car in the Chinatown neighborhood of New York'. The candidate only mentions that 'A man clears snow off his car in West Reading, Pennsylvania, on Tuesday, February 2'. Therefore, I cannot confirm the caption is correct.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a police officer standing next to a police car in snowy conditions. The caption says 'A man clears snow from his car in the Chinatown neighborhood of New York.' The image does not depict someone clearing snow, and the car is clearly marked as a police vehicle, not a personal car. Additionally, the location is not identifiable as Chinatown in New York. The image check result also indicates that the caption is likely incorrect. Therefore, the caption is not a correct representative summary of the image content, making it out of context.",
+    "validation_summary": "The caption incorrectly describes the image by stating it shows a man clearing snow from his car in Chinatown, when the image depicts a police officer next to a police car in snowy conditions. This misrepresentation could mislead viewers about the actual content of the image and the context of the related news story, making the image out of context (OOC=True)."
+  },
+  "inference_time": 4.1045966148376465,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

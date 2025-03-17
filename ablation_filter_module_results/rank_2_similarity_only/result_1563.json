@@ -1,0 +1,49 @@
+{
+  "caption": "Thousands gather on the Mall for the Justice or Else rally",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Access to this page has been denied",
+        "content": "",
+        "caption": "",
+        "domain": "www.texasmonthly.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9706926345825195,
+        "text_similarity_score": 0.17404793202877045
+      },
+      {
+        "title": "Access to this page has been denied",
+        "content": "",
+        "caption": "",
+        "domain": "www.texasmonthly.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9432390332221985,
+        "text_similarity_score": 0.17404793202877045
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores are high (0.97 and 0.94), suggesting the candidate images closely resemble the news image. However, the text similarity scores are low (0.17), indicating that the captions of the candidate images are significantly different from the news caption. Since the text similarity is below the threshold of 0.7, and I don't have access to the candidate captions, I cannot confirm whether the captions describe the same event. Therefore, I am marking the news caption as out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (1.0), suggesting the candidate images closely resemble the news image. However, the text similarity scores are low (0.17), indicating that the captions of the candidate images are significantly different from the news caption. Based on this information, the news caption is determined to be out of context. The image depicts a crowd gathered near an airplane, possibly at an airport or aviation-related event. In contrast, the news caption describes a gathering on the Mall for the 'Justice or Else' rally. The visual content of the image does not align with the event described in the caption, confirming the assessment that the caption is misleading and does not accurately represent the image content.",
+    "validation_summary": "The caption describes a political rally, while the image depicts a gathering at an aviation-related event, thus the caption is out of context and misleading. The high confidence score from the image check confirms the discrepancy."
+  },
+  "inference_time": 6.476397514343262,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

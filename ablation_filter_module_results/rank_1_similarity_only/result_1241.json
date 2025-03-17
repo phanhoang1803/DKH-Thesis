@@ -1,0 +1,58 @@
+{
+  "caption": "Xinjiang is China s largest administrative region and borders eight countries",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Hazaras",
+      "Mark Getty",
+      "Getty Images",
+      "Image",
+      "Getty Images",
+      "Stock photography",
+      "Photograph",
+      "Kabul"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.ca",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9056985378265381,
+        "text_similarity_score": 0.0354454442858696
+      },
+      {
+        "title": "The Energy Industry in Xinjiang, China: Potential, Problems, and Solutions",
+        "content": "T h e   E n e r g y   I n d u s t r y   i n   X i n j i a n g ,   C h i n a :   P o t e n t i a l ,   P r o b l e m s ,   a n d   . . .",
+        "caption": "Xinjiang",
+        "domain": "www.powermag.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.08390042930841446,
+        "text_similarity_score": 0.711859405040741
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The news caption states 'Xinjiang is China s largest administrative region and borders eight countries.'\n\nCandidate 1 has a high image similarity (0.9056985378265381) but a low text similarity (0.0354454442858696). This means the image is visually similar, but the caption is not. According to the strict decision rules, if the image similarity score is greater than 0.85 and the text similarity score is less than 0.7, the verdict is 'False'.\n\nCandidate 2 has a low image similarity (0.08390042930841446) and a moderate text similarity (0.711859405040741). This means that while the captions might share some keywords, the image itself is not similar to the news image. Given the image similarity score is below 0.85, it must be marked as out-of-context.\n\nBoth candidates do not provide enough evidence to support the news caption. Candidate 1 has a high image similarity but dissimilar captions, and Candidate 2 has a low image similarity. Therefore, the overall verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a confidence score of 6, suggesting that the decision should be based on image check results and further examination. The image shows a group of people, including women and children, in what appears to be a mountainous region with graves visible. There is no evidence from the image to suggest that it directly relates to the caption, 'Xinjiang is China s largest administrative region and borders eight countries.' Therefore, the image is out of context.",
+    "validation_summary": "The caption does not accurately represent the image content, as the image shows people in a mountainous region, while the caption discusses the geographic location of Xinjiang. Viewers would be misled about the image's subject if they relied on the caption."
+  },
+  "inference_time": 8.358960390090942,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

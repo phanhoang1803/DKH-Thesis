@@ -1,0 +1,39 @@
+{
+  "caption": "Crow at the Durham Miners Gala calling for the creation of a new party of labour",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 1,
+      "confidence_score": 10,
+      "explanation": "The caption describes a crow at the Durham Miners Gala calling for a new party of labor, which does not align with the image context of a crow with an object strapped to its body. The caption misrepresents the image content entirely, as there is no evidence of the Gala or any political messaging in the image.",
+      "supporting_evidences": [
+        "The image shows a crow with an object strapped to its body, while the caption describes a crow at a political event.",
+        "There is no visual evidence to support the caption's claim about the Durham Miners Gala or a call for a new party of labor."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "A black crow with an object strapped to its body.",
+      "context": "The image shows a black crow with a rectangular object attached to its body using tape and elastic bands. The crow is perched on what appears to be a tree branch. The background is blurred, suggesting an outdoor setting with trees and possibly buildings in the distance. The presence of the object strapped to the bird raises questions about its purpose and who might have attached it. Without additional information, it is difficult to determine the exact nature of the object or the reason for its attachment.",
+      "information": "The image features a black crow with an unidentified object strapped to its body."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence (10/10) that the caption is misaligned with the image. The image features a crow with a device strapped to its body. The caption describes the crow at the Durham Miners Gala calling for the creation of a new party of labour. These two do not align and are not related. The caption leads to a false impression of what is occurring in the image, due to the context being completely unrelated to the visual content. Therefore, the image is out of context.",
+    "validation_summary": "The caption describes a political event that is not represented in the image, leading to a misrepresentation of the image's content. The image shows a crow with an object strapped to its body and does not depict any political rally or call for a new labor party, which is the subject of the caption, therefore it's OOC . "
+  },
+  "inference_time": 4.816490173339844,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

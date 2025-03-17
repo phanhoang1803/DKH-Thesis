@@ -1,0 +1,43 @@
+{
+  "caption": "David James at the 2010 World Cup where he played three times for England",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "David James: Why my top score is Beethoven's Ninth",
+        "content": "D a v i d   J a m e s :   W h y   m y   t o p   s c o r e   i s   B e e t h o v e n ' s   N i n t h",
+        "caption": "David James playing for England against Germany in the 2010 World Cup",
+        "domain": "www.thetimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6813399791717529,
+        "text_similarity_score": 0.8956092000007629
+      },
+      {
+        "title": "David James joins Bristol City on one-year contract | David James | The Guardian",
+        "content": "D a v i d   J a m e s   j o i n s   B r i s t o l   C i t y   o n   o n e - y e a r   c o n t r a c t   |   D a v i d   J a m e s   . . .",
+        "caption": "David James at the 2010 World Cup, where he played three times for England. Photograph: Tom Jenkins for the Guardian",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4654581844806671,
+        "text_similarity_score": 0.8565889000892639
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption states, \"David James at the 2010 World Cup where he played three times for England.\" We need to verify if the provided candidate captions support this statement. \n\nCandidate 1 has a caption: \"David James playing for England against Germany in the 2010 World Cup.\" This caption confirms David James played for England in the 2010 World Cup, which supports the news caption. However, the image similarity score is 0.6813, which is below the threshold of 0.85. Thus, this candidate is not enough to prove the caption represents the image, according to the instructions. \n\nCandidate 2 has a caption: \"David James at the 2010 World Cup, where he played three times for England. Photograph: Tom Jenkins for the Guardian\". This candidate explicitly mentions David James at the 2010 World Cup and confirms he played three times for England, directly supporting the news caption. However, the image similarity score is 0.4654, which is below the threshold of 0.85. Thus, this candidate is not enough to prove the caption represents the image, according to the instructions. \n\nSince both candidates have an image similarity score below 0.85, the caption is considered out-of-context, even though the text similarity is high.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score between 7 and 10, so the final determination must be based on it. The image check result states that the caption is considered out-of-context because the image similarity scores are below the threshold of 0.85, even though the text similarity is high.",
+    "validation_summary": "The caption claims the image shows David James at the 2010 World Cup, but supporting images have low similarity scores. Thus, the caption is considered out-of-context according to the image check result."
+  },
+  "inference_time": 5.574906826019287,
+  "ablation_type": "no_image_evidences"
+}

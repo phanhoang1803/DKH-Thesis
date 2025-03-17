@@ -1,0 +1,48 @@
+{
+  "caption": "The writer Etgar Keret at the Edinburgh International Book Festival",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Etgar Keret",
+      "Street dance",
+      "Hip-hop dance",
+      "Modern dance",
+      "Street",
+      "Hip-hop",
+      "Photograph",
+      "Information",
+      "Performance M",
+      "Citation"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Translators Are Like Ninjas | World Literature Today",
+        "content": "T r a n s l a t o r s   A r e   L i k e   N i n j a s   |   W o r l d   L i t e r a t u r e   T o d a y",
+        "caption": "Nathan Englander and Etgar Keret Nathan Englander and Etgar Keret at the Edinburgh International Book Festival",
+        "domain": "www.worldliteraturetoday.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1427043378353119,
+        "text_similarity_score": 0.7694752812385559
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is low (0.1427043378353119), which indicates that the candidate image and the news image are not similar. Although the caption similarity score is high (0.7694752812385559), the low image similarity score suggests that the candidate image doesn't align with the news image. Therefore, the statement that the writer Etgar Keret was at the Edinburgh International Book Festival can neither be confirmed nor denied.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.1427043378353119",
+        "Caption Similarity Score: 0.7694752812385559"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a man in a red shirt and grey pants jumping in front of a blue background. The caption states that the image is of writer Etgar Keret at the Edinburgh International Book Festival. While it could be Keret, there's nothing in the image to confirm this, and the image check suggests it is not Keret. Without evidence linking the man in the photo to Etgar Keret or the book festival, the caption is misleading.",
+    "validation_summary": "The image shows a man jumping, but there's no evidence to confirm it's Etgar Keret or that it was taken at the Edinburgh International Book Festival, making the caption misleading. The image check confirms the image is not likely related to the news content."
+  },
+  "inference_time": 4.0788733959198,
+  "ablation_type": "no_image_evidences"
+}

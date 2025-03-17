@@ -1,0 +1,55 @@
+{
+  "caption": "Photographs of the three presidential candidates in Haiti s general election on a fence near the earthquakedamaged National Palace in PortauPrince Haiti",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "National Palace",
+      "Невседома",
+      "Senegal",
+      "freelance photographer",
+      "Earthquake",
+      "Due",
+      "overt",
+      "Sluggishness",
+      "Presidential palace"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Featured photojournalist: Ramon Espinosa | Art and design | The Guardian",
+        "content": "F r i   1 5   O c t   2 0 1 0   1 7 . 0 6  C E S T \n \n \n                         F i r s t   p u b l i s h e d   o n   F r i   1 5   O c t   2 0 1 0   1 7 . 0 6  C E S T \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P",
+        "caption": "Ramon Espinosa: Photographs of the three presidential candidates in Port-au-Prince, Haiti.",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Featured photojournalist: Ramon Espinosa | Art and design | The Guardian",
+        "content": "F e a t u r e d   p h o t o j o u r n a l i s t :   R a m o n   E s p i n o s a   |   A r t   a n d   d e s i g n   |   T h e   . . .",
+        "caption": "Ramon Espinosa: Photographs of the three presidential candidates in Port-au-Prince, Haiti.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 which is less than 0.85 and the text similarity score is 0.0 which is less than 0.7. The candidates provide similar captions about Ramon Espinosa's photographs of three presidential candidates in Port-au-Prince, Haiti. However, these candidates lack specific details such as the fence location near the earthquake-damaged National Palace. Because critical elements are absent, I cannot definitively verify the caption's accuracy.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a low image similarity score (0.0) and a low text similarity score (0.0). The caption mentions photographs of three presidential candidates on a fence near the earthquake-damaged National Palace in Port-au-Prince, Haiti. The image shows these elements. Although the image check's explanation mentions missing specific details, the key elements mentioned in the caption are present and identifiable in the image. Because the confidence score is greater than 7, the final determination must be based on the image check result. The image check result states critical elements are absent; therefore, the caption's accuracy cannot be verified.",
+    "validation_summary": "The image check results indicates key elements mentioned in the caption are absent in the image, even though there are matching details, it is not considered representative of the image's content. Viewers could be misled about the image's true context due to these omissions."
+  },
+  "inference_time": 5.528156280517578,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

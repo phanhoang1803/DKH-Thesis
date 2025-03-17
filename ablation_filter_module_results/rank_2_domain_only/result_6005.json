@@ -1,0 +1,45 @@
+{
+  "caption": "Democratic presidential candidate Bernie Sanders speaks at an event sponsored by Institute of Politics at the University of Chicago recently",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "This is the best indication yet that Bernie Sanders is serious about winning | Vox",
+        "content": "T h i s   i s   t h e   b e s t   i n d i c a t i o n   y e t   t h a t   B e r n i e   S a n d e r s   i s   s e r i o u s   . . .",
+        "caption": "Democratic presidential candidate Senator Bernie Sanders (I-VT) speaks to guests at an event sponsored by Institute of Politics at the University of Chicago on September 28, 2015, in Chicago, Illinois.",
+        "domain": "www.vox.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Iowa Democrats worry Bernie Sanders couldnt win a general election or tame Washington | Vox",
+        "content": "I o w a   D e m o c r a t s   w o r r y   B e r n i e   S a n d e r s   c o u l d n ' t   w i n   a   g e n e r a l   . . .",
+        "caption": "Democratic presidential candidate Senator Bernie Sanders (I-VT) speaks to guests at an event sponsored by Institute of Politics at the University of Chicago on September 28, 2015, in Chicago, Illinois.",
+        "domain": "www.vox.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0, and the text similarity score is 0.0 for both candidates. Therefore, the strict decision rules do not apply. Both candidates mention Bernie Sanders speaking at an event sponsored by the Institute of Politics at the University of Chicago. However, without a higher image similarity score, it's difficult to determine if the candidate refers to the same image. Also, the candidate does not contain the date of when the event occurred to verify that it matches the current image context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a low image similarity score (0.0) and a low text similarity score (0.0). According to the news caption, the image depicts Democratic presidential candidate Bernie Sanders speaking at an event sponsored by the Institute of Politics at the University of Chicago recently. However, the image clearly shows Barack Obama speaking in front of an American flag. Therefore, the caption is out of context as it inaccurately describes the person and the setting depicted in the image.",
+    "validation_summary": "The news caption does not accurately describe the image, as it incorrectly identifies the person in the image as Bernie Sanders, while the image clearly shows Barack Obama. The mismatch between the caption and the image would mislead viewers about the image's content."
+  },
+  "inference_time": 3.9921629428863525,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

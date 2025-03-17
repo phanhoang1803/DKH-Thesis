@@ -1,0 +1,71 @@
+{
+  "caption": "Iranians celebrate the nuclear agreement in Tehran",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Index of /wp-content/uploads/sites/1/nggallery/lam-yik-fei-interview",
+        "content": "",
+        "caption": "",
+        "domain": "invisiblephotographer.asia",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8266380429267883,
+        "text_similarity_score": 0.03815140575170517
+      },
+      {
+        "title": "Israeli security cabinet slams Iran nuclear deal | News | Al Jazeera",
+        "content": "I s r a e l i   s e c u r i t y   c a b i n e t   s l a m s   I r a n   n u c l e a r   d e a l   |   N e w s   |   A l   J a z e e r a",
+        "caption": "Iranians celebrate the nuclear agreement with world powers in Lausanne, on a street in northern Tehran[AP]",
+        "domain": "www.aljazeera.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2107124775648117,
+        "text_similarity_score": 0.8239468932151794
+      },
+      {
+        "title": "Trump can preserve nuclear deal while reviewing Iran policy",
+        "content": "T r u m p   c a n   p r e s e r v e   n u c l e a r   d e a l   w h i l e   r e v i e w i n g   I r a n   p o l i c y",
+        "caption": "In this July 14, 2015 file photo, jubilant Iranians celebrate a landmark nuclear deal in Tehran, Iran. World powers and Iran struck a historic deal to curb Iran's nuclear program in exchange for billions of dollars in relief from international sanctions.",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3881304860115051,
+        "text_similarity_score": 0.7802790999412537
+      },
+      {
+        "title": "Iran nuclear deal: Jubilation in Tehran, relief in the White House and dismay in Israel as agreement is finally reached | The Independent | The Independent",
+        "content": "I r a n   n u c l e a r   d e a l :   J u b i l a t i o n   i n   T e h r a n ,   r e l i e f   i n   t h e   W h i t e   H o u s e   . . .",
+        "caption": "Iranians celebrate in the streets of Tehran",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.37118470668792725,
+        "text_similarity_score": 0.7668465375900269
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption states that Iranians are celebrating the nuclear agreement in Tehran. We need to evaluate the candidate evidences to check if they support this claim.\n\nCandidate 1 has a high image similarity score (0.8266), but a low caption similarity score (0.038). Since the image similarity is less than 0.85, and the text similarity is also low, it suggests a potential mismatch or lack of direct confirmation.\n\nCandidate 2 has a low image similarity score (0.2107), but a high caption similarity score (0.8239). The caption mentions \"Iranians celebrate the nuclear agreement with world powers in Lausanne, on a street in northern Tehran\", which aligns with the news caption's topic. However, due to the low image similarity, it doesn't strongly confirm that the images are of the same event.\n\nCandidate 3 has a low image similarity score (0.3881), but a high caption similarity score (0.7802). The caption says, \"In this July 14, 2015 file photo, jubilant Iranians celebrate a landmark nuclear deal in Tehran, Iran.\" This strongly aligns with the news caption, but the low image similarity weakens the support.\n\nCandidate 4 has a low image similarity score (0.3711) and a high caption similarity score (0.7668). The caption states, \"Iranians celebrate in the streets of Tehran,\" which is a good alignment with the news caption. However, the low image similarity score raises doubts about the images matching.\n\nDespite Candidates 2, 3, and 4 having reasonably high text similarity scores, all candidates have image similarity scores below the strict threshold of 0.85. Therefore, based on the strict decision rules, the caption is marked as out-of-context, even though the text similarity suggests some relevance. The available evidence doesn't provide strong enough confirmation to conclude the caption is fully accurate and in context with the image.",
+      "supporting_evidences": [
+        "Candidate 2: Caption mentions Iranians celebrating the nuclear agreement in Tehran, but low image similarity.",
+        "Candidate 3: Caption mentions jubilant Iranians celebrating a landmark nuclear deal in Tehran, but low image similarity.",
+        "Candidate 4: Caption mentions Iranians celebrating in the streets of Tehran, but low image similarity."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a mismatch between the image and the caption. Although the captions of the candidate images mention Iranians celebrating a nuclear agreement in Tehran, the image similarity scores are low. This suggests that the image provided does not depict the scene described in the caption. The image shows a crowded street scene at night with many people raising their hands and phones, but there is no specific indication in the image that it is related to Iranian celebrations of a nuclear agreement. Based on the strict decision rule for confidence scores of 7-10, the caption is determined to be out of context.",
+    "validation_summary": "The image does not depict Iranian celebrations of a nuclear agreement in Tehran, making the caption misleading. Viewers would be misled about the location and context of the depicted event based on the provided caption."
+  },
+  "inference_time": 8.41905665397644,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

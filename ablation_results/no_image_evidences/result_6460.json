@@ -1,0 +1,46 @@
+{
+  "caption": "Salman Rushdie with Padma Lakshmi in Cannes 2004",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Salman Rushdie is injured after being stabbed ahead of speech in New York | Daily Mail Online",
+        "content": "S a l m a n   R u s h d i e   i s   i n j u r e d   a f t e r   b e i n g   s t a b b e d   a h e a d   o f   s p e e c h   i n   . . .",
+        "caption": "Salman Rushdie (right) together with his fourth wife, model and Top Chef host Padma Lakshimi attending the Cannes Film Festival in 2004",
+        "domain": "www.dailymail.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.530666172504425,
+        "text_similarity_score": 0.8294905424118042
+      },
+      {
+        "title": "Padma Lakshmi and Salman Rushdie during 2004 Cannes Film Festival MTV... | WireImage  | 130917634",
+        "content": "P a d m a   L a k s h m i   a n d   S a l m a n   R u s h d i e   d u r i n g   2 0 0 4   C a n n e s   F i l m   F e s t i v a l   . . .",
+        "caption": "Padma Lakshmi and Salman Rushdie...",
+        "domain": "www.wireimage.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5639479756355286,
+        "text_similarity_score": 0.7050851583480835
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have image similarity scores below 0.85. Candidate 1 has a caption similarity score of 0.829, and Candidate 2 has a caption similarity score of 0.705. Both captions mention 'Salman Rushdie' and 'Padma Lakshmi' and attending the 'Cannes Film Festival in 2004,' which aligns with the news caption. However, because the image similarity scores are low, I cannot definitively confirm that the images match, and therefore, the news caption is considered out-of-context, albeit with some confidence due to the textual similarities.",
+      "supporting_evidences": [
+        "Candidate 1: Caption mentions 'Salman Rushdie', 'Padma Lakshmi', and 'Cannes Film Festival in 2004'.",
+        "Candidate 2: Caption mentions 'Padma Lakshmi' and 'Salman Rushdie'."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 7, indicating moderate confidence. According to the image check, both candidate captions include \"Salman Rushdie,\" \"Padma Lakshmi,\" and mention their attendance at the \"Cannes Film Festival in 2004,\" which aligns with the provided news caption. This alignment suggests the news caption correctly represents the image content, therefore the image is NOT out of context.",
+    "validation_summary": "The news caption correctly identifies the individuals and event depicted in the image, so viewers would not be misled about what they're seeing, even though the image check resulted in a low image similarity score between the provided image and the images found by image candidates, suggesting an out-of-context scenario with low confidence. Considering that confidence score is in the range 7-10, the primary determination MUST be based on the image check result."
+  },
+  "inference_time": 4.5879175662994385,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "NeverDead stars the cheerful demon hunter Bryce Boltzmann",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "The 25 most anticipated original games of 2012  part two | Games | The Guardian",
+        "content": "T h e   2 5   m o s t   a n t i c i p a t e d   o r i g i n a l   g a m e s   o f   2 0 1 2      p a r t   t w o   |   G a m e s   . . .",
+        "caption": "NeverDead stars the cheerful demon hunter Bryce Boltzmann",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2308518886566162,
+        "text_similarity_score": 1.0
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is low (0.2308518886566162), and the text similarity score is high (1.0). According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the final decision is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result shows a low image similarity score of 0.2308518886566162 and a high text similarity score of 1.0. The image depicts a man with a beard and a jacket, while the caption refers to \"NeverDead stars the cheerful demon hunter Bryce Boltzmann\". Given the low image similarity, the caption is considered out of context because it does not accurately represent the image's content, even though the text similarity score is high. The image provides no visual evidence of a demon hunter or any elements related to the game NeverDead.",
+    "validation_summary": "The caption inaccurately describes the image's content, as the image does not show a demon hunter or anything related to the NeverDead game. Viewers would be misled into thinking the image is related to the game when it is not."
+  },
+  "inference_time": 5.833027124404907,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

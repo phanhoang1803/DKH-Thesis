@@ -1,0 +1,79 @@
+{
+  "caption": "Secretary of State Hillary Clinton speaks at a campaign rally at the Florida State Fairgrounds in Tampa on Friday July 22 2016",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Florida State Fairgrounds",
+      "Tampa",
+      "past",
+      "United States Secretary of State",
+      "Speech",
+      "Friday",
+      "USA Today",
+      "Political campaign"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Hillary Clinton rallies in Tampa - USA Today",
+        "content": "",
+        "caption": "Democratic presidential candidate Hillary Clinton states her case on Friday.",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9019700288772583,
+        "text_similarity_score": 0.3693622350692749
+      },
+      {
+        "title": "Photos: Hillary Clinton rally in Tampa",
+        "content": "P h o t o s :   H i l l a r y   C l i n t o n   r a l l y   i n   T a m p a",
+        "caption": "Secretary of State Hillary Clinton speaks at a campaign rally at the Florida State Fairgrounds in Tampa on Friday, July, 22, 2016. Clinton made the stop in Tampa during a two-day swing through Florida, where she is expected to announce her vice presidential running mate.",
+        "domain": "www.naplesnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.932071328163147,
+        "text_similarity_score": 0.9253515005111694
+      },
+      {
+        "title": "Photos: Hillary Clinton rally in Tampa",
+        "content": "P h o t o s :   H i l l a r y   C l i n t o n   r a l l y   i n   T a m p a",
+        "caption": "Secretary of State Hillary Clinton speaks at a campaign rally at the Florida State Fairgrounds in Tampa on Friday, July, 22, 2016. Clinton made the stop in Tampa during a two-day swing through Florida, where she is expected to announce her vice presidential running mate.",
+        "domain": "www.naplesnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.846328854560852,
+        "text_similarity_score": 0.9253515005111694
+      },
+      {
+        "title": "Photos: Hillary Clinton rally in Tampa",
+        "content": "P h o t o s :   H i l l a r y   C l i n t o n   r a l l y   i n   T a m p a",
+        "caption": "Secretary of State Hillary Clinton speaks at a campaign rally at the Florida State Fairgrounds in Tampa on Friday, July, 22, 2016. Clinton made the stop in Tampa during a two-day swing through Florida, where she is expected to announce her vice presidential running mate.",
+        "domain": "www.naplesnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.26550760865211487,
+        "text_similarity_score": 0.9253515005111694
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 2, 3 and 4 have text similarity scores of 0.9253515005111694 which is greater than 0.7 and Image Similarity Score >= 0.85. All of these candidates contains the same information as the news caption, therefore the news caption is in context.",
+      "supporting_evidences": [
+        "Candidate 2",
+        "Candidate 3"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image shows Hillary Clinton speaking at a rally. She is holding a microphone and gesturing with her left hand. There are people in the background. The image check results confirm that the news caption is in context, with high text similarity and image similarity scores. The supporting evidences provided are candidate 2 and 3 which both contain the same information as the news caption.",
+    "validation_summary": "The caption correctly identifies Hillary Clinton speaking at a rally, which aligns with the visual content of the image, thus the caption is not misleading. The high confidence score is based on the image check results which confirms that the caption is in context."
+  },
+  "inference_time": 24.809059619903564,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

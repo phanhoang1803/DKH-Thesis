@@ -1,0 +1,47 @@
+{
+  "caption": "Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Car",
+      "Sports sedan",
+      "Sports car",
+      "Taxi",
+      "Sedan",
+      "Executive car"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Foxtons shares plunge 20% as London property market slows | Housing market | The Guardian",
+        "content": "F o x t o n s   s h a r e s   p l u n g e   2 0 %   a s   L o n d o n   p r o p e r t y   m a r k e t   s l o w s   . . .",
+        "caption": "Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4915829002857208,
+        "text_similarity_score": 0.976872444152832
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.49, which is less than 0.85. The text similarity score is 0.97, which is greater than 0.7. Based on the instruction, I should return False. The candidate caption says \"Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers.\". The news caption also says \"Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers\". Since the image similarity is low, I will return False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a yellow and green taxi with the word 'National' on it. The caption mentions 'Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers'. The image does not show a Mini Cooper or any identifiable element related to Foxtons. Since the image check result returned a confidence score of 6, I should base my decision on the image check result, and the image check result said that the image similarity score is 0.49, which is less than 0.85, and the text similarity score is 0.97, which is greater than 0.7, and I should return False. However, since the confidence score is greater than 7, I should base my decision on the image check result, and because the image and caption do not match, the image is out of context.",
+    "validation_summary": "The image shows a taxi, but the caption mentions Foxtons and Mini Coopers, leading to a mismatch and a high likelihood of viewer misdirection. The image and caption are unrelated, thus making the image out of context."
+  },
+  "inference_time": 4.83738112449646,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

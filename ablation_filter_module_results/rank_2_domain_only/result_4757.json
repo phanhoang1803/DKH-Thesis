@@ -1,0 +1,49 @@
+{
+  "caption": "Baked Alaska scene from Suzi Yoonessi s Dear Lemon Lima",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Banoffee pie",
+      "Tart",
+      "Lemon meringue pie",
+      "Bavarian cream",
+      "Cobbler",
+      "Apple pie",
+      "Crumble",
+      "Pie",
+      "Meringue",
+      "Chocolate"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Film family tree: Dear Lemon Lima | Film | The Guardian",
+        "content": "F i l m   f a m i l y   t r e e :   D e a r   L e m o n   L i m a   |   F i l m   |   T h e   G u a r d i a n",
+        "caption": "LFF: Suzi Yoonessi: Dr Phil McGraw",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, I must rely on analyzing the content of the candidate. However, the candidate doesn't provide enough information to support that the caption accurately describes the image. It only mentions Suzi Yoonessi and a Dr. Phil McGraw, but doesn't link them to \"Baked Alaska scene\" or the movie \"Dear Lemon Lima.\"",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a low confidence score of 2. However, the image depicts a coconut cream pie, not a \"Baked Alaska scene from Suzi Yoonessi's Dear Lemon Lima.\" The caption is entirely unrelated to the image's content. Therefore, the image is out of context. The high confidence score is given due to the obvious discrepancy between the image and the caption.",
+    "validation_summary": "The caption claims the image shows a \"Baked Alaska scene from Suzi Yoonessi's Dear Lemon Lima\" which is false; the image depicts a coconut cream pie. Viewers would be extremely misled about the image's content."
+  },
+  "inference_time": 3.704791784286499,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

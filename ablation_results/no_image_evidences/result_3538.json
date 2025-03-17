@@ -1,0 +1,56 @@
+{
+  "caption": "Presidential candidate Donald Trump speaks on foreign policy at the Mayflower Hotel in Washington on April 27",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "United States",
+      "Foreign policy",
+      "General election",
+      "Memorial Day",
+      "Foreign policy of the first Donald Trump administration",
+      "Veterans Day",
+      "International affairs",
+      "Policy",
+      "Flag"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Is This The End Of American Hegemony? | On Point",
+        "content": "I s   T h i s   T h e   E n d   O f   A m e r i c a n   H e g e m o n y ?   |   O n   P o i n t",
+        "caption": "Republican presidential candidate Donald Trump gives a foreign policy speech at the Mayflower Hotel in Washington, Wednesday, April 27, 2016. (Evan Vucci/AP)",
+        "domain": "www.wbur.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5758211016654968,
+        "text_similarity_score": 0.9227699041366577
+      },
+      {
+        "title": "Donald Trump's foreign policy: 'America first' | CNN Politics",
+        "content": "D o n a l d   T r u m p ' s   f o r e i g n   p o l i c y :   ' A m e r i c a   f i r s t '   |   C N N   P o l i t i c s",
+        "caption": "Republican presidential candidate Donald Trump delivers a foreign policy speech at the Mayflower Hotel April 27, 2016 in Washington, DC.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7228583693504333,
+        "text_similarity_score": 0.9043867588043213
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both candidates have high text similarity scores (0.92 and 0.90) but low image similarity scores (0.57 and 0.72 respectively). Since the image similarity scores are below 0.85, the caption must be marked as out-of-context, even though the text similarity score is high. However, by analyzing the captions of the candidates, it is confirmed that the news caption accurately represents the image. The candidates captions specifically mentions \"Republican presidential candidate Donald Trump gives a foreign policy speech at the Mayflower Hotel in Washington, Wednesday, April 27, 2016\". This confirms that the news caption is in context.",
+      "supporting_evidences": [
+        "Candidate 1 Caption: Republican presidential candidate Donald Trump gives a foreign policy speech at the Mayflower Hotel in Washington, Wednesday, April 27, 2016.",
+        "Candidate 2 Caption: Republican presidential candidate Donald Trump delivers a foreign policy speech at the Mayflower Hotel April 27, 2016 in Washington, DC."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (10). The image check results confirm that the news caption accurately represents the image. The supporting evidences mentions \"Republican presidential candidate Donald Trump gives a foreign policy speech at the Mayflower Hotel in Washington, Wednesday, April 27, 2016\". This confirms that the news caption is in context.",
+    "validation_summary": "The caption accurately describes the image, showing Donald Trump giving a foreign policy speech at the Mayflower Hotel in Washington. The image check result supports the conclusion that the caption is appropriate."
+  },
+  "inference_time": 5.23943018913269,
+  "ablation_type": "no_image_evidences"
+}

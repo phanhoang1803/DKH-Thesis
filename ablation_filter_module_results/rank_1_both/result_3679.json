@@ -1,0 +1,51 @@
+{
+  "caption": "President Rousseff Below that green and yellow jersey you represent a powerful legacy of the Brazilian people",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Katinka Hosszú",
+      "Rio de Janeiro",
+      "just",
+      "Swimming",
+      "Olympic Games",
+      "Kuwait",
+      "Swimming",
+      "Human",
+      "SAT",
+      "Fun"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Brazil 'ready' for football World Cup, says Rousseff - BBC News",
+        "content": "B r a z i l   ' r e a d y '   f o r   f o o t b a l l   W o r l d   C u p ,   s a y s   R o u s s e f f   -   B B C   N e w s",
+        "caption": "President Rousseff: \"Below that green and yellow jersey you represent a powerful legacy of the Brazilian people\"",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.29890456795692444,
+        "text_similarity_score": 0.9686863422393799
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.29, which is less than 0.85, and the text similarity score is 0.96, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the final verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a beach volleyball player wearing a USA jersey with the name LUCENA, high-fiving a fan wearing a green wig and yellow jersey. The caption reads: \"President Rousseff Below that green and yellow jersey you represent a powerful legacy of the Brazilian people\". The image does not depict or relate to President Rousseff or Brazilian legacy, therefore the caption is misleading and out of context. The image check result also states OOC = True with confidence score of 2.",
+    "validation_summary": "The caption incorrectly associates the image of a beach volleyball player with President Rousseff and Brazilian legacy, misleading viewers about the image's content and context. The image does not depict or relate to President Rousseff, making the caption out of context."
+  },
+  "inference_time": 4.526102066040039,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

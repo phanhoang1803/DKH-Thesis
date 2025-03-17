@@ -1,0 +1,39 @@
+{
+  "caption": "Leicester s try scorer Tom Youngs left powers upfield during the Aviva Premiership match against Bath at Welford Road",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Leicester avenge Bath away-day nightmare by powering to crucial win | Premiership 2014-15 | The Guardian",
+        "content": "L e i c e s t e r   a v e n g e   B a t h   a w a y - d a y   n i g h t m a r e   b y   p o w e r i n g   t o   c r u c i a l   . . .",
+        "caption": "Leicesters try scorer Tom Youngs, left, powers upfield during the Aviva Premiership match against Bath at Welford Road. Photograph: David Rogers/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7149714231491089,
+        "text_similarity_score": 0.8898729085922241
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided candidate has a high image similarity score (0.7149714231491089) and a high text similarity score (0.8898729085922241). Although the image similarity score is not above the 0.85 threshold, the text similarity is high, and the content of the caption is exactly the same. Therefore, the candidate supports the news caption. The candidate caption mentions 'Leicester’s try scorer Tom Youngs, left, powers upfield during the Aviva Premiership match against Bath at Welford Road'. This aligns directly with the news caption. The candidate domain is a reputable news source, which adds credibility.",
+      "supporting_evidences": [
+        "Caption: Leicester’s try scorer Tom Youngs, left, powers upfield during the Aviva Premiership match against Bath at Welford Road.",
+        "Image Similarity Score: 0.7149714231491089",
+        "Caption Similarity Score: 0.8898729085922241",
+        "Domain: www.theguardian.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts a rugby match where a player in a white jersey is being tackled by two players in green jerseys. While the image check results indicate that the caption 'Leicester’s try scorer Tom Youngs, left, powers upfield during the Aviva Premiership match against Bath at Welford Road' aligns with the candidate caption from a reputable news source, the image itself does not provide enough information to confirm these details. The jersey of the player carrying the ball is not clearly identifiable as belonging to Leicester. The players in green are likely from the Irish national team. Therefore, the caption is out of context since the visual elements of the image contradict the specific claims made by the caption, especially regarding the team and context of the match.",
+    "validation_summary": "The image caption is misleading because the visual elements of the image contradict the claim that it depicts a specific rugby match involving Leicester's Tom Youngs; the players' jerseys suggest it is an international match, potentially involving Ireland, and not the Aviva Premiership match described in the caption. The image misrepresents the context of the image, making it out of context (OOC=True)."
+  },
+  "inference_time": 5.868303298950195,
+  "ablation_type": "no_image_evidences"
+}

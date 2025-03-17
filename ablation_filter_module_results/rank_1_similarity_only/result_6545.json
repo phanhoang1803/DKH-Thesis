@@ -1,0 +1,49 @@
+{
+  "caption": "New York Knicks forward Carmelo Anthony drives to the basket between Orlando Magic defenders",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Basketball",
+      "Slam dunk",
+      "Dribbling",
+      "Basketball Player",
+      "Block"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Carmelo Anthony's 30th straight 20-point game takes Knicks past Magic | NBA | The Guardian",
+        "content": "C a r m e l o   A n t h o n y ' s   3 0 t h   s t r a i g h t   2 0 - p o i n t   g a m e   t a k e s   K n i c k s   p a s t   . . .",
+        "caption": "New York Knicks' forward Carmelo Anthony drives to the basket between Orlando Magic defenders. Photograph: Adam Hunger/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7583732604980469,
+        "text_similarity_score": 0.9035754203796387
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.7583732604980469, which is less than 0.85. The text similarity score is 0.9035754203796387, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.7583732604980469",
+        "Caption Similarity Score: 0.9035754203796387"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a basketball player in a blue jersey with the number 13 attempting a shot, with defenders around him. The caption describes Carmelo Anthony of the New York Knicks driving to the basket against Orlando Magic defenders. The image check result confirms that the image and caption do not match. The image similarity score is low (0.7583732604980469), indicating a mismatch, even though the caption similarity score is high (0.9035754203796387). Therefore, the caption is out of context.",
+    "validation_summary": "The caption incorrectly identifies the players and teams shown in the image, thus misrepresenting the visual content to viewers. The image check result supports this conclusion with a low image similarity score."
+  },
+  "inference_time": 5.616836071014404,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

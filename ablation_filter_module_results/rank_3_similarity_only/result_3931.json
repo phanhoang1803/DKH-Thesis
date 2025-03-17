@@ -1,0 +1,88 @@
+{
+  "caption": "Herc Domenick Lombardozzi in his Baltimore days",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Bot Verification",
+        "content": "",
+        "caption": "",
+        "domain": "www.indiranikunj.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9855549335479736,
+        "text_similarity_score": 0.16408777236938477
+      },
+      {
+        "title": "IIS 10.0 Detailed Error - 404.0 - Not Found",
+        "content": "",
+        "caption": "",
+        "domain": "www.ncccc.gov.eg",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9855549335479736,
+        "text_similarity_score": 0.16408777236938477
+      },
+      {
+        "title": "The resource cannot be found.",
+        "content": "",
+        "caption": "",
+        "domain": "www.kagroup.in",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9855549335479736,
+        "text_similarity_score": 0.16408777236938477
+      },
+      {
+        "title": "Domenick Lombardozzi | The Wire | Fandom",
+        "content": "D o m e n i c k   L o m b a r d o z z i   |   T h e   W i r e   |   F a n d o m",
+        "caption": "Domenick Lombardozzi",
+        "domain": "thewire.fandom.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.07959715276956558,
+        "text_similarity_score": 0.7611076831817627
+      },
+      {
+        "title": "Wired into 24 | Television industry | The Guardian",
+        "content": "W i r e d   i n t o   2 4   |   T e l e v i s i o n   i n d u s t r y   |   T h e   G u a r d i a n",
+        "caption": "Herc: Domenick Lombardozzi in his Baltimore days. Photograph: Paul Schiraldi/FX",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.014332087710499763,
+        "text_similarity_score": 0.744983434677124
+      },
+      {
+        "title": "Wired into 24 | Television industry | The Guardian",
+        "content": "T h e - W i r e - - - H e r c - - - D o m e n i c - 0 0 1 .   . . .",
+        "caption": "Herc: Domenick Lombardozzi in his Baltimore days. Photograph: Paul Schiraldi/FX",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "text_similarity_score": 0.744983434677124
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "Based on the analysis of the provided candidates, the news caption \"Herc Domenick Lombardozzi in his Baltimore days\" aligns with the image context. Candidates 5 and 6, both from www.theguardian.com, have captions that are highly similar to the news caption, specifically stating \"Herc: Domenick Lombardozzi in his Baltimore days.\" Although the image similarity scores for these candidates are low, the high caption similarity (0.744983434677124) strongly suggests that the news caption accurately describes the image, especially considering the context provided by these candidates. Candidate 4 also has a relevant caption \"Domenick Lombardozzi\", increasing our confidence. The presence of corroborating captions across different sources supports the accuracy of the news caption in representing the image. Given these points, I would rate my confidence at 9, the evidences confirms that the caption accurately represents the image.",
+      "supporting_evidences": [
+        "Candidate 5 from www.theguardian.com",
+        "Candidate 6 from www.theguardian.com",
+        "Candidate 4 from thewire.fandom.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts Derek Jeter, a baseball player for the New York Yankees, not Domenick Lombardozzi in his Baltimore days. The image check result supports this conclusion with a high confidence score of 9, indicating that the caption does not accurately represent the image content. The caption is referring to an actor (Domenick Lombardozzi) and his role in a TV series, while the image shows a famous baseball player. Therefore, the image is out of context.",
+    "validation_summary": "The image shows a baseball player, Derek Jeter, and the caption describes an actor, Domenick Lombardozzi; thus, the caption misrepresents the image content. Viewers would be misled into thinking the image is of Domenick Lombardozzi when it is actually of Derek Jeter."
+  },
+  "inference_time": 9.42167067527771,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

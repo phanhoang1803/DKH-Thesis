@@ -1,0 +1,50 @@
+{
+  "caption": "Urs Rohner CEO of Credit Suisse participates in a panel session in Bern Switzerland on Tuesday",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Urs Rohner",
+      "Credit Suisse Group AG",
+      "Bank",
+      "Switzerland",
+      "Credit Suisse AG",
+      "Archegos Capital Management",
+      "Dividend",
+      "Share repurchase",
+      "Tax"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "US senators say more needs to be done after Credit Suisse conviction | Credit Suisse | The Guardian",
+        "content": "U S   s e n a t o r s   s a y   m o r e   n e e d s   t o   b e   d o n e   a f t e r   C r e d i t   S u i s s e   . . .",
+        "caption": "Urs Rohner, CEO of Credit Suisse, participates in a panel session in Bern, Switzerland, on Tuesday. Photograph: Alessandro Della Valle/EPA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The available candidate evidence provides a caption that is nearly identical to the news caption, stating: \"Urs Rohner, CEO of Credit Suisse, participates in a panel session in Bern, Switzerland, on Tuesday.\" This confirms the person (Urs Rohner), his title (CEO of Credit Suisse), the activity (participating in a panel session), the location (Bern, Switzerland), and the timing (Tuesday). Although the image similarity is low, the caption aligns perfectly with the provided evidence, making it likely that the news caption accurately describes the image. However, without a higher image similarity or additional corroborating evidence, I cannot be completely certain.",
+      "supporting_evidences": [
+        "Urs Rohner, CEO of Credit Suisse, participates in a panel session in Bern, Switzerland, on Tuesday."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result shows a confidence score of 7, and it states that the caption accurately represents the image content based on the available evidence. The evidence confirms that the image shows Urs Rohner, CEO of Credit Suisse, participating in a panel session in Bern, Switzerland, on Tuesday. Therefore, based on the image check result, the image is not out of context.",
+    "validation_summary": "The image check result confirms that the caption accurately describes the image content, showing Urs Rohner, CEO of Credit Suisse, at a panel session in Bern, Switzerland. Therefore, viewers would not be misled."
+  },
+  "inference_time": 3.8062596321105957,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "caption": "Erik Lamela rounds Manchester City s Willy Caballero to score the fourth goal for Tottenham",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Steven Gerrard",
+      "Frank Lampard",
+      "Liverpool F.C.",
+      "UEFA Champions League",
+      "Anfield",
+      "Riath Al-Samarrai",
+      "PFC Ludogorets Razgrad",
+      "Gaelic football",
+      "other",
+      "just"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Harry Kane finally gets reward as Spurs  deepen Manchester Citys slump | Premier League | The Guardian",
+        "content": "H a r r y   K a n e   f i n a l l y   g e t s   r e w a r d   a s   S p u r s   d e e p e n   M a n c h e s t e r   C i t y ' s   . . .",
+        "caption": "Erik Lamela rounds Manchester City's Willy Caballero to score the fourth goal for Tottenham.\r Photograph: Tony O'Brien/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.704165518283844,
+        "text_similarity_score": 0.9133853912353516
+      },
+      {
+        "title": "Harry Kane finally gets reward as Spurs  deepen Manchester Citys slump | Premier League | The Guardian",
+        "content": "H a r r y   K a n e   f i n a l l y   g e t s   r e w a r d   a s   S p u r s   d e e p e n   M a n c h e s t e r   C i t y ' s   . . .",
+        "caption": "Erik Lamela rounds Manchester City's Willy Caballero to score the fourth goal for Tottenham.\r Photograph: Tony O'Brien/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.47466301918029785,
+        "text_similarity_score": 0.9133853912353516
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have a text similarity score above 0.7 (0.9133853912353516), indicating that the captions are very similar to the news caption. However, both candidates have image similarity scores below 0.85 (0.704165518283844 and 0.47466301918029785), which means the images are not similar enough to confirm that they depict the same scene. Therefore, based on the instructions provided, the caption is considered out-of-context.",
+      "supporting_evidences": [
+        "Candidate 1: Caption Similarity Score: 0.9133853912353516, Image Similarity Score: 0.704165518283844",
+        "Candidate 2: Caption Similarity Score: 0.9133853912353516, Image Similarity Score: 0.47466301918029785"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that both candidates have a high text similarity score (above 0.7) but have low image similarity scores (below 0.85). Therefore, the image does not support the caption and is out of context. The confidence score is high, so the final determination is based on the image check result. The caption claims that Erik Lamela scored a goal for Tottenham, but the image does not show this event. Instead, the image shows a soccer player from Liverpool kicking the ball, with Tottenham players nearby.",
+    "validation_summary": "The caption describes a specific goal scored by Erik Lamela for Tottenham, while the image depicts a player from Liverpool in the act of kicking a ball, which would mislead viewers regarding the image's content in relation to the event described in the caption. Therefore, the image is out of context with the caption provided."
+  },
+  "inference_time": 6.237190246582031,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

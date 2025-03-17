@@ -1,0 +1,47 @@
+{
+  "caption": "The Clintons on stage in Las Vegas Nevada",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speech",
+      "Academic conference",
+      "Seminar",
+      "Public speaking",
+      "Convention",
+      "Orator",
+      "Academy",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "God, guns and dirty tricks: Republicans trade shots as Democrats divide on race | US elections 2016 | The Guardian",
+        "content": "G o d ,   g u n s   a n d   d i r t y   t r i c k s :   R e p u b l i c a n s   t r a d e   s h o t s   a s   D e m o c r a t s   . . .",
+        "caption": "Bernie Sanders sings on stage with performers at a campaign rally in Henderson, Nevada.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate is talking about Bernie Sanders. The news caption is talking about The Clintons. They are not the same people. Therefore, the news caption is not accurately represented by the evidence.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (10) and a verdict of False, meaning the news caption is not accurately represented by the evidence. The image depicts Bill Clinton speaking at a podium with a \"Fighting for us\" sign. The news caption says 'The Clintons on stage in Las Vegas Nevada'. Based on the image check result and the fact that the candidate is talking about Bernie Sanders, while the caption mentions the Clintons, there is a mismatch. Therefore, the image is out of context.",
+    "validation_summary": "The news caption mentions 'The Clintons on stage in Las Vegas Nevada', which misrepresents the image content, as the candidate is talking about Bernie Sanders. Therefore, viewers would be misled about the image content."
+  },
+  "inference_time": 3.901474952697754,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

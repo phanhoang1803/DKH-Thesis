@@ -1,0 +1,53 @@
+{
+  "caption": "Julian Savea has scored 38 tries in 39 Test starts for New Zealand who meet South Africa in the Rugby World Cup semifinal",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Billy Vunipola",
+      "Premiership Rugby",
+      "Wasps RFC",
+      "Touch football",
+      "Rugby Player",
+      "Touch rugby",
+      "Rugby union",
+      "Rugby football",
+      "American football"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "New Zealand winger Julian Savea heading for hero status | Rugby World Cup 2015 | The Guardian",
+        "content": "N e w   Z e a l a n d   w i n g e r   J u l i a n   S a v e a   h e a d i n g   f o r   h e r o   s t a t u s   |   R u g b y   . . .",
+        "caption": "Julian Savea has scored 38 tries in 39 Test starts for New Zealand, who meet South Africa in the Rugby World Cup semi-final.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.771675705909729,
+        "text_similarity_score": 0.9747771620750427
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided candidate evidence has a high text similarity score (0.9747771620750427) with the news caption, indicating a strong match in content. Additionally, the image similarity score (0.771675705909729) is below 0.85, but since the text similarity is very high and the caption is almost identical, it strongly suggests that the caption is relevant to the image's context. The candidate caption states, \"Julian Savea has scored 38 tries in 39 Test starts for New Zealand, who meet South Africa in the Rugby World Cup semi-final,\" which is almost identical to the news caption. This close alignment strongly suggests that the news caption accurately represents the image's content. Therefore, I can confidently conclude that the caption is in context.",
+      "supporting_evidences": [
+        "Candidate 1 Caption: Julian Savea has scored 38 tries in 39 Test starts for New Zealand, who meet South Africa in the Rugby World Cup semi-final.",
+        "Candidate 1 Text Similarity Score: 0.9747771620750427"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (10) and confirms that the caption accurately represents the image content. The text similarity score is very high (0.9747771620750427), and the image similarity score is reasonably high (0.771675705909729). According to the image check result, the candidate caption states, \"Julian Savea has scored 38 tries in 39 Test starts for New Zealand, who meet South Africa in the Rugby World Cup semi-final,\" which is almost identical to the news caption. The image depicts a rugby player in action, consistent with the claim that Julian Savea has scored tries in rugby matches. Therefore, the caption provides an accurate summary of the image content.",
+    "validation_summary": "The image shows a rugby player in action, and the caption accurately describes Julian Savea's accomplishments, making the caption a correct representation of the image content. Viewers would not be misled about what they are seeing as the caption contextually matches the image."
+  },
+  "inference_time": 5.252588748931885,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "caption": "A nurse at a first aid post in the Savoy Hotel in London during the second world war",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 9,
+      "confidence_score": 10,
+      "explanation": "The caption accurately describes the image context, depicting a nurse at a first aid post in the Savoy Hotel during World War II. The image information corroborates this, confirming the location, time period, and the nurse's role. The caption effectively conveys the essence of the image, and there are no significant misrepresentations or omissions.",
+      "supporting_evidences": [
+        "The caption identifies the presence of a nurse in the image.",
+        "The caption correctly specifies the location as the Savoy Hotel in London.",
+        "The caption accurately states the time period as World War II.",
+        "The image information confirms that the scene is a first aid post."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image depicts a nurse at a first aid post located in the Savoy Hotel in London during the Second World War. The nurse is dressed in a uniform typical of the 1940s, complete with a white apron and cap. The background features essential medical equipment and supplies, indicating a makeshift triage area set up to accommodate casualties from wartime activities. The atmosphere appears urgent yet organized, with the nurse diligently attending to her tasks while another person stands next to her, possibly assisting or awaiting care.",
+      "caption": "A nurse at a first aid post in the Savoy Hotel in London during World War II.",
+      "context": "The Savoy Hotel served as a significant cultural and social hub during the Second World War, adapting to the needs of the time by providing accommodations not only for affluent guests but also for those affected by the war, including injured soldiers and civilians. First aid stations like the one depicted in the image were established to address the urgent medical needs arising from air raids and other wartime incidents. This image captures both the historical significance of the location and the critical role played by medical staff in ensuring public health and safety during a time of crisis. The nurse's presence symbolizes the dedication of healthcare workers who provided emergency care under challenging conditions, highlighting the human response to the adversities of war."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a woman standing in front of a display or mural depicting tanks and military vehicles at Checkpoint Charlie in Berlin, likely during the Cold War era. The caption describes a nurse at a first aid post in the Savoy Hotel in London during World War II. These two descriptions are completely different. The image does not contain any elements relating to nurses, first aid, or the Savoy Hotel. Because the image check result had a confidence score of 10, the final decision \"MUST\" be based on the image check result, which states the caption accurately describes the image content. However, as evidenced above, it does not.",
+    "validation_summary": "The caption misrepresents the image, as it describes a scene from World War II in London, whereas the image shows a scene related to the Cold War in Berlin, leading viewers to believe the image is something it is not, a nurse in the Savoy hotel during WWII..\""
+  },
+  "inference_time": 5.240414619445801,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

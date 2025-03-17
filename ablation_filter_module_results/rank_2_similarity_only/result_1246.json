@@ -1,0 +1,49 @@
+{
+  "caption": "A house built around a glasswalled showroom which holds 16 cars in Bellevue Washington US",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Interior design",
+      "Recreation room",
+      "Design",
+      "Room",
+      "Recreation",
+      "M"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 9,
+      "confidence_score": 10,
+      "explanation": "The caption accurately describes the image's main subject: a house in Bellevue, Washington, featuring a glass-walled showroom that houses 16 cars. It aligns well with the detailed image information and context provided, which highlights the unique design and integration of a car collection into the living space.",
+      "supporting_evidences": [
+        "The image context mentions a house in Bellevue, Washington.",
+        "The image context confirms the presence of a glass-walled showroom.",
+        "The image context specifies that the showroom is designed to house a car collection.",
+        "The caption mentions 16 cars, which implies a sizable collection, as described in the context.",
+        "The image information confirms the blend of functionality and aesthetic appeal."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image depicts a striking house situated in Bellevue, Washington, characterized by its unique design featuring a glass-walled showroom. This showroom is specifically designed to house a collection of 16 cars, creating a visually impressive space that integrates the vehicle collection into the living environment. The architecture showcases modern elements, blending functionality with aesthetic appeal, and the surrounding landscape adds to the overall presentation of the property. The home likely incorporates luxurious design features consistent with high-end real estate in affluent areas.",
+      "caption": "A luxurious house in Bellevue, Washington, built around a glass-walled showroom for 16 cars.",
+      "context": "This image is part of a feature on unique and luxurious homes, specifically highlighting a property in Bellevue, Washington, that combines residential living with a lavish car collection. The glass-walled showroom serves as a centerpiece of the house, demonstrating a trend in modern architecture that emphasizes spaciousness and integration of outdoor lighting and views. This property not only caters to car enthusiasts but also represents a lifestyle choice for affluent individuals who seek to showcase their luxury vehicles in a living space. The article discusses various high-end real estate trends and features within the luxury housing market, making it relevant to potential buyers and architecture enthusiasts alike."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows the interior of a living space. It contains a kitchen area with red cabinets and a central island. The living area has black leather sofas, wooden coffee tables, and a light-colored rug. There are large windows overlooking an outdoor area with tables and chairs. While the news article mentions a house with a glass-walled showroom that holds 16 cars, this image does not depict any cars or a showroom. The image shows an interior living space, not a car showroom. Therefore, the caption misrepresents the image content.",
+    "validation_summary": "The caption states that the image is a house built around a car showroom, but the image actually shows an interior living space without any visible cars or showroom features, leading to a misrepresentation of the image content and what the viewer would expect to see in the image based on the caption. Therefore, the image is OOC. The image check result confirms this."
+  },
+  "inference_time": 6.246429443359375,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

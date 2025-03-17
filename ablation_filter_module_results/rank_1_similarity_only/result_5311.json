@@ -1,0 +1,40 @@
+{
+  "caption": "Robert Blay appeared to threaten to shoot rival candidate Ranil Jayawardena",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "UKIP candidate Robert Blay suspended over shooting threat - BBC News",
+        "content": "U K I P   c a n d i d a t e   R o b e r t   B l a y   s u s p e n d e d   o v e r   s h o o t i n g   t h r e a t   -   B B C   N e w s",
+        "caption": "Robert Blay appeared to threaten to shoot rival candidate Ranil Jayawardena",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2436619997024536,
+        "text_similarity_score": 1.0
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.2436619997024536 which is less than 0.85 and the text similarity score is 1.0 which is greater than 0.7. According to the strict decision rule, the verdict should be false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows Robert Blay, a UKIP candidate. The caption states that he appeared to threaten to shoot rival candidate Ranil Jayawardena. While the image shows Blay, it does not show him making the threat. Without additional context, the viewer cannot verify this from the image alone. The image check result indicates a low image similarity score (0.2436619997024536) and a high text similarity score (1.0). Thus, according to the strict decision rule, the verdict should be false. Therefore, the caption misrepresents what is actually shown in the image, which simply features Robert Blay, making the image out of context.",
+    "validation_summary": "The caption implies the image captures a threatening moment, which cannot be verified from the image alone, potentially misleading viewers about the context of the photo. The image check result supports this determination."
+  },
+  "inference_time": 7.038765907287598,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

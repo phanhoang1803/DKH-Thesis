@@ -1,0 +1,62 @@
+{
+  "caption": "President Obama addresses the Righteous Among the Nations Award Ceremony at the Israeli Embassy in Washington Wednesday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speech",
+      "Texas",
+      "past",
+      "US President",
+      "Orator",
+      "Public speaking",
+      "Mercedes-Benz W460",
+      "Affordable Care Act",
+      "Spokesperson"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "'I, too, am a Jew': Obama warns of growing anti-Semitism",
+        "content": "I ,   t o o ,   a m   a   J e w ' :   O b a m a   w a r n s   o f   g r o w i n g   a n t i - S e m i t i s m",
+        "caption": "President Obama addresses the Righteous Among the Nations Award Ceremony at the Israeli Embassy in Washington Wednesday.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6254122257232666,
+        "text_similarity_score": 0.9866868257522583
+      },
+      {
+        "title": "President Obama Attends Righteous Among the Nations Ceremony",
+        "content": "P r e s i d e n t   O b a m a   A t t e n d s   R i g h t e o u s   A m o n g   t h e   N a t i o n s   C e r e m o n y",
+        "caption": "President Barack Obama addresses the families of Righteous Among the Nations at the Israeli Embassy in Washington, DC",
+        "domain": "www.yadvashem.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.26945987343788147,
+        "text_similarity_score": 0.8217114806175232
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have a text similarity score greater than 0.7, suggesting that the captions are highly similar. However, both candidates have an image similarity score less than 0.85. Thus, I cannot determine that the caption is in context. The first candidate caption matches the news caption exactly. The second caption contains almost the same information.",
+      "supporting_evidences": [
+        "Candidate 1 Caption: President Obama addresses the Righteous Among the Nations Award Ceremony at the Israeli Embassy in Washington Wednesday.",
+        "Candidate 2 Caption: President Barack Obama addresses the families of Righteous Among the Nations at the Israeli Embassy in Washington, DC"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result shows a confidence score of 7. It says that while the text is similar, the image similarity score is low. Since the confidence score is above 7, the final decision is based on the image check result, determining that the image is OOC because the image similarity is low.",
+    "validation_summary": "The image's subject matter appears different from the event described, likely misleading viewers about the depicted context. Based on the image check result, the image similarity is too low to verify that the caption represents the image in context."
+  },
+  "inference_time": 5.284320116043091,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

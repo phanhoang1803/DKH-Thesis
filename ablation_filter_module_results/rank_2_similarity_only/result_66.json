@@ -1,0 +1,52 @@
+{
+  "caption": "A Red Line train arrives at the Metro Center station last month in this file photo",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Metro Seeks Stable Federal Funding as States Set to Pony Up - Roll Call",
+        "content": "M e t r o   S e e k s   S t a b l e   F e d e r a l   F u n d i n g   a s   S t a t e s   S e t   t o   P o n y   U p   -   R o l l   . . .",
+        "caption": "A WMATA Metro Red Line Metro train pulls into Metro Center in Washington in 2016. (Bill Clark/CQ Roll Call file photo)",
+        "domain": "rollcall.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.46155810356140137,
+        "text_similarity_score": 0.7259081602096558
+      },
+      {
+        "title": "The Death Of The Washington Metro | Hudson Institute",
+        "content": "T h e   D e a t h   O f   T h e   W a s h i n g t o n   M e t r o   |   H u d s o n   I n s t i t u t e",
+        "caption": "A WMATA Metro Red Line Metro train pulls into Metro Center in Washington on Tuesday, Sept. 27, 2016. (Bill Clark/CQ Roll Call)",
+        "domain": "www.hudson.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.43599677085876465,
+        "text_similarity_score": 0.7046815752983093
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates describe a WMATA Metro Red Line train pulling into Metro Center in Washington. The news caption mentions a Red Line train arriving at the Metro Center station. Although the text similarity scores are relatively high (above 0.7), the image similarity scores are low (below 0.85). This indicates that while the descriptions are similar, the actual images might not be very alike. Therefore, based on the decision rules, the caption must be marked as out-of-context.",
+      "supporting_evidences": [
+        "Candidate 1: Caption Similarity Score: 0.7259081602096558, Image Similarity Score: 0.46155810356140137",
+        "Candidate 2: Caption Similarity Score: 0.7046815752983093, Image Similarity Score: 0.43599677085876465"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the caption is out of context. It mentions a Red Line train arriving at the Metro Center station. Both candidate captions also describe a WMATA Metro Red Line train pulling into Metro Center in Washington, but the low image similarity scores indicate that the images are not alike. Based on the image check result, which has a high confidence score of 7, the caption is not representative of the image content.",
+    "validation_summary": "The image caption describes a Red Line train arriving at the Metro Center station, but the image analysis indicates a mismatch between the specific image content and the caption's description, thus viewers may be misled about the specific visual context to which the news caption refers. Therefore the caption does not accurately reflect the image, making it out of context."
+  },
+  "inference_time": 7.773091077804565,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

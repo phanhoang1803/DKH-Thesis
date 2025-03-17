@@ -1,0 +1,40 @@
+{
+  "caption": "A woman begs for money outside Saks department store in New York The further the world falls into the inequality trap the harder it will be to escape",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Mind the gap: why UN development goals must tackle economic inequality | Millennium development goals | The Guardian",
+        "content": "M i n d   t h e   g a p :   w h y   U N   d e v e l o p m e n t   g o a l s   m u s t   t a c k l e   e c o n o m i c   . . .",
+        "caption": "A woman begs for money outside Saks department store in New York. The further the world falls into the inequality trap, the harder it will be to escape. Photograph: AP",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2301463931798935,
+        "text_similarity_score": 0.973610520362854
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.23, which is less than 0.85, and the text similarity score is 0.97, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a woman with her hands together in a praying gesture, appearing distressed and possibly crying, standing behind a metal barrier with a crowd of people in the background. The caption claims she is begging for money outside Saks department store in New York. However, there is no clear visual evidence in the image to support the claim that she is begging for money, that she is outside Saks, or that it is in New York. The image check also resulted in a false verdict. The image similarity score is 0.23, which is less than 0.85. The text similarity score is 0.97, which is greater than 0.7. Because the image similarity score is less than 0.85, the caption must be marked as out-of-context. Therefore, the caption is likely misleading because it makes specific claims not directly verifiable from the image itself.",
+    "validation_summary": "The caption's claim about the woman begging for money outside Saks in New York is not supported by the image, making it misleading. The image check also resulted in an out-of-context verdict."
+  },
+  "inference_time": 4.5231852531433105,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

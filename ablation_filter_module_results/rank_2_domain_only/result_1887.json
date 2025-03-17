@@ -1,0 +1,48 @@
+{
+  "caption": "Malala Yousafzai at the United Nations General Assembly in New York City",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "World leaders confront COVIDs impact on education ahead of U.N. General Assembly | PBS News",
+        "content": "W o r l d   l e a d e r s   c o n f r o n t   C O V I D ' s   i m p a c t   o n   e d u c a t i o n   a h e a d   o f   U . N .   . . .",
+        "caption": "Malala Yousafzai speaks during the Transforming Education Summit on the sidelines of the United Nations General Assembly a...",
+        "domain": "www.pbs.org",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "The full text: Malala Yousafzai delivers defiant riposte to Taliban militants with speech to the UN General Assembly | The Independent | The Independent",
+        "content": "T h e   f u l l   t e x t :   M a l a l a   Y o u s a f z a i   d e l i v e r s   d e f i a n t   r i p o s t e   t o   . . .",
+        "caption": "Malala addresses the UN",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores for both candidates are 0.0, which indicates that the images in the candidates do not match the news image. Also, the caption similarity scores are 0.0, meaning that the captions do not match. However, the candidates do provide some information that aligns with the news caption. Both candidates mention Malala Yousafzai and the United Nations. Candidate 1 mentions the 'Transforming Education Summit on the sidelines of the United Nations General Assembly,' which corroborates the event and location (United Nations General Assembly in New York City) mentioned in the news caption. While the candidates confirm the presence of Malala at the UN and at an event related to the UN General Assembly, there is no direct confirmation that she was specifically 'at the United Nations General Assembly in New York City' as stated in the news caption. Given the information available, I cannot definitively confirm the accuracy of the news caption.",
+      "supporting_evidences": [
+        "Malala Yousafzai speaks during the Transforming Education Summit on the sidelines of the United Nations General Assembly a...",
+        "Malala addresses the UN"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows Malala Yousafzai speaking into a microphone and holding up two fingers, while the caption states that she is at the United Nations General Assembly in New York City. The image check result indicates a low image and caption similarity score in the candidates, but states that the candidates confirm Malala at the UN or at events related to the General Assembly, but fails to directly confirm she was at the General Assembly specifically. While the image doesn't directly show her at the UN General Assembly, the image check suggests she was present at related events, but not necessarily at the actual assembly. Therefore, the caption is misleading as it lacks direct visual corroboration in the image.",
+    "validation_summary": "Although the image check provided some supporting evidence, the image does not visually corroborate that Malala was at the United Nations General Assembly in New York City, making the caption misleading. Without visual confirmation within the image, the caption's claim cannot be verified, leading to potential misinterpretation."
+  },
+  "inference_time": 5.027919054031372,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

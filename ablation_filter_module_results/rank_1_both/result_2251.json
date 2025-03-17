@@ -1,0 +1,40 @@
+{
+  "caption": "Romney speaks at a campaign rally in North Canton Ohio",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Ohio Republicans rally for Romney in droves as swing state moves into reach | Mitt Romney | The Guardian",
+        "content": "O h i o   R e p u b l i c a n s   r a l l y   f o r   R o m n e y   i n   d r o v e s   a s   s w i n g   s t a t e   m o v e s   . . .",
+        "caption": "Mitt Romney speaks to a packed crowd during a campaign stop in Cuyahoga Falls, Ohio. Photograph: Evan Vucci/AP",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2732877731323242,
+        "text_similarity_score": 0.7610267400741577
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is below 0.85, and the text similarity score is above 0.7, which would normally lead to a 'False' verdict. However, the low image similarity score (0.273) indicates that the images are not a strong match. Furthermore, the text similarity score (0.761) alone cannot guarantee that the caption accurately represents the image's content because the images don't match. Therefore, the final verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows Mitt Romney speaking at an event with an American flag in the background. He is wearing a suit and gesturing with his hand. The caption states \"Romney speaks at a campaign rally in North Canton Ohio.\" While the image is plausibly Romney speaking at a rally, there's no direct evidence within the image itself to confirm that the event is specifically a 'campaign rally,' nor is there any indication it is in 'North Canton Ohio.' The image check result indicates that the caption is likely false because the image similarity is low. Therefore, without additional evidence, the caption is considered out of context.",
+    "validation_summary": "The caption suggests a specific event and location (a campaign rally in North Canton, Ohio) that is not verifiable from the image. Viewers might be misled into thinking the image confirms this specific event took place, which it does not."
+  },
+  "inference_time": 5.107560396194458,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

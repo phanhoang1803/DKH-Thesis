@@ -1,0 +1,40 @@
+{
+  "caption": "President Barack Obama speaks at a Democratic National Committee campaign fundraising event at Austin City Limits Moody Theater in Austin Texas Tuesday May 10 2011",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "marketwatch.com",
+        "content": "",
+        "caption": "",
+        "domain": "www.marketwatch.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8781634569168091,
+        "text_similarity_score": 0.13619224727153778
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is high (0.8781634569168091), suggesting the images are visually similar. However, the text similarity score is low (0.13619224727153778), indicating that the captions are not very similar. Without access to the candidate's caption, title, or content, I cannot confirm whether the candidate provides enough information to support or refute the news caption. Therefore, based on the image and text similarity scores alone, there isn't sufficient evidence to definitively confirm the caption's accuracy. The decision is based on the fact that while images are similar, captions are dissimilar, leading to uncertainty.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result suggests the images are visually similar, but the captions are not. The caption mentions a specific event (Democratic National Committee campaign fundraising event at Austin City Limits Moody Theater in Austin Texas Tuesday May 10 2011), while the image simply shows Obama at a podium with a dark background. There is nothing in the image to confirm that it was taken at that specific event. Therefore, there isn't enough information to support the news caption.",
+    "validation_summary": "The image shows Obama at a podium, which is too generic to be associated with a specific fundraising event as the caption states, potentially misleading viewers about the context of the image. Therefore, the image is out of context."
+  },
+  "inference_time": 6.831920146942139,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

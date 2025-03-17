@@ -1,0 +1,54 @@
+{
+  "caption": "Democratic presidential candidate Hillary Clinton last month in Reno Nev",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "VP debates may alter a close races dynamic even when they don't predict winner : NPR",
+        "content": "V P   d e b a t e s   m a y   a l t e r   a   c l o s e   r a c e ' s   d y n a m i c   e v e n   w h e n   t h e y   d o n ' t   . . .",
+        "caption": "Left: Republican vice presidential nominee Sen. JD Vance of Ohio speaks at a campaign rally on July 30 in Reno, Nevada. Right: Democratic vice presidential candidate Minnesota Gov. Tim Walz speaks during a campaign rally with his running mate, Vice President Harris, at the University of Las Vegas Thomas & Mack Center on August 10 in Las Vegas.",
+        "domain": "www.npr.org",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Denver employee that oversaw Hillary Clinton e-mail server granted immunity",
+        "content": "D e n v e r   e m p l o y e e   t h a t   o v e r s a w   H i l l a r y   C l i n t o n   e - m a i l   s e r v e r   g r a n t e d   . . .",
+        "caption": "In this photo taken Aug.25, 2016, Democratic presidential candidate Hillary Clinton speaks during at a campaign event in Reno, Nev. Rep. Jason Chaffetz, R-Utah, chairman of the House committee investigating Hillary Clintons email practices asked a federal prosecutor Tuesday, Sept. 6, 2016, to determine whether she and others working with her played a role in the deletion of thousands of her emails by a Colorado technology firm overseeing her private computer server in 2015. ",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Harry Reid's Last Senate Stand - Roll Call",
+        "content": "H a r r y   R e i d ' s   L a s t   S e n a t e   S t a n d   -   R o l l   C a l l",
+        "caption": "Senate Minority Leader Harry Reid speaks about Hillary Clinton and Nevada Democratic Senate candidate Catherine Cortez Masto with campaign staff and volunteers at the Washoe County Democratic Party office in Reno, Nevada. (Bill Clark/CQ Roll Call)",
+        "domain": "rollcall.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption states that Hillary Clinton was in Reno, Nevada, last month. Candidate 2 mentions that Hillary Clinton spoke at a campaign event in Reno, Nev. on Aug. 25, 2016. Although the image similarity scores are low, Candidate 2 supports the news caption's claim that Hillary Clinton was in Reno, Nevada. However, the candidate does not confirm that it was last month.",
+      "supporting_evidences": [
+        "In this photo taken Aug.25, 2016, Democratic presidential candidate Hillary Clinton speaks during at a campaign event in Reno, Nev."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a confidence score of 7, meaning the final decision must be based on its findings. The caption states that Hillary Clinton was in Reno, Nevada, last month. The supporting evidence from the image check mentions that Hillary Clinton spoke at a campaign event in Reno, Nev. on Aug. 25, 2016. Although the image similarity scores are low, the evidence supports the caption's claim that Hillary Clinton was in Reno, Nevada. However, the candidate does not confirm that it was last month. Because the image check result determines that the image is used out of context, the final determination is that the image is OOC = True.",
+    "validation_summary": "The caption suggests Hillary Clinton was in Reno, Nevada, last month, which is not fully supported by the provided evidence, making it potentially misleading. The image check result supports that the caption is used out of context, because the candidate does not confirm that it was last month, which could mislead viewers about the timeliness of the image in relation to the news content provided. Therefore, the image is Out of Context (OOC = True)."
+  },
+  "inference_time": 4.83530592918396,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

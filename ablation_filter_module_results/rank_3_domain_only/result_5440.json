@@ -1,0 +1,47 @@
+{
+  "caption": "An oil painting of a female guerilla by Yang Yifei at the Hubei Museum of Art",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Welcome to Wuhan  a photographic tour of a historic Chinese city | Cities | The Guardian",
+        "content": "I t   l o o k s   l i k e   a   t y p i c a l   s e c o n d - t i e r   C h i n e s e   c i t y ,   y e t   W u h a n   p l a y e d   a   g r e a t   r o l e   i n   t h e   c o u n t r y  s   h i s t o r y ,   b e c o m i n g   t h e   d e   f a c t o   c a p i t a l   i n   1 9 3 8 ,   t h e   y e a r   t h a t   W H   A u d e n   a n d   C h r i s t o p h e r   I s h e r w o o d   m a d e   a   t r i p ,   a n d   M a o   o f t e n   t o o k   b r e a k s   h e r e \n \n J a m e s   B o l l e n \n \n T u e   1 7   N o v   2 0 1 5   1 2 . 4 1  G M T \n \n \n                         L a s t   m o d i f i e d   o n   W e d   2 3   S e p   2 0 2 0   1 5 . 2 9  B S T \n \n P h o t o g r a p h :   J a m e s   B o l l e n \n \n P h o t o g r a p h :   J a m e s   B o l l e n \n \n P h o t o g r a p h :   J a m e s   B o l l e n \n \n P h o t o g r a p h :   J a m e s   B o l l e n \n \n P h o t o g r a p h :   J a m e s   B o l l e n \n \n P h o t o g r a p h :   J a m e s   B o l l e n \n \n P h o t o g r a p h :   J a m e s   B o l l e n \n \n P h o t o g r a p h :   J a m e s   B o l l e n \n \n P h o t o g r a p h :   J a m e s   B o l l e n \n \n P h o t o g r a p h :   J a m e s   B o l l e n \n \n P h o t o g r a p h :   J a m e s   B o l l e n \n \n P h o t o g r a p h :   J a m e s   B o l l e n \n \n P h o t o g r a p h :   J a m e s   B o l l e n \n \n P h o t o g r a p h :   J a m e s   B o l l e n \n \n P h o t o g r a p h :   J a m e s   B o l l e n",
+        "caption": "Oil painting of a female guerilla by Yang Yifei at the Hubei Museum of Art, Wuchang.",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Welcome to Wuhan  a photographic tour of a historic Chinese city | Cities | The Guardian",
+        "content": "W e l c o m e   t o   W u h a n      a   p h o t o g r a p h i c   t o u r   o f   a   h i s t o r i c   C h i n e s e   c i t y   . . .",
+        "caption": "Propaganda poster on the former site of the Ningpo Commercial Bank, Wuhan.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity scores are 0.0 in both candidates, indicating that the images do not match. The text similarity scores are also 0.0, meaning the captions are not similar. However, Candidate 1 has a caption that exactly matches the news caption: 'Oil painting of a female guerilla by Yang Yifei at the Hubei Museum of Art, Wuchang.' This suggests that the news caption is likely accurate, but without a matching image, it's not fully verifiable.",
+      "supporting_evidences": [
+        "Candidate 1: Caption matches the news caption: 'Oil painting of a female guerilla by Yang Yifei at the Hubei Museum of Art, Wuchang.'"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity scores are 0.0, suggesting that the image provided does not match any of the candidate images. Despite this, the text similarity score is also 0.0. However, there's a candidate with a matching caption, 'Oil painting of a female guerilla by Yang Yifei at the Hubei Museum of Art, Wuchang.' Although the caption aligns with the description, the absence of a matching image leads to the conclusion that the provided image is out of context. While the caption may be factually correct, it's not verifiable without the proper visual evidence.",
+    "validation_summary": "Although the caption describes an oil painting, the image itself does not align with the description, making it out of context. Viewers may be misled about what the article is referencing since the image does not depict the described oil painting of a female guerilla by Yang Yifei at the Hubei Museum of Art."
+  },
+  "inference_time": 3.994992971420288,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

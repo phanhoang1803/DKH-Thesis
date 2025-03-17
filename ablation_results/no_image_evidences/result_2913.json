@@ -1,0 +1,47 @@
+{
+  "caption": "US House Speaker John Boehner a Republican from Ohio speaks during a news conference at the Capitol in Washington DC US on Thursday Feb 6 2014 Photographer Pete MarovichBloomberg",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Latino Voters Will Blame Republicans If Immigration Reform Fails, Poll Says | HuffPost Voices",
+        "content": "L a t i n o   V o t e r s   W i l l   B l a m e   R e p u b l i c a n s   I f   I m m i g r a t i o n   R e f o r m   F a i l s   . . .",
+        "caption": "U.S. House Speaker John Boehner, a Republican from Ohio, speaks during a news conference at the Capitol in Washington, D.C., U.S., on Thursday, Feb. 6, 2014. Boehner said it would be difficult to pass an immigration bill because fellow Republicans dont trust President Barack Obama to implement the law, a position that shrinks chances for House action this year. Photographer: Pete Marovich/Bloomberg via Getty Images ",
+        "domain": "www.huffpost.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6495617628097534,
+        "text_similarity_score": 0.7937690019607544
+      },
+      {
+        "title": "House GOP Passes Immigration-Related Bill That Goes After Dreamers | HuffPost Latest News",
+        "content": "H o u s e   G O P   P a s s e s   I m m i g r a t i o n - R e l a t e d   B i l l   T h a t   G o e s   A f t e r   D r e a m e r s   . . .",
+        "caption": "U.S. House Speaker John Boehner, a Republican from Ohio, speaks during a news conference at the Capitol in Washington, D.C., U.S., on Thursday, Feb. 6, 2014. Boehner said it would be difficult to pass an immigration bill because fellow Republicans dont trust President Barack Obama to implement the law, a position that shrinks chances for House action this year. Photographer: Pete Marovich/Bloomberg via Getty Images ",
+        "domain": "www.huffpost.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6249799728393555,
+        "text_similarity_score": 0.7937690019607544
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have a high text similarity score (0.7937690019607544) which indicates the captions are highly similar. However, the image similarity scores (0.6495617628097534 and 0.6249799728393555) are below the threshold of 0.85, suggesting that the images in the candidates might not perfectly match the news image. Because the image similarity scores are below 0.85 and the problem description states that the caption must be marked as out-of-context if the image similarity score is below 0.85, the caption is out-of-context. Furthermore, the prompt instructions indicate that explicit confirmation is required and not to assume correctness if explicit confirmation is missing.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.6495617628097534",
+        "Image Similarity Score: 0.6249799728393555",
+        "Text Similarity Score: 0.7937690019607544"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "validation_summary": "The caption does not accurately represent the image, as the image's content and context do not match the details provided in the caption.",
+    "explanation": "The caption states that US House Speaker John Boehner is speaking during a news conference at the Capitol, but the image does not show Boehner or any Capitol events. The image check result indicated a relatively high text similarity score, which implies it might closely match the caption's content. However, the image similarity scores were notably lower than the required threshold, indicating a significant discrepancy between the actual content in the image and the claims made in the caption. This suggests the caption is out of context, as it misrepresents the image it accompanies."
+  },
+  "inference_time": 5.822474241256714,
+  "ablation_type": "no_image_evidences"
+}

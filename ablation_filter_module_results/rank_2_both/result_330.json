@@ -1,0 +1,43 @@
+{
+  "caption": "People wait in line before the Dr King Career Fair at the Empire State Plaza Convention Center in Albany NY in April this year",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Stocks surge on May jobs report, Dow up 207",
+        "content": "S t o c k s   s u r g e   o n   M a y   j o b s   r e p o r t ,   D o w   u p   2 0 7",
+        "caption": "People wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7431338429450989,
+        "text_similarity_score": 0.9602746367454529
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.7431338429450989, which is less than 0.85. The text similarity score is 0.9602746367454529, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.7431338429450989",
+        "Text Similarity Score: 0.9602746367454529"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image similarity score is 0.7431338429450989, which is less than 0.85. Despite a high text similarity score of 0.9602746367454529, the caption is marked as out-of-context because the image similarity score does not meet the required threshold. Therefore, the caption does not accurately represent the image content.",
+    "validation_summary": "The image does not visually align with the caption's description of a career fair, potentially misleading viewers about the event depicted. Despite textual similarities, the low image similarity score confirms the mismatch, making the caption out of context."
+  },
+  "inference_time": 3.9056267738342285,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

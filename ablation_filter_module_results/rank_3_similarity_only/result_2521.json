@@ -1,0 +1,72 @@
+{
+  "caption": "President Obama addresses the Righteous Among the Nations Award Ceremony at the Israeli Embassy in Washington Wednesday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speech",
+      "Texas",
+      "past",
+      "US President",
+      "Orator",
+      "Public speaking",
+      "Mercedes-Benz W460",
+      "Affordable Care Act",
+      "Spokesperson"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "'I, too, am a Jew': Obama warns of growing anti-Semitism",
+        "content": "I ,   t o o ,   a m   a   J e w ' :   O b a m a   w a r n s   o f   g r o w i n g   a n t i - S e m i t i s m",
+        "caption": "President Obama addresses the Righteous Among the Nations Award Ceremony at the Israeli Embassy in Washington Wednesday.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6254122257232666,
+        "text_similarity_score": 0.9866868257522583
+      },
+      {
+        "title": "President Obama Attends Righteous Among the Nations Ceremony",
+        "content": "P r e s i d e n t   O b a m a   A t t e n d s   R i g h t e o u s   A m o n g   t h e   N a t i o n s   C e r e m o n y",
+        "caption": "President Barack Obama addresses the families of Righteous Among the Nations at the Israeli Embassy in Washington, DC",
+        "domain": "www.yadvashem.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.26945987343788147,
+        "text_similarity_score": 0.8217114806175232
+      },
+      {
+        "title": "President Obama Speaks at the Righteous Among the Nations Ceremony | whitehouse.gov",
+        "content": "P r e s i d e n t   O b a m a   S p e a k s   a t   t h e   R i g h t e o u s   A m o n g   t h e   N a t i o n s   C e r e m o n y   . . .",
+        "caption": "President Barack Obama delivers remarks during the Righteous Among the Nations Award Ceremony at the Embassy of Israel in Washington, D.C., Jan. 27, 2016. The event, which takes place on International Holocaust Remembrance Day and the 71st anniversary of the liberation of Auschwitz, is sponsored by the Embassy of Israel in partnership with Yad Vashem, the Holocaust Martyrs' and Heroes' Remembrance Authority in Israel. (Official White House Photo by Chuck Kennedy)",
+        "domain": "obamawhitehouse.archives.gov",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.29084834456443787,
+        "text_similarity_score": 0.7439928650856018
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Based on the analysis of the provided candidates, the news caption's accuracy is uncertain. Candidate 1 has a high caption similarity score (0.98) which suggests a strong textual match and the image similarity is 0.62. Candidate 2 also shows a substantial caption similarity score (0.82), indicating a similar event description, but the image similarity is only 0.26. Candidate 3 has a caption similarity of 0.74 and an image similarity of 0.29. Because none of the candidate image similarity scores are greater than 0.85, I must return false. Also, since the image similarity scores are relatively low across the candidates, there is some uncertainty.",
+      "supporting_evidences": [
+        "Candidate 1: Caption Similarity Score: 0.98, Image Similarity Score: 0.62",
+        "Candidate 2: Caption Similarity Score: 0.82, Image Similarity Score: 0.26",
+        "Candidate 3: Caption Similarity Score: 0.74, Image Similarity Score: 0.29"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows President Obama speaking at an event with a \"HEALTH\" banner in the background. The caption states that he is addressing the Righteous Among the Nations Award Ceremony at the Israeli Embassy. Since the image check result has a confidence score between 7-10, I will follow the image check result and return 'OOC': true. Additionally, the presence of a \"HEALTH\" banner in the image strongly contradicts the claim that he is addressing an award ceremony at the Israeli Embassy. The image provides visual evidence that the caption is inaccurate.",
+    "validation_summary": "The caption incorrectly describes the event depicted in the image, as the visual content suggests a health-related event rather than an award ceremony at the Israeli Embassy. Viewers would be misled about the context of Obama's appearance."
+  },
+  "inference_time": 7.36071515083313,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

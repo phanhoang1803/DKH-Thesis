@@ -1,0 +1,46 @@
+{
+  "caption": "Mayim Bialik in The Big Bang Theory with Jim Parsons",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "TV star Jim Parsons shines light on NIH research | NIH MedlinePlus Magazine",
+        "content": "T V   s t a r   J i m   P a r s o n s   s h i n e s   l i g h t   o n   N I H   r e s e a r c h   |   N I H   M e d l i n e P l u s   . . .",
+        "caption": "Mayim Bialik and Jim Parsons on the set of \"The Big Bang Theory.\" ",
+        "domain": "magazine.medlineplus.gov",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.28991830348968506,
+        "text_similarity_score": 0.8585891127586365
+      },
+      {
+        "title": "Mayim Bialik's The Big Bang Theory Return Comments Repeat Why The Show Ended In The First Place",
+        "content": "M a y i m   B i a l i k ' s   T h e   B i g   B a n g   T h e o r y   R e t u r n   C o m m e n t s   R e p e a t   W h y   T h e   . . .",
+        "caption": "Mayim Bialik's Amy kisses Jim Parsons' Sheldon on the couch from The Big Bang Theory",
+        "domain": "screenrant.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.21415767073631287,
+        "text_similarity_score": 0.791974663734436
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have low image similarity scores (below 0.85). Therefore, a decision is based on caption similarity. Candidate 1 has a caption similarity score of 0.85, and Candidate 2 has a score of 0.79. Both captions feature \"Mayim Bialik\" and \"Jim Parsons,\" which aligns with the news caption. Candidate 1's caption includes them on the set of \"The Big Bang Theory,\" which is consistent with the news caption's reference to \"The Big Bang Theory.\" Candidate 2 mentions Mayim Bialik and Jim Parsons' characters. The combination of these points suggests the news caption is likely to be accurate, though the low image similarity scores temper the confidence.",
+      "supporting_evidences": [
+        "Candidate 1: Caption mentions Mayim Bialik and Jim Parsons on The Big Bang Theory set.",
+        "Candidate 2: Caption mentions Mayim Bialik and Jim Parsons' characters from The Big Bang Theory."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low image similarity and a caption similarity score of 0.85 for candidate 1, suggesting that the news caption is likely to be accurate. However, the image shows a man holding a puppet next to a woman with a surprised expression, a scene that does not explicitly confirm the presence of Mayim Bialik and Jim Parsons in \"The Big Bang Theory\" setting. The image shows people, but not specifically Mayim Bialik and Jim Parsons, nor is there evidence of the Big Bang Theory set. Given the low image similarity scores and the lack of definitive visual confirmation, the caption is considered misleading and not representative of the image content.",
+    "validation_summary": "The caption implies a specific scene with Mayim Bialik and Jim Parsons that the image doesn't visually support, potentially misleading viewers about the image's actual content. The picture shows two people but the identities and the Big Bang Theory set are not verified by the image itself, making it out of context despite some keywords matching the context of the article which features Mayim Bialik from the Big Bang Theory.. Therefore, the primary basis for evaluation should be the image check result, so that the decision is based on the image check result, which is 'Out of Context'."
+  },
+  "inference_time": 5.811614751815796,
+  "ablation_type": "no_image_evidences"
+}

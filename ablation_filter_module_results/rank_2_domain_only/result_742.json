@@ -1,0 +1,55 @@
+{
+  "caption": "Photographs of the three presidential candidates in Haiti s general election on a fence near the earthquakedamaged National Palace in PortauPrince Haiti",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "National Palace",
+      "Невседома",
+      "Senegal",
+      "freelance photographer",
+      "Earthquake",
+      "Due",
+      "overt",
+      "Sluggishness",
+      "Presidential palace"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Featured photojournalist: Ramon Espinosa | Art and design | The Guardian",
+        "content": "F r i   1 5   O c t   2 0 1 0   1 7 . 0 6  C E S T \n \n \n                         F i r s t   p u b l i s h e d   o n   F r i   1 5   O c t   2 0 1 0   1 7 . 0 6  C E S T \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P",
+        "caption": "Ramon Espinosa: Photographs of the three presidential candidates in Port-au-Prince, Haiti.",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Featured photojournalist: Ramon Espinosa | Art and design | The Guardian",
+        "content": "F e a t u r e d   p h o t o j o u r n a l i s t :   R a m o n   E s p i n o s a   |   A r t   a n d   d e s i g n   |   T h e   . . .",
+        "caption": "Ramon Espinosa: Photographs of the three presidential candidates in Port-au-Prince, Haiti.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "Both candidates have very low image and text similarity scores. Therefore, it's hard to say whether the candidate image and caption are related to the news image and caption. The candidate captions describe the photographs of the presidential candidates in Port-au-Prince, Haiti, which matches the news caption. However, due to the low similarity scores, it's hard to say that the news image and caption match the candidates.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows the earthquake-damaged National Palace in Port-au-Prince, Haiti with photographs of three presidential candidates attached to a fence in the foreground. The news caption says \"Photographs of the three presidential candidates in Haiti s general election on a fence near the earthquakedamaged National Palace in PortauPrince Haiti.\" The news caption is, therefore, aligned with the image and thus the image should not be considered OOC. However, the image check result indicates that the image and text similarities between the news image and the candidate images are very low. This implies that it is hard to say that the news image and caption match the candidates. Due to the discrepancy between the image analysis and the image check result, the final judgment is that the image is Out of Context.",
+    "validation_summary": "The image shows the earthquake-damaged National Palace in Haiti with candidate posters in the foreground. However, low similarity scores between the news image and the candidate images make it difficult to ascertain if the image is a fair representation of the caption, thus the image is OOC."
+  },
+  "inference_time": 4.077110290527344,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

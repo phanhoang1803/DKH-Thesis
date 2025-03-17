@@ -1,0 +1,40 @@
+{
+  "caption": "In Love Other Drugs set in 1996 Jake Gyllenhaal plays a Pfizer rep selling a new blockbuster Viagra",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Every Ang Lee film ranked: from Crouching Tiger, Hidden Dragon  now 20 years old  to Gemini Man, Brokeback Mountain and Life of Pi | South China Morning Post",
+        "content": "T w e n t y   y e a r s   a g o   t h i s   w e e k ,   A n g   L e e  s   s u m p t u o u s   m a r t i a l   a r t s   e p i c   C r o u c h i n g   T i g e r ,   H i d d e n   D r a g o n   p r e m i e r e d   a t   t h e   C a n n e s   F i l m   F e s t i v a l ,   g o i n g   o n   t o   a c h i e v e   u n p r e c e d e n t e d   s u c c e s s   a r o u n d   t h e   w o r l d ,   a n d   t r i g g e r i n g   r e n e w e d   g l o b a l   i n t e r e s t   i n   A s i a n   c i n e m a . \n \n T h e   f i l m   w o n   f o u r   A c a d e m y   A w a r d s ,   w h i l e   i t s   T a i w a n e s e   d i r e c t o r ,   a l r e a d y   a n   e s t a b l i s h e d   p r e s e n c e   i n   H o l l y w o o d ,   s e c u r e d   h i s   p o s i t i o n   a s   A s i a  s   m o s t   s u c c e s s f u l   f i l m m a k e r   o n   t h e   w o r l d   s t a g e . \n \n U n i v e r s a l l y   l a u d e d ,   L e e   h a s   w o n   O s c a r s ,   B a f t a s ,   G o l d e n   B e a r s ,   a n d   G o l d e n   L i o n s . \n \n S h i f t i n g   b e t w e e n   p e r s o n a l   s t o r i e s   o f   A s i a n   i m m i g r a n t s ,   t o   p e r i o d   a d a p t a t i o n s   o f   W e s t e r n   l i t e r a r y   c l a s s i c s   w i t h   a n   a l a r m i n g   a u t h e n t i c i t y ,   L e e   h a s   b a r e l y   p u t   a   f o o t   w r o n g   i n   a l m o s t   3 0   y e a r s . \n \n B u t   w h e r e   d o e s   C r o u c h i n g   T i g e r ,   H i d d e n   D r a g o n   p l a c e   a m o n g   t h e s e   s t o r i e s   o f   f o r b i d d e n   r o m a n c e ,   a n d   i n t e n s e   f a m i l y   m i c r o c o s m s ?",
+        "caption": "Heath Ledger (left) and Jake Gyllenhaal in a scene from Brokeback Mountain, directed by Ang Lee. Photo: AP/Focus Features/Kimberly French",
+        "domain": "www.scmp.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.894279420375824,
+        "text_similarity_score": 0.44304925203323364
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.89, but the text similarity score is 0.44. According to the instructions, I should immediately return \"False\". The image is likely showing a scene with Jake Gyllenhaal, but the caption doesn't match the content of the candidate.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low text similarity score (0.44) between the caption and the image content, suggesting a mismatch. The image depicts two men, plausibly actors Jake Gyllenhaal and Heath Ledger, wearing cowboy hats and casual jackets, possibly in an outdoor setting. The caption claims the image is related to the movie \"Love and Other Drugs\" set in 1996, where Jake Gyllenhaal's character works as a Pfizer representative selling Viagra. However, the visual elements in the image do not align with the specifics of the caption, like being from a movie set in 1996 with Jake Gyllenhaal playing a Pfizer rep. The image is actually a scene with Jake Gyllenhaal and Heath Ledger in the movie \"Brokeback Mountain\". Thus, the caption is misleading as it falsely associates the image with an entirely different film and context. Given the strong evidence from the image check result and the visual analysis, the image is determined to be out of context.",
+    "validation_summary": "The caption incorrectly identifies the movie and context of the image, misrepresenting the scene as related to \"Love and Other Drugs\" when it actually depicts \"Brokeback Mountain\". This would mislead viewers about the true origin and nature of the image, thereby creating a false impression."
+  },
+  "inference_time": 9.247307300567627,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

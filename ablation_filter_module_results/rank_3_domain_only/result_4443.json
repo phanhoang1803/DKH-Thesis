@@ -1,0 +1,51 @@
+{
+  "caption": "Broadway Avenue in Pleasant Beach New Jersey is littered with boats washed ashore by Sandy",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Flag of the United States",
+      "United States",
+      "Flag"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Aftermath of Sandy",
+        "content": "A f t e r m a t h   o f   S a n d y",
+        "caption": "A road is filled with discarded furniture and debris on Nov. 14 in Ortley Beach, N.J. Residents finally got home to salvage belongings and clean up their homes after Hurricane Sandy struck their neighborhood.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Superstorm Sandy hits the US north-east - in pictures | US news | The Guardian",
+        "content": "S u p e r s t o r m   S a n d y   h i t s   t h e   U S   n o r t h - e a s t   -   i n   p i c t u r e s   |   U S   n e w s   . . .",
+        "caption": "Sandy on east coast: Residents walk along Broadway Avenue in  Pleasant Beach, New Jersey",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption states, \"Broadway Avenue in Pleasant Beach New Jersey is littered with boats washed ashore by Sandy.\" Candidate 2 mentions \"Residents walk along Broadway Avenue in Pleasant Beach, New Jersey,\" which confirms the location. However, it does not explicitly mention boats washed ashore. Candidate 1 mentions Ortley Beach, not Pleasant Beach. Although the candidates confirm the location and event (Hurricane Sandy), they do not fully confirm the specific claim about boats washed ashore. Therefore, the caption is not fully verified.",
+      "supporting_evidences": [
+        "Candidate 2: Sandy on east coast: Residents walk along Broadway Avenue in  Pleasant Beach, New Jersey"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows a scene of destruction, likely caused by a natural disaster, with an American flag prominently displayed amidst the debris. The news caption states, \"Broadway Avenue in Pleasant Beach New Jersey is littered with boats washed ashore by Sandy.\" While the news content mentions Hurricane Sandy and Pleasant Beach, the image does not show boats washed ashore on Broadway Avenue. The dominant features of the image are a destroyed house or building and the American flag, which are not mentioned in the caption. Because the image does not support the specific claim about boats and the location being littered with them, the caption misrepresents the image content.",
+    "validation_summary": "The image depicts general hurricane damage, but the caption's specific claim about boats on Broadway Avenue in Pleasant Beach is not supported by the image, leading to a misrepresentation of the scene. The prominent American flag and destroyed house are also not mentioned in the caption."
+  },
+  "inference_time": 3.980236530303955,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

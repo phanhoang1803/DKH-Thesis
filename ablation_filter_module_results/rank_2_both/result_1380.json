@@ -1,0 +1,48 @@
+{
+  "caption": "The US embassy at Abdoun district in Amman Jordan is among the US embassies and consulates closed due to a terror threat",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Nurol Ejder",
+      "Car",
+      "Infantry",
+      "Armored car",
+      "Façade",
+      "Tree",
+      "Palms"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Top U.S. officials meet to discuss embassy threat",
+        "content": "T o p   U . S .   o f f i c i a l s   m e e t   t o   d i s c u s s   e m b a s s y   t h r e a t",
+        "caption": "The U.S. embassy at Abdoun district in Amman, Jordan, is among the U.S. embassies and consulates closed due to a terror threat.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4947831630706787,
+        "text_similarity_score": 0.9759481549263
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.4947831630706787 and the text similarity score is 0.9759481549263. Because the image similarity score is less than 0.85, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result shows a low image similarity score (0.4947831630706787) and a high text similarity score (0.9759481549263). Because the image similarity score is less than 0.85, the image is out-of-context. The image depicts an armored vehicle in front of a building with palm trees. The caption describes the US embassy at Abdoun district in Amman, Jordan, being closed due to a terror threat. The image itself doesn't provide any direct visual evidence to support the claim that the building is the US embassy or that it is closed due to a terror threat. Therefore, the caption is misleading as it cannot be verified from the image alone, making it out of context.",
+    "validation_summary": "The image shows an armored vehicle and a building, but doesn't provide any visual confirmation it's the US embassy or that it's closed due to a terror threat. Therefore, viewers are likely misled."
+  },
+  "inference_time": 4.469048500061035,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

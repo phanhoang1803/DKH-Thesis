@@ -1,0 +1,47 @@
+{
+  "caption": "Vladimir Putin s government is following Argentina s in wanting to limit the number of online purchases residents can make from international sites",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Russia considering 30% import tax on foreign online retailers | Russia | The Guardian",
+        "content": "R u s s i a   c o n s i d e r i n g   3 0 %   i m p o r t   t a x   o n   f o r e i g n   o n l i n e   r e t a i l e r s   . . .",
+        "caption": "Vladimir Putin's government is following Argentina's in wanting to limit the number of online purchases residents can make from international sites. Photograph: Mikhail Metzel/AFP/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "South Korea considers giving arms to Ukraine after Russia-North Korea pact  | AP News",
+        "content": "S o u t h   K o r e a   c o n s i d e r s   g i v i n g   a r m s   t o   U k r a i n e   a f t e r   R u s s i a - N o r t h   . . .",
+        "caption": "North Korea's leader Kim Jong Un stands during the departure ceremony of Russian President Vladimir Putin at an international airport outside Pyongyang, North Korea, on Wednesday, June 19, 2024. (Gavriil Grigorov, Sputnik, Kremlin Pool Photo via AP)",
+        "domain": "apnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have an image similarity score of 0.0 and a caption similarity score of 0.0, indicating they are not visually or textually similar to the news image and caption. However, Candidate 1's caption is identical to the news caption, indicating that this statement is accurate. Although there's no confirmation about a specific image related to this caption, the accurate representation of the text gives a partial confidence. Candidate 2 is irrelevant.",
+      "supporting_evidences": [
+        "Candidate 1: Caption is identical to the news caption."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a man in front of a backdrop that includes the text 'RUSSIA 2018-2022'. The news caption describes Russia considering restricting imports from foreign online retailers. There is no direct connection between the person in the image and the topic of restricting online imports, nor is there information about Vladimir Putin's government specifically in the image. The image check result provided a confidence score of 6, due to textual similarity between Candidate 1's caption and the news caption, and the identical nature of the captions. However, the visual element of the image -- a man in front of a banner -- has no bearing on the news described. This disconnect means the image is Out of Context (OOC).",
+    "validation_summary": "The image is not related to the news content, as a man in front of a 'Russia 2018-2022' backdrop does not depict or relate to the described potential restrictions on online imports, potentially misleading viewers about the content of the news article. The image check supports this by showing that the image and caption are not similar, therefore the image is Out of Context (OOC). Due to the confidence score being over 7, I follow the directions to make my final determination based on the image check result."
+  },
+  "inference_time": 4.7916905879974365,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "caption": "Marin Cilic reacts after beating Kei Nishikori in the men s singles final of the 2014 US Open tennis tournament at USTA Billie Jean King National Tennis Center",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Emilio Solfrizzi",
+      "Computer",
+      "Molfetta",
+      "Soft tennis",
+      "Tennis",
+      "Racket",
+      "Tennis Racket",
+      "Racketlon",
+      "settled",
+      "Personal computer"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Marin Cilic routs Kei Nishikori for U.S. Open title",
+        "content": "M a r i n   C i l i c   r o u t s   K e i   N i s h i k o r i   f o r   U . S .   O p e n   t i t l e",
+        "caption": "Marin Cilic reacts after beating Kei Nishikori in the men's singles final of the 2014 U.S. Open tennis tournament at USTA Billie Jean King National Tennis Center.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The image similarity score is 0.0 which is less than 0.85 and the text similarity score is 0.0 which is less than 0.7. The candidate caption is an exact match with the news caption. However, given the low image similarity score (0.0), I can't confirm the caption accurately represents the image because I don't know if the image is a match or not.",
+      "supporting_evidences": [
+        "Marin Cilic reacts after beating Kei Nishikori in the men's singles final of the 2014 U.S. Open tennis tournament at USTA Billie Jean King National Tennis Center."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low image similarity score (0.0) and a low text similarity score (0.0), while the confidence score is 5. Given the low image similarity, it is impossible to confirm the caption accurately represents the image. The image shows Marin Cilic about to hit a tennis ball. The caption describes Marin Cilic beating Kei Nishikori. While it is possible that this is the same event, there is nothing in the image to confirm it.",
+    "validation_summary": "The image shows a tennis player, but there's no concrete way to confirm it matches the caption's description of a specific match between Marin Cilic and Kei Nishikori, thus misleading viewers about the actual event depicted."
+  },
+  "inference_time": 3.873835325241089,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

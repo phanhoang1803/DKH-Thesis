@@ -1,0 +1,43 @@
+{
+  "caption": "Madison Keys reacts during her bronze medal match against Petra Kvitova",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Bocas Madison Keys fails in bid for bronze medal; Miamis Puig wins gold  Sun Sentinel",
+        "content": "B o c a ' s   M a d i s o n   K e y s   f a i l s   i n   b i d   f o r   b r o n z e   m e d a l ;   M i a m i ' s   P u i g   . . .",
+        "caption": "Madison Keys of the United States reacts after she loses a point to Petra Kvitova of the Czech Republic during their women's singles bronze medal tennis match at the 2016 Summer Olympics in Rio de Janeiro, Brazil, Saturday, Aug. 13, 2016.",
+        "domain": "www.sun-sentinel.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.33625030517578125,
+        "text_similarity_score": 0.8315678238868713
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.33625030517578125, which is less than 0.85. The text similarity score is 0.8315678238868713, which is greater than 0.7. According to the rule, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [
+        "The image similarity score is 0.33625030517578125, which is less than 0.85.",
+        "The text similarity score is 0.8315678238868713, which is greater than 0.7."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity score (0.33625030517578125) is less than 0.85, while the text similarity score (0.8315678238868713) is greater than 0.7. The rule specifies that if the image similarity score is below 0.85, the caption should be marked as out-of-context, regardless of the text similarity score. In this case, the image shows a woman in athletic wear receiving treatment or stretching with the help of another woman on a tennis court. The caption states that Madison Keys is reacting during her bronze medal match against Petra Kvitova, which does not accurately reflect the scene depicted in the image. The image does not clearly show Madison Keys or indicate a match against Petra Kvitova.",
+    "validation_summary": "The image check result confirms that the caption is out of context due to the low image similarity score. The image shows a woman receiving assistance on a tennis court, which is not accurately described by the caption referencing Madison Keys and Petra Kvitova."
+  },
+  "inference_time": 5.8355395793914795,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

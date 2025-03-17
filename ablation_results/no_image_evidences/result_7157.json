@@ -1,0 +1,44 @@
+{
+  "caption": "Falcons linebacker Paul Worrilow brings down Jaguars quarterback Blake Bortles for a sack during the first quarter in Jacksonville",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Eight-man football",
+      "Six-man football",
+      "American football",
+      "Arena football",
+      "Canadian football",
+      "Kick american football",
+      "Sprint football",
+      "Canada",
+      "Gridiron football"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "2014 NFL preseason action",
+        "content": "2 0 1 4   N F L   p r e s e a s o n   a c t i o n",
+        "caption": "Jaguars defender Ryan Davis (59) brings down Falcons quarterback T.J. Yates (13) for a sack during the first half in Jacksonville.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7510971426963806,
+        "text_similarity_score": 0.7078717947006226
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.7510971426963806 and the text similarity score is 0.7078717947006226. Since the image similarity is less than 0.85, the caption is automatically out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is out of context with a confidence score of 2. The image displays an American football game where a player in a red uniform is being tackled by a player in a white and green uniform. The caption mentions Falcons linebacker Paul Worrilow sacking Jaguars quarterback Blake Bortles. The uniforms and teams shown in the image do not align with the teams mentioned in the caption. Therefore, the caption is misleading and does not accurately represent the content of the image.",
+    "validation_summary": "The caption is out of context as the teams and players depicted in the image do not match the description in the caption, leading to a misrepresentation of the image's content. Viewers would be misled about the actual event shown in the image."
+  },
+  "inference_time": 4.864629030227661,
+  "ablation_type": "no_image_evidences"
+}

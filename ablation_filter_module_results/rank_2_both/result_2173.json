@@ -1,0 +1,45 @@
+{
+  "caption": "On the first day of his visit Pope Francis greeted the crowds from his popemobile on the way to the National Palace",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Figurine"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Pope Francis's visit to Mexico - in pictures | World news | The Guardian",
+        "content": "P o p e   F r a n c i s ' s   v i s i t   t o   M e x i c o   -   i n   p i c t u r e s   |   W o r l d   n e w s   |   T h e   . . .",
+        "caption": "Pope Francis greeted the crowds from his popemobile",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.0800820142030716,
+        "text_similarity_score": 0.8195492029190063
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.08 which is less than 0.85 and the text similarity score is 0.81 which is greater than 0.7. Based on the instruction, I should immediately return 'False'. The candidate caption only partially matches the news caption. The news caption mentions 'On the first day of his visit Pope Francis greeted the crowds from his popemobile on the way to the National Palace' while the candidate caption mentions 'Pope Francis greeted the crowds from his popemobile'. The candidate caption does not provide any information about the visit or the location (National Palace). Therefore, it is not possible to determine if the news caption accurately represents what the image shows.",
+      "supporting_evidences": [
+        "The image similarity score is 0.08.",
+        "The text similarity score is 0.81."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image similarity score (0.08) and a moderate text similarity score (0.81). The image features multiple Pope Francis dolls displayed on a shelf. The provided caption states that Pope Francis greeted crowds from his popemobile on the way to the National Palace. The image does not show Pope Francis, a popemobile, crowds, or the National Palace. Thus, the caption is not representative of the image content and the viewer would be misled. Based on the image check result, which has a confidence score of 3, the instruction is to return False, but since the confidence score is under 7, I must evaluate the image further. Since the image shows Pope Francis dolls, and the caption refers to the Pope, there is a connection. However, the caption's content refers to a specific event that is not depicted in the image. Therefore, the image is OOC.",
+    "validation_summary": "The image shows Pope Francis dolls, while the caption describes Pope Francis greeting crowds from his popemobile, misleading viewers about the image's content. The caption is not representative of the objects visible in the image, making it out of context."
+  },
+  "inference_time": 5.7780656814575195,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

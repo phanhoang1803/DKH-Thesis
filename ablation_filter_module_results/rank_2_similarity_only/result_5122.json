@@ -1,0 +1,40 @@
+{
+  "caption": "Patrick Hardison far right at a recent birthday party for his son Cullen",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "cn15.nevsedoma.com.ua",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9718695878982544,
+        "text_similarity_score": 0.10180628299713135
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is high (0.9718695878982544), suggesting that the candidate image is very similar to the news image. However, the caption similarity score is low (0.10180628299713135), indicating that the candidate caption is not similar to the news caption. Because the text similarity is below 0.7, the caption is considered out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts a group of people in a restaurant setting, with some wearing sombreros. The caption identifies one individual as \"Patrick Hardison far right at a recent birthday party for his son Cullen.\" While the caption mentions a birthday party, the image provides no independent verification of this claim. There's no visual evidence confirming it's Patrick Hardison, his son Cullen, or even a birthday celebration. Furthermore, the overall context of the article discusses Hardison's face transplant surgery and recovery, but this image doesn't relate to that specifically. The image check result confirms a high image similarity score, suggesting a related image, but a low caption similarity score, pointing to out-of-context information. Given the lack of confirming details in the image and the mismatch with the news article's focus, the caption is considered out of context.",
+    "validation_summary": "The caption misidentifies individuals and the event depicted in the photo, which is misleading within the context of the news article about Patrick Hardison's face transplant recovery. The photo doesn't provide independent verification of the caption's claims."
+  },
+  "inference_time": 5.570567607879639,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

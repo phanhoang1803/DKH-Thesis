@@ -1,0 +1,48 @@
+{
+  "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Healthier chocolate and other incredible discoveries of the week",
+        "content": "6 3 5 6 3 1 2 6 7 1 4 0 4 5 0 7 5 3 - A P - D a r k -   . . .",
+        "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Chocolate is hot  and it's not just the curry",
+        "content": "C h o c o l a t e   i s   h o t      a n d   i t ' s   n o t   j u s t   t h e   c u r r y",
+        "caption": "A woman photographs Jun Kobayashi as he prepares Japanese plum chocolates, made of dark chocolate ganache with plum wine, during a demonstration of chocolate-making at the Chocolate Show in New York.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are both 0.0, indicating that the images are not similar. Therefore, a decision cannot be made based on image similarity. The text similarity scores are also 0.0, indicating that the captions are not similar. However, Candidate 1 provides the exact same caption as the news caption and is from a reliable domain (www.usatoday.com). This supports the news caption. Candidate 2 also mentions that the Japanese plum chocolates are made of dark chocolate ganache with plum wine and that they are prepared in New York.",
+      "supporting_evidences": [
+        "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York.",
+        "A woman photographs Jun Kobayashi as he prepares Japanese plum chocolates, made of dark chocolate ganache with plum wine, during a demonstration of chocolate-making at the Chocolate Show in New York."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a person decorating chocolates with white icing or cream, arranged on a wooden surface. The chocolates are in small, brown paper cups. The caption states, \"Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York.\" While the image check result indicates supporting evidence and similar captions from reliable sources, directly confirming Japanese plum chocolates, dark chocolate ganache, or plum wine cannot be visually verified from the image alone. The image primarily shows the process of decorating chocolates, but doesn't confirm the specific type of chocolate described in the caption. Therefore, while related, the caption is not a fully accurate representation of the image. Even though the image check supports the caption, it is out of context.",
+    "validation_summary": "The caption describes specific type of chocolates that cannot be identified from the visual details of the image, making the caption not a fully accurate representation of the image. Viewers may be misled about the specific ingredients and preparation of the chocolates based solely on the image."
+  },
+  "inference_time": 5.690774202346802,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

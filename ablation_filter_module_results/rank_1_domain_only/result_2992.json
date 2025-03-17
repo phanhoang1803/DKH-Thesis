@@ -1,0 +1,50 @@
+{
+  "caption": "Mitt Romney speaks during a campaign rally at Westerville South High School in Westerville Ohio",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Coastal Forest Products",
+      "Speech",
+      "Flag",
+      "Flag of the United States",
+      "Public speaking",
+      "Flag Day",
+      "Flag Day",
+      "Presidential nominee",
+      "Bow"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Romney hammers Obama on national debt",
+        "content": "R o m n e y   h a m m e r s   O b a m a   o n   n a t i o n a l   d e b t",
+        "caption": "Republican presidential candidate Mitt Romney arrives at a campaign rally at Westerville South High School as a national debt clock runs in the background September 26, 2012 in Westerville, Ohio.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0, so the strict decision rules do not apply. The candidate caption mentions \"Republican presidential candidate Mitt Romney arrives at a campaign rally at Westerville South High School as a national debt clock runs in the background September 26, 2012 in Westerville, Ohio\". This confirms that the image is of Mitt Romney at a campaign rally at Westerville South High School in Westerville, Ohio. The news caption is \"Mitt Romney speaks during a campaign rally at Westerville South High School in Westerville Ohio\". The candidate caption is similar to the news caption, but it provides more detail.",
+      "supporting_evidences": [
+        "Republican presidential candidate Mitt Romney arrives at a campaign rally at Westerville South High School as a national debt clock runs in the background September 26, 2012 in Westerville, Ohio."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image shows Mitt Romney speaking in front of an American flag. He is holding a microphone in one hand and raising the other. The image check result states that the candidate caption mentions \"Republican presidential candidate Mitt Romney arrives at a campaign rally at Westerville South High School as a national debt clock runs in the background September 26, 2012 in Westerville, Ohio\". This confirms that the image is of Mitt Romney at a campaign rally at Westerville South High School in Westerville, Ohio. The news caption is \"Mitt Romney speaks during a campaign rally at Westerville South High School in Westerville Ohio\". The candidate caption is similar to the news caption, but it provides more detail. Given the high confidence score and the supporting evidence, the caption accurately reflects the image content.",
+    "validation_summary": "The image shows Mitt Romney speaking at a campaign rally, and the caption correctly identifies him and the location, making the caption a correct representation of the image. The high confidence score from the image check further supports this conclusion."
+  },
+  "inference_time": 4.31457257270813,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

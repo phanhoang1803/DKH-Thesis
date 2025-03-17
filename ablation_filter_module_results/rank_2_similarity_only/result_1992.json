@@ -1,0 +1,51 @@
+{
+  "caption": "Gordon Brown speaking at the G8 summit 2008 in Japan",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Presentation",
+      "Public speaking",
+      "Lecture",
+      "Speech",
+      "Meter",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Gordon Brown fails to thaw UK relations with Russia at G8 summit | G8 | The Guardian",
+        "content": "G o r d o n   B r o w n   f a i l s   t o   t h a w   U K   r e l a t i o n s   w i t h   R u s s i a   a t   G 8   s u m m i t   . . .",
+        "caption": "Gordon Brown speaks with the Russian president, Dmitry Medvedev, at the G8 summit in Japan. Photograph: EPA/ Dmitry Astakhov Pool",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3034322261810303,
+        "text_similarity_score": 0.7691568732261658
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score between the news image and the candidate image is 0.303, which is significantly below the threshold of 0.85. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, regardless of the text similarity score. Although the text similarity score is 0.769, which is above the 0.7 threshold, the low image similarity score automatically makes the caption out-of-context. The candidate caption mentions 'Gordon Brown speaks with the Russian president, Dmitry Medvedev, at the G8 summit in Japan,' while the news caption simply states 'Gordon Brown speaking at the G8 summit 2008 in Japan.' While both captions refer to Gordon Brown at the G8 summit in Japan, the candidate caption includes additional information about Dmitry Medvedev, implying a specific interaction that may or may not be present in the news image. Due to the low image similarity and the more specific nature of the candidate caption, it cannot be definitively confirmed that the news caption accurately represents the news image.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.303",
+        "Caption Similarity Score: 0.769",
+        "Candidate caption mentions Dmitry Medvedev while the news caption does not."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low image similarity score (0.303) between the news image and the candidate image, which is significantly below the threshold of 0.85. Despite the acceptable caption similarity score (0.769), the low image similarity dictates that the caption is out of context. The image shows Gordon Brown at a podium with the G8 Hokkaido Toyako Summit 2008 logo visible. While the caption accurately identifies Gordon Brown speaking at the G8 summit, the low image similarity score suggests that the image does not correspond well to the context provided in the news content.",
+    "validation_summary": "The image and candidate image have low similarity, suggesting that the caption, although factually accurate, may be misleading in the context of the news article and image shown. Viewers might be misled about the specific event or context of Gordon Brown's speech as it relates to the news content."
+  },
+  "inference_time": 6.597409248352051,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

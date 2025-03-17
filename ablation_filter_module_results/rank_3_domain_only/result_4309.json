@@ -1,0 +1,41 @@
+{
+  "caption": "Amanda Seyfried after the Les Miserables musical number",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Musician",
+      "Performance M"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Photos: Backstage and behind the scenes at the Oscars",
+        "content": "P h o t o s :   B a c k s t a g e   a n d   b e h i n d   t h e   s c e n e s   a t   t h e   O s c a r s",
+        "caption": "Amanda Seyfried after the 'Les Miserables' musical number.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0, and the text similarity score is 0.0. According to the instructions, I should analyze the captions and candidate to give the final decision. The candidate caption is identical to the news caption. However, given the low image similarity score, it's unlikely they refer to the same image. Therefore, there is not enough evidence to confirm the caption is accurate.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 6, meaning I should consider the image check result in conjunction with my own analysis. The image shows a blonde woman holding a large key. The caption states the image is of Amanda Seyfried after a Les Miserables musical number. This is not evident from the image. Given the low image similarity, I conclude the caption is inaccurate.",
+    "validation_summary": "The caption inaccurately describes the image, potentially misleading viewers about the content of the image and its relevance to the article content. The image does not appear to depict Amanda Seyfried after a Les Miserables performance, leading to a false association between the visual and the textual information provided."
+  },
+  "inference_time": 3.1952433586120605,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "caption": "Leicester s try scorer Tom Youngs left powers upfield during the Aviva Premiership match against Bath at Welford Road",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Rugby league",
+      "Rugby sevens",
+      "Rugby league sevens",
+      "Rugby tens",
+      "Rugby league nines",
+      "Rugby football",
+      "Rugby union",
+      "Team"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Leicester avenge Bath away-day nightmare by powering to crucial win | Premiership 2014-15 | The Guardian",
+        "content": "L e i c e s t e r   a v e n g e   B a t h   a w a y - d a y   n i g h t m a r e   b y   p o w e r i n g   t o   c r u c i a l   . . .",
+        "caption": "Leicesters try scorer Tom Youngs, left, powers upfield during the Aviva Premiership match against Bath at Welford Road. Photograph: David Rogers/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9786790609359741,
+        "text_similarity_score": 0.8898729085922241
+      },
+      {
+        "title": "Leicester avenge Bath away-day nightmare by powering to crucial win | Premiership 2014-15 | The Guardian",
+        "content": "L e i c e s t e r   a v e n g e   B a t h   a w a y - d a y   n i g h t m a r e   b y   p o w e r i n g   t o   c r u c i a l   . . .",
+        "caption": "Leicesters try scorer Tom Youngs, left, powers upfield during the Aviva Premiership match against Bath at Welford Road. Photograph: David Rogers/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9071764945983887,
+        "text_similarity_score": 0.8898729085922241
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both candidate captions are highly similar to the news caption (Text Similarity Score >= 0.7) and the images are also highly similar to the news image (Image Similarity Score >= 0.85). Therefore, based on the strict decision rules, the verdict is True.",
+      "supporting_evidences": [
+        "Candidate 1",
+        "Candidate 2"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image shows Leicester's Tom Youngs powering upfield during a rugby match against Bath. The caption accurately describes this scene, as the news content also mentions Tom Youngs being prominent in the game. The Image Check Result also supports this decision.",
+    "validation_summary": "The caption correctly identifies the player and the action depicted in the image, accurately reflecting the game context. Viewers would not be misled about what they're seeing."
+  },
+  "inference_time": 5.289490699768066,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

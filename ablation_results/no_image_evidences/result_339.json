@@ -1,0 +1,55 @@
+{
+  "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Cadbury",
+      "Chocolate bar",
+      "Chocolate",
+      "Candy",
+      "Kraft Foods",
+      "Fudge",
+      "Sweet dish",
+      "Wrigley"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Healthier chocolate and other incredible discoveries of the week",
+        "content": "6 3 5 6 3 1 2 6 7 1 4 0 4 5 0 7 5 3 - A P - D a r k -   . . .",
+        "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.36464327573776245,
+        "text_similarity_score": 0.9921733736991882
+      },
+      {
+        "title": "Milk allergy? Watch the dark chocolate",
+        "content": "d c 5 5 2 3 5 e c 6 4 1 d a 0 6 6 d 0 f 6 a 7 0 6 7 0 0 7 4   . . .",
+        "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York on Nov. 10, 2005.",
+        "domain": "www.azcentral.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3620658218860626,
+        "text_similarity_score": 0.9662346839904785
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have a text similarity score greater than 0.7, but the image similarity score is low (less than 0.85) in both cases. Therefore, the strict decision rules indicate a 'False' verdict. The captions of the two candidates are very similar to the news caption and describe the same product. However, the low image similarity scores suggest that the images themselves are different. Thus, although the text aligns, the images do not. Therefore, the caption is considered out-of-context.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.36464327573776245, Caption Similarity Score: 0.9921733736991882",
+        "Candidate 2: Image Similarity Score: 0.3620658218860626, Caption Similarity Score: 0.9662346839904785"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "validation_summary": "The caption misrepresents the image content as it describes Japanese plum chocolates, but the image does not depict this specific item.",
+    "explanation": "The news caption claims that the image showcases Japanese plum chocolates made of dark chocolate ganache with plum wine prepared in New York. However, the image verification yielded a low similarity score for the actual chocolates presented in the image, thus suggesting that the image shown is not accurately reflective of Japanese plum chocolates. Instead, it likely depicts a different type of confection or chocolate item altogether. Therefore, the caption misrepresents the content of the image, as the viewers may be led to believe they are seeing a specific product (Japanese plum chocolates) that is not present in the image."
+  },
+  "inference_time": 11.207496881484985,
+  "ablation_type": "no_image_evidences"
+}

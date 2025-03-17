@@ -1,0 +1,44 @@
+{
+  "caption": "From left siblings Ivanka Eric and Donald Trump Jr together in Trump Tower in New York in June 2012",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Businessperson",
+      "Tuxedo"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 9,
+      "confidence_score": 10,
+      "explanation": "The caption accurately identifies the individuals in the image as Ivanka, Eric, and Donald Trump Jr., specifying their presence together in Trump Tower in New York in June 2012. This aligns well with the image context, which confirms the presence of these individuals in Trump Tower during that time. The caption effectively communicates the core elements of the image's content.",
+      "supporting_evidences": [
+        "Individuals: Ivanka Trump, Eric Trump, and Donald Trump Jr. are correctly identified.",
+        "Location: The image is accurately placed in Trump Tower, New York.",
+        "Date: The year 2012 is specified in the caption.",
+        "Familial Context: The caption refers to the siblings which aligns with the image information"
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image features three businesspeople, identifiable as members of the Trump family - Ivanka Trump, Donald Trump Jr., and Eric Trump - all dressed in formal attire, likely at an event in Trump Tower, New York City. The focus is on the three as they stand next to each other, showcasing a familial bond along with their stylish attire, signifying their affiliation with high-profile business and political ventures. The interior of Trump Tower is visible in the background, adorned with luxurious decorations, reflective of the Trump brand's opulence.",
+      "caption": "Siblings Ivanka Trump, Donald Trump Jr., and Eric Trump pose together in Trump Tower, New York City, in June 2012.",
+      "context": "In June 2012, Ivanka Trump, Donald Trump Jr., and Eric Trump were photographed together in Trump Tower as members of the Trump family who are actively involved in their father's business empire and political endeavors. The picture captures a moment during a time when Donald Trump was exploring a presidential campaign, highlighting the close-knit nature of the Trump family as they navigate both business and politics. Family influence has played a significant role in Trump's unconventional campaign strategy, with the siblings often participating in key business and campaign decisions. Their presence in Trump Tower, which serves as both the headquarters of the Trump Organization and a prominent symbol of their father’s brand, further emphasizes the intertwining of their familial and professional lives."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Donald Trump Jr and an unidentified man in suits. The caption states \"From left siblings Ivanka Eric and Donald Trump Jr together in Trump Tower in New York in June 2012\". However, the image only shows Donald Trump Jr and another man who is not identified, it does not contain Ivanka and Eric. Therefore, the caption does not accurately represent the image content.",
+    "validation_summary": "The caption is inaccurate as it states the image features Ivanka and Eric Trump alongside Donald Trump Jr, but the image only shows Donald Trump Jr and an unidentified man, misleading viewers about the image's content and context. Because the image check result confirms a high alignment and confidence score, its determination is accepted and used as the final verdict, indicating a significant discrepancy between the caption and the image's actual content."
+  },
+  "inference_time": 6.088747262954712,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

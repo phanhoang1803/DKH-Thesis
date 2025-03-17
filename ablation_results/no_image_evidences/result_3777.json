@@ -1,0 +1,33 @@
+{
+  "caption": "Cricket Power in Acton by Stephen Weiss",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Spacehoppers and Enoch Powell: real British life in the 1970s  in pictures | Art and design | The Guardian",
+        "content": "S p a c e h o p p e r s   a n d   E n o c h   P o w e l l :   r e a l   B r i t i s h   l i f e   i n   t h e   1 9 7 0 s      i n   . . .",
+        "caption": "Cricket Power, Acton.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "text_similarity_score": 0.8540732860565186
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0, which is less than 0.85. The text similarity score is 0.8540732860565186, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image similarity score (0.0) and a high text similarity score (0.8540732860565186). The image depicts a close-up of a shrimp, while the caption mentions 'Cricket Power in Acton.' Given the image content and the low image similarity score, the caption does not accurately represent the image. Therefore, the image is considered out of context.",
+    "validation_summary": "The image shows a shrimp, which is unrelated to cricket, thus misleading viewers about the image's content. The image check result confirms that the caption is out of context."
+  },
+  "inference_time": 4.678852796554565,
+  "ablation_type": "no_image_evidences"
+}

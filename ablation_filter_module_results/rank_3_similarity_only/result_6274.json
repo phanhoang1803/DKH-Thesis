@@ -1,0 +1,60 @@
+{
+  "caption": "North Carolina Tar Heels forward Brice Johnson pulls down a rebound between Florida State Seminoles guards Terance Mann and Xavier RathanMayes in the first half",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Brice Johnson scores 39 to lead No. 7 UNC past Florida State",
+        "content": "B r i c e   J o h n s o n   s c o r e s   3 9   t o   l e a d   N o .   7   U N C   p a s t   F l o r i d a   S t a t e",
+        "caption": "North Carolina Tar Heels forward Brice Johnson (11) pulls down a rebound between Florida State Seminoles guards Terance Mann (14) and Xavier Rathan-Mayes (22) in the first half.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8572242856025696,
+        "text_similarity_score": 0.965920627117157
+      },
+      {
+        "title": "FSU Basketball: An Urgent Need to Break The Tar Heels Curse",
+        "content": "F S U   B a s k e t b a l l :   A n   U r g e n t   N e e d   t o   B r e a k   T h e   T a r   H e e l s   C u r s e",
+        "caption": "Jan 4, 2016; Tallahassee, FL, USA; North Carolina Tar Heels forward Brice Johnson (11) pulls down a rebound between Florida State Seminoles guards Terance Mann (14) and Xavier Rathan-Mayes (22) in the first half at the Donald L. Tucker Center. Mandatory Credit: Phil Sears-USA TODAY Sports",
+        "domain": "chopchat.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9538611769676208,
+        "text_similarity_score": 0.8558093309402466
+      },
+      {
+        "title": "FSU Basketball: An Urgent Need to Break The Tar Heels Curse",
+        "content": "F S U   B a s k e t b a l l :   A n   U r g e n t   N e e d   t o   B r e a k   T h e   T a r   H e e l s   C u r s e",
+        "caption": "Jan 4, 2016; Tallahassee, FL, USA; North Carolina Tar Heels forward Brice Johnson (11) pulls down a rebound between Florida State Seminoles guards Terance Mann (14) and Xavier Rathan-Mayes (22) in the first half at the Donald L. Tucker Center. Mandatory Credit: Phil Sears-USA TODAY Sports",
+        "domain": "chopchat.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.936639130115509,
+        "text_similarity_score": 0.8558093309402466
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1 has an image similarity score of 0.8572242856025696 and a text similarity score of 0.965920627117157. Since the image similarity score is >= 0.85 and the text similarity score is >= 0.7, the caption is in-context. Candidate 1's caption verbatim matches the news caption, further supporting the decision. \n\nCandidate 2 has an image similarity score of 0.9538611769676208 and a text similarity score of 0.8558093309402466. Since the image similarity score is >= 0.85 and the text similarity score is >= 0.7, the caption is in-context.\n\nCandidate 3 has an image similarity score of 0.936639130115509 and a text similarity score of 0.8558093309402466. Since the image similarity score is >= 0.85 and the text similarity score is >= 0.7, the caption is in-context.",
+      "supporting_evidences": [
+        "North Carolina Tar Heels forward Brice Johnson (11) pulls down a rebound between Florida State Seminoles guards Terance Mann (14) and Xavier Rathan-Mayes (22) in the first half."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 10. The image similarity scores and text similarity scores are all above the required thresholds. The supporting evidences also confirm that the caption accurately represents the image content. Therefore, the image is not out of context.",
+    "validation_summary": "The caption accurately describes the basketball players and the action in the image, so viewers would not be misled. The image shows Brice Johnson rebounding between Terance Mann and Xavier RathanMayes, just as the caption states."
+  },
+  "inference_time": 7.289495229721069,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

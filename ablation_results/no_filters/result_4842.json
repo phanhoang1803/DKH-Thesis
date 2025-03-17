@@ -1,0 +1,44 @@
+{
+  "caption": "The Rev Jesse L Jackson greets voters waiting in line outside the Cuyahoga County Board of Elections building in Cleveland on the final day of early voting",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Flea",
+      "Flea market",
+      "Market",
+      "Event"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Ohio Women's Hall of Fame - Ohio History Connection",
+        "content": "O h i o   W o m e n ' s   H a l l   o f   F a m e   -   O h i o   H i s t o r y   C o n n e c t i o n",
+        "caption": "Jean Murrell Capers",
+        "domain": "www.ohiohistory.org",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "JAMES FITZALLEN RYDER | vintagephotosjohnson",
+        "content": "J A M E S   F I T Z A L L E N   R Y D E R   |   v i n t a g e p h o t o s j o h n s o n",
+        "caption": "Central Viaduct, Cleveland, O. 1886., by James F. Ryder Studio",
+        "domain": "vintagephotosjohnson.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores are 0.0 in both cases, which means the images in the candidate do not match the image in the news. The text similarity scores are also 0.0 in both cases, which means the captions in the candidate do not match the caption in the news. Thus, the evidences cannot prove that the caption accurately represents what the news image shows and what the image is about. The candidates do not have any information related to the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a confidence score of 1.0, which is very high and decisive. The image check result also indicates that the image similarity scores are 0.0 in both cases, which means the images in the candidate do not match the image in the news. The text similarity scores are also 0.0 in both cases, which means the captions in the candidate do not match the caption in the news. Thus, the evidences cannot prove that the caption accurately represents what the news image shows and what the image is about. The candidates do not have any information related to the news caption. Thus, I have to say that the caption does not accurately represent what the image shows.",
+    "validation_summary": "The image check result indicates that the caption does not accurately represent what the image shows because of the differences between the images and the captions. A viewer would likely be misled about the context of the image based on the provided caption."
+  },
+  "inference_time": 3.721903085708618,
+  "ablation_type": "no_filters"
+}

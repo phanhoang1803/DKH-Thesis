@@ -1,0 +1,44 @@
+{
+  "caption": "Actors Kieran Culkin Tavi Gevinson and Michael Cera attend the This Is Our Youth cast photo call",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "This is Our Youth review: an anthem for stewed youth | Broadway | The Guardian",
+        "content": "T h i s   i s   O u r   Y o u t h   r e v i e w :   a n   a n t h e m   f o r   s t e w e d   y o u t h   |   B r o a d w a y   . . .",
+        "caption": "This Is Our Youth cast, Kieran Culkin, Tavi Gevinson and Michael Cera,  at Cort Theatre in New York City",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.457926481962204,
+        "text_similarity_score": 0.8153412342071533
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.457926481962204, which is less than 0.85. The text similarity score is 0.8153412342071533, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. However, in this case, the candidate caption and news caption is talking about same entities, 'Kieran Culkin', 'Tavi Gevinson' and 'Michael Cera' attending 'This Is Our Youth' cast. So, I mark it as true with a confidence score of 7",
+      "supporting_evidences": [
+        "Caption: This Is Our Youth cast, Kieran Culkin, Tavi Gevinson and Michael Cera,  at Cort Theatre in New York City",
+        "Image Similarity Score: 0.457926481962204",
+        "Caption Similarity Score: 0.8153412342071533"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image features a cast photo of the TV show 'Freaks and Geeks', which includes actors like Seth Rogen, James Franco, and Linda Cardellini. The provided caption incorrectly identifies the people in the photo as Kieran Culkin, Tavi Gevinson, and Michael Cera from the play 'This Is Our Youth'. Since the image check result has a confidence score of 7-10, the final determination is based on the image check result, where the verdict is true.",
+    "validation_summary": "The image does not depict the actors mentioned in the caption, who are associated with a different production, which would mislead viewers about the image's content and context. The image shows the cast of 'Freaks and Geeks', not the cast of 'This Is Our Youth'. Therefore, the image is out of context (OOC = True)."
+  },
+  "inference_time": 5.785674333572388,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

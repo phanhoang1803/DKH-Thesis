@@ -1,0 +1,54 @@
+{
+  "caption": "Donald Trump at the Republican National Convention in Cleveland on July 21",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Robert Kagan",
+      "Speech",
+      "Columnist",
+      "Public speaking",
+      "Brookings Institution",
+      "Leadership",
+      "One Wonders",
+      "Convention",
+      "Speaker",
+      "Fellow"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Clinton Campaign Chief Suggests Russians May Be Trying to Help Trump Win - ABC News",
+        "content": "C l i n t o n   C a m p a i g n   C h i e f   S u g g e s t s   R u s s i a n s   M a y   B e   T r y i n g   t o   H e l p   . . .",
+        "caption": "Donald Trump speaks at the 2016 Republican National Convention at the Quicken Loans Arena in Cleveland, Ohio, July 21, 2016. ",
+        "domain": "abcnews.go.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5692541003227234,
+        "text_similarity_score": 0.7167180776596069
+      },
+      {
+        "title": "Donald Trump's Speech Rings Terrifying Historical Alarm Bells",
+        "content": "D o n a l d   T r u m p ' s   S p e e c h   R i n g s   T e r r i f y i n g   H i s t o r i c a l   A l a r m   B e l l s",
+        "caption": "Republican Presidential Candidate Donald Trump, speaks during the final day of the Republican National Convention in Cleveland, Thursday, July 21, 2016. (AP Photo/Carolyn Kaster)",
+        "domain": "theintercept.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3904620110988617,
+        "text_similarity_score": 0.7654786705970764
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have image similarity scores below 0.85. Candidate 1 has a text similarity score of 0.7167180776596069, and candidate 2 has a text similarity score of 0.7654786705970764. Although the text similarity scores are above 0.7, the image similarity scores are below 0.85, so according to the instructions, the caption must be marked as out-of-context. Furthermore, both candidates confirm that Donald Trump spoke at the Republican National Convention in Cleveland on July 21, 2016. However, the instructions require a high image similarity score to confirm the caption's accuracy, which is not the case here.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "validation_summary": "The caption does not accurately represent the image of Donald Trump at the Republican National Convention.",
+    "explanation": "The provided caption states that it depicts Donald Trump at the Republican National Convention in Cleveland on July 21, which is indeed accurate in terms of the event and the date. However, the image check result indicates substantial discrepancies in the visual content and text similarity scores which ultimately suggest that the image is not a direct or clear representation of that event as implied in the caption. This means viewers might misinterpret the context or setting based solely on the caption while viewing an unrelated image."
+  },
+  "inference_time": 10.302988052368164,
+  "ablation_type": "no_image_evidences"
+}

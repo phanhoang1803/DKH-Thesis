@@ -1,0 +1,38 @@
+{
+  "caption": "WR Eric Decker Signed with Jets",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Notable NFL players changing teams in 2017",
+        "content": "N o t a b l e   N F L   p l a y e r s   c h a n g i n g   t e a m s   i n   2 0 1 7",
+        "caption": "WR Eric Decker: Signed by Titans (previous team: Jets)",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The news caption states that 'WR Eric Decker Signed with Jets'. The candidate caption states 'WR Eric Decker: Signed by Titans (previous team: Jets)'. The candidate information indicates that Eric Decker previously played for the Jets and then signed with the Titans, which does not align with the news caption stating he signed with the Jets. The candidate information contradicts the news caption, because it doesn't confirm that Eric Decker signed with the Jets.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the news caption stating 'WR Eric Decker Signed with Jets' does not align with the image content, because Eric Decker did not sign with the Jets. The image shows a football player wearing a Denver Broncos jersey. The player's jersey number is 85, and it appears he is running with the football. The caption claims Eric Decker signed with the Jets, which contradicts the image of him in a Broncos uniform. This discrepancy, combined with the image check result, confirms that the caption is out of context.",
+    "validation_summary": "The image shows Eric Decker in a Denver Broncos jersey, contradicting the caption's claim that he signed with the Jets. This would mislead viewers about Eric Decker's team affiliation in the image."
+  },
+  "inference_time": 3.8158090114593506,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

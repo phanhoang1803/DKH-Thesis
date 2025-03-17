@@ -1,0 +1,43 @@
+{
+  "caption": "Randy Travis walks on stage as Brad Paisley and Garth Brooks look on during the Country Music Hall of Fame Medallion Ceremony on Sunday October 16 2016",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Country Music Hall of Fame Medallion Ceremony",
+        "content": "C o u n t r y   M u s i c   H a l l   o f   F a m e   M e d a l l i o n   C e r e m o n y",
+        "caption": "Garth Brooks reacts as Randy Travis sings Amazing Grace during the Country Music Hall of Fame Medallion Ceremony on Sunday, October 16, 2016.",
+        "domain": "www.tennessean.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.43370550870895386,
+        "text_similarity_score": 0.7665971517562866
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score between the news image and the candidate image is 0.43370550870895386, which is less than 0.85. The text similarity score is 0.7665971517562866, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than or equal to 0.7, the verdict should be False. The candidate caption mentions Garth Brooks and Randy Travis at the Country Music Hall of Fame Medallion Ceremony on Sunday, October 16, 2016, which aligns with the news caption's description of Randy Travis walking on stage as Brad Paisley and Garth Brooks look on during the same event. However, because the image similarity score is low, there is not enough confidence to mark this as True.",
+      "supporting_evidences": [
+        "The candidate caption mentions Garth Brooks and Randy Travis at the Country Music Hall of Fame Medallion Ceremony on Sunday, October 16, 2016.",
+        "The news caption mentions Randy Travis, Brad Paisley and Garth Brooks during the Country Music Hall of Fame Medallion Ceremony on Sunday, October 16 2016."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a low image similarity score (0.43370550870895386) between the provided image and the candidate image used for comparison. This suggests that the content of the image does not closely match the context described in the caption, even though the text similarity score is high (0.7665971517562866). The person in the image is Garth Brooks holding a microphone, implying he is performing. The caption states, \"Randy Travis walks on stage as Brad Paisley and Garth Brooks look on...\" This caption implies that Garth Brooks is watching Randy Travis, which contradicts the image content showing Garth Brooks with a microphone. Therefore, the caption is misleading because it misrepresents what Garth Brooks is doing in the image.",
+    "validation_summary": "The caption inaccurately describes Garth Brooks's action in the image, as he is holding a microphone suggesting he is performing, contradicting the caption stating he is watching Randy Travis. This misrepresentation would likely mislead viewers about the actual scene depicted in the image."
+  },
+  "inference_time": 7.09813666343689,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

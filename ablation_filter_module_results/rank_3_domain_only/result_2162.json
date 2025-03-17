@@ -1,0 +1,38 @@
+{
+  "caption": "George Clooney waves to his fans waves as he leaves the restaurant Da Ivo with friends and his father during his stag night event in Venice on September 27 2014",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Celebs flood Venice for Clooney's wedding",
+        "content": "C e l e b s   f l o o d   V e n i c e   f o r   C l o o n e y ' s   w e d d i n g",
+        "caption": "The stars are heading to the floating city! Celebrities hit the canals of Venice where George Clooney is expected to marry Amal Alamuddin sometime this weekend.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is low (0.0) and the caption similarity score is low (0.0). Therefore, I must analyze the text. The candidate caption mentions that George Clooney is expected to marry Amal Alamuddin sometime this weekend in Venice. The original caption mentions George Clooney, Venice, and a date close to the weekend mentioned in the candidate (September 27 2014). Therefore, the event is probably his stag night before his wedding with Amal Alamuddin. However, there is no mention of his father or restaurant in the candidate.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 2 which is low, therefore, I will need to conduct a thorough analysis of the image, the caption, and the candidate caption. The image shows a group of men, one of whom could be George Clooney, on a boat at night. The caption claims that George Clooney is waving to fans as he leaves Da Ivo with friends and his father during his stag night in Venice. The image check result found a low image similarity score of 0.0 and a low caption similarity score of 0.0. The caption includes the name of a specific restaurant and the assertion that Clooney's father is present. The image does not provide any information about the specific restaurant mentioned in the caption, nor does it confirm that his father is present. The image does show a group of people, one of whom is waving. Therefore, the information about the fans is accurate. The candidate caption also suggests that the event is probably his stag night before his wedding with Amal Alamuddin. Therefore, I can conclude that the image and the caption are related, but since the caption cannot be completely validated, it is considered out of context.",
+    "validation_summary": "Although the image shows a group of men on a boat, including someone who might be George Clooney, the details in the caption such as the specific restaurant and the presence of Clooney's father are not verifiable from the image, leading to a possibility of misleading viewers with unactionable information. Therefore, the image is out of context due to a lack of supporting evidence for the additional details included in the caption."
+  },
+  "inference_time": 4.394725799560547,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

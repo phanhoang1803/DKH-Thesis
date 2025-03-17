@@ -1,0 +1,60 @@
+{
+  "caption": "Ricky Gervais presents the 2011 Golden Globes",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Golden Globes 2011: who'd be an awards show presenter? | Golden Globes | The Guardian",
+        "content": "G o l d e n   G l o b e s   2 0 1 1 :   w h o ' d   b e   a n   a w a r d s   s h o w   p r e s e n t e r ?   |   G o l d e n   . . .",
+        "caption": "Ricky Gervais presents the 2011 Golden Globes. Photograph: NBCUPHOTOBANK/Rex Features",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.992769181728363,
+        "text_similarity_score": 0.8796053528785706
+      },
+      {
+        "title": "Golden Globes 2011: who'd be an awards show presenter? | Golden Globes | The Guardian",
+        "content": "R i c k y - G e r v a i s - p r e s e n t s - t h - 0 0 8 .   . . .",
+        "caption": "Ricky Gervais presents the 2011 Golden Globes. Photograph: NBCUPHOTOBANK/Rex Features",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7170486450195312,
+        "text_similarity_score": 0.8796053528785706
+      },
+      {
+        "title": "Golden Globes 2011: who'd be an awards show presenter? | Golden Globes | The Guardian",
+        "content": "G o l d e n   G l o b e s   2 0 1 1 :   w h o ' d   b e   a n   a w a r d s   s h o w   p r e s e n t e r ?   |   G o l d e n   . . .",
+        "caption": "Ricky Gervais presents the 2011 Golden Globes. Photograph: NBCUPHOTOBANK/Rex Features",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6858347654342651,
+        "text_similarity_score": 0.8796053528785706
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1 has an image similarity score of 0.992769181728363, which is greater than 0.85, and a text similarity score of 0.8796053528785706, which is greater than 0.7. Therefore, according to the decision rules, the verdict is True.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.992769181728363 and Caption Similarity Score: 0.8796053528785706"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (10) with strong supporting evidence. Candidate 1 has an image similarity score of 0.992769181728363 and a caption similarity score of 0.8796053528785706, both exceeding the thresholds. The image shows Ricky Gervais at a microphone, and the caption mentions \"Ricky Gervais presents the 2011 Golden Globes.\" This aligns with the image, suggesting the caption accurately represents the image content. Therefore, based on the image check result, the image is not out of context.",
+    "validation_summary": "The image check confirms the caption accurately represents the image of Ricky Gervais presenting at the Golden Globes. Viewers would not be misled by the caption."
+  },
+  "inference_time": 5.983145713806152,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

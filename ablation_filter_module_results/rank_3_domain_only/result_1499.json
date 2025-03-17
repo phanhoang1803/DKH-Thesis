@@ -1,0 +1,40 @@
+{
+  "caption": "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Three arrested after raid on slave factory in Rochdale | Manchester | The Guardian",
+        "content": "T h r e e   a r r e s t e d   a f t e r   r a i d   o n   ' s l a v e '   f a c t o r y   i n   R o c h d a l e   . . .",
+        "caption": "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever. Photograph: Christopher Furlong/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.0, and the caption similarity score is 0.0. This indicates that the provided candidate does not closely resemble the news image or have a similar caption. However, the candidate caption matches the news caption exactly and originates from a reputable source (www.theguardian.com). This exact match from a reliable source provides substantial support that the caption accurately describes the image content related to a police raid in Rochdale following arrests in Great Manchester as part of Operation Retriever.",
+      "supporting_evidences": [
+        "Police raid on factory in Rochdale follows arrests across Great Manchester in November as part of Operation Retriever. Photograph: Christopher Furlong/Getty Images"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a police officer with a K-9 unit standing in what appears to be a stadium or arena. The caption refers to a police raid on a factory in Rochdale following arrests in Great Manchester as part of Operation Retriever, which is about human trafficking and forced labor. Given the image's depiction of a police officer and dog in a stadium setting, it is highly unlikely to be related to the factory raid described in the caption. The image check result provides strong evidence that the caption is inaccurate and does not represent the image content. The high confidence score (7) supports the conclusion that the caption is out of context. Therefore, the caption is out of context because the image does not depict a factory raid or anything related to human trafficking.",
+    "validation_summary": "The image shows a police officer and dog in a stadium, which is completely unrelated to the caption's description of a police raid on a factory related to human trafficking, misleading viewers about the image's content and context. The image and news caption are clearly mismatched based on the visual content of the image."
+  },
+  "inference_time": 4.235805988311768,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

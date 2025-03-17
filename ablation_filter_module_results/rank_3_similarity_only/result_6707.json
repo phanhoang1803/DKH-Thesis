@@ -1,0 +1,62 @@
+{
+  "caption": "Kansas City Chiefs running back Peyton Hillis takes the ball to head coach Romeo Crennel after scoring a touchdown against the Carolina Panthers in the first half at Arrowhead Stadium",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Chiefs' emotional win",
+        "content": "C h i e f s '   e m o t i o n a l   w i n",
+        "caption": "Kansas City Chiefs running back Peyton Hillis (40) takes the ball to head coach Romeo Crennel after scoring a touchdown against the Carolina Panthers in the first half at Arrowhead Stadium.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7389915585517883,
+        "text_similarity_score": 0.9803224205970764
+      },
+      {
+        "title": "Chiefs' emotional win",
+        "content": "C h i e f s '   e m o t i o n a l   w i n",
+        "caption": "Kansas City Chiefs running back Peyton Hillis (40) takes the ball to head coach Romeo Crennel after scoring a touchdown.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7732681035995483,
+        "text_similarity_score": 0.9663137197494507
+      },
+      {
+        "title": "Chiefs win even as they grieve over murder-suicide",
+        "content": "C h i e f s   w i n   e v e n   a s   t h e y   g r i e v e   o v e r   m u r d e r - s u i c i d e",
+        "caption": "Chiefs head coach Romeo Crennel was given a football by Peyton Hillis after the running back scored a touchdown.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4870057702064514,
+        "text_similarity_score": 0.8767485618591309
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "Based on the provided candidates, the news caption appears to be highly accurate. Candidate 1 has a high image similarity score of 0.7389915585517883 and a strong caption similarity score of 0.9803224205970764. Its caption is nearly identical to the news caption, providing strong support. Candidate 2 also presents a similar case with an image similarity score of 0.7732681035995483 and a caption similarity score of 0.9663137197494507, further strengthening the argument. Candidate 3, while having a lower image similarity score (0.4870057702064514), still shows a high text similarity (0.8767485618591309), indicating a relation between the news caption and its caption. Since Candidates 1 and 2 have image similarity scores higher than Candidate 3 and very high caption similarity scores, and their captions align with the news caption, this strongly suggests the news caption accurately describes the image content.",
+      "supporting_evidences": [
+        "Candidate 1: High image similarity score (0.7389915585517883) and caption similarity score (0.9803224205970764).",
+        "Candidate 2: High image similarity score (0.7732681035995483) and caption similarity score (0.9663137197494507).",
+        "Candidate 3: High text similarity score (0.8767485618591309)."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts an American football game, showing a player in a black uniform being tackled by multiple players in white and light blue uniforms. The image does not show Peyton Hillis, the Kansas City Chiefs, the Carolina Panthers, or Romeo Crennel, as stated in the caption. The players' uniforms and the setting of the game do not align with the caption's description of a Chiefs versus Panthers game. Based on this analysis, the caption is not representative of the image content.",
+    "validation_summary": "The caption is completely unrelated to the image. The image shows players from different teams in different colored uniforms than those mentioned in the caption, which would mislead viewers about the content of the image and its relevance to the news article."
+  },
+  "inference_time": 7.316274404525757,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

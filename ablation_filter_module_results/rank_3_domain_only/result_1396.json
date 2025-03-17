@@ -1,0 +1,55 @@
+{
+  "caption": "The original 21 members launched the AIIB in Beijing in October",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "China",
+      "Asian Infrastructure Investment Bank",
+      "Bank",
+      "France",
+      "International Monetary Fund (IMF)",
+      "Belt and Road Initiative",
+      "Finance",
+      "China Development Bank",
+      "Development bank"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Australia on brink of joining China's Asian Infrastructure Investment Bank | Australia news | The Guardian",
+        "content": "A u s t r a l i a   o n   b r i n k   o f   j o i n i n g   C h i n a ' s   A s i a n   I n f r a s t r u c t u r e   . . .",
+        "caption": "Chinas President Xi Jinping (fourth from right) meets with the guests at the Asian Infrastructure Investment Bank (AIIB) launch ceremony at the Great Hall of the People in Beijing in October 2014.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Taiwan and Norway sign up to AIIB - BBC News",
+        "content": "T a i w a n   a n d   N o r w a y   s i g n   u p   t o   A I I B   -   B B C   N e w s",
+        "caption": "Asian developments: the US fears the Asian Infrastructure Investment Bank could undercut American influence in the region",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity scores are 0.0 for both candidates, indicating that the images in the candidates do not match the image in the news. The text similarity scores are also 0.0 for both candidates, indicating that the captions in the candidates do not match the caption in the news. Therefore, based on the captions and candidate analysis, the candidates do not provide sufficient evidence to support the claim that the original 21 members launched the AIIB in Beijing in October. Hence, I mark the verdict as False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low confidence score of 3 and a verdict of False, meaning that the caption does not accurately represent the image. The image shows a group of people, likely officials or representatives, posing for a photo. The caption states that \"The original 21 members launched the AIIB in Beijing in October\". The image does not provide any information about the AIIB launch or specific members. The caption and image are therefore not aligned, leading to a determination that the image is Out of Context (OOC). The image check provides a clear, well-supported justification for this decision.",
+    "validation_summary": "The image shows a general group photo, failing to provide any specific context about the AIIB launch mentioned in the caption, thus making the image out of context. The image would mislead viewers into associating the photo with a specific event it doesn't represent."
+  },
+  "inference_time": 4.489379644393921,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

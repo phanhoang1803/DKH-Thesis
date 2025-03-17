@@ -1,0 +1,47 @@
+{
+  "caption": "Democratic presidential candidate Hillary Clinton talks about her counterterrorism strategy during a campaign stop in Minneapolis",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Event"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Hillary Clinton outlines plan to fight homegrown terrorism and Isis | Hillary Clinton | The Guardian",
+        "content": "H i l l a r y   C l i n t o n   o u t l i n e s   p l a n   t o   f i g h t   h o m e g r o w n   t e r r o r i s m   a n d   . . .",
+        "caption": "Democratic presidential candidate Hillary Clinton talks about her counterterrorism strategy during a campaign stop in Minneapolis.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Clinton Condemns ISIS for 'Genocide' Against Religious Minorities",
+        "content": "C l i n t o n   C o n d e m n s   I S I S   f o r   ' G e n o c i d e '   A g a i n s t   R e l i g i o u s   M i n o r i t i e s",
+        "caption": "Democratic presidential candidate Hillary Clinton talks about her counterterrorism strategy during a campaign stop in Minneapolis, Minnesota, December 15, 2015.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The image similarity scores are low for both candidates, indicating that the images do not match. Furthermore, the text similarity scores are also low, which means that the captions do not match. However, both captions do contain information that is verbatim to the news caption. Therefore, without further information and due to the low similarity scores, the news caption is not supported.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a low similarity between the image and the news caption, suggesting that the image does not directly represent the described event. The image shows Hillary Clinton smiling and waving, with two individuals behind her and a partial view of a person to her right, against a backdrop of red and white stripes (likely an American flag). While the news content mentions a speech given by Hillary Clinton about counterterrorism strategy, the image itself doesn't provide visual evidence of this specific topic or event. Thus, the image is out of context with the news caption, as it doesn't directly illustrate the mentioned counterterrorism strategy speech or the setting described in the news content.",
+    "validation_summary": "The image of Hillary Clinton waving does not directly relate to her speech on counterterrorism strategy, potentially misleading viewers about the context of the event being reported. The image fails to visually represent the specific content of the news caption."
+  },
+  "inference_time": 3.628277063369751,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

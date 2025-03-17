@@ -1,0 +1,40 @@
+{
+  "caption": "Prince Kate Moss Adele Rita Ora Noel Gallagher Cara Delevingne and Stephen Fry attended his Ronnie Scott s gig",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Prince watch: his Hit and Run tour stops by at Ronnie Scott's | Prince | The Guardian",
+        "content": "P r i n c e   w a t c h :   h i s   H i t   a n d   R u n   t o u r   s t o p s   b y   a t   R o n n i e   S c o t t ' s   . . .",
+        "caption": "Prince: Kate Moss, Adele, Rita Ora, Noel Gallagher, Cara Delevingne and Stephen Fry attended his Ronnie Scotts gig",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate evidence is an exact match of the news caption. The candidate caption states: \"Prince: Kate Moss, Adele, Rita Ora, Noel Gallagher, Cara Delevingne and Stephen Fry attended his Ronnie Scott’s gig\". This confirms that the news caption accurately represents the event and attendees mentioned in the image.",
+      "supporting_evidences": [
+        "Prince: Kate Moss, Adele, Rita Ora, Noel Gallagher, Cara Delevingne and Stephen Fry attended his Ronnie Scott’s gig"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Stephen Fry with another person. The provided caption includes Stephen Fry as one of the attendees at Prince's Ronnie Scott's gig, along with other celebrities such as Kate Moss, Adele, Rita Ora, Noel Gallagher, and Cara Delevingne. While Stephen Fry is present in the image, the other listed celebrities are not. The caption implies that all listed celebrities are visible in the image, which is misleading. Therefore, the image is considered out of context.",
+    "validation_summary": "The caption is misleading because it suggests that Kate Moss, Adele, Rita Ora, Noel Gallagher, Cara Delevingne, and Stephen Fry are all visible in the image, while only Stephen Fry is present. This would lead viewers to believe that the photo includes more people than it actually does."
+  },
+  "inference_time": 3.8524231910705566,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

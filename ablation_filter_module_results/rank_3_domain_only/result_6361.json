@@ -1,0 +1,55 @@
+{
+  "caption": "President Obama speaks at a news conference at the White House on Aug 9",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "President Obama's Own Experts Recommend \nEnd to NSA Phone Data Spying\n - ABC News",
+        "content": "P r e s i d e n t   O b a m a ' s   O w n   E x p e r t s   R e c o m m e n d   E n d   t o   N S A   P h o n e   D a t a   . . .",
+        "caption": "President Barack Obama speaks during a news conference in the East Room at the White House in Washington, Aug. 9, 2013.",
+        "domain": "abcnews.go.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Obama Touts NSA Reforms: 'America Is Not Interested in Spying on Ordinary People' - ABC News",
+        "content": "O b a m a   T o u t s   N S A   R e f o r m s :   ' A m e r i c a   I s   N o t   I n t e r e s t e d   i n   S p y i n g   o n   . . .",
+        "caption": "President Barack Obama speaks during a news conference at the East Room of the White House in Washington, Aug. 9, 2013.",
+        "domain": "abcnews.go.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "How the President's Message on NSA Spying Has Evolved - The Atlantic",
+        "content": "H o w   t h e   P r e s i d e n t ' s   M e s s a g e   o n   N S A   S p y i n g   H a s   E v o l v e d   -   T h e   A t l a n t i c",
+        "caption": "(",
+        "domain": "www.theatlantic.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption states 'President Obama speaks at a news conference at the White House on Aug 9'. Candidate 1's caption states 'President Barack Obama speaks during a news conference in the East Room at the White House in Washington, Aug. 9, 2013.' Candidate 2's caption states 'President Barack Obama speaks during a news conference at the East Room of the White House in Washington, Aug. 9, 2013.' Both Candidate 1 and 2 confirm that President Obama spoke at a news conference at the White House on Aug 9. Therefore, the news caption is likely accurate.",
+      "supporting_evidences": [
+        "President Barack Obama speaks during a news conference in the East Room at the White House in Washington, Aug. 9, 2013.",
+        "President Barack Obama speaks during a news conference at the East Room of the White House in Washington, Aug. 9, 2013."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows multiple men at a podium surrounded by reporters. The image check result indicates that the news caption states, 'President Obama speaks at a news conference at the White House on Aug 9', which is accurate according to two supporting evidences that mention President Obama speaking at a news conference in the East Room at the White House on Aug 9, 2013. However, looking at the image itself, the person speaking at the podium does not appear to be President Obama, and there are other people standing with him who also do not appear to be President Obama. Therefore, the image contradicts the claim in the caption that it is President Obama speaking at a news conference. Thus, the caption misrepresents the image content, making it out of context.",
+    "validation_summary": "The image shows a man speaking at a podium but it is not President Obama, thus the image is out of context because the caption claims it is President Obama speaking at a news conference. The caption does not accurately represent what is shown in the image."
+  },
+  "inference_time": 4.848027229309082,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

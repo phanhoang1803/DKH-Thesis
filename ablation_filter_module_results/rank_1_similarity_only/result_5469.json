@@ -1,0 +1,40 @@
+{
+  "caption": "Clip from The Washington Post Jan 14 1928",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "3littlebuttholes",
+        "content": "",
+        "caption": "an old newspaper article with the words, wicker witch of the belway?",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9913266897201538,
+        "text_similarity_score": 0.38695836067199707
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.99 which is greater than 0.85, but the text similarity score is 0.38 which is less than 0.7. Based on the instruction, I should immediately return 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result returned a confidence score of 1.0. The image similarity score is 0.99 which is greater than 0.85, but the text similarity score is 0.38 which is less than 0.7. Based on the instruction, I should immediately return 'False'. The image shows a picture of a bridge with \"SURRENDER DOROTHY\" spray painted on it, and the caption references \"The Washington Post Jan 14 1928\", implying it is somehow related to the photograph. This would be misleading, as the content describes Calvin Coolidge's visit to Cuba in 1928.",
+    "validation_summary": "The caption is out of context as it provides a completely unrelated summary of an event that occurred in 1928 while the image displays graffiti on a bridge. Readers will be misled because the text does not describe what is pictured."
+  },
+  "inference_time": 4.441050291061401,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

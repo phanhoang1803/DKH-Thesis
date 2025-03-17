@@ -1,0 +1,43 @@
+{
+  "caption": "A day earlier the bank s chairman Marcus Agius had resigned in an attempt to take the heat off Bob Diamond",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Public speaking",
+      "Speech",
+      "Audience"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Bob Diamond's resignation: the late exchanges that led to his demise | Bob Diamond | The Guardian",
+        "content": "B o b   D i a m o n d ' s   r e s i g n a t i o n :   t h e   l a t e   e x c h a n g e s   t h a t   l e d   t o   h i s   . . .",
+        "caption": "Bob Diamond resigned after working at Barclays for 16 years, building up the investment side of the bank. Photograph: Dan Kitwood/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Bob Diamond's resignation: the late exchanges that led to his demise | Bob Diamond | The Guardian",
+        "content": "B o b   D i a m o n d ' s   r e s i g n a t i o n :   t h e   l a t e   e x c h a n g e s   t h a t   l e d   t o   h i s   . . .",
+        "caption": "Bob Diamond resigned after working at Barclays for 16 years, building up the investment side of the bank. Photograph: Dan Kitwood/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidate captions mention Bob Diamond's resignation from Barclays, but they do not mention Marcus Agius's resignation or the attempt to take the heat off Bob Diamond, which are crucial components of the news caption. Also, the image similarity scores are 0.0, indicating that the images associated with the candidate captions do not match the news image. Therefore, the provided candidates do not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a man in a suit and tie gesturing with his hands while standing in front of a backdrop featuring a landscape, possibly a mining site. The caption refers to Marcus Agius's resignation in an attempt to take the heat off Bob Diamond, which is unrelated to the visual content of the image. There is no visual indication of either Marcus Agius or Bob Diamond, nor is there anything in the image that suggests a resignation or an attempt to take the heat off someone. The image check result indicates that the provided candidates do not support the news caption and that the images do not match the news image. Therefore, the caption is out of context.",
+    "validation_summary": "The caption is unrelated to the image's content, which features a man in a suit in front of a landscape, and would mislead viewers about what the image depicts. The image check result supports this conclusion, showing a lack of relevance between the caption and the visual content of the image."
+  },
+  "inference_time": 3.585268974304199,
+  "ablation_type": "no_filters"
+}

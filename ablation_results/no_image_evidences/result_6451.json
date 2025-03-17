@@ -1,0 +1,34 @@
+{
+  "caption": "An El Al plane at Ben Gurion airport near Tel Aviv",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Israeli Airline With Missile Defenses Goes to Israel When US Carriers Wont - ABC News",
+        "content": "I s r a e l i   A i r l i n e   W i t h   M i s s i l e   D e f e n s e s   G o e s   t o   I s r a e l   W h e n   U S   . . .",
+        "caption": "Two Israeli El Al&nbsp; airplanes maneuver on the tarmac at Ben Gurion International airport near Tel Aviv, Israel, October 28, 2009.",
+        "domain": "abcnews.go.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5717087388038635,
+        "text_similarity_score": 0.8063474893569946
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.5717087388038635 and the text similarity score is 0.8063474893569946. Because the image similarity score is less than 0.85, the caption is out-of-context. The candidate caption describes 'Two Israeli El Al airplanes maneuver on the tarmac at Ben Gurion International airport near Tel Aviv, Israel', while the news caption describes 'An El Al plane at Ben Gurion airport near Tel Aviv'. Although the text similarity is high, the images aren't similar enough to confirm the accuracy of the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates an image similarity score of 0.5717087388038635, which is less than 0.85. This suggests that the image content does not closely align with the caption's description. The image shows an airplane silhouetted against a setting sun, while the caption describes 'An El Al plane at Ben Gurion airport near Tel Aviv'. While both relate to an El Al plane, the context provided by the image (sunset and silhouette) differs significantly from the airport scene suggested by the caption, indicating it is out of context.",
+    "validation_summary": "The image shows an airplane during sunset, which is different from the caption that describes 'An El Al plane at Ben Gurion airport near Tel Aviv', making it misleading to viewers about the image's true context. Because the image similarity score is less than 0.85, the caption is out-of-context."
+  },
+  "inference_time": 5.191102504730225,
+  "ablation_type": "no_image_evidences"
+}

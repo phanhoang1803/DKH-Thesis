@@ -1,0 +1,40 @@
+{
+  "caption": "Nick Clegg visited the Scottish Association for Mental Health in Glasgow during his party conference",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Clegg bids to end the outrageous discrimination in mental healthcare | Mental health | The Guardian",
+        "content": "C l e g g   b i d s   t o   e n d   t h e   ' o u t r a g e o u s   d i s c r i m i n a t i o n '   i n   m e n t a l   . . .",
+        "caption": "Nick Clegg during a visit to the Scottish Association for Mental Health in Glasgow.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The Image Similarity Score is 0.0 and the Text Similarity Score is 0.0. The candidate caption is 'Nick Clegg during a visit to the Scottish Association for Mental Health in Glasgow.' This closely matches the news caption 'Nick Clegg visited the Scottish Association for Mental Health in Glasgow during his party conference.' The candidate confirms Nick Clegg's visit to the Scottish Association for Mental Health in Glasgow. However, it does not mention his party conference, making the original caption only partially verifiable. Since it's missing a key element, I'm marking it as 'False'.",
+      "supporting_evidences": [
+        "Nick Clegg during a visit to the Scottish Association for Mental Health in Glasgow."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows Nick Clegg under an umbrella with another person in the background. The caption states he visited the Scottish Association for Mental Health in Glasgow during his party conference. While the image check supports that Nick Clegg visited the Scottish Association for Mental Health in Glasgow, it doesn't confirm the 'during his party conference' part. Since it's missing this key element, and the confidence score is above 7, I will accept the image check result and consider the caption as OOC.",
+    "validation_summary": "The caption's claim about the party conference is not verifiable from the image, leading to a potentially misleading impression about the context of the photograph. Therefore, the image is out of context (OOC). and it can mislead the viewer with partial information."
+  },
+  "inference_time": 4.1571204662323,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "caption": "FBI Director nominee James Comey has been confirmed",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Senate confirms James Comey for FBI chief - Los Angeles Times",
+        "content": "S e n a t e   c o n f i r m s   J a m e s   C o m e y   f o r   F B I   c h i e f   -   L o s   A n g e l e s   T i m e s",
+        "caption": "James B. Comey was confirmed Monday as director of the Federal Bureau of Investigation.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3241727352142334,
+        "text_similarity_score": 0.8446682691574097
+      },
+      {
+        "title": "FBI Chief Nominee: Waterboarding is Torture",
+        "content": "F B I   C h i e f   N o m i n e e :   W a t e r b o a r d i n g   i s   T o r t u r e",
+        "caption": "FBI Director nominee James Comey testifies before the Senate Judiciary Committee hearing about his nomination, on Capitol Hill in Washington, July 9, 2013.",
+        "domain": "www.voanews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3137495219707489,
+        "text_similarity_score": 0.7677493691444397
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have low image similarity scores (below 0.85), indicating that the images in the candidates may not match the news image. Although the text similarity scores are high (above 0.7), the low image similarity scores require a 'False' verdict. Candidate 1 has a caption that is very similar to the news caption, suggesting confirmation, but the image similarity is too low to be conclusive. Candidate 2 also has a similar caption regarding James Comey's nomination but again suffers from a low image similarity score. Because the image similarity scores are low, I cannot confidently confirm that the images align with the caption.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.3241727352142334, Caption Similarity Score: 0.8446682691574097",
+        "Candidate 2: Image Similarity Score: 0.3137495219707489, Caption Similarity Score: 0.7677493691444397"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a woman in a suit, appearing to be in a formal setting, possibly a hearing or conference. The caption claims \"FBI Director nominee James Comey has been confirmed\" which doesn't align directly with the person in the image. The Image Check results indicate low image similarity scores in the candidate images, reinforcing the conclusion that the image does not directly correspond to James Comey's confirmation as the FBI Director, or even James Comey. Therefore, the image is out of context. The image suggests a hearing with the individual in the photo, but the caption is about the confirmation of James Comey, misleading viewers because the image does not obviously relate to James Comey.",
+    "validation_summary": "The image features a woman and the caption references James Comey's confirmation, misleading viewers as there is no direct link between the image and the caption's subject. This discrepancy leads to a determination that the image is presented out of context."
+  },
+  "inference_time": 5.5041444301605225,
+  "ablation_type": "no_image_evidences"
+}

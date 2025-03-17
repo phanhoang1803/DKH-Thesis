@@ -1,0 +1,47 @@
+{
+  "caption": "Those are not piranhas they appear to be some sort of cichlid possibly Malawian said one Shropshire Star reader",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Oily fish",
+      "Pomacentridae",
+      "Biology",
+      "Fish",
+      "Marine biology",
+      "Herring"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Killer piranhas blocking Telford sewer turn out to be red herrings | UK news | The Guardian",
+        "content": "K i l l e r   p i r a n h a s   b l o c k i n g   T e l f o r d   s e w e r   t u r n   o u t   t o   b e   r e d   h e r r i n g s   . . .",
+        "caption": "'Those are not piranhas, they appear to be some sort of cichlid, possibly Malawian,' said one Shropshire Star reader. Photograph: Severn Trent Water/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.0 which is less than 0.85 and the text similarity score is 0.0 which is less than 0.7. The caption is an exact match with the caption provided by the first candidate. The domain of the candidate is www.theguardian.com which is a reliable source.",
+      "supporting_evidences": [
+        "'Those are not piranhas, they appear to be some sort of cichlid, possibly Malawian,' said one Shropshire Star reader. Photograph: Severn Trent Water/PA"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score of 10, derived from a reliable source (www.theguardian.com). It definitively states that the image aligns with the caption, which quotes a Shropshire Star reader identifying the fish in question as a cichlid, possibly Malawian, rather than a piranha. Given this direct match and the high confidence, I must conclude that the caption accurately reflects the image content. The image shows a dead fish, and the caption describes the type of fish.",
+    "validation_summary": "The caption accurately represents the image content, as confirmed by the image check result, indicating that the caption correctly describes the type of fish depicted in the image, preventing viewer misdirection about the image's content, supporting that the image is not out of context. The caption is aligned with the content of the image, hence, the image is not out of context."
+  },
+  "inference_time": 3.845632553100586,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

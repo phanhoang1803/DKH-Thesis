@@ -1,0 +1,63 @@
+{
+  "caption": "The commentators highlight David Cameron and Boris Johnson s common past",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Mark Getty",
+      "Getty Images",
+      "Getty Images",
+      "London Bridge Station",
+      "Stock photography",
+      "Image",
+      "Photograph",
+      "London Bridge",
+      "London Bridge"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.in",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "How the European press covered Boris Johnson's Brexit battle cry | European Union | The Guardian",
+        "content": "H o w   t h e   E u r o p e a n   p r e s s   c o v e r e d   B o r i s   J o h n s o n ' s   B r e x i t   b a t t l e   c r y   . . .",
+        "caption": "Dutch paper De Volkskrant said of Boris Johnsons decision: This is a continuation, and a climax, of a life-long struggle with his friend and rival Cameron.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Newspaper headlines: Boris Johnson, EU referendum, pilot dies and Queen's corgis - BBC News",
+        "content": "N e w s p a p e r   h e a d l i n e s :   B o r i s   J o h n s o n ,   E U   r e f e r e n d u m ,   p i l o t   d i e s   a n d   . . .",
+        "caption": "Outside number 20 for now... but heading for Number 10?",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are all 0.0, indicating that the images in the candidates do not match the image described by the news caption. Furthermore, the text similarity scores are also 0.0, meaning that the captions in the candidates do not match the news caption. The news caption mentions David Cameron and Boris Johnson's common past. Candidate 3 mentions the two names and their rivalry, but it does not confirm any details about the image. Therefore, based on the available information, I cannot confirm that the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption misrepresents the image, as there are no recognizable references to David Cameron and Boris Johnson's common past in the image.",
+    "explanation": "The news caption states that the image would highlight the common past of David Cameron and Boris Johnson. However, based on the image check result, there is no direct correlation between the caption and the image content. The confidence score of 2 indicates a significant mismatch. The image does not visually represent either David Cameron or Boris Johnson, nor does it provide any contextual clues related to their past. As such, viewers analyzing the image under the provided caption would likely be misled, as there are no features in the image suggesting a connection to Cameron and Johnson's history and rivalry."
+  },
+  "inference_time": 6.312988042831421,
+  "ablation_type": "no_filters"
+}

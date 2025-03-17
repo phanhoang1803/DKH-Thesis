@@ -1,0 +1,49 @@
+{
+  "caption": "Those are not piranhas they appear to be some sort of cichlid possibly Malawian said one Shropshire Star reader",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Oily fish",
+      "Pomacentridae",
+      "Biology",
+      "Fish",
+      "Marine biology",
+      "Herring"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Killer piranhas blocking Telford sewer turn out to be red herrings | UK news | The Guardian",
+        "content": "K i l l e r   p i r a n h a s   b l o c k i n g   T e l f o r d   s e w e r   t u r n   o u t   t o   b e   r e d   h e r r i n g s   . . .",
+        "caption": "'Those are not piranhas, they appear to be some sort of cichlid, possibly Malawian,' said one Shropshire Star reader. Photograph: Severn Trent Water/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5768007636070251,
+        "text_similarity_score": 0.9299516677856445
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "The image similarity score is 0.5768007636070251 and the text similarity score is 0.9299516677856445. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater or equal to 0.7, the verdict should be False. However, based on the context, the provided candidate evidence (Candidate 1) has a caption that closely matches the news caption, with a high text similarity score of 0.9299516677856445. This suggests that the candidate caption accurately reflects the content of the news image. The caption in the candidate evidence, 'Those are not piranhas, they appear to be some sort of cichlid, possibly Malawian,' said one Shropshire Star reader. Photograph: Severn Trent Water/PA', is almost the same as the news caption. Despite the moderate image similarity, the near-identical caption strongly supports the claim that the news image is related to cichlids, not piranhas, aligning with the reader's statement from the Shropshire Star. Therefore, I will give a final verdict True.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: 'Those are not piranhas, they appear to be some sort of cichlid, possibly Malawian,' said one Shropshire Star reader. Photograph: Severn Trent Water/PA; Image Similarity Score: 0.5768007636070251; Caption Similarity Score: 0.9299516677856445"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a high confidence score of 9, and the image similarity score is 0.5768007636070251 and the text similarity score is 0.9299516677856445. The image shows a dead fish floating in water, which aligns with the news content about mystery fish found in sewers. The caption, 'Those are not piranhas they appear to be some sort of cichlid possibly Malawian said one Shropshire Star reader', is supported by the news content and the image check result, as the news article discusses how readers identified the fish as a cichlid, not a piranha. The presence of the fish in the image, alongside the context provided by the news caption, accurately reflects the overall narrative. The image check identified a strong supporting evidence where the caption is nearly identical to the news caption further strengthening this verdict.",
+    "validation_summary": "The caption accurately reflects the image content, supported by the news article's discussion of fish identification and the presence of a dead fish in the image. The image is not out of context as the caption correctly represents what the image shows."
+  },
+  "inference_time": 6.578715085983276,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

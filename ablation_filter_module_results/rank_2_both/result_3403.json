@@ -1,0 +1,45 @@
+{
+  "caption": "Senator Marco Rubio leaves after he addressed the Free State Foundation luncheon last month",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "GOP needs to open its ears: Column",
+        "content": "G O P   n e e d s   t o   o p e n   i t s   e a r s :   C o l u m n",
+        "caption": "Senator Marco Rubio (R-FL) leaves after he addressed the Free State Foundation luncheon last month.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5155666470527649,
+        "text_similarity_score": 0.9038028717041016
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.51, which is less than 0.85, and the text similarity score is 0.90, which is greater than 0.7. According to the instructions, the verdict should be False because the image similarity score is less than 0.85. Although the captions share similar information about Senator Marco Rubio addressing the Free State Foundation luncheon, the low image similarity suggests that the images are different. Therefore, it is out-of-context.",
+      "supporting_evidences": [
+        "Caption: Senator Marco Rubio (R-FL) leaves after he addressed the Free State Foundation luncheon last month.",
+        "Image Similarity Score: 0.5155666470527649",
+        "Caption Similarity Score: 0.9038028717041016",
+        "Domain: www.usatoday.com"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image similarity score is 0.51, which is less than 0.85, and the text similarity score is 0.90, which is greater than 0.7. According to the instructions, the verdict should be False because the image similarity score is less than 0.85. Although the captions share similar information about Senator Marco Rubio addressing the Free State Foundation luncheon, the low image similarity suggests that the images are different. Therefore, it is out-of-context.",
+    "validation_summary": "The image check result indicates that the image similarity is low (0.51), while the caption similarity is high (0.90), suggesting the images are different despite the similar descriptions. Therefore, the caption is misleading because it's not representative of this specific image, indicating it's out of context."
+  },
+  "inference_time": 4.649691104888916,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

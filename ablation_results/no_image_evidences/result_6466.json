@@ -1,0 +1,38 @@
+{
+  "caption": "Diego Costa has been in excellent form for Chelsea but has not trained regularly due to hamstring problems",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Athlete"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Spains Vicente del Bosque selects Diego Costa despite hamstring fears | Spain | The Guardian",
+        "content": "S p a i n ' s   V i c e n t e   d e l   B o s q u e   s e l e c t s   D i e g o   C o s t a   d e s p i t e   h a m s t r i n g   . . .",
+        "caption": "Diego Costa has been in excellent form for Chelsea but has not trained regularly due to hamstring problems. Photograph: Carlos Costa/NurPhoto/Corbis",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9688224196434021,
+        "text_similarity_score": 0.9429301023483276
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate evidence has a high image similarity score (0.9688224196434021) and a high text similarity score (0.9429301023483276). This indicates that the candidate evidence is highly relevant to the news image and its caption. Specifically, the candidate's caption is almost identical to the news caption, which confirms that the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "Candidate 1: Caption, Image Similarity Score, Caption Similarity Score, Domain"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Diego Costa looking distressed, with his hands on his head. The caption mentions that Diego Costa has been in excellent form for Chelsea but has not trained regularly due to hamstring problems. While the image doesn't directly contradict the caption, it does not show any explicit evidence of hamstring problems or excellent form. The image check result shows a high image similarity score (0.9688224196434021) and a high text similarity score (0.9429301023483276), which would typically indicate a match. However, in this case, the caption focuses on his physical condition and performance, while the image captures a moment of emotional distress. Given that the caption is specific about his physical state while the image shows him emotionally distressed, it is likely that the image could be misleading. Therefore, the image is out of context.",
+    "validation_summary": "The image of a distressed Diego Costa does not directly support the caption's claim about his physical condition or excellent form, making it potentially misleading. Despite high similarity scores from the image check, the emotional context of the image doesn't align with the caption's focus on physical condition and playing form, so the image is out of context with the caption provided in this case."
+  },
+  "inference_time": 5.135329246520996,
+  "ablation_type": "no_image_evidences"
+}

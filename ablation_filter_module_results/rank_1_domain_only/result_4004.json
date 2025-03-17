@@ -1,0 +1,38 @@
+{
+  "caption": "Kentucky Wildcats guard Aaron Harrison is congratulated by teammates Dakari Johnson and Julius Randle after making the gamewinning basket against Michigan",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "All the NCAA tournament Elite Eight action",
+        "content": "A l l   t h e   N C A A   t o u r n a m e n t   E l i t e   E i g h t   a c t i o n",
+        "caption": "Wisconsin Badgers forward Frank Kaminsky (44) shoots the ball against Arizona Wildcats center Kaleb Tarczewski (35) during the first half in the finals of the west regional of the 2014 NCAA Men's Basketball Championship tournament at Honda Center.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, based on the instruction, I should analyze based on the captions and candidate to give the final decision. However, the provided candidate does not have the required information (people in the image, event, location, etc.) to verify the caption. The caption describes Kentucky Wildcats guard Aaron Harrison being congratulated by teammates Dakari Johnson and Julius Randle after making the game-winning basket against Michigan. The candidate describes a basketball game between Wisconsin Badgers and Arizona Wildcats. Thus, the candidate does not support the caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 1, indicating a strong mismatch between the caption and the image content, where the supporting candidate does not contain the people, event, or location to support the caption. The caption describes Aaron Harrison being congratulated by teammates Dakari Johnson and Julius Randle. Given the high confidence score and the mismatch identified by the image check, I confidently determine that the caption is Out of Context (OOC = True).",
+    "validation_summary": "The caption describes specific players and a game event that are not supported by the provided news article or image check result, potentially misleading viewers about the image's content. Based on the image check result, the caption is out of context."
+  },
+  "inference_time": 4.050965785980225,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

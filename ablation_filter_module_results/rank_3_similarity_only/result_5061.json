@@ -1,0 +1,51 @@
+{
+  "caption": "Stanford Cardinal running back Anthony Wilkerson stiff arms Michigan State Spartans safety RJ Williamson during the first quarter",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Ohio State Buckeyes football",
+      "Urban Meyer",
+      "Sugar Bowl",
+      "Ezekiel Elliott",
+      "Alabama Crimson Tide football",
+      "Eight-man football",
+      "Six-man football",
+      "Running back",
+      "Head coach",
+      "American football"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "All the action from the Sugar Bowl: Alabama vs. Ohio State",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9598987698554993,
+        "text_similarity_score": 0.05548557639122009
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is high (0.95), suggesting the images are visually similar. However, the text similarity score is low (0.05), indicating the captions are not similar. Since the captions do not match, there is no explicit confirmation the image depicts the news caption, or that the image is not manipulated. Therefore, the verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result shows a high similarity score (0.95), but a low text similarity score (0.05). This suggests that while the images might have visual similarities, the captions do not match. The provided caption states that it's about Stanford Cardinal running back Anthony Wilkerson stiff arming Michigan State Spartans safety RJ Williamson. However, the image actually depicts a player in a red Alabama Crimson Tide jersey with the number 4 running with a football, while being defended by a player in a white Ohio State Buckeyes jersey. Therefore, the caption is factually incorrect in relation to the image.",
+    "validation_summary": "The caption incorrectly identifies the teams and players involved in the image, leading to a misrepresentation of the image's content and misleading viewers about what they are seeing. The image shows players from Alabama and Ohio State, while the caption describes a scene from a Stanford vs. Michigan State game."
+  },
+  "inference_time": 8.215999841690063,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

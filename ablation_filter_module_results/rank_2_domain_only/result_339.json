@@ -1,0 +1,57 @@
+{
+  "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Cadbury",
+      "Chocolate bar",
+      "Chocolate",
+      "Candy",
+      "Kraft Foods",
+      "Fudge",
+      "Sweet dish",
+      "Wrigley"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Healthier chocolate and other incredible discoveries of the week",
+        "content": "6 3 5 6 3 1 2 6 7 1 4 0 4 5 0 7 5 3 - A P - D a r k -   . . .",
+        "caption": "Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Chocolate is hot  and it's not just the curry",
+        "content": "C h o c o l a t e   i s   h o t      a n d   i t ' s   n o t   j u s t   t h e   c u r r y",
+        "caption": "A woman photographs Jun Kobayashi as he prepares Japanese plum chocolates, made of dark chocolate ganache with plum wine, during a demonstration of chocolate-making at the Chocolate Show in New York.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are 0.0 for both candidates, indicating that the images do not match. Therefore, the decision must be based on the captions. Candidate 1 has the exact same caption. The domain is usatoday.com, which is a valid source. However, since the image similarity is low, it is hard to be certain.",
+      "supporting_evidences": [
+        "Candidate 1 has the exact same caption.",
+        "The domain of Candidate 1 is usatoday.com, which is a valid source."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result shows that the similarity scores are low, and therefore, the image does not match the caption. The caption states \"Japanese plum chocolates made of dark chocolate ganache with plum wine are prepared in New York\", while the image displays assorted chocolates in boxes and packages, many of which are Green & Black's brand. The caption gives a specific type of chocolate which is not representative of all the chocolate in the image. Therefore, the caption misrepresents the image content.",
+    "validation_summary": "The image shows assorted chocolates while the caption specifically mentions \"Japanese plum chocolates\", which is not representative of the image, thus making the caption misleading to viewers about what they are seeing. Because the image check confidence score is 8, the decision is based on the image check result. Therefore, the image is out of context with the caption provided.. Note: The domain is usatoday.com, which is a valid source. However, since the image similarity is low, it is hard to be certain."
+  },
+  "inference_time": 6.582062244415283,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

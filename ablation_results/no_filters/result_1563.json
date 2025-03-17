@@ -1,0 +1,55 @@
+{
+  "caption": "Thousands gather on the Mall for the Justice or Else rally",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Access to this page has been denied",
+        "content": "",
+        "caption": "",
+        "domain": "www.texasmonthly.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Access to this page has been denied",
+        "content": "",
+        "caption": "",
+        "domain": "www.texasmonthly.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "A Conversation with Carlos Javier Ortiz - UnderMain",
+        "content": "A   C o n v e r s a t i o n   w i t h   C a r l o s   J a v i e r   O r t i z   -   U n d e r M a i n",
+        "caption": "Image: A black and white photo by Carlos Javier Ortiz. Ortiz: \"Thousands gather on the Mall in Washington D.C on Saturday for the 'Justice or Else' rally. Black men and woman and from different races from across the country gathered for the Million Man March in Washington D.C., led by Nation of Islam leader Louis Farrakhan, on Saturday October 10, 2016. This year marks the 20th anniversary of Million Man March in Washington, D.C. The 20th anniversary of the March calls for a renew call for justice.\" The photo shows a Black man in a crowd facing the viewer. Image courtesy of Carlos Javier Ortiz.",
+        "domain": "undermain.art",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "235 Million Man March 1995 Photos & High Res Pictures - Getty Images",
+        "content": "2 3 5   M i l l i o n   M a n   M a r c h   1 9 9 5   P h o t o s   &   H i g h   R e s   P i c t u r e s   -   G e t t y   I m a g e s",
+        "caption": "",
+        "domain": "www.gettyimages.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The news caption states, 'Thousands gather on the Mall for the Justice or Else rally.' Candidate 3's caption provides some information, stating, 'Thousands gather on the Mall in Washington D.C on Saturday for the 'Justice or Else' rally.' It mentions the 'Justice or Else' rally and that thousands gathered on the Mall. However, since the Image Similarity Score is 0.0, it is hard to determine if the candidate evidence supports the news caption accurately, given that the images are not similar. The other candidates do not provide sufficient information to verify the caption.",
+      "supporting_evidences": [
+        "Candidate 3 mentions 'Thousands gather on the Mall in Washington D.C on Saturday for the 'Justice or Else' rally.'"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "validation_summary": "The caption mentions 'thousands gather on the Mall for the Justice or Else rally,' but the image check indicates that this claim is uncertain due to a lack of visual evidence confirming the rally's occurrence.",
+    "explanation": "The caption states that 'thousands gather on the Mall for the Justice or Else rally,' referring to a large crowd participating in an event on the National Mall in Washington D.C. However, the provided image similarity score is 0.0, which indicates that there is insufficient similar context between the caption and the image. The check reveals that certain images capture the essence of such a gathering, but none of them adequately supports this specific caption with strong visual evidence. As a result, while the content of the caption could theoretically align with a significant event like this, the direct evidence from the attached images contradicts this assertion, leading to the conclusion that the caption may mislead viewers regarding the specific event depicted."
+  },
+  "inference_time": 9.453023433685303,
+  "ablation_type": "no_filters"
+}

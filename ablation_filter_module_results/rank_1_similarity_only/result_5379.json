@@ -1,0 +1,53 @@
+{
+  "caption": "Alex Corbisiero right on his debut faces up to Martin Castrogiovanni for the first scrum",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Rugby league",
+      "Rugby sevens",
+      "Rugby league sevens",
+      "Rugby tens",
+      "Rugby league nines",
+      "Touch",
+      "Rugby football",
+      "Touch football",
+      "Rugby union",
+      "Tackle"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Six Nations 2011:  England v Italy - in pictures | Sport | The Guardian",
+        "content": "S i x   N a t i o n s   2 0 1 1 :   E n g l a n d   v   I t a l y   -   i n   p i c t u r e s   |   S p o r t   |   T h e   G u a r d i a n",
+        "caption": "England v Italy: Alex Corbisiero faces up to Martin Castrogiovanni for the first scrum",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6835421323776245,
+        "text_similarity_score": 0.8270207047462463
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.6835421323776245 and the text similarity score is 0.8270207047462463. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater or equal to 0.7, the verdict should be 'False'. This is because, even if the captions are similar, a low image similarity suggests that the images being compared are different, making the candidate caption potentially out of context for the news image. However, the candidate caption does mention \"Alex Corbisiero faces up to Martin Castrogiovanni for the first scrum\", which is very similar to the News Caption: \"Alex Corbisiero right on his debut faces up to Martin Castrogiovanni for the first scrum\". Therefore, I will say the caption is in context, but due to the Image Similarity score, my confidence will not be high.",
+      "supporting_evidences": [
+        "The candidate caption is highly similar to the news caption."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result shows an image similarity score less than 0.85 and a text similarity score greater or equal to 0.7, suggesting the images are different despite the captions being similar, making the candidate caption potentially out of context for the news image. The image shows a rugby player with the ball, other players and coaches in the background. The caption describes a specific face-off between Alex Corbisiero and Martin Castrogiovanni, which isn't evident in the image. The image check result confirms that, even though there is a similarity between the captions, the visual content doesn't fully support what the caption suggests, so the image is out of context.",
+    "validation_summary": "The image does not clearly depict the specific players and action described in the caption, thus a viewer would be misled about the context of the image. The image check result confirms that the image does not accurately represent the caption's claim, indicating that the image is out of context."
+  },
+  "inference_time": 5.867160797119141,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

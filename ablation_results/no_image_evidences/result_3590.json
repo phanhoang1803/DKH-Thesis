@@ -1,0 +1,46 @@
+{
+  "caption": "Karim Benzema celebrates his goal in the Madrid derby",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Karim Benzema hits winner as Real turn over toothless Atltico in Madrid derby | La Liga | The Guardian",
+        "content": "K a r i m   B e n z e m a   h i t s   w i n n e r   a s   R e a l   t u r n   o v e r   t o o t h l e s s   A t l  t i c o   i n   . . .",
+        "caption": "Real Madrids Karim Benzema celebrates scoring what turned out to be their winner in the Madrid derby against Atltico.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4572318196296692,
+        "text_similarity_score": 0.8177637457847595
+      },
+      {
+        "title": "Karim Benzema and Asensio fire Real Madrid to derby glory over Atltico | La Liga | The Guardian",
+        "content": "K a r i m   B e n z e m a   a n d   A s e n s i o   f i r e   R e a l   M a d r i d   t o   d e r b y   g l o r y   o v e r   . . .",
+        "caption": "Karim Benzema celebrates opening the scoring for Real Madrid in their derby win.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8062151074409485,
+        "text_similarity_score": 0.8116217851638794
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have text similarity scores above 0.7, suggesting a good match in textual content. However, the image similarity scores are below 0.85 for both candidates. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, based on the guidelines provided, the final verdict is False.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score = 0.4572318196296692, Text Similarity Score = 0.8177637457847595",
+        "Candidate 2: Image Similarity Score = 0.8062151074409485, Text Similarity Score = 0.8116217851638794"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that both image similarity scores are below 0.85, which means the caption is out of context. The image shows Karim Benzema in a Real Madrid jersey celebrating a goal, but it's not explicitly clear that the celebration is specifically from a 'Madrid derby'. The confidence score is high because the guidelines state that if the image similarity score is below 0.85, the caption must be marked as out-of-context, regardless of text similarity.",
+    "validation_summary": "The image shows Benzema celebrating a goal, but there's no clear indication it's from the Madrid derby, making the caption misleading. Therefore, the caption misrepresents the context of the image as determined by the image check result."
+  },
+  "inference_time": 5.141988039016724,
+  "ablation_type": "no_image_evidences"
+}

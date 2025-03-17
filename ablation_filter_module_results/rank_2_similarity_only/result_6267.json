@@ -1,0 +1,62 @@
+{
+  "caption": "Julian Savea has scored 38 tries in 39 Test starts for New Zealand who meet South Africa in the Rugby World Cup semifinal",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Billy Vunipola",
+      "Premiership Rugby",
+      "Wasps RFC",
+      "Touch football",
+      "Rugby Player",
+      "Touch rugby",
+      "Rugby union",
+      "Rugby football",
+      "American football"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "New Zealand winger Julian Savea heading for hero status | Rugby World Cup 2015 | The Guardian",
+        "content": "N e w   Z e a l a n d   w i n g e r   J u l i a n   S a v e a   h e a d i n g   f o r   h e r o   s t a t u s   |   R u g b y   . . .",
+        "caption": "Julian Savea has scored 38 tries in 39 Test starts for New Zealand, who meet South Africa in the Rugby World Cup semi-final.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.771675705909729,
+        "text_similarity_score": 0.9747771620750427
+      },
+      {
+        "title": "New Zealand winger Julian Savea heading for hero status | Rugby World Cup 2015 | The Guardian",
+        "content": "N e w   Z e a l a n d   w i n g e r   J u l i a n   S a v e a   h e a d i n g   f o r   h e r o   s t a t u s   |   R u g b y   . . .",
+        "caption": "Julian Savea has scored 38 tries in 39 Test starts for New Zealand, who meet South Africa in the Rugby World Cup semi-final.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7565513253211975,
+        "text_similarity_score": 0.9747771620750427
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have high text similarity scores (0.9747771620750427), suggesting that their captions closely match the news caption. However, both candidates have image similarity scores below the 0.85 threshold (0.771675705909729 and 0.7565513253211975), indicating that the images themselves might not be strongly related. The strict decision rules dictate that if the image similarity is below 0.85, the caption must be marked as out-of-context, regardless of the text similarity. Therefore, the verdict is False.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.771675705909729, Caption Similarity Score: 0.9747771620750427",
+        "Candidate 2: Image Similarity Score: 0.7565513253211975, Caption Similarity Score: 0.9747771620750427"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows a rugby player in a black and yellow jersey running with a rugby ball. The caption mentions Julian Savea, a New Zealand rugby player, and his statistics. However, there's no direct visual evidence to confirm that the player in the image is Julian Savea or that the image is related to a match between New Zealand and South Africa. The image check result indicates a low image similarity score with captions related to Julian Savea. Therefore, the caption is considered out of context as it cannot be directly verified by the image.",
+    "validation_summary": "The caption's claim about Julian Savea cannot be verified from the image, which simply depicts a rugby player; viewers might be misled into believing the image is specifically of Julian Savea or related to a particular game mentioned in the caption, which isn't supported by the image itself. The image check result confirms this discrepancy, indicating low image similarity between the provided image and captions that contain Julian Savea's name, further supporting that the image is out of context."
+  },
+  "inference_time": 6.907564163208008,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

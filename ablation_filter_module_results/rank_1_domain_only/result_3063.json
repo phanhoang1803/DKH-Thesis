@@ -1,0 +1,45 @@
+{
+  "caption": "Donald Trump greets attendees at the Iowa State Fair during a campaign stop in Des Moines Iowa United States August 15 2015",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Flag",
+      "Flag Day",
+      "Ceremony",
+      "Flag Day"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "'The goal is to be the winner': Donald Trump's campaign is for real | Donald Trump | The Guardian",
+        "content": "T h e   g o a l   i s   t o   b e   t h e   w i n n e r ' :   D o n a l d   T r u m p ' s   c a m p a i g n   i s   f o r   r e a l   . . .",
+        "caption": "U.S. Republican presidential candidate Donald Trump greets attendees at the Iowa State Fair during a campaign stop in Des Moines, Iowa, United States, August 15, 2015. REUTERS/Jim Young - RTX1ODUD",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate evidence is highly similar to the news caption, with only a slight variation. Specifically, the candidate's caption states, \"U.S. Republican presidential candidate Donald Trump greets attendees at the Iowa State Fair during a campaign stop in Des Moines, Iowa, United States, August 15, 2015. REUTERS/Jim Young - RTX1ODUD\" which almost exactly matches the news caption, \"Donald Trump greets attendees at the Iowa State Fair during a campaign stop in Des Moines Iowa United States August 15 2015\". This strongly suggests that the news caption accurately describes the image content.",
+      "supporting_evidences": [
+        "U.S. Republican presidential candidate Donald Trump greets attendees at the Iowa State Fair during a campaign stop in Des Moines, Iowa, United States, August 15, 2015. REUTERS/Jim Young - RTX1ODUD"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "Based on the image check result, the provided caption is highly similar to the caption associated with the image in the candidate evidence. The image check confidence score is 10, suggesting a very close match between the news caption and the verified source. The candidate caption and news caption are almost identical, stating that Donald Trump is greeting attendees at the Iowa State Fair during a campaign stop in Des Moines, Iowa, United States, on August 15, 2015. Thus, the caption accurately describes the image content.",
+    "validation_summary": "The news caption accurately represents the image, as verified by the image check result which shows a high degree of similarity between the caption and the image content. Viewers would not be misled about the image's content based on the provided caption, as the caption is highly similar to the verified caption from the candidate evidence provided by REUTERS/Jim Young - RTX1ODUD, therefore it's not out of context(NOOC). Thus OOC is false in this case, because the image is not OOC (Out of Context). This is because the caption does correctly represent the image content, so it is NOOC (Not Out Of Context). This confirms that the image is not out of context."
+  },
+  "inference_time": 5.669313430786133,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

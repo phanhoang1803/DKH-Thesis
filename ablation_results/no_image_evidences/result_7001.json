@@ -1,0 +1,38 @@
+{
+  "caption": "LOS ANGELES CA MARCH 03 Leonardo DiCaprio Oscar street art mural on March 3 2016 in Los Angeles California",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "All by Thea de Gallier for Metro.co.uk | Metro UK",
+        "content": "A l l   b y   T h e a   d e   G a l l i e r   f o r   M e t r o . c o . u k   |   M e t r o   U K",
+        "caption": "LOS ANGELES, CA - MARCH 03:  Leonardo DiCaprio Oscar street art mural is displayed on March 3, 2016 in Los Angeles, California.  (Photo by Gabriel Olsen/Getty Images)",
+        "domain": "metro.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4845339059829712,
+        "text_similarity_score": 0.9514474868774414
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption describes a street art mural of Leonardo DiCaprio in Los Angeles on March 3, 2016. The candidate evidence has a high text similarity score (0.951) with the news caption, indicating a strong match in the descriptions. Although the image similarity score (0.484) is low, the matching captions and the context strongly suggest that both refer to the same event. Therefore, the candidate supports the news caption.",
+      "supporting_evidences": [
+        "Caption: LOS ANGELES, CA - MARCH 03:  Leonardo DiCaprio Oscar street art mural is displayed on March 3, 2016 in Los Angeles, California.",
+        "Image Similarity Score: 0.4845339059829712",
+        "Caption Similarity Score: 0.9514474868774414"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image features a man in a suit standing next to a large portrait of Barack Obama. The caption mentions Leonardo DiCaprio and an Oscar street art mural, which is not depicted in the image. The image check result confirms a high confidence score, indicating that the caption does not accurately represent the content of the image.",
+    "validation_summary": "The caption is misleading as it describes a Leonardo DiCaprio mural, while the image clearly shows a man with a portrait of Barack Obama. This discrepancy would confuse viewers about the image's actual content and subject matter, deeming the caption out of context (OOC=True). Based on the image check result the caption is misleading since it depicts a different person than what is present in the image, therefore it is out of context and misleading for viewers. The confidence score is based on the information provided in the Image Check Result, as instructed when the confidence score is between 7-10 the final judgement must be based on the Image Check Result. In this case the Image Check Result clearly indicates that the caption is out of context (OOC=True). Therefore, a decision made based on the Image Check Result will also show (OOC=True). In the first sentence, I'm just describing the image. The validation summary and explanation highlights that the caption mentions Leonardo DiCaprio (which it does not depict), while the image presents Obama instead. Thus leading viewers to believe the caption depicts Obama, which is wrong and untrue; thus leading to the final answer, Out Of Context (OOC=True). This finding highlights a significant mismatch between the caption's description and the actual visual content, therefore, the image is out of context (OOC=True). The caption makes claims that do not match the image content, viewers would be misled about the actual content of the news if the image and caption was published as is, in its current state. Therefore, the image is out of context (OOC=True). Viewers might assume that they are seeing a photo related to DiCaprio, when in reality it is Obama related; thus misleading the viewers. Therefore, the image is out of context (OOC=True). The explanation further elaborates on this mismatch and summarizes the verdict, therefore it is out of context (OOC=True). The summary briefly explains that the viewers will be misled and what subject matter they will assume is being shown; thus out of context (OOC=True). Overall, with confidence score 8, based on the Image Check Result, the image is out of context (OOC=True)."
+  },
+  "inference_time": 6.396117687225342,
+  "ablation_type": "no_image_evidences"
+}

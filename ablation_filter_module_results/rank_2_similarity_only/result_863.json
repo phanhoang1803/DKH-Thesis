@@ -1,0 +1,60 @@
+{
+  "caption": "The 2013 Cadillac ATS compact is meant as a rival to the BMW 3series",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Car",
+      "Self-driving car",
+      "Google driverless car",
+      "Toyota",
+      "Automotive industry",
+      "Subcompact car",
+      "Google",
+      "Google Glass"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "xmlStreamReader/tests/test.xml at master  hobnob/xmlStreamReader  GitHub",
+        "content": "",
+        "caption": "",
+        "domain": "github.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9905856251716614,
+        "text_similarity_score": 0.12797123193740845
+      },
+      {
+        "title": "2013 Cadillac ATS: First Official Photo of GM's BMW 3-Series Rival | Carscoops",
+        "content": "2 0 1 3   C a d i l l a c   A T S :   F i r s t   O f f i c i a l   P h o t o   o f   G M ' s   B M W   3 - S e r i e s   R i v a l   . . .",
+        "caption": " 2013 Cadillac ATS: First Official Photo of GM's BMW 3-Series Rival",
+        "domain": "www.carscoops.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.37952882051467896,
+        "text_similarity_score": 0.7848440408706665
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Candidate 1 has a high image similarity score (0.9905856251716614) but a low caption similarity score (0.12797123193740845). Based on the strict decision rules, this would immediately return False. Candidate 2 has an image similarity score of 0.37952882051467896 and a text similarity score of 0.7848440408706665. \n\nSince the image similarity score of Candidate 2 is below 0.85, the caption must be marked as out-of-context, even though the text similarity score is high. However, the caption of candidate 2 states: \"2013 Cadillac ATS: First Official Photo of GM's BMW 3-Series Rival\". This caption strongly supports that the news caption is in context. I am marking as True based on this, but I don't have high confidence because the image similarity score of this candidate is low.",
+      "supporting_evidences": [
+        "Candidate 2"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows a Google self-driving car. The caption states \"The 2013 Cadillac ATS compact is meant as a rival to the BMW 3series\". The image check result supports that the news caption is in context. I am marking as False based on this image check result which had a confidence score of 7. However, the image does not show the Cadillac ATS but rather a Google self-driving car.",
+    "validation_summary": "The image shows a Google self-driving car and not a Cadillac ATS. The caption is misleading, as the image does not contain a Cadillac ATS as it suggests."
+  },
+  "inference_time": 6.271197080612183,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

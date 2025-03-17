@@ -1,0 +1,52 @@
+{
+  "caption": "Kitchen Table is a casual concept blending New Yorkstyle cuisine with Scandinavian influences that s now open in 15 Clarion Hotels in Sweden and Norway",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "theofy.world",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9870691299438477,
+        "text_similarity_score": 0.04129254072904587
+      },
+      {
+        "title": "Chef Marcus Samuelsson's restaurants and signature dishes",
+        "content": "C h e f   M a r c u s   S a m u e l s s o n ' s   r e s t a u r a n t s   a n d   s i g n a t u r e   d i s h e s",
+        "caption": "Kitchen & Table is a casual concept blending New York-style cuisine with Scandinavian influences thats now open in 15 Clarion Hotels in Sweden and Norway.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9070895314216614,
+        "text_similarity_score": 0.9790891408920288
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 2 has a high image similarity score (0.907) and a high text similarity score (0.979). This means that both the image and the caption of Candidate 2 closely match the news item. Since the image similarity is >= 0.85 and text similarity is >= 0.7, the caption is in-context.",
+      "supporting_evidences": [
+        "Candidate 2 has high image similarity score (0.907)",
+        "Candidate 2 has high text similarity score (0.979)"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (10) due to the image and text similarity between Candidate 2 and the news item. The image shows the interior of a restaurant with tables, chairs, a bar area, and a chalkboard menu. However, the caption states that Kitchen Table is a casual concept blending New Yorkstyle cuisine with Scandinavian influences that s now open in 15 Clarion Hotels in Sweden and Norway. There is nothing about the picture showing that it's related to that. Therefore, the image is out of context, since it doesn't correctly represent the restaurant concept or its location, as described in the news caption.",
+    "validation_summary": "The image does not accurately represent the restaurant concept or location mentioned in the caption, leading to a mismatch between the visual content and the claim being made. The image fails to provide any visual confirmation that it is related to Kitchen Table, Clarion Hotels, Sweden, or Norway."
+  },
+  "inference_time": 8.32957673072815,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

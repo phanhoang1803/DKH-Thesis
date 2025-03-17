@@ -1,0 +1,40 @@
+{
+  "caption": "WalMart employs 13 million people in the US making it the country s largest employer",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Homebase has painted me into a corner with 3-for-2 response | Consumer affairs | The Guardian",
+        "content": "L a s t   m o n t h   H o m e b a s e ' s   w e b s i t e   a d v e r t i s e d   a   t h r e e - f o r - t w o   o f f e r   a n d   1 5 %   d i s c o u n t   o n   a l l   C r o w n ,   S a n d t e x   a n d   S a d o l i n   p a i n t s .   B u t   w h e n   I   t r i e d   t o   b u y   t h r e e   f i v e - l i t r e   p o t s   t h e y   w e r e   n o t   i n c l u d e d   i n   t h e   o f f e r .   I   c o m p l a i n e d   a n d   s e n t   a   s c r e e n   s h o t   o f   t h e   w e b   a d v e r t i s e m e n t ,   w h i c h   c l e a r l y   s t a t e s   a l l   p o t s   w e r e   i n c l u d e d .   H o m e b a s e   r e s p o n d e d   t h a t   t h e   o f f e r   a p p l i e d   o n l y   t o   2 . 5 - l i t r e   p o t s   a n d   \" w e   w o u l d   n e v e r   h o n o u r   a   m i s t a k e   m a d e \" !   S R ,   P l y m o u t h ,   D e v o n \n \n H o m e b a s e   t e l l s   m e   t h a t   a n   o n l i n e   e r r o r   c a u s e d   t h e   f i v e - l i t r e   p o t s   t o   b e   i n c o r r e c t l y   a d v e r t i s e d   a s   p a r t   o f   t h e   t h r e e - f o r - t w o   o f f e r .   I t   h a s   n o w   s e n t   y o u   a   g i f t   v o u c h e r   t o   t h e   v a l u e   o f   o n e   p o t   o f   C r o w n   p a i n t   a n d   d e c l a r e s   i t   a l w a y s   t r i e s   t o   r e s o l v e   d i s p u t e s   f a i r l y . \n \n R e t a i l e r s   h a v e   n o   o b l i g a t i o n   t o   h o n o u r   e r r o n e o u s l y   a d v e r t i s e d   p r i c e s   o r   o f f e r s .   L e g a l l y ,   t h e   p r i c e   t a g   i s   n o t   a   c o n t r a c t ;   i t   i s   a n   i n v i t a t i o n   f o r   t h e   c u s t o m e r   t o   m a k e   a n   o f f e r   t o   p u r c h a s e   a n d   t h e   r e t a i l e r   d o e s n ' t   h a v e   t o   a c c e p t   t h a t   o f f e r .   A   c o n t r a c t   i s   o n l y   f o r m e d   w h e n   t h e   s h o p   a c c e p t s   a   p a y m e n t .   H o w e v e r ,   i f   y o u   r e m a i n   a g g r i e v e d   y o u   c o u l d   r e p o r t   t h e   i s s u e   t o   T r a d i n g   S t a n d a r d s   u n d e r   t h e   C o n s u m e r   P r o t e c t i o n   f r o m   U n f a i r   T r a d i n g   r e g u l a t i o n s   2 0 0 8 . \n \n I f   y o u   n e e d   h e l p   e m a i l   A n n a   T i m s   a t   y o u r . p r o b l e m s @ o b s e r v e r . c o . u k   o r   w r i t e   t o   Y o u r   P r o b l e m s ,   T h e   O b s e r v e r ,   K i n g s   P l a c e ,   9 0   Y o r k   W a y ,   L o n d o n   N 1   9 G U .   I n c l u d e   a n   a d d r e s s   a n d   p h o n e   n u m b e r .",
+        "caption": "The DIY store, Homebase, would not honour the deal it offered online. Photograph: Frank Baron for the Guardian",
+        "domain": "discussion.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9461849331855774,
+        "text_similarity_score": 0.09720912575721741
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.9461849331855774 and the text similarity score is 0.09720912575721741. According to the instructions, if the image similarity score is greater than or equal to 0.85 and the text similarity score is less than 0.7, the verdict should be 'False'. Therefore, the verdict is 'False'. The caption of the candidate is about Homebase, while the news caption is about WalMart. There is no supporting evidence to suggest the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result provides a high confidence score of 1, indicating a strong basis for its determination. According to the image check result, the image similarity score is 0.9461849331855774, and the text similarity score is 0.09720912575721741. This leads to a verdict of 'False,' meaning the caption is out of context. The image shows the sign for 'Homebase', while the caption discusses WalMart's employment practices. There is no visual element in the image that supports the caption's claims about WalMart.",
+    "validation_summary": "The image depicts a Homebase store, not a WalMart, thus misrepresenting the context of the news caption about WalMart's employment policies. Viewers would be misled if they associate the image of Homebase with WalMart's news content about labor practices and healthcare costs, as there is no evident connection between the image and the discussed content."
+  },
+  "inference_time": 5.856220722198486,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

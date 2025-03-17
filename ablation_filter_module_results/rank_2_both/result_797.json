@@ -1,0 +1,40 @@
+{
+  "caption": "A family make their way along a lane in Beijing Couples who violate China s onechild policy face hefty fines",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Chinese woman under pressure to choose between second child and husband's job | China | The Guardian",
+        "content": "C h i n e s e   w o m a n   u n d e r   p r e s s u r e   t o   c h o o s e   b e t w e e n   s e c o n d   c h i l d   a n d   . . .",
+        "caption": "A family make their way along a lane in Beijing. Couples who violate Chinas one-child policy face hefty fines.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3108885586261749,
+        "text_similarity_score": 0.9731615781784058
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.3108885586261749 which is less than 0.85, and the text similarity score is 0.9731615781784058, which is greater than 0.7. According to the instructions, the caption must be marked as out-of-context, even if the text similarity score is high, because the image similarity score is below 0.85.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image similarity score (0.3108885586261749) is significantly below the threshold of 0.85, while the text similarity score (0.9731615781784058) is above the threshold of 0.7. According to the instructions, because the image similarity is low, the caption must be classified as out-of-context (OOC = True). The image shows four girls wrapped in blankets sitting outside with their heads bowed. The caption mentions a family in Beijing and couples violating China's one-child policy. These elements are not visually represented in the image. Thus, the caption does not accurately reflect the image content, making it misleading.",
+    "validation_summary": "The image check reveals low similarity between the image and caption. The caption refers to family planning policies in China, while the image depicts girls wrapped in blankets, leading to a mismatch that would mislead viewers."
+  },
+  "inference_time": 4.969621181488037,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

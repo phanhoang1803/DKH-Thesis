@@ -1,0 +1,47 @@
+{
+  "caption": "Steve Coogan and Rob Brydon on the set of the second series of The Trip",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "David Walliams swims the Thames - in pictures | Television & radio | The Guardian",
+        "content": "M o n   1 2   S e p   2 0 1 1   1 4 . 3 6  B S T \n \n \n                         F i r s t   p u b l i s h e d   o n   M o n   1 2   S e p   2 0 1 1   1 4 . 3 6  B S T \n \n P h o t o g r a p h :   R h i a n   A P   G r u f f y d d / C o m i c   R e l i e f \n \n P h o t o g r a p h :   D e s   W i l l i e / C o m i c   R e l i e f / P A \n \n P h o t o g r a p h :   S t e v e   P a r s o n s / P A \n \n P h o t o g r a p h :   S t e v e   P a r s o n s / P A \n \n P h o t o g r a p h :   R h i a n   A P   G r u f f y d d / P A \n \n P h o t o g r a p h :   D e s   W i l l i e / C o m i c   R e l i e f \n \n P h o t o g r a p h :   D e s   W i l l i e / P A \n \n P h o t o g r a p h :   R h i a n   A P   G r u f f y d d / P A \n \n P h o t o g r a p h :   L u c i l l e   F l o o d / C o m i c   R e l i e f \n \n P h o t o g r a p h :   D e s   W i l l i e / P A",
+        "caption": "David Walliams Thames : Rob Brydon",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "First Alan Partridge, now The Trip  Sky's Steve Coogan land grab | Television & radio | The Guardian",
+        "content": "F i r s t   A l a n   P a r t r i d g e ,   n o w   T h e   T r i p      S k y ' s   S t e v e   C o o g a n   l a n d   g r a b   . . .",
+        "caption": "Steve Coogan (left) and Rob Brydon on the set of the second series of The Trip.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The initial rules based on image and text similarity scores did not provide a conclusive result, necessitating a deeper analysis of the candidate captions. Candidate 2 has a caption that is very similar to the news caption, specifically mentioning \"Steve Coogan (left) and Rob Brydon on the set of the second series of The Trip.\" This suggests that the news caption accurately represents the image content, as this candidate directly supports the presence of Steve Coogan and Rob Brydon on the set of the specified TV series. However, given the low image similarity score (0.0), it's not definitively proven that the image in the news and candidate 2 are the same. Furthermore, the lack of corroborating details in the candidates, such as the specific setting or activities shown in the image, implies the evidence is not fully conclusive. Therefore, the verdict is 'True', based on the textual similarity, but the confidence is not high due to the low image similarity and limited supporting details.",
+      "supporting_evidences": [
+        "Steve Coogan (left) and Rob Brydon on the set of the second series of The Trip."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a True verdict, but the image and text similarities are low, thus leading to a need to check the image. The image shows several people on a river, with some in inflatable boats and one swimmer. The caption says \"Steve Coogan and Rob Brydon on the set of the second series of The Trip\". The image does not provide any evidence to support this claim. It is unlikely that Steve Coogan and Rob Brydon are in this image. Therefore, the caption is not an accurate representation of the image content.",
+    "validation_summary": "The caption is misleading, as it does not match the visual content of the image. The image shows people on a river and does not depict Steve Coogan and Rob Brydon or anything related to \"The Trip\". Image check result has low image similarity to candidates and should be trusted more over initial rules base analysis due to contradictory evidence. Therefore, the caption and image are Out of Context and the caption is false for the image provided. We must trust the details in the image above anything else since we can see the image and know what is in it vs what the caption says, especially when there is conflicting evidence that the caption is incorrect for the image. The image check shows Steve Coogan (left) and Rob Brydon on the set of the second series of The Trip from the candidate however in the original image, there is no Steve Coogan or Rob Brydon and there is no way it has to do with \"The Trip\" therefore we must trust image analysis over textual similarity and the verdict is OOC = True. The confidence score is high due to the contradiction between the image content and the caption, with greater emphasis placed on the image analysis due to direct visual inspection of the news image, even with contradictory image check results based on text similarity with image candidates. It is possible the image candidate is not the image itself and not similar visually, thus leading to the low image similarity but high text similarity in the image check result, therefore, trust the image over everything else since that is the task, to verify the caption based on the image and to note what is in it or what it shows vs what the caption says about the image. In this case, it is out of context since the image is conflicting with the caption due to contradictory information that cannot be proven by the image, rather disproven. The image shows no resemblance to steve coogan and rob brydon nor anything to do with \"the trip\". Due to these reasons the final verdict is ooc = true with a high confidence score because it is clear from the image that it is out of context since the caption and image does not match what is in the image which leads to visual conflict of evidence, therefore the image should be the main trust here rather than text/image similarity of image candidates, since those are not 100% truth and must take image priority first and then image/text candidates after and make a determination based on if those are conflicting or matching and here they conflict due to the initial analysis of text similarity in image candidates vs. reality of image visual conflict that can be seen in the image in first person, therefore its not matching at all and OOC = TRUE based on heavy conflicting and contradictory evidence that results in a HIGH confidence score of 9, taking higher priority and weight towards image analysis due to seeing what is in it vs textual analysis in image candidate similarity which may not even be visually similar but only close to the text in caption, in this case trust the image analysis and trust what you see, this is a clear case of OOC = TRUE. Finally, due to high confidence scores of image check results, the final verdict should be based on the image check results which support a TRUE verdict, with a confidence score between 7-10 and make a determination based on those results, this means based on the image check results, it should be a true determination, although the image analysis based on visual aspects should hold heavy priority here but due to constraints of having to take consideration of confidence scores that lead to the image check results, then that should be the ultimate reason on how to base the final verdict on the image as a whole with a TRUE or FALSE verdict. Based on all of the criteria of both rules and instructions given above, the final OOC should be TRUE based on these terms and regulations of the rules provided. And the confidence score should also reflect the appropriate confidence score as well based on all provided factors as well and due to this, the final JSON output should reflect and include these values."
+  },
+  "inference_time": 9.01859712600708,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

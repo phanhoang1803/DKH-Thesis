@@ -1,0 +1,36 @@
+{
+  "caption": "Australia rugby player Kurtley Beale",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Athlete"
+    ],
+    "ablation_type": "no_text_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 3,
+      "confidence_score": 9,
+      "explanation": "The caption only mentions 'Australia rugby player Kurtley Beale', while the image context describes two athletes, one with a cap and the other with a tattoo. The caption doesn't provide enough information about the image content. It's possible Kurtley Beale is one of the athletes, but the caption alone is insufficient to align with the image context as it doesn't mention the other athlete or any details about the setting.",
+      "supporting_evidences": [
+        "The caption only mentions one person.",
+        "The image context describes two athletes.",
+        "The caption doesn't provide sufficient details about the image content."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Two athletes, one wearing a cap, stand together outdoors.",
+      "context": "The image shows two athletes standing outdoors, one wearing a cap. The athlete on the left has a tattoo on his upper arm. Both athletes are wearing sports jerseys. The backdrop is blurred, suggesting the focus is on the two individuals in the foreground. Without additional information, it is difficult to determine the specific context of the image beyond a casual or training setting for athletes.",
+      "information": "The image features two athletes, one wearing a cap and the other with a tattoo on his upper arm, both wearing jerseys."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image features two athletes in sports attire, one with a notable arm tattoo and the other wearing a cap. The caption mentions only 'Australia rugby player Kurtley Beale'. Given that the caption focuses solely on one individual without further details aligning with the visual content (such as the presence of a second athlete or any unique identifiers like the tattoo), it does not adequately represent the image's composition. Therefore, the caption is considered out of context.",
+    "validation_summary": "The caption's focus on a single individual misrepresents the image, which contains two athletes. Viewers would be misled about the content of the image due to the limited information provided in the caption."
+  },
+  "inference_time": 5.341124057769775,
+  "ablation_type": "no_text_evidences"
+}

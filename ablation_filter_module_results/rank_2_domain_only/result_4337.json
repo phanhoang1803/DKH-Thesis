@@ -1,0 +1,47 @@
+{
+  "caption": "Kelly in concert at The Tabernacle London",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Tori Kelly: 'Believe in yourself and dont be bullied' | Music | The Guardian",
+        "content": "T o r i   K e l l y :   ' B e l i e v e   i n   y o u r s e l f   a n d   d o n ' t   b e   b u l l i e d '   |   M u s i c   . . .",
+        "caption": "Kelly in concert at The Tabernacle, London.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Tori Kelly review   a maverick in pop star's clothing | Music | The Guardian",
+        "content": "T o r i   K e l l y   r e v i e w      a   m a v e r i c k   i n   p o p   s t a r ' s   c l o t h i n g   |   M u s i c   . . .",
+        "caption": "Tori Kelly performs at Bush Hall on September 1, 2015 in London, England. ",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are low, indicating that the provided candidates are not visually similar to the news image. However, Candidate 1 has the exact same caption as the news item: 'Kelly in concert at The Tabernacle, London.' Although the image similarity is low, the perfect caption match provides some support. Candidate 2 mentions Tori Kelly performing in London, which confirms the artist and location, but not the specific venue mentioned in the news caption. The 'Tabernacle' venue is unique, making the confirmation in Candidate 1 significant, despite the lack of visual confirmation. Therefore, the caption is partially verifiable, relying on the caption match rather than the image.",
+      "supporting_evidences": [
+        "Candidate 1: Caption - Kelly in concert at The Tabernacle, London."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "explanation": "The image depicts a female singer with blonde hair performing on stage. She is dressed in a black dress and jacket and singing into a microphone. A man with a hat, also on stage, is playing a bass guitar in the background. The caption identifies the singer as 'Kelly' performing at 'The Tabernacle London.' However, the news content identifies the singer as Tori Kelly. Therefore, the caption is misleading as it incorrectly names the singer. While the venue might be accurate, the misidentification of the main subject makes the caption out of context.",
+    "validation_summary": "The caption misidentifies the singer in the image as 'Kelly' when the news article and image check result refer to Tori Kelly, leading to a misunderstanding about the image's content. Because the primary subject is misidentified, the caption is out of context."
+  },
+  "inference_time": 4.950402021408081,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "caption": "WikiLeaks has been parthosted by OVH a small web hosting company based in northern France",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Computer",
+      "Computer program",
+      "Screenshot",
+      "Web page",
+      "Icon",
+      "Meter",
+      "World Wide Web"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "WikiLeaks: France adds to US pressure to ban website | WikiLeaks | The Guardian",
+        "content": "W i k i L e a k s :   F r a n c e   a d d s   t o   U S   p r e s s u r e   t o   b a n   w e b s i t e   |   W i k i L e a k s   . . .",
+        "caption": "WikiLeaks has been part-hosted by OVH, a small web hosting company based in northern France. Photograph: Joe Raedle/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7478142380714417,
+        "text_similarity_score": 0.9431127309799194
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.7478142380714417, which is less than 0.85. The text similarity score is 0.9431127309799194, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than or equal to 0.7, the verdict should be 'False'. The candidate caption states, 'WikiLeaks has been part-hosted by OVH, a small web hosting company based in northern France. Photograph: Joe Raedle/Getty Images' which is highly similar to the news caption.",
+      "supporting_evidences": [
+        "Caption: WikiLeaks has been part-hosted by OVH, a small web hosting company based in northern France. Photograph: Joe Raedle/Getty Images",
+        "Image Similarity Score: 0.7478142380714417",
+        "Text Similarity Score: 0.9431127309799194"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image is out of context (OOC = True). The image similarity score is 0.7478142380714417, which is less than 0.85, and the text similarity score is 0.9431127309799194, which is greater than 0.7. The image shows a Twitter exchange between Carwyn Jones and Arriva Trains Wales, discussing English-only announcements at Cardiff Queen Street station. The caption, 'WikiLeaks has been part-hosted by OVH, a small web hosting company based in northern France,' bears no relation to the content of the image.",
+    "validation_summary": "The provided caption is unrelated to the image content, which displays a Twitter conversation regarding train announcements. Viewers would be misled if they believed the caption accurately described the image's content as it concerns WikiLeaks and a web hosting company in France, while the image is about train announcements in Wales, thus making it out of context (OOC=True). "
+  },
+  "inference_time": 7.334514856338501,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

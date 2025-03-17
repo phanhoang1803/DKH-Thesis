@@ -1,0 +1,69 @@
+{
+  "caption": "Bradford s Bombay Stores new Yorkshiremen and women from the Asian subcontinent have filled the city with bright colours",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "twitter.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.989834189414978,
+        "text_similarity_score": 0.07385367155075073
+      },
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "twitter.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.989834189414978,
+        "text_similarity_score": 0.07385367155075073
+      },
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "twitter.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.989834189414978,
+        "text_similarity_score": 0.07385367155075073
+      },
+      {
+        "title": "My love affair with Bollywood in Bradford | Bradford | The Guardian",
+        "content": "M y   l o v e   a f f a i r   w i t h   B o l l y w o o d   i n   B r a d f o r d   |   B r a d f o r d   |   T h e   G u a r d i a n",
+        "caption": "Bradford's Bombay Stores - new Yorkshiremen and women from the Asian subcontinent have filled the city with bright colours. Photograph: Christopher Thomond for the Guardian",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3429185450077057,
+        "text_similarity_score": 0.9671623110771179
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 4 has a low image similarity score (0.3429185450077057) but a high caption similarity score (0.9671623110771179). According to the strict decision rules, when the image similarity score is below 0.85 and the text similarity score is high, the caption must be marked as out-of-context. Therefore, the verdict is 'True' because one of the candidates provides near exact information of the news caption, indicating that the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "Candidate 4: Bradford's Bombay Stores - new Yorkshiremen and women from the Asian subcontinent have filled the city with bright colours. Photograph: Christopher Thomond for the Guardian"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result provides a high confidence score of 10, indicating that the caption accurately represents the image content. Candidate 4 from the image check result directly supports this, stating: 'Bradford's Bombay Stores - new Yorkshiremen and women from the Asian subcontinent have filled the city with bright colours. Photograph: Christopher Thomond for the Guardian.' The image depicts a group of people of Asian descent, many of whom are wearing brightly colored traditional clothing, aligning with the caption's description. Although the image similarity score is relatively low (0.3429185450077057), the high caption similarity score (0.9671623110771179) confirms the caption is in context.",
+    "validation_summary": "The image depicts a group of people wearing brightly colored clothing, aligning with the caption's description about Asian people filling a city with bright colors, confirming the image and caption are related; however, since the image similarity is low, the image is out of context. Despite some factual overlap, the low image similarity suggests the caption leverages the image in a potentially misleading way."
+  },
+  "inference_time": 7.774780988693237,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

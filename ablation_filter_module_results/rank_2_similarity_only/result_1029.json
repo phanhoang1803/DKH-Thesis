@@ -1,0 +1,49 @@
+{
+  "caption": "Leaked images of Apple s new trackpad for desktop Macs Images by Engadget",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Channel Master Introduces $10 Antenna With Free Shipping",
+        "content": "",
+        "caption": "",
+        "domain": "www.globenewswire.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.995646595954895,
+        "text_similarity_score": 0.07080495357513428
+      },
+      {
+        "title": "How to Find the Stream Live TV Streaming Service for Your Interests & Budget - Hotdog",
+        "content": "",
+        "caption": "",
+        "domain": "www.killthecablebill.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9763489961624146,
+        "text_similarity_score": 0.07080495357513428
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are high (0.9956 and 0.9763, respectively), indicating that the images are likely a match. However, the text similarity scores are low (0.0708 for both), suggesting that the captions do not match. Because the text similarity score is below 0.7, the captions of the candidates are not similar to the news caption. Therefore, the available information does not provide sufficient context to confirm the accuracy of the news caption, and thus it is classified as out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a high image similarity score, suggesting a match between the image and the candidates used for comparison. However, the text similarity score is low, implying that the caption doesn't accurately represent the image content based on the candidate captions. The image shows an antenna. The caption talks about a trackpad. Therefore, the image is out of context.",
+    "validation_summary": "The image depicts an antenna, while the caption discusses an Apple trackpad, leading to a mismatch between the visual content and the caption's description. Viewers would be misled about the content in the image in relation to the caption describing an Apple trackpad, when the image shows an antenna device and nothing related to Apple's products, which is why the image is out of context in this case. Therefore the viewer will be misled because what is in the image does not correlate to what the caption indicates, that it is an Apple trackpad device, when it is simply an antenna."
+  },
+  "inference_time": 8.012547254562378,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

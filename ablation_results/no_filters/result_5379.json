@@ -1,0 +1,52 @@
+{
+  "caption": "Alex Corbisiero right on his debut faces up to Martin Castrogiovanni for the first scrum",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Rugby league",
+      "Rugby sevens",
+      "Rugby league sevens",
+      "Rugby tens",
+      "Rugby league nines",
+      "Touch",
+      "Rugby football",
+      "Touch football",
+      "Rugby union",
+      "Tackle"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Six Nations 2011:  England v Italy - in pictures | Sport | The Guardian",
+        "content": "S i x   N a t i o n s   2 0 1 1 :   E n g l a n d   v   I t a l y   -   i n   p i c t u r e s   |   S p o r t   |   T h e   G u a r d i a n",
+        "caption": "England v Italy: Alex Corbisiero faces up to Martin Castrogiovanni for the first scrum",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Six Nations 2011:  England v Italy - in pictures | Sport | The Guardian",
+        "content": "S i x   N a t i o n s   2 0 1 1 :   E n g l a n d   v   I t a l y   -   i n   p i c t u r e s   |   S p o r t   |   T h e   G u a r d i a n",
+        "caption": "England v Italy: England fans",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The news caption states 'Alex Corbisiero right on his debut faces up to Martin Castrogiovanni for the first scrum'. Candidate 1 has a caption 'England v Italy: Alex Corbisiero faces up to Martin Castrogiovanni for the first scrum'. This confirms the presence of Alex Corbisiero and Martin Castrogiovanni in the image and the context of a scrum. However, the candidate doesn't mention anything about 'debut' or the position of Alex Corbisiero, as described in the original caption. Due to the low similarity scores and the lack of complete confirmation from the candidate, a definitive 'True' verdict cannot be given. Candidate 2 is irrelevant.",
+      "supporting_evidences": [
+        "England v Italy: Alex Corbisiero faces up to Martin Castrogiovanni for the first scrum"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows a rugby player in action, holding a ball and running on a field during a training session with other players and coaches nearby. The caption mentions 'Alex Corbisiero right on his debut faces up to Martin Castrogiovanni for the first scrum'. The image check result indicates that there is a caption that mentions 'Alex Corbisiero faces up to Martin Castrogiovanni for the first scrum'. However, it doesn't mention anything about 'debut' or the position of Alex Corbisiero. Given the lack of explicit confirmation of 'debut' and specific positioning in the image, and that the action shown is not a scrum, the caption is considered out of context because the action in the photo does not represent a scrum as described in the caption, leading to potential misinterpretation of the image content.",
+    "validation_summary": "The caption describes a scrum, but the image shows a rugby player running with the ball during a training session, which could mislead viewers about the context of the photo. Furthermore, the claim regarding the player's debut is not supported by the image."
+  },
+  "inference_time": 4.371201753616333,
+  "ablation_type": "no_filters"
+}

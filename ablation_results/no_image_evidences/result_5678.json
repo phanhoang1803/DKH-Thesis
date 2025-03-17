@@ -1,0 +1,45 @@
+{
+  "caption": "Lewis Hamilton took his Mercedes to an anticlimactic pole position in Melbourne",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "F1 chief Bernie Ecclestone vows to bin disastrous new qualifying format | Formula One 2016 | The Guardian",
+        "content": "F 1   c h i e f   B e r n i e   E c c l e s t o n e   v o w s   t o   b i n   d i s a s t r o u s   n e w   q u a l i f y i n g   . . .",
+        "caption": "Lewis Hamilton took his Mercedes to an anticlimactic pole position in Melbourne.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9942773580551147,
+        "text_similarity_score": 0.9803191423416138
+      },
+      {
+        "title": "Belgian GP: Sebastian Vettel wins at Spa after huge opening corner crash | CNN",
+        "content": "B e l g i a n   G P :   S e b a s t i a n   V e t t e l   w i n s   a t   S p a   a f t e r   h u g e   o p e n i n g   c o r n e r   . . .",
+        "caption": "Lewis Hamilton led from pole position in his famous No.44 Mercedes and took his seventh victory of the season on the Marina Bay street circuit in Singapore.",
+        "domain": "edition.cnn.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5881133079528809,
+        "text_similarity_score": 0.7099047899246216
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1 has a high image similarity score (0.9942773580551147) and a high caption similarity score (0.9803191423416138). This strongly suggests that the image in candidate 1 is very similar to the news image and that the caption of candidate 1 is also very similar to the news caption. Given that both scores exceed the required thresholds (0.85 and 0.7, respectively), we can confidently conclude that the news caption accurately represents the image. Therefore, the verdict is True.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.9942773580551147, Caption Similarity Score: 0.9803191423416138"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result shows a high image similarity score (0.9942773580551147) and a high caption similarity score (0.9803191423416138). This indicates that the news caption accurately represents the image. The image shows Lewis Hamilton driving a Mercedes race car, aligning with the caption's description of him taking pole position in Melbourne.",
+    "validation_summary": "The image accurately depicts Lewis Hamilton in his Mercedes during a race event, aligning with the caption's claim about his pole position in Melbourne, and thus viewers would not be misled by the pairing of the image and caption. The high similarity scores from the image check further support this conclusion, confirming that the image content and caption are well-aligned."
+  },
+  "inference_time": 6.1739842891693115,
+  "ablation_type": "no_image_evidences"
+}

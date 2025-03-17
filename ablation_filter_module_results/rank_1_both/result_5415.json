@@ -1,0 +1,50 @@
+{
+  "caption": "The England bowler Tim Bresnan right runs out Murali Vijay during the first day of the practice match in Mumbai",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Test cricket",
+      "Cricket",
+      "First-class cricket",
+      "One Day International"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Steven Finn gives England concern after limping out of India warm-up | England in India 2012-13 | The Guardian",
+        "content": "S t e v e n   F i n n   g i v e s   E n g l a n d   c o n c e r n   a f t e r   l i m p i n g   o u t   o f   I n d i a   w a r m   . . .",
+        "caption": "The England bowler Tim Bresnan, right, runs out Murali Vijay during the first day of the practice match in Mumbai. Photograph: Pal Pillai/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6004095077514648,
+        "text_similarity_score": 0.9272021055221558
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.6004095077514648, which is less than 0.85. The text similarity score is 0.9272021055221558, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than or equal to 0.7, the verdict should be 'False'. The candidate caption 'The England bowler Tim Bresnan, right, runs out Murali Vijay during the first day of the practice match in Mumbai' is highly similar to the news caption 'The England bowler Tim Bresnan right runs out Murali Vijay during the first day of the practice match in Mumbai'. The candidate's domain, 'www.theguardian.com', suggests a reliable news source, further supporting the caption's accuracy. Since the image similarity is less than 0.85, the image is considered out-of-context and the verdict is false.",
+      "supporting_evidences": [
+        "Caption: The England bowler Tim Bresnan, right, runs out Murali Vijay during the first day of the practice match in Mumbai.",
+        "Image Similarity Score: 0.6004095077514648",
+        "Caption Similarity Score: 0.9272021055221558",
+        "Domain: www.theguardian.com"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image similarity score (0.6004095077514648) and a high caption similarity score (0.9272021055221558). A bowler is mentioned in the caption as Tim Bresnan. However, based on the image, it is not possible to verify from the image that the person is Tim Bresnan or if they are running out Murali Vijay. The image check result with a high confidence score indicates that the image is out of context.",
+    "validation_summary": "The image check result indicates a low image similarity score and a high caption similarity score. Therefore, the caption does not accurately represent the content of the image, potentially misleading viewers about the scene depicted. The image is considered out of context, and the verdict is false."
+  },
+  "inference_time": 6.12567138671875,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

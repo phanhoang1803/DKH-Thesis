@@ -1,0 +1,57 @@
+{
+  "caption": "Oakland Raiders linebacker Rod Martin",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Eugene Monroe",
+      "247Sports",
+      "Baltimore Ravens",
+      "Six-man football",
+      "Eight-man football",
+      "Tackle",
+      "College football recruiting",
+      "American football",
+      "College Football",
+      "High school football"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Raiders, Rod Martin and the record that might stand the test of time | Raiders News | Sports",
+        "content": "R a i d e r s ,   R o d   M a r t i n   a n d   t h e   r e c o r d   t h a t   m i g h t   s t a n d   t h e   t e s t   o f   . . .",
+        "caption": "Oakland Raiders linebacker Rod Martin (53) intercepts a pass and runs upfield during Super Bowl ...",
+        "domain": "www.reviewjournal.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8318765163421631,
+        "text_similarity_score": 0.7675589323043823
+      },
+      {
+        "title": "Stream episode Ep. 16 - Rod Martin former USC Trojans and Raiders linebacker by 10 West Podcast podcast | Listen online for free on SoundCloud",
+        "content": "S t r e a m   e p i s o d e   E p .   1 6   -   R o d   M a r t i n   f o r m e r   U S C   T r o j a n s   a n d   R a i d e r s   . . .",
+        "caption": "Ep. 16 - Rod Martin former USC Trojans and Raiders linebacker",
+        "domain": "soundcloud.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.12492720782756805,
+        "text_similarity_score": 0.7607252597808838
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Candidate 1 has an image similarity score of 0.8318765163421631 and a text similarity score of 0.7675589323043823. Since the image similarity is less than 0.85, it does not meet the threshold to be considered in-context. However, the caption is highly similar. Candidate 2 has an image similarity score of 0.12492720782756805 and a text similarity score of 0.7607252597808838. The image similarity is less than 0.85. However, the caption is highly similar. Overall, while the text similarity scores are high, the image similarity scores are both below 0.85, leading to a 'False' verdict. The context provided by the candidates suggests that the news caption is about Rod Martin, who played as a linebacker for the Oakland Raiders. However, without a high image similarity, it is difficult to say whether the image is actually depicting that. The image could be showing something else related to Rod Martin, or it could be showing someone else entirely.",
+      "supporting_evidences": [
+        "Candidate 1 has an image similarity score of 0.8318765163421631 and a text similarity score of 0.7675589323043823.",
+        "Candidate 2 has an image similarity score of 0.12492720782756805 and a text similarity score of 0.7607252597808838."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result provides a confidence score of 7. Candidate 1 has an image similarity score of 0.8318765163421631 and a text similarity score of 0.7675589323043823. Candidate 2 has an image similarity score of 0.12492720782756805 and a text similarity score of 0.7607252597808838. Both candidates image similarity scores are below 0.85, indicating they don't meet the threshold to be considered in-context. The caption is \"Oakland Raiders linebacker Rod Martin\", while the image displays an American football player in a Ravens uniform with the number 60. This directly contradicts the caption's claim about the player's team and identity. Therefore, the image is out of context.",
+    "validation_summary": "The image shows a football player in a Ravens uniform, while the caption identifies him as Oakland Raiders linebacker Rod Martin; this discrepancy makes the caption misleading. Viewers would be misled about the identity of the player in the image, because the image does not depict the person mentioned in the caption, nor is he on the team stated in the caption."
+  },
+  "inference_time": 6.597231149673462,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,64 @@
+{
+  "caption": "Greek prime minister Alexis Tsipras is applauded by lawmakers before addressing his parliamentary group meeting in Athens",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Convention"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Greek debt crisis: Country on course to sealing historic rescue deal as Alexis Tsipras shrugs off No vote | The Independent | The Independent",
+        "content": "G r e e k   d e b t   c r i s i s :   C o u n t r y   o n   c o u r s e   t o   s e a l i n g   h i s t o r i c   r e s c u e   . . .",
+        "caption": "Greek prime minister Alexis Tsipras is applauded by lawmakers before addressing his parliamentary group meeting at the Greek Parliament in Athens",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.499764621257782,
+        "text_similarity_score": 0.9928475618362427
+      },
+      {
+        "title": "Eurozone crisis: Greek austerity plans meet warm but cautious response | Eurozone crisis | The Guardian",
+        "content": "E u r o z o n e   c r i s i s :   G r e e k   a u s t e r i t y   p l a n s   m e e t   w a r m   b u t   c a u t i o u s   . . .",
+        "caption": "Greek prime minister Alexis Tsipras is applauded by lawmakers before addressing his parliamentary group meeting in Athens.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5690215229988098,
+        "text_similarity_score": 0.9475237131118774
+      },
+      {
+        "title": "The Platypus Affiliated Society  The Greek left tradition and the SYRIZA phenomenon",
+        "content": "T h e   P l a t y p u s   A f f i l i a t e d   S o c i e t y      T h e   G r e e k   l e f t   t r a d i t i o n   a n d   t h e   . . .",
+        "caption": "Greek prime minister Alexis Tsipras is applauded by lawmakers before addressing his parliamentary group meeting in Athens on July 10, 2015. Photograph: Louisa Gouliamaki/AFP/Getty Images",
+        "domain": "platypus1917.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5430195331573486,
+        "text_similarity_score": 0.9179286360740662
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity scores are all below 0.85. Although the caption similarity scores are high (above 0.9), the image similarity scores do not meet the threshold for a definitive \"True\" verdict. Candidate 1 has a caption similarity score of 0.9928475618362427 and an image similarity score of 0.499764621257782. Candidate 2 has a caption similarity score of 0.9475237131118774 and an image similarity score of 0.5690215229988098. Candidate 3 has a caption similarity score of 0.9179286360740662 and an image similarity score of 0.5430195331573486. The captions of the candidates almost align with the news caption, and all candidates contains the entities mentioned in the news caption. But because all the image similarity scores are not high, I will mark the verdict as False.",
+      "supporting_evidences": [
+        "Candidate 1",
+        "Candidate 2",
+        "Candidate 3"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a \"False\" verdict due to low image similarity scores (all below 0.85), despite high caption similarity scores (above 0.9). According to the image check result, the captions of the candidates almost align with the news caption, and all candidates contain the entities mentioned in the news caption. Given the image similarity scores do not meet the threshold, the image is considered out of context.",
+    "validation_summary": "Due to the low image similarity scores, viewers may be misled about the actual content depicted in the image, despite the caption's high similarity to the candidate captions. Therefore, the image is considered out of context."
+  },
+  "inference_time": 8.201234579086304,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

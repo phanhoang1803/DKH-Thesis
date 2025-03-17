@@ -1,0 +1,54 @@
+{
+  "caption": "Alastair Cook edges Bhuvneshwar Kumar behind not long after taking his 100th England catch to end the India innings at Lord s",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Salman Taseer",
+      "Cricket",
+      "Test cricket",
+      "The Ashes",
+      "First-class cricket",
+      "Twenty20",
+      "Limited overs cricket",
+      "One Day International",
+      "Over",
+      "Minister"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Alastair Cook fails again as India turn screw on England captain at Lords | Alastair Cook | The Guardian",
+        "content": "A l a s t a i r   C o o k   f a i l s   a g a i n   a s   I n d i a   t u r n   s c r e w   o n   E n g l a n d   c a p t a i n   . . .",
+        "caption": "Alastair Cook edges Bhuvneshwar Kumar behind not long after taking his 100th England catch to end the India innings at Lord's. Photograph: Philip Brown/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7652870416641235,
+        "text_similarity_score": 0.9619130492210388
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.7652870416641235, which is less than 0.85. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Also, the text similarity score between the news caption and candidate caption is 0.9619130492210388, which is greater than 0.7. But since the image similarity score is less than 0.85, I should return False.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.7652870416641235",
+        "Text Similarity Score: 0.9619130492210388"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result shows an image similarity score of 0.7652870416641235, which is less than 0.85. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. The image depicts Alastair Cook in cricket attire, holding a bat, seemingly in the middle of a shot. The caption mentions 'Alastair Cook edges Bhuvneshwar Kumar behind not long after taking his 100th England catch to end the India innings at Lord s'. While it's possible the image is related to this event, the low image similarity score indicates it's not a direct or accurate representation of the event described in the caption.",
+    "validation_summary": "The image similarity score is too low, meaning the caption does not accurately represent what is shown in the image. Therefore, viewers would be misled about the image's context if they only read the caption."
+  },
+  "inference_time": 8.569977045059204,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

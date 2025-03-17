@@ -1,0 +1,34 @@
+{
+  "caption": "Scottish first minister Alex Salmond suggested the deputy president of the supreme court Lord Hope has ignored the views of most Scottish judges",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Alex Salmond's attack on the UK supreme court smells political | John Scott | The Guardian",
+        "content": "A l e x   S a l m o n d ' s   a t t a c k   o n   t h e   U K   s u p r e m e   c o u r t   s m e l l s   p o l i t i c a l   . . .",
+        "caption": "Scottish first minister Alex Salmond suggested the deputy president of the supreme court, Lord Hope, has ignored the views of most Scottish judges.\n Photograph: Dominic Lipinski/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3368602395057678,
+        "text_similarity_score": 0.9662282466888428
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.3368602395057678, which is less than 0.85. According to the instructions, the caption must be marked as out-of-context, even if the text similarity score is high. In this case, the text similarity score is 0.9662282466888428, which is greater than 0.7. However, since the image similarity score is less than 0.85, the verdict must be False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image features two men in legal attire, suggesting a courtroom setting. The primary subject in the foreground is wearing a black robe with a red tie, while the man in the background is wearing a judicial wig and a white collar, also in a black robe. The image similarity score is 0.33, and the text similarity score is 0.96. Although the text similarity score is high, the image similarity score is low. The caption states \"Scottish first minister Alex Salmond suggested the deputy president of the supreme court Lord Hope has ignored the views of most Scottish judges\". This statement does not appear to be directly supported by the image, as the image simply shows two men in legal attire and does not provide any visual evidence related to Alex Salmond's suggestion or the views of Scottish judges. The image does not clearly represent the caption, so the image is out of context.",
+    "validation_summary": "The image does not visually support the caption's claim about Alex Salmond's suggestion regarding Scottish judges' views, making the image out of context. The caption would mislead viewers about what they are seeing because the visual elements do not align with the claim presented in the caption."
+  },
+  "inference_time": 4.980900049209595,
+  "ablation_type": "no_image_evidences"
+}

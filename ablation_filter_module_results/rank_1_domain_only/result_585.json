@@ -1,0 +1,38 @@
+{
+  "caption": "The least expensive apartments in Lavasa now sell for between 17000 and 36000 out of reach for most middleclass Indians",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "How to build a city from scratch: the handy step-by-step DIY guide | Cities | The Guardian",
+        "content": "H o w   t o   b u i l d   a   c i t y   f r o m   s c r a t c h :   t h e   h a n d y   s t e p - b y - s t e p   D I Y   g u i d e   . . .",
+        "caption": "How to build a city - a 20-step guide. Illustrations by Sam Chelton",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, the strict decision rules do not apply. The candidate caption and content provide no information about Lavasa apartments, their prices, or their affordability for middle-class Indians. The candidate is about building a city, which is a very general topic and doesn't provide any specific details that could support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low similarity between the image and the caption, leading to a verdict of False. Given a high confidence score of 1, I must adhere to the image check result. The image showcases buildings in Lavasa, while the caption focuses on the prices of apartments and their affordability. There is nothing in the image to support or refute the claim about apartment prices. The caption is therefore Out of Context (OOC=True).",
+    "validation_summary": "The caption discusses apartment prices in Lavasa, while the image only shows buildings, misleading viewers about the visual content related to housing affordability. The image fails to provide any context related to housing prices or the financial status of potential residents, leading to a disconnect between the visual and textual information presented to the viewer about the financial aspects of Lavasa real estate.. . . . . "
+  },
+  "inference_time": 4.0610833168029785,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

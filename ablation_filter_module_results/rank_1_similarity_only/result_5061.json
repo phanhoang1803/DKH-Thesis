@@ -1,0 +1,51 @@
+{
+  "caption": "Stanford Cardinal running back Anthony Wilkerson stiff arms Michigan State Spartans safety RJ Williamson during the first quarter",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Ohio State Buckeyes football",
+      "Urban Meyer",
+      "Sugar Bowl",
+      "Ezekiel Elliott",
+      "Alabama Crimson Tide football",
+      "Eight-man football",
+      "Six-man football",
+      "Running back",
+      "Head coach",
+      "American football"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "All the action from the Sugar Bowl: Alabama vs. Ohio State",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9598987698554993,
+        "text_similarity_score": 0.05548557639122009
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is high (0.9598987698554993), suggesting the images are very similar. However, the text similarity score is low (0.05548557639122009), indicating the captions are not similar. The strict decision rule states that if the Image Similarity Score is greater than or equal to 0.85 and the Text Similarity Score is less than 0.7, the verdict should be \"False\". Thus, the caption is determined to be out-of-context, meaning it does not accurately represent what the image shows.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high image similarity score (0.9598987698554993) and a low text similarity score (0.05548557639122009). This suggests that while the image might depict a similar scene to what the caption describes, the details and context provided in the caption are significantly different from what's visible in the image. The players in the image are wearing different uniforms than those mentioned in the caption (Stanford Cardinal vs. Michigan State Spartans). The players in the image appear to be wearing Alabama and Ohio State uniforms. Therefore, the caption is misleading and does not accurately represent the image content.",
+    "validation_summary": "The caption describes a Stanford Cardinal vs. Michigan State Spartans game, while the image clearly shows players in Alabama and Ohio State uniforms, misleading viewers about the game depicted in the image. The image does not match the context provided in the caption."
+  },
+  "inference_time": 6.6141676902771,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "caption": "An emotional President Obama discusses the shooting at a Connecticut elementary school on Friday",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Obama: 'Our hearts are broken today'",
+        "content": "O b a m a :   ' O u r   h e a r t s   a r e   b r o k e n   t o d a y '",
+        "caption": "An emotional President Obama discusses the shooting at a Connecticut elementary school on Friday.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Emotional Obama reacts to Conn. tragedy",
+        "content": "E m o t i o n a l   O b a m a   r e a c t s   t o   C o n n .   t r a g e d y",
+        "caption": "President Obama wipes his eyes as he discusses the Connecticut elementary school shooting on Friday.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions describe President Obama discussing the Connecticut elementary school shooting on a Friday, and mention his emotional state. However, the image similarity scores are 0.0, meaning I am unable to verify that the provided images actually depict the events described in the caption. While the captions are very similar to the news caption, the lack of image confirmation prevents a definitive \"True\" verdict. The dates and specific details would also ideally be confirmed by the articles associated with the domains.",
+      "supporting_evidences": [
+        "Candidate 1: Caption matches the news caption regarding President Obama, the Connecticut elementary school shooting, and his emotional state on a Friday.",
+        "Candidate 2: Caption describes President Obama discussing the Connecticut elementary school shooting on Friday and wiping his eyes."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a confidence score of 7, requiring a decision based on its analysis. The image check suggests that while the caption is plausible given the image, there's no definitive proof in the images available to confirm the specifics of the event (Connecticut elementary school shooting) mentioned in the caption. Because the image similarity scores are 0.0, I am unable to verify that the provided images actually depict the events described in the caption. The caption may be misleading because without visual confirmation, the context applied to the image cannot be validated. Therefore, the image is considered OOC.",
+    "validation_summary": "While the caption describes a plausible scenario, the lack of image verification prevents confirming the caption's accuracy, making it potentially misleading. The image is considered OOC because the content of the image can not be verified based on the context of the caption."
+  },
+  "inference_time": 4.209285736083984,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

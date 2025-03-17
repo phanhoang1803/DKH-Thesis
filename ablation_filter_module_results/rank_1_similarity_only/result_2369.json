@@ -1,0 +1,40 @@
+{
+  "caption": "David Moyes gesticulates during the 21 defeat against Sunderland",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.974640965461731,
+        "text_similarity_score": 0.16631066799163818
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.974640965461731, which is greater than 0.85. However, the text similarity score is 0.16631066799163818, which is less than 0.7. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the text similarity score is low, which suggests that the caption doesn't accurately reflect the content of the associated news. The image shows David Moyes in a suit gesturing during a game, which is consistent with him being a manager. However, the low text similarity score suggests the specific details of the '2-1 defeat against Sunderland' are not directly verifiable or accurately represented by the image alone. Therefore, based on the image check result, the caption is considered out of context.",
+    "validation_summary": "The image check reveals a low text similarity between the caption and the image content, suggesting the caption provides details not directly evident in the image. Viewers may be misled into thinking the image explicitly represents the described game against Sunderland, when the visual evidence is insufficient to confirm this."
+  },
+  "inference_time": 6.198452949523926,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

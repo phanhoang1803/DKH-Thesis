@@ -1,0 +1,54 @@
+{
+  "caption": "Miss Rhode Island Ivy DePew in the Miss America competition The state may have to pay the piper for its investment in hedge funds",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "United States",
+      "Western concert flute",
+      "Flute",
+      "Russia",
+      "Bansuri",
+      "Flutist",
+      "Piccolo",
+      "Concert"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Do state retirement pensions belong with Wall Street hedge funds? | US personal finance | The Guardian",
+        "content": "D o   s t a t e   r e t i r e m e n t   p e n s i o n s   b e l o n g   w i t h   W a l l   S t r e e t   h e d g e   f u n d s   . . .",
+        "caption": "Miss Rhode Island Ivy DePew in the Miss America competition. The state may have to pay the piper for its investment in hedge funds.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9958415627479553,
+        "text_similarity_score": 0.9558480978012085
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided candidate has a high image similarity score (0.9958) and a high caption similarity score (0.9558). This strongly suggests that the candidate is highly relevant and supports the news caption. The candidate caption is identical to the news caption, further reinforcing the accuracy and reliability of the information.",
+      "supporting_evidences": [
+        "Caption: Miss Rhode Island Ivy DePew in the Miss America competition. The state may have to pay the piper for its investment in hedge funds.",
+        "Image Similarity Score: 0.9958415627479553",
+        "Caption Similarity Score: 0.9558480978012085",
+        "Domain: www.theguardian.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a woman playing a flute while wearing a red dress. The news caption claims that this is Miss Rhode Island Ivy DePew in the Miss America competition. While this may be true, there is no way to confirm this based on the image alone. The caption goes on to say that the state may have to pay the piper for its investment in hedge funds. This claim is unrelated to the image and could mislead viewers into thinking that the image is related to the news content about hedge funds. The image check result also suggests that the caption is accurate and reliable, but the image alone does not provide sufficient evidence to support the claim that this is Miss Rhode Island Ivy DePew or that the image is related to the news content about hedge funds.",
+    "validation_summary": "The caption suggests a direct connection between the woman in the image, Miss Rhode Island, and the state's financial investments, which is misleading as the image provides no evidence of this connection. The image is used to illustrate an article about hedge funds, when its connection to the topic is tenuous at best."
+  },
+  "inference_time": 5.259361743927002,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

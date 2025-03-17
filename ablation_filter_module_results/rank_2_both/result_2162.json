@@ -1,0 +1,44 @@
+{
+  "caption": "George Clooney waves to his fans waves as he leaves the restaurant Da Ivo with friends and his father during his stag night event in Venice on September 27 2014",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Celebs flood Venice for Clooney's wedding",
+        "content": "C e l e b s   f l o o d   V e n i c e   f o r   C l o o n e y ' s   w e d d i n g",
+        "caption": "George Clooney waves to his fans waves as he leaves the restaurant Da Ivo with friends and his father during his stag night event in Venice on September 27, 2014.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7922585606575012,
+        "text_similarity_score": 0.9607187509536743
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the provided instructions and the evidence available, the image similarity score is 0.7922585606575012 and the text similarity score is 0.9607187509536743. Since the image similarity score is less than 0.85, the analysis should result in a 'False' verdict according to the instructions, regardless of the text similarity score. The candidate caption also matches exactly with the news caption. Therefore, the provided candidate supports the news caption.",
+      "supporting_evidences": [
+        "Caption: George Clooney waves to his fans waves as he leaves the restaurant Da Ivo with friends and his father during his stag night event in Venice on September 27, 2014.",
+        "Image Similarity Score: 0.7922585606575012",
+        "Caption Similarity Score: 0.9607187509536743"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result provides a confidence score of 10. According to the instruction, with a confidence score between 7-10, the final determination must be based on the image check result. The image check result states that the image similarity score is 0.7922585606575012 and the text similarity score is 0.9607187509536743. Since the image similarity score is less than 0.85, the analysis should result in a 'False' verdict. The candidate caption also matches exactly with the news caption. Therefore, the provided candidate supports the news caption.",
+    "validation_summary": "The image check result indicates that the caption accurately reflects the image content, so viewers would not be misled. The image similarity score is less than 0.85 so it results in a 'False' verdict."
+  },
+  "inference_time": 4.593766689300537,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

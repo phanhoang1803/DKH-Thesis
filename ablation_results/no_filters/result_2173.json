@@ -1,0 +1,43 @@
+{
+  "caption": "On the first day of his visit Pope Francis greeted the crowds from his popemobile on the way to the National Palace",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Figurine"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Pope Francis greets adoring crowds in Mexico before 'tough love' speech | Pope Francis | The Guardian",
+        "content": "P o p e   F r a n c i s   g r e e t s   a d o r i n g   c r o w d s   i n   M e x i c o   b e f o r e   ' t o u g h   l o v e   . . .",
+        "caption": "Pope Francis waves from the popemobile on his way to the National Palace in Mexico City on Saturday.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Pope Francis greets adoring crowds in Mexico before 'tough love' speech | Pope Francis | The Guardian",
+        "content": "P o p e   F r a n c i s   g r e e t s   a d o r i n g   c r o w d s   i n   M e x i c o   b e f o r e   ' t o u g h   l o v e   . . .",
+        "caption": "Pope Francis and Mexicos President Pena Nieto participate in a ceremony at the National Palace in Mexico City,Pope Francis (R) and Mexicos President Enrique Pena Nieto participate in a ceremony at the National Palace in Mexico City, February 13, 2016. REUTERS/Tomas Bravo",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidate captions have very low image and text similarity scores, indicating they aren't directly related to the news image. However, the first candidate mentions 'Pope Francis waves from the popemobile on his way to the National Palace in Mexico City on Saturday.' This partially aligns with the news caption, which describes Pope Francis greeting crowds from his popemobile on the way to the National Palace. Since the candidate doesn't explicitly confirm it's the first day of his visit, the caption cannot be fully verified. Therefore, the verdict is False.",
+      "supporting_evidences": [
+        "Pope Francis waves from the popemobile on his way to the National Palace in Mexico City on Saturday."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "validation_summary": "The caption suggests Pope Francis greeting the crowds specifically on the first day of his visit, which is not explicitly confirmed by the image.",
+    "explanation": "The caption states that Pope Francis greeted crowds from his popemobile on the way to the National Palace on the first day of his visit to Mexico. However, while the image does show Pope Francis in a popemobile, the lack of supporting evidence that confirms this event takes place on the first day of his visit raises doubts about the caption's accuracy. Thus, while there is a partially correct reference to his mode of transport, the specific timeline or context of the event described in the caption cannot be verified solely based on the image."
+  },
+  "inference_time": 5.726392507553101,
+  "ablation_type": "no_filters"
+}

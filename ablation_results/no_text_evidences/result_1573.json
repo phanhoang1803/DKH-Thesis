@@ -1,0 +1,34 @@
+{
+  "caption": "A cyclist in the Lake District The UK s national parks are just one of the destinations for Britons who want to saddle up and get away on holiday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_text_evidences",
+    "evidences": [
+      {
+        "title": "Harry Potter fans warned not to trespass on railways for photographs | Rail transport | The Guardian",
+        "content": "British Transport police say people are crossing the tracks to take pictures of the Glenfinnan viaduct, which features in Harry Potter films\n\nPolice are warning of the dangers of trespassing on railway lines after tourists were spotted taking photos on the viaduct which features in the Harry Potter films.\n\nDuring the summer, a couple with a young child were seen running on the railway line near the Glenfinnan viaduct in the Highlands, while two men were also spotted on the track taking photographs.\n\nThe viaduct is the route taken by the Jacobite steam train and the Hogwarts Express in the Harry Potter films.\n\nBritish Transport police (BTP) say they have recently been made aware of a number of incidents where people have been seen on the railway line trying to view or photograph trains as they pass over the structure, or walking on the West Highland line towards Mallaig. On one occasion a group of hillwalkers appeared to be wandering casually on the line between Glenfinnan and Arisaig.\n\nBTP constable Nicky Ritchie said: We know that visitors, many of them foreign, want to enjoy this incredibly scenic area and are keen to see and capture the trains, particularly steam trains, crossing what is without doubt a magnificent structure.\n\nHowever, they have to realise that they need to do it safely and without breaking the law.\n\nWe have been working closely with Network Rail to advise local people, sightseers and tourists about the dangers of trespassing and the possibility of disrupting the rail network.\n\nMark Henderson, senior community engagement manager for Network Rail, said: Trespassing is extremely dangerous and can have tragic consequences for those involved.\n\nTrains travelling at speed take a long time to stop and anyone struck by one is likely to be killed or very badly injured.\n\nWe work closely with BTP to educate the public on the dangers of misusing the railway and are committed to making sure people fully understand the risk they face when straying on to operational railway land.",
+        "caption": "The Glenfinnan viaduct is the route taken by the Jacobite steam train and the Hogwarts Express.",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9816738367080688,
+        "text_similarity_score": 0.1268087476491928
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.9816738367080688 and the text similarity score is 0.1268087476491928. According to the strict decision rules, if the Image Similarity Score is greater than or equal to 0.85 AND the Text Similarity Score is less than 0.7, the verdict should immediately be 'False'. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 1,
+    "validation_summary": "The caption misrepresents the content of the image, which is not directly related to the specified activity of cycling in the Lake District.",
+    "explanation": "The caption suggests that the image depicts a cyclist in the Lake District, promoting UK national parks as a holiday destination for cycling enthusiasts. However, the detailed image check confirmed that while there might indeed be visual elements somewhat related to cycling, the overall context relates to a different activity or setting entirely. The lack of a direct correlation between the imagery and specific cycling activity, especially in a recognized location like the Lake District, leads to the conclusion that the caption does not accurately represent the content of the image. Thus, viewers could be misled into thinking they are seeing a promotional image directly related to cycling tourism in that area, which is not the case."
+  },
+  "inference_time": 7.075384855270386,
+  "ablation_type": "no_text_evidences"
+}

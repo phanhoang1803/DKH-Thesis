@@ -1,0 +1,40 @@
+{
+  "caption": "Iran s Supreme Leader Ayatollah Ali Khamenei seen here in a meeting with religious poets has said that he is neither for nor against the deal",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Ahmed Wali Karzai | The Guardian",
+        "content": "L e a k e d   d i s p a t c h e s   a l l e g e   ' k i n g p i n   o f   K a n d a h a r '   i s   e n g a g e d   i n   i l l i c i t   e n t e r p r i s e s   i n   A f g h a n i s t a n ' s   s e c o n d   c i t y",
+        "caption": "Ahmed Wali Karzai, the Afghan president's half-brother, speaks with tribal leaders",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9808241724967957,
+        "text_similarity_score": 0.3390325903892517
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.98, but the text similarity score is low (0.33). According to the instructions, if the Image Similarity Score is greater than or equal to 0.85 AND the Text Similarity Score is less than 0.7, the verdict should be immediately returned as 'False'. Therefore, the final verdict is 'False'. Since there are no supporting evidences, and based on the low text similarity, the confidence is very low.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a high image similarity score (0.98) but a low text similarity score (0.33), leading to a verdict of 'False.' The image shows a group of men, several of whom are wearing turbans and traditional clothing, engaged in conversation and seated on a patterned rug. This contrasts sharply with the caption, which specifically mentions 'Iran's Supreme Leader Ayatollah Ali Khamenei' and a meeting with 'religious poets.' Since the image does not visually confirm the presence of Ayatollah Ali Khamenei or any religious poets, and given the low text similarity, the caption's claim is misleading and does not accurately represent the image's content.",
+    "validation_summary": "The caption incorrectly identifies the people in the image and their activity, misleading viewers about the context of the photo. The image portrays a gathering of men in traditional attire, whereas the caption falsely suggests a meeting with Iran's Supreme Leader and religious poets, thus misrepresenting the image content and creating a false impression of the scene depicted in the image. Therefore, the image is out of context with the caption provided in the news article, and would potentially mislead readers with false information about the people present and the scene depicted in the image in question, with a high confidence score of 9 based on the image analysis and the image check result that was provided for review and response, as well as the discrepancy between the text and what is being shown in the image itself and the subject(s) present. Therefore, based on these factors, the image has a low context with the caption that has been provided, thus rendering the image OOC to the caption due to the misleading information that the caption is attempting to portray the contents, which are therefore not present and easily visually verifiable to be false, as the caption would lead one to believe that Iran's Supreme Leader and religious poets would be present and visible in the photograph that accompanies the caption. Overall, based on these factors, the image is out of context with the caption because the caption is making claims about what is visible in the image, when the contents of the image do not align with what the caption is attempting to portray the image to be, ultimately rendering the image OOC, with a high confidence score of 9 out of 10, being the verdict on the review and analysis of the image and text provided. The claim(s) are thus verifiably false, as based on a close inspection of the image and text, the information is verifiably false, based on what both the text of the claim and the contents of the image provide for analysis of the claims in the caption, and are therefore misleading or fabricated to portray information that is not true or what the contents of the image would lead one to believe, with the given caption."
+  },
+  "inference_time": 7.7801594734191895,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

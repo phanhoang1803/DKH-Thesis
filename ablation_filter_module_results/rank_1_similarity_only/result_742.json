@@ -1,0 +1,62 @@
+{
+  "caption": "Photographs of the three presidential candidates in Haiti s general election on a fence near the earthquakedamaged National Palace in PortauPrince Haiti",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "National Palace",
+      "Невседома",
+      "Senegal",
+      "freelance photographer",
+      "Earthquake",
+      "Due",
+      "overt",
+      "Sluggishness",
+      "Presidential palace"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Featured photojournalist: Ramon Espinosa | Art and design | The Guardian",
+        "content": "F r i   1 5   O c t   2 0 1 0   1 7 . 0 6  C E S T \n \n \n                         F i r s t   p u b l i s h e d   o n   F r i   1 5   O c t   2 0 1 0   1 7 . 0 6  C E S T \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P \n \n P h o t o g r a p h :   R a m o n   E s p i n o s a / A P",
+        "caption": "Ramon Espinosa: Photographs of the three presidential candidates in Port-au-Prince, Haiti.",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9775794148445129,
+        "text_similarity_score": 0.7860598564147949
+      },
+      {
+        "title": "Featured photojournalist: Ramon Espinosa | Art and design | The Guardian",
+        "content": "F e a t u r e d   p h o t o j o u r n a l i s t :   R a m o n   E s p i n o s a   |   A r t   a n d   d e s i g n   |   T h e   . . .",
+        "caption": "Ramon Espinosa: Photographs of the three presidential candidates in Port-au-Prince, Haiti.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9063572287559509,
+        "text_similarity_score": 0.7860598564147949
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is above 0.85 and the text similarity score is also above 0.7. Both candidate captions are highly similar to the news caption, mentioning 'Photographs of the three presidential candidates in Port-au-Prince, Haiti.' This confirms the accuracy and relevance of the news caption in representing the image content.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: Ramon Espinosa: Photographs of the three presidential candidates in Port-au-Prince, Haiti. Image Similarity Score: 0.9775794148445129, Caption Similarity Score: 0.7860598564147949",
+        "Candidate 2: Caption: Ramon Espinosa: Photographs of the three presidential candidates in Port-au-Prince, Haiti. Image Similarity Score: 0.9063572287559509, Caption Similarity Score: 0.7860598564147949"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image shows a damaged building, likely the National Palace in Port-au-Prince, Haiti, with campaign posters on a fence in the foreground. The news caption accurately states that the photographs are of three presidential candidates and that they are located near the earthquake-damaged National Palace in Port-au-Prince, Haiti. The image check result confirms a high degree of similarity between the image and the news caption and also with the candidate captions, indicating the caption correctly represents the image. Therefore, the image is not out of context.",
+    "validation_summary": "The caption accurately describes the image content, showing campaign posters near the earthquake-damaged National Palace, and would not mislead viewers about what they are seeing. The image check confirms the caption's accuracy."
+  },
+  "inference_time": 7.011616945266724,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

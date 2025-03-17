@@ -1,0 +1,40 @@
+{
+  "caption": "Malala Yousafzai at the United Nations General Assembly in New York City",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "The full text: Malala Yousafzai delivers defiant riposte to Taliban militants with speech to the UN General Assembly | The Independent | The Independent",
+        "content": "T h e   f u l l   t e x t :   M a l a l a   Y o u s a f z a i   d e l i v e r s   d e f i a n t   r i p o s t e   t o   . . .",
+        "caption": "Malala addresses the UN",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.12504498660564423,
+        "text_similarity_score": 0.7198669910430908
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.125, which is less than 0.85. The text similarity score is 0.719, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The Image Check Result indicates a low image similarity score (0.125), suggesting a mismatch between the image content and the caption. Although the text similarity score is high (0.719), the instructions prioritize the image similarity score when it falls below the threshold of 0.85. The image shows Malala Yousafzai speaking into a microphone and holding up two fingers, but does not show the United Nations General Assembly. Thus, based on the Image Check Result, the caption is deemed Out of Context. The low image similarity suggests the image may not have been taken at the United Nations General Assembly.",
+    "validation_summary": "The image check result indicates the image is not taken at the United Nations General Assembly, therefore the caption misleadingly implies the image shows a specific event that the image doesn't support. Viewers would likely be misled about the context of the image based on the caption."
+  },
+  "inference_time": 4.238740682601929,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

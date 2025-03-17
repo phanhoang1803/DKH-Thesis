@@ -1,0 +1,38 @@
+{
+  "caption": "Iran s Supreme Leader Ayatollah Ali Khamenei seen here in a meeting with religious poets has said that he is neither for nor against the deal",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Ahmed Wali Karzai | The Guardian",
+        "content": "L e a k e d   d i s p a t c h e s   a l l e g e   ' k i n g p i n   o f   K a n d a h a r '   i s   e n g a g e d   i n   i l l i c i t   e n t e r p r i s e s   i n   A f g h a n i s t a n ' s   s e c o n d   c i t y",
+        "caption": "Ahmed Wali Karzai, the Afghan president's half-brother, speaks with tribal leaders",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption describes Ahmed Wali Karzai speaking with tribal leaders, which does not align with the news caption about Iran's Supreme Leader Ayatollah Ali Khamenei in a meeting with religious poets. Therefore, the candidate does not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 1, indicating a high level of certainty that the caption does not accurately represent the image content. The image shows a group of men, possibly tribal leaders, in what appears to be a meeting or discussion. The caption describes Iran's Supreme Leader Ayatollah Ali Khamenei meeting with religious poets. The image check result confirms that the image content and caption do not align, as the people and setting depicted in the image are different from what the caption describes. Therefore, the image is out of context.",
+    "validation_summary": "The image depicts a meeting between tribal leaders, which is misrepresented by the caption describing Iran's Supreme Leader meeting with religious poets, misleading viewers about the image's content and context. The image is therefore out of context and does not accurately represent the described event in the caption."
+  },
+  "inference_time": 4.527675628662109,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

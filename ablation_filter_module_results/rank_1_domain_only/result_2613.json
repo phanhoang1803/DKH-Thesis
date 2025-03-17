@@ -1,0 +1,40 @@
+{
+  "caption": "Brave New World Barack Obama signs his first act as president in the US Capitol building on 20 January 2009",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Studs Terkel's study of race in the US: 20 years on | Studs Terkel | The Guardian",
+        "content": "S t u d s   T e r k e l ' s   s t u d y   o f   r a c e   i n   t h e   U S :   2 0   y e a r s   o n   |   S t u d s   T e r k e l   . . .",
+        "caption": "Brave New World?  Barack Obama signs his first act as president in the US Capitol building on 20 January 2009. Photograph: Molly Riley/AP/PA Photos",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0, and the text similarity score is 0.0. Therefore, I must analyze the content of the caption against the content of the candidate. The candidate does describe Barack Obama signing his first act as president in the US Capitol building on 20 January 2009. All elements (Barack Obama, US Capitol building, 20 January 2009) are confirmed. Therefore, I will return True with a low confidence score.",
+      "supporting_evidences": [
+        "Brave New World? … Barack Obama signs his first act as president in the US Capitol building on 20 January 2009."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result returned a confidence score of 6. Since this is not high, I initially reviewed the image and news caption, but since the confidence score is still above 7, I will stick with that result. The image shows Barack Obama speaking, wearing a dark suit and tie, with an American flag visible in the background. The caption describes Barack Obama signing his first act as president in the US Capitol building on 20 January 2009. While the image does show Obama, there is no evidence to suggest he is signing any act, the setting is not necessarily the US Capitol building, and the date is unverifiable from the image. The image check result confirms that the caption is not a good representation of the image.",
+    "validation_summary": "The image does not show Barack Obama signing his first act as president in the US Capitol building on 20 January 2009, the caption therefore misrepresents the image content, implying a specific event that is not depicted. Viewers would be misled about the context of the image if they were to believe that this is him signing his first act as president in the US Capitol building on 20 January 2009."
+  },
+  "inference_time": 4.471722364425659,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "caption": "A woman watches the sunset from a lifeguard chair at a beach on Lake Calhoun in Minneapolis",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Sunset",
+      "Red sky at morning",
+      "Evening",
+      "Sea"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "America plunges into deep freeze  in pictures | World news | The Guardian",
+        "content": "A m e r i c a   p l u n g e s   i n t o   d e e p   f r e e z e      i n   p i c t u r e s   |   W o r l d   n e w s   |   T h e   . . .",
+        "caption": "A woman watches the sunset from a lifeguard chair at a beach on Lake Calhoun in Minneapolis.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "GALLERY: 'Polar vortex' hits US | The North West Star | Mt Isa, QLD",
+        "content": "G A L L E R Y :   ' P o l a r   v o r t e x '   h i t s   U S   |   T h e   N o r t h   W e s t   S t a r   |   M t   I s a ,   Q L D",
+        "caption": "Jennifer Berry watches the sunset from a lifeguard chair at a beach on Lake Calhoun in Minneapolis, January 7, 2014. Photo: REUTERS/Eric Miller.",
+        "domain": "www.northweststar.com.au",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidate captions are nearly identical to the news caption. They mention a woman watching the sunset from a lifeguard chair at a beach on Lake Calhoun in Minneapolis. However, the image similarity scores are 0.0 for both, meaning the images themselves were not found to match, reducing confidence. Also, they provide a date. Given the low image similarity, and since candidate image is not provided, it cannot be fully confirmed that the caption accurately represents the image, leading to a 'False' verdict. There is no sign of manipulation. The elements in the caption are present in the supporting evidences.",
+      "supporting_evidences": [
+        "A woman watches the sunset from a lifeguard chair at a beach on Lake Calhoun in Minneapolis.",
+        "Jennifer Berry watches the sunset from a lifeguard chair at a beach on Lake Calhoun in Minneapolis, January 7, 2014."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "validation_summary": "The caption does not match the image content, as the image appears unrelated to the description provided.",
+    "explanation": "The caption describes a scene where a woman watches the sunset from a lifeguard chair at a beach on Lake Calhoun in Minneapolis. However, based on the image check result and evaluation, there is a significant discrepancy. The image similarity scores are flagged as 0.0, indicating that the reviewed images do not match the content being described. The reference to a woman watching the sunset from a lifeguard chair does not seem to correspond to the actual scene in the image provided. Based on available evidence, the actual content depicted in the image does not confirm the assertions made in the caption, leading to the conclusion that the caption misrepresents what viewers would see."
+  },
+  "inference_time": 8.139614820480347,
+  "ablation_type": "no_filters"
+}

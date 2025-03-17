@@ -1,0 +1,54 @@
+{
+  "caption": "Florida State Seminoles wide receiver Kelvin Benjamin caught the winning touchdown with 13 seconds left",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Eight-man football",
+      "Six-man football",
+      "Canadian football",
+      "Kick american football",
+      "American football",
+      "Canada",
+      "Sprint football",
+      "Gridiron football",
+      "Kick"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "College football bowl action",
+        "content": "C o l l e g e   f o o t b a l l   b o w l   a c t i o n",
+        "caption": "Florida State Seminoles wide receiver Kelvin Benjamin caught the winning touchdown with 13 seconds left.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7013195157051086,
+        "text_similarity_score": 0.985921323299408
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.7013195157051086, which is less than 0.85. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. The text similarity score is 0.985921323299408, which is greater than 0.7. However, since the image similarity score is less than 0.85, the verdict is False. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [
+        "The image similarity score is 0.7013195157051086, which is less than 0.85.",
+        "The text similarity score is 0.985921323299408, which is greater than 0.7.",
+        "According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity score is 0.7013195157051086, which is less than 0.85. The text similarity score is high at 0.985921323299408. However, since the image similarity score is below 0.85, the caption is considered out-of-context based on the instructions. The image shows a football player in a maroon and yellow uniform holding a football, while the caption refers to Kelvin Benjamin of the Florida State Seminoles. These details do not align, making the caption misleading.",
+    "validation_summary": "The image features a football player in a maroon and yellow uniform, which doesn't align with the caption's description of Kelvin Benjamin of the Florida State Seminoles, making it out of context. Therefore, viewers would be misled by the caption."
+  },
+  "inference_time": 8.186371564865112,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "caption": "Republican presidential candidate former Pennsylvania senator Rick Santorum pauses as he addresses supporters at his Iowa caucus victory party Tuesday in Johnston Iowa",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Rick Santorum feels like Rocky Balboa | CNN Politics",
+        "content": "R i c k   S a n t o r u m   f e e l s   l i k e   R o c k y   B a l b o a   |   C N N   P o l i t i c s",
+        "caption": "GOP presidential hopeful Rick Santorum addresses a crowd of supporters Tuesday night in Johnston, Iowa.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.665317952632904,
+        "text_similarity_score": 0.7582464218139648
+      },
+      {
+        "title": "Romney And Santorum Split The Spoils In Iowa : NPR",
+        "content": "R o m n e y   A n d   S a n t o r u m   S p l i t   T h e   S p o i l s   I n   I o w a   :   N P R",
+        "caption": "Rick Santorum addresses supporters at his caucus party in Johnston.",
+        "domain": "www.npr.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3490901291370392,
+        "text_similarity_score": 0.7157442569732666
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions confirm that Rick Santorum was addressing supporters in Johnston, Iowa. The original caption specifies it was at his Iowa caucus victory party on Tuesday. Candidate 1 has a text similarity score of 0.758 and an image similarity score of 0.665, which supports the event being in Johnston, Iowa. Candidate 2 has a text similarity score of 0.716, further confirming Santorum addressing supporters in Johnston. Although the image similarity scores are below the strict threshold of 0.85, the text similarity scores are high and the content aligns well, indicating that the original caption is likely accurate. The slight differences could be attributed to variations in camera angles or event specifics not fully captured in the candidate images.",
+      "supporting_evidences": [
+        "Candidate 1: Caption confirms Rick Santorum addressing supporters in Johnston, Iowa.",
+        "Candidate 2: Caption supports Santorum addressing supporters in Johnston."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result provides a confidence score of 7, indicating a relatively strong agreement between the image content and the caption. Both candidate captions confirm that Rick Santorum was addressing supporters in Johnston, Iowa. The original caption specifies it was at his Iowa caucus victory party on Tuesday. Candidate 1 has a text similarity score of 0.758 and an image similarity score of 0.665, which supports the event being in Johnston, Iowa. Candidate 2 has a text similarity score of 0.716, further confirming Santorum addressing supporters in Johnston. Although the image similarity scores are below the strict threshold of 0.85, the text similarity scores are high and the content aligns well, indicating that the original caption is likely accurate. The slight differences could be attributed to variations in camera angles or event specifics not fully captured in the candidate images. Thus, based on the image check result, the caption correctly represents the image.",
+    "validation_summary": "The image accurately depicts Rick Santorum addressing supporters at his Iowa caucus victory party, as confirmed by high text similarity scores and contextual alignment from the image check results, suggesting viewers would not be misled by the caption's description of the event and location in the image, despite lower image similarity scores that do not undermine the overall assessment."
+  },
+  "inference_time": 7.507077217102051,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

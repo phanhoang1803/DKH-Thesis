@@ -1,0 +1,40 @@
+{
+  "caption": "Workers make their way to the Costa Concordia to begin the refloating operation in Isola del Giglio Italy",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Costa Concordia - Irish Mirror Online",
+        "content": "",
+        "caption": "Captain Francesco Schettino is on trial for manslaughter and for abandoning ship before the evacuation was complete",
+        "domain": "www.irishmirror.ie",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.981040894985199,
+        "text_similarity_score": 0.2441205233335495
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is high (0.981040894985199), but the text similarity score is low (0.2441205233335495). The candidate caption focuses on the trial of Captain Francesco Schettino, while the news caption describes workers preparing to refloat the Costa Concordia. These are related events, as Schettino's trial is a consequence of the Costa Concordia disaster. However, the candidate caption does not describe the refloating operation. Therefore, the candidate caption is out-of-context with respect to the news caption, because the candidate caption provides a piece of information that is related to the incident, but it does not confirm the accuracy of the caption of the picture.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a rescue boat with people on it near the capsized Costa Concordia cruise ship. The caption states, \"Workers make their way to the Costa Concordia to begin the refloating operation in Isola del Giglio Italy.\" While the image may depict workers heading towards the ship, it doesn't explicitly show them 'beginning the refloating operation.' The workers being on the boat are only initial steps to beginning the refloating operation and can mislead the viewers about what is happening in the image. Based on the image alone, it's difficult to confirm that the image shows the start of a specific 'refloating operation,' rather than just general activity around the wreck. Also, the image check results have a low text similarity score, suggesting that the candidate captions are not about the same thing as the news caption.",
+    "validation_summary": "While the image depicts activity around the Costa Concordia, it doesn't explicitly show the start of a specific refloating operation, making the caption potentially misleading. The low text similarity score from the image check further supports this conclusion."
+  },
+  "inference_time": 5.666396617889404,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

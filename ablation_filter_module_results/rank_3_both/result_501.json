@@ -1,0 +1,43 @@
+{
+  "caption": "Lawyers for Palestinian authority argue that group does not have money to compensate Americans affected by attacks between 2002 and 2004",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "US government intervenes in lawsuit payments over Palestinian terror attacks | Obama administration | The Guardian",
+        "content": "U S   g o v e r n m e n t   i n t e r v e n e s   i n   l a w s u i t   p a y m e n t s   o v e r   P a l e s t i n i a n   . . .",
+        "caption": "Lawyers for Palestinian authority argue that group does not have money to compensate Americans affected by attacks between 2002 and 2004.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6746739149093628,
+        "text_similarity_score": 0.9498758316040039
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.6746739149093628, which is less than 0.85. The text similarity score is 0.9498758316040039, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than or equal to 0.7, the verdict should be 'False'. Because the image similarity is low (0.67), it cannot be said with strong confidence that the image aligns with the caption, even if the text is very similar.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.6746739149093628",
+        "Caption Similarity Score: 0.9498758316040039"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result shows a low image similarity score of 0.67 and a high caption similarity score of 0.95. The confidence score is 6, based on the instructions, the final determination must be based on the image check result. The image depicts two UK flags being waved against a cloudy blue sky. The caption discusses legal arguments in a case involving the Palestinian Authority and American victims of terror attacks. The caption does not relate to the image. The image shows UK flags, while the caption discusses the Palestinian Authority and legal proceedings in the US. There is no visual representation of lawyers, courtrooms, or any elements directly related to the caption's subject matter within the image. Because the image does not match the caption, the caption is out of context.",
+    "validation_summary": "The image shows UK flags being waved, while the caption discusses legal arguments in a case involving the Palestinian Authority, creating a mismatch that would mislead viewers about the image's content in relation to the news article it accompanies. The image does not represent the content of the caption at all, making the caption out of context for the image provided. Image check result supports this conclusion with low image similarity and high caption similarity."
+  },
+  "inference_time": 5.145042181015015,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

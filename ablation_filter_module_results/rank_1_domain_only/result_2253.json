@@ -1,0 +1,40 @@
+{
+  "caption": "Former secretary of state Hillary Clinton speaks to the media March 10 about recent allegations of an improperly used email account during her tenure at the State Department",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "AP sues State Dept. over Clinton e-mails",
+        "content": "6 3 5 6 1 6 6 9 7 5 6 5 7 6 0 8 4 7 - 1 - h i l l a r y .   . . .",
+        "caption": "Hillary Rodham Clinton speaks to the media about allegations of an improperly used e-mail account on March 10, 2015.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is low (0.0) and the text similarity score is also low (0.0). However, the candidate caption contains almost the exact same information as the news caption: \"Hillary Rodham Clinton speaks to the media about allegations of an improperly used e-mail account on March 10, 2015\" vs \"Former secretary of state Hillary Clinton speaks to the media March 10 about recent allegations of an improperly used email account during her tenure at the State Department\". The candidate evidence confirms the person (Hillary Clinton), the action (speaks to the media), the date (March 10), and the topic (allegations of an improperly used e-mail account). Given the high degree of overlap and the presence of all key elements, the news caption likely accurately represents the image.",
+      "supporting_evidences": [
+        "Hillary Rodham Clinton speaks to the media about allegations of an improperly used e-mail account on March 10, 2015."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 7. According to the image check result, the candidate caption contains almost the exact same information as the news caption: \"Hillary Rodham Clinton speaks to the media about allegations of an improperly used e-mail account on March 10, 2015\" vs \"Former secretary of state Hillary Clinton speaks to the media March 10 about recent allegations of an improperly used email account during her tenure at the State Department\". Given the high degree of overlap and the presence of all key elements, the news caption accurately represents the image.",
+    "validation_summary": "The caption accurately describes the image as Hillary Clinton speaking to the media about allegations of an improperly used email account, with the image check result confirming this representation, so viewers would not be misled. The image check confirms the content of the caption is accurate."
+  },
+  "inference_time": 5.753618478775024,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "caption": "Obama supporters celebrate his early win in front of the White House",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Ginkgo",
+      "Tree",
+      "Fire",
+      "Northern maidenhair fern"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Celebrations And Disappointment As Obama Wins Reelection",
+        "content": "C e l e b r a t i o n s   A n d   D i s a p p o i n t m e n t   A s   O b a m a   W i n s   R e e l e c t i o n",
+        "caption": "People celebrate in front of the White House in Washington after television networks announced the reelection of U.S. President Barack Obama.",
+        "domain": "www.rferl.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.31096768379211426,
+        "text_similarity_score": 0.7658518552780151
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.31 which is less than 0.85 and the text similarity score is 0.76 which is greater than 0.7. Based on the instructions, the verdict should be False because the image similarity score is less than 0.85.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result shows a low image similarity score of 0.31, which is less than 0.85, and a text similarity score of 0.76, which is greater than 0.7. Based on the instructions, the verdict should be True because the image similarity score is less than 0.85. In the image, there is a group of people, possibly celebrating or rioting, with some individuals climbing in a tree. The crowd appears to be dense, and the setting seems to be at night with lights illuminating the scene. The caption describes 'Obama supporters celebrate his early win in front of the White House.' While the image does depict a celebratory gathering, there is no clear indication that it is specifically 'Obama supporters,' that the event is related to 'his early win,' or that the location is 'in front of the White House.' The low image similarity score further confirms that the image is not accurately represented by the caption.",
+    "validation_summary": "The image depicts a celebration, but key details in the caption about Obama supporters, the early win, and the White House location are not supported by the visual evidence. Therefore, viewers would be misled about the image's context."
+  },
+  "inference_time": 5.640902042388916,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

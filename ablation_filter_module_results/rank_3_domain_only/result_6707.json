@@ -1,0 +1,48 @@
+{
+  "caption": "Kansas City Chiefs running back Peyton Hillis takes the ball to head coach Romeo Crennel after scoring a touchdown against the Carolina Panthers in the first half at Arrowhead Stadium",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Chiefs' emotional win",
+        "content": "C h i e f s '   e m o t i o n a l   w i n",
+        "caption": "Kansas City Chiefs running back Peyton Hillis (40) takes the ball to head coach Romeo Crennel after scoring a touchdown.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Chiefs win even as they grieve over murder-suicide",
+        "content": "C h i e f s   w i n   e v e n   a s   t h e y   g r i e v e   o v e r   m u r d e r - s u i c i d e",
+        "caption": "Chiefs head coach Romeo Crennel was given a football by Peyton Hillis after the running back scored a touchdown.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are both 0.0, indicating that the images in the candidates do not match the news image. The text similarity scores are also 0.0, indicating that the captions do not match. However, the captions of the candidates do provide evidence that supports the news caption. Candidate 1 states: 'Kansas City Chiefs running back Peyton Hillis (40) takes the ball to head coach Romeo Crennel after scoring a touchdown.' This confirms that Peyton Hillis took the ball to Romeo Crennel after scoring a touchdown. Candidate 2 states: 'Chiefs head coach Romeo Crennel was given a football by Peyton Hillis after the running back scored a touchdown.' This confirms that Romeo Crennel was given a football by Peyton Hillis after he scored a touchdown. However, neither of the candidates mention anything about the Carolina Panthers or Arrowhead Stadium. Therefore, the caption is only partially verified.",
+      "supporting_evidences": [
+        "Kansas City Chiefs running back Peyton Hillis (40) takes the ball to head coach Romeo Crennel after scoring a touchdown.",
+        "Chiefs head coach Romeo Crennel was given a football by Peyton Hillis after the running back scored a touchdown."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result returned a confidence score of 6. However, since the confidence score is not in the range of 7-10, a detailed examination of the image and caption is required. The news image shows a football player in a black uniform with a yellow helmet being tackled by multiple players in white and blue uniforms. The caption describes Peyton Hillis scoring a touchdown against the Carolina Panthers. This description does not align with the visual evidence in the image. The players' uniforms and the overall scene do not correspond to the details provided in the caption. Therefore, the caption misrepresents the content of the image, leading to the conclusion that the image is out of context. The image check result confirms that the caption is inaccurate based on comparison with other images and their captions.",
+    "validation_summary": "The caption describes a specific football game involving Peyton Hillis and the Carolina Panthers, which is not reflected in the image showing different teams and players in action, thus the caption is misleading and out of context. The image check result corroborates this finding, making it highly probable that the caption is inaccurate."
+  },
+  "inference_time": 5.045481443405151,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

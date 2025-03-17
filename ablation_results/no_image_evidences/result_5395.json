@@ -1,0 +1,34 @@
+{
+  "caption": "At the end of the shift Glushenko left and Cerredo both 2010 All photographs Pierre Gonnord",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Going under: portraits of the last coal miners | Photography | The Guardian",
+        "content": "3 c 0 5 e 1 5 d - 0 3 8 0 - 4 1 3 4 - 8 3 7 7 -   . . .",
+        "caption": "At the end of the shift  Glushenko, left, and Cerredo, both 2010. All photographs: Pierre Gonnord",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.25763270258903503,
+        "text_similarity_score": 0.9490657448768616
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.25763270258903503, which is less than 0.85. The text similarity score is 0.9490657448768616, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows hands holding a box with the Glencore International pk logo on it. The text in the caption mentions Glushenko and Cerredo, which are names of coal miners photographed by Pierre Gonnord in 2010. There is no visual evidence to support the names of miners or the depiction of miners. Based on the high confidence score provided by the image check result and the mismatch between the image content and the caption, the image is out of context.",
+    "validation_summary": "The image depicts a box with the Glencore International logo, which is unrelated to the caption's mention of specific coal miners; therefore, viewers would be misled about the image's content and its relevance to the news article about coal miners in Spain. The image check result confirms that the caption does not accurately represent the image, indicating that the image is out of context."
+  },
+  "inference_time": 4.81987452507019,
+  "ablation_type": "no_image_evidences"
+}

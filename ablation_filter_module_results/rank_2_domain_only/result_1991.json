@@ -1,0 +1,47 @@
+{
+  "caption": "Prince Harry on a visit to Oman last November",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Prince Harry to leave armed forces | Prince Harry | The Guardian",
+        "content": "P r i n c e   H a r r y   t o   l e a v e   a r m e d   f o r c e s   |   P r i n c e   H a r r y   |   T h e   G u a r d i a n",
+        "caption": "Prince Harry on a visit to Oman last November.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Prince Harry Challenged to Mock Sword Fight in Oman",
+        "content": "P r i n c e   H a r r y   C h a l l e n g e d   t o   M o c k   S w o r d   F i g h t   i n   O m a n",
+        "caption": "Prince Harry takes part in a mock sword fight as he meets traditional dancers during a visit to Nizra Fort on November 19, 2014 in Muscat, Oman. ",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are all 0.0, indicating that the images in the candidates do not match the image in the news. The text similarity scores are also 0.0, indicating that the captions do not match. However, candidate 1 provides an exact match to the news caption, which mentions Prince Harry on a visit to Oman last November. While we lack image confirmation, the verbatim caption match from a reputable domain (www.theguardian.com) offers some support. Candidate 2 also refers to Prince Harry during a visit to Oman, specifically mentioning an event on November 19, 2014. The primary cause for concern is the low image similarity, which prevents a strong endorsement of the caption's accuracy. Therefore, the caption is partially verified due to matching description, but I am not fully confident due to the lack of image similarity.",
+      "supporting_evidences": [
+        "Prince Harry on a visit to Oman last November."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 6. However, the image depicts Prince Harry with other members of the royal family in an auditorium setting with other people including a child wearing a Shaun the Sheep hat. The caption states \"Prince Harry on a visit to Oman last November.\" which doesn't match the visual content of the image. The image does not depict Prince Harry on a visit to Oman.",
+    "validation_summary": "The caption claims Prince Harry is on a visit to Oman, but the image shows him in an auditorium, which would mislead viewers about the context of the image and Prince Harry's activities. This is clearly out of context with the provided image and caption as the image is not aligned with the caption's description of Prince Harry's activities or location, therefore OOC is true with a high confidence score of 9 based on the mismatch and high confidence score from the image check result exceeding 7, which makes this the primary determination for OOC status and the final determination overrides any independent analysis based on instructions given in the prompt."
+  },
+  "inference_time": 4.593633651733398,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

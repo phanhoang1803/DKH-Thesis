@@ -1,0 +1,62 @@
+{
+  "caption": "An early live shot from Jim Reid s collection with Douglas Hart centre",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Robert Smith",
+      "Zilker Metropolitan Park",
+      "Zilker",
+      "Austin City Limits Music Festival",
+      "Toyota Sports 800",
+      "The Cure",
+      "Car",
+      "Sports car",
+      "SEAT 600",
+      "Festival"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Photos: The Cure's influence in pop culture",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.843600332736969,
+        "text_similarity_score": 0.07620459049940109
+      },
+      {
+        "title": "The Jesus and Mary Chain on Psychocandy: It was a little miracle | Jesus and Mary Chain | The Guardian",
+        "content": "T h e   J e s u s   a n d   M a r y   C h a i n   o n   P s y c h o c a n d y :   ' I t   w a s   a   l i t t l e   m i r a c l e   . . .",
+        "caption": "An early live shot from Jim Reids collection, with Douglas Hart centre.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.27556756138801575,
+        "text_similarity_score": 0.9805857539176941
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "Candidate 1 has a high image similarity score (0.843600332736969), but the text similarity score is low (0.07620459049940109). This does not satisfy the condition for directly confirming the caption. Candidate 2, however, has a lower image similarity score (0.27556756138801575) but a very high caption similarity score (0.9805857539176941). Despite the high caption similarity score in Candidate 2, the image similarity score is far below the threshold of 0.85. Therefore, based on the instructions, the caption must be marked as out-of-context. However, it is worth noting that the caption of candidate 2 is almost identical to the news caption. Considering the high caption similarity, it is very likely that the news caption is describing the image context accurately. Therefore, it is highly likely that the caption accurately describes the image, but the image similarity score is not high enough in either candidate to confirm this with complete certainty.",
+      "supporting_evidences": [
+        "Candidate 2 has a caption that is almost identical to the news caption, suggesting that the caption accurately describes the image context."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a high confidence score (9). The caption refers to an early live shot from Jim Reid's collection featuring Douglas Hart in the center. While the image shows a group of individuals, including one that could potentially be Douglas Hart in the center, the image similarity score is not high enough to definitively confirm that the image is a live shot or is directly related to Jim Reid's collection with complete certainty. As a result, given a high confidence score, the caption is marked as OOC, based on the original response.",
+    "validation_summary": "The caption's claim about the image being an early live shot from Jim Reid's collection featuring Douglas Hart cannot be definitively confirmed from the image, potentially misleading viewers about the image's context and origin based on the confidence score alone. Therefore, based on instructions, this leads to the caption being OOC."
+  },
+  "inference_time": 7.413402080535889,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

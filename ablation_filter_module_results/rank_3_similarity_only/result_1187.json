@@ -1,0 +1,49 @@
+{
+  "caption": "His video installations and other works have attracted acclaim too as did the installation Primitive when it was presented in Munich Liverpool and Paris last year",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Philippines holidays + Asia Pacific | Travel | The Guardian",
+        "content": "",
+        "caption": "",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9426777958869934,
+        "text_similarity_score": 0.06279358267784119
+      },
+      {
+        "title": "Philippines holidays | The Guardian",
+        "content": "T h o u s a n d s   o f   p a s s e n g e r s   f o u n d   t h e m s e l v e s   s t r a n d e d   a f t e r   a   p o w e r   o u t a g e   h i t   t h e   a i r p o r t s   c o m m u n i c a t i o n s   s y s t e m s \n \n I f   y o u ' r e   f o n d   o f   s a n d   d u n e s   a n d   s a l t y   a i r      a n d   w a n t   b e a u t i f u l   s u n s e t s ,   A s i a   i s   t h e   p e r f e c t   p l a c e   t o   k i c k   b a c k   i n   a   b e a c h   h o u s e \n \n T h e   M a l a s i m b o   m u s i c   f e s t i v a l ,   s e t   a m o n g   t h e   p a l m - l i n e d   h i l l s   o f   M i n d o r o   I s l a n d ,   s h o w c a s e s   t h e   b e s t   F i l i p i n o   m u s i c ,   s a y s   P a u l   M a c I n n e s \n \n W h e t h e r   i t ' s   a   m i n i - g a p   b r e a k   o f   o n e   o r   t w o   m o n t h s   o r   a   f u l l - o n   b a c k p a c k i n g   t r a i l   y o u ' r e   a f t e r ,   h e r e   a r e   o u r   p i c k   o f   g a p - y e a r   t r i p s ,   f r o m   A l b a n i a   t o   M e x i c o   t o   M a l a y s i a",
+        "caption": "A Filipino policeman looks out from the shattered window of a Manila fastfood restaurant",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9426777958869934,
+        "text_similarity_score": 0.03397280350327492
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidates have high image similarity scores (>= 0.85), indicating that their images are visually similar to the news image. However, their caption similarity scores are very low (< 0.7), which suggests that the captions of the candidate images are not related to the news caption. The news caption mentions 'video installations' and 'Primitive' installation in Munich, Liverpool, and Paris. Candidate 1 lacks a caption and candidate 2 talks about 'A Filipino policeman looks out from the shattered window of a Manila fastfood restaurant'. Therefore, based on the provided evidence, the news caption doesn't accurately represents what the image shows.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a man looking through a cracked glass window. The caption mentions 'video installations' and 'Primitive' installation in Munich, Liverpool, and Paris. Based on the provided evidence and image analysis, there is no direct link between the visual content of the image (a man behind cracked glass) and the claims made in the caption. The image check result also indicates that the news caption doesn't accurately represents what the image shows, as evidenced by the low caption similarity scores and lack of relevant context in the candidate image captions. Therefore, the caption does not correctly represent the image content.",
+    "validation_summary": "The image of a man looking through broken glass does not match the caption describing video installations and a specific installation called 'Primitive,' making it misleading to viewers about the actual content of the image. The high confidence score is based on image check results and image analysis, both supporting the OOC conclusion. The caption does not accurately represent the image content, thus implying it is out of context (OOC=True). The high confidence score reflects the clear discrepancy between image and caption."
+  },
+  "inference_time": 6.671868324279785,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

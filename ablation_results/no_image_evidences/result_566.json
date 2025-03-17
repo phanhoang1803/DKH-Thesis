@@ -1,0 +1,36 @@
+{
+  "caption": "People rush into Macy s as they open at midnight on Friday in NYC",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Why Black Friday shoppers endure the crush | CNN",
+        "content": "W h y   B l a c k   F r i d a y   s h o p p e r s   e n d u r e   t h e   c r u s h   |   C N N",
+        "caption": "Black Friday shoppers gleefully rush through the doors of the New York City Macy's after it opened its doors at midnight on November 25, 2011.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5728743076324463,
+        "text_similarity_score": 0.749836802482605
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption states 'People rush into Macy s as they open at midnight on Friday in NYC'. The candidate caption states 'Black Friday shoppers gleefully rush through the doors of the New York City Macy's after it opened its doors at midnight on November 25, 2011.' Although the image similarity score is low (0.5728743076324463), the text similarity is high (0.749836802482605). The candidate caption confirms that people rushed into Macy's after it opened at midnight in NYC, which is what the news caption describes. However, since the image similarity is low, and the rule says if Image Similarity Score < 0.85 AND Text Similarity Score ≥ 0.7, IMMEDIATELY return \"False\" (caption is out-of-context).",
+      "supporting_evidences": [
+        "The candidate caption matches the news caption."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "validation_summary": "The caption inaccurately describes a scene that does not match the context of the image, which contains content unrelated to shopping or a specific Macy's opening.",
+    "explanation": "The caption states that 'people rush into Macy's as they open at midnight on Friday in NYC', implying a scene of excitement and activity associated with Black Friday shopping. However, the image content does not show any clear indication of a Macy's storefront, nor does it depict people rushing in a shopping context. Specifically, the image may show a different type of crowd or event that is unrelated to Macy's or midnight openings. Since the image and caption are not aligned in their context, this leads to a determination that the caption is indeed out of context."
+  },
+  "inference_time": 8.964845895767212,
+  "ablation_type": "no_image_evidences"
+}

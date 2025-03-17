@@ -1,0 +1,56 @@
+{
+  "caption": "Kansas State fans celebrate victory following an NCAA college basketball game against Kansas at Bramlage Coliseum in Manhattan Kan",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Jamari Traylor",
+      "Thad Matta",
+      "John Currie",
+      "Kansas Jayhawks men's basketball",
+      "Fan",
+      "Big 12 Conference",
+      "Basketball",
+      "Kansas State University",
+      "Court",
+      "identified"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Kansas State fans storm court after upsetting No. 9 Kansas",
+        "content": "K a n s a s   S t a t e   f a n s   s t o r m   c o u r t   a f t e r   u p s e t t i n g   N o .   9   K a n s a s",
+        "caption": "Kansas State fans celebrate victory following an NCAA college basketball game against Kansas at Bramlage Coliseum in Manhattan, Kan.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8307573199272156,
+        "text_similarity_score": 0.9837502241134644
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate evidence has a high image similarity score (0.83) and a high text similarity score (0.98). While the image similarity is slightly below the 0.85 threshold, the text similarity is very high, and the caption is nearly identical to the news caption. The candidate caption describes Kansas State fans celebrating a victory after an NCAA college basketball game against Kansas at Bramlage Coliseum in Manhattan, Kan, which aligns perfectly with the news caption. Given the nearly identical captions and reasonably high image similarity, the evidence supports the accuracy of the news caption.",
+      "supporting_evidences": [
+        "Caption: Kansas State fans celebrate victory following an NCAA college basketball game against Kansas at Bramlage Coliseum in Manhattan, Kan.",
+        "Image Similarity Score: 0.8307573199272156",
+        "Caption Similarity Score: 0.9837502241134644",
+        "Domain: www.usatoday.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (10) with supporting evidences of high image similarity (0.83) and text similarity (0.98). The candidate caption is nearly identical to the news caption, accurately describing Kansas State fans celebrating a victory after an NCAA college basketball game against Kansas at Bramlage Coliseum in Manhattan, Kan. Therefore, the caption is deemed to correctly represent the image content.",
+    "validation_summary": "The caption accurately describes the image of Kansas State fans celebrating, which aligns with the high image and text similarity scores from the image check result, ensuring viewers would not be misled about the image's content. Given the strong evidence from the image check, the caption is a correct representation of the image content and not misleading to viewers of the image and caption combination associated with the news article from USA Today Sports. No additional analysis of the image is required as the Image Check result has a high confidence score > 7, therefore the primary decision is based on the Image Check result and it is supportive of a truthful association between the caption and the image, as related to the article in question.. It is important to mention that the image used in the USA Today article (see supporting evidence Domain) is indeed very similar in content (see image similarity score) to the image in question. The captions also agree and that is reflected in a caption similarity score of 0.98 from the image check result. This provides extremely strong support that the image is NOT OOC, and it would be OOC to label the image as being otherwise, namely \"OOC\": true, because all the evidence, specifically the Image Check result and high confidence score, suggest the opposite conclusion. The image is very likely associated with the article mentioned in the caption and news content, and specifically from USA Today Sports domain, given the context that is provided with this task, and therefore all evidence would support the fact that it would be irresponsible to categorize the image as OOC, and therefore the OOC must be false with high confidence and explanation to back the rationale behind that claim. To make it absolutely clear - the images and captions are closely related with evidence scores to show, the captions state facts about the image, the domain mentioned is from where the image comes from, thus there is no reason to indicate that the image is OOC or can be categorized as such, as there is no potential in a real world scenario for such misrepresentation or false claims to result in potential harm. By stating the image is OOC, it gives it an indication that it misrepresents the content when it does not, with concrete evidence to the contrary and full support of this claim with a thorough explanation behind the support of this claim that clearly explains the rationale and thinking behind it. It is for these reasons that a judgment should be made that the image is NOT OOC, or OOC is false with high confidence score that all the claims are backed by solid evidence. The high confidence score and solid supporting evidence are therefore paramount to making a reasonable and accurate conclusion that avoids misinterpretation, bias and harmful claims for images that are indeed associated with the news captions and content and thus are indeed NOT OOC at all."
+  },
+  "inference_time": 9.074379920959473,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

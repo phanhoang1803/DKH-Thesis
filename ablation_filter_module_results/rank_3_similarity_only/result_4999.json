@@ -1,0 +1,54 @@
+{
+  "caption": "Norbert Hofer addresses a news conference in Vienna Austria May 24 2016",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Debate"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Norbert Hofer steps down as leader of Austrian far-right party | Euronews",
+        "content": "N o r b e r t   H o f e r   s t e p s   d o w n   a s   l e a d e r   o f   A u s t r i a n   f a r - r i g h t   p a r t y   . . .",
+        "caption": "Norbert Hofer during a press conference in Vienna, Austria on May 20, 2019.",
+        "domain": "www.euronews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.328811377286911,
+        "text_similarity_score": 0.9155761003494263
+      },
+      {
+        "title": "Austrian Far-Right Figure Warns of 'Auxit' Vote Within a Year | Fortune",
+        "content": "A u s t r i a n   F a r - R i g h t   F i g u r e   W a r n s   o f   ' A u x i t '   V o t e   W i t h i n   a   Y e a r   . . .",
+        "caption": "Former presidential candidate Hofer of the Austrian Freedom Party (FPOe) addresses a news conference in Vienna",
+        "domain": "fortune.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3453309237957001,
+        "text_similarity_score": 0.7262676954269409
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption states \"Norbert Hofer addresses a news conference in Vienna Austria May 24 2016\".\n\nCandidate 1 has a high text similarity score (0.91) but a low image similarity score (0.32). The caption states \"Norbert Hofer during a press conference in Vienna, Austria on May 20, 2019.\" While the caption is similar, with the event being a press conference with Norbert Hofer in Vienna, the date differs significantly (May 24 2016 vs May 20 2019). Also, the low image similarity score indicates that the images don't match, suggesting this candidate is out-of-context.\n\nCandidate 2 also has a low image similarity score (0.34) but a moderate text similarity score (0.72). The caption states \"Former presidential candidate Hofer of the Austrian Freedom Party (FPOe) addresses a news conference in Vienna\". The caption confirms that Norbert Hofer was giving a news conference in Vienna. However, given the low image similarity, it is uncertain if this candidate is related to the image in the news. Also, this candidate does not specify the exact date.\n\nBoth candidates' low image similarity scores suggest that neither is a strong match for the news image. The discrepancy in dates and the lack of definitive confirmation make it difficult to conclude that the news caption accurately represents the image. Hence, the final verdict is 'False'.",
+      "supporting_evidences": [
+        "Candidate 1: Caption similarity score is high (0.91), but the image similarity score is low (0.32), and the date differs.",
+        "Candidate 2: Caption confirms a news conference with Norbert Hofer in Vienna, but the image similarity score is low (0.34)."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result provides a confidence score of 7, and therefore the decision must be based on the image check result. The image check result says that the news caption states \"Norbert Hofer addresses a news conference in Vienna Austria May 24 2016\".\n\nThe image check candidates have low image similarity scores, meaning that the image is likely out of context.",
+    "validation_summary": "The image check result indicates that the caption is inaccurate, which would likely mislead viewers regarding the context of the image. The low similarity between the original image and the proposed candidates indicates the caption is inaccurate and misleading to the viewers about what the image depicts."
+  },
+  "inference_time": 6.088151693344116,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "caption": "Katie Ledecky waves to the crowd as the Spanish silver medalist Mireia Belmonte Garcia applauds during the medal ceremony for the 800 freestyle",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Olympics day seven  as it happened | Olympic Games 2012 | The Guardian",
+        "content": "O l y m p i c s   d a y   s e v e n      a s   i t   h a p p e n e d   |   O l y m p i c   G a m e s   2 0 1 2   |   T h e   . . .",
+        "caption": "Cuba's Leuris Pupo holds up his gold medal after winning the 25m rapid fire pistol final at the London 2012 Olympic Games.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Rio 2016 Olympic Games - Los Angeles Times",
+        "content": "R i o   2 0 1 6   O l y m p i c   G a m e s   -   L o s   A n g e l e s   T i m e s",
+        "caption": "RIO DE JANEIRO, BRAZIL, TUESDAY, AUGUST 9 2016. - U.S. boxer Carlos Balderas Jr. is tended to in his corner between rounds against Japan's Daisuke Narimatsu in a Men's Light (60kg) prelim at Riocentro Pavilion 6. (Robert Gauthier/Los Angeles Times)",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "Both candidate captions discuss unrelated events (Olympics, boxing) with dissimilar image content (medal ceremony vs. boxing match) and low similarity scores, offering no validation of the news caption about Katie Ledecky and Mireia Belmonte Garcia at a swimming medal ceremony. Thus, I cannot verify the news caption's accuracy using the provided evidence.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (10) and states that the candidate captions are dissimilar to the image content, and I cannot verify the news caption's accuracy using the provided evidence. Therefore, based on the image check result with high confidence, the news caption does not match the image content.",
+    "validation_summary": "The image check result indicates that the caption does not accurately represent the image content. Therefore, viewers would be misled about what they're seeing."
+  },
+  "inference_time": 3.61584734916687,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

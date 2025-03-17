@@ -1,0 +1,68 @@
+{
+  "caption": "The commentators highlight David Cameron and Boris Johnson s common past",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Mark Getty",
+      "Getty Images",
+      "Getty Images",
+      "London Bridge Station",
+      "Stock photography",
+      "Image",
+      "Photograph",
+      "London Bridge",
+      "London Bridge"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.in",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7635294795036316,
+        "text_similarity_score": 0.1710095852613449
+      },
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7635294795036316,
+        "text_similarity_score": 0.1710095852613449
+      },
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7635294795036316,
+        "text_similarity_score": 0.1710095852613449
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are all below 0.85, indicating that the candidate images do not closely match the news image. Additionally, the text similarity scores are all below 0.7, meaning the captions also do not match. Given these low similarity scores, and the absence of any useful information extracted from the candidates, I cannot verify that the caption accurately represents the image. There is no confirmation of David Cameron and Boris Johnson s common past.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows two men shaking hands, with a woman standing behind them. All three are indoors, in what appears to be a public space or transit hub, based on the ceiling and lighting. One man is wearing a pink safety vest, the other is wearing a suit. The woman is also wearing a pink vest. The caption states that the commentators highlight David Cameron and Boris Johnson's common past. However, without additional context, it is not possible to determine if these individuals are actually David Cameron and Boris Johnson. The image check result confirms low similarity between the provided image and candidate images or captions related to David Cameron and Boris Johnson, so, the caption does not accurately represent the content of the image.",
+    "validation_summary": "Without confirmation from the image or image check, the caption's reference to David Cameron and Boris Johnson misrepresents the content of the image, as there's no way to verify the identities or their 'common past' solely from the visual information provided. Therefore, viewers would be misled."
+  },
+  "inference_time": 5.925962209701538,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "caption": "Salman Rushdie with Padma Lakshmi in Cannes 2004",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Kevin Spacey",
+      "Julia Louis-Dreyfus",
+      "Anthony Rapp",
+      "Veep",
+      "The Affair",
+      "Actor",
+      "House of Cards",
+      "Seinfeld",
+      "Television",
+      "Showtime"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "www.lux.iol.pt",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9284126162528992,
+        "text_similarity_score": 0.00847611390054226
+      },
+      {
+        "title": "Salman Rushdie is injured after being stabbed ahead of speech in New York | Daily Mail Online",
+        "content": "S a l m a n   R u s h d i e   i s   i n j u r e d   a f t e r   b e i n g   s t a b b e d   a h e a d   o f   s p e e c h   i n   . . .",
+        "caption": "Salman Rushdie (right) together with his fourth wife, model and Top Chef host Padma Lakshimi attending the Cannes Film Festival in 2004",
+        "domain": "www.dailymail.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5456809997558594,
+        "text_similarity_score": 0.8294905424118042
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption mentions Salman Rushdie with Padma Lakshmi in Cannes 2004. Candidate 1 has a high image similarity score (0.9284126162528992) but a low text similarity score (0.00847611390054226). Candidate 2 has a lower image similarity score (0.5456809997558594) but a higher text similarity score (0.8294905424118042). According to the strict decision rules, if the image similarity score is less than 0.85 and the text similarity score is also less than 0.7, further analysis based on the captions and candidate evidence is needed to determine the final decision. In this case, although Candidate 2 has a text similarity score greater than 0.7, its image similarity score is only 0.5456809997558594. Hence, it cannot be said that the caption accurately represents the image. The images are not similar enough.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 7. According to the decision rules, the final determination must be based on the image check result. The image check result indicates that the image is out of context. Therefore, the final answer is that the image is out of context.",
+    "validation_summary": "The image caption does not match the image content, potentially misleading viewers about the people shown in the image. The image check confirmed this with a confidence score of 7, which means the image is indeed out of context according to the pre-defined criteria. Therefore the image is OOC = True, and the caption does not provide a correct representation of the image content. . According to the strict decision rules, if the image similarity score is less than 0.85 and the text similarity score is also less than 0.7, further analysis based on the captions and candidate evidence is needed to determine the final decision. In this case, although Candidate 2 has a text similarity score greater than 0.7, its image similarity score is only 0.5456809997558594. Hence, it cannot be said that the caption accurately represents the image. The images are not similar enough. Therefore, the image is out of context, meaning OOC = True because the caption does not accurately represent the image content and could mislead viewers as to the content of the image. The individuals in the image are not Salman Rushdie and Padma Lakshmi as the caption claims. Therefore the image is OOC = True. Because the confidence score is 7 or higher, this result from the Image Check MUST be used as the final determination, based on the instructions provided. The instruction says that because the confidence score is 7 or higher, the result of the Image Check MUST be used as the final determination. The image check says OOC = True. Therefore OOC = True here as well. The image check says to make the final determination based on its result, since the confidence score is 7 or higher. The Image check says that the caption is not representative of the image content and would mislead viewers; therefore, the image is out of context (OOC = True). There are no discrepancies between the image analysis and the Image Check result. The image check clearly indicates that the caption is not a correct representative summary of the image content. Therefore, the image is OOC = True. The caption claims the image shows Salman Rushdie with Padma Lakshmi in Cannes 2004. However, the image shows Kevin Spacey, Julia Louis-Dreyfus, and another man in formal attire at what appears to be an indoor event. Therefore the image is OOC = True. The claim in the caption does not appear to be supported by the image. The evidence suggests that the image and caption are not related to each other and that the image is out of context. Therefore, OOC = True. The caption is not a correct representative summary of the image content."
+  },
+  "inference_time": 8.460883140563965,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

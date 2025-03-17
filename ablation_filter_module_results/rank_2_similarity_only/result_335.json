@@ -1,0 +1,62 @@
+{
+  "caption": "Flooding along Lake Shore Boulevard West in downtown Toronto",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Jeep Cherokee (XJ)",
+      "Jeep",
+      "AIL Storm",
+      "Automotive Industries Ltd.",
+      "Off-roading",
+      "Flood",
+      "Jeep Cherokee",
+      "Jeep Cherokee",
+      "Jeep Liberty"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Floods inundate Toronto - in pictures | World news | The Guardian",
+        "content": "F l o o d s   i n u n d a t e   T o r o n t o   -   i n   p i c t u r e s   |   W o r l d   n e w s   |   T h e   G u a r d i a n",
+        "caption": "canada floods: Flooding downtown along Lake Shore Blvd West",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5071949362754822,
+        "text_similarity_score": 0.8799448013305664
+      },
+      {
+        "title": "Toronto gets more than a month's worth of rain in a few hours amid rainfall warning",
+        "content": "T o r o n t o   g e t s   m o r e   t h a n   a   m o n t h ' s   w o r t h   o f   r a i n   i n   a   f e w   h o u r s   a m i d   . . .",
+        "caption": "Flooding at Lake Shore Boulevard West and York Street in Toronto due to heavy rain on July 16, 2024. (Daniel Berry/CityNews)",
+        "domain": "toronto.citynews.ca",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.37142014503479004,
+        "text_similarity_score": 0.8353019952774048
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have high text similarity scores (0.87 and 0.83) indicating the captions are very similar. However, the image similarity scores (0.50 and 0.37) are low, meaning the candidate images do not strongly match the news image. Both candidates refer to flooding on Lake Shore Boulevard West in Toronto, supporting the news caption's location. Candidate 2 mentions 'heavy rain on July 16, 2024' which provides a possible context for the flooding. Since the image similarity scores are low, the evidence is not strong enough to confirm the caption. Thus, the verdict is False.",
+      "supporting_evidences": [
+        "Candidate 1: Caption mentions 'Flooding downtown along Lake Shore Blvd West'",
+        "Candidate 2: Caption mentions 'Flooding at Lake Shore Boulevard West and York Street in Toronto due to heavy rain on July 16, 2024.'"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check results indicate the image does not strongly match the news caption. The text similarity scores are high, but the image similarity scores are low. The news caption is \"Flooding along Lake Shore Boulevard West in downtown Toronto\", while the image shows a car driving through floodwater on a street. The image check result has two candidates that support the location in the caption but provides insufficient evidence to confirm the caption matches the image. Thus, the final verdict is OOC=True.",
+    "validation_summary": "The image shows a car driving through flood water, but the supporting image check candidates do not have strong image similarity, suggesting the caption might be misleading to viewers regarding what's happening in the image. Therefore, the image is out of context with the provided caption because the image similarity is low."
+  },
+  "inference_time": 6.778282403945923,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

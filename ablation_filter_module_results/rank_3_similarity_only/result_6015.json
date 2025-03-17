@@ -1,0 +1,51 @@
+{
+  "caption": "Sen Joni Ernst RIowa delivers the Republican response after President Obama s State of the Union address",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speaker",
+      "Speaker of the United States House of Representatives",
+      "United States House of Representatives",
+      "House Republican Conference",
+      "Legislator",
+      "Politics",
+      "Motion to vacate the chair",
+      "Mike Johnson",
+      "Kevin McCarthy",
+      "Thomas Massie"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Joni Ernst's State of the Union Republican response  full text | US politics | The Guardian",
+        "content": "J o n i   E r n s t ' s   S t a t e   o f   t h e   U n i o n   R e p u b l i c a n   r e s p o n s e      f u l l   t e x t   . . .",
+        "caption": "Senator Joni Ernst rehearses the Republican response to Barack Obamas State of the Union address.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.32957643270492554,
+        "text_similarity_score": 0.7433881759643555
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.32957643270492554 and the text similarity score is 0.7433881759643555. According to the instructions, If Image Similarity Score < 0.85 AND Text Similarity Score ≥ 0.7, we should immediately return 'False' (caption is out-of-context). Therefore, the verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result shows a confidence score of 3. However, based on the instructions, if the confidence score is 7-10, the final determination MUST be based on the image check result. The image check result shows that the image similarity score is 0.32957643270492554 and the text similarity score is 0.7433881759643555. According to the instructions, If Image Similarity Score < 0.85 AND Text Similarity Score ≥ 0.7, we should immediately return 'False' (caption is out-of-context). The image shows a woman standing in front of two flags with microphones in front of her. The caption claims that the woman is Sen Joni Ernst RIowa delivering the Republican response after President Obama s State of the Union address. Since the image does not clearly confirm this information, the caption is considered out of context, and the OOC is True. The final determination MUST be based on the image check result, therefore OOC is True.",
+    "validation_summary": "The caption identifies the person in the image as Sen Joni Ernst RIowa delivering the Republican response, but this cannot be verified from the image, making the caption out of context. Viewers would be misled into believing the image definitively shows Joni Ernst delivering a specific response when the image does not provide this confirmation."
+  },
+  "inference_time": 12.383219718933105,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

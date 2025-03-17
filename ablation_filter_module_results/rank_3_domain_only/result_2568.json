@@ -1,0 +1,66 @@
+{
+  "caption": "Donald Trump at the Republican National Convention in Cleveland on July 21",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Robert Kagan",
+      "Speech",
+      "Columnist",
+      "Public speaking",
+      "Brookings Institution",
+      "Leadership",
+      "One Wonders",
+      "Convention",
+      "Speaker",
+      "Fellow"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Ivanka Trump delivers in prime-time at the Republican convention | CNN Politics",
+        "content": "I v a n k a   T r u m p   d e l i v e r s   i n   p r i m e - t i m e   a t   t h e   R e p u b l i c a n   c o n v e n t i o n   . . .",
+        "caption": "Ivanka Trump takes the stage during the final day of the 2016 Republican National Convention at Quicken Loans Arena in Cleveland, Ohio, July 21, 2016.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "360 View of the Balloon Drop at the Republican National Convention - ABC News",
+        "content": "3 6 0   V i e w   o f   t h e   B a l l o o n   D r o p   a t   t h e   R e p u b l i c a n   N a t i o n a l   C o n v e n t i o n   . . .",
+        "caption": "Republican presidential candidate Donald Trump and his family onstage after finishing his address during the final day of the 2016 Republican National Convention at Quicken Loans Arena in Cleveland, July 21, 2016. ",
+        "domain": "abcnews.go.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Clinton Campaign Chief Suggests Russians May Be Trying to Help Trump Win - ABC News",
+        "content": "C l i n t o n   C a m p a i g n   C h i e f   S u g g e s t s   R u s s i a n s   M a y   B e   T r y i n g   t o   H e l p   . . .",
+        "caption": "Donald Trump speaks at the 2016 Republican National Convention at the Quicken Loans Arena in Cleveland, Ohio, July 21, 2016. ",
+        "domain": "abcnews.go.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption states \"Donald Trump at the Republican National Convention in Cleveland on July 21.\" Candidate 2 mentions \"Republican presidential candidate Donald Trump and his family onstage after finishing his address during the final day of the 2016 Republican National Convention at Quicken Loans Arena in Cleveland, July 21, 2016.\" Candidate 3 mentions \"Donald Trump speaks at the 2016 Republican National Convention at the Quicken Loans Arena in Cleveland, Ohio, July 21, 2016.\" These candidates confirm that Donald Trump was at the Republican National Convention in Cleveland on July 21, so the caption is in context.",
+      "supporting_evidences": [
+        "Republican presidential candidate Donald Trump and his family onstage after finishing his address during the final day of the 2016 Republican National Convention at Quicken Loans Arena in Cleveland, July 21, 2016.",
+        "Donald Trump speaks at the 2016 Republican National Convention at the Quicken Loans Arena in Cleveland, Ohio, July 21, 2016."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result shows a confidence score of 7. Based on the image check result, the news caption provides a correct representative summary of the image content. The image check mentions \"Donald Trump at the Republican National Convention in Cleveland on July 21.\" Candidate 2 mentions \"Republican presidential candidate Donald Trump and his family onstage after finishing his address during the final day of the 2016 Republican National Convention at Quicken Loans Arena in Cleveland, July 21, 2016.\" Candidate 3 mentions \"Donald Trump speaks at the 2016 Republican National Convention at the Quicken Loans Arena in Cleveland, Ohio, July 21, 2016.\" These candidates confirm that Donald Trump was at the Republican National Convention in Cleveland on July 21, so the caption is in context.",
+    "validation_summary": "The caption accurately describes the image, depicting Donald Trump at the Republican National Convention in Cleveland on July 21, which aligns with the image content and external validations. Therefore, viewers would not be misled about what they're seeing."
+  },
+  "inference_time": 5.634303092956543,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

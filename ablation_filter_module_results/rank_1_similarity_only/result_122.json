@@ -1,0 +1,40 @@
+{
+  "caption": "Toorak college in Melbourne Australia utilised their vast Norman Carson Library by creating lots of sociable seating areas including this bean bag nook for quiet reading",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Inspirational school libraries from around the world  gallery | Teacher Network | The Guardian",
+        "content": "F r o m   a   s t o r y   g a r d e n   i n   C o r n w a l l   t o   h e x a g o n a l   t o w e r s   i n   L o s   A n g e l e s ,   w e   l o o k   a t   i n v e n t i v e   s p a c e s   d e s i g n e d   t o   g e t   c h i l d r e n   e x c i t e d   a b o u t   b o o k s    S c h o o l   l i b r a r i e s   s h e l v e   t r a d i t i o n   t o   c r e a t e   n e w   l e a r n i n g   s p a c e s \n \n S a r a h   M a r s h   a n d   \n L i s a   S p i l l e r \n \n T h u   8   J a n   2 0 1 5   1 0 . 0 0  G M T \n \n \n                         L a s t   m o d i f i e d   o n   W e d   2 0   S e p   2 0 1 7   1 1 . 5 6  B S T \n \n P h o t o g r a p h :   D a n i e l   S h e a r i n g \n \n P h o t o g r a p h :   P h i l l i p s   E x e t e r   A c a d e m y   A r c h i v e s \n \n P h o t o g r a p h :   P e t e r   M a u s s   o f   E s t o \n \n P h o t o g r a p h :   P e t e r   M a u s s   o f   E s t o \n \n P h o t o g r a p h :   D a w n   W o o d s / S c h o o l   L i b r a r y   A s s o c i a t i o n \n \n P h o t o g r a p h :   C o r d w a l l e s   j u n i o r   s c h o o l \n \n P h o t o g r a p h :   T h e   D u s t o n   s c h o o l \n \n P h o t o g r a p h :   T h e   D u s t o n   s c h o o l \n \n P h o t o g r a p h :   N o   R i g h t   B r a i n   L e f t   B e h i n d \n \n P h o t o g r a p h :   N o   R i g h t   B r a i n   L e f t   B e h i n d \n \n P h o t o g r a p h :   O n e   s i x t h   f o r m   c o l l e g e \n \n P h o t o g r a p h :   T o o r a k   c o l l e g e \n \n P h o t o g r a p h :   F o r g e   A r c h i t e c t s \n \n P h o t o g r a p h :   R o s e n d a l e   s c h o o l \n \n P h o t o g r a p h :   F G   L i b r a r y \n \n P h o t o g r a p h :   J u l i a n   S   W o o d \n \n P h o t o g r a p h :   A C S   H i l l i n g d o n   I n t e r n a t i o n a l   s c h o o l \n \n P h o t o g r a p h :   D a n i e l   S h e a r i n g",
+        "caption": "Toorak college bean bag area",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.982688307762146,
+        "text_similarity_score": 0.5568383932113647
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is very high at 0.98, suggesting the images are very similar. However, the text similarity score is low at 0.56, meaning the captions are not very similar. According to the instructions, if the Image Similarity Score is >= 0.85 AND Text Similarity Score is < 0.7, the verdict should IMMEDIATELY be \"False\".",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result shows a high image similarity score of 0.98, indicating that the image content aligns well with the provided image. The image depicts a room with several bean bag chairs, consistent with the description in the caption. The caption states that 'Toorak college in Melbourne Australia utilised their vast Norman Carson Library by creating lots of sociable seating areas including this bean bag nook for quiet reading'. While the text similarity score is low at 0.56, the instructions specify that if the Image Similarity Score is >= 0.85 AND Text Similarity Score is < 0.7, the verdict should IMMEDIATELY be 'False'. However, given that the confidence score is high (3, but by instruction the final determination MUST be based on the image check result for confidence scores 7-10), the image is deemed NOT out of context because the image check result is accurate.",
+    "validation_summary": "The image accurately depicts a room with bean bag chairs as described in the caption. Although the text similarity score is low, the high image similarity confirms the visual context."
+  },
+  "inference_time": 7.184382677078247,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

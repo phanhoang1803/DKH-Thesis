@@ -1,0 +1,46 @@
+{
+  "caption": "Rapper Kanye West and his wife Kim KardashianWest attend the Rihanna party at The New York Edition in New York City",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "7 most talked about moments at New York Fashion Week (so far) | Irish Independent",
+        "content": "7   m o s t   t a l k e d   a b o u t   m o m e n t s   a t   N e w   Y o r k   F a s h i o n   W e e k   ( s o   f a r   . . .",
+        "caption": "(L-R) Kanye West and Kim Kardashian-West attend the Rihanna Party at The New York Edition on September 10, 2015 in New York City.  (Photo by Michael Loccisano/Getty Images for EDITION)",
+        "domain": "www.independent.ie",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.331248939037323,
+        "text_similarity_score": 0.8788755536079407
+      },
+      {
+        "title": "Kim Kardashian tries gothic look, covers growing bump in sheer lace for Givenchy at NYFW | Irish Independent",
+        "content": "K i m   K a r d a s h i a n   t r i e s   g o t h i c   l o o k ,   c o v e r s   g r o w i n g   b u m p   i n   s h e e r   . . .",
+        "caption": "(L-R) Kanye West and Kim Kardashian-West attend the Rihanna Party at The New York Edition on September 10, 2015 in New York City.  (Photo by Michael Loccisano/Getty Images for EDITION)",
+        "domain": "www.independent.ie",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.30407118797302246,
+        "text_similarity_score": 0.8788755536079407
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have a low image similarity score (< 0.85), so according to the instructions, it should be labelled as \"False\". Although the text similarity score is high (>= 0.7), the image similarity score is low. Therefore, the verdict is \"False\". The captions of both candidate evidences contain the names 'Kanye West' and 'Kim Kardashian-West', and mention 'Rihanna Party at The New York Edition', aligning with the news caption. However, due to the low image similarity scores, I cannot confidently confirm that the news image accurately represents the described event in the candidate images.",
+      "supporting_evidences": [
+        "Candidate 1 Caption: (L-R) Kanye West and Kim Kardashian-West attend the Rihanna Party at The New York Edition on September 10, 2015 in New York City.",
+        "Candidate 2 Caption: (L-R) Kanye West and Kim Kardashian-West attend the Rihanna Party at The New York Edition on September 10, 2015 in New York City."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low image similarity score between the provided image and the candidate images associated with the caption. Despite a high text similarity score, the low image similarity score leads to the determination that the caption is \"False\" because I cannot confidently confirm that the news image accurately represents the event described in the candidate images. The people in the image are Kim Kardashian and Kanye West.",
+    "validation_summary": "The image does not accurately represent the event described in the caption, so viewers would be misled about what they're seeing. The image check result confirms the mismatch."
+  },
+  "inference_time": 4.690567255020142,
+  "ablation_type": "no_image_evidences"
+}

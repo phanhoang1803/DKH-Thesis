@@ -1,0 +1,43 @@
+{
+  "caption": "Paceman Mitchell Johnson looks skywards as he celebrates claiming the wicket of Kane Williamson caught and bowled as Australia take early control of the match",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Test cricket",
+      "Cricket",
+      "First-class cricket",
+      "Limited overs cricket",
+      "One Day International",
+      "Team",
+      "Over",
+      "referee"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Cricket World Cup 2015: Australia v New Zealand final  in pictures | Sport | The Guardian",
+        "content": "C r i c k e t   W o r l d   C u p   2 0 1 5 :   A u s t r a l i a   v   N e w   Z e a l a n d   f i n a l      i n   . . .",
+        "caption": "Paceman Mitchell Johnson looks skywards as he celebrates claiming the wicket of Kane Williamson, caught and bowled as Australia take early control of the match.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.35148048400878906,
+        "text_similarity_score": 0.9535347819328308
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.35148048400878906, which is less than 0.85. The text similarity score is 0.9535347819328308, which is greater than 0.7. According to the instruction, I should return False immediately. The image similarity score is low, so the candidate image doesn't match the news image. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result shows a low image similarity score of 0.35148048400878906, which is less than 0.85, and a high text similarity score of 0.9535347819328308, which is greater than 0.7. The low image similarity score indicates that the candidate image does not match the news image. In the provided image, two cricket players are visible, both wearing Australian team jerseys. One player has his hand on the other player's head, and both appear to be celebrating or in good spirits. The caption describes Mitchell Johnson celebrating a specific play: 'Paceman Mitchell Johnson looks skywards as he celebrates claiming the wicket of Kane Williamson, caught and bowled as Australia take early control of the match.' However, without additional context or a clearer view, it is impossible to verify from the image alone if this is Mitchell Johnson or if he is celebrating that specific play or if the other player is Kane Williamson. Thus, due to the image check result and the inability to verify specific claims of the caption from the image alone, the image is out of context.",
+    "validation_summary": "The image check indicates that the provided image is out of context with the news caption. The image depicts two cricket players celebrating, but it's impossible to confirm from the image if it portrays the specific event described in the caption, which refers to Mitchell Johnson's play against Kane Williamson, making the caption misleading in this context."
+  },
+  "inference_time": 6.157933473587036,
+  "ablation_type": "no_image_evidences"
+}

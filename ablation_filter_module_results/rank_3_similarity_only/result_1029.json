@@ -1,0 +1,58 @@
+{
+  "caption": "Leaked images of Apple s new trackpad for desktop Macs Images by Engadget",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Channel Master Introduces $10 Antenna With Free Shipping",
+        "content": "",
+        "caption": "",
+        "domain": "www.globenewswire.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.995646595954895,
+        "text_similarity_score": 0.07080495357513428
+      },
+      {
+        "title": "How to Find the Stream Live TV Streaming Service for Your Interests & Budget - Hotdog",
+        "content": "",
+        "caption": "",
+        "domain": "www.killthecablebill.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9763489961624146,
+        "text_similarity_score": 0.07080495357513428
+      },
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "brainstudy.info",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9745131731033325,
+        "text_similarity_score": 0.07080495357513428
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for all provided candidates are high (>= 0.85), indicating a strong visual match between the candidate images and the news image. However, the caption similarity scores are low (< 0.7) for all candidates, indicating that the captions of the candidate evidences do not match well with the news caption. Because the image similarity scores are high while the caption similarity scores are low, this immediately leads to a False verdict based on the instructions provided. Moreover, without access to the candidate captions and content, it's impossible to confirm whether the news caption aligns with the image content. Therefore, based on the provided information and instructions, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result shows a high image similarity score and a low caption similarity score, resulting in a \"False\" verdict. The image check result indicates the caption is out of context. Furthermore, the image depicts a black Channel Master antenna and it does not depict or suggest a trackpad for Apple desktop Macs as the news caption suggests, therefore, the caption is misleading. Therefore, the image is out of context.",
+    "validation_summary": "The caption is misleading as it does not accurately describe the image of an antenna. Viewers would be misled about the actual content of the image because it is not representative of an Apple trackpad for desktop Macs as the caption indicates."
+  },
+  "inference_time": 6.664719581604004,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

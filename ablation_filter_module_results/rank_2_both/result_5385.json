@@ -1,0 +1,40 @@
+{
+  "caption": "Iran s Supreme Leader Ayatollah Ali Khamenei seen here in a meeting with religious poets has said that he is neither for nor against the deal",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Ahmed Wali Karzai | The Guardian",
+        "content": "L e a k e d   d i s p a t c h e s   a l l e g e   ' k i n g p i n   o f   K a n d a h a r '   i s   e n g a g e d   i n   i l l i c i t   e n t e r p r i s e s   i n   A f g h a n i s t a n ' s   s e c o n d   c i t y",
+        "caption": "Ahmed Wali Karzai, the Afghan president's half-brother, speaks with tribal leaders",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9808241724967957,
+        "text_similarity_score": 0.3390325903892517
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.98, which indicates that the images are very similar. However, the text similarity score is 0.33, which indicates that the captions are not similar. Therefore, the caption is out-of-context. The candidate caption talks about Ahmed Wali Karzai while the news caption talks about Iran's Supreme Leader Ayatollah Ali Khamenei. There is no obvious connection between the candidate and the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result reveals a high image similarity score (0.98) between the original image and the cropped images, indicating that the crops are representative of the whole image. However, the text similarity score is low (0.33). This strongly suggests that the caption provided does not accurately describe the content of the image. The image features a gathering of men in traditional clothing, likely in a Middle Eastern or South Asian setting, while the caption refers to Iran's Supreme Leader Ayatollah Ali Khamenei in a meeting with religious poets. There is no direct visual evidence in the image to support the claim that it depicts this specific event or the mentioned individuals. Therefore, the caption is out of context.",
+    "validation_summary": "The caption is misleading because it describes a specific political meeting involving Iran's Supreme Leader, which is not visually represented in the image, potentially leading viewers to believe the image depicts the described event when it does not. The image shows a general gathering of men and does not provide any indication of the individuals or context mentioned in the caption, making the caption out of context and misleading to viewers seeking accurate information about the image content."
+  },
+  "inference_time": 6.652024030685425,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

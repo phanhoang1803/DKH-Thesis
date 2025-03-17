@@ -1,0 +1,45 @@
+{
+  "caption": "Connecticut Huskies guardforward Niels Giffey grabs a loose ball over Michigan State Spartans guardforward Branden Dawson during the first half",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Basketball",
+      "Slam dunk",
+      "Dribbling",
+      "Crossover dribble",
+      "Netball",
+      "Block"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "All the NCAA tournament third-round action",
+        "content": "A l l   t h e   N C A A   t o u r n a m e n t   t h i r d - r o u n d   a c t i o n",
+        "caption": "Arizona Wildcats forward Rondae Hollis-Jefferson (23) battles for a loose ball with Gonzaga Bulldogs forward/center Sam Dower (right) during the first half of their third-round game.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Thus, I need to analyze the content of the captions and candidate to make the final decision. The news caption describes a basketball game between Connecticut Huskies and Michigan State Spartans. The candidate caption describes a basketball game between Arizona Wildcats and Gonzaga Bulldogs. There is no matching entity between the news caption and the candidate caption. Therefore, the candidate does not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 2, which is less than 7. Therefore, I need to conduct a thorough analysis based on the image content and the news caption. The news caption mentions that the image shows Niels Giffey and Branden Dawson during a basketball game between Connecticut Huskies and Michigan State Spartans. Based on the image, there are players wearing 'UCONN' jerseys and 'Michigan State' jerseys, thus Connecticut Huskies and Michigan State Spartans are on the image. The news caption is a correct description of the image content. However, according to the image check result, the image similarity score is 0.0 and the text similarity score is 0.0. Thus, I need to use the image check result to make the final decision. The image check result shows that the candidate does not support the news caption. Therefore, the image is out of context.",
+    "validation_summary": "The image check result indicates that the candidate caption doesn't support the news caption's description of the image, thus the caption does not match the image content. Viewers would be misled about the context of the image if they were to rely on the given caption as it does not accurately represent the image's actual content."
+  },
+  "inference_time": 4.65941309928894,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

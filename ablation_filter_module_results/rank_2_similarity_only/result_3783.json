@@ -1,0 +1,49 @@
+{
+  "caption": "Crow at the Durham Miners Gala calling for the creation of a new party of labour",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Visitors To Sundance: Beware of Crows Bearing Gifts.  Fresh Images From Chris Morris' Terrorist Comedy FOUR LIONS.",
+        "content": "",
+        "caption": "Visitors To Sundance: Beware of Crows Bearing Gifts.  Fresh Images From Chris Morris' Terrorist Comedy FOUR LIONS.",
+        "domain": "screenanarchy.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8245100378990173,
+        "text_similarity_score": 0.3288614749908447
+      },
+      {
+        "title": "Who Says Terrorism Can't Be Funny? The First Proper Trailer For Chris Morris' FOUR LIONS Says Otherwise!",
+        "content": "",
+        "caption": "Who Says Terrorism Can't Be Funny? The First Proper Trailer For Chris Morris' FOUR LIONS Says Otherwise!",
+        "domain": "screenanarchy.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8245100378990173,
+        "text_similarity_score": 0.11626042425632477
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidate images have low Image Similarity Scores (< 0.85) and Text Similarity Scores (< 0.7). The candidate captions are about a movie named \\\"FOUR LIONS\\\" and do not have anything to do with the \\\"Durham Miners Gala\\\" event or \\\"a new party of labour\\\". Therefore, the candidate images and their captions do not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a black bird with a package strapped to its body. The caption says 'Crow at the Durham Miners Gala calling for the creation of a new party of labour'. The image check result indicates a low image similarity score and text similarity score between the image and the caption. The caption also makes no reference to the image content showing a package strapped to the crow. Therefore, the caption is not a correct representative summary of the image content.",
+    "validation_summary": "The image shows a crow with a package strapped to its body, while the caption claims the crow is at the Durham Miners Gala calling for a new party of labor. Viewers would be misled about the image's context and what the crow is doing in the image."
+  },
+  "inference_time": 8.593849420547485,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

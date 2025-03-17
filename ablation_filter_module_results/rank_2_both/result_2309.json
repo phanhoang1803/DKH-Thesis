@@ -1,0 +1,51 @@
+{
+  "caption": "NASCAR Sprint Cup Series driver Denny Hamlin with his girlfriend Jordan Fish and their daughter Taylor and Jimmie Johnson before the Aaron s 499 at Talladega Superspeedway",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Auto racing",
+      "BMW E9",
+      "Race of Champions",
+      "BMW New Six",
+      "Rallycross",
+      "Sports car racing",
+      "Racing",
+      "Drag racing",
+      "Endurance racing",
+      "Stock car racing"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Aaron's 499 at Talladega Superspeedway",
+        "content": "A a r o n ' s   4 9 9   a t   T a l l a d e g a   S u p e r s p e e d w a y",
+        "caption": "NASCAR Sprint Cup Series driver Denny Hamlin (11) with his girlfriend Jordan Fish and their daughter Taylor and Jimmie Johnson (48) before the Aaron's 499 at Talladega Superspeedway.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.22034497559070587,
+        "text_similarity_score": 0.9561716914176941
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.22034497559070587, which is less than 0.85. Also, the text similarity score is 0.9561716914176941, which is greater than 0.7. According to the instruction, the caption must be marked as out-of-context, even if the text similarity score is high.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image is out of context. The image similarity score is 0.22034497559070587, which is less than 0.85, indicating a low similarity between the image and the caption's content. While the text similarity score is 0.9561716914176941, which is high, the instruction states that the caption must be marked as out-of-context due to the low image similarity score. The image shows a pack of NASCAR cars racing on a track, while the caption describes Denny Hamlin, Jordan Fish, their daughter Taylor, and Jimmie Johnson before the Aaron's 499 race. These elements are not visible in the provided image.",
+    "validation_summary": "The caption describes specific individuals and a scene that are not visible in the image, which depicts a group of race cars on a track, misleading viewers about the image's content. Based on the image check result, the image is out of context."
+  },
+  "inference_time": 4.4443745613098145,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

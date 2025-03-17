@@ -1,0 +1,38 @@
+{
+  "caption": "Louisville Cardinals wide receiver Andrell Smith runs after a pass reception against Pittsburgh Panthers defensive back Jason Hendricks during the second quarter at Heinz Field",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "College football Week 7",
+        "content": "C o l l e g e   f o o t b a l l   W e e k   7",
+        "caption": "Pittsburgh Panthers wide receiver Cameron Saddler (5) falls out of the end zone after scoring on a seven yard touchdown reception against the Louisville Cardinals during the first quarter at Heinz Field.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption mentions 'Pittsburgh Panthers wide receiver Cameron Saddler' scoring a touchdown against the 'Louisville Cardinals' at 'Heinz Field', while the news caption describes 'Louisville Cardinals wide receiver Andrell Smith' running against 'Pittsburgh Panthers defensive back Jason Hendricks' at the same location. The players and the actions described are different, indicating that the candidate image and caption do not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows two football players in action during a game. One player wears a red jersey with the number 3 and the letter 'C'. The other player wears a white jersey with the number 11 and the South Carolina logo. The provided caption describes a game between Louisville Cardinals and Pittsburgh Panthers, which contradicts the teams and players visible in the image. The image check result also supports the OOC determination with a low similarity score.",
+    "validation_summary": "The caption is inaccurate as the image depicts a football game between different teams and players than those mentioned in the caption, leading to a misrepresentation of the visual content and the news article it accompanies. The caption would mislead viewers about the content of the image."
+  },
+  "inference_time": 3.5351903438568115,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

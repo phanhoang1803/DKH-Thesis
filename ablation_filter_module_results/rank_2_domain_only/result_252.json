@@ -1,0 +1,47 @@
+{
+  "caption": "Protesters at the Syrian embassy in Berlin one of the capitals where demonstrations have broken out after the massacre in Homs",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Syrian embassies in London and Cairo attacked over Homs massacre | London | The Guardian",
+        "content": "S y r i a n   e m b a s s i e s   i n   L o n d o n   a n d   C a i r o   a t t a c k e d   o v e r   H o m s   m a s s a c r e   . . .",
+        "caption": "Protesters at the Syrian embassy in Berlin, one of the capitals where demonstrations have broken out after the massacre in Homs. Photograph: John MacDougall/AFP/Getty",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "US lifts $10m bounty on HTS leader after talks in Syrian capital | Syria | The Guardian",
+        "content": "U S   l i f t s   $ 1 0 m   b o u n t y   o n   H T S   l e a d e r   a f t e r   t a l k s   i n   S y r i a n   c a p i t a l   . . .",
+        "caption": "People gather for a celebration called by Hayat Tahrir al-Sham in Damascus on Friday.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption describes \"Protesters at the Syrian embassy in Berlin one of the capitals where demonstrations have broken out after the massacre in Homs\".\nCandidate 1 has the exact same caption as the news article. Candidate 2 has a caption that is totally different from the news article.\nAlthough Candidate 1 shares the exact caption, both candidates have a low image similarity score, which means the images are not similar. However, given that Candidate 1 comes from a reliable domain, there is moderate confidence that the news article is related to the caption. Due to the low image similarity score, the confidence score is not high.",
+      "supporting_evidences": [
+        "Protesters at the Syrian embassy in Berlin, one of the capitals where demonstrations have broken out after the massacre in Homs. Photograph: John MacDougall/AFP/Getty"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows a group of people holding a Syrian flag. The caption mentions \"Protesters at the Syrian embassy in Berlin one of the capitals where demonstrations have broken out after the massacre in Homs\". Although the image shows people holding a Syrian flag, there is no visual evidence that this is taking place in Berlin or at a Syrian embassy. The Image Check Result confirms this. Thus, the caption misrepresents what is shown in the image, making it out of context.",
+    "validation_summary": "The caption claims the photo is of protesters at the Syrian embassy in Berlin, but the image does not confirm this location. Without visual evidence of Berlin or a Syrian embassy, the viewer could be misled by the caption's claim about the photo's context."
+  },
+  "inference_time": 5.38430643081665,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

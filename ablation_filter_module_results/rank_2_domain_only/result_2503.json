@@ -1,0 +1,38 @@
+{
+  "caption": "Tiger Woods has a lot riding on the final round of the Wyndham Championship in Greensboro NC",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Time catches up with Lions, Tiger, NBAs bear  San Diego Union-Tribune",
+        "content": "T i m e   c a t c h e s   u p   w i t h   L i o n s ,   T i g e r ,   N B A ' s   b e a r      S a n   D i e g o   U n i o n   . . .",
+        "caption": "FILE - In this Aug. 21, 2015, file photo, Tiger Woods reacts after missing a putt on the ninth hole during the second round of the Wyndham Championship golf tournament in Greensboro, N.C. Tiger Woods painted a bleak picture Tuesday, Dec. 1, 2015,  on when he can return to golf or even get back to doing anything more than just walking.(AP Photo/Chuck Burton)",
+        "domain": "www.sandiegouniontribune.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. The candidate mentions Tiger Woods at the Wyndham Championship in Greensboro, N.C. but lacks enough supporting information (such as the final round) to confirm the caption's accuracy. Therefore, I cannot confirm the caption's information.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a low image similarity score (0.0) and a low caption similarity score (0.0). It also states that the caption mentions Tiger Woods at the Wyndham Championship in Greensboro, N.C., but it lacks sufficient supporting evidence (such as the final round) to confirm the caption's accuracy, leading to the conclusion that it cannot confirm the caption's information. \n\nBased on the image, it shows a crowd of people, many with umbrellas, watching a golf event. While the image could possibly show Tiger Woods playing at the Wyndham Championship, there's no direct evidence within the image to confirm this. Given the image check's inability to confirm the caption's accuracy and the lack of explicit visual confirmation in the image, the caption is deemed out of context.",
+    "validation_summary": "The caption mentions Tiger Woods at the Wyndham Championship, but the image provides no clear indication that he is present or that the event is related to the final round, leading to a mismatch. Therefore, viewers may be misled about the image's content if the caption is used to describe the image's event details with low similarity score and similarity image score provided by image check result, it's out of context to the image. For confidence scores 7-10, final determination \"MUST\" be based on the image check result, and the decision must be made for OOC=true in this case (OOC=false otherwise)."
+  },
+  "inference_time": 4.995330572128296,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

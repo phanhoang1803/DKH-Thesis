@@ -1,0 +1,58 @@
+{
+  "caption": "Apple unveiled new AirPods wireless headphones for its new iPhone 7",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Hurricane Sandy",
+      "Seaside Heights Boardwalk",
+      "Beach",
+      "Storm",
+      "Tropical Cyclone",
+      "Dune",
+      "Coast",
+      "Storm surge",
+      "2012",
+      "Sand"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Apple bets big on a wireless world  The Denver Post",
+        "content": "A p p l e   b e t s   b i g   o n   a   w i r e l e s s   w o r l d      T h e   D e n v e r   P o s t",
+        "caption": "A new Apple iPhone 7 is seen during a launch event on September 7, 2016 in San Francisco, California. Apple Inc. unveiled the latest iterations of its smart phone, the iPhone 7 and 7 Plus, the Apple Watch Series 2, as well as AirPods, the tech giant's first wireless headphones.  ",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "iPhone 7: Apple to unveil new wireless Beats alongside phone without headphone jack, leaked email suggests | The Independent | The Independent",
+        "content": "i P h o n e   7 :   A p p l e   t o   u n v e i l   n e w   w i r e l e s s   B e a t s   a l o n g s i d e   p h o n e   . . .",
+        "caption": "An Apple Store employee tries on a pair of headphones during a press preview of the new flagship Apple Store on May 19, 2016 in San Francisco, California",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have low image and text similarity scores, indicating that they do not strongly match the news caption. However, candidate 1 mentions the unveiling of AirPods during an Apple event for the iPhone 7. While this does not confirm the entirety of the news caption verbatim, it supports the claim that Apple unveiled new AirPods with the iPhone 7. Candidate 2 is irrelevant. Because candidate 1 has details related to the caption, it is marked as partially verified.",
+      "supporting_evidences": [
+        "Candidate 1 mentions the unveiling of AirPods during an Apple event for the iPhone 7."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows before and after pictures of a pier and surrounding area after a storm. The caption refers to Apple unveiling new AirPods wireless headphones for its new iPhone 7. Since the image content is unrelated to the caption, the image is out of context. The image check result supports this.",
+    "validation_summary": "The image shows storm damage to a pier, while the caption discusses Apple's new AirPods, misleading viewers about the image's content and relevance to the news article mentioned in the news content. The high confidence score is due to the clear mismatch between the image and caption, as confirmed by the image check result."
+  },
+  "inference_time": 6.132404565811157,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

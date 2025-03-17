@@ -1,0 +1,50 @@
+{
+  "caption": "President Obama returns to the White House on July 17 2014",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Sikorsky Aircraft",
+      "Sikorsky S-76",
+      "Sikorsky S-92",
+      "Sikorsky S-70",
+      "Bell 212",
+      "Bell UH-1 Iroquois",
+      "Helicopter",
+      "Bell 214",
+      "Sikorsky UH-60 Black Hawk",
+      "Sikorsky S-64 Skycrane"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Obama's birthday: 53 photos from his past year",
+        "content": "O b a m a ' s   b i r t h d a y :   5 3   p h o t o s   f r o m   h i s   p a s t   y e a r",
+        "caption": "President Obama turns 53 on Monday. USA TODAY Network looks back at Obama's year with an image from each week.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "President Obama: \"Russia Is Once Again Isolating Itself from the International Community\" | whitehouse.gov",
+        "content": "P r e s i d e n t   O b a m a :   \" R u s s i a   I s   O n c e   A g a i n   I s o l a t i n g   I t s e l f   f r o m   t h e   . . .",
+        "caption": "President Barack Obama delivers a statement on the situation in Ukraine, on the South Lawn of the White House, July 29, 2014",
+        "domain": "obamawhitehouse.archives.gov",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The available candidates do not provide strong evidence to support the news caption. Neither of the candidates has high image or text similarity scores. Candidate 1 mentions Obama's birthday but doesn't confirm his return to the White House on July 17, 2014. Candidate 2 mentions a statement on Ukraine delivered on July 29, 2014, which does not align with the date in the news caption. Because neither candidate provides supporting details for the event and date in the news caption, the caption cannot be verified.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a man, presumably President Obama, walking away from Marine One in front of the Washington Monument at night. The caption states \"President Obama returns to the White House on July 17 2014\". The image check result indicates that the supporting evidences failed to provide supporting details for the event and date in the news caption, and the caption cannot be verified. Thus, the caption is misleading.",
+    "validation_summary": "The caption cannot be verified since the supporting evidences failed to provide supporting details for the event and date. Viewers would be misled about the image content since the date and event of the caption are not confirmed."
+  },
+  "inference_time": 4.933139085769653,
+  "ablation_type": "no_filters"
+}

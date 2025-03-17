@@ -1,0 +1,40 @@
+{
+  "caption": "Donald Trump during Wednesday night s debate in Las Vegas",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Page not found  San Diego Union-Tribune",
+        "content": "",
+        "caption": "",
+        "domain": "www.sandiegouniontribune.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9446665048599243,
+        "text_similarity_score": 0.04823853820562363
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is high (0.9446665048599243), suggesting that the images are similar. However, the caption similarity score is low (0.04823853820562363), which means the captions do not match. Based on the instructions, if the Image Similarity Score is >= 0.85 AND Text Similarity Score is < 0.7, the verdict should be False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result shows a high image similarity score (0.9446665048599243) and a low caption similarity score (0.04823853820562363). The image shows Donald Trump standing at a podium, speaking into a microphone and pointing. The caption states 'Donald Trump during Wednesday night s debate in Las Vegas'. While it is possible the image was taken during that debate, without more specific information linking the image to that specific event, the low caption similarity score indicates that the caption does not accurately represent the image content. Therefore, the caption is considered out of context.",
+    "validation_summary": "The image is a generic shot of Trump speaking at a podium, and the caption tries to tie it to a specific event without sufficient evidence. Viewers may be misled into believing the image is directly related to that particular debate."
+  },
+  "inference_time": 5.808390140533447,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "caption": "A Ladbrokes bookmakers in southeast London",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "The big gamble: the dangerous world of British betting shops | Ladbrokes | The Guardian",
+        "content": "T h e   b i g   g a m b l e :   t h e   d a n g e r o u s   w o r l d   o f   B r i t i s h   b e t t i n g   s h o p s   . . .",
+        "caption": "9th May 2016- London: Betting shops. (Photography by Graeme Robertson) Photograph: Graeme Robertson/The Guardian",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. The candidate caption mentions betting shops in London, which aligns with the news caption's mention of a Ladbrokes bookmakers in southeast London. However, without a matching image or stronger textual similarity, it's difficult to confirm if the news image specifically shows the location described in the caption. There is no information about the southeast London location.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 3, but given the content of the image which is a Ladbrokes betting shop, the caption is generally correct that it shows a Ladbrokes in London. However, the image check result indicates that there is no information about the southeast London location from the news caption. Therefore, the caption is considered out of context.",
+    "validation_summary": "While the image does show a Ladbrokes betting shop, the specific claim about the location cannot be verified, so the image is considered out of context of the news content. Viewers might be misled if they believe the picture specifically represents the area mentioned in the caption."
+  },
+  "inference_time": 4.317902088165283,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

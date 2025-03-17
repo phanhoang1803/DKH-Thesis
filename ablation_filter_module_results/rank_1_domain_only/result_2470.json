@@ -1,0 +1,38 @@
+{
+  "caption": "Russian President Vladimir Putin speaks during a media forum in St Petersburg on April 7",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "What did Putin say at Russias flagship economic forum? | Russia-Ukraine war News | Al Jazeera",
+        "content": "W h a t   d i d   P u t i n   s a y   a t   R u s s i a ' s   f l a g s h i p   e c o n o m i c   f o r u m ?   |   R u s s i a   . . .",
+        "caption": "Russian President Vladimir Putin speaks during a session of the St. Petersburg International Economic Forum (SPIEF) in Saint Petersburg, Russia",
+        "domain": "www.aljazeera.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. The available candidate mentions Russian President Vladimir Putin speaking at the St. Petersburg International Economic Forum (SPIEF). The news caption mentions a media forum in St Petersburg on April 7. These are different events, so I cannot verify the news caption based on the provided evidence. Therefore, the verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a low similarity between the provided caption and the potential context of the image. While the caption mentions a 'media forum in St Petersburg on April 7,' the image check result suggests the event might be related to the St. Petersburg International Economic Forum (SPIEF). Because the image check resulted in a false verdict, I will adhere to it.",
+    "validation_summary": "The image is out of context because the news caption is not representative of the St. Petersburg International Economic Forum (SPIEF), which is what the image check result suggests the image is a depiction of, rather than the event in the caption.. Therefore, viewers would be misled about what they're seeing in the image if the caption is used to describe the image's context. Therefore the image is OOC=True as it misrepresents the image content based on the information provided by the image check result with a confidence of 8/10 since the image check result suggests that this is the St. Petersburg International Economic Forum (SPIEF). Given the false verdict, the overall score remains high since the caption should be considered false. Therefore the final answer is OOC=True since the image caption misrepresents the image content with a confidence of 8/10 based on the image check result's verdict of false and the supporting evidence it provided, that the events are different ('media forum in St Petersburg on April 7' vs the St. Petersburg International Economic Forum (SPIEF).). However, note that if the confidence score were higher in the image check I would follow those directions. But because of the low confidence score I tried to consider if the image aligns with the description but did not find additional evidence for that conclusion."
+  },
+  "inference_time": 4.748892068862915,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

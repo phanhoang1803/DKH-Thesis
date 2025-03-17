@@ -1,0 +1,38 @@
+{
+  "caption": "President Barack Obama speaks at a Democratic National Committee campaign fundraising event at Austin City Limits Moody Theater in Austin Texas Tuesday May 10 2011",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Nov. 8, 2022 US election coverage | CNN Politics",
+        "content": "N o v .   8 ,   2 0 2 2   U S   e l e c t i o n   c o v e r a g e   |   C N N   P o l i t i c s",
+        "caption": "Rep. Chris Pappas is congratulated by supporters at an election night gathering in Manchester, New Hampshire on Tuesday, November 8.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. Thus, I should perform an analysis based on the captions and candidate to give the final decision. The candidate caption does not mention President Barack Obama, a Democratic National Committee campaign fundraising event, Austin City Limits Moody Theater, Austin Texas, or the date May 10, 2011. Therefore, the candidate does not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 1, which is below 7. However, based on the image check, the candidate caption does not mention President Barack Obama, a Democratic National Committee campaign fundraising event, Austin City Limits Moody Theater, Austin Texas, or the date May 10, 2011. Therefore, the candidate does not support the news caption. The image shows Barack Obama but no evidence to support the rest of the caption claims. The caption makes specific claims about the location and event that are not verifiable from the image alone, suggesting that the caption is not an accurate summary of the image content.",
+    "validation_summary": "The caption's claim about the specific event and location is not supported by the image of Barack Obama, potentially misleading viewers about the image's context, and the image check supports that conclusion.. Therefore, the image is out of context with the caption provided. "
+  },
+  "inference_time": 3.541008472442627,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

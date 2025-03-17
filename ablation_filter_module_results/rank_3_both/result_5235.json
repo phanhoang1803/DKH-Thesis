@@ -1,0 +1,40 @@
+{
+  "caption": "Coles and Maxwell listen to Kayne Gillaspie describe his design",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Behind-the-scenes with USA TODAY and 'Project Runway'",
+        "content": "B e h i n d - t h e - s c e n e s   w i t h   U S A   T O D A Y   a n d   ' P r o j e c t   R u n w a y '",
+        "caption": "Coles and Maxwell listen to Kayne Gillaspie describe his design.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.10372363030910492,
+        "text_similarity_score": 0.9874953627586365
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.10372363030910492, which is less than 0.85. According to the instructions, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a baseball player sitting in a dugout, holding a helmet. The caption states, \"Coles and Maxwell listen to Kayne Gillaspie describe his design\". This does not match the image content. The image does not contain the individuals mentioned in the caption, nor does it depict a design presentation. Therefore, the caption is out of context.",
+    "validation_summary": "The caption is out of context as it describes a scene not depicted in the image, potentially misleading viewers about the image's content and relevance to the accompanying news story or context in which it is used. The image shows a baseball player while the caption describes people listening to a design description."
+  },
+  "inference_time": 5.78151798248291,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

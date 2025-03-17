@@ -1,0 +1,45 @@
+{
+  "caption": "Gambling tables at Venetian Macau Queensland wants some Asian highrollers too",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Pachinko",
+      "Gambling",
+      "Pinball",
+      "Japan",
+      "Maruhan",
+      "Casino",
+      "Arcade video game",
+      "Pachi-Slo",
+      "Amusement arcade",
+      "Koreans in Japan"
+    ],
+    "ablation_type": "no_text_evidences",
+    "evidences": [
+      {
+        "title": "Japanese pachinko  in pictures | Travel | The Guardian",
+        "content": "P a c h i n k o ,   a   g a m e   s i m i l a r   t o   p i n b a l l ,   i s   a   f a d i n g   n a t i o n a l   o b s e s s i o n   i n   J a p a n .   T h e   o n c e - b o o m i n g   i n d u s t r y   i s   a d o p t i n g   a   s o f t e r   t o u c h   a n d   s m o k e - f r e e   z o n e s   t o   l u r e   a   n e w   g e n e r a t i o n   o f   p l a y e r s \n \n I s s e i   K a t o   /   R e u t e r s \n \n W e d   2 0   A u g   2 0 1 4   0 8 . 0 6  B S T",
+        "caption": "People are seen through windows at a Dynam pachinko parlour in Honjo, north of Tokyo",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7995409369468689,
+        "text_similarity_score": 0.1812354028224945
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.7995409369468689, and the text similarity score is 0.1812354028224945. Both scores are low, indicating that the candidate is dissimilar to the news item. The news caption mentions gambling tables in Venetian Macau and Queensland wanting Asian highrollers. The candidate caption discusses a pachinko parlor in Honjo, north of Tokyo. The candidate provides no evidence to confirm the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption inaccurately describes the image content, leading to a misunderstanding of the subject matter.",
+    "explanation": "The caption states \"Gambling tables at Venetian Macau Queensland wants some Asian highrollers too,\" which suggests that the image depicts gambling tables specifically from the Venetian Macau and implies a connection to Queensland's desire to attract high-rolling Asian tourists. However, the image content does not match this description, as it shows a pachinko parlor located in Honjo, north of Tokyo, rather than any gambling tables from the Venetian Macau. The low similarity scores for both image and text indicate significant dissimilarity between the caption and the actual image content, reinforcing the conclusion that the caption is misleading."
+  },
+  "inference_time": 6.80610466003418,
+  "ablation_type": "no_text_evidences"
+}

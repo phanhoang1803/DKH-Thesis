@@ -1,0 +1,52 @@
+{
+  "caption": "Pope Francis kisses a young child with Down syndrome in Rome",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Pope",
+      "Infant",
+      "Down syndrome",
+      "Syndrome",
+      "Muscle",
+      "Family",
+      "Birth defect",
+      "Sick",
+      "Pontiff"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Raise Up the Roof: Families with disabilities belong at the synod too. | America Magazine",
+        "content": "R a i s e   U p   t h e   R o o f :   F a m i l i e s   w i t h   d i s a b i l i t i e s   b e l o n g   a t   t h e   s y n o d   . . .",
+        "caption": "PAPAL BLESSING. Pope Francis kisses a child during a visit to the parish of Santa Maria dellOrazione, on the outskirts of Rome, March 16.",
+        "domain": "www.americamagazine.org",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Pope's prayer: Change of mentality about differently abled",
+        "content": "P o p e ' s   p r a y e r :   C h a n g e   o f   m e n t a l i t y   a b o u t   d i f f e r e n t l y   a b l e d",
+        "caption": "A girl with down syndrome kisses Pope Francis",
+        "domain": "aleteia.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidate captions describe Pope Francis kissing a child. Candidate 1 mentions the location as \"on the outskirts of Rome\" and candidate 2 mentions the child has down syndrome. The news caption contains both these details. Since the image similarity score is low, I cannot be certain if the images are the same or of the same event. I am leaning towards false because the image similarity is low.",
+      "supporting_evidences": [
+        "PAPAL BLESSING. Pope Francis kisses a child during a visit to the parish of Santa Maria dell’Orazione, on the outskirts of Rome, March 16.",
+        "A girl with down syndrome kisses Pope Francis"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 6 and its verdict is false. Thus, the final verdict should also be false. The image shows Pope Francis kissing a child. While the news caption states Pope Francis kisses a young child with Down syndrome in Rome, the image check result provided supporting evidences that the child may have Down syndrome and the kiss occurred on the outskirts of Rome. Given the low image similarity, and the fact that I cannot confirm with certainty the child has Down syndrome solely from the image, I cannot definitively verify the accuracy of the statement. Therefore, the image is out of context.",
+    "validation_summary": "The caption contains specifics about the location (Rome) and a medical condition of the child (Down syndrome) that cannot be definitively confirmed by the image alone, potentially misleading viewers about the context of the event depicted. The image check result has a low image similarity score which suggests that this image may not depict the event described in the news caption, further contributing to its being out of context."
+  },
+  "inference_time": 4.63043737411499,
+  "ablation_type": "no_filters"
+}

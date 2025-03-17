@@ -1,0 +1,81 @@
+{
+  "caption": "Agnes Zawadzki skates during the senior ladies short program Zawadzki finished second in the competition",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Agnes Zawadzki",
+      "Figure skating",
+      "U.S. Figure Skating Championships",
+      "Figure skating jumps",
+      "Ice Skate",
+      "Figure skating spins",
+      "U.S. Figure Skating",
+      "Ice dance Mixed",
+      "Axel jump",
+      "Short program"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "U.S. Figure Skating Nationals",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7213487029075623,
+        "text_similarity_score": 0.052893783897161484
+      },
+      {
+        "title": "U.S. Figure Skating Nationals",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7213487029075623,
+        "text_similarity_score": 0.052893783897161484
+      },
+      {
+        "title": "U.S. Figure Skating Nationals",
+        "content": "U . S .   F i g u r e   S k a t i n g   N a t i o n a l s",
+        "caption": "Agnes Zawadzki skates during the senior ladies short program. Zawadzki finished second in the competition.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7602193355560303,
+        "text_similarity_score": 0.974908173084259
+      },
+      {
+        "title": "Surprise! Zawadzki steals show, wins short program  San Diego Union-Tribune",
+        "content": "S u r p r i s e !   Z a w a d z k i   s t e a l s   s h o w ,   w i n s   s h o r t   p r o g r a m      S a n   D i e g o   . . .",
+        "caption": "Agnes Zawadzki reacts after finishing her routine in the ladies short program at the U.S. Figure Skating Championships in San Jose, Calif., Thursday, Jan. 26, 2012. (AP Photo/Marcio Jose Sanchez)",
+        "domain": "www.sandiegouniontribune.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8845187425613403,
+        "text_similarity_score": 0.8357163667678833
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 4 meets the criteria for a 'True' verdict. Its image similarity score is 0.8845 (≥ 0.85) and its caption similarity score is 0.8357 (≥ 0.7). This strongly indicates that the image and caption are highly similar and contextually aligned. Candidate 3 has a high caption similarity score of 0.9749, which shows a strong textual match with the news caption. Its image similarity score is 0.7602, meaning that, while there may be differences, the images are similar. Considering all of the information, the news image is highly likely to represent what the caption says.",
+      "supporting_evidences": [
+        "Candidate 4: Image Similarity Score: 0.8845, Caption Similarity Score: 0.8357",
+        "Candidate 3: Caption Similarity Score: 0.9749"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score of 10. Both the image similarity score (0.8845) and caption similarity score (0.8357) for candidate 4 are above the required thresholds, suggesting a strong match between the image and the caption. Candidate 3 further supports this with a high caption similarity score of 0.9749. Therefore, the news image accurately represents what the caption describes.",
+    "validation_summary": "The image accurately depicts Agnes Zawadzki skating as described in the caption, and the high confidence score confirms that viewers would not be misled by the caption's description of the image. The image and caption are contextually aligned based on the automated analysis."
+  },
+  "inference_time": 7.385107517242432,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

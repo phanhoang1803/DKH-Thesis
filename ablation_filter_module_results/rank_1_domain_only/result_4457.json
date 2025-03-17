@@ -1,0 +1,49 @@
+{
+  "caption": "Prince William and Kate are expected to leave Wales and move into Kensington Palace within the next few weeks",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Cadillac CTS-V",
+      "Jaguar XJ",
+      "Cadillac",
+      "Car",
+      "Executive car",
+      "Cadillac",
+      "official",
+      "Jaguar"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Prince William to leave armed forces | Prince William | The Guardian",
+        "content": "P r i n c e   W i l l i a m   t o   l e a v e   a r m e d   f o r c e s   |   P r i n c e   W i l l i a m   |   T h e   G u a r d i a n",
+        "caption": "Prince William and Kate are expected to leave Wales and move into Kensington Palace within the next few weeks. Photograph: Samir Hussein/WireImage",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The candidate evidence has a caption that perfectly matches the news caption. However, the image similarity score is 0.0, which indicates that the images do not match. Despite the matching caption, the low image similarity score suggests that the candidate evidence does not relate to the image associated with the news caption. The domain is a reputable source (www.theguardian.com). Thus, due to the mismatch between the images, the provided candidate does not fully support that the caption accurately represents the image.",
+      "supporting_evidences": [
+        "Prince William and Kate are expected to leave Wales and move into Kensington Palace within the next few weeks. Photograph: Samir Hussein/WireImage"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows Prince Edward waving next to a car with a security guard in the background. The caption discusses Prince William and Kate moving into Kensington Palace. The image check result has a high confidence score and a determination of False because the images of the candidate do not match the given image despite having similar captions. Therefore, the caption is out of context.",
+    "validation_summary": "The image shows Prince Edward while the caption refers to Prince William and Kate, so the image does not represent the content of the caption, potentially misleading viewers about the actual news story it accompanies. The image check result confirms that the caption is not representative of the image due to the mismatch in the figures presented in the image and the subjects mentioned in the news caption."
+  },
+  "inference_time": 4.897923231124878,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

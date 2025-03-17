@@ -1,0 +1,38 @@
+{
+  "caption": "People rush into Macy s as they open at midnight on Friday in NYC",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "A Journey from Homelessness to a Room of One's Own | The New Yorker",
+        "content": "A   J o u r n e y   f r o m   H o m e l e s s n e s s   t o   a   R o o m   o f   O n e ' s   O w n   |   T h e   N e w   Y o r k e r",
+        "caption": "A person wearing a sweatshirt is seen from behind looking out a window.",
+        "domain": "www.newyorker.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, the caption is out-of-context. The candidate caption and the news caption do not match at all.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a large crowd of people inside a store, presumably during a shopping event. The store appears to be decorated for Christmas. The caption mentions people rushing into Macy's at midnight on Friday in NYC. Based on the image evidence and the image check results, the caption is out of context, as there's no verifiable connection to Macy's or a specific time like midnight on Friday in NYC.",
+    "validation_summary": "The image caption is out of context because it describes a specific location (Macy's in NYC) and time (midnight on Friday) that cannot be confirmed from the image, misleading viewers about the actual context of the image. The image check confirms that the caption is completely unrelated to the image content with a very low image similarity score of 0.0 and a low text similarity score of 0.0, meaning the description doesn't fit the image at all."
+  },
+  "inference_time": 4.212539434432983,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

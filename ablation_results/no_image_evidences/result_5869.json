@@ -1,0 +1,37 @@
+{
+  "caption": "Nick Clegg meets staff at the McDonald s training centre as the company announced at least 2500 new UK jobs this year",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "McJobs are getting better, but politicians must work harder | Stefan Stern | The Guardian",
+        "content": "M c J o b s   a r e   g e t t i n g   b e t t e r ,   b u t   p o l i t i c i a n s   m u s t   w o r k   h a r d e r   . . .",
+        "caption": "Nick Clegg meets staff at the McDonald's training centre as the company announced at least 2,500 new UK jobs this year. Photograph: Wpa Pool/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.47314995527267456,
+        "text_similarity_score": 0.9660446047782898
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image similarity score is 0.47314995527267456, which is less than 0.85. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. However, the text similarity score is 0.9660446047782898 which is greater than 0.7, indicating that the captions are highly similar. The content of the candidate evidence from www.theguardian.com includes the exact caption as the news caption, indicating that the caption accurately represents the image. Therefore, the caption is considered to be in context.",
+      "supporting_evidences": [
+        "Caption from www.theguardian.com matches the news caption.",
+        "Text similarity score is 0.9660446047782898"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates the image is out of context, with a confidence score of 8. The image similarity score is below the threshold (0.47314995527267456 < 0.85), indicating a mismatch between the image content and the caption's claims. While the text similarity score is high, the low image similarity score makes the image out of context. The caption states 'Nick Clegg meets staff at the McDonald s training centre as the company announced at least 2500 new UK jobs this year'. However, the image shows David Cameron meeting with workers wearing high-visibility vests and caps. Therefore, the caption is misleading as it identifies the wrong person (Nick Clegg instead of David Cameron) and does not accurately describe the scene depicted in the image.",
+    "validation_summary": "The caption is misleading because it identifies the wrong person (Nick Clegg instead of David Cameron) and misrepresents the location as a McDonald's training center, which is not visually confirmed in the image. Viewers would be misled about who is in the image and the context of the meeting, as the photo actually shows David Cameron with workers in high-visibility vests and caps, not Nick Clegg at a McDonald's training center."
+  },
+  "inference_time": 5.730268955230713,
+  "ablation_type": "no_image_evidences"
+}

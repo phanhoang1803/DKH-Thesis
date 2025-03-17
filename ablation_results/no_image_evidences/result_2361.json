@@ -1,0 +1,47 @@
+{
+  "caption": "Nigel Farage and Nick Clegg during the first debate",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Traffic sign",
+      "Traffic",
+      "Sign"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Nick Clegg aims to show emotional side in second debate with Nigel Farage | Nick Clegg | The Guardian",
+        "content": "N i c k   C l e g g   a i m s   t o   s h o w   e m o t i o n a l   s i d e   i n   s e c o n d   d e b a t e   w i t h   N i g e l   . . .",
+        "caption": "Nigel Farage and Nick Clegg during the first debate.  Photograph: Ian West/AFP/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.22290365397930145,
+        "text_similarity_score": 0.8445228934288025
+      },
+      {
+        "title": "Nigel Farage and Nick Clegg clash over immigration during live debate, but neither can land the killer blow | The Independent | The Independent",
+        "content": "N i g e l   F a r a g e   a n d   N i c k   C l e g g   c l a s h   o v e r   i m m i g r a t i o n   d u r i n g   l i v e   . . .",
+        "caption": "Nigel Farage and Nick Clegg take part in a debate over Britain's future in the European Union",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.15841399133205414,
+        "text_similarity_score": 0.8312923908233643
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for both candidates are below 0.85, indicating that the images in the candidates do not closely match the news image. Even though the text similarity scores are above 0.7, according to the instruction, the caption must be marked as out-of-context. The similarity scores are 0.22290365397930145 and 0.15841399133205414. Also, without seeing the actual image, I can't determine if the candidate captions align with the image context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the provided caption does not accurately represent the image content. The image similarity scores are below the threshold, suggesting a mismatch between the images associated with the caption and the actual news image. \n\nThe image features Nigel Farage in the foreground, with a \"no right turn\" road sign visible in the background. The caption mentions \"Nigel Farage and Nick Clegg during the first debate,\" implying that both individuals are present in the image. Since Nick Clegg is not visible in the image, this significantly misrepresents the content. \n\nBased on this analysis, the caption is out of context as it does not align with the visual information presented in the image.",
+    "validation_summary": "The caption falsely implies that both Nigel Farage and Nick Clegg are present in the image, while only Nigel Farage is visible. This discrepancy would mislead viewers about the image's content, making the caption out of context."
+  },
+  "inference_time": 4.897507667541504,
+  "ablation_type": "no_image_evidences"
+}

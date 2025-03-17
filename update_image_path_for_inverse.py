@@ -68,49 +68,41 @@ def process_folder(folder_path):
         with open(inverse_file, 'r', encoding='utf-8') as f:
             inverse_data = json.load(f)
         
+        # List of all potential fields to process
+        fields = [
+            "all_matched_captions",
+            "all_fully_matched_captions",
+            "all_partially_matched_captions",
+            "matched_no_text",
+            "fully_matched_no_text",
+            "partially_matched_no_text"
+        ]
+        
         # Prepare download tasks
         download_tasks = []
         
-        # Process all_matched_captions
-        if "all_matched_captions" in inverse_data:
-            for i, caption in enumerate(inverse_data["all_matched_captions"]):
-                # Fixed the condition - was using 'item' instead of 'caption'
-                if "image_link" in caption and 'image_path' not in caption:
-                    # Get filename from html_path or use default
-                    image_filename = get_image_filename(caption.get("html_path"))
-                    
-                    if not image_filename:
-                        image_filename = f"{i}.jpg"
-                    
-                    # Add to download tasks
-                    download_tasks.append({
-                        "url": caption["image_link"],
-                        "folder": folder_path,
-                        "filename": image_filename,
-                        "entry": caption,
-                        "index": i,
-                        "type": "matched"
-                    })
-        
-        # Process matched_no_text
-        if "matched_no_text" in inverse_data:
-            for i, item in enumerate(inverse_data["matched_no_text"]):
-                if "image_link" in item and 'image_path' not in item:
-                    # Get filename from html_path or use default
-                    image_filename = get_image_filename(item.get("html_path"))
-                    
-                    if not image_filename:
-                        image_filename = f"no_text_{i}.jpg"
-                    
-                    # Add to download tasks
-                    download_tasks.append({
-                        "url": item["image_link"],
-                        "folder": folder_path,
-                        "filename": image_filename,
-                        "entry": item,
-                        "index": i,
-                        "type": "no_text"
-                    })
+        # Process all fields
+        for field in fields:
+            if field in inverse_data:
+                for i, item in enumerate(inverse_data[field]):
+                    if "image_link" in item and 'image_path' not in item:
+                        # Get filename from html_path or use default
+                        image_filename = get_image_filename(item.get("html_path"))
+                        
+                        if not image_filename:
+                            # Create default filename based on field type
+                            prefix = field.replace("all_", "").replace("_captions", "")
+                            image_filename = f"{prefix}_{i}.jpg"
+                        
+                        # Add to download tasks
+                        download_tasks.append({
+                            "url": item["image_link"],
+                            "folder": folder_path,
+                            "filename": image_filename,
+                            "entry": item,
+                            "index": i,
+                            "field": field
+                        })
         
         # If no tasks, return early
         if not download_tasks:
@@ -123,19 +115,16 @@ def process_folder(folder_path):
             
             for future in as_completed(futures):
                 success, task = future.result()
+                field = task["field"]
+                index = task["index"]
+                
                 if success:
-                    # Store just the filename in image_path, not the full path
-                    if task["type"] == "matched":
-                        inverse_data["all_matched_captions"][task["index"]]["image_path"] = os.path.join(task["folder"], task["filename"])
-                    else:
-                        inverse_data["matched_no_text"][task["index"]]["image_path"] = os.path.join(task["folder"], task["filename"])
+                    # Store the filename in image_path
+                    inverse_data[field][index]["image_path"] = os.path.join(task["folder"], task["filename"])
                     changes_made = True
                 else:
                     # Add empty image_path to avoid re-downloading the image
-                    if task["type"] == "matched":
-                        inverse_data["all_matched_captions"][task["index"]]["image_path"] = ''
-                    else:
-                        inverse_data["matched_no_text"][task["index"]]["image_path"] = ''
+                    inverse_data[field][index]["image_path"] = ''
                     changes_made = True
                     
         # Save the updated inverse file if changes were made
@@ -187,7 +176,8 @@ def process_folders_parallel(test_dir, max_workers=10):
 # Main execution - can be run directly
 if __name__ == "__main__":
     # Define the base test directory
-    test_dir = "queries_dataset/merged_balanced/inverse_search/test"
+    # test_dir = "queries_dataset/merged_balanced/inverse_search/test"
+    test_dir = "queries_dataset_cosmos/inverse_search/test"
     
     # Process all folders in parallel
     process_folders_parallel(test_dir)

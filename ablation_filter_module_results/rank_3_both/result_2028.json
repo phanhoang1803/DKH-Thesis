@@ -1,0 +1,59 @@
+{
+  "caption": "Angelique Kerber of Germany returns to Eugenie Bouchard of Canada",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Racket",
+      "Tennis",
+      "Tennis Racket",
+      "Soft tennis",
+      "Racketlon",
+      "Tennis player"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Simona Halep, Eugenie Bouchard advance to Wimbledon semifinals  The Denver Post",
+        "content": "S i m o n a   H a l e p ,   E u g e n i e   B o u c h a r d   a d v a n c e   t o   W i m b l e d o n   s e m i f i n a l s   . . .",
+        "caption": "Eugenie Bouchard of Canada plays a return to Angelique Kerber of Germany during their women's singles quarterfinal match at the All England Lawn Tennis Championships in Wimbledon, London, on July 2, 2014.",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9358540773391724,
+        "text_similarity_score": 0.7826206684112549
+      },
+      {
+        "title": "Day 9 at Wimbledon",
+        "content": "D a y   9   a t   W i m b l e d o n",
+        "caption": "Eugenie Bouchard of Canada serves during her match against Angelique Kerber of Germany.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.36526769399642944,
+        "text_similarity_score": 0.7669031620025635
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the analysis of the provided candidate evidences, the news caption 'Angelique Kerber of Germany returns to Eugenie Bouchard of Canada' is highly likely to be in context with the image. Candidate 1 has an image similarity score of 0.9358540773391724, which is greater than 0.85, and a text similarity score of 0.7826206684112549, which is greater than 0.7. According to the decision rules, this immediately indicates that the caption is in-context. Furthermore, the caption of Candidate 1 explicitly mentions 'Eugenie Bouchard of Canada plays a return to Angelique Kerber of Germany,' which directly aligns with the news caption. Candidate 2 also supports this conclusion, although its image similarity score is lower (0.36526769399642944), its text similarity score is high (0.7669031620025635), and the caption mentions both players in a match against each other.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score ≥ 0.85 AND Text Similarity Score ≥ 0.7",
+        "Candidate 1 caption: 'Eugenie Bouchard of Canada plays a return to Angelique Kerber of Germany'"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (10) in the caption's accuracy. Both the image and text similarity scores of Candidate 1 exceed the thresholds (0.85 and 0.7, respectively), which suggests the caption is likely in context. The caption of Candidate 1 explicitly references 'Eugenie Bouchard of Canada plays a return to Angelique Kerber of Germany,' aligning directly with the provided news caption. Candidate 2, while having a lower image similarity score, still supports the conclusion due to a high text similarity score and mentioning both players in a match against each other. Therefore, based on this analysis, the caption correctly represents the image.",
+    "validation_summary": "The image check indicates the caption is accurate because it identifies the individuals shown in the image and the action they are performing. The image shows Kerber returning a shot in a tennis match, supporting the caption's claim that she is returning a shot to Bouchard during a match between the two players in question. Therefore, the caption accurately represents the image content and viewers would not be misled about what they are seeing in the image..The image shows Kerber returning a shot in a tennis match, supporting the caption's claim that she is returning a shot to Bouchard during a match between the two players in question. Therefore, the caption accurately represents the image content and viewers would not be misled about what they are seeing in the image."
+  },
+  "inference_time": 7.6533589363098145,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

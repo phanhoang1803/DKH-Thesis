@@ -1,0 +1,50 @@
+{
+  "caption": "Peabody Energy headquarters in St Louis",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Peabody Energy",
+      "Peabody Energy",
+      "Coal",
+      "St. Louis",
+      "Bankruptcy",
+      "Business",
+      "Economy",
+      "Company",
+      "Chapter 11, Title 11, United States Code"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Bankrupt Peabody Energy wants to pay execs up to $12 million in bonuses  The Denver Post",
+        "content": "B a n k r u p t   P e a b o d y   E n e r g y   w a n t s   t o   p a y   e x e c s   u p   t o   $ 1 2   m i l l i o n   i n   . . .",
+        "caption": "Peabody Energy headquarters in St. Louis. ",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, I will analyze the content of the candidate. The candidate caption is 'Peabody Energy headquarters in St. Louis.' which exactly matches the news caption 'Peabody Energy headquarters in St Louis'. Although, the domain is denverpost.com, which I trust to some extent, the image similarity score is very low, so I am only giving a confidence score of 6.",
+      "supporting_evidences": [
+        "Candidate caption matches the news caption."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low image similarity score (0.0) despite the candidate caption matching the news caption ('Peabody Energy headquarters in St Louis'). Given the very low image similarity and the high confidence score from the image check result, I will adhere to the result. The image clearly shows the Peabody Energy headquarters building with the company's name prominently displayed. While the caption is factually accurate in stating the location of the headquarters, the extremely low similarity score indicates a mismatch between the provided image and an expected representation of 'Peabody Energy headquarters'. Therefore, the image is out of context, as it does not provide additional context or information related to the article.",
+    "validation_summary": "Despite the caption being factually correct, the image similarity check resulted in an extremely low score, suggesting the image is not representative of what one would expect for 'Peabody Energy headquarters'. Therefore, the image is considered out of context and could potentially mislead viewers about the article's subject matter if they were expecting a specific visual representation."
+  },
+  "inference_time": 4.4915289878845215,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "caption": "Clarkson meets President Obama after her performance",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Fashion",
+      "Fashion show",
+      "5hy",
+      "Performance M"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Tracy Chapman and Luke Combs Duet 'Fast Car' at Grammys",
+        "content": "T r a c y   C h a p m a n   a n d   L u k e   C o m b s   D u e t   ' F a s t   C a r '   a t   G r a m m y s",
+        "caption": "LOS ANGELES, CALIFORNIA - FEBRUARY 04: Tracy Chapman performs onstage during the 66th GRAMMY Awards at Crypto.com Arena on February 04, 2024 in Los Angeles, California. (Photo by Kevin Winter/Getty Images for The Recording Academy)",
+        "domain": "variety.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "The Voice 2022 Finale: Kelly Clarkson Performs | NBC Insider",
+        "content": "T h e   V o i c e   2 0 2 2   F i n a l e :   K e l l y   C l a r k s o n   P e r f o r m s   |   N B C   I n s i d e r",
+        "caption": "Kelly Clarkson performing during her Christmas Special",
+        "domain": "www.nbc.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both the Image Similarity Score and the Text Similarity Score are low for both candidates. The candidates do not provide any information about Kelly Clarkson meeting President Obama. Therefore, the caption is not verified.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low Image Similarity Score and a low Text Similarity Score. It also indicates that the candidates do not provide information about Kelly Clarkson meeting President Obama. The image shows two women on a stage, one in a green dress and the other in a blue top and black pants. A camera operator is also visible. There is no indication in the image that Kelly Clarkson is meeting President Obama. The caption misrepresents the image content.",
+    "validation_summary": "The caption suggests the image depicts Kelly Clarkson meeting President Obama, which is not supported by the visual content. The caption would mislead viewers about the context of the image."
+  },
+  "inference_time": 3.025779962539673,
+  "ablation_type": "no_filters"
+}

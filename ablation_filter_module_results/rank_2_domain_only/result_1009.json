@@ -1,0 +1,47 @@
+{
+  "caption": "Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Car",
+      "Sports sedan",
+      "Sports car",
+      "Taxi",
+      "Sedan",
+      "Executive car"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Foxtons shares plunge 20% as London property market slows | Housing market | The Guardian",
+        "content": "F o x t o n s   s h a r e s   p l u n g e   2 0 %   a s   L o n d o n   p r o p e r t y   m a r k e t   s l o w s   . . .",
+        "caption": "Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate caption is identical to the news caption, and the domain 'www.theguardian.com' is a reliable source. Therefore, the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "Caption: Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a yellow and green taxi. The news caption talks about Foxtons and their 'liveried fleet of Mini Coopers.' The image does not show any Foxtons Mini Coopers, or anything related to Foxtons. The image check result indicates the news caption accurately represents the image because the source is reliable and the caption is identical, however, this is not related to the image at all, therefore is misleading.",
+    "validation_summary": "The caption references Foxtons Mini Coopers, while the image shows a taxi unrelated to Foxtons, creating a misleading impression. Viewers would be misled, as the image does not depict the content described in the caption."
+  },
+  "inference_time": 3.3500382900238037,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

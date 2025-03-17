@@ -1,0 +1,38 @@
+{
+  "caption": "Broadway Avenue in Pleasant Beach New Jersey is littered with boats washed ashore by Sandy",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Flag of the United States",
+      "United States",
+      "Flag"
+    ],
+    "ablation_type": "no_text_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 9,
+      "explanation": "The provided caption describes a scene with boats washed ashore on Broadway Avenue in Pleasant Beach, New Jersey, due to Hurricane Sandy. However, the image context describes a scene of devastation with the ruins of a building and scattered debris, with an American flag prominently displayed. The context mentions a potential natural disaster like a hurricane or tornado but does not specifically mention boats, Broadway Avenue, or Pleasant Beach. Therefore, the caption does not align well with the image context.",
+      "supporting_evidences": [
+        "The caption mentions boats and a specific location (Broadway Avenue in Pleasant Beach), which are not present or mentioned in the image context.",
+        "The image context focuses on a ruined building and an American flag, indicating a general scene of devastation after a natural disaster, which differs from the specific details in the caption.",
+        "The image context describes a general disaster scenario, while the caption specifies a particular event (Hurricane Sandy) and location, which is not supported by the image details."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "An American flag stands amid debris and the ruins of a building, likely after a natural disaster such as a hurricane or tornado.",
+      "context": "The image shows the aftermath of a devastating event, likely a natural disaster given the extensive debris and ruined building. An American flag stands prominently in the foreground, contrasting sharply with the destruction surrounding it. The presence of the flag may symbolize resilience, recovery efforts, or the location of the disaster within the United States. The image could be related to recovery efforts after Hurricane Sandy, however, it could be from other natural disasters in United States.",
+      "information": "The image displays a scene of devastation with the ruins of a building and scattered debris. An American flag is in the foreground, its stars and stripes clearly visible. A silver object, possibly a piece of equipment or debris, sits on a wooden surface near the flag. In the background, more rubble and the remnants of the building can be seen, with trees visible in the distance under a cloudy sky."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a scene of devastation, with the ruins of a building and scattered debris, and an American flag prominently displayed. The caption describes boats washed ashore on Broadway Avenue in Pleasant Beach, New Jersey, due to Hurricane Sandy. However, the image does not depict boats, Broadway Avenue, or Pleasant Beach. The image context suggests a general scene of destruction, which is inconsistent with the specific details mentioned in the caption. Therefore, the caption misrepresents the image content.",
+    "validation_summary": "The caption describes a scene with boats in a specific location, which is not what the image shows. Viewers would be misled about the location and type of damage depicted in the image if relying on the caption."
+  },
+  "inference_time": 5.679734945297241,
+  "ablation_type": "no_text_evidences"
+}

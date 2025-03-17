@@ -1,0 +1,59 @@
+{
+  "caption": "Agnes Zawadzki skates during the senior ladies short program Zawadzki finished second in the competition",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Agnes Zawadzki",
+      "Figure skating",
+      "U.S. Figure Skating Championships",
+      "Figure skating jumps",
+      "Ice Skate",
+      "Figure skating spins",
+      "U.S. Figure Skating",
+      "Ice dance Mixed",
+      "Axel jump",
+      "Short program"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "U.S. Figure Skating Nationals",
+        "content": "U . S .   F i g u r e   S k a t i n g   N a t i o n a l s",
+        "caption": "Agnes Zawadzki skates during the senior ladies short program. Zawadzki finished second in the competition.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Surprise! Zawadzki steals show, wins short program  San Diego Union-Tribune",
+        "content": "S u r p r i s e !   Z a w a d z k i   s t e a l s   s h o w ,   w i n s   s h o r t   p r o g r a m      S a n   D i e g o   . . .",
+        "caption": "Agnes Zawadzki reacts after finishing her routine in the ladies short program at the U.S. Figure Skating Championships in San Jose, Calif., Thursday, Jan. 26, 2012. (AP Photo/Marcio Jose Sanchez)",
+        "domain": "www.sandiegouniontribune.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidate captions describe Agnes Zawadzki skating during the senior ladies short program and finishing second in the competition (Candidate 1) or reacting after finishing her routine (Candidate 2) at the U.S. Figure Skating Championships. While the image similarity scores are low, suggesting different images, the textual descriptions align with the news caption, indicating that the caption accurately represents the subject and event. However, due to the lack of confirmation from high-similarity images, there is only partial support for the caption's full accuracy.",
+      "supporting_evidences": [
+        "Candidate 1: Agnes Zawadzki skates during the senior ladies short program. Zawadzki finished second in the competition.",
+        "Candidate 2: Agnes Zawadzki reacts after finishing her routine in the ladies short program at the U.S. Figure Skating Championships in San Jose, Calif., Thursday, Jan. 26, 2012."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the caption accurately represents the subject and event in the image, supported by candidate captions describing Agnes Zawadzki skating during the senior ladies short program and finishing second in the competition. Although the image similarity scores are low, the textual descriptions align with the news caption. Therefore, the image is not out of context.",
+    "validation_summary": "The caption accurately identifies the subject and event depicted in the image, preventing viewer misinterpretation. The image check result supports this finding."
+  },
+  "inference_time": 3.8533830642700195,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

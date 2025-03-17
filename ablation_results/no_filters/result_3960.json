@@ -1,0 +1,45 @@
+{
+  "caption": "Game 5 in Washington Nationals third baseman Anthony Rendon catches a fly ball hit by Dodgers shortstop Corey Seager during the sixth inning",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Baseball",
+      "College baseball",
+      "Pitcher",
+      "Higher Education School",
+      "Ballpark"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Tommy Lasorda returns to Dodger Stadium, Dodgers offense does not in loss to Nationals  Orange County Register",
+        "content": "T o m m y   L a s o r d a   r e t u r n s   t o   D o d g e r   S t a d i u m ,   D o d g e r s '   o f f e n s e   d o e s   n o t   . . .",
+        "caption": "Washington Nationals third baseman Anthony Rendon (6) is congratulated by catcher Jose Lobaton (59) after Rendon hit a homer in the second inning during their MLB baseball game against the Los Angeles Dodgers at Dodger Stadium in Los Angeles, Monday, June 5, 2017. (Photo by Hans Gutknecht, Los Angeles Daily News/SCNG)",
+        "domain": "www.ocregister.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Tommy Lasorda returns to Dodger Stadium, Dodgers offense does not in loss to Nationals  Orange County Register",
+        "content": "0 6 0 5 _ s p o _ l d n - l - d o d g e r s -   . . .",
+        "caption": "Washington Nationals third baseman Anthony Rendon (6) is congratulated by catcher Jose Lobaton (59) after Rendon hit a homer in the second inning during their MLB baseball game against the Los Angeles Dodgers at Dodger Stadium in Los Angeles, Monday, June 5, 2017. (Photo by Hans Gutknecht, Los Angeles Daily News/SCNG)",
+        "domain": "www.ocregister.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidates have very low image and text similarity scores. They describe a game between the Washington Nationals and the Los Angeles Dodgers, and mentions Anthony Rendon. However, the candidates describe Rendon being congratulated after hitting a home run, while the news caption describes Rendon catching a fly ball. Since the candidates do not support the claim in the news caption, the verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result returned a confidence score of 2 with a verdict of False. The image shows two baseball players wearing Washington Nationals uniforms on a baseball field. One of the players is catching a ball. The caption claims it's Anthony Rendon catching a fly ball hit by Corey Seager. Given the very low confidence score from the image check, and the caption describing a specific action of a specific player, I conclude the caption is out of context.",
+    "validation_summary": "The caption is out of context because the image check result indicates a mismatch between the image content and the caption's description of the scene involving specific players and actions within a game. This would mislead viewers about what is actually happening in the image."
+  },
+  "inference_time": 3.598828077316284,
+  "ablation_type": "no_filters"
+}

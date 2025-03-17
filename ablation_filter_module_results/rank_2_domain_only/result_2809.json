@@ -1,0 +1,54 @@
+{
+  "caption": "The Clintons on stage in Las Vegas Nevada",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speech",
+      "Academic conference",
+      "Seminar",
+      "Public speaking",
+      "Convention",
+      "Orator",
+      "Academy",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "God, guns and dirty tricks: Republicans trade shots as Democrats divide on race | US elections 2016 | The Guardian",
+        "content": "G o d ,   g u n s   a n d   d i r t y   t r i c k s :   R e p u b l i c a n s   t r a d e   s h o t s   a s   D e m o c r a t s   . . .",
+        "caption": "Bernie Sanders sings on stage with performers at a campaign rally in Henderson, Nevada.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Matt Sullivan | The Guardian",
+        "content": "M a t t   S u l l i v a n   |   T h e   G u a r d i a n",
+        "caption": "Supporters of U.S. Democratic presidential candidate Bernie Sanders arrive at the Ward 6 polling place as it opens for voting in New Hampshires first-in-the-nation presidential primary in Manchester, New Hampshire February 9, 2016. REUTERS/Jim Bourg",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are both 0.0, which indicates that the images in the candidate evidences do not match the image described by the news caption. Additionally, the caption similarity scores are also 0.0, meaning the captions are dissimilar. The candidate captions mention Bernie Sanders in New Hampshire and Nevada, while the news caption mentions The Clintons in Las Vegas, Nevada. Therefore, there is no evidence to support that the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low similarity between the image and the news caption, with a confidence score of 2. This suggests the caption does not accurately represent the image. The image shows Bill Clinton at a podium with a 'Fighting for us' sign. The caption mentions 'The Clintons on stage in Las Vegas Nevada'. While the presence of Bill Clinton and the mention of Las Vegas could be seen as aligning, the image check result suggests that the caption is too broad and doesn't properly capture the specific event or details in the image. Considering the low confidence score from the image check, and that the details within the image are not properly encompassed within the caption, it is unlikely that the caption provides an adequate summary of the image.",
+    "validation_summary": "The caption is too generic and fails to accurately represent the image, leading viewers to potentially misinterpret what is being depicted. The low confidence score from the image check further supports this conclusion."
+  },
+  "inference_time": 4.268424987792969,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

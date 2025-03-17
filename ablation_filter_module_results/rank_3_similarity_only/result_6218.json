@@ -1,0 +1,90 @@
+{
+  "caption": "Agnes Zawadzki skates during the senior ladies short program Zawadzki finished second in the competition",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Agnes Zawadzki",
+      "Figure skating",
+      "U.S. Figure Skating Championships",
+      "Figure skating jumps",
+      "Ice Skate",
+      "Figure skating spins",
+      "U.S. Figure Skating",
+      "Ice dance Mixed",
+      "Axel jump",
+      "Short program"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "U.S. Figure Skating Nationals",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7213487029075623,
+        "text_similarity_score": 0.052893783897161484
+      },
+      {
+        "title": "U.S. Figure Skating Nationals",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7213487029075623,
+        "text_similarity_score": 0.052893783897161484
+      },
+      {
+        "title": "U.S. Figure Skating Nationals",
+        "content": "U . S .   F i g u r e   S k a t i n g   N a t i o n a l s",
+        "caption": "Agnes Zawadzki skates during the senior ladies short program. Zawadzki finished second in the competition.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7602193355560303,
+        "text_similarity_score": 0.974908173084259
+      },
+      {
+        "title": "Surprise! Zawadzki steals show, wins short program  San Diego Union-Tribune",
+        "content": "S u r p r i s e !   Z a w a d z k i   s t e a l s   s h o w ,   w i n s   s h o r t   p r o g r a m      S a n   D i e g o   . . .",
+        "caption": "Agnes Zawadzki reacts after finishing her routine in the ladies short program at the U.S. Figure Skating Championships in San Jose, Calif., Thursday, Jan. 26, 2012. (AP Photo/Marcio Jose Sanchez)",
+        "domain": "www.sandiegouniontribune.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8845187425613403,
+        "text_similarity_score": 0.8357163667678833
+      },
+      {
+        "title": "Surprise! Zawadzki steals show, wins short program",
+        "content": "S u r p r i s e !   Z a w a d z k i   s t e a l s   s h o w ,   w i n s   s h o r t   p r o g r a m",
+        "caption": "Agnes Zawadzki reacts after receiving a first place score in the ladies short program at the U.S. Figure Skating Championships in San Jose, Calif., Thursday, Jan. 26, 2012. (AP Photo/Marcio Jose Sanchez)",
+        "domain": "www.heraldtribune.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.09867551177740097,
+        "text_similarity_score": 0.8198883533477783
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the provided candidates, Candidate 4 has an image similarity score of 0.8845 and a caption similarity score of 0.8357. Since the image similarity score is greater than 0.85 and the text similarity score is greater than 0.7, this indicates that the candidate caption is very similar to the news caption, strongly suggesting that the news caption accurately represents the image. Candidate 3 also has very high image similarity (0.76) and caption similarity (0.97), further reinforcing the accuracy of the news caption. Therefore, the news caption accurately describes the image content.",
+      "supporting_evidences": [
+        "Candidate 4",
+        "Candidate 3"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result provides a high confidence score of 10, indicating that the provided caption accurately represents the image content. The supporting evidence from the image check details the high image and caption similarity scores between the news caption and potential candidate captions, further confirming its accuracy. Therefore, the caption, which states \"Agnes Zawadzki skates during the senior ladies short program Zawadzki finished second in the competition\", is deemed to be a correct representation of the image content.",
+    "validation_summary": "The image check confirms the caption accurately describes the image, preventing any misleading interpretations. Viewers would not be misled, as the caption correctly identifies the skater and her performance."
+  },
+  "inference_time": 10.730902433395386,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

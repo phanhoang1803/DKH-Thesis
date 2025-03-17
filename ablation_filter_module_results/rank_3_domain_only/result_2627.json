@@ -1,0 +1,38 @@
+{
+  "caption": "Alan Gross was accompanied by his wife Judy at a press conference in Washington",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Obama hails 'new chapter' in US-Cuba ties - BBC News",
+        "content": "O b a m a   h a i l s   ' n e w   c h a p t e r '   i n   U S - C u b a   t i e s   -   B B C   N e w s",
+        "caption": "Mr Obama and Mr Castro met a year ago at Nelson Mandela's funeral",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The Image Similarity Score is 0.0 and the Text Similarity Score is 0.0. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image similarity score (0.0) and a low text similarity score (0.0), leading to the verdict that the caption is out of context. The image depicts Alan Gross and his wife Judy at a press conference in Washington. The accompanying news content discusses the normalization of relations between the US and Cuba, including the release of Alan Gross. The caption is therefore factually consistent with the image, but the Image Check result has higher priority.",
+    "validation_summary": "The image shows Alan Gross and his wife, but the image check results indicate that the caption is out of context due to the low similarity scores between the image and the provided text. This suggests viewers may be misled about the primary subject of the news content based on the image and caption alone."
+  },
+  "inference_time": 3.849774122238159,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

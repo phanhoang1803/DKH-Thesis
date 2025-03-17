@@ -1,0 +1,49 @@
+{
+  "caption": "Greek prime minister Alexis Tsipras is applauded by lawmakers before addressing his parliamentary group meeting in Athens",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Convention"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Eurozone crisis: Greek austerity plans meet warm but cautious response | Eurozone crisis | The Guardian",
+        "content": "E u r o z o n e   c r i s i s :   G r e e k   a u s t e r i t y   p l a n s   m e e t   w a r m   b u t   c a u t i o u s   . . .",
+        "caption": "Greek prime minister Alexis Tsipras is applauded by lawmakers before addressing his parliamentary group meeting in Athens.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Greek debt crisis: Senior Syriza figures refuse to back bailout plan amid growing anger | The Independent | The Independent",
+        "content": "G r e e k   d e b t   c r i s i s :   S e n i o r   S y r i z a   f i g u r e s   r e f u s e   t o   b a c k   b a i l o u t   . . .",
+        "caption": "Alexis Tsipras (C) exits the meeting of the Parliamentary group of SYRIZA party in the Greek Parliament",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have low image similarity scores (< 0.85) and low text similarity scores (< 0.7). Therefore, the decision is based on caption and candidate analysis. Candidate 1 has a caption that is identical to the news caption and the domain is a reliable source (www.theguardian.com). This confirms the accuracy of the news caption.",
+      "supporting_evidences": [
+        "Greek prime minister Alexis Tsipras is applauded by lawmakers before addressing his parliamentary group meeting in Athens."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image shows Greek prime minister Alexis Tsipras with his hand raised, seemingly being applauded by other lawmakers. The caption states that Tsipras is applauded by lawmakers before addressing his parliamentary group meeting in Athens. Given the image content and the high confidence score from the image check, the caption accurately represents the image.",
+    "validation_summary": "The image accurately depicts the scene described in the caption, where Alexis Tsipras is being applauded by lawmakers. This confirms the accuracy of the news caption."
+  },
+  "inference_time": 3.4815738201141357,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

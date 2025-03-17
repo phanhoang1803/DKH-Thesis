@@ -1,0 +1,42 @@
+{
+  "caption": "Presidential Candidate Donald Trump tosses an object into the crowd during his campaign appearance in Melbourne",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Debate",
+      "Fan"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Photos: Donald Trump's Melbourne rally",
+        "content": "P h o t o s :   D o n a l d   T r u m p ' s   M e l b o u r n e   r a l l y",
+        "caption": "Republican nominee Donald J. Trump fires up thousands of supporters during a rally held at the AeroMod International aircraft hangar at the Orlando Melbourne International Airport.",
+        "domain": "www.floridatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Nov. 8, 2022 US election coverage | CNN Politics",
+        "content": "N o v .   8 ,   2 0 2 2   U S   e l e c t i o n   c o v e r a g e   |   C N N   P o l i t i c s",
+        "caption": "Maggie Hassan reacts during an election night campaign event in Manchester,New Hampshire, on November 8.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are 0.0 for both candidates, meaning the images are not at all similar. Also, the caption similarity scores are 0.0 for both candidates, meaning that the captions are not at all similar. Therefore, the candidate evidences do not provide any information related to the news caption. The news caption is about Donald Trump tossing an object into the crowd during his campaign appearance in Melbourne. Candidate 1 is about Donald Trump during a rally held at the Orlando Melbourne International Airport. Although both are about Donald Trump and Melbourne, the events are different. Candidate 2 is about Maggie Hassan reacting during an election night campaign event in Manchester. Therefore, the candidate evidences do not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption misrepresents the image as it does not show Donald Trump tossing an object into the crowd.",
+    "explanation": "The news caption claims that presidential candidate Donald Trump is tossing an object into the crowd during a campaign appearance in Melbourne. However, the image check result indicates a complete lack of similarity between the news caption context and the image candidates, leading to a very low confidence score of 2. Without access to the actual image, it can't be conclusively stated whether Trump is seen actively tossing anything, or if it's even a campaign appearance. Thus, while the overall context is about Trump at a campaign rally, the specific action of tossing an object appears to be fabricated or inaccurately described. This significant deviation from the actual event makes the caption misleading for viewers."
+  },
+  "inference_time": 9.28922414779663,
+  "ablation_type": "no_filters"
+}

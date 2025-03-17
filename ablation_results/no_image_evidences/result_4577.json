@@ -1,0 +1,37 @@
+{
+  "caption": "Matt Pipkin right with his father Chet want to keep a small aircraft aloft long enough to break the flight endurance record of nearly 65 days",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Risk takers make long flights into history",
+        "content": "R i s k   t a k e r s   m a k e   l o n g   f l i g h t s   i n t o   h i s t o r y",
+        "caption": "Matt Pipkin, right, with his father, Chet, want to keep a small aircraft aloft long enough to break the flight endurance record of nearly 65 days.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.11052366346120834,
+        "text_similarity_score": 0.9699153304100037
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.11052366346120834, which is less than 0.85. The text similarity score is 0.9699153304100037, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than 0.7, the verdict should be false. This is because the images are not similar, regardless of the text similarity. Therefore, the caption is considered out-of-context.\n\nThe candidate caption is 'Matt Pipkin, right, with his father, Chet, want to keep a small aircraft aloft long enough to break the flight endurance record of nearly 65 days.' This caption is very similar to the news caption 'Matt Pipkin right with his father Chet want to keep a small aircraft aloft long enough to break the flight endurance record of nearly 65 days'. However, the low image similarity score indicates that the candidate image does not match the news image.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.11052366346120834",
+        "Text Similarity Score: 0.9699153304100037"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image is out of context. The image similarity score is low (0.11052366346120834), while the text similarity score is high (0.9699153304100037). The high text similarity suggests that the caption is semantically similar to the candidate caption, but the low image similarity indicates that the image does not match the caption's content. The caption claims that the image shows Matt Pipkin and his father Chet, who want to keep a small aircraft aloft to break the flight endurance record, but the image shows a man next to an orange boat inside a warehouse. Therefore, the image is out of context as it doesn't show the small aircraft mentioned in the caption.",
+    "validation_summary": "The image does not show Matt Pipkin and his father Chet next to a small aircraft as the caption suggests, but rather a man next to an orange boat, making the caption misleading. Therefore, the image is out of context of the news content provided."
+  },
+  "inference_time": 6.263904571533203,
+  "ablation_type": "no_image_evidences"
+}

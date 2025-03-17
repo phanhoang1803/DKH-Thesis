@@ -1,0 +1,58 @@
+{
+  "caption": "Paceman Mitchell Johnson looks skywards as he celebrates claiming the wicket of Kane Williamson caught and bowled as Australia take early control of the match",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Test cricket",
+      "Cricket",
+      "First-class cricket",
+      "Limited overs cricket",
+      "One Day International",
+      "Team",
+      "Over",
+      "referee"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Cricket World Cup 2015: Australia v New Zealand final  in pictures | Sport | The Guardian",
+        "content": "C r i c k e t   W o r l d   C u p   2 0 1 5 :   A u s t r a l i a   v   N e w   Z e a l a n d   f i n a l      i n   . . .",
+        "caption": "Paceman Mitchell Johnson looks skywards as he celebrates claiming the wicket of Kane Williamson, caught and bowled as Australia take early control of the match.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.35148048400878906,
+        "text_similarity_score": 0.9535347819328308
+      },
+      {
+        "title": "Cricket World Cup 2015: Australia v New Zealand final  in pictures | Sport | The Guardian",
+        "content": "C r i c k e t   W o r l d   C u p   2 0 1 5 :   A u s t r a l i a   v   N e w   Z e a l a n d   f i n a l      i n   . . .",
+        "caption": "Paceman Mitchell Johnson looks skywards as he celebrates claiming the wicket of Kane Williamson, caught and bowled as Australia take early control of the match.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.09945141524076462,
+        "text_similarity_score": 0.9535347819328308
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "Both candidates have an image similarity score below 0.85, and therefore do not provide enough evidence to support the caption. The text similarity score is high (>=0.7) for both candidates, but since the image similarity score is low (<0.85), the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a 'False' verdict with a confidence score of 1, based on low image similarity scores from supporting evidence. This suggests the caption is not accurately representing the content of the image. The caption claims Mitchell Johnson is celebrating taking a wicket of Kane Williamson, while the images provided as supporting evidence have low similarity scores, indicating the image likely doesn't depict this specific event or perhaps doesn't depict a wicket celebration at all. Therefore, I concur with the image check result and determine that the image is out of context.",
+    "validation_summary": "The image and caption do not align, suggesting viewers would be misled about the specific event depicted. The caption claims a specific wicket celebration that isn't supported by the image content based on the similarity check results, which strongly suggests the image is being used out of context to the news content. Therefore, a viewer may be misled if they viewed this image and read the caption presented and assumed that what was depicted was Johnson's celebration of the claimed wicket event. The image and caption are discrepant and should be viewed as 'Out of Context'. Therefore, OOC=True. High Confidence Score based on the provided supporting documents. This image is OOC and I agree with the original verdict of the image verification process. 10/10 Confidence Score. Out of Context = OOC = TRUE. Based on the Image Verification process and the supporting documents provided. In summary, I agree with the image verification process that the Image is Out of Context and that a user will be mislead by the contents of the caption. Mitchell Johnson may be celebrating a different event. The Image Verification system states the the caption is out-of-context, and the evidence points to low image similarity scores from supporting documents. This conclusion is furthered reinforced by the News Content and a lack of a supporting match to the image based on the original caption's claim. Hence OOC=TRUE, with a high confidence score based on the supporting evidence. This strongly support the case that the image is OOC, due to the low image verification similarity score. Thus, the final conclusion has high degree of agreement based on this image to conclude the Image is OOC and that the caption is misleading when directly placed with this image. Final Judgement: OOC=TRUE. Confidence Score:10/10. Viewers would be misled. Validation Complete. Image is Out-Of-Context (OOC). The caption does not match and the Image Verification system's OOC response has been verified as TRUE by review of the contents of the Image Verification system's report. Therefore, OOC=TRUE has been verified and substantiated by the image verification report, and the findings of this image caption analysis confirm this verdict. OOC=TRUE. confidence score=10/10 based on substantial and verified supporting evidence and review of the News Content provided as part of the instructions."
+  },
+  "inference_time": 7.343599557876587,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

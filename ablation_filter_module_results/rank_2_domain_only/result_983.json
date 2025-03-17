@@ -1,0 +1,45 @@
+{
+  "caption": "Two other Libyan army cadets stationed at Bassingbourn barracks in Cambridge have pleaded guilty to sex offences",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Libyan troops sent home after sexual assault allegations | Ministry of Defence | The Guardian",
+        "content": "L i b y a n   t r o o p s   s e n t   h o m e   a f t e r   s e x u a l   a s s a u l t   a l l e g a t i o n s   . . .",
+        "caption": "Bassingbourn barracks in Cambridgeshire. 'The main problem has been escapees and the fear that has caused,' said one local.  Photograph: Matthew Power/SWNS.com",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "UK man raped by Libyan cadets sues MoD for negligence | Ministry of Defence | The Guardian",
+        "content": "U K   m a n   r a p e d   b y   L i b y a n   c a d e t s   s u e s   M o D   f o r   n e g l i g e n c e   |   M i n i s t r y   . . .",
+        "caption": "Libyan soldiers were trainee cadets at Bassingbourn barracks in October 2014.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The news caption mentions 'Libyan army cadets' stationed at 'Bassingbourn barracks in Cambridge' who 'pleaded guilty to sex offences'. Candidate 1 mentions 'Bassingbourn barracks in Cambridgeshire' but does not mention anything about the cadets or sex offences. Candidate 2 mentions 'Libyan soldiers were trainee cadets at Bassingbourn barracks' in 'October 2014' but does not mention the sex offences. Neither candidate fully confirms the news caption. Therefore, I cannot confirm that the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a road leading to what appears to be a restricted entrance, indicated by an 'NSA' sign and another sign that reads 'RESTRICTED ENTRANCE'. There is also a police car on the road and a 'ROAD CLOSED' sign. The caption discusses Libyan army cadets and sex offenses, which have no visual connection to the elements presented in the image. The image does not depict any individuals, locations, or activities related to the news caption. The image check result returned a 'False' verdict with a confidence score of 3, which is overridden due to the stronger evidence suggesting the image is OOC. The image is therefore considered out of context.",
+    "validation_summary": "The image displays a road leading to a restricted area with a police car, completely unrelated to the news caption about Libyan army cadets and sex offenses, misleading viewers about the news story's visual representation. The image lacks any connection to the caption's topic, making it out of context and potentially confusing for viewers."
+  },
+  "inference_time": 4.42519211769104,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

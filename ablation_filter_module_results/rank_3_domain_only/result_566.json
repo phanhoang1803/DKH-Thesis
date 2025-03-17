@@ -1,0 +1,47 @@
+{
+  "caption": "People rush into Macy s as they open at midnight on Friday in NYC",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "A Journey from Homelessness to a Room of One's Own | The New Yorker",
+        "content": "A   J o u r n e y   f r o m   H o m e l e s s n e s s   t o   a   R o o m   o f   O n e ' s   O w n   |   T h e   N e w   Y o r k e r",
+        "caption": "A person wearing a sweatshirt is seen from behind looking out a window.",
+        "domain": "www.newyorker.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Why Black Friday shoppers endure the crush | CNN",
+        "content": "W h y   B l a c k   F r i d a y   s h o p p e r s   e n d u r e   t h e   c r u s h   |   C N N",
+        "caption": "Black Friday shoppers gleefully rush through the doors of the New York City Macy's after it opened its doors at midnight on November 25, 2011.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity scores are both 0.0, indicating that the candidate images do not visually match the news image. Therefore, the automated rules do not provide a definitive answer. However, candidate 2 from cnn.com mentions \"Black Friday shoppers gleefully rush through the doors of the New York City Macy's after it opened its doors at midnight on November 25, 2011.\" This confirms the elements of people rushing into Macy's in NYC. The news caption is \"People rush into Macy s as they open at midnight on Friday in NYC\". Although not verbatim, it is similar. Given the limited evidence, I am only partially confident.",
+      "supporting_evidences": [
+        "Black Friday shoppers gleefully rush through the doors of the New York City Macy's after it opened its doors at midnight on November 25, 2011."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a confidence score of 7, suggesting that the automated rules provide a reasonably reliable answer. The supporting evidence from the image check, specifically the mention of \"Black Friday shoppers gleefully rush through the doors of the New York City Macy's after it opened its doors at midnight on November 25, 2011,\" aligns with the news caption, \"People rush into Macy s as they open at midnight on Friday in NYC.\" The image also shows a large crowd of people inside what appears to be a department store, further supporting the caption's claim. Given this evidence and the image check's positive assertion, I concur with the verdict that the image is not out of context.",
+    "validation_summary": "The image depicts a crowd of people inside a store, and the caption accurately describes it as people rushing into Macy's in NYC at midnight on Friday, thus not misleading viewers. The image check result supports that the image shows people rushing into Macy's in NYC for black friday, confirming the caption's claims."
+  },
+  "inference_time": 5.303974151611328,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

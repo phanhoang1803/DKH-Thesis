@@ -1,0 +1,69 @@
+{
+  "caption": "Senate GOP between a rock and a hard place",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Tea",
+      "Stock photography",
+      "Japanese tea ceremony",
+      "Alamy",
+      "Teahouse",
+      "Hamarikyu",
+      "Photograph",
+      "Photography",
+      "Image",
+      "garden tea house"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Japanese tea house hi-res stock photography and images - Page 4 - Alamy",
+        "content": "",
+        "caption": "",
+        "domain": "www.alamy.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7870405912399292,
+        "text_similarity_score": 0.13000400364398956
+      },
+      {
+        "title": "Tokyo tea house hi-res stock photography and images - Alamy",
+        "content": "",
+        "caption": "",
+        "domain": "www.alamy.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7870405912399292,
+        "text_similarity_score": 0.13000400364398956
+      },
+      {
+        "title": "Tea house tokyo hi-res stock photography and images - Alamy",
+        "content": "",
+        "caption": "",
+        "domain": "www.alamy.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7870405912399292,
+        "text_similarity_score": 0.13000400364398956
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are low across all candidates (0.7870405912399292), indicating that the candidate images do not closely match the news image. Additionally, the text similarity scores are also low (0.13000400364398956), suggesting that the captions of the candidates do not align well with the news caption. Without higher similarity scores or more relevant textual information, it is not possible to verify that the news caption accurately represents what the news image shows.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low similarity between the image and the news caption, further supported by low image and text similarity scores. The image depicts Prince William in what appears to be a traditional Japanese setting, kneeling and interacting with an elderly woman in traditional Japanese attire. The caption, \"Senate GOP between a rock and a hard place,\" refers to the Republican party's political challenges, which is completely unrelated to the visual content of the image. Therefore, the caption misrepresents the image, misleading viewers about the context of the scene. High confidence is assigned due to these conflicting elements.",
+    "validation_summary": "The image is not related to the caption. The caption discusses Senate Republicans while the image shows Prince William in a Japanese setting, which would mislead viewers about the subject of the image."
+  },
+  "inference_time": 6.957847833633423,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "caption": "A South African giraffe practices its footwork at Vutomi Dam in Kruger National Park South Africa Giraffes are prone to broken limbs caused by slipping on wet surfaces",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Serengeti National Park",
+      "Tarangire National Park",
+      "Wildebeest",
+      "Ngorongoro Conservation Area",
+      "Maasai Mara National Reserve",
+      "Mara River",
+      "National park",
+      "Safari",
+      "Protected Site",
+      "Zebra"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Access Denied",
+        "content": "",
+        "caption": "",
+        "domain": "www.freepik.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9353083372116089,
+        "text_similarity_score": 0.06684368848800659
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.9353083372116089 which is greater than 0.85, and the text similarity score is 0.06684368848800659 which is less than 0.7. Based on the instruction, the verdict should be 'False' because even though the images match, the captions do not match. Furthermore, there is no title and content to validate the context of the image to confirm if the news caption accurately represents what the image shows and what the image is about.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high image similarity (0.9353083372116089 > 0.85) but a low text similarity (0.06684368848800659 < 0.7). This suggests that while the images might be related, the captions do not match. The image depicts a large group of zebras and wildebeests drinking from a body of water in a natural environment. The caption describes a South African giraffe practicing footwork in Kruger National Park. There is no giraffe visible in the image. Therefore, the caption is not representative of the image content.",
+    "validation_summary": "The caption inaccurately describes the image, as the image shows zebras and wildebeests at a watering hole, while the caption describes a giraffe in Kruger National Park. Viewers would be misled about the content of the image based on the provided caption."
+  },
+  "inference_time": 4.538949728012085,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

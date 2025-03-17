@@ -1,0 +1,34 @@
+{
+  "caption": "Pope Francis in Ecuador s highland capital Quito for an openair mass of an expected million people",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 7,
+      "confidence_score": 9,
+      "explanation": "The caption mentions Pope Francis in Quito for an open-air mass, while the image context describes him waving from a vehicle in the rain. While both refer to Pope Francis, the specific activity and setting don't completely align. The caption refers to an open-air mass, the image to a motorcade in the rain. The location (Ecuador, Quito) is not explicitly contradicted but is also not confirmed in the image context, making it only partially aligned.",
+      "supporting_evidences": [
+        "The caption mentions an open-air mass, while the image context is about a vehicle in the rain.",
+        "Both the caption and context refer to Pope Francis.",
+        "The caption mentions Quito, which is not explicitly contradicted but neither supported by the image context."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Pope Francis waving from a vehicle in the rain.",
+      "context": "The image shows Pope Francis inside a vehicle, possibly a car or a popemobile, waving to people outside. Rain is heavily falling, as evidenced by the water droplets on the window. The Pope is wearing his traditional white cassock and zucchetto. The background is blurred, but hints of people and umbrellas suggest a crowd gathered outside. The image captures a moment during his visit, likely during a procession or motorcade. The mood is one of devotion and anticipation, despite the inclement weather.",
+      "information": "The image shows Pope Francis in his white papal attire waving from inside a vehicle during a rainy day. The raindrops on the glass create a blurred view of the crowd outside."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows Pope Francis waving, seemingly from inside a vehicle, in the rain. The caption mentions \"Pope Francis in Ecuador's highland capital Quito for an open-air mass\". While the image might be taken in Quito, Ecuador, there is no direct evidence in the picture to confirm that he is at an open-air mass. The image is primarily showing the Pope in a vehicle during the rain. Therefore, the caption only partially aligns with the image content. The image check result is negative (OOC=True) due to this partial alignment, and the confidence score is high. The specific activity and setting don't completely align with the context of the image showing the Pope in the rain.",
+    "validation_summary": "The caption refers to Pope Francis at an open-air mass, but the image shows him waving from inside a vehicle in the rain, which could mislead viewers about the context of the image and the Pope's activities at the time the image was taken. The main activity described in the caption doesn't match what is shown in the image."
+  },
+  "inference_time": 8.31216812133789,
+  "ablation_type": "no_image_evidences"
+}

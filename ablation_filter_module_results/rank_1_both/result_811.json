@@ -1,0 +1,40 @@
+{
+  "caption": "Protesters shout next to a bus carrying some members of Brazil s national team The sign reads in Portuguese There will be not Cup There will be a strike",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Public pessimism reigns in Brazil as World Cup looms",
+        "content": "P u b l i c   p e s s i m i s m   r e i g n s   i n   B r a z i l   a s   W o r l d   C u p   l o o m s",
+        "caption": "Protesters shout next to a bus carrying some members of Brazil's national team The sign reads in Portuguese \"There will be not Cup. There will be a strike.\"",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2144940048456192,
+        "text_similarity_score": 0.9798662662506104
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.2144940048456192 which is less than 0.85, and the text similarity score is 0.9798662662506104 which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a collection of international flags waving in front of a mountainous landscape. The provided caption describes protesters, a bus carrying members of Brazil's national team, and a sign with a message about a strike and the World Cup. Since the image does not show protesters, a bus, or a sign related to the described events, the caption is not representative of the image content. The Image Check Result also indicates that the image and caption are not well aligned, further supporting the conclusion that the caption is out of context.",
+    "validation_summary": "The caption describes a scene with protesters and a bus, which is not depicted in the image of international flags and mountains, misleading viewers about the actual content of the image. Therefore, the image is out of context relative to the caption provided and the news content which is about the Brazil World Cup and the reactions of the locals about the world cup event. The image similarity score from the Image Check is below 0.85 and the overall verdict is False, confirming it's out of context."
+  },
+  "inference_time": 6.709590673446655,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

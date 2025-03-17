@@ -1,0 +1,40 @@
+{
+  "caption": "Herc Domenick Lombardozzi in his Baltimore days",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Wired into 24 | Television industry | The Guardian",
+        "content": "W i r e d   i n t o   2 4   |   T e l e v i s i o n   i n d u s t r y   |   T h e   G u a r d i a n",
+        "caption": "Herc: Domenick Lombardozzi in his Baltimore days. Photograph: Paul Schiraldi/FX",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0, which is less than 0.85. The text similarity score is 0.0, which is less than 0.7. Therefore, I will analyze the captions and candidates to give the final decision. The candidate provides the exact caption of the news, and confirms that the character's name is 'Herc: Domenick Lombardozzi' and it was during his 'Baltimore days'. Therefore, I believe the caption is likely to be true. However, I have low confidence because I am unsure of the reliability of the domain.",
+      "supporting_evidences": [
+        "Herc: Domenick Lombardozzi in his Baltimore days. Photograph: Paul Schiraldi/FX"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check returned a verdict of true, claiming that the caption provides the exact caption of the news. However, the image portrays Derek Jeter in a Yankees uniform and cap. The caption references Herc Domenick Lombardozzi in his Baltimore days which does not match the visual evidence in the image. Thus, the caption is considered out of context as it does not align with the image. As the image check confidence is high, I defer to this result.",
+    "validation_summary": "The image portrays Derek Jeter in a Yankees uniform, directly contradicting the caption's claim of Herc Domenick Lombardozzi in his Baltimore days, misleading viewers about the image's content and relevance to the news article. The image is not of Herc in Baltimore, but rather a baseball player in a Yankees uniform, which makes the caption out of context and misleading to viewers who may expect to see the person described in the caption."
+  },
+  "inference_time": 5.567634344100952,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

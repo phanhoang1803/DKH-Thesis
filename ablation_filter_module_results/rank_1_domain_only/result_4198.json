@@ -1,0 +1,38 @@
+{
+  "caption": "Houston and Brown were nt shy about their affection for each other at the VH1 Divas Duets postconcert party in 2003",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Whitney Houston remembered: Aug. 9, 1963 - Feb. 11, 2012",
+        "content": "W h i t n e y   H o u s t o n   r e m e m b e r e d :   A u g .   9 ,   1 9 6 3   -   F e b .   1 1 ,   2 0 1 2",
+        "caption": "Houston was one of the first African-American models to land on the cover of \"Seventeen\" magazine before Clive Davis signed her to Arista Records in 1983. Here's a 1985 publicity photo of Houston.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Thus, the strict decision rules dictate that I should do analysis based on the captions and candidate to give the final decision. However, the candidate evidence does not contain information that supports or refutes the news caption. Therefore, the final verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The Image Check Result indicates that the image is out of context with a confidence score of 1. Therefore, based on the instructions, the final determination must be based on the image check result. The image check result says that the candidate evidence does not contain information that supports or refutes the news caption. Thus, the image is out of context because the caption is not supported by the image.",
+    "validation_summary": "The image and caption are unrelated, leading to a false impression of the news event's visual representation. The caption's claim is not supported by the image, misleading viewers about the image's content and context."
+  },
+  "inference_time": 3.9838006496429443,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

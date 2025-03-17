@@ -1,0 +1,54 @@
+{
+  "caption": "Mitt Romney speaks during a campaign rally at Westerville South High School in Westerville Ohio",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "United States",
+      "Speech",
+      "Flag of the United States",
+      "Flag",
+      "Academic conference",
+      "Public speaking",
+      "Flag Day",
+      "Veterans Day",
+      "Convention"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Picture desk live: the best news pictures of the day | World news | The Guardian",
+        "content": "P i c t u r e   d e s k   l i v e :   t h e   b e s t   n e w s   p i c t u r e s   o f   t h e   d a y   |   W o r l d   n e w s   . . .",
+        "caption": "Peering through the crowd, Mitt Romney delivers a speech during a campaign rally at Westerville South High School in Westerville, Ohio, USA.  Photograph: Shawn Thew/EPA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.375462144613266,
+        "text_similarity_score": 0.871079683303833
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.375462144613266, which is less than 0.85. The text similarity score is 0.871079683303833, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False. The candidate caption is 'Peering through the crowd, Mitt Romney delivers a speech during a campaign rally at Westerville South High School in Westerville, Ohio, USA. Photograph: Shawn Thew/EPA'. The news caption is 'Mitt Romney speaks during a campaign rally at Westerville South High School in Westerville Ohio'. The candidate caption contains the exact location and event as the news caption, but the image similarity is too low to verify that they show the same event.",
+      "supporting_evidences": [
+        "The image similarity score is 0.375462144613266.",
+        "The text similarity score is 0.871079683303833.",
+        "The candidate caption is 'Peering through the crowd, Mitt Romney delivers a speech during a campaign rally at Westerville South High School in Westerville, Ohio, USA. Photograph: Shawn Thew/EPA'."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates an image similarity score of 0.375462144613266 and a text similarity score of 0.871079683303833. Since the image similarity score is less than 0.85, the image is determined to be out of context, irrespective of the high text similarity. The caption refers to Mitt Romney speaking at a campaign rally at Westerville South High School in Westerville, Ohio, but the low image similarity prevents verifying that the image is of the same event as the candidate caption. Therefore, the image is considered out of context according to the defined rules.",
+    "validation_summary": "The low image similarity score indicates that the image does not depict the event described in the caption, even though the text similarity is high. Viewers would be misled into thinking the image shows the specific event mentioned in the caption when it may not be related to the event at all, as it is not verifiable through the image."
+  },
+  "inference_time": 5.139041900634766,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "caption": "Tomas Rosicky has impressed in reecent weeks for Arsenal and has now signed a new contract",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Tomáš Rosický",
+      "Arsenal F.C.",
+      "Gaelic football",
+      "International rules football",
+      "Footballer",
+      "Goalkeeper stops shot",
+      "Kick up a soccer ball",
+      "Ball",
+      "Ball",
+      "Naver Blog"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Arsne Wenger delighted as Tomas Rosicky signs new contract at Arsenal | Arsenal | The Guardian",
+        "content": "A r s  n e   W e n g e r   d e l i g h t e d   a s   T o m a s   R o s i c k y   s i g n s   n e w   c o n t r a c t   a t   . . .",
+        "caption": "Tomas Rosicky has impressed in reecent weeks for Arsenal and has now signed a new contract.  Photograph: Stuart Macfarlane/Arsenal FC via Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Per Mertesacker and Tomas Rosicky sign Arsenal contracts - but future of Bacary Sagna thrown into doubt | The Independent | The Independent",
+        "content": "P e r   M e r t e s a c k e r   a n d   T o m a s   R o s i c k y   s i g n   A r s e n a l   c o n t r a c t s   -   b u t   . . .",
+        "caption": "Tomas Rosicky (left) and Per Mertesacker will not feature for Arsenal against Manchester United because of illness",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have low Image Similarity Scores (< 0.85) and low Text Similarity Scores (< 0.7). \n\nCandidate 1's caption is identical to the news caption, indicating that Tomas Rosicky had impressed in recent weeks and signed a new contract with Arsenal. This provides strong support for the news caption.\n\nCandidate 2 mentions Tomas Rosicky and Per Mertesacker, confirming the presence of Tomas Rosicky and their association with Arsenal. However, it focuses on their absence from a match against Manchester United due to illness, which is unrelated to the news caption about Rosicky signing a new contract.\n\nBased on Candidate 1, which has the same caption as the news and is from a reliable domain (theguardian.com), the verdict is True. Candidate 2 does not contradict this but is irrelevant.",
+      "supporting_evidences": [
+        "Tomas Rosicky has impressed in reecent weeks for Arsenal and has now signed a new contract.  Photograph: Stuart Macfarlane/Arsenal FC via Getty Images"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The Image Check Result has a confidence score of 7. The Image Check Result indicates the caption \"Tomas Rosicky has impressed in reecent weeks for Arsenal and has now signed a new contract\" matches the image. However, the image shows Tomas Rosicky playing in a game for Arsenal, which does not directly depict the signing of a new contract. Therefore, the caption is out of context as it doesn't describe the content in the picture.",
+    "validation_summary": "The caption mentions Tomas Rosicky signing a new contract, which is not directly shown in the image of him playing a game. The image is out of context as it does not accurately represent the news caption's claim."
+  },
+  "inference_time": 4.287503004074097,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "caption": "Russian President Vladimir Putin performs a toast prior to the Opening Ceremony of the Sochi 2014 Paralympic Winter Games on March 7 in Sochi Russia",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Vladimir Putin: A look at Russia's president",
+        "content": "V l a d i m i r   P u t i n :   A   l o o k   a t   R u s s i a ' s   p r e s i d e n t",
+        "caption": "Russian President Vladimir Putin and Brazil's President Jair Bolsonaro attend a joint press conference following their talks at the Kremlin, in Moscow, on February 16, 2022.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Thus, I should analyze based on the captions and candidates to give the final decision. The candidate caption mentions Russian President Vladimir Putin, but it does not mention anything related to the Sochi 2014 Paralympic Winter Games. Thus, the candidate doesn't provide enough information to support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (10) and a negative verdict (False). Therefore, the final determination must be based on the image check result, concluding that the caption does not accurately represent the image content. The image shows Vladimir Putin raising a glass, seemingly in a toast, against a backdrop with what appears to be the Sochi Paralympic Games logo. The news article is about Ukraine's government pulling its troops from Crimea, and the image does not relate to the news content, as confirmed by the image check.",
+    "validation_summary": "The image depicts Vladimir Putin at the Sochi Paralympic Winter Games, but the news article discusses Ukraine's troop withdrawal from Crimea, making the image misleading in the context of the news article. The image check result also confirms the image does not relate to the news content, so the caption is out of context in representing the news content."
+  },
+  "inference_time": 4.518547058105469,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

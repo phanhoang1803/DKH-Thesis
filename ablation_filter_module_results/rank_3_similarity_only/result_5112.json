@@ -1,0 +1,46 @@
+{
+  "caption": "Mark Milligan of the Victory celebrates after scoring a goal during the round 26 ALeague match between the Brisbane Roar and Melbourne Victory at Suncorp Stadium",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Team"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Melbourne Victory on cusp of Premiers' Plate via controversial win ...",
+        "content": "M e l b o u r n e   V i c t o r y   o n   c u s p   o f   P r e m i e r s '   P l a t e   v i a   c o n t r o v e r s i a l   w i n   . . .",
+        "caption": "BRISBANE, AUSTRALIA - APRIL 18: Mark Milligan of the Victory celebrates after scoring a goal during the round 26 A-League match between the Brisbane Roar and Melbourne Victory at Suncorp Stadium on April 18, 2015 in Brisbane, Australia. (Photo by Bradley Kanaris/Getty Images)",
+        "domain": "www.couriermail.com.au",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7504640221595764,
+        "text_similarity_score": 0.8117437362670898
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate provides strong evidence supporting the news caption. The Image Similarity Score is 0.7504640221595764, and the Text Similarity Score is 0.8117437362670898. Although the image similarity is below 0.85, the text similarity is high. Upon comparing the news caption ('Mark Milligan of the Victory celebrates after scoring a goal during the round 26 ALeague match between the Brisbane Roar and Melbourne Victory at Suncorp Stadium') and the candidate caption ('BRISBANE, AUSTRALIA - APRIL 18: Mark Milligan of the Victory celebrates after scoring a goal during the round 26 A-League match between the Brisbane Roar and Melbourne Victory at Suncorp Stadium on April 18, 2015 in Brisbane, Australia. (Photo by Bradley Kanaris/Getty Images)'), we observe that the candidate caption contains more specific details, such as the date (April 18, 2015) and location (Brisbane, Australia), but both captions describe the same event: Mark Milligan celebrating a goal during the specified match. Given this strong alignment in describing the core event, the candidate supports the news caption.",
+      "supporting_evidences": [
+        "Caption: BRISBANE, AUSTRALIA - APRIL 18: Mark Milligan of the Victory celebrates after scoring a goal during the round 26 A-League match between the Brisbane Roar and Melbourne Victory at Suncorp Stadium on April 18, 2015 in Brisbane, Australia. (Photo by Bradley Kanaris/Getty Images)",
+        "Image Similarity Score: 0.7504640221595764",
+        "Text Similarity Score: 0.8117437362670898"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a strong alignment between the news caption and the image content. The confidence score is 10, and the analysis shows a high degree of similarity in both image and text. The news caption accurately describes the scene in the image: Mark Milligan of the Victory celebrating after scoring a goal during the specified match against Brisbane Roar at Suncorp Stadium. The supporting evidence from the candidate caption reinforces this accuracy, despite minor differences in the level of detail. Therefore, the caption provides a correct representative summary of the image content.",
+    "validation_summary": "The image and caption align well, showing Mark Milligan celebrating a goal during a match between Melbourne Victory and Brisbane Roar, so viewers would not be misled about the image's content. The image check confirms the caption's accuracy, indicating it's not out of context, even with a slightly lower Image Similarity Score, the Text Similarity Score compensates and the provided explanation further confirms this determination. The caption is an adequate description of the image and its context, accurately portraying what the image depicts."
+  },
+  "inference_time": 9.007345199584961,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

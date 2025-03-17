@@ -1,0 +1,53 @@
+{
+  "caption": "Ed Miliband campaigning in Oldham East and Saddleworth before Christmas",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Ed Balls",
+      "Labour Party",
+      "Shadow Chancellor of the Exchequer",
+      "Shadow Home Secretary of the United Kingdom",
+      "front",
+      "Leader of the Labour Party of the United Kingdom",
+      "past",
+      "Resonant Chord",
+      "side"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Miliband raises the stakes as the battle for Oldham East intensifies | Ed Miliband | The Guardian",
+        "content": "O l d h a m - E a s t - a n d - S a d d l e w o r - 0 0 7 .   . . .",
+        "caption": "Ed Miliband campaigning in Oldham East and Saddleworth before Christmas. Photograph: Anna Gowthorpe/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4132268726825714,
+        "text_similarity_score": 0.8511050939559937
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.4132268726825714, which is less than 0.85. The text similarity score is 0.8511050939559937, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context. Therefore, the verdict is False.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.4132268726825714",
+        "Text Similarity Score: 0.8511050939559937"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The Image Check Result indicates the image similarity score is low (0.4132268726825714), and the text similarity score is high (0.8511050939559937). According to the instructions, since the confidence score is high (6, which is within the 7-10 range), the decision must be based on the Image Check Result. Since the image similarity score is less than 0.85, the caption must be marked as out-of-context (OOC = True). Therefore, the caption is considered out of context because the visual content of the image does not strongly align with the details or implications of the caption.",
+    "validation_summary": "The caption is out of context because the visual content doesn't strongly align with the caption's description, potentially misleading viewers about the actual image content. This is due to the low image similarity score despite a high text similarity score between the caption and associated news article content used by the model to assess context."
+  },
+  "inference_time": 6.521829128265381,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

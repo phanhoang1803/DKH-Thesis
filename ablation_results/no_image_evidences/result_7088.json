@@ -1,0 +1,46 @@
+{
+  "caption": "Helen Pidd outside the Broadway hotel in Blackpool",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Blackpool holidays | The Guardian",
+        "content": "B l a c k p o o l   h o l i d a y s   |   T h e   G u a r d i a n",
+        "caption": "Helen Pidd outside the Broadway hotel in Blackpool",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9111111164093018,
+        "text_similarity_score": 1.0000001192092896
+      },
+      {
+        "title": "Please dont fine me, Im a journalist: a night in Blackpools Broadway hotel | Hotels | The Guardian",
+        "content": "P l e a s e   d o n ' t   f i n e   m e ,   I ' m   a   j o u r n a l i s t :   a   n i g h t   i n   B l a c k p o o l ' s   . . .",
+        "caption": "Helen Pidd outside the Broadway hotel in Blackpool. Photograph: The Guardian",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9835003018379211,
+        "text_similarity_score": 0.9451267123222351
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The provided candidates have very high image similarity scores (0.911 and 0.983), indicating that they are visually very similar to the news image. Additionally, the text similarity scores are also high (1.000 and 0.945), which means that the captions are nearly identical. Since candidate 1 has a text similarity score of 1.0 and an image similarity score of 0.911, this serves as a strong indication that the news caption accurately describes the image. Similarly, candidate 2 has a text similarity score of 0.945 and an image similarity score of 0.983, further confirming the accuracy of the news caption. The fact that both candidates originate from a reputable source (www.theguardian.com) also increases the confidence in the verdict.",
+      "supporting_evidences": [
+        "Candidate 1: Caption - Helen Pidd outside the Broadway hotel in Blackpool; Image Similarity Score: 0.911; Caption Similarity Score: 1.000; Domain: www.theguardian.com",
+        "Candidate 2: Caption - Helen Pidd outside the Broadway hotel in Blackpool. Photograph: The Guardian; Image Similarity Score: 0.983; Caption Similarity Score: 0.945; Domain: www.theguardian.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high degree of confidence that the news caption accurately represents the image content. Both candidates have high image and caption similarity scores. Candidate 1 has a perfect text similarity score of 1.0 and a strong image similarity score of 0.911. Candidate 2 further reinforces this conclusion with an image similarity score of 0.983 and a caption similarity score of 0.945. Both candidates originate from a reputable source, 'www.theguardian.com'. Given these strong indicators, the news caption is considered to be an accurate representation of the image.",
+    "validation_summary": "The high similarity scores from reputable sources indicate that the caption accurately represents the image content, so viewers would not be misled. The caption correctly identifies Helen Pidd in front of the Broadway Hotel in Blackpool as depicted in the image."
+  },
+  "inference_time": 5.594545125961304,
+  "ablation_type": "no_image_evidences"
+}

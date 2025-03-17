@@ -1,0 +1,51 @@
+{
+  "caption": "Alex Corbisiero right on his debut faces up to Martin Castrogiovanni for the first scrum",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Rugby league",
+      "Rugby sevens",
+      "Rugby league sevens",
+      "Rugby tens",
+      "Rugby league nines",
+      "Touch",
+      "Rugby football",
+      "Touch football",
+      "Rugby union",
+      "Tackle"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Six Nations 2011:  England v Italy - in pictures | Sport | The Guardian",
+        "content": "S i x   N a t i o n s   2 0 1 1 :   E n g l a n d   v   I t a l y   -   i n   p i c t u r e s   |   S p o r t   |   T h e   G u a r d i a n",
+        "caption": "England v Italy: Alex Corbisiero faces up to Martin Castrogiovanni for the first scrum",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0, so I will proceed with the analysis based on the captions and candidate. The candidate provides a similar caption, 'England v Italy: Alex Corbisiero faces up to Martin Castrogiovanni for the first scrum', which confirms the presence of Alex Corbisiero and Martin Castrogiovanni in the scrum. It also suggests the event is related to England vs Italy. However, the candidate does not explicitly confirm that it is Alex Corbisiero's debut, which is a key detail in the original caption. Since not all elements in the caption are verified, the verdict is 'False'.",
+      "supporting_evidences": [
+        "England v Italy: Alex Corbisiero faces up to Martin Castrogiovanni for the first scrum"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image depicts a rugby player in a black jersey with a red 'W' logo running with the ball, seemingly during a practice session or game. Other players and coaches are visible in the background. The caption refers to 'Alex Corbisiero right on his debut faces up to Martin Castrogiovanni for the first scrum'. The image check result suggests that the event is related to England vs Italy. The image does not provide any evidence that the event is Alex's debut or is facing Martin Castrogiovanni for the first scrum. Therefore the caption is out of context because the image does not show the specific players or the 'first scrum'.",
+    "validation_summary": "The image does not support the claim that Alex Corbisiero is facing Martin Castrogiovanni or that it is his debut, making the caption misleading. Viewers would be misled about the specific context of the image based on the caption provided."
+  },
+  "inference_time": 4.316388845443726,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

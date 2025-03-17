@@ -1,0 +1,42 @@
+{
+  "caption": "People wait in line before the Dr King Career Fair at the Empire State Plaza Convention Center in Albany NY in April this year",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Stocks surge on May jobs report, Dow up 207",
+        "content": "S t o c k s   s u r g e   o n   M a y   j o b s   r e p o r t ,   D o w   u p   2 0 7",
+        "caption": "People wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "US employers add 165K jobs; rate falls to 7.5 percent",
+        "content": "U S   e m p l o y e r s   a d d   1 6 5 K   j o b s ;   r a t e   f a l l s   t o   7 . 5   p e r c e n t",
+        "caption": "In this Thursday, April 11, 2013 photo, people wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y.",
+        "domain": "www.capecodtimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The two candidate evidences confirm the main elements of the news caption, including the event (Dr. King Career Fair), location (Empire State Plaza Convention Center in Albany, N.Y.), and the presence of people waiting in line. Both candidates have very similar captions that describe the scene accurately. However, the image similarity score is low in both cases, and the text similarity score is also low, indicating that direct verification through automated measures is not possible. Based on the content of the candidate captions, they corroborate the key elements of the news caption, suggesting that it accurately describes the image. However, since image similarity is low, and similarity scores are below the threshold, I am not completely confident. Also, the current year isn't explicitly stated, which is crucial.",
+      "supporting_evidences": [
+        "People wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y., in April this year.",
+        "In this Thursday, April 11, 2013 photo, people wait in line before the Dr. King Career Fair at the Empire State Plaza Convention Center in Albany, N.Y."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "validation_summary": "The caption accurately describes the event and location with people waiting in line as represented in the image.",
+    "explanation": "The image check result provides a confidence score of 7, which suggests that while there's reasonable corroboration of the caption with the image, there are some limitations in terms of image and text similarity scores. However, the supporting evidences confirm the main elements of the news caption: the event is the Dr King Career Fair, held at the Empire State Plaza Convention Center in Albany, NY, and it portrays people waiting in line for this event. Despite the lower similarity scores, the description given by the evidences aligns closely with the visual information presented in the image, which is directly relevant to the caption's claims. Since the main claims of the caption about the event, location, and people's presence are indeed present and accurately represented, the final judgment is that the caption is NOT OUT OF CONTEXT."
+  },
+  "inference_time": 7.674304008483887,
+  "ablation_type": "no_filters"
+}

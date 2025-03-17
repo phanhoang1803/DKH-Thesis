@@ -1,0 +1,43 @@
+{
+  "caption": "Democratic presidential candidate Hillary Clinton last month in Reno Nev",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Clinton on foundation: Winding down some of these programs takes time",
+        "content": "C l i n t o n   o n   f o u n d a t i o n :   ' W i n d i n g   d o w n   s o m e   o f   t h e s e   p r o g r a m s   t a k e s   . . .",
+        "caption": "Democratic presidential candidate Hillary Clinton speaks at a campaign event at Truckee Meadows Community College, in Reno, Nev., Thursday, Aug. 25, 2016. (AP Photo/Carolyn Kaster)",
+        "domain": "abcnews4.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2318427860736847,
+        "text_similarity_score": 0.7452110648155212
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.2318427860736847, which is less than 0.85. The text similarity score is 0.7452110648155212, which is greater than 0.7. According to the rule, if Image Similarity Score < 0.85 AND Text Similarity Score ≥ 0.7, the verdict should be \"False\". The candidate caption mentions \"Democratic presidential candidate Hillary Clinton speaks at a campaign event at Truckee Meadows Community College, in Reno, Nev., Thursday, Aug. 25, 2016.\", which is similar to the news caption. Therefore, the news caption is somewhat close to the candidate caption, but the image similarity score is too low. I am reasonably confident that the caption is out-of-context.",
+      "supporting_evidences": [
+        "The image similarity score is 0.2318427860736847.",
+        "The text similarity score is 0.7452110648155212."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 7. The image similarity score is 0.2318427860736847, which is less than 0.85. The text similarity score is 0.7452110648155212, which is greater than 0.7. According to the rule, if Image Similarity Score < 0.85 AND Text Similarity Score ≥ 0.7, the verdict should be \"False\". Therefore, I will mark the image as Out of Context.",
+    "validation_summary": "The image check indicates that the caption is out of context because the image similarity is low while the text similarity is relatively high, suggesting a mismatch between the image and the caption's description of the scene's specifics. This could mislead viewers about where and when the image was taken if they rely solely on the provided caption."
+  },
+  "inference_time": 5.733163833618164,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

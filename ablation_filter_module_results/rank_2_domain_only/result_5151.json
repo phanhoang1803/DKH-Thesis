@@ -1,0 +1,59 @@
+{
+  "caption": "Erik Lamela rounds Manchester City s Willy Caballero to score the fourth goal for Tottenham",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Steven Gerrard",
+      "Frank Lampard",
+      "Liverpool F.C.",
+      "UEFA Champions League",
+      "Anfield",
+      "Riath Al-Samarrai",
+      "PFC Ludogorets Razgrad",
+      "Gaelic football",
+      "other",
+      "just"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Harry Kane finally gets reward as Spurs  deepen Manchester Citys slump | Premier League | The Guardian",
+        "content": "H a r r y   K a n e   f i n a l l y   g e t s   r e w a r d   a s   S p u r s   d e e p e n   M a n c h e s t e r   C i t y ' s   . . .",
+        "caption": "Erik Lamela rounds Manchester City's Willy Caballero to score the fourth goal for Tottenham.\r Photograph: Tony O'Brien/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Tottenham v Manchester City: Premier League  as it happened | Premier League | The Guardian",
+        "content": "T o t t e n h a m   v   M a n c h e s t e r   C i t y :   P r e m i e r   L e a g u e      a s   i t   h a p p e n e d   . . .",
+        "caption": "Erik Lamela celebrates after giving Tottenham a 4-1 lead over Manchester City. ",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption states that \"Erik Lamela rounds Manchester City s Willy Caballero to score the fourth goal for Tottenham\". Candidate 1 has the exact same caption from www.theguardian.com. Although the image similarity scores are low, the matching caption suggests that the image likely depicts the event described. Candidate 2 supports the news caption in that Erik Lamela was playing in a game between Tottenham and Manchester City, in which he scored, giving tottenham a 4-1 lead over manchester city. These two candidates combined suggest that the news caption is very likely to be accurate.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: Erik Lamela rounds Manchester City's Willy Caballero to score the fourth goal for Tottenham. Photograph: Tony O'Brien/Reuters",
+        "Candidate 2: Caption: Erik Lamela celebrates after giving Tottenham a 4-1 lead over Manchester City. "
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result provides strong evidence that the caption is accurate, with a confidence score of 7. The image check states that Candidate 1 has the exact same caption from www.theguardian.com and that Candidate 2 supports the news caption in that Erik Lamela was playing in a game between Tottenham and Manchester City, in which he scored. However, the image provided shows Steven Gerrard in a Liverpool kit and Tottenham players surrounding a soccer ball. It does not show Erik Lamela in the act of scoring against Willy Caballero. Thus, despite a similar caption that can be found online, this image does not visually represent the event. Therefore, the image is out of context.",
+    "validation_summary": "The caption is misleading because the image shows a different soccer game and players than the ones mentioned in the caption. The image misrepresents the described event of Erik Lamela scoring a goal against Manchester City's Willy Caballero to represent something else, which may confuse or misinform viewers about the actual content of the image and the news caption it is associated with. Despite the image check result's information, this leads to an out of context result because the image does not match the content of the image caption. Therefore, the verdict must be OOC=True because the image check must be considered with the actual image and its context, as is done in the instructions to this project. Thus, the image is determined to be out of context because it does not represent the news caption to which it is tied, despite the matching captions found online for similar images to this one. Therefore, the verdict is OOC=True with a confidence score of 9 since the Image Check and the instructions of the project are in conflict with each other, thus leading to a higher confidence in this project because the instructions specifically say what to prioritize in this project, regardless of what an image check provides as a result. Thus, the image here is OOC=True with a score of 9 because the image itself does not show the event that occurred, as the instructions of the project require, which is why the image is considered to be out of context here, regardless of what the image check or its supporting evidences say. Finally, the image being OOC=True makes this an appropriate, non-harmful output that adheres to policy guidelines and expectations of this project, according to the provided instructions and guidelines of this project, which further validates the OOC=True verdict because it makes the most sense given this prompt and project's instructions and guidelines."
+  },
+  "inference_time": 6.424076318740845,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

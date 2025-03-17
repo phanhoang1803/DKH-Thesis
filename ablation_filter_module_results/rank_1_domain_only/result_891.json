@@ -1,0 +1,38 @@
+{
+  "caption": "Iranians celebrate the nuclear agreement in Tehran",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "What is the Iran nuclear deal?",
+        "content": "W h a t   i s   t h e   I r a n   n u c l e a r   d e a l ?",
+        "caption": "European Union High Representative for Foreign Affairs and Security Policy Federica Mogherini, Iranian Foreign Minister Mohammad Javad Zarif, British Foreign Secretary Philip Hammond and Secretary of State John Kerry stand together in July 2015.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption mentions the names of foreign ministers, which does not provide any information about Iranians celebrating the nuclear agreement in Tehran. Thus, the candidate does not support the claim that Iranians celebrate the nuclear agreement in Tehran.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 2, but the image and text similarity scores are both 0. The crowd in the image appears to be protesting or demonstrating, not celebrating. There is no visible indication of Iranian flags or celebratory items. Therefore, the caption, which claims Iranians are celebrating a nuclear agreement in Tehran, does not accurately represent the content of the image.",
+    "validation_summary": "The image shows a crowd of people, possibly protesting, which contradicts the caption's claim of Iranians celebrating a nuclear agreement in Tehran. The caption misrepresents the image content and would mislead viewers about what they are seeing."
+  },
+  "inference_time": 3.992058515548706,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

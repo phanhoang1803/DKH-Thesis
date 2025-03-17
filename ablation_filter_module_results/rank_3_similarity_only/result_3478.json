@@ -1,0 +1,51 @@
+{
+  "caption": "President Obama returns to the White House on July 17 2014",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Sikorsky Aircraft",
+      "Sikorsky S-76",
+      "Sikorsky S-92",
+      "Sikorsky S-70",
+      "Bell 212",
+      "Bell UH-1 Iroquois",
+      "Helicopter",
+      "Bell 214",
+      "Sikorsky UH-60 Black Hawk",
+      "Sikorsky S-64 Skycrane"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 10,
+      "explanation": "The image shows a fleet of helicopters. The caption refers to President Obama returning to the White House. There is a potential connection if helicopters were used to transport the president but this is not apparent from the image alone. Therefore, the caption does not align with the image context.",
+      "supporting_evidences": [
+        "The image depicts helicopters.",
+        "The caption describes President Obama's return to the White House.",
+        "There is no clear visual link between the helicopters and President Obama in the image."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "information": "The image appears to depict a fleet of helicopters, prominently featuring Sikorsky models such as the S-76, S-92, S-70, UH-60 Black Hawk, and possibly including Bell helicopters like the 212, UH-1 Iroquois, and 214. The background suggests an outdoor or airport setting, likely during a function showcasing these aircraft. The aircraft are in pristine condition, possibly indicating a demonstration or an event meant to highlight their capabilities.",
+      "caption": "Helicopter fleet including Sikorsky S-76, S-92, and UH-60 Black Hawk at a showcase event.",
+      "context": "The image corresponds to a notable event on July 17, 2014, which marks President Obama’s return to the White House for his birthday and coincides with the inaugural U.S.-Africa Leaders Summit. While the news caption focuses on the president, the image highlights key helicopters associated with Sikorsky Aircraft, which may be used during presidential or governmental operations. These helicopters symbolize advanced aviation technology and perhaps reflect the strategic partnerships and discussions at the summit related to defense, safety, and cooperation in Africa. The event timing suggests a showcase of American innovation, possibly in the defense sector, relevant to discussions taking place at the summit."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a helicopter with the Washington Monument in the background. A man who could be President Obama is walking away from the helicopter. The caption states that President Obama returns to the White House on July 17, 2014. While the image could depict this event, there's not enough evidence to confirm this. The image check result indicates that the caption does not align with the image context. Therefore, the caption is out of context.",
+    "validation_summary": "Without additional information, viewers may be misled into thinking the helicopter is directly linked to Obama's return on the stated date, even though the image shows the man is walking away from it. Therefore, the caption is misleading and out of context from the image itself."
+  },
+  "inference_time": 10.385509252548218,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "caption": "Democratic presidential candidate Bernie Sanders speaks at an event sponsored by Institute of Politics at the University of Chicago recently",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Bernie Sanders pulls in nearly as much cash this quarter as Hillary Clinton  Chicago Tribune",
+        "content": "B e r n i e   S a n d e r s   p u l l s   i n   n e a r l y   a s   m u c h   c a s h   t h i s   q u a r t e r   a s   . . .",
+        "caption": "Democratic presidential candidate Bernie Sanders speaks at a University of Chicago Institute of Politics event Sept. 28, 2015.",
+        "domain": "www.chicagotribune.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3379219174385071,
+        "text_similarity_score": 0.9368797540664673
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.3379219174385071 and the text similarity score is 0.9368797540664673. Since the image similarity score is less than 0.85, the caption is out-of-context. Although the text similarity score is high, the image similarity score is too low to make a determination that the caption accurately represents the image. The candidate caption states 'Democratic presidential candidate Bernie Sanders speaks at a University of Chicago Institute of Politics event Sept. 28, 2015.' This aligns with the news caption 'Democratic presidential candidate Bernie Sanders speaks at an event sponsored by Institute of Politics at the University of Chicago recently'. However, without a strong image match, I cannot confidently confirm the caption's accuracy.",
+      "supporting_evidences": [
+        "Candidate caption mentions Bernie Sanders speaking at a University of Chicago Institute of Politics event, which aligns with the news caption.",
+        "The text similarity score between the candidate caption and the news caption is high (0.9368797540664673)."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity score is low (0.3379219174385071) while the text similarity score is high (0.9368797540664673). This discrepancy suggests that while the caption shares semantic similarity with a potential candidate caption, the image itself does not align. The candidate caption mentions Bernie Sanders speaking at a University of Chicago Institute of Politics event, aligning with the news caption. However, the low image similarity score suggests the person in the image is not Bernie Sanders. The image shows Barack Obama speaking in front of an American flag and a blue background. Given the low image similarity score and the image content, the caption is out of context.",
+    "validation_summary": "The caption claims the image is of Bernie Sanders, but the image actually depicts Barack Obama. Therefore, viewers would be misled about who is pictured in the image based on the caption provided."
+  },
+  "inference_time": 6.364681005477905,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

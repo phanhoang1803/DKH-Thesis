@@ -1,0 +1,38 @@
+{
+  "caption": "First Lady Michelle Obama with her daughters Malia and Sasha visit Museum of Terracotta Warriors on March 24 during a visit to the historic excavation site in Xian China",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Terracotta Army: Legacy of the First Emperor of China Cincinnati",
+        "content": "T e r r a c o t t a   A r m y :   L e g a c y   o f   t h e   F i r s t   E m p e r o r   o f   C h i n a   C i n c i n n a t i",
+        "caption": "XI'AN, CHINA - MARCH 24: First Lady Michelle Obama with her daughters Malia Obama and Sasha Obama visit Museum of Terracotta Warriors during a visit to the historic excavation site on March 24, 2014 in Xi'an, China. Michelle Obama's one-week-long visit in China will be focused on educational and cultural exchanges. (Photo by Feng Li/Getty Images)",
+        "domain": "www.daytondailynews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1470690220594406,
+        "text_similarity_score": 0.8966468572616577
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The image similarity score is 0.147, which is less than 0.85. The text similarity score is 0.896, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.\n\nThe candidate caption states, \"First Lady Michelle Obama with her daughters Malia Obama and Sasha Obama visit Museum of Terracotta Warriors during a visit to the historic excavation site on March 24, 2014 in Xi'an, China. Michelle Obama's one-week-long visit in China will be focused on educational and cultural exchanges.\"\n\nThe news caption states, \"First Lady Michelle Obama with her daughters Malia and Sasha visit Museum of Terracotta Warriors on March 24 during a visit to the historic excavation site in Xian China\". The two captions are highly similar, however, since the image similarity score is low, the final verdict is false.",
+      "supporting_evidences": [
+        "Caption: XI'AN, CHINA - MARCH 24: First Lady Michelle Obama with her daughters Malia Obama and Sasha Obama visit Museum of Terracotta Warriors during a visit to the historic excavation site on March 24, 2014 in Xi'an, China. Michelle Obama's one-week-long visit in China will be focused on educational and cultural exchanges. (Photo by Feng Li/Getty Images)",
+        "Image Similarity Score: 0.1470690220594406",
+        "Caption Similarity Score: 0.8966468572616577"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a protest with police officers in riot gear facing protestors at night. The caption describes First Lady Michelle Obama and her daughters visiting the Museum of Terracotta Warriors in Xian, China. Given that the image content does not match the caption's description, the caption is out of context. The image check result confirms this with a low image similarity score of 0.147, even though the text similarity score is high. Since the confidence score is 8, the verdict is based on the image check result.",
+    "validation_summary": "The image shows a protest scene, while the caption describes Michelle Obama visiting a museum, misleading viewers about the image content. The image and caption are completely unrelated, making the caption out of context."
+  },
+  "inference_time": 4.889213800430298,
+  "ablation_type": "no_image_evidences"
+}

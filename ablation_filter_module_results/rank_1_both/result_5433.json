@@ -1,0 +1,40 @@
+{
+  "caption": "Richard s Poor Almanac by Richard Thompson The Washington Post",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Literary typecasting, the language of landscape and fun and games in Wolf Hall - in pictures | Books | The Guardian",
+        "content": "I l l u s t r a t o r   T o m   G a u l d   h a s   b e e n   c a p t u r i n g   t h e   c u l t u r e - l o v e r  s   s p r i n g   i n   w e e k l y   i l l u s t r a t i o n s   f o r   G u a r d i a n   R e v i e w .   F i n d   o u t   w h a t   h a s   c a u g h t   h i s   e y e   o v e r   t h e   l a s t   e i g h t   w e e k s \n \n    T o   b u y   o n e   o f   T o m   G a u l d  s   G u a r d i a n   i l l u s t r a t i o n s ,   c l i c k   h e r e \n \n T o m   G a u l d \n \n W e d   1 1   M a r   2 0 1 5   1 0 . 0 8  G M T \n \n \n                         L a s t   m o d i f i e d   o n   W e d   1 0   J u n   2 0 2 0   0 8 . 5 1  B S T \n \n I l l u s t r a t i o n :   T o m   G a u l d \n \n I l l u s t r a t i o n :   T o m   G a u l d \n \n I l l u s t r a t i o n :   T o m   G a u l d \n \n P h o t o g r a p h :   T o m   G a u l d \n \n P h o t o g r a p h :   T o m   G a u l d \n \n I l l u s t r a t i o n :   T o m   G a u l d \n \n I l l u s t r a t i o n :   T o m   G a u l d \n \n I l l u s t r a t i o n :   T o m   G a u l d",
+        "caption": "Tom Gauld illustration of poets",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9606282114982605,
+        "text_similarity_score": 0.24112211167812347
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is high (0.96), but the text similarity score is low (0.24). According to the instructions, if the image similarity score is >= 0.85 and the text similarity score is < 0.7, then the verdict should be False. The candidate caption mentions \"Tom Gauld illustration of poets\", while the news caption mentions \"Richard s Poor Almanac by Richard Thompson The Washington Post\". The two captions does not match, which is reflected in the low text similarity score.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts a comic strip offering suggestions for marking the 50th anniversary of a poet's death. The suggestions are presented in individual panels and include: a plaque on the poet's childhood home, an annotated edition of the poet's complete poems, a balloon parade, a scurrilous new biography, a happy meal toy, an interactive hologram, and poems used in a series of car advertisements. The image check result indicates that the image similarity is high while the text similarity is low. This means the image closely resembles what the candidate caption refers to, but the news caption is unrelated to the contents of the image. Therefore, the image is out of context.",
+    "validation_summary": "The news caption is unrelated to the image, which depicts a comic strip offering suggestions for marking the 50th anniversary of a poet's death, thus misleading viewers about the image's content and origin. The caption refers to \"Richard s Poor Almanac by Richard Thompson The Washington Post\" while the image is an illustration of different ideas on how to commemorate a poet's death anniversary and the news caption is unrelated to the content of the image resulting in the OOC rating with high confidence score. Since the confidence score is 10, final determination is based on the image check result, implying that the image is out of context based on high image similarity and low text similarity."
+  },
+  "inference_time": 4.667445182800293,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

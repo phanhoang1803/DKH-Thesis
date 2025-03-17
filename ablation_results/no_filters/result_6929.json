@@ -1,0 +1,43 @@
+{
+  "caption": "George Osborne and Eric Pickles favour changes to planning regulations but oppose developments in their own backyards",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Tree"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Ministers accused of 'hypocrisy' over relaxation of planning regulations | Planning policy | The Guardian",
+        "content": "M i n i s t e r s   a c c u s e d   o f   ' h y p o c r i s y '   o v e r   r e l a x a t i o n   o f   p l a n n i n g   . . .",
+        "caption": "George Osborne and Eric Pickles favour changes to planning regulations but oppose developments in their own backyards. Photograph: Martin Argles for the Guardian",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Statement of Consultation - Rushcliffe Borough Council",
+        "content": "S t a t e m e n t   o f   C o n s u l t a t i o n   -   R u s h c l i f f e   B o r o u g h   C o u n c i l",
+        "caption": "Statement of Consultation - Rushcliffe Borough Council",
+        "domain": "www.yumpu.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have low image and text similarity scores, indicating they don't strongly match the news item. However, candidate 1 has the exact caption as the news item and it comes from a reliable source 'theguardian.com'. This suggests that the caption is likely to be accurate. However, given the lack of supporting visual evidence and the low similarity scores, I cannot be entirely confident.",
+      "supporting_evidences": [
+        "Candidate 1: Caption from 'theguardian.com' matches the news caption."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a high confidence score (6) and provides evidence that the caption, which is the exact caption from a reliable source (theguardian.com), is likely accurate. However, the news content refers to George Osborne and Eric Pickles. The people in the image are not George Osborne and Eric Pickles, they are David Cameron and Nick Clegg. Therefore, the caption is considered out of context because the names mentioned in the caption are not depicted in the image.",
+    "validation_summary": "The individuals in the image do not match the names referenced in the caption, leading to a misleading representation of the news content as it appears to show David Cameron and Nick Clegg rather than George Osborne and Eric Pickles as claimed in the caption, hence making it out of context. Because the image check scored high, it is taken into account more than the actual image."
+  },
+  "inference_time": 3.9483585357666016,
+  "ablation_type": "no_filters"
+}

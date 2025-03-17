@@ -1,0 +1,53 @@
+{
+  "caption": "Gordon Brown s radical model for Scotland within the UK will alarm Labour traditionalists",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Businessperson",
+      "Tower M",
+      "Clock"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Gordon Brown calls for Scotland to have right to set tax and welfare policies | Scottish independence | The Guardian",
+        "content": "G o r d o n   B r o w n   c a l l s   f o r   S c o t l a n d   t o   h a v e   r i g h t   t o   s e t   t a x   a n d   . . .",
+        "caption": "Gordon Brown's radical model for Scotland within the UK will alarm Labour traditionalists. Photograph: Lewis Whyld/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.33264273405075073,
+        "text_similarity_score": 0.9556400775909424
+      },
+      {
+        "title": "Gordon Brown calls for Scotland to have right to set tax and welfare policies | Scottish independence | The Guardian",
+        "content": "G o r d o n   B r o w n   c a l l s   f o r   S c o t l a n d   t o   h a v e   r i g h t   t o   s e t   t a x   a n d   . . .",
+        "caption": "Gordon Brown's radical model for Scotland within the UK will alarm Labour traditionalists. Photograph: Lewis Whyld/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.30793604254722595,
+        "text_similarity_score": 0.9556400775909424
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores for both candidates are below 0.85 (0.33264273405075073 and 0.30793604254722595). According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image features three individuals in suits and dresses, standing outdoors with a city skyline in the background. The news caption describes Gordon Brown's model for Scotland within the UK, mentioning tax and welfare policies. However, the image does not depict Gordon Brown or any specific context related to his proposals or Scottish politics. The image similarity scores are low. Therefore, the caption is out of context.",
+    "validation_summary": "The image shows a group of people in front of a city skyline, while the caption discusses Gordon Brown's political proposals, which are not visually represented in the image, making the caption misleading in the context of the image. The image does not provide any information about the political ideas or their impact, leading to a mismatch between the visual content and the caption's subject matter."
+  },
+  "inference_time": 5.878589868545532,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "caption": "Officers and emergency personnel gather May 6 2016 outside Montgomery Mall in Bethesda Md after a gunman shot three people and fled",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Car",
+      "SUV",
+      "Ford",
+      "Sports car",
+      "Sports sedan",
+      "Ford Motor Company",
+      "Police car",
+      "Executive car",
+      "Auto show",
+      "Sedan"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Washington DC's 500 Most Influential People of 2024",
+        "content": "W a s h i n g t o n   D C ' s   5 0 0   M o s t   I n f l u e n t i a l   P e o p l e   o f   2 0 2 4",
+        "caption": "",
+        "domain": "www.washingtonian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "In Memoriam - Nichols School",
+        "content": "I n   M e m o r i a m   -   N i c h o l s   S c h o o l",
+        "caption": "Steel coils at Rigidized Metals, 658 Ohio St., in Buffalo. (John Hickey/Buffalo News)",
+        "domain": "www.nicholsschool.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidates have very low image and caption similarity scores, which indicates that they are not relevant to the news caption about the shooting at Montgomery Mall in Bethesda, MD. Because the image similarity scores are below 0.85 and text similarity scores are below 0.7, further analysis is required. However, neither candidate mentions anything about a shooting, Montgomery Mall, Bethesda, or the date (May 6, 2016). The first candidate does not provide enough information to determine the image content. The second candidate is also irrelevant to the news caption. Therefore, there is no evidence to support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption inaccurately describes the image content, potentially misleading viewers about the event depicted.",
+    "explanation": "The news caption states that officers and emergency personnel gathered outside Montgomery Mall after a shooting incident on May 6, 2016. However, the image check results indicate that there is a very low similarity between the image content and the elements of the caption. The image does not visually correspond to the details provided, such as the presence of emergency personnel, an actual shooting scene, or the location of Montgomery Mall in Bethesda, Md. Based on the image feedback and analysis, it's clear that the image does not relate to the event described in the caption, rendering it out of context."
+  },
+  "inference_time": 5.723924160003662,
+  "ablation_type": "no_filters"
+}

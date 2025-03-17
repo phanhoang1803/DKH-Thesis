@@ -1,0 +1,56 @@
+{
+  "caption": "Obama speaks from the lawn of the White House",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Tree"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Obama: Iraq Must Have Legitimate Government To Combat Insurgency | 90.5 WESA",
+        "content": "O b a m a :   I r a q   M u s t   H a v e   L e g i t i m a t e   G o v e r n m e n t   T o   C o m b a t   I n s u r g e n c y   . . .",
+        "caption": "President Obama speaks on the South Lawn of the White House in Washington, on Saturday. He said the situation in Iraq amounts to a \"long-term project.\"",
+        "domain": "www.wesa.fm",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.24357332289218903,
+        "text_similarity_score": 0.785893440246582
+      },
+      {
+        "title": "Francis meets Obama, calling for protection of religious liberty, environment | National Catholic Reporter",
+        "content": "F r a n c i s   m e e t s   O b a m a ,   c a l l i n g   f o r   p r o t e c t i o n   o f   r e l i g i o u s   l i b e r t y   . . .",
+        "caption": "Pope Francis speaks during a ceremony with U.S. President Barack Obama on the South Lawn of the White House in Washington Sept. 23. (CNS photo/Paul Haring)",
+        "domain": "www.ncronline.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2784305214881897,
+        "text_similarity_score": 0.7250083684921265
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have low image similarity scores (below 0.85), indicating that the images in the candidates do not closely match the news image. Candidate 1 has a text similarity score of 0.78, and Candidate 2 has a text similarity score of 0.72. Although the text similarity scores are high, the low image similarity scores suggest that the candidates might be related to the news caption but not necessarily the news image. The candidates refer to President Obama speaking on the South Lawn of the White House, which aligns with the news caption. However, without a high image similarity score, it's difficult to confirm if the candidates accurately represent the image in the news. Therefore, the caption is considered out-of-context due to the low image similarity scores.",
+      "supporting_evidences": [
+        "Candidate 1 has a text similarity score of 0.78.",
+        "Candidate 2 has a text similarity score of 0.72.",
+        "Candidate 1 has a low image similarity score of 0.24357332289218903.",
+        "Candidate 2 has a low image similarity score of 0.2784305214881897."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result reveals low image similarity scores between the given image and the candidate images. Although text similarity scores between the caption and candidate images are relatively high (0.78 and 0.72), the low image similarity (0.24 and 0.28) means the caption and the image are not aligned. The image shows a man speaking at a podium with American flags in the background, which could be interpreted as a political event. However, the claim that Obama is speaking from the White House lawn lacks visual support and therefore is out of context. Based on the evidence, there's a substantial disconnect between what the image depicts and the caption's claims, which makes the caption potentially misleading.",
+    "validation_summary": "The image does show a man at a podium in front of American flags, which is consistent with a speech; however, the image check reveals low similarity and therefore it's determined that the user will be misled because there is no evidence to prove this is Obama at the White House lawn. Thus, the caption is out of context and misleading to the user looking at the image and caption together. The image check result also supports this analysis, noting the caption to be out-of-context because of low image similarity scores between the given image and candidate images, even though the text similarity scores between the caption and candidate images were relatively high (0.78 and 0.72). Consequently, the image cannot accurately be related to the news caption, which specifies Obama at the White House lawn and thus, the caption is deemed as out of context and misleading to the user."
+  },
+  "inference_time": 8.257232904434204,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

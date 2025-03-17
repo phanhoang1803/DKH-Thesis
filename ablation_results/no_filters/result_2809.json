@@ -1,0 +1,48 @@
+{
+  "caption": "The Clintons on stage in Las Vegas Nevada",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speech",
+      "Academic conference",
+      "Seminar",
+      "Public speaking",
+      "Convention",
+      "Orator",
+      "Academy",
+      "Audience"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "God, guns and dirty tricks: Republicans trade shots as Democrats divide on race | US elections 2016 | The Guardian",
+        "content": "G o d ,   g u n s   a n d   d i r t y   t r i c k s :   R e p u b l i c a n s   t r a d e   s h o t s   a s   D e m o c r a t s   . . .",
+        "caption": "Bernie Sanders sings on stage with performers at a campaign rally in Henderson, Nevada.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Matt Sullivan | The Guardian",
+        "content": "M a t t   S u l l i v a n   |   T h e   G u a r d i a n",
+        "caption": "Supporters of U.S. Democratic presidential candidate Bernie Sanders arrive at the Ward 6 polling place as it opens for voting in New Hampshires first-in-the-nation presidential primary in Manchester, New Hampshire February 9, 2016. REUTERS/Jim Bourg",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "Both candidates have very low image and text similarity scores. They are about Bernie Sanders in different locations, while the news caption is about the Clintons in Las Vegas, Nevada. Therefore, the candidates do not provide any evidence to support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a high confidence score (10). The image shows Bill Clinton at a podium in front of a \"Fighting for us\" sign. The news caption claims that the Clintons are on stage in Las Vegas, Nevada. However, the image check result indicates very low image and text similarity scores. The evidence indicates that the image is out of context, because the image does not confirm that both Clintons are on stage together.",
+    "validation_summary": "The caption suggests a joint appearance of the Clintons, but the image only shows Bill Clinton and lacks confirmation of Hillary Clinton's presence; therefore, it would mislead viewers about the image content and is considered out of context, according to the image check result. The evidence indicates that the image is out of context."
+  },
+  "inference_time": 4.267056226730347,
+  "ablation_type": "no_filters"
+}

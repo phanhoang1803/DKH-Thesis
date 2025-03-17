@@ -1,0 +1,40 @@
+{
+  "caption": "Former England rugby captain Jonny Wilkinson",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Footballer"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "On this day in 2007: Jonny Wilkinson breaks points record on England return | The Independent",
+        "content": "O n   t h i s   d a y   i n   2 0 0 7 :   J o n n y   W i l k i n s o n   b r e a k s   p o i n t s   r e c o r d   o n   . . .",
+        "caption": "On this day in 2007 Jonny Wilkinson put in a record-breaking performance for England (David Davies/PA)",
+        "domain": "www.independent.co.uk",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Thus, both image and caption are not similar. The candidate mentions 'Jonny Wilkinson' and his 'record-breaking performance for England'. However, without a matching image or substantially similar caption, I cannot confirm that the caption accurately represents the image. Therefore, the final verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts a soccer player wearing a Fulham jersey, as evidenced by the club's crest on the jersey. The caption states that the person in the image is Jonny Wilkinson, a former England rugby captain. Rugby and soccer are distinct sports with different uniforms and equipment. The image check result strongly indicates a mismatch (confidence score of 2) between the image and the caption. The image check determined that both image and text similarity were nonexistent. Thus, the caption does not accurately represent the image's content, and viewers would be misled to believe that the soccer player in the image is actually Jonny Wilkinson. Because the confidence score is greater than 7, the final decision is based on the image check result.",
+    "validation_summary": "The image shows a soccer player, while the caption identifies him as a rugby player, Jonny Wilkinson; this discrepancy makes the caption misleading. The image check result further confirms the mismatch between the image and caption with a low similarity score of 2 out of 10 in the original response. This validates that the image and caption are indeed out of context and are not representative of one another. The evidence strongly suggests that the provided caption misrepresents the content of the image, leading to the verdict of 'OOC=True'. The high confidence score assigned reflects the significant discrepancy between the image content and the claim made in the caption."
+  },
+  "inference_time": 4.331112384796143,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

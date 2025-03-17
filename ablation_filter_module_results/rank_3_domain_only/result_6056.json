@@ -1,0 +1,59 @@
+{
+  "caption": "Park Geunhye campaigns in downtown Seoul",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "South Korea",
+      "North Korea",
+      "cautious",
+      "Chinese cuisine",
+      "Wednesday",
+      "Rapprochement"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "President Park indicted: Former South Korean leader faces bribery and abuse of power charges | CNN",
+        "content": "P r e s i d e n t   P a r k   i n d i c t e d :   F o r m e r   S o u t h   K o r e a n   l e a d e r   f a c e s   b r i b e r y   . . .",
+        "caption": "Park greets people in downtown Seoul during the launch of her presidential campaign in November 2012.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "South Koreas ousted President leaves mansion, says truth will come out | CNN",
+        "content": "S o u t h   K o r e a ' s   o u s t e d   P r e s i d e n t   l e a v e s   m a n s i o n ,   s a y s   ' t r u t h   w i l l   . . .",
+        "caption": "SEOUL, SOUTH KOREA - DECEMBER 09:  In this handout photo released by the South Korean Presidential Blue House, South Korea's President Park Geun-Hye attends the emergency cabinet meeting at the presidential office on December 9, 2016 in Seoul, South Korea. The South Korean National Assembly voted for an impeachment motion at its plenary session, which will set up the rare impeachment trial for President Park over the accusation of corruption involving Park and her long time confidante.  (Photo by South Korean Presidential Blue House via Getty Images)",
+        "domain": "edition.cnn.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Tillerson wades into a political minefield in South Korea over THAAD | CNN Politics",
+        "content": "T i l l e r s o n   w a d e s   i n t o   a   p o l i t i c a l   m i n e f i e l d   i n   S o u t h   K o r e a   o v e r   . . .",
+        "caption": "SEOUL, SOUTH KOREA - DECEMBER 09:  In this handout photo released by the South Korean Presidential Blue House, South Korea's President Park Geun-Hye attends the emergency cabinet meeting at the presidential office on December 9, 2016 in Seoul, South Korea. The South Korean National Assembly voted for an impeachment motion at its plenary session, which will set up the rare impeachment trial for President Park over the accusation of corruption involving Park and her long time confidante.  (Photo by South Korean Presidential Blue House via Getty Images)",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are all 0.0, meaning the images in the candidates are not similar to the news image. Also, the caption similarity scores are all 0.0, meaning the captions in the candidates are not similar to the news caption. Therefore, the candidates do not provide any evidence to support the news caption. Thus, the verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the image candidates and captions are dissimilar to the news image and caption, yielding a verdict of false with a low confidence score of 2. Despite this low score, a closer examination of the news image shows a woman shaking hands with people in what appears to be a crowded marketplace. Other people are visible, and it seems like a campaign event due to the red jackets and scarves some individuals are wearing. The caption says \"Park Geunhye campaigns in downtown Seoul\" which seems to be true based on the visual evidence, yet the image check results do not align with this assumption. Because the confidence score of the image check result is low, and the visual evidence suggests the caption is correct, I will override the original confidence score of 2 to a higher score of 9 and indicate the image is NOT out of context.",
+    "validation_summary": "The image appears to show Park Geunhye campaigning in a crowded area that could be downtown Seoul, aligning with the caption, yet the image check says it is false; despite this, the image check result is unreliable and the caption is fitting to the picture's contents. Therefore, the image is not misleading with regards to the caption."
+  },
+  "inference_time": 4.839737176895142,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

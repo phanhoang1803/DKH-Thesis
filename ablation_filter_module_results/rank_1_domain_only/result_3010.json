@@ -1,0 +1,47 @@
+{
+  "caption": "Democratic presidential candidate Bernie Sanders speaks at the Pennsylvania AFLCIO convention in Philadelphia on April 7 2016",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Concert",
+      "Orchestra",
+      "Pianist",
+      "Piano",
+      "5hy",
+      "Electrical conductor"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "It will take a miracle for Bernie Sanders to beat Hillary Clinton. And that's OK - Los Angeles Times",
+        "content": "I t   w i l l   t a k e   a   m i r a c l e   f o r   B e r n i e   S a n d e r s   t o   b e a t   H i l l a r y   C l i n t o n   . . .",
+        "caption": "Democratic presidential candidate Bernie Sanders speaks during a campaign stop at the Pennsylvania AFL-CIO Convention in Philadelphia on April 7.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The caption states 'Democratic presidential candidate Bernie Sanders speaks at the Pennsylvania AFLCIO convention in Philadelphia on April 7 2016'. The candidate evidence mentions 'Democratic presidential candidate Bernie Sanders speaks during a campaign stop at the Pennsylvania AFL-CIO Convention in Philadelphia on April 7.' Although the candidate confirms the presence of Bernie Sanders at the Pennsylvania AFL-CIO Convention in Philadelphia on April 7, there is no explicit mention of the year 2016. Due to this missing detail, the caption is not fully verified.",
+      "supporting_evidences": [
+        "Democratic presidential candidate Bernie Sanders speaks during a campaign stop at the Pennsylvania AFL-CIO Convention in Philadelphia on April 7."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a confidence score of 7, based on similarity scores of 0.0 between the provided image and candidate evidences. The caption states 'Democratic presidential candidate Bernie Sanders speaks at the Pennsylvania AFLCIO convention in Philadelphia on April 7 2016'. The supporting evidence found was: 'Democratic presidential candidate Bernie Sanders speaks during a campaign stop at the Pennsylvania AFL-CIO Convention in Philadelphia on April 7.' The candidate confirms the presence of Bernie Sanders at the Pennsylvania AFL-CIO Convention in Philadelphia on April 7, but it lacks the year 2016. This missing detail results in a determination that the caption cannot be fully verified based on the available evidence. Therefore, the image is considered out of context due to the lack of specific year confirmation.",
+    "validation_summary": "The caption identifies Bernie Sanders at a specific event but lacks full verification due to the absence of the year 2016 in the supporting evidence, potentially misleading viewers about the image's context. The image is out of context because the year is not verified."
+  },
+  "inference_time": 4.316519021987915,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

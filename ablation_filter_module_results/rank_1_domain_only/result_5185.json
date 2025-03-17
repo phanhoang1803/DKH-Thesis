@@ -1,0 +1,38 @@
+{
+  "caption": "San Francisco 49ers quarterback Colin Kaepernick centre believes Jarryd Hayne is a phenomenal athlete",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "NFC West preview: Seahawks will need breaks to make it to third Super Bowl | NFL | The Guardian",
+        "content": "N F C   W e s t   p r e v i e w :   S e a h a w k s   w i l l   n e e d   b r e a k s   t o   m a k e   i t   t o   t h i r d   . . .",
+        "caption": "Russell Wilson may find himself without a strong offensive line for protection.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Thus, I performed analysis based on the captions and candidate to give the final decision. The candidate mentions Russell Wilson and offensive line, but there is no information about Colin Kaepernick or Jarryd Hayne. Thus, the caption is not accurate.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 2, which is below 7, thus, I conducted thorough analysis. The image depicts two American football players in maroon and gold uniforms, one with the number 38 and the other with the number 19. They are on a football field during a game. The caption states the article is about San Francisco 49ers quarterback Colin Kaepernick and Jarryd Hayne. The image shows football players, but they are not Colin Kaepernick or Jarryd Hayne. The uniforms and setting do not match the San Francisco 49ers. Therefore, the image is out of context.",
+    "validation_summary": "The image shows football players unrelated to the individuals mentioned in the caption, potentially misleading viewers about the content of the news article. The image is not representative of the content, as it features different players and teams than the caption suggests."
+  },
+  "inference_time": 3.811530590057373,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

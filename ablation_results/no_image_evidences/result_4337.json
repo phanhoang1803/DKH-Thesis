@@ -1,0 +1,37 @@
+{
+  "caption": "Kelly in concert at The Tabernacle London",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Tori Kelly: 'Believe in yourself and dont be bullied' | Music | The Guardian",
+        "content": "T o r i   K e l l y :   ' B e l i e v e   i n   y o u r s e l f   a n d   d o n ' t   b e   b u l l i e d '   |   M u s i c   . . .",
+        "caption": "Kelly in concert at The Tabernacle, London.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6922710537910461,
+        "text_similarity_score": 0.981870174407959
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.6922710537910461, which is less than 0.85. The text similarity score is 0.981870174407959, which is greater than 0.7. According to the instructions, since the image similarity score is below 0.85, the caption must be marked as out-of-context, even though the text similarity score is high. While the candidate caption is very similar to the news caption, the image similarity is not high enough to confidently confirm that the candidate image is related to the news image. Therefore, based on the image similarity score, the verdict is 'False'.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.6922710537910461",
+        "Caption Similarity Score: 0.981870174407959"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity score (0.6922710537910461) is below the threshold of 0.85, while the text similarity score (0.981870174407959) is above 0.7. According to the instructions, the final determination must be based on the image check result when the confidence score is between 7 and 10. Since the image similarity score is below the threshold, the image is considered out of context, even though the text similarity score is high. Therefore, the verdict is 'False'.",
+    "validation_summary": "The image check result indicates the image similarity is not high enough to confidently confirm that the image is related to the news image. Therefore, the image is out of context with the news caption, despite similar textual content."
+  },
+  "inference_time": 4.5735695362091064,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "Gazprom employees work on a gas pipeline in Novy Urengoy Russia",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "The workers searching for gas in the icy Russian Arctic  a photo essay | Arctic | The Guardian",
+        "content": "T h e   w o r k e r s   s e a r c h i n g   f o r   g a s   i n   t h e   i c y   R u s s i a n   A r c t i c      a   p h o t o   . . .",
+        "caption": "Workers drill for gas under the Russian Arctic permafronst at a site in Novy Urengoy, a city built by Gazprom in 1980s in Siberia to extract Russias biggest gas field.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The news caption mentions \"Gazprom employees work on a gas pipeline in Novy Urengoy Russia\". The candidate caption mentions \"Workers drill for gas under the Russian Arctic permafronst at a site in Novy Urengoy, a city built by Gazprom in 1980s in Siberia to extract Russia’s biggest gas field.\" Although the image similarity is low, the candidate context provides evidence for \"Novy Urengoy\" being a location of Gazprom activity. However, it does not explicitly confirm that the image is showing Gazprom employees working on a gas pipeline. Therefore, the caption is not fully verifiable.",
+      "supporting_evidences": [
+        "Workers drill for gas under the Russian Arctic permafronst at a site in Novy Urengoy, a city built by Gazprom in 1980s in Siberia to extract Russia’s biggest gas field."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows workers and machinery, including a crane, involved in the construction or maintenance of a gas pipeline in a snowy, possibly Arctic, environment. The caption claims that \"Gazprom employees work on a gas pipeline in Novy Urengoy Russia.\" The image check result confirms that Novy Urengoy is a location of Gazprom activity, but it does not explicitly verify that the image shows Gazprom employees or that the activity depicted is specifically related to a gas pipeline. Although the image does show activities consistent with Gazprom's business, the context information does not confirm the individuals working are employees and that the activity shown in the image relates to the news caption. The confidence score here is above 7, I follow the image check result's verdict.",
+    "validation_summary": "While the image aligns with the general context of Gazprom's operations in Novy Urengoy, the caption's claim that it depicts \"Gazprom employees work on a gas pipeline\" is not fully verifiable based solely on image content and the provided context, so viewers may be misled to a degree about what is shown in the picture. Therefore, the image is out of context to the caption provided. It needs more direct evidence to establish a definitive connection."
+  },
+  "inference_time": 4.508193016052246,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

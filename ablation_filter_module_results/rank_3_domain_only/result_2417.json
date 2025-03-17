@@ -1,0 +1,47 @@
+{
+  "caption": "Paceman Mitchell Johnson looks skywards as he celebrates claiming the wicket of Kane Williamson caught and bowled as Australia take early control of the match",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Test cricket",
+      "Cricket",
+      "First-class cricket",
+      "Limited overs cricket",
+      "One Day International",
+      "Team",
+      "Over",
+      "referee"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Cricket World Cup 2015: Australia v New Zealand final  in pictures | Sport | The Guardian",
+        "content": "C r i c k e t   W o r l d   C u p   2 0 1 5 :   A u s t r a l i a   v   N e w   Z e a l a n d   f i n a l      i n   . . .",
+        "caption": "Michael Clarke and the Australian cricket team celebrate with the trophy.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, the rule-based approach cannot be used. The available evidence talks about Michael Clarke and the Australian cricket team celebrating with the trophy, which has nothing to do with the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low confidence score of 1, suggesting the caption's accuracy is questionable. The provided supporting evidence mentions Michael Clarke and the Australian cricket team celebrating with the trophy, which has nothing to do with the news caption. Furthermore, the image shows two players in cricket whites, one with his hand on the other's head, both smiling and looking happy. The caption describes Mitchell Johnson celebrating taking the wicket of Kane Williamson. However, the image doesn't offer any visual cues to support this claim. Therefore, the caption does not accurately reflect the image content.",
+    "validation_summary": "The caption inaccurately represents the image content, as the image doesn't show evidence of Mitchell Johnson taking a wicket or any specific game action described in the caption. Viewers would be misled about what they're seeing in the image based on the caption's description."
+  },
+  "inference_time": 3.400829553604126,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

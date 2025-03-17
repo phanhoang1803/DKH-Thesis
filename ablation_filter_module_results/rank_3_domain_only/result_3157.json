@@ -1,0 +1,38 @@
+{
+  "caption": "President Barack Obama speaks at a Democratic National Committee campaign fundraising event at Austin City Limits Moody Theater in Austin Texas Tuesday May 10 2011",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Nov. 8, 2022 US election coverage | CNN Politics",
+        "content": "N o v .   8 ,   2 0 2 2   U S   e l e c t i o n   c o v e r a g e   |   C N N   P o l i t i c s",
+        "caption": "Rep. Chris Pappas is congratulated by supporters at an election night gathering in Manchester, New Hampshire on Tuesday, November 8.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption talks about a different person, event and location compared to the news caption. Therefore, the news caption is not in context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a confidence score of 1.0, and the verdict is 'False,' meaning that the caption is not in context with the image. The news caption describes President Barack Obama speaking at a Democratic National Committee campaign fundraising event at Austin City Limits Moody Theater in Austin, Texas, on Tuesday, May 10, 2011. However, the image doesn't provide any visual cues to confirm this setting or event. The image simply shows Obama in a suit with a dark background. Given the low similarity scores reported by the image check, and the lack of confirming details within the image, the caption is deemed to be out of context.",
+    "validation_summary": "The image depicts Barack Obama, but without any contextual elements to confirm the location or event described in the caption, the viewer would be misled about where and when the image was taken. Thus, the caption does not accurately represent the image content and is out of context."
+  },
+  "inference_time": 3.3680872917175293,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

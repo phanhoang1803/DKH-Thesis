@@ -1,0 +1,40 @@
+{
+  "caption": "Donald Trump speaks at Saint Anselm College in Manchester New Hampshire on June 13",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Everything You Need to Know About the Republican Convention Committee Meetings - ABC News",
+        "content": "E v e r y t h i n g   Y o u   N e e d   t o   K n o w   A b o u t   t h e   R e p u b l i c a n   C o n v e n t i o n   . . .",
+        "caption": "In this June 13, 2016, file photo, Republican presidential candidate Donald Trump speaks at Saint Anselm College in Manchester, N.H.",
+        "domain": "abcnews.go.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0, and the caption similarity score is 0.0. Therefore, I must perform a manual analysis. The candidate caption mentions that Donald Trump spoke at Saint Anselm College in Manchester, N.H., on June 13, 2016. The news caption states that Donald Trump spoke at Saint Anselm College in Manchester New Hampshire on June 13. Although the candidate confirms the people, location, and date, there is a lack of explicit confirmation that the news caption accurately represents the image. The year is missing. Therefore, I cannot be absolutely certain, leading to a lower confidence score.",
+      "supporting_evidences": [
+        "In this June 13, 2016, file photo, Republican presidential candidate Donald Trump speaks at Saint Anselm College in Manchester, N.H."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a low similarity score between the image and the caption, with a confidence score of 6. Although the image check confirms some elements of the caption (people, location, and date), it notes the absence of the year, which lowers the confidence in the initial assessment. Upon further analysis of the image, it is evident that the person in the image is giving a speech at a podium. The news caption does state that Donald Trump speaks at Saint Anselm College in Manchester New Hampshire on June 13. However, looking at the image it is not Donald Trump, but appears to be Mike Pence speaking. Therefore, the caption is not representative of the image content, because it appears to be the incorrect person speaking. The caption is out of context.",
+    "validation_summary": "The caption incorrectly identifies the person speaking in the image, leading to a misrepresentation of the actual content. Viewers would be misled into thinking they are seeing Donald Trump when it appears to be Mike Pence."
+  },
+  "inference_time": 4.820125579833984,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

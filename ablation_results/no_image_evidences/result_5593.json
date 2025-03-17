@@ -1,0 +1,36 @@
+{
+  "caption": "Actors Kieran Culkin Tavi Gevinson and Michael Cera attend the This Is Our Youth cast photo call",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "This is Our Youth review: an anthem for stewed youth | Broadway | The Guardian",
+        "content": "T h i s   i s   O u r   Y o u t h   r e v i e w :   a n   a n t h e m   f o r   s t e w e d   y o u t h   |   B r o a d w a y   . . .",
+        "caption": "This Is Our Youth cast, Kieran Culkin, Tavi Gevinson and Michael Cera,  at Cort Theatre in New York City",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.457926481962204,
+        "text_similarity_score": 0.8153412342071533
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.457926481962204 which is less than 0.85 and the text similarity score is 0.8153412342071533 which is greater than 0.7. According to the instruction, the verdict should be False since the image similarity score is below 0.85. The candidate caption also includes the names Kieran Culkin, Tavi Gevinson and Michael Cera, and the location at Cort Theatre in New York City which aligns with the news caption. However, since the image similarity score is low, I am not completely confident in the verdict.",
+      "supporting_evidences": [
+        "The candidate caption includes the names Kieran Culkin, Tavi Gevinson and Michael Cera, and the location at Cort Theatre in New York City which aligns with the news caption."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity score is 0.457926481962204, which is less than 0.85, while the text similarity score is 0.8153412342071533, which is greater than 0.7. This leads to a verdict of False. The caption mentions Kieran Culkin, Tavi Gevinson, and Michael Cera, along with the location being Cort Theatre in New York City, which aligns with the news caption and content. However, given the low image similarity score and instructions, I am relying on the image check result, resulting in the verdict being that the image is out of context. The people in the image are not the actors mentioned in the caption.",
+    "validation_summary": "The people in the image are not Kieran Culkin, Tavi Gevinson, and Michael Cera. Therefore, the caption misrepresents the image content, potentially misleading viewers about the actors in the picture and the event they attended."
+  },
+  "inference_time": 5.821521043777466,
+  "ablation_type": "no_image_evidences"
+}

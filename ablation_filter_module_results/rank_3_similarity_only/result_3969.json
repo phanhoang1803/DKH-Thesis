@@ -1,0 +1,58 @@
+{
+  "caption": "Macaulay Culkin and Elijah Wood in controversial thriller The Good Son",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Disaster movies: what happens when real-life pre-empts Hollywood? | Film | The Guardian",
+        "content": "D i s a s t e r   m o v i e s :   w h a t   h a p p e n s   w h e n   r e a l - l i f e   p r e - e m p t s   H o l l y w o o d   . . .",
+        "caption": "Macaulay Culkin and Elijah Wood in controversial thriller The Good Son.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.19196803867816925,
+        "text_similarity_score": 0.9801374673843384
+      },
+      {
+        "title": "The Good Son (1993) - User reviews - IMDb",
+        "content": "T h e   G o o d   S o n   ( 1 9 9 3 )   -   U s e r   r e v i e w s   -   I M D b",
+        "caption": "Macaulay Culkin in The Good Son (1993)",
+        "domain": "www.imdb.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.30345413088798523,
+        "text_similarity_score": 0.8424723148345947
+      },
+      {
+        "title": "The Good Son (1993) - User reviews - IMDb",
+        "content": "T h e   G o o d   S o n   ( 1 9 9 3 )   -   U s e r   r e v i e w s   -   I M D b",
+        "caption": "Macaulay Culkin in The Good Son (1993)",
+        "domain": "www.imdb.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2956405580043793,
+        "text_similarity_score": 0.8424723148345947
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are below 0.85 for all candidates, indicating that the images do not match. Even though some captions have high text similarity scores, the low image similarity prevents a definitive 'True' verdict. Therefore, based on the instructions, the verdict must be 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image and the caption do not match. The confidence score is high (2, which is reinterpreted as 10 per instruction 1) , therefore, the verdict must be 'False' (reinterpreted as true per instructions) as the image does not show Macaulay Culkin and Elijah Wood in the movie \\\"The Good Son\\\". The image shows a band of five people, likely musicians, standing together in front of a backdrop with their band name on it. The caption is therefore misleading.",
+    "validation_summary": "The image shows a band, not Macaulay Culkin and Elijah Wood in \\\"The Good Son\\\". The caption is unrelated to the content of the image."
+  },
+  "inference_time": 7.173666477203369,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

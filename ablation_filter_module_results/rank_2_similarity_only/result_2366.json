@@ -1,0 +1,70 @@
+{
+  "caption": "Muhammad Ali addresses a gathering at a Black Muslim convention on Feb 25 1968 in Chicago",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Muhammad Ali",
+      "The Rumble in the Jungle",
+      "Soul Power",
+      "Boxing",
+      "Heavyweight",
+      "Photograph",
+      "Chuck Wepner",
+      "Rasheda Ali",
+      "Muhammad Ali"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Tribute to Muhammad Ali  The Black American Muslim",
+        "content": "1 9 6 8   S O U L   P O W E R   :   b y   R a s h e e d   A l i \n \n M u h a m m a d   A l i   g e t s   t h e   s u r p r i s e   o f   h i s   l i f e ,   h i s   o w n   s t o r y . . . . . . . .",
+        "caption": "",
+        "domain": "www.theblackamericanmuslim.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8828524351119995,
+        "text_similarity_score": 0.07531234622001648
+      },
+      {
+        "title": "Sports writer speaks on Alis boxing career",
+        "content": "F e a t u r e d   S h o w s \n \n M S N B C   T V \n \n M o r e \n \n F o l l o w   m s n b c \n \n M o r e   B r a n d s \n \n M o r e   S h o w s \n \n M u h a m m a d   A l i   m a d e   s i g n i f i c a n t   i m p a c t s   t o   t h e   b o x i n g   c u l t u r e .   F o r m e r   s p o r t s   w r i t e r   f o r   U S A   T o d a y   a n d   A s s o c i a t e   P r o f e s s o r   a t   A r i z o n a   U n i v e r s i t y ,   G r e g   B o e c k ,   i s   h e r e   t o   d i s c u s s   t h o s e   r e v e l a t i o n s . J u n e   4 ,   2 0 1 6 \n \n   2 0 2 5   M S N B C   C a b l e ,   L . L . C .",
+        "caption": "",
+        "domain": "www.msnbc.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7412374019622803,
+        "text_similarity_score": 0.07531234622001648
+      },
+      {
+        "title": "How Muhammad Ali transformed the image of Islam - World - DAWN.COM",
+        "content": "H o w   M u h a m m a d   A l i   t r a n s f o r m e d   t h e   i m a g e   o f   I s l a m   -   W o r l d   -   D A W N . C O M",
+        "caption": "MUHAMMAD Ali addresses a gathering at a Black Muslim convention on Feb 25, 1968 in Chicago. The Nation of Islam leader Elijah Muhammad can be seen in the background.",
+        "domain": "www.dawn.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5621283650398254,
+        "text_similarity_score": 0.9263901114463806
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Based on the provided candidates, only Candidate 3 offers substantial evidence supporting the news caption. While the image similarity score is below the strict threshold (0.5621283650398254), the caption similarity is very high (0.9263901114463806), indicating a strong textual match. Candidate 3's caption directly mirrors the news caption, specifying that \"MUHAMMAD Ali addresses a gathering at a Black Muslim convention on Feb 25, 1968 in Chicago.\" This strongly suggests the news caption is accurate. However, since the image similarity is not high enough, and there are only three candidates, the confidence remains at 7.",
+      "supporting_evidences": [
+        "Candidate 3: Caption - MUHAMMAD Ali addresses a gathering at a Black Muslim convention on Feb 25, 1968 in Chicago. The Nation of Islam leader Elijah Muhammad can be seen in the background. Image Similarity Score: 0.5621283650398254, Caption Similarity Score: 0.9263901114463806"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check provides strong evidence that the news caption accurately represents the image content. Candidate 3 offers a high caption similarity (0.926) directly mirroring the news caption: \"MUHAMMAD Ali addresses a gathering at a Black Muslim convention on Feb 25, 1968 in Chicago.\" Although the image similarity is only 0.56, the high degree of textual matching supports the accuracy of the news caption.",
+    "validation_summary": "The news caption is a correct representative summary of the image content. The supporting evidence from the image check confirms that the caption accurately describes the image."
+  },
+  "inference_time": 7.685973644256592,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

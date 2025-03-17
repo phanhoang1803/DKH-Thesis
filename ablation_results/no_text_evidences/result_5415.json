@@ -1,0 +1,39 @@
+{
+  "caption": "The England bowler Tim Bresnan right runs out Murali Vijay during the first day of the practice match in Mumbai",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Test cricket",
+      "Cricket",
+      "First-class cricket",
+      "One Day International"
+    ],
+    "ablation_type": "no_text_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 9,
+      "explanation": "The provided caption mentions specific players (Tim Bresnan and Murali Vijay) and an event (running out during a practice match in Mumbai). This level of detail is not present in the image context, which describes a generic cricket player in full gear on a field. The caption is more specific than the general description provided by the image context. The image context only confirms that there is a cricket player on a cricket field, but nothing more. Therefore, the caption and context are not aligned.",
+      "supporting_evidences": [
+        "The caption mentions specific players and a specific match event, which are not reflected in the general description of the image.",
+        "The image context describes a generic cricket player, lacking the specific details provided in the caption.",
+        "The high specificity of the caption cannot be verified from the broader description of the image's context."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "A cricket player in full gear on the field.",
+      "context": "The image features a cricket player dressed in full white cricket attire, including a helmet, gloves, and pads. He is holding a cricket bat and standing on a green field. The uniform indicates that he is likely part of a team, as suggested by the logos on his shirt. The setting appears to be a professional cricket ground. The player's posture and attire suggest he is either walking off the field after batting or ready to take his position.",
+      "information": "The image shows a cricket player in full cricket gear, holding a bat, and standing on a cricket field."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts a cricket player dressed in full uniform on a cricket field. The caption specifically names Tim Bresnan and Murali Vijay during a practice match in Mumbai. Since the image doesn't offer any indication of who the player is or what specific event is taking place, the caption cannot be verified by the image and includes details the image doesn't support. Therefore, the caption is out of context.",
+    "validation_summary": "The image doesn't show who the player is or any specific game details. Therefore the caption makes specific claims that are not supported by the image."
+  },
+  "inference_time": 5.190410375595093,
+  "ablation_type": "no_text_evidences"
+}

@@ -1,0 +1,46 @@
+{
+  "caption": "David Bowie performs as Ziggy Stardust in Los Angeles in 1973",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "David Bowie, dead at 69, knew the power of tarting up.",
+        "content": "D a v i d   B o w i e ,   d e a d   a t   6 9 ,   k n e w   t h e   p o w e r   o f   t a r t i n g   u p .",
+        "caption": "Musician David Bowie performs onstage during his 'Ziggy Stardust' era in 1973 in Los Angeles, California. ",
+        "domain": "slate.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5576670169830322,
+        "text_similarity_score": 0.9134685397148132
+      },
+      {
+        "title": "Todd Rundgren Unites With Adrian Belew For David Bowie Tribute Tour",
+        "content": "T o d d   R u n d g r e n   U n i t e s   W i t h   A d r i a n   B e l e w   F o r   D a v i d   B o w i e   T r i b u t e   T o u r",
+        "caption": "LOS ANGELES - 1973:  Musician David Bowie performs onstage during his \"Ziggy Stardust\" era in 1973 in Los Angeles, California. (Photo by Michael Ochs Archives/Getty Images)",
+        "domain": "www.rollingstone.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4408246874809265,
+        "text_similarity_score": 0.8983610272407532
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Both candidate captions describe David Bowie performing as Ziggy Stardust in Los Angeles in 1973, which strongly aligns with the news caption. The high text similarity scores (0.913 and 0.898) further support this alignment. While the image similarity scores are not high enough to trigger an automatic 'True' verdict, the descriptive alignment in the captions strongly suggests the news caption accurately represents the image content.",
+      "supporting_evidences": [
+        "Candidate 1 Caption: Musician David Bowie performs onstage during his 'Ziggy Stardust' era in 1973 in Los Angeles, California.",
+        "Candidate 2 Caption: LOS ANGELES - 1973:  Musician David Bowie performs onstage during his \"Ziggy Stardust\" era in 1973 in Los Angeles, California."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "validation_summary": "The caption accurately describes David Bowie as Ziggy Stardust performing in Los Angeles in 1973. However, the image check results suggest a higher degree of uncertainty, indicating a potential mismatch with the caption's specifics, such as the exact context of the performance being described.",
+    "explanation": "The image shows David Bowie performing on stage, unmistakably during the Ziggy Stardust era, characterized by the iconic makeup and flamboyant clothing associated with this persona. The statement in the caption that he is performing as Ziggy Stardust in Los Angeles in 1973 is consistent with typical descriptions of Bowie's performances from that period. However, the image check reveals a confidence score of 8, suggesting there are contextual ambiguities or possible discrepancies in the performance's details or setting despite the evident alignment in look and theme. The high similarity scores on caption comparisons strongly imply a match, but uncertainties in the image verification process necessitate classifying the caption as slightly out of context."
+  },
+  "inference_time": 8.3488028049469,
+  "ablation_type": "no_image_evidences"
+}

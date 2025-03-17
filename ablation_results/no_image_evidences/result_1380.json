@@ -1,0 +1,46 @@
+{
+  "caption": "The US embassy at Abdoun district in Amman Jordan is among the US embassies and consulates closed due to a terror threat",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Nurol Ejder",
+      "Car",
+      "Infantry",
+      "Armored car",
+      "Façade",
+      "Tree",
+      "Palms"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Top U.S. officials meet to discuss embassy threat",
+        "content": "T o p   U . S .   o f f i c i a l s   m e e t   t o   d i s c u s s   e m b a s s y   t h r e a t",
+        "caption": "The U.S. embassy at Abdoun district in Amman, Jordan, is among the U.S. embassies and consulates closed due to a terror threat.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4947831630706787,
+        "text_similarity_score": 0.9759481549263
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.4947831630706787, which is less than 0.85. According to the instructions, if the image similarity score is below 0.85 and the text similarity score is high (>= 0.7), the caption must be marked as out-of-context. Even though the caption similarity score is 0.9759481549263 (greater than 0.7), the low image similarity score forces a 'False' verdict. The caption from the candidate evidence matches the news caption almost exactly, focusing on the US embassy in Amman, Jordan being closed due to a terror threat. However, without a high image similarity, I cannot be sure they are related.",
+      "supporting_evidences": [
+        "Caption: The U.S. embassy at Abdoun district in Amman, Jordan, is among the U.S. embassies and consulates closed due to a terror threat.",
+        "Image Similarity Score: 0.4947831630706787",
+        "Caption Similarity Score: 0.9759481549263"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "validation_summary": "The caption inaccurately describes the associated image, leading to potential viewer confusion.",
+    "explanation": "The caption states that the US embassy in the Abdoun district in Amman, Jordan, is closed due to a terror threat. However, the image presented does not align with this specific claim. The low image similarity score of 0.494 indicates a significant disconnection between the caption's description of a specific location (the US embassy in Amman) and the visual evidence provided by the image. Given the high caption similarity score of 0.975, while it seemingly accurately describes the intended context, the poorly matching visual content undermines its validity. This discrepancy suggests an out-of-context representation, raising concerns that viewers may mistakenly interpret the image as related to the captioned situation."
+  },
+  "inference_time": 7.464766025543213,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,48 @@
+{
+  "caption": "View of an artwork by filmmaker David Bukland part of a climate change exhibition that opened in May 2013 in Beijing",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Artist",
+      "Art",
+      "Arctic",
+      "Curator",
+      "Portrait",
+      "Artwork",
+      "Film director",
+      "Climate change",
+      "Filmmaker"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Art attack: why getting creative about climate change makes sense | Working in development | The Guardian",
+        "content": "A r t   a t t a c k :   w h y   g e t t i n g   c r e a t i v e   a b o u t   c l i m a t e   c h a n g e   m a k e s   s e n s e   . . .",
+        "caption": "People walk next to a giant art installation representing a polar bear painted with red food dye at the base of the Langjokull glacier. Photograph: Christopher Lund/AFP/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate does not provide any supporting information about the artwork, the filmmaker, or the climate change exhibition in Beijing. Therefore, there is no basis to confirm the caption's accuracy.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows an iceberg with the words \"DISCOUNTING THE FUTURE\" projected onto it. The image check result indicates a low similarity score and no supporting evidence for the caption's claims about the artwork, filmmaker, and climate change exhibition in Beijing. Given the lack of corroborating information and the mismatch between the visual content and the caption's description, the caption is likely out of context.",
+    "validation_summary": "The caption describes the image as an artwork from a climate change exhibition, but the image check doesn't support this, suggesting that the caption may mislead viewers about the image's origin and context, and therefore the image is out of context. The image depicts an iceberg with text projected on it, not explicitly an artwork within an exhibition setting as implied by the caption, so a viewer could infer an unsupported connection between the text on the iceberg and the described event which is misleading in nature and constitutes OOC/True designation with confidence of 10/10."
+  },
+  "inference_time": 4.464925289154053,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

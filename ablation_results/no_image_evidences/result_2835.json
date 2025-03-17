@@ -1,0 +1,37 @@
+{
+  "caption": "British Prime Minister David Cameron campaigns at a rally in St Ives Cornwall on May 5 2015",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Gloriously awkward photos from past general election visits - Cornwall Live",
+        "content": "G l o r i o u s l y   a w k w a r d   p h o t o s   f r o m   p a s t   g e n e r a l   e l e c t i o n   v i s i t s   . . .",
+        "caption": "David Cameron attends a campaign rally at St Ives Guildhall on May 5, 2015.",
+        "domain": "www.cornwalllive.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3900660574436188,
+        "text_similarity_score": 0.8553909659385681
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.39, which is less than 0.85, and the text similarity score is 0.85, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Also, while the caption and the candidate caption both mention David Cameron attending a rally in St Ives on May 5, 2015, the image similarity is low, and without seeing the image, it is not possible to determine if the news caption accurately represents the image. Therefore, the final verdict is False.",
+      "supporting_evidences": [
+        "The image similarity score is 0.39.",
+        "The text similarity score is 0.85."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "validation_summary": "The caption inaccurately suggests David Cameron is physically present at a rally in St Ives, which cannot be confirmed based solely on the image content and its low similarity score.",
+    "explanation": "The evaluation indicates a mismatch between the news caption and the image's content. The caption states that British Prime Minister David Cameron is campaigning at a rally in St Ives, Cornwall on May 5, 2015. However, the image similarity score is significantly below the threshold of 0.85 although the text similarity is high at 0.85, indicating that while the caption and image may mention similar contexts, the specific details represented in the image do not align closely enough with the assertion. This suggests there is a likelihood that viewers may be misled to believe Cameron is at this rally when the image does not substantiate his presence or the stated activity. Thus, the caption is determined to be out of context."
+  },
+  "inference_time": 9.343038082122803,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "President Obama speaks at a news conference at the White House on Aug 9",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "President Obama's Own Experts Recommend \nEnd to NSA Phone Data Spying\n - ABC News",
+        "content": "P r e s i d e n t   O b a m a ' s   O w n   E x p e r t s   R e c o m m e n d   E n d   t o   N S A   P h o n e   D a t a   . . .",
+        "caption": "President Barack Obama speaks during a news conference in the East Room at the White House in Washington, Aug. 9, 2013.",
+        "domain": "abcnews.go.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is low (0.0) and the caption similarity score is also low (0.0). However, the candidate caption states that \"President Barack Obama speaks during a news conference in the East Room at the White House in Washington, Aug. 9, 2013.\" This confirms that President Obama held a news conference at the White House on August 9. The date is explicitly mentioned in the candidate, and the event (news conference) and location (White House) also align with the news caption.",
+      "supporting_evidences": [
+        "President Barack Obama speaks during a news conference in the East Room at the White House in Washington, Aug. 9, 2013."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows several men and a woman standing behind and around a podium with the seal of the President of the United States on it. The person speaking appears to be speaking to a crowd of reporters. The caption says that President Obama is speaking. However, the person speaking in the photo is not President Obama. The image check result provides strong evidence that the image is Out of Context, reinforcing that the caption does not accurately represent the content of the image. The very high confidence score reflects the image check evidence of a correct caption.",
+    "validation_summary": "The caption misidentifies the speaker in the photo as President Obama, which is not what the image shows. The image is therefore out of context because viewers would be misled about the subject's identity and potentially the context of the event if they relied on this caption alongside the image and news article provided in the prompt, when the image check has clearly identified Obama as the correct subject but not present in the image itself. Based on the high confidence score, the caption is deemed false and the image is Out of Context (OOC = True). The primary reason for this judgment is the strong evidence provided by the image check result that corroborates a correct but different candidate caption."
+  },
+  "inference_time": 4.471083879470825,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

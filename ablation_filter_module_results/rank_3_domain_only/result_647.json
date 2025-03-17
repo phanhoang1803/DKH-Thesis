@@ -1,0 +1,40 @@
+{
+  "caption": "This aerial image shows flooded areas on the campus of Louisiana State University on Aug 13 2016 in Baton Rouge",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Thousands of people rescued from Louisiana flooding",
+        "content": "T h o u s a n d s   o f   p e o p l e   r e s c u e d   f r o m   L o u i s i a n a   f l o o d i n g",
+        "caption": "This aerial image shows flooded areas of North Baton Rouge, La., on Aug. 13, 2016.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and text similarity score is 0.0. Therefore, I analyzed the content of the candidate to determine whether the caption is in context. The candidate caption states that \"This aerial image shows flooded areas of North Baton Rouge, La., on Aug. 13, 2016.\" This supports the news caption \"This aerial image shows flooded areas on the campus of Louisiana State University on Aug 13 2016 in Baton Rouge\". Because both captions match the date and include location of Baton Rouge in Louisiana, I mark it as True.",
+      "supporting_evidences": [
+        "This aerial image shows flooded areas of North Baton Rouge, La., on Aug. 13, 2016."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a river running through a city. There are buildings, cars, and trees visible. The river is overflowing into the city, and cars are seen driving alongside of the river. The caption states the image shows the campus of Louisiana State University; there is no visual information in the image to support this claim. Therefore, the caption misrepresents the image content.",
+    "validation_summary": "The caption states the image shows the campus of Louisiana State University, however, there is no evidence in the image to support this claim. The caption does not provide a correct representative summary of the image content."
+  },
+  "inference_time": 3.5479989051818848,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "caption": "Ariana Grande introduces The Weeknd during the 58th Grammy Awards at the Staples Center",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Grammys 2016: Inside the show",
+        "content": "G r a m m y s   2 0 1 6 :   I n s i d e   t h e   s h o w",
+        "caption": "Bruno Mars accepts Record of the year for Uptown Funk during the 58th Grammy Awards at the Staples Center.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Review: The young acts including Bieber and the Weeknd drained all the energy from the Grammys - Los Angeles Times",
+        "content": "R e v i e w :   T h e   y o u n g   a c t s   i n c l u d i n g   B i e b e r   a n d   t h e   W e e k n d   d r a i n e d   a l l   . . .",
+        "caption": "From left to right: The Weeknd, Adele and Justin Bieber perform at the 58th annual Grammy Awards at Staples Center in Los Angeles on Feb. 15.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidates have very low Image Similarity Scores (0.0), indicating that they do not depict the same image as the news item. Additionally, the Caption Similarity Scores are also very low (0.0), suggesting that the captions are not related. Candidate 2 mentions The Weeknd performing at the 58th annual Grammy Awards, which aligns with the news caption mentioning Ariana Grande introducing The Weeknd during the same event. However, the candidate does not provide specific details about Ariana Grande introducing The Weeknd. Therefore, there is not enough information to confirm that the news caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows Ariana Grande on stage, holding a microphone, and wearing a light-colored dress with fringe. The caption claims that Ariana Grande introduces The Weeknd during the 58th Grammy Awards at the Staples Center. The image check result has low similarity scores (0.0) which indicates the news image does not depict the event mentioned in the caption. Therefore, the caption does not accurately represent the image content, suggesting it's out of context.",
+    "validation_summary": "The image shows Ariana Grande, but there's no evidence to support the claim that she is introducing The Weeknd at the Grammys, leading to a misleading interpretation of the image's context. The low similarity scores from the image check further confirm this discrepancy."
+  },
+  "inference_time": 4.777933835983276,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

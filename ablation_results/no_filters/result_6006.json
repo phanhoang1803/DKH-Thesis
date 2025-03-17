@@ -1,0 +1,67 @@
+{
+  "caption": "New York Jets quarterback Geno Smith throws a pass",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "New York Jets",
+      "NFL",
+      "UCLA Bruins football",
+      "Geno Smith",
+      "Canadian football",
+      "Quarterback",
+      "American football",
+      "Eight-man football",
+      "Wide receiver",
+      "Six-man football"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Access to this page has been denied",
+        "content": "",
+        "caption": "",
+        "domain": "www.middletownpress.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Access to this page has been denied",
+        "content": "",
+        "caption": "",
+        "domain": "www.middletownpress.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Geno Smith, Jets QB, out 6-10 weeks after punched by teammate  The Denver Post",
+        "content": "G e n o   S m i t h ,   J e t s   Q B ,   o u t   6 - 1 0   w e e k s   a f t e r   p u n c h e d   b y   t e a m m a t e   . . .",
+        "caption": "New York Jets quarterback Geno Smith (7) throws a pass during practice at NFL football training camp, Wednesday, Aug. 5, 2015, in Florham Park, N.J.",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Geno Smith leads Jets to stunning win over Bucs  Daily Freeman",
+        "content": "G e n o   S m i t h   l e a d s   J e t s   t o   s t u n n i n g   w i n   o v e r   B u c s      D a i l y   F r e e m a n",
+        "caption": "New York Jets quarterback Geno Smith throws a pass against the Tampa Bay Buccaneers in the first half of an NFL football game, Sunday, Sept. 8, 2013, in East Rutherford, N.J. (AP Photo/Mel Evans)",
+        "domain": "www.dailyfreeman.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Based on the provided candidates, candidate 3 and 4 contain the exact information from the news caption which states 'New York Jets quarterback Geno Smith throws a pass'. Although the image similarity score is low, the text similarity indicates that the captions match. Thus, the news caption is likely to be an accurate representation of the image.",
+      "supporting_evidences": [
+        "New York Jets quarterback Geno Smith (7) throws a pass during practice at NFL football training camp, Wednesday, Aug. 5, 2015, in Florham Park, N.J.",
+        "New York Jets quarterback Geno Smith throws a pass against the Tampa Bay Buccaneers in the first half of an NFL football game, Sunday, Sept. 8, 2013, in East Rutherford, N.J."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The news content is about Ray Rice and his domestic violence incident and his attempt to rehabilitate his image. The news caption describes the image as \"New York Jets quarterback Geno Smith throws a pass.\" This does not reflect the content of the article, which is about Ray Rice. While the caption is factually correct about the image, it is not representative of the news article's subject matter. Therefore, it is out of context.",
+    "validation_summary": "The image depicts Geno Smith throwing a pass, while the article discusses Ray Rice's domestic violence incident, leading to a mismatch between the visual and textual content. This discrepancy would mislead viewers about the article's focus, making the image out of context."
+  },
+  "inference_time": 4.009456396102905,
+  "ablation_type": "no_filters"
+}

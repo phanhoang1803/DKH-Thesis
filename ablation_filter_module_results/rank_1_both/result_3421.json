@@ -1,0 +1,48 @@
+{
+  "caption": "Sophie Bevan in Glyndebourne s current production of Saul",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Rock concert",
+      "Concert",
+      "Musical ensemble",
+      "Rock",
+      "Guitarist",
+      "Festival",
+      "5hy"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Handel in Italy Vol I CD review  a dazzling disc from the Bevan siblings | George Frideric Handel | The Guardian",
+        "content": "H a n d e l   i n   I t a l y   V o l   I   C D   r e v i e w      a   d a z z l i n g   d i s c   f r o m   t h e   B e v a n   . . .",
+        "caption": "Sophie Bevan in Glyndebourne's current production of Saul. Photograph: Bill Cooper",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.24948562681674957,
+        "text_similarity_score": 0.8408170938491821
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.24948562681674957 which is less than 0.85 and the text similarity score is 0.8408170938491821 which is greater than 0.7. Based on the instructions, the verdict should be False. Because the image similarity score is very low, it's difficult to confirm the caption represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low image similarity score (0.249) and a moderate text similarity score (0.840). The low image similarity suggests that the image content does not strongly align with the caption's reference to 'Sophie Bevan in Glyndebourne's current production of Saul'. The image shows a woman holding a doll with a group of orchestra members in the background. The stage appears to be geometrically decorated with white lines. Without more specific context about the 'Saul' production or specific image elements linking the woman in the image to Sophie Bevan, it's likely that the image is out of context with the caption, as it does not accurately represent the described content. The image check result's verdict of 'False' further supports this assessment.",
+    "validation_summary": "The image does not strongly align with the caption, potentially misleading viewers about its connection to 'Sophie Bevan in Glyndebourne's current production of Saul'. The low image similarity score confirms that the image is likely out of context with the caption's claim, resulting in a verdict of Out of Context (OOC = True). Note: confidence score increased due to image check result (verdict=False, confidence score =2). Since confidence_score is < 7, image analysis was done to confirm the check result's conclusion. Since both analysis point in the same direction, confidence score is increased to 9). User should have more confidence in this result than in the image check result."
+  },
+  "inference_time": 4.724804401397705,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

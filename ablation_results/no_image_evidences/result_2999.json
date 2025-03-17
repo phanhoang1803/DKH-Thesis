@@ -1,0 +1,52 @@
+{
+  "caption": "Mitt Romney and President Obama meet during a town hallstyle debate at Hofstra University",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "United States",
+      "Politics",
+      "Political campaign",
+      "Mitt Romney 2012 presidential campaign",
+      "Campaign advertising",
+      "Getty Images",
+      "Political science",
+      "Stephen M. Caliendo"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Live: Obama, Romney clash in town hall debate",
+        "content": "L i v e :   O b a m a ,   R o m n e y   c l a s h   i n   t o w n   h a l l   d e b a t e",
+        "caption": "Mitt Romney and President Obama meet during a town hall-style debate at Hofstra University.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5368168354034424,
+        "text_similarity_score": 0.9613183736801147
+      },
+      {
+        "title": "Debate: O.C. voters rate Obama, Romney  Orange County Register",
+        "content": "D e b a t e :   O . C .   v o t e r s   r a t e   O b a m a ,   R o m n e y      O r a n g e   C o u n t y   R e g i s t e r",
+        "caption": "President Barack Obama and Mitt Romney point at each other during a town hall style presidential debate at Hofstra University in Hempstead, N.Y., Oct. 16, 2012. ",
+        "domain": "www.ocregister.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5113636255264282,
+        "text_similarity_score": 0.791822075843811
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidate captions refer to Mitt Romney and President Obama during a town hall-style debate at Hofstra University. However, the image similarity scores are below 0.85. Therefore, I cannot be certain that the images in the candidate evidence match the image associated with the news caption, and the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image features Mitt Romney standing at a podium, speaking in front of a banner that reads \"OBAMA ISN'T WORKING.\" An American flag is behind him, and there's an audience visible in the foreground. The provided caption states, \"Mitt Romney and President Obama meet during a town hall-style debate at Hofstra University.\" This caption is inaccurate because the image shows only Mitt Romney, not a meeting between him and President Obama. Additionally, the banner and overall context suggest a campaign rally or similar event, which contrasts with the mention of a town hall-style debate at Hofstra University, and the image check result confirms the caption is out of context.",
+    "validation_summary": "The caption falsely suggests a meeting and debate between Mitt Romney and President Obama, while the image depicts Mitt Romney speaking at an event critical of Obama. The caption is misleading because it inaccurately describes the image's content and context."
+  },
+  "inference_time": 4.407505989074707,
+  "ablation_type": "no_image_evidences"
+}

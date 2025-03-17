@@ -1,0 +1,49 @@
+{
+  "caption": "Nuneaton was once considered a Labour stronghold but the Tories have now managed to hold it in consecutive elections",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "twitter.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8644474744796753,
+        "text_similarity_score": 0.02159501239657402
+      },
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "twitter.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8644474744796753,
+        "text_similarity_score": 0.02159501239657402
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is high (>= 0.85) for both candidates, but the text similarity score is low (< 0.7) for both candidates. Thus, I should return \"False\" immediately, as the caption is out-of-context. Since there is no caption available in the candidate, I am unable to make any accurate judgement.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a group of people celebrating, many wearing \"Vote NO\" shirts and holding \"No Thanks\" signs, suggesting they are celebrating the results of a vote against Scottish independence. The caption, however, discusses the Nuneaton election in the UK and the Conservative party's success there. There is no visual connection between the image and the caption. The image check result shows that the image similarity score is high (>= 0.85) but the text similarity score is low (< 0.7). Therefore, the caption is out of context with the image.",
+    "validation_summary": "The image depicts a celebration related to the Scottish independence vote, while the caption refers to the Nuneaton election, creating a false impression of the image's context. Viewers would be misled about the actual event shown in the photograph."
+  },
+  "inference_time": 7.619667291641235,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

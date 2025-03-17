@@ -1,0 +1,46 @@
+{
+  "caption": "Angelique Kerber of Germany returns to Eugenie Bouchard of Canada",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Racket",
+      "Tennis",
+      "Tennis Racket",
+      "Soft tennis",
+      "Racketlon",
+      "Tennis player"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Simona Halep, Eugenie Bouchard advance to Wimbledon semifinals  The Denver Post",
+        "content": "S i m o n a   H a l e p ,   E u g e n i e   B o u c h a r d   a d v a n c e   t o   W i m b l e d o n   s e m i f i n a l s   . . .",
+        "caption": "Eugenie Bouchard of Canada plays a return to Angelique Kerber of Germany during their women's singles quarterfinal match at the All England Lawn Tennis Championships in Wimbledon, London, on July 2, 2014.",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Day 9 at Wimbledon",
+        "content": "D a y   9   a t   W i m b l e d o n",
+        "caption": "Eugenie Bouchard celebrates beating Angelique Kerber.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "Both candidate evidences have low image similarity scores (< 0.85) and low text similarity scores (< 0.7). Therefore, I will analyze the captions. The news caption mentions \"Angelique Kerber of Germany returns to Eugenie Bouchard of Canada.\" Candidate 1 mentions \"Eugenie Bouchard of Canada plays a return to Angelique Kerber of Germany during their women's singles quarterfinal match at the All England Lawn Tennis Championships in Wimbledon, London, on July 2, 2014.\" Although the players are the same, the match details are not mentioned in the news caption, and the images are not similar. Candidate 2 mentions \"Eugenie Bouchard celebrates beating Angelique Kerber.\" This statement does not match the news caption that describes a return shot. Therefore, the candidate evidences do not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 3,
+    "validation_summary": "The caption claims that Angelique Kerber is returning to Eugenie Bouchard; however, the image shows Bouchard celebrating a victory over Kerber, not a point during a rally.",
+    "explanation": "The news caption states that \"Angelique Kerber of Germany returns to Eugenie Bouchard of Canada,\" which implies an active play scenario during a match. However, the image captured actually depicts Eugenie Bouchard celebrating after defeating Angelique Kerber, which creates a conflicting narrative with the caption.\n\nThe image check result indicates low similarity scores between the image candidates and the caption, enhancing the evidence of a mismatch. Candidate 1 mentions Bouchard playing a return to Kerber, which is consistent with the caption but fails to convey that it was during a point. Candidate 2 states that Bouchard is celebrating her win, showcasing a moment of victory rather than competitive play. Thus, the caption misrepresents the nature of the image, as it fails to communicate that Bouchard has already triumphed over Kerber.\n\nConsequently, while the names and context are accurate regarding the two players involved in a match at Wimbledon, the caption misleads viewers regarding the dynamics of the moment captured. Thus, the determination that the caption is out of context is warranted."
+  },
+  "inference_time": 7.181203842163086,
+  "ablation_type": "no_filters"
+}

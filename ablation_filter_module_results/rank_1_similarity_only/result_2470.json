@@ -1,0 +1,52 @@
+{
+  "caption": "Russian President Vladimir Putin speaks during a media forum in St Petersburg on April 7",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Access Denied",
+        "content": "",
+        "caption": "",
+        "domain": "indianexpress.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8235123753547668,
+        "text_similarity_score": 0.059374406933784485
+      },
+      {
+        "title": "Putin says Panama Papers part of U.S. plot to weaken Russia  Orange County Register",
+        "content": "P u t i n   s a y s   P a n a m a   P a p e r s   p a r t   o f   U . S .   p l o t   t o   w e a k e n   R u s s i a   . . .",
+        "caption": " Russian President Vladimir Putin, center, speaks during a media forum of the All-Russia People's Front in St.Petersburg, Russia, Thursday, April 7, 2016. Speaking Thursday at a media forum in St.Petersburg, Putin rejected links to offshore accounts, calling the leaks part of Western efforts to weaken Russia. ",
+        "domain": "www.ocregister.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9535107612609863,
+        "text_similarity_score": 0.8506742715835571
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 2 has a high image similarity score (0.9535107612609863) and a high text similarity score (0.8506742715835571). According to the strict decision rules, if Image Similarity Score ≥ 0.85 AND Text Similarity Score ≥ 0.7, immediately return \"True\". Therefore, the verdict is True.",
+      "supporting_evidences": [
+        "Candidate 2: Image Similarity Score: 0.9535107612609863",
+        "Candidate 2: Caption Similarity Score: 0.8506742715835571"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high image similarity score (0.9535107612609863) and a high text similarity score (0.8506742715835571). According to the decision rules, if the Image Similarity Score is greater than or equal to 0.85 AND the Text Similarity Score is greater than or equal to 0.7, the verdict is 'True'. Therefore, the caption is considered an accurate representation of the image content, and the image is not out of context.",
+    "validation_summary": "The image accurately depicts Vladimir Putin speaking at a media forum, aligning with the caption's description and preventing viewer misdirection. The high similarity scores from the image check confirm this alignment, indicating the caption is representative of the image's content and context within the news article."
+  },
+  "inference_time": 6.67582893371582,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

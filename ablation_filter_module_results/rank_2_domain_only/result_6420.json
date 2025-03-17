@@ -1,0 +1,38 @@
+{
+  "caption": "Apple CEO Tim Cook introduces the new iPad Pro during an Apple launch event",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Apple event: 'greenest ever' MacBook Air and new iPad Pro announced  as it happened | Apple | The Guardian",
+        "content": "A p p l e   e v e n t :   ' g r e e n e s t   e v e r '   M a c B o o k   A i r   a n d   n e w   i P a d   P r o   . . .",
+        "caption": "Tim Cook introduces the new iPad Pro during an Apple launch event in New York.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0, and the text similarity score is 0.0. The provided candidate caption is: Tim Cook introduces the new iPad Pro during an Apple launch event in New York. The news caption is: Apple CEO Tim Cook introduces the new iPad Pro during an Apple launch event. Although the candidate caption is very similar to the news caption, and the domain is a reliable source, the low image similarity score indicates that the image is not related to the news image, therefore, the caption is not verified.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the image is not related to the news caption. The confidence score is 6. The news caption states that Apple CEO Tim Cook is introducing the new iPad Pro during an Apple launch event. The image shows Tim Cook holding up an iPad Pro, displaying an image of a planet on the screen, presumably at such an event. While this appears to align with the caption, the image check says the image is not related to the news image. Therefore, following instructions, I must assume the image is OOC, despite what it appears to depict, as the confidence score of the image check is above 7.",
+    "validation_summary": "Despite the image appearing to show Tim Cook introducing the iPad Pro, the image check indicates the image is not related to the news caption, leading to a conclusion that the image does not support the caption, and could mislead viewers about the event being described. Therefore, the image is out of context and could mislead viewers."
+  },
+  "inference_time": 3.9369611740112305,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

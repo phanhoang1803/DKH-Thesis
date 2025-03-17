@@ -1,0 +1,59 @@
+{
+  "caption": "Bernie Sanders speaks at campaign rally in South Carolina",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Concert",
+      "Orchestra",
+      "Pianist",
+      "Piano",
+      "5hy",
+      "Electrical conductor"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Unstoppable? Bernie Sanders heads into South Carolina stronger than ever",
+        "content": "U n s t o p p a b l e ?   B e r n i e   S a n d e r s   h e a d s   i n t o   S o u t h   C a r o l i n a   s t r o n g e r   . . .",
+        "caption": "Sen. Bernie Sanders, I-Vt., speaks at a campaign rally in San Antonio on Saturday, Feb. 22, 2020, after winning the Nevada Democratic presidential caucuses.",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.22448600828647614,
+        "text_similarity_score": 0.7839988470077515
+      },
+      {
+        "title": "South Carolina prepares for the primaries - The Daily Gamecock at University of South Carolina",
+        "content": "S o u t h   C a r o l i n a   p r e p a r e s   f o r   t h e   p r i m a r i e s   -   T h e   D a i l y   G a m e c o c k   a t   . . .",
+        "caption": "Senator Bernie Sanders speaking at a campaign rally in Columbia, South Carolina, ahead of primary on Feb. 28. He emphasized that reversing economic inequality is one of his proposed policies.",
+        "domain": "www.dailygamecock.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3086755871772766,
+        "text_similarity_score": 0.7469150424003601
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption mentions Bernie Sanders speaking at a campaign rally in South Carolina. Candidate 1 has a low image similarity score of 0.22448600828647614 and a high text similarity score of 0.7839988470077515. Although the text similarity is high, the image similarity is too low to confirm the context. Candidate 2 has an image similarity score of 0.3086755871772766 and a text similarity score of 0.7469150424003601. Again, while the text similarity is high, the image similarity is too low. Both candidates confirm that Bernie Sanders spoke at a campaign rally, and Candidate 2 specifies it was in South Carolina. However, due to the low image similarity scores, a definitive 'True' verdict cannot be given, so it defaults to 'False'.",
+      "supporting_evidences": [
+        "Candidate 1: Caption mentions 'Sen. Bernie Sanders speaks at a campaign rally'",
+        "Candidate 2: Caption mentions 'Senator Bernie Sanders speaking at a campaign rally in Columbia, South Carolina'"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a confidence score of 7, prioritizing its findings. Although the caption mentions Bernie Sanders speaking at a campaign rally and the text similarity scores are high, the image similarity scores from the candidates are too low to confirm the accuracy. Therefore, the image is determined to be OOC (Out of Context).",
+    "validation_summary": "The image check result finds that the image similarity is too low to confirm the context, and therefore the caption does not accurately represent the image content. Viewers might be misled about the specifics of the event shown in the image."
+  },
+  "inference_time": 8.738221406936646,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "caption": "Russian President Vladimir Putin speaks during a media forum in St Petersburg on April 7",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Access Denied",
+        "content": "",
+        "caption": "",
+        "domain": "indianexpress.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Access Denied",
+        "content": "",
+        "caption": "",
+        "domain": "indianexpress.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Putin says Panama Papers part of U.S. plot to weaken Russia  Orange County Register",
+        "content": "P u t i n   s a y s   P a n a m a   P a p e r s   p a r t   o f   U . S .   p l o t   t o   w e a k e n   R u s s i a   . . .",
+        "caption": " Russian President Vladimir Putin, center, speaks during a media forum of the All-Russia People's Front in St.Petersburg, Russia, Thursday, April 7, 2016. Speaking Thursday at a media forum in St.Petersburg, Putin rejected links to offshore accounts, calling the leaks part of Western efforts to weaken Russia. ",
+        "domain": "www.ocregister.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "What did Putin say at Russias flagship economic forum? | Russia-Ukraine war News | Al Jazeera",
+        "content": "W h a t   d i d   P u t i n   s a y   a t   R u s s i a ' s   f l a g s h i p   e c o n o m i c   f o r u m ?   |   R u s s i a   . . .",
+        "caption": "Russian President Vladimir Putin speaks during a session of the St. Petersburg International Economic Forum (SPIEF) in Saint Petersburg, Russia",
+        "domain": "www.aljazeera.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The news caption states that \"Russian President Vladimir Putin speaks during a media forum in St Petersburg on April 7.\" Candidate 3 mentions \"Russian President Vladimir Putin, center, speaks during a media forum of the All-Russia People's Front in St.Petersburg, Russia, Thursday, April 7, 2016.\" While the candidate confirms the presence of Putin at a media forum in St. Petersburg on April 7, it specifies the 'All-Russia People's Front' and the year 2016. The news caption is less specific and doesn't mention the specific forum or the year. Since Image Similarity Score and Text Similarity Score are 0.0, the candidate is assessed to verify the caption. Candidate 4 mentions Putin speaking at the \"St. Petersburg International Economic Forum (SPIEF)\" which is different from the 'All-Russia People's Front' forum specified in Candidate 3. None of the candidates provide enough evidence to verify if the news caption is fully accurate, so I cannot confirm the caption is in context.",
+      "supporting_evidences": [
+        "Russian President Vladimir Putin, center, speaks during a media forum of the All-Russia People's Front in St.Petersburg, Russia, Thursday, April 7, 2016."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result suggests that the caption is potentially misleading. Although the caption states \"Russian President Vladimir Putin speaks during a media forum in St Petersburg on April 7,\" the image check highlights that one of the supporting candidates specifies it was the 'All-Russia People's Front' forum on April 7, 2016. The original news caption lacks this specificity and doesn't mention the specific forum or the year, which could be relevant to understanding the context of Putin's speech. The higher confidence score is due to the supporting evidence from the image candidates and potential for misinterpretation due to the lack of specific detail.",
+    "validation_summary": "The caption is misleading as it omits the specific name ('All-Russia People's Front') and the year (2016) of the media forum which are relevant for an accurate contextualization of the event. This lack of detail could cause the viewer to misunderstand the context of Putin's speech and the nature of the event depicted."
+  },
+  "inference_time": 5.095111846923828,
+  "ablation_type": "no_filters"
+}

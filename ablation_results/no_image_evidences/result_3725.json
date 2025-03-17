@@ -1,0 +1,34 @@
+{
+  "caption": "Climate activists stage a protest outside the Louvre pyramid in Paris where negotiations are taking place to agree a global deal on greenhouse gas emissions",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Will the Paris climate deal spell out the end of the fossil fuel era? | Environment | The Guardian",
+        "content": "W i l l   t h e   P a r i s   c l i m a t e   d e a l   s p e l l   o u t   t h e   e n d   o f   t h e   f o s s i l   f u e l   . . .",
+        "caption": "Climate activists stage a protest outside the Louvre pyramid in Paris where negotiations are taking place to agree a global deal on greenhouse gas emissions<br>",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1913502961397171,
+        "text_similarity_score": 0.9951795935630798
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.1913502961397171, which is less than 0.85. The text similarity score is 0.9951795935630798, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the caption is out of context (OOC = True) with a high text similarity score but a low image similarity score. The image shows a black balloon with the text \"Je Suis Charlie\" against a cloudy sky, with a monument visible in the background. This image relates to the Charlie Hebdo attack. The caption claims the image depicts \"Climate activists stage a protest outside the Louvre pyramid in Paris where negotiations are taking place to agree a global deal on greenhouse gas emissions.\" This description does not align with the visual content of the image. The image does not show any climate activists, the Louvre pyramid, or any obvious signs of a climate protest. Therefore, the caption is misleading because it incorrectly describes the image's content and context.",
+    "validation_summary": "The caption is misleading as the image shows a memorial related to the Charlie Hebdo attack, not climate activists protesting at the Louvre. The image check result confirms that the caption does not accurately represent the image content."
+  },
+  "inference_time": 5.4493749141693115,
+  "ablation_type": "no_image_evidences"
+}

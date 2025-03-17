@@ -1,0 +1,53 @@
+{
+  "caption": "Madison Kocian competes on the balance beam during the women s US Olympic gymnastics trials",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Olympic Games",
+      "Golf at the Summer Olympics",
+      "opening",
+      "400 metres",
+      "Golf",
+      "Balance Beam",
+      "just",
+      "create",
+      "future"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Dallas' Madison Kocian - an uneven bars world champ - makes five-woman U.S. gymnastics team",
+        "content": "D a l l a s '   M a d i s o n   K o c i a n   -   a n   u n e v e n   b a r s   w o r l d   c h a m p   -   m a k e s   f i v e   . . .",
+        "caption": "Madison Kocian competes on the balance beam during the women's U.S. Olympic gymnastics trials in San Jose, Calif., Sunday, July 10, 2016. (AP Photo/Gregory Bull)",
+        "domain": "www.dallasnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2564106583595276,
+        "text_similarity_score": 0.9195768237113953
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.2564106583595276, which is less than 0.85. Therefore, according to the instructions, the caption should be marked as out-of-context, even though the text similarity score is high (0.9195768237113953). Candidate 1 has a caption that is very similar to the news caption, specifically mentioning 'Madison Kocian competes on the balance beam during the women's U.S. Olympic gymnastics trials'. However, since the image similarity score is low, it suggests that the candidate image and the news image are not the same, implying the caption may not accurately represent the news image.",
+      "supporting_evidences": [
+        "The image similarity score between the news image and the candidate image is 0.2564106583595276, which is less than 0.85.",
+        "The text similarity score between the news caption and the candidate caption is 0.9195768237113953."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a low image similarity score (0.256) despite a high text similarity score (0.919). This discrepancy suggests that while the caption is worded similarly to a correct caption for a similar image, the provided news image does not depict what the caption describes, which is Madison Kocian on the balance beam. Given the image check's low image similarity score, the caption is considered out of context. Therefore, viewers are likely to be misled about the image's content.",
+    "validation_summary": "The image does not match the caption's description of Madison Kocian on the balance beam; the low image similarity score from the image check confirms the mismatch, leading to a conclusion that viewers would be misled about the image's actual content and the caption is out of context. The image check result takes precedence in this evaluation."
+  },
+  "inference_time": 6.3945863246917725,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

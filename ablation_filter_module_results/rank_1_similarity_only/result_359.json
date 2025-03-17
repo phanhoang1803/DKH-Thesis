@@ -1,0 +1,54 @@
+{
+  "caption": "A salesman looks at LCD monitors at an electronics store in Hebei province",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "czech-point.info",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9417619705200195,
+        "text_similarity_score": 0.14496196806430817
+      },
+      {
+        "title": "China resorts to blackouts in pursuit of energy efficiency | Energy efficiency | The Guardian",
+        "content": "C h i n a   r e s o r t s   t o   b l a c k o u t s   i n   p u r s u i t   o f   e n e r g y   e f f i c i e n c y   . . .",
+        "caption": "A salesman looks at LCD monitors at an electronics store in Hebei province. Photograph: Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2668473422527313,
+        "text_similarity_score": 0.9663628935813904
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1 has a high image similarity score (0.9417619705200195) but a low caption similarity score (0.14496196806430817). According to the instructions, if the Image Similarity Score is ≥ 0.85 AND Text Similarity Score is < 0.7, the verdict should be 'False'. Candidate 2 has a low image similarity score (0.2668473422527313) but a very high caption similarity score (0.9663628935813904), this also leads to a 'False' verdict based on the instructions.",
+      "supporting_evidences": [
+        "Candidate 1 has a high image similarity score (0.9417619705200195).",
+        "Candidate 1 has a low caption similarity score (0.14496196806430817).",
+        "Candidate 2 has a low image similarity score (0.2668473422527313).",
+        "Candidate 2 has a very high caption similarity score (0.9663628935813904)."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image and caption do not align. The high image similarity score of the first candidate suggests a potential visual similarity, but the low text similarity score indicates that the caption does not accurately describe the image content. Similarly, the second candidate has a high caption similarity score but low image similarity score, also leading to a 'False' verdict based on the instructions. Therefore, based on the image check result, the caption is misleading and does not accurately represent the image content.",
+    "validation_summary": "The image depicts street vendors in what appears to be a food stall, while the caption describes a salesman in an electronics store, creating a false impression of the image's content. Viewers would be misled about what they are seeing in the image based on the provided caption."
+  },
+  "inference_time": 8.151001930236816,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

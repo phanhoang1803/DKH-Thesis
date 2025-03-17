@@ -1,0 +1,56 @@
+{
+  "caption": "Oscar Pistorius passes family members of the late Reeva Steenkamp on his arrival in court to await the verdict",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Court",
+      "Crime",
+      "Culpable homicide",
+      "Criminal justice",
+      "Guilt",
+      "Judge",
+      "Sentence",
+      "Conviction",
+      "Appeal",
+      "Oscar Pistorius"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Oscar Pistorius verdict  in pictures | World news | The Guardian",
+        "content": "O s c a r   P i s t o r i u s   v e r d i c t      i n   p i c t u r e s   |   W o r l d   n e w s   |   T h e   G u a r d i a n",
+        "caption": "Olympic and Paralympic track star Oscar Pistorius listens to the verdict in his trial at the high court in Pretoria as he is convicted of culpable homicide",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Inside the Oscar Pistorius Murder Case: What Paths Took the Couple to That Final Night? | Vanity Fair",
+        "content": "I n s i d e   t h e   O s c a r   P i s t o r i u s   M u r d e r   C a s e :   W h a t   P a t h s   T o o k   t h e   C o u p l e   . . .",
+        "caption": "Image may contain Human Person Reeva Steenkamp Clothing Apparel Face and Man",
+        "domain": "www.vanityfair.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidate captions have low image similarity scores (< 0.85) and low text similarity scores (< 0.7). Therefore, I will proceed with a manual analysis. The news caption states, 'Oscar Pistorius passes family members of the late Reeva Steenkamp on his arrival in court to await the verdict'. The candidate captions do not provide enough information to confirm the accuracy of the news caption. Specifically, the candidates do not mention Reeva Steenkamp's family members or anything about Oscar Pistorius passing them in court. One candidate describes Oscar Pistorius listening to the verdict, but it does not correlate with the action described in the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result has a low confidence score of 2, so I have conducted a manual analysis. The image shows Oscar Pistorius sitting at a desk in what appears to be a courtroom. He is looking down at something in his hands. There are empty benches behind him. The caption claims that he is passing family members of Reeva Steenkamp on his arrival in court. The image does not show him passing anyone. Without seeing who he may or may not be walking past, there is not enough information to confirm the accuracy of the news caption. Therefore, the caption misrepresents the image and is out of context.",
+    "validation_summary": "The caption claims that the image shows Oscar Pistorius passing family members of Reeva Steenkamp, but the image does not show him passing anyone and no other people are present, thus the caption misrepresents the image and is out of context. Viewers would be misled about what they're seeing in the image."
+  },
+  "inference_time": 4.240869045257568,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

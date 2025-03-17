@@ -1,0 +1,52 @@
+{
+  "caption": "Salman Rushdie with Padma Lakshmi in Cannes 2004",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Kevin Spacey",
+      "Julia Louis-Dreyfus",
+      "Anthony Rapp",
+      "Veep",
+      "The Affair",
+      "Actor",
+      "House of Cards",
+      "Seinfeld",
+      "Television",
+      "Showtime"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 1,
+      "confidence_score": 10,
+      "explanation": "The provided caption mentions Salman Rushdie and Padma Lakshmi, while the image context describes Kevin Spacey and Julia Louis-Dreyfus. The caption and the image context are completely different. Therefore, the caption does not align with the image context.",
+      "supporting_evidences": [
+        "The caption mentions Salman Rushdie and Padma Lakshmi.",
+        "The image context describes Kevin Spacey and Julia Louis-Dreyfus.",
+        "The caption and the image context are unrelated.",
+        "The image features actors Kevin Spacey and Julia Louis-Dreyfus, not Salman Rushdie and Padma Lakshmi"
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Kevin Spacey, Julia Louis-Dreyfus, and an unidentified man are seen in a candid moment at an event.",
+      "context": "The image features Kevin Spacey, Julia Louis-Dreyfus, and another man in what appears to be a candid moment at a formal event. Spacey is dressed in a black tuxedo with a bow tie, while Louis-Dreyfus is wearing a purple dress. The unidentified man is in a suit with glasses, smiling towards the two. The background shows a crowded room with other attendees in formal wear, suggesting a gala or awards ceremony. Given the presence of Spacey and Louis-Dreyfus, both well-known actors, it is likely that the event is related to the entertainment industry. The news entities provided also mention 'House of Cards', 'Veep', 'Seinfeld', 'Showtime' and other television shows that Kevin Spacey and Julia Louis-Dreyfus have starred in.",
+      "information": "The image captures a moment with Kevin Spacey and Julia Louis-Dreyfus at a formal event. While the provided news caption and content discuss Salman Rushdie, they are unrelated to the visual content of this image."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a high confidence score of 10, indicating a strong certainty that the caption is inaccurate. The image shows Kevin Spacey and Julia Louis-Dreyfus, while the caption states that the image is of Salman Rushdie and Padma Lakshmi. Therefore, the caption is not a correct representative summary of the image content. Viewers would be significantly misled about who is in the image.",
+    "validation_summary": "The image depicts Kevin Spacey and Julia Louis-Dreyfus, which directly contradicts the caption that claims the image shows Salman Rushdie and Padma Lakshmi, leading to a high likelihood of viewer misdirection."
+  },
+  "inference_time": 3.8131885528564453,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

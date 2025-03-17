@@ -1,0 +1,56 @@
+{
+  "caption": "Damage to two Ryanair planes that clipped each other at Dublin airport",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Aircraft",
+      "Boeing C-40 Clipper",
+      "Boeing",
+      "Boeing 737 MAX",
+      "Airliner",
+      "Boeing 737 Next Generation",
+      "Boeing P-8 Poseidon",
+      "Airbus SE",
+      "Boeing 777X"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Ryanair planes clip wings at Dublin | Irish Independent",
+        "content": "R y a n a i r   p l a n e s   c l i p   w i n g s   a t   D u b l i n   |   I r i s h   I n d e p e n d e n t",
+        "caption": "Damage to one of two Ryanair planes which clipped each other at Dublin Airport (Paul Roche/PA Wire)",
+        "domain": "www.independent.ie",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4621545374393463,
+        "text_similarity_score": 0.9208447933197021
+      },
+      {
+        "title": "Ryanair planes clip each other at Dublin airport | Ryanair | The Guardian",
+        "content": "R y a n a i r   p l a n e s   c l i p   e a c h   o t h e r   a t   D u b l i n   a i r p o r t   |   R y a n a i r   |   T h e   . . .",
+        "caption": "Damage to two Ryanair planes that clipped each other at Dublin airport. Photograph: Emily Carroll/Twitter",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5726106762886047,
+        "text_similarity_score": 0.9147859811782837
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "Both candidate captions describe two Ryanair planes clipping each other at Dublin airport, which aligns with the news caption. The image similarity scores, while not extremely high, are above 0.45, indicating some visual similarity. The text similarity scores are both above 0.9, showing a strong match between the candidate captions and the news caption. Based on the captions from independent.ie and theguardian.com, the news caption accurately represents the event depicted in the image.",
+      "supporting_evidences": [
+        "Candidate 1: Caption describes two Ryanair planes clipping each other at Dublin Airport.",
+        "Candidate 2: Caption describes two Ryanair planes that clipped each other at Dublin airport."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 8,
+    "validation_summary": "The caption accurately summarizes the incident involving two Ryanair planes clipping each other at Dublin airport, which is depicted in the image.",
+    "explanation": "The news caption states that there was damage to two Ryanair planes that clipped each other at Dublin airport. The image likely illustrates the scene of the incident showing the planes involved. According to the image check result, both candidate captions describe the same event—two Ryanair planes that clipped each other at Dublin airport. The visual and textual evidence aligns with the caption provided, confirming it is accurately representing the image content. Therefore, the caption does not misrepresent the image."
+  },
+  "inference_time": 8.794164180755615,
+  "ablation_type": "no_image_evidences"
+}

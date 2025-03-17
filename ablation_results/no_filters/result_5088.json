@@ -1,0 +1,51 @@
+{
+  "caption": "Brown Panther trainer Tom Dascombe part owner Michael Owen and jockey Richard Kingscote take part in the 2013 Melbourne Cup Parade",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Car",
+      "Supercar",
+      "Performance car",
+      "Classic car",
+      "Convertible",
+      "Pride (LGBTQ culture)",
+      "Parade",
+      "City",
+      "Classic"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Melbourne Cup: share your memories | Melbourne Cup | The Guardian",
+        "content": "M e l b o u r n e   C u p :   s h a r e   y o u r   m e m o r i e s   |   M e l b o u r n e   C u p   |   T h e   G u a r d i a n",
+        "caption": "Brown Panther trainer Tom Dascombe, part owner Michael Owen and jockey Richard Kingscote take part in the 2013 Melbourne Cup Parade. Photograph: Matt King/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Melbourne Cup: share your memories | Melbourne Cup | The Guardian",
+        "content": "e 7 d 2 c f e 9 - f e 1 2 - 4 0 5 1 - 8 c 2 b -   . . .",
+        "caption": "Brown Panther trainer Tom Dascombe, part owner Michael Owen and jockey Richard Kingscote take part in the 2013 Melbourne Cup Parade. Photograph: Matt King/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The image similarity scores for both candidates are 0.0, indicating the images do not match. The caption similarity scores are also 0.0, so the captions do not match. However, both candidate captions are identical to the news caption. Although the image similarity is low, the identical captions from a reputable source (The Guardian) suggest the news caption is likely accurate. However, due to the low image similarity, the confidence is low.",
+      "supporting_evidences": [
+        "Brown Panther trainer Tom Dascombe, part owner Michael Owen and jockey Richard Kingscote take part in the 2013 Melbourne Cup Parade. Photograph: Matt King/Getty Images"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 5,
+    "explanation": "The image shows four individuals standing in or near a red car during what appears to be a parade or public event. The individuals are wearing matching red vests, and there are balloons and signs visible in the background, suggesting a celebratory atmosphere. While the names 'Tom Dascombe,' 'Michael Owen,' and 'Richard Kingscote' are visible on the car, it is impossible to independently confirm the individuals' identities or their role in the 2013 Melbourne Cup Parade based solely on the image. The Image Check indicates low image similarity with other sources but highlights that other captions identify them with the same event. Based on this conflicting evidence I conclude that the image content does not conclusively confirm the caption's claims and there the image is out of context.",
+    "validation_summary": "The image doesn't provide enough context to definitively confirm the accuracy of the caption, leading to uncertainty about whether viewers would be misled about the specific individuals and event depicted in the photo. Therefore, the image is deemed out of context due to the uncertainty of the representation."
+  },
+  "inference_time": 4.355436086654663,
+  "ablation_type": "no_filters"
+}

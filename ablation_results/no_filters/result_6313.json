@@ -1,0 +1,52 @@
+{
+  "caption": "The X Factords Simon Cowell on the NME cover Click to see full image",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Michael Jackson",
+      "Magazine",
+      "Michael Jackson impersonator",
+      "2009",
+      "Smash Hits",
+      "Smash Hits Poll Winners Party",
+      "Meter",
+      "Tabloid",
+      "Impersonator"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Simon Cowell v the NME: 'I don't take music too seriously' | Simon Cowell | The Guardian",
+        "content": "S i m o n   C o w e l l   v   t h e   N M E :   ' I   d o n ' t   t a k e   m u s i c   t o o   s e r i o u s l y '   |   S i m o n   . . .",
+        "caption": "The X Factor'ds Simon Cowell on the NME cover. Click to see full image",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "'Pete Doherty tried to get out of the car at 80mph': the stories behind NME's greatest covers | NME | The Guardian",
+        "content": "P e t e   D o h e r t y   t r i e d   t o   g e t   o u t   o f   t h e   c a r   a t   8 0 m p h ' :   t h e   s t o r i e s   . . .",
+        "caption": "NME covers featuring Bryan Ferry (centre), Pete Doherty and Simon Cowell.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are both 0.0, indicating the images do not match. The text similarity scores are also 0.0, so I must analyze the captions and candidate to give the final decision. Candidate 1 has an identical caption to the news caption, suggesting the caption is accurate. Candidate 2 includes 'Simon Cowell' and 'NME cover', indicating that the news caption might be related to the image. However, without a matching image, I cannot confirm that the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "The X Factor'ds Simon Cowell on the NME cover. Click to see full image",
+        "NME covers featuring Bryan Ferry (centre), Pete Doherty and Simon Cowell."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image clearly shows a magazine cover featuring Michael Jackson with the text \"SMASH HITS\", \"MICHAEL JACKSON 52-PAGE SPECIAL TRIBUTE ISSUE\", and a smaller image of Michael Jackson at a younger age. The provided news caption mentions \"The X Factords Simon Cowell on the NME cover\", which is completely unrelated to the image. The image check result returned a high confidence score of 6 with a verdict of False, indicating that the caption does not accurately represent the image. The image check supporting evidences included 'The X Factor'ds Simon Cowell on the NME cover. Click to see full image' and 'NME covers featuring Bryan Ferry (centre), Pete Doherty and Simon Cowell.', this confirms that the caption is referencing the X Factor and Simon Cowell on the NME cover, which is not what the image is depicting.",
+    "validation_summary": "The caption is about Simon Cowell on the NME cover, while the image shows a magazine cover featuring Michael Jackson, misleading viewers about the image's content and context, thus, it is out of context (OOC = True). The image check result returned a confidence score of 6 with a verdict of False; therefore, based on the image check result, OOC must be set to True, and the confidence score is boosted to 10 due to the explicit content in the image compared with the caption's topic (Simon Cowell)."
+  },
+  "inference_time": 4.840079307556152,
+  "ablation_type": "no_filters"
+}

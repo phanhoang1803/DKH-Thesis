@@ -1,0 +1,50 @@
+{
+  "caption": "Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Car",
+      "Sports sedan",
+      "Sports car",
+      "Taxi",
+      "Sedan",
+      "Executive car"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Foxtons shares plunge 20% as London property market slows | Housing market | The Guardian",
+        "content": "F o x t o n s   s h a r e s   p l u n g e   2 0 %   a s   L o n d o n   p r o p e r t y   m a r k e t   s l o w s   . . .",
+        "caption": "Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4915829002857208,
+        "text_similarity_score": 0.976872444152832
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.49, which is less than 0.85. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. The text similarity score is 0.97, which is greater than 0.7, but this is not enough to return true. Thus, the final verdict is false, because the image similarity score is low. The candidate caption mentions \"Foxtons is infamous in the capital for its brash sales tactics and a liveried fleet of Mini Coopers,\" and the news caption is the same. However, since the images are not similar, the caption cannot be confirmed as accurate. Therefore, the caption is considered out-of-context.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.4915829002857208",
+        "Caption Similarity Score: 0.976872444152832"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates an image similarity score of 0.49, which is significantly below the threshold of 0.85. Even though the text similarity score is 0.97, the low image similarity score determines the final verdict. The caption refers to 'Foxtons...brash sales tactics and a liveried fleet of Mini Coopers,' whereas the image depicts a yellow taxi. Since there's no visual connection between the image and the caption, it is considered out of context.",
+    "validation_summary": "The image of a yellow taxi is completely unrelated to the news caption about Foxtons and its Mini Coopers, creating a misleading impression about the article's visual content and relevance. Viewers would be misled by the image as it doesn't match the caption's description."
+  },
+  "inference_time": 5.377109050750732,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

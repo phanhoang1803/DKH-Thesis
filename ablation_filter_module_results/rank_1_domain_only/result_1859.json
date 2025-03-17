@@ -1,0 +1,45 @@
+{
+  "caption": "Rory McIlroy celebrates with the FedEx Cup trophy and the Tour Championship trophy",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "US PGA Championship 2014: Rory McIlroy's final round  in pictures | Sport | The Guardian",
+        "content": "M a r k   W o h l w e n d e r \n \n M o n   1 1   A u g   2 0 1 4   1 3 . 5 5  B S T \n \n \n                         F i r s t   p u b l i s h e d   o n   M o n   1 1   A u g   2 0 1 4   1 3 . 5 5  B S T \n \n P h o t o g r a p h :   M i k e   G r o l l / A P \n \n P h o t o g r a p h :   J e f f   G r o s s / G e t t y   I m a g e s \n \n P h o t o g r a p h :   M i k e   E h r m a n n / P G A   o f   A m e r i c a   v i a   G e t t y   I m a g e s \n \n P h o t o g r a p h :   B r i a n   S n y d e r / R e u t e r s \n \n P h o t o g r a p h :   D a v i d   C a n n o n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   J o h n   L o c h e r / A P \n \n P h o t o g r a p h :   D a v i d   C a n n o n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   A n d y   L y o n s / G e t t y   I m a g e s \n \n P h o t o g r a p h :   A n d r e w   R e d i n g t o n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   D a v i d   C a n n o n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   M i k e   E h r m a n n / P G A   o f   A m e r i c a   v i a   G e t t y   I m a g e s \n \n P h o t o g r a p h :   L a r r y   W .   S m i t h / E P A \n \n P h o t o g r a p h :   S a m   G r e e n w o o d / G e t t y   I m a g e s \n \n P h o t o g r a p h :   B r i a n   S p u r l o c k / U S A   T o d a y   S p o r t s \n \n P h o t o g r a p h :   J o h n   L o c h e r / A P",
+        "caption": "mcilroy.: sport",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "McIlroy wins Tour Championship for third FedEx Cup title | AP News",
+        "content": "M c I l r o y   w i n s   T o u r   C h a m p i o n s h i p   f o r   t h i r d   F e d E x   C u p   t i t l e   |   A P   N e w s",
+        "caption": "Rory McIlroy celebrates with the trophy after winning the Tour Championship golf tournament at East Lake Golf Club Sunday, Aug. 28, 2022, in Atlanta. (Jason Getz/Atlanta Journal-Constitution via AP)",
+        "domain": "apnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores for both candidates are 0.0, which means the images do not match. Therefore, strict decision rules do not apply, and the analysis will be based on the caption and candidate information. Candidate 2 has a caption that is closely related to the news caption, mentioning Rory McIlroy celebrating with the trophy after winning the Tour Championship in Atlanta on August 28, 2022. The news caption describes Rory McIlroy celebrating with the FedEx Cup trophy and the Tour Championship trophy. Although both candidates mentioned about the championship trophy, the candidates do not provide enough information to confirm that the news caption is accurate.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a confidence score of 6, which is less than 7. However, the caption \"Rory McIlroy celebrates with the FedEx Cup trophy and the Tour Championship trophy\" does not accurately represent the image. The man in the image is holding a trophy, but without additional information, it is impossible to definitively identify it as the FedEx Cup or Tour Championship trophy. The image shows a golfer holding up a trophy on a golf course at dusk, surrounded by photographers. The news article primarily discusses Nancy Lopez and efforts to grow the game of golf, with only a brief mention of Rory McIlroy. The news article does not directly relate to the image. Therefore, the caption is deemed to be out of context.",
+    "validation_summary": "The caption identifies Rory McIlroy with specific trophies that the image alone cannot confirm, and the news article primarily focuses on a different topic, creating a misleading association for viewers regarding the content of the article."
+  },
+  "inference_time": 4.299073934555054,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "Clip from The Washington Post Jan 14 1928",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "3littlebuttholes",
+        "content": "",
+        "caption": "an old newspaper article with the words, wicker witch of the belway?",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9913266897201538,
+        "text_similarity_score": 0.38695836067199707
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.99 which is greater than 0.85, but the text similarity score is 0.38 which is less than 0.7. According to the instructions, the verdict should be 'False' since the image similarity score is high, but the text similarity score is low.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high image similarity (0.99) but low text similarity (0.38). This suggests that while the image may be related to the general subject matter, the specific details mentioned in the caption do not accurately reflect the image's content. The image displays a bridge with the graffiti \"SURRENDER DOROTHY\" sprayed on it, and the caption discusses the 'Wicked Witch of the Beltway'. The article discusses President's visit to Cuba. Given the mismatch between the image content (graffiti and a bridge) and the caption's focus on a president's visit to Cuba, the caption is misleading and out of context. Therefore, the final answer is OOC=True.",
+    "validation_summary": "The image and caption are mismatched; the image depicts graffiti on a bridge, while the caption discusses President's visit to Cuba, leading to a false impression of the image's relevance to the news article. The image check result confirms this discrepancy with a high image similarity score but a low text similarity score, indicating a disconnect between the visual content and the caption's description. Given this evidence, the image is considered out of context (OOC=True). As such, the caption does not accurately represent the image and would likely mislead viewers about the image's connection to the news article about a president's visit to Cuba. This is further supported by the image displaying the graffiti 'SURRENDER DOROTHY' which is not related to the article's content about a president's visit to Cuba in any way. As the content shown in the image and the content of the news text are completely different, the caption is out of context and would mislead viewers about what they're seeing."
+  },
+  "inference_time": 4.9521355628967285,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

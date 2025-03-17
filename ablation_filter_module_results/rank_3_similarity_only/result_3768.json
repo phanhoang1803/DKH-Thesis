@@ -1,0 +1,52 @@
+{
+  "caption": "Chiefs K Ryan Succop signs autographs July 24 2014 in St Joseph Mo",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Picket fence",
+      "Team",
+      "Fence",
+      "Picketing"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 10,
+      "explanation": "The caption mentions the Kansas City Chiefs' Kicker Ryan Succop signing autographs at St. Joseph, MO. However, the image context describes a Dallas Cowboys training camp with player-fan interaction. This indicates a clear mismatch in both the subject (different teams and players) and the event (autograph signing vs. training camp interaction). Therefore, the caption does not align with the image context.",
+      "supporting_evidences": [
+        "Caption refers to Kansas City Chiefs, image context refers to Dallas Cowboys.",
+        "Caption describes autograph signing, image context describes training camp interaction.",
+        "The location mentioned in the caption (St. Joseph, MO) is not related to the Dallas Cowboys training camp."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "information": "The image depicts an outdoor training camp scene where a group of football players from the Dallas Cowboys and fans are present. In the foreground, a cornerback is seen interacting with a fan, which occurs near a picket fence that separates the players from the spectators. The image captures a moment during a training camp, indicating a lively sports environment with fans engaging with players.",
+      "caption": "Dallas Cowboys training camp interaction between players and fans.",
+      "context": "In this image, captured at the Dallas Cowboys' training camp, we see a cornerback engaging with a fan by the picket fence, illustrating the close interaction between players and their supporters. This context aligns with the ongoing training camp practices where fan involvement is encouraged. Notably, the image reflects a significant event leading up to the Cowboys’ preparation for their upcoming season, where such camps are crucial for team-building and fan interaction.",
+      "key elements": [
+        "Dallas Cowboys",
+        "football players",
+        "training camp",
+        "fan interaction",
+        "picket fence"
+      ]
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result provides a high confidence score (10) indicating a mismatch between the image and the caption. The image depicts a scene that seems to be related to a Dallas Cowboys training camp or fan interaction, while the caption describes Chiefs K Ryan Succop signing autographs in St Joseph Mo. This discrepancy in teams (Cowboys vs. Chiefs), activity (training camp/fan interaction vs. autograph signing), and location confirms that the caption is not representative of the image content. Therefore, the image is out of context.",
+    "validation_summary": "The caption incorrectly describes the image, leading viewers to believe it depicts Ryan Succop signing autographs when it actually shows a different scene involving a possible Dallas Cowboys training camp or interaction with fans. This creates a false impression about the image's content and context."
+  },
+  "inference_time": 6.496057510375977,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

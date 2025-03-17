@@ -1,0 +1,52 @@
+{
+  "caption": "President Obama returns to the White House on July 17 2014",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Sikorsky Aircraft",
+      "Sikorsky S-76",
+      "Sikorsky S-92",
+      "Sikorsky S-70",
+      "Bell 212",
+      "Bell UH-1 Iroquois",
+      "Helicopter",
+      "Bell 214",
+      "Sikorsky UH-60 Black Hawk",
+      "Sikorsky S-64 Skycrane"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 2,
+      "confidence_score": 9,
+      "explanation": "The provided caption describes President Obama's return to the White House. However, the image context describes a helicopter fleet, including specific Sikorsky models at a showcase event, potentially coinciding with the U.S.-Africa Leaders Summit on the same date. The caption and image context are entirely misaligned. The caption focuses on President Obama, while the image focuses on helicopters and their potential relevance to events occurring that day.",
+      "supporting_evidences": [
+        "The caption describes President Obama's return.",
+        "The image context describes a helicopter fleet showcase.",
+        "There is no mention of President Obama in the image context.",
+        "There is no mention of helicopters or a showcase event in the caption."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "information": "The image appears to depict a fleet of helicopters, prominently featuring Sikorsky models such as the S-76, S-92, S-70, UH-60 Black Hawk, and possibly including Bell helicopters like the 212, UH-1 Iroquois, and 214. The background suggests an outdoor or airport setting, likely during a function showcasing these aircraft. The aircraft are in pristine condition, possibly indicating a demonstration or an event meant to highlight their capabilities.",
+      "caption": "Helicopter fleet including Sikorsky S-76, S-92, and UH-60 Black Hawk at a showcase event.",
+      "context": "The image corresponds to a notable event on July 17, 2014, which marks President Obama’s return to the White House for his birthday and coincides with the inaugural U.S.-Africa Leaders Summit. While the news caption focuses on the president, the image highlights key helicopters associated with Sikorsky Aircraft, which may be used during presidential or governmental operations. These helicopters symbolize advanced aviation technology and perhaps reflect the strategic partnerships and discussions at the summit related to defense, safety, and cooperation in Africa. The event timing suggests a showcase of American innovation, possibly in the defense sector, relevant to discussions taking place at the summit."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a helicopter, with a person in a suit walking towards it. In the background is the Washington Monument. The caption states \"President Obama returns to the White House on July 17 2014\", which seems like it could be President Obama arriving at the White House via Marine One. The image check result provides a high confidence that the caption does not accurately represent the image content. The image check explanation indicates a misalignment, as the image context describes a helicopter fleet showcase potentially related to the U.S.-Africa Leaders Summit, while the caption focuses solely on President Obama's return, thus the image is OOC.",
+    "validation_summary": "The image and caption are not well-aligned, as the image depicts a helicopter in front of the Washington Monument, potentially connected to the U.S.-Africa Leaders Summit, while the caption focuses on President Obama's return to the White House, misleading viewers about the context of the image and its relevance to the described event. Therefore the image is OOC (Out Of Context). The high confidence score in the image check result confirms this assessment, solidifying the conclusion that the caption misrepresents the image's content and its intended message."
+  },
+  "inference_time": 11.07352089881897,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

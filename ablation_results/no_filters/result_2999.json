@@ -1,0 +1,65 @@
+{
+  "caption": "Mitt Romney and President Obama meet during a town hallstyle debate at Hofstra University",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "United States",
+      "Politics",
+      "Political campaign",
+      "Mitt Romney 2012 presidential campaign",
+      "Campaign advertising",
+      "Getty Images",
+      "Political science",
+      "Stephen M. Caliendo"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "ERROR: The request could not be satisfied",
+        "content": "",
+        "caption": "",
+        "domain": "www.gettyimages.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Live: Obama, Romney clash in town hall debate",
+        "content": "L i v e :   O b a m a ,   R o m n e y   c l a s h   i n   t o w n   h a l l   d e b a t e",
+        "caption": "Mitt Romney and President Obama meet during a town hall-style debate at Hofstra University.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "A networked surveillance system had all of Hofstra University covered as the world watched Obama and Romney trade barbs | Security Info Watch",
+        "content": "A   n e t w o r k e d   s u r v e i l l a n c e   s y s t e m   h a d   a l l   o f   H o f s t r a   U n i v e r s i t y   . . .",
+        "caption": "Mitt Romney and President Obama were protected at the second presidential debate in part by a surveillance system anchored by a Milestone VMS.",
+        "domain": "www.securityinfowatch.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The available candidates provide limited support for verifying the news caption. Candidate 3 has an identical caption, which suggests the accuracy of the information. However, the Image Similarity Score is 0.0 across all candidates, indicating the images do not match. The absence of matching images reduces confidence. Candidate 4 mentions 'Mitt Romney and President Obama were protected at the second presidential debate', which offers partial support for the event. Given the lack of image verification and the partial textual support, a definitive 'True' or 'False' cannot be determined. Hence, the verdict leans towards 'False' due to the weak image similarity and partial context verification.",
+      "supporting_evidences": [
+        "Candidate 3: Caption - Mitt Romney and President Obama meet during a town hall-style debate at Hofstra University.",
+        "Candidate 4: Content - Mitt Romney and President Obama were protected at the second presidential debate in part by a surveillance system anchored by a Milestone VMS."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low Image Similarity Score (0.0) across all candidates, suggesting that the provided images do not match the news caption. Although one candidate caption partially supports the information that the image depicts Mitt Romney, President Obama and a town hall-style debate at Hofstra University, the significant lack of image verification leads to a decision that the image is out of context. The photograph shows Mitt Romney standing at a podium with a banner stating 'Obama Isn't Working' in the background; the image does not obviously depict a meeting or debate with President Obama at Hofstra University.",
+    "validation_summary": "The caption claims the image shows Mitt Romney and President Obama at Hofstra University, but the image does not depict both individuals together nor does it indicate the location or event described, which would mislead viewers about the image's content and context of the event mentioned in the caption . "
+  },
+  "inference_time": 4.5178422927856445,
+  "ablation_type": "no_filters"
+}

@@ -1,0 +1,44 @@
+{
+  "caption": "Rising abruptly out of the rolling boil are billionyearold inselbergs island mountains of sandstone like Suilven a sugarloaf peak that the Vikings called the pillar",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Mount Scenery",
+      "Outcrop",
+      "Batholith",
+      "Tree",
+      "Bouldering"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "In pictures: What lies beneath? | The Lie of the Land by Ian Vince | Science | The Guardian",
+        "content": "I n   p i c t u r e s :   W h a t   l i e s   b e n e a t h ?   |   T h e   L i e   o f   t h e   L a n d   b y   I a n   V i n c e   . . .",
+        "caption": "Book Review:  The Lie Of The Land by Ian Vince, geological history of British landscape",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate provides a book review related to geological history of the British landscape. The news caption describes inselbergs, specifically mentioning Suilven. There's no overlap or evidence to confirm the caption's accuracy based on the provided candidate.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts a snow-covered mountain with some vegetation in the foreground. The news caption mentions Suilven, a specific sugarloaf peak in Scotland, and describes it as an inselberg. The image check result indicates a low image and text similarity score. While the image could potentially depict a mountain that could be described as an inselberg, there is no specific evidence that it is Suilven, nor does the image itself contain any characteristics that obviously identify it as the specific peak described in the caption. Without any verification, it is likely that viewers would be misled into thinking that the image is directly linked to the news caption's text. Since the confidence score of the Image Check Result is low, I will perform my analysis.",
+    "validation_summary": "The image shows a snow-covered mountain, but there's no way to determine if it's Suilven as the caption claims; therefore, viewers may be misled about the content in the picture being directly linked to Suilven described in the caption. There is no way to verify the image in the absence of other supporting information."
+  },
+  "inference_time": 3.7111294269561768,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

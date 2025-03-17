@@ -1,0 +1,62 @@
+{
+  "caption": "Iranians celebrate the nuclear agreement in Tehran",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Index of /wp-content/uploads/sites/1/nggallery/lam-yik-fei-interview",
+        "content": "",
+        "caption": "",
+        "domain": "invisiblephotographer.asia",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8266380429267883,
+        "text_similarity_score": 0.03815140575170517
+      },
+      {
+        "title": "Israeli security cabinet slams Iran nuclear deal | News | Al Jazeera",
+        "content": "I s r a e l i   s e c u r i t y   c a b i n e t   s l a m s   I r a n   n u c l e a r   d e a l   |   N e w s   |   A l   J a z e e r a",
+        "caption": "Iranians celebrate the nuclear agreement with world powers in Lausanne, on a street in northern Tehran[AP]",
+        "domain": "www.aljazeera.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2107124775648117,
+        "text_similarity_score": 0.8239468932151794
+      },
+      {
+        "title": "Trump can preserve nuclear deal while reviewing Iran policy",
+        "content": "T r u m p   c a n   p r e s e r v e   n u c l e a r   d e a l   w h i l e   r e v i e w i n g   I r a n   p o l i c y",
+        "caption": "In this July 14, 2015 file photo, jubilant Iranians celebrate a landmark nuclear deal in Tehran, Iran. World powers and Iran struck a historic deal to curb Iran's nuclear program in exchange for billions of dollars in relief from international sanctions.",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3881304860115051,
+        "text_similarity_score": 0.7802790999412537
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Based on the provided candidates, I cannot definitively confirm that the news caption accurately represents the image. Candidate 1 has a high image similarity score (0.8266380429267883) but a low caption similarity score (0.03815140575170517), indicating the image might be related but the caption is significantly different. Candidates 2 and 3 have caption similarity scores of 0.8239468932151794 and 0.7802790999412537 respectively, which are relatively high, suggesting the captions are similar to the news caption. However, their image similarity scores are low (0.2107124775648117 and 0.3881304860115051), meaning the images themselves may not depict the same scene or event. Given that the image similarity scores are below the required threshold (0.85), the caption cannot be confirmed as in-context based on the strict decision rules. Since the image similarity is low, it's likely that the images does not represent what the caption describes.",
+      "supporting_evidences": [
+        "Candidate 1 has an image similarity score of 0.8266380429267883 and a caption similarity score of 0.03815140575170517.",
+        "Candidate 2 has an image similarity score of 0.2107124775648117 and a caption similarity score of 0.8239468932151794.",
+        "Candidate 3 has an image similarity score of 0.3881304860115051 and a caption similarity score of 0.7802790999412537."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates that the provided caption, \"Iranians celebrate the nuclear agreement in Tehran,\" does not accurately represent the image. The image similarity scores for the candidate images are low, suggesting that the images do not depict the same scene or event. The image shows a crowd of people, some holding up phones, in an urban environment. This scene does not align with a celebration of a nuclear agreement in Tehran. Therefore, using this image with the caption would likely mislead viewers about the image's content and its connection to the described event.",
+    "validation_summary": "The caption misleadingly suggests the image shows Iranians celebrating a nuclear agreement, while the image actually depicts a crowd scene unrelated to that specific event. The low image similarity scores from the image check further support that the image does not represent what the caption describes, leading to a high probability of viewer misdirection."
+  },
+  "inference_time": 8.25235891342163,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "The modern world suffers from a great lack of the capacity to cry Pope Francis told a crowd of thousands at the University of Santo Tomas in Manila on Sunday",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Pope Francis moves crowd in Philippines",
+        "content": "",
+        "caption": "",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.931331217288971,
+        "text_similarity_score": 0.0592254213988781
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The Image Similarity Score is high (0.931331217288971), but the Text Similarity Score is low (0.0592254213988781). According to the instructions, if the Image Similarity Score is greater than or equal to 0.85 and the Text Similarity Score is less than 0.7, the verdict should be 'False'. The given candidate evidence is insufficient to confirm the caption accurately represents the image. Therefore, the final decision is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Pope Francis speaking at a podium. The caption states that 'The modern world suffers from a great lack of the capacity to cry Pope Francis told a crowd of thousands at the University of Santo Tomas in Manila on Sunday'. The image check result indicates a high image similarity score and low text similarity. Therefore, the caption does not accurately describe the content of the image. The caption does not represent what is depicted in the picture.",
+    "validation_summary": "The caption doesn't accurately describe the picture, as it describes what Pope Francis said in a crowd in Manila, while the image shows the Pope at a podium addressing an audience in a location not identifiable from the image alone, making it misleading to the viewer to assume the context matches the content of the caption without more information. It is Out of Context because the text doesn't match the image, so it will mislead the viewer about the actual context of the image. Given the high confidence score of the image check, I must follow its assessment of the image and render it as Out Of Context (OOC=True)."
+  },
+  "inference_time": 7.281444787979126,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "caption": "Ohio State Buckeyes quarterback Braxton Miller throws a pass against the Michigan State Spartans during the Big Ten Championship game at Lucas Oil Stadium",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Eight-man football",
+      "Six-man football",
+      "American football",
+      "Canadian football",
+      "Arena football",
+      "Kick american football",
+      "Canada",
+      "Sprint football",
+      "Gridiron football",
+      "Team"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Big Ten championship game: Ohio State vs. Michigan State",
+        "content": "B i g   T e n   c h a m p i o n s h i p   g a m e :   O h i o   S t a t e   v s .   M i c h i g a n   S t a t e",
+        "caption": "Michigan State Spartans players kiss the championship trophy after defeating Ohio State Buckeyes 34-24 to win the 2013 Big 10 Championship game at Lucas Oil Stadium.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption mentions the Michigan State Spartans defeating the Ohio State Buckeyes in the 2013 Big 10 Championship game. While it confirms the teams involved (Ohio State Buckeyes and Michigan State Spartans) and the event (Big Ten Championship game), it contradicts the action described in the news caption, which focuses on Braxton Miller (Ohio State Buckeyes quarterback) throwing a pass. The candidate focuses on the Spartans winning. Therefore, the candidate does not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 2. The image depicts Ohio State Buckeyes quarterback Braxton Miller throwing a pass against the Michigan State Spartans during the Big Ten Championship game at Lucas Oil Stadium. The image shows Braxton Miller throwing a pass with Michigan State players attempting to block him. The news caption accurately describes the scene in the image. However, the image check result indicates that the news caption does not support the candidate caption, and the confidence score is low. Based on the image check result, especially the high confidence score of 10, the image is out of context.",
+    "validation_summary": "The image shows a football game between Ohio State and Michigan State, with Braxton Miller throwing a pass, which aligns with the caption, but the image check indicates it is out of context. The high confidence score indicates the image check results are accurate and the image is out of context."
+  },
+  "inference_time": 3.7330384254455566,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

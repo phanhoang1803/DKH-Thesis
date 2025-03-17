@@ -1,0 +1,38 @@
+{
+  "caption": "Britain s home secretary Theresa May at a Board of Deputies of British Jews event in London",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Vic Parsons | The Independent",
+        "content": "P l e a s e   r e f r e s h   t h e   p a g e   o r   n a v i g a t e   t o   a n o t h e r   p a g e   o n   t h e   s i t e   t o   b e   a u t o m a t i c a l l y   l o g g e d   i n P l e a s e   r e f r e s h   y o u r   b r o w s e r   t o   b e   l o g g e d   i n \n \n V i c   P a r s o n s   i s   a   g e n d e r   a n d   i d e n t i t y   r e p o r t e r   a t & a m p n b s p P i n k N e w s . \n \n P l e a s e   r e f r e s h   t h e   p a g e   o r   n a v i g a t e   t o   a n o t h e r   p a g e   o n   t h e   s i t e   t o   b e   a u t o m a t i c a l l y   l o g g e d   i n P l e a s e   r e f r e s h   y o u r   b r o w s e r   t o   b e   l o g g e d   i n",
+        "caption": "Home Secretary Theresa May arrives at Brixton Recreation Centre in south London (PA)",
+        "domain": "www.independent.co.uk",
+        "source": "ImageEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, I must analyze the content of the caption and the candidate to make a decision. The news caption mentions \"Britain s home secretary Theresa May at a Board of Deputies of British Jews event in London\". The candidate caption mentions \"Home Secretary Theresa May arrives at Brixton Recreation Centre in south London\". The candidate does not confirm that Theresa May attended a Board of Deputies of British Jews event in London. The candidate only confirms that Theresa May arrived at Brixton Recreation Centre in south London. Therefore, the evidence does not support the caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low confidence score of 2 and a verdict of False. The provided justification in the image check result says that the candidate caption only confirms Theresa May arrived at Brixton Recreation Centre in south London and does not confirm she attended a Board of Deputies of British Jews event in London as claimed by the original caption. Since the candidate captions (cropped images) do not confirm the claim of the original caption, the image is out of context.",
+    "validation_summary": "The image is out of context because it does not confirm the claim that Theresa May attended a Board of Deputies of British Jews event in London. Instead, it shows her arriving at Brixton Recreation Centre in south London, misleading viewers about the image's context."
+  },
+  "inference_time": 3.762251615524292,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

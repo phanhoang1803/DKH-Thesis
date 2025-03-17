@@ -1,0 +1,49 @@
+{
+  "caption": "President Rousseff Below that green and yellow jersey you represent a powerful legacy of the Brazilian people",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Katinka Hosszú",
+      "Rio de Janeiro",
+      "just",
+      "Swimming",
+      "Olympic Games",
+      "Kuwait",
+      "Swimming",
+      "Human",
+      "SAT",
+      "Fun"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Brazils politicians banking on World Cup victory to help soothe unrest | Brazil | The Guardian",
+        "content": "B r a z i l ' s   p o l i t i c i a n s   b a n k i n g   o n   W o r l d   C u p   v i c t o r y   t o   h e l p   s o o t h e   . . .",
+        "caption": "Former President and avid football fan Luiz Incio Lula da Silva with a shirt of his beloved Corinthians. Photograph: News Free/CON/LatinContent/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption mentions 'Former President and avid football fan Luiz Inácio Lula da Silva with a shirt of his beloved Corinthians.' while the news caption mentions 'President Rousseff Below that green and yellow jersey you represent a powerful legacy of the Brazilian people'. Both captions discuss different individuals and contexts, the candidate does not provide any information that can prove the news caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result returned a low similarity score of 0.0 for both image and text, indicating a mismatch between the image and the provided news caption. The image shows a beach volleyball match, with players wearing USA jerseys, high-fiving fans wearing green and yellow wigs/jerseys and a Brazilian flag, while the caption mentions \"President Rousseff\" and a \"powerful legacy of the Brazilian people.\" The image does not depict President Rousseff, nor does it directly illustrate her commentary on the Brazilian people's legacy. Therefore, the caption is not representative of the image content and is considered out of context.",
+    "validation_summary": "The image depicts a beach volleyball scene with USA players interacting with fans, while the caption discusses President Rousseff, leading to a misrepresentation of the image's context and content to the viewer, as the visual elements don't align with the textual claims made by the news caption about President Rousseff and a legacy related to the Brazilian people (especially related to the context of sports)., resulting in the image being out of context from the caption's theme about President Rousseff's perspective."
+  },
+  "inference_time": 4.5060460567474365,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

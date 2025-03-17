@@ -1,0 +1,49 @@
+{
+  "caption": "A window poster for the play The Bible The Complete Word of God by the Reduced Shakespeare Company",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Graphic design",
+      "Design",
+      "Light",
+      "Meter",
+      "Graphics",
+      "M"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Northern Ireland council lifts ban on 'blasphemous' play | Northern Ireland | The Guardian",
+        "content": "N o r t h e r n   I r e l a n d   c o u n c i l   l i f t s   b a n   o n   ' b l a s p h e m o u s '   p l a y   . . .",
+        "caption": "A window poster for the play The Bible: The Complete Word of God (abridged) by the Reduced Shakespeare Company. Photograph: Stephen Barnes/Demotix/Corbis",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3340927064418793,
+        "text_similarity_score": 0.9282180070877075
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.3340927064418793, which is less than 0.85. The text similarity score is 0.9282180070877075, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False. The candidate caption and news caption are very similar, referring to 'The Bible: The Complete Word of God' play. The supporting evidence comes from www.theguardian.com.",
+      "supporting_evidences": [
+        "Candidate 1"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image displays a message indicating that a program is unavailable due to rights restrictions. The caption, however, describes a play called 'The Bible: The Complete Word of God' and a related controversy. These are completely unrelated. The image check result strongly suggests that the caption does not accurately represent the image.",
+    "validation_summary": "The provided caption misrepresents the image, as the image shows a copyright restriction message and the caption discusses a play and its related controversy, misleading viewers about the image content..The image check result indicates that the image is indeed out of context with the caption, confirming this assessment."
+  },
+  "inference_time": 6.502743482589722,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

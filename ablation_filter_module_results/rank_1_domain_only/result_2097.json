@@ -1,0 +1,49 @@
+{
+  "caption": "Oscar Pistorius passes family members of the late Reeva Steenkamp on his arrival in court to await the verdict",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Court",
+      "Crime",
+      "Culpable homicide",
+      "Criminal justice",
+      "Guilt",
+      "Judge",
+      "Sentence",
+      "Conviction",
+      "Appeal",
+      "Oscar Pistorius"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Oscar Pistorius verdict  in pictures | World news | The Guardian",
+        "content": "O s c a r   P i s t o r i u s   v e r d i c t      i n   p i c t u r e s   |   W o r l d   n e w s   |   T h e   G u a r d i a n",
+        "caption": "Olympic and Paralympic track star Oscar Pistorius listens to the verdict in his trial at the high court in Pretoria as he is convicted of culpable homicide",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, the strict decision rules are not activated. The available candidate describes Oscar Pistorius listening to a verdict, which is related to court proceedings but does not confirm the specifics of the news caption, such as passing family members or awaiting the verdict. The candidate lacks key details present in the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a man, likely Oscar Pistorius, sitting at a table in a courtroom. He is looking down at something in his hands. The caption states that he is passing family members of the late Reeva Steenkamp on his arrival in court to await the verdict. However, the image does not show him passing anyone or any family members, nor does it clearly depict him arriving or awaiting a verdict. While it's plausible this occurred, the photo doesn't visually confirm those details. The image check result also indicates a low similarity and lack of support for the caption's specifics, confirming the lack of evidence to support the claim that he is passing family members of Reeva Steenkamp or arriving to await the verdict in the image. Therefore, the caption is misleading because it adds contextual information not present in the image.",
+    "validation_summary": "The image depicts a man in a courtroom setting, but the caption's specific claim about him passing family members of Reeva Steenkamp is not visually supported, making it misleading. The image check result also supports the lack of evidence to support the caption's claims, reinforcing that the caption is out of context with the image content."
+  },
+  "inference_time": 4.5057268142700195,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

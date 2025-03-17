@@ -1,0 +1,44 @@
+{
+  "caption": "Diego Costa has been in excellent form for Chelsea but has not trained regularly due to hamstring problems",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Athlete"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Spains Vicente del Bosque selects Diego Costa despite hamstring fears | Spain | The Guardian",
+        "content": "S p a i n ' s   V i c e n t e   d e l   B o s q u e   s e l e c t s   D i e g o   C o s t a   d e s p i t e   h a m s t r i n g   . . .",
+        "caption": "Diego Costa has been in excellent form for Chelsea but has not trained regularly due to hamstring problems. Photograph: Carlos Costa/NurPhoto/Corbis",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9688224196434021,
+        "text_similarity_score": 0.9429301023483276
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.9688224196434021 and the text similarity score is 0.9429301023483276. Because the image similarity score is >= 0.85 AND the text similarity score is >= 0.7, the caption is in-context.",
+      "supporting_evidences": [
+        "Diego Costa has been in excellent form for Chelsea but has not trained regularly due to hamstring problems. Photograph: Carlos Costa/NurPhoto/Corbis"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Diego Costa with his hands on his head, looking distressed or disappointed. The caption mentions his excellent form for Chelsea and hamstring problems, which does not directly relate to his visible expression of distress in the image. The text similarity and image similarity scores are high. However, the image provides no information about his form or injuries, making the connection tenuous. Therefore, the caption is misleading as it doesn't accurately represent the image content.",
+    "validation_summary": "The caption, while factually correct, doesn't accurately represent the image of Diego Costa looking distressed. The image context is not directly related to his form or injury as suggested by the caption, leading to potential misinterpretation."
+  },
+  "inference_time": 4.392029047012329,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

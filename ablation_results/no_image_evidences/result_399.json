@@ -1,0 +1,34 @@
+{
+  "caption": "East Coast trains at Kings Cross station in London",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "London King's Cross Station - Virgin Trains East Coast | Flickr",
+        "content": "L o n d o n   K i n g ' s   C r o s s   S t a t i o n   -   V i r g i n   T r a i n s   E a s t   C o a s t   |   F l i c k r",
+        "caption": "London King's Cross Station - Virgin Trains East Coast | by ell brown",
+        "domain": "www.flickr.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.37916818261146545,
+        "text_similarity_score": 0.8559219241142273
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.37916818261146545, which is less than 0.85. The text similarity score is 0.8559219241142273, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption inaccurately represents the image content, suggesting a specific location (East Coast trains at Kings Cross) that may not be depicted.",
+    "explanation": "The news caption states that the image shows \"East Coast trains at Kings Cross station in London.\" However, based on the image check result, the similarity score for the image does not align strongly with the caption (0.379), indicating that the image likely does not depict Kings Cross station or the specified trains. Additionally, the text similarity score is relatively high, but it does not provide valid evidence to confirm that the visual content positively correlates with the geographic and operational specificity of the caption. Without seeing the image, it is not possible to confirm its context or specific content visually, but the low similarity score suggests the caption is likely misleading about what viewers might interpret when viewing the image."
+  },
+  "inference_time": 7.5684592723846436,
+  "ablation_type": "no_image_evidences"
+}

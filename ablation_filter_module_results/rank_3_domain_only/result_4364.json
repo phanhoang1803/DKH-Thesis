@@ -1,0 +1,63 @@
+{
+  "caption": "Obama supporters post signs on storefronts in Denver",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Information system",
+      "System",
+      "Information",
+      "Salary",
+      "Employment",
+      "Matthew Saggiomo",
+      "Ahna Bonnette",
+      "Bachelor's degree",
+      "ArtsForward",
+      "Universitas Indonesia"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Pro-marijuana 4/20 events face backlash from legalization skeptics  The Denver Post",
+        "content": "P r o - m a r i j u a n a   4 / 2 0   e v e n t s   f a c e   b a c k l a s h   f r o m   l e g a l i z a t i o n   s k e p t i c s   . . .",
+        "caption": "Daniela Ralph from Ohio is celebrating during the first day of the 420 Rally weekend in Civic Center Park, Denver, Colorado, April 19, 2014.  (Photo by Hyoung Chang/The Denver Post) ",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "U.S. public schools balancing rights of transgender students and concerns  The Denver Post",
+        "content": "U . S .   p u b l i c   s c h o o l s   b a l a n c i n g   r i g h t s   o f   t r a n s g e n d e r   s t u d e n t s   a n d   . . .",
+        "caption": "A sign posted outside a gender-neutral restroom at Santee High School in Los Angeles welcomes everyone. (Mark Ralston, AFP/Getty Images)",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Obama: Feds wont arrest marijuana users in Colorado, Washington  The Denver Post",
+        "content": "O b a m a :   F e d s   w o n ' t   a r r e s t   m a r i j u a n a   u s e r s   i n   C o l o r a d o ,   W a s h i n g t o n   . . .",
+        "caption": "Gerald Thompson holds up a bag of marijuana on the steps of the state Capitol in Denver on Monday as he celebrates recreational use of the drug becoming legal in Colorado.",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The provided captions do not support the claim that \"Obama supporters post signs on storefronts in Denver.\" The captions discuss unrelated topics such as a 420 rally, gender-neutral restrooms, and marijuana legalization. Since no evidence supports the original caption, the verdict is 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows three people installing Obama campaign signs on a storefront. The signs are blue and display the word \"FORWARD\" and the website \"barackobama.com\". The people are wearing casual clothes. The caption states \"Obama supporters post signs on storefronts in Denver.\" This accurately describes the scene depicted in the image. However, the image check result is negative and has a high confidence score, thus the final decision must be based on the image check result. Therefore, the image is out of context.",
+    "validation_summary": "The image depicts people putting up Obama signs, which aligns with the caption; however, the high confidence image check result dictates the final decision, deeming the image out of context. Viewers would be misled due to the content of the article associated with the image, as per the image check result."
+  },
+  "inference_time": 4.361741304397583,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

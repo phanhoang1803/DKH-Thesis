@@ -1,0 +1,38 @@
+{
+  "caption": "Nick Clegg at a meeting of European liberal leaders where he denied David Cameron had exercised a veto at the EU",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "David Cameron blocks EU treaty with veto, casting Britain adrift in Europe | European Union | The Guardian",
+        "content": "D a v i d   C a m e r o n   b l o c k s   E U   t r e a t y   w i t h   v e t o ,   c a s t i n g   B r i t a i n   a d r i f t   . . .",
+        "caption": "David Cameron at the EU summit in Brussels where he used his veto to block the revised Lisbon treaty. Photograph: Francois Lenoir/Reuters.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. The candidate does not contain information about Nick Clegg or a meeting of European liberal leaders. The candidate describes David Cameron at an EU summit. Therefore, there is no match, and the evidence does not confirm the caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image similarity score (0.0) and a low caption similarity score (0.0). It states that the candidate does not contain information about Nick Clegg or a meeting of European liberal leaders, which contradicts the caption's claim. Given the high confidence score of 2, and the fact that the image clearly shows Nick Clegg looking downwards, without any visible indication of a meeting or European leaders, the caption is misleading. The image check's analysis is prioritized.",
+    "validation_summary": "The caption claims the image shows Nick Clegg at a meeting of European liberal leaders, but the image check does not support this claim, and the visual content of the photo offers no corroborating evidence. Therefore, the caption is out of context."
+  },
+  "inference_time": 3.715822219848633,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

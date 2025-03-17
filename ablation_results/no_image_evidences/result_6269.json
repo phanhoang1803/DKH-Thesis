@@ -1,0 +1,37 @@
+{
+  "caption": "Marquinhos failed to make the Brazilian World Cup squad after failing to impress Luiz Felipe Scolari at PSG this season",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Football transfer rumours: PSGs Marquinhos to join Barcelona? | Paris Saint-Germain | The Guardian",
+        "content": "F o o t b a l l   t r a n s f e r   r u m o u r s :   P S G ' s   M a r q u i n h o s   t o   j o i n   B a r c e l o n a   . . .",
+        "caption": "Marquinhos failed to make the Brazilian World Cup squad after failing to impress Luiz Felipe Scolari at PSG this season. Photograph: John Berry/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6582323908805847,
+        "text_similarity_score": 0.914439857006073
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.6582323908805847, which is less than 0.85. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. The text similarity score is 0.914439857006073, which is greater than 0.7. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.6582323908805847",
+        "Text Similarity Score: 0.914439857006073"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows Neymar in a Brazil jersey on a soccer field. The caption refers to Marquinhos failing to make the Brazilian World Cup squad because he didn't impress Luiz Felipe Scolari at PSG. The image does not show Marquinhos nor does it directly relate to the claim that he failed to make the World Cup squad. According to the image check result, the image similarity score is 0.6582323908805847, which is less than 0.85, so the caption must be marked as out-of-context. Therefore, the caption is out-of-context.",
+    "validation_summary": "The caption discusses Marquinhos and his failure to make the World Cup squad, while the image features Neymar in a Brazil jersey, thus misleading viewers about the content of the image in relation to the caption's subject matter. The image does not provide any visual confirmation of Marquinhos' situation or performance at PSG."
+  },
+  "inference_time": 5.140318393707275,
+  "ablation_type": "no_image_evidences"
+}

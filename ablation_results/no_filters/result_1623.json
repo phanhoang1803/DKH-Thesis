@@ -1,0 +1,41 @@
+{
+  "caption": "Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond Calif",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Smoke m"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Ohio firefighters help with California blaze",
+        "content": "O h i o   f i r e f i g h t e r s   h e l p   w i t h   C a l i f o r n i a   b l a z e",
+        "caption": "Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond, Calif., yesterday.",
+        "domain": "www.dispatch.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Firefighters battle California wildfires",
+        "content": "F i r e f i g h t e r s   b a t t l e   C a l i f o r n i a   w i l d f i r e s",
+        "caption": "Cal Fire strike crews battle the King Fire in El Dorado County near Fresh Pond, Calif.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The image similarity scores are 0.0 for both candidates, and the text similarity scores are also 0.0. According to the instructions, if Image Similarity Score < 0.85 AND Text Similarity Score < 0.7, we should do analysis based on the captions and candidate to give the final decision. Both Candidate 1 and Candidate 2 captions are the same as the news caption. However, since image similarity is 0.0, it is difficult to confirm that those candidates refer to the same image. I cannot be certain that the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 5,
+    "validation_summary": "The caption stating Cal Fire crews battle the King Fire does not accurately represent the image content.",
+    "explanation": "The image does not depict firefighting activity, which is the essence of the caption claiming Cal Fire crews are engaged in battling the King Fire. Instead, it appears to show a scene that may not include any fire crews or active firefighting efforts, leading to a misinterpretation or misrepresentation regarding the situation described in the caption. Given the low image and text similarity scores, I cannot confidently affirm that the caption corresponds to the image context."
+  },
+  "inference_time": 4.325507402420044,
+  "ablation_type": "no_filters"
+}

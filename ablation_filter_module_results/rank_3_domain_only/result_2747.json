@@ -1,0 +1,41 @@
+{
+  "caption": "Andy Murray is reaping the benefits of winter training on the beach at his base in Florida as he prepares for the Australian Open",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Athlete",
+      "Footballer"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Louise Glck Taught Poetry So She Could Write Poetry - The New York Times",
+        "content": "L o u i s e   G l  c k   T a u g h t   P o e t r y   S o   S h e   C o u l d   W r i t e   P o e t r y   -   T h e   N e w   . . .",
+        "caption": "A black-and-white photograph of Belafonte speaking to a crowd.",
+        "domain": "www.nytimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. Therefore, the candidate does not match the news. The caption mentions Andy Murray training on a beach in Florida, but the candidate shows a black-and-white photo of Belafonte speaking to a crowd, which has no relevance to the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Andy Murray with a towel around his neck and an open mouth, seemingly exhausted or in distress. The caption describes Andy Murray training on the beach at his base in Florida for the Australian Open. The image doesn't show any indication of beach training, Florida, or the Australian Open. The image check result also strongly indicates a mismatch between the image and the caption. Therefore, the caption is Out of Context.",
+    "validation_summary": "The caption describes Murray training on a beach, which is not depicted in the image, potentially misleading viewers about the context of the photograph. The image check further confirms the mismatch between the image and the caption's claims."
+  },
+  "inference_time": 3.4380502700805664,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

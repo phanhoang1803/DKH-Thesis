@@ -1,0 +1,39 @@
+{
+  "caption": "Afghan President Hamid Karzai and US Secretary of State Hillary Clinton talk while walking in a private Georgetown garden in Washington DC May 2010",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Clinton to Afghan women: We will not abandon you  San Diego Union-Tribune",
+        "content": "C l i n t o n   t o   A f g h a n   w o m e n :   ' W e   w i l l   n o t   a b a n d o n   y o u '      S a n   D i e g o   . . .",
+        "caption": "Sen. John Kerry, D-Mass., chair of the Senate Foreign Relations...",
+        "domain": "www.sandiegouniontribune.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "U.S. Tries to Win Afghan Leader, Karzai, With Charm - The New York ...",
+        "content": "U . S .   T r i e s   t o   W i n   A f g h a n   L e a d e r ,   K a r z a i ,   W i t h   C h a r m   -   T h e   N e w   Y o r k   . . .",
+        "caption": "",
+        "domain": "www.nytimes.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidates have very low image similarity scores (0.0), indicating that they do not depict the same scene as the news image. Additionally, the caption similarity scores are also very low (0.0), meaning the text descriptions are dissimilar. Without matching images or captions, there is no basis to verify if the news caption is accurate. Furthermore, the available candidates do not offer any information related to the people, event, location, or date mentioned in the news caption. Thus, it's impossible to confirm the caption's validity using the provided candidates.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows Hillary Clinton laughing and clapping her hands, while the caption describes a meeting between Afghan President Hamid Karzai and Hillary Clinton in a garden. The image does not contain Hamid Karzai, nor does it appear to be taken in a garden setting. The image shows Hillary Clinton delivering a speech or presentation. Therefore, the caption is completely unrelated to the content of the image, leading to a high confidence score in the determination that the image is out of context.",
+    "validation_summary": "The caption incorrectly identifies the person in the image and describes a completely different scenario, misleading viewers about the image's content. The image does not show a meeting between Hillary Clinton and Hamid Karzai in a garden; it shows Hillary Clinton laughing and clapping her hands."
+  },
+  "inference_time": 3.4519054889678955,
+  "ablation_type": "no_filters"
+}

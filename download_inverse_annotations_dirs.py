@@ -676,7 +676,7 @@ def main():
             # Detect web annotations
             result = detect_web(image_path, how_many_queries=args.how_many_queries)
             
-            # print(result)
+            print(result)
             
             # Process annotations in parallel
             inverse_search_results = get_inverse_search_annotation(

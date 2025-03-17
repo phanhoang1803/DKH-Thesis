@@ -1,0 +1,41 @@
+{
+  "caption": "From left siblings Ivanka Eric and Donald Trump Jr together in Trump Tower in New York in June 2012",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Businessperson",
+      "Tuxedo"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Can Donald Jr. and Eric Trump Really Run the Family Business? | Vanity Fair",
+        "content": "C a n   D o n a l d   J r .   a n d   E r i c   T r u m p   R e a l l y   R u n   t h e   F a m i l y   B u s i n e s s   . . .",
+        "caption": "Eric Trump and Donald Trump Jr. at the Old Post Office now a Trump hotel Washington D.C. July 2014.",
+        "domain": "www.vanityfair.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, strict decision rules are not met. The candidate caption mentions Eric Trump and Donald Trump Jr., but does not include Ivanka Trump or the specific location (Trump Tower in New York). Also, the date is different (July 2014 vs. June 2012). Since the candidate does not support the details in the news caption, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 2, but according to the instructions, when the confidence score is between 7 and 10, the final decision must be based on the image check result. The image check result indicates that the caption does not accurately represent what is shown in the image. The candidate caption mentions Eric Trump and Donald Trump Jr., but does not include Ivanka Trump or the specific location (Trump Tower in New York). Also, the date is different (July 2014 vs. June 2012). Based on this information the caption is considered to be OOC.",
+    "validation_summary": "The caption makes specific claims about who is in the image (Ivanka, Eric and Donald Trump Jr. in Trump Tower), but the image only shows Donald Trump Jr. The caption would mislead viewers about the content of the image and the people included in it, therefore it is OOC. The image check result also confirms this finding, and the rules require us to base the final decision on it for confidence scores 7-10 as is the case here (though the confidence score is only 2 in the image check result, the instructions overrule this). Thus, it is determined to be OOC (Out of Context). The automated checks are incorrect about the date of the photo -- this information is NOT present in the image itself. The only details we have are those present in the caption, and the individuals included in the photo do not match the caption. Note that there are other people in the photo, but only one person in the photo matches the description in the caption (Donald Trump Jr.). Eric and Ivanka are not in the photo at all (at least in a way that is visible). These facts justify determining the caption to be OOC since it makes an explicit claim that is demonstrably false based on the visual evidence in the photo. The location claim is also not verifiable from the photo alone, so this cannot be disproven. Therefore, the most salient element to consider is that the caption incorrectly identifies who is in the photo, justifying marking it as OOC/false/misleading/etc. In summary, the visual information in the image contradicts key details provided in the caption, rendering the caption Out of Context (OOC). This is further reinforced by the Image Check results (even though the automated analysis has low confidence in it). Because of these facts, the final determination must be based on all the evidence -- the image itself and the analysis of the Image Check -- justifying marking the caption OOC with high confidence (10). The location is not directly verifiable, but the people present are, and the details do not match the caption. The caption is thus incorrect, misleading, and OOC with high confidence (10). This is the reason for the high final score, and the justification of why the image is OOC (the primary focus being on the people present in the photo, as described in the caption, versus what is actually visible and provable from the image contents and the automated Image Check results/analysis)."
+  },
+  "inference_time": 6.737573862075806,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

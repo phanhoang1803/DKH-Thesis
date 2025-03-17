@@ -1,0 +1,42 @@
+{
+  "caption": "A woman gets a bag of dry ice from a Con Edison employee in Union Square on Nov 2 in New York",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Cycling",
+      "Bike",
+      "Tree"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Aftermath of Sandy",
+        "content": "A f t e r m a t h   o f   S a n d y",
+        "caption": "A road is filled with discarded furniture and debris on Nov. 14 in Ortley Beach, N.J. Residents finally got home to salvage belongings and clean up their homes after Hurricane Sandy struck their neighborhood.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the caption similarity score is 0.0. The candidate caption and content do not provide any information about a woman getting a bag of dry ice from a Con Edison employee in Union Square on Nov 2 in New York. Therefore, the candidate doesn't support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low similarity between the image content and the caption, with a confidence score of 1. The caption claims that the image shows a woman getting a bag of dry ice from a Con Edison employee in Union Square on Nov 2 in New York, but the image analysis found no evidence to support this claim. The image shows a line of people, and a man is handing a bag to a woman. There is no indication that the bag contains dry ice, that the man is a Con Edison employee, or that the location is Union Square on Nov 2. Given the lack of supporting evidence and the negative image check result, the caption is considered out of context.",
+    "validation_summary": "The caption does not match the image content, implying an event and setting that is not visually confirmed. Viewers would be misled about the image's actual subject and context if they relied solely on the caption."
+  },
+  "inference_time": 3.6029052734375,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

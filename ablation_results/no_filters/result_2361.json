@@ -1,0 +1,45 @@
+{
+  "caption": "Nigel Farage and Nick Clegg during the first debate",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Traffic sign",
+      "Traffic",
+      "Sign"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Nick Clegg aims to show emotional side in second debate with Nigel Farage | Nick Clegg | The Guardian",
+        "content": "N i c k   C l e g g   a i m s   t o   s h o w   e m o t i o n a l   s i d e   i n   s e c o n d   d e b a t e   w i t h   N i g e l   . . .",
+        "caption": "Nigel Farage and Nick Clegg during the first debate.  Photograph: Ian West/AFP/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Nick Clegg v Nigel Farage, round 2: getting the facts checked first | Brexit | The Guardian",
+        "content": "N i c k   C l e g g   v   N i g e l   F a r a g e ,   r o u n d   2 :   g e t t i n g   t h e   f a c t s   c h e c k e d   . . .",
+        "caption": "The first of the two debates was hosted by LBC radio presenter Nick Ferrari. Photograph: Ian West/AFP/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have low image and text similarity scores. However, candidate 1's caption is identical to the news caption. This provides some evidence that the caption is accurate. However, without a high image similarity score, it's difficult to be certain the images are related. I am not very confident since the image similarity score is 0.0 for both candidates. The domain for both candidates is www.theguardian.com.",
+      "supporting_evidences": [
+        "Nigel Farage and Nick Clegg during the first debate.  Photograph: Ian West/AFP/Getty Images"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result has a confidence score of 6, thus I will use the image check result for the final decision. The image check result states \"Both candidates have low image and text similarity scores. However, candidate 1's caption is identical to the news caption. This provides some evidence that the caption is accurate. However, without a high image similarity score, it's difficult to be certain the images are related. I am not very confident since the image similarity score is 0.0 for both candidates. The domain for both candidates is www.theguardian.com.\" The image shows Nigel Farage with a \"no right turn\" road sign in the background. The caption claims that the image is of Nigel Farage and Nick Clegg during the first debate. Since there is only one person in the picture, and the image similarity score is 0.0, then the caption is likely inaccurate.",
+    "validation_summary": "The image shows one person, Nigel Farage, but the caption says it is of both Nigel Farage and Nick Clegg during the first debate, misleading viewers to think the image is of both people when it is not. This makes the image out of context with the caption provided, as the image does not show both people that the caption claims it does, and there is no high image similarity score to confirm the accuracy of the caption either."
+  },
+  "inference_time": 4.541345834732056,
+  "ablation_type": "no_filters"
+}

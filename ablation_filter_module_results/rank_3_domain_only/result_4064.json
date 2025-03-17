@@ -1,0 +1,49 @@
+{
+  "caption": "Actress Kerry Washington helped get out the vote for Democrat Terry McAuliffe in Virginia",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Angelina Jolie",
+      "other",
+      "ready",
+      "United States",
+      "Flag",
+      "Flag of the United States",
+      "Suffrage",
+      "Flag Day",
+      "Politics",
+      "Flag Day"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "What Tom Perriellos Loss in Virginia Can Teach Democrats | The New Yorker",
+        "content": "W h a t   T o m   P e r r i e l l o ' s   L o s s   i n   V i r g i n i a   C a n   T e a c h   D e m o c r a t s   |   T h e   . . .",
+        "caption": "Image may contain Tie Accessories Accessory Suit Coat Clothing Overcoat Apparel Human Person and Tom Perriello",
+        "domain": "www.newyorker.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0, which are both very low. The candidate does not provide any information about Kerry Washington, Terry McAuliffe, or Virginia. Therefore, the candidate does not support the caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a very low similarity between the image and the caption. The image shows actress Kerry Washington speaking at a podium with an American flag in the background and a crowd of people. The caption states that she is helping get out the vote for Democrat Terry McAuliffe in Virginia. The image check states that the candidate (generated context) does not provide information about Kerry Washington, Terry McAuliffe, or Virginia. Based on the image check, the caption is out of context. The viewers may be misled as the candidate news content does not mention or support the caption. Therefore, the caption provides an incorrect representation of the image content.",
+    "validation_summary": "The image check confirms that the news content does not support the caption, leading to a high likelihood of viewer misinterpretation. The news content does not provide any information about Kerry Washington, Terry McAuliffe, or Virginia."
+  },
+  "inference_time": 3.785740375518799,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

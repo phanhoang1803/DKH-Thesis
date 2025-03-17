@@ -1,0 +1,46 @@
+{
+  "caption": "Mitt Romney holds a campaign rally Friday at Canton Hoover High School in North Canton Ohio",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Flag",
+      "Flag Day",
+      "Flag Day"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Obama, Romney campaign with eye on storm forecast",
+        "content": "O b a m a ,   R o m n e y   c a m p a i g n   w i t h   e y e   o n   s t o r m   f o r e c a s t",
+        "caption": "Mitt Romney holds a campaign rally Friday at Canton Hoover High School in North Canton, Ohio.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Romney and Ryan energize North Canton crowd",
+        "content": "R o m n e y   a n d   R y a n   e n e r g i z e   N o r t h   C a n t o n   c r o w d",
+        "caption": "Republican presidential candidate, former Massachusetts Gov. Mitt Romney (left) and his running mate Rep. Paul Ryan, R-Wis. wave to supporters at a \"victory rally\" at North Canton Hoover High School, Friday in North Canton. (Michael Chritton/Akron Beacon Journal)",
+        "domain": "www.beaconjournal.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity scores for both candidates are 0.0, and the text similarity scores are also 0.0. Therefore, I will base my decision on the captions. \n\nCandidate 1 has the exact same caption as the news caption: \"Mitt Romney holds a campaign rally Friday at Canton Hoover High School in North Canton, Ohio.\" This suggests that the news caption is likely accurate, as another source reports the same event and details.\n\nCandidate 2 adds more information, stating: \"Republican presidential candidate, former Massachusetts Gov. Mitt Romney (left) and his running mate Rep. Paul Ryan, R-Wis. wave to supporters at a 'victory rally' at North Canton Hoover High School, Friday in North Canton.\" This provides further details about the event, including Romney's running mate, Paul Ryan, and labels the event as a \"victory rally.\" The location and date are consistent with the original caption.\n\nBoth candidates support the caption's claim that Mitt Romney held a campaign rally at Canton Hoover High School in North Canton, Ohio on Friday. However, because image similarity score is low and the content and title are missing from the candidates, the confidence is not high.",
+      "supporting_evidences": [
+        "Candidate 1: Caption: Mitt Romney holds a campaign rally Friday at Canton Hoover High School in North Canton, Ohio.",
+        "Candidate 2: Caption: Republican presidential candidate, former Massachusetts Gov. Mitt Romney (left) and his running mate Rep. Paul Ryan, R-Wis. wave to supporters at a \"victory rally\" at North Canton Hoover High School, Friday in North Canton."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "validation_summary": "The caption accurately describes Mitt Romney holding a campaign rally at Canton Hoover High School in Ohio, matching the content of the image.",
+    "explanation": "According to the image check result, the caption states that Mitt Romney is holding a campaign rally at Canton Hoover High School in North Canton, Ohio. The examination of the image indicates that it indeed features Mitt Romney speaking at a rally, and both candidate descriptions confirm that the event took place at the stated location. With consistent imagery and caption information, the conclusion is that the caption represents the image correctly, thus is not out of context."
+  },
+  "inference_time": 5.461115121841431,
+  "ablation_type": "no_filters"
+}

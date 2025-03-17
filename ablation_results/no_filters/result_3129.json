@@ -1,0 +1,52 @@
+{
+  "caption": "Martin Shkreli former CEO of Turing Pharmaceuticals shown leaving federal court in Brooklyn NY following his arraignment on securities fraud charges",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "LCD television",
+      "TV",
+      "Television",
+      "LED-backlit LCD",
+      "Cable television",
+      "Y3W",
+      "Liquid-crystal display",
+      "light-hearted",
+      "Light-emitting diode",
+      "Backlight"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Pharma Bro Martin Shkreli arrested for securities fraud  The Denver Post",
+        "content": "P h a r m a   B r o    M a r t i n   S h k r e l i   a r r e s t e d   f o r   s e c u r i t i e s   f r a u d      T h e   . . .",
+        "caption": "Martin Shkreli leaves the court after Thursday's arraignment.",
+        "domain": "www.denverpost.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Shkreli resigns as Turing Pharma CEO",
+        "content": "S h k r e l i   r e s i g n s   a s   T u r i n g   P h a r m a   C E O",
+        "caption": "Martin Shkreli, former CEO of Turing Pharmaceuticals, shown leaving federal court in Brooklyn, N.Y. following his arraignment on securities fraud charges.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity scores are both 0.0, which indicates that the candidate images do not match the news image. However, candidate 2 provides an identical caption to the news caption, which increases the likelihood that the news caption is accurate. Therefore, the evidence partially supports the news caption.",
+      "supporting_evidences": [
+        "Martin Shkreli, former CEO of Turing Pharmaceuticals, shown leaving federal court in Brooklyn, N.Y. following his arraignment on securities fraud charges."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows a hearing room, featuring pictures on the wall and a row of people seated below. One picture is a black-and-white photo, while the other is a screen showing Martin Shkreli at what appears to be a hearing. However, the caption mentions that Shkreli is 'shown leaving federal court in Brooklyn NY following his arraignment on securities fraud charges.' The image on the screen aligns with the context of a hearing related to Shkreli, but doesn't show him leaving court after an arraignment. Therefore, the caption is not representative of the image content.",
+    "validation_summary": "The image shows Martin Shkreli on a screen, likely during a hearing, but the caption describes him 'leaving federal court' which isn't depicted, making the caption misleading. The image similarity scores are low, but the identical caption in the candidate supports its partial accuracy."
+  },
+  "inference_time": 4.173189163208008,
+  "ablation_type": "no_filters"
+}

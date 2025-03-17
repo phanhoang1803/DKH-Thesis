@@ -1,0 +1,36 @@
+{
+  "caption": "The prime minister Tony Abbott welcomed Harry s trip to Australia and said he would be joining him while he is here",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Prince Harry will visit Australia in October | Prince Harry | The Guardian",
+        "content": "P r i n c e   H a r r y   w i l l   v i s i t   A u s t r a l i a   i n   O c t o b e r   |   P r i n c e   H a r r y   |   T h e   . . .",
+        "caption": "The prime minister, Tony Abbott, welcomed Harry's trip to Australia, and said he would be joining him while he is here. Photograph: Andrew Winning/PA",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2734130322933197,
+        "text_similarity_score": 0.9033733010292053
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The news caption states that 'The prime minister Tony Abbott welcomed Harry s trip to Australia and said he would be joining him while he is here'.\n\nWe have one candidate evidence:\n\nCandidate 1:\nThe caption states 'The prime minister, Tony Abbott, welcomed Harry's trip to Australia, and said he would be joining him while he is here.' The image similarity score is 0.27, which is low, but the text similarity score is 0.9033, which is high. This suggests that the candidate evidence is describing a similar event. Although the image similarity is low, the caption similarity suggests that the event described is the same.\n\nBased on the caption similarity between the news caption and the candidate captions, I believe that the news caption accurately represents the image, however, given the low image similarity score, there is a chance that it might not be an accurate representation. Therefore, the verdict is 'True'.",
+      "supporting_evidences": [
+        "The prime minister, Tony Abbott, welcomed Harry's trip to Australia, and said he would be joining him while he is here. Photograph: Andrew Winning/PA"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "validation_summary": "The caption does not accurately represent the image content, as there is no clear indication that Tony Abbott welcomed Harry's trip in the image.",
+    "explanation": "The caption states that 'The prime minister Tony Abbott welcomed Harry's trip to Australia and said he would be joining him while he is here'. However, based on the image check results, while there is a high similarity in caption text, there isn’t a clear visual confirmation of the event being described. The low image similarity score suggests that the image provided does not substantively represent a moment from the described event. The text similarity alone cannot validate the context, leading to the determination that the caption misrepresents the image."
+  },
+  "inference_time": 7.588501214981079,
+  "ablation_type": "no_image_evidences"
+}

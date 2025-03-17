@@ -1,0 +1,51 @@
+{
+  "caption": "Kentucky Wildcats guard Aaron Harrison is congratulated by teammates Dakari Johnson and Julius Randle after making the gamewinning basket against Michigan",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Murphy Holloway",
+      "Nashville",
+      "Basketball",
+      "University of Mississippi",
+      "Southeastern Conference",
+      "Mississippi River",
+      "Basketball Player",
+      "Florida"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "NCAA tournament: Kentucky edges Michigan for last spot in Final Four - Los Angeles Times",
+        "content": "N C A A   t o u r n a m e n t :   K e n t u c k y   e d g e s   M i c h i g a n   f o r   l a s t   s p o t   i n   F i n a l   . . .",
+        "caption": "Kentucky forward Aaron Harrison is congratulated by teammates Julius Randle (left) and Dakari Johnson (44) after making a three-point shot with 2.3 seconds left to clinch a victory over Michigan in the Midwest Regional final on Sunday in Indianapolis.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7477244734764099,
+        "text_similarity_score": 0.8322226405143738
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "The candidate provides strong evidence supporting the news caption. The image similarity score is 0.7477, which is less than 0.85, and the caption similarity score is 0.8322, which is greater than 0.7, so the decision will be based on the captions. The candidate caption mentions \"Kentucky forward Aaron Harrison is congratulated by teammates Julius Randle (left) and Dakari Johnson (44) after making a three-point shot with 2.3 seconds left to clinch a victory over Michigan in the Midwest Regional final on Sunday in Indianapolis.\" This aligns well with the news caption, which states \"Kentucky Wildcats guard Aaron Harrison is congratulated by teammates Dakari Johnson and Julius Randle after making the gamewinning basket against Michigan.\" Both captions describe the same scene of Harrison being congratulated by Randle and Johnson after a game-winning shot against Michigan. The details are highly consistent, suggesting the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "Kentucky forward Aaron Harrison is congratulated by teammates Julius Randle (left) and Dakari Johnson (44) after making a three-point shot with 2.3 seconds left to clinch a victory over Michigan in the Midwest Regional final on Sunday in Indianapolis."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows three basketball players wearing jerseys with 'Saint Louis' printed on them. The players appear to be standing on a basketball court, with a crowd visible in the background. The provided caption mentions Kentucky Wildcats players Aaron Harrison, Dakari Johnson, and Julius Randle, and that Harrison made a game-winning basket against Michigan. The image check result confirms that the candidate caption mentions \"Kentucky forward Aaron Harrison is congratulated by teammates Julius Randle (left) and Dakari Johnson (44) after making a three-point shot with 2.3 seconds left to clinch a victory over Michigan in the Midwest Regional final on Sunday in Indianapolis.\" This supports the image check and that the news caption accurately represents the image based on the candidate. However, based on the image analysis, the players depicted are wearing 'Saint Louis' jerseys, not Kentucky Wildcats jerseys. Therefore, the caption misrepresents the image content, and the image is out of context.",
+    "validation_summary": "The caption incorrectly identifies the basketball players in the image as Kentucky Wildcats when they are wearing Saint Louis jerseys, leading to a misrepresentation of the image's content and context, resulting in an out-of-context situation based on the image alone. The high confidence score is derived from the image check but the underlying image analysis reveals a mismatch between the team mentioned in the caption and the team represented in the image."
+  },
+  "inference_time": 5.216879367828369,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

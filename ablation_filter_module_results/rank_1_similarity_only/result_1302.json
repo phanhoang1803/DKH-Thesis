@@ -1,0 +1,40 @@
+{
+  "caption": "Gazprom employees work on a gas pipeline in Novy Urengoy Russia",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Nowy Urengoy, Russia, 2019, Gas exploration in Siberia | Archive  Justin Jin ",
+        "content": "N o w y   U r e n g o y ,   R u s s i a ,   2 0 1 9 ,   G a s   e x p l o r a t i o n   i n   S i b e r i a   |   A r c h i v e   . . .",
+        "caption": "Workers connect a pipeline on top of the permafronst at a site in Novy Urengoy, a city built by Gazprom in 1980s in Siberia to extract Russia's biggest gas field.",
+        "domain": "archive.justinjin.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.464916467666626,
+        "text_similarity_score": 0.7315182089805603
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.464916467666626 and the text similarity score is 0.7315182089805603. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than or equal to 0.7, the verdict should be 'False'. Because the image similarity score is low, it suggests the candidate image does not match the news image, regardless of the text similarity. Additionally, while the candidate caption mentions \"workers connect a pipeline on top of the permafronst at a site in Novy Urengoy, a city built by Gazprom in 1980s in Siberia to extract Russia's biggest gas field\", it does not explicitly confirm that Gazprom employees are working on a gas pipeline in Novy Urengoy, Russia, as stated in the news caption. Without a high image similarity score, I cannot assume the captions are describing the same scenario. Therefore, the evidence does not sufficiently support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a low image similarity score of 0.464916467666626, which suggests that the image does not strongly support the caption's claim. Although the text similarity score is 0.7315182089805603, the low image similarity is the decisive factor. The image features several workers around a large pipeline, a crane, snowy conditions, and other equipment that suggests a construction or maintenance site. However, without higher image similarity I cannot be certain. Given the decisive image check result, I can conclude that the caption is out of context.",
+    "validation_summary": "The low image similarity score strongly suggests that the image does not accurately represent the caption's description of Gazprom employees working on a gas pipeline in Novy Urengoy, Russia, potentially misleading viewers about the image's content and location. The image check result is used to make the determination here as the confidence score is > 7."
+  },
+  "inference_time": 6.649172306060791,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

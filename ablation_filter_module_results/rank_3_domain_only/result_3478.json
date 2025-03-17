@@ -1,0 +1,63 @@
+{
+  "caption": "President Obama returns to the White House on July 17 2014",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Sikorsky Aircraft",
+      "Sikorsky S-76",
+      "Sikorsky S-92",
+      "Sikorsky S-70",
+      "Bell 212",
+      "Bell UH-1 Iroquois",
+      "Helicopter",
+      "Bell 214",
+      "Sikorsky UH-60 Black Hawk",
+      "Sikorsky S-64 Skycrane"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Obama's birthday: 53 photos from his past year",
+        "content": "O b a m a ' s   b i r t h d a y :   5 3   p h o t o s   f r o m   h i s   p a s t   y e a r",
+        "caption": "President Obama turns 53 on Monday. USA TODAY Network looks back at Obama's year with an image from each week.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "How House Republicans Sabotage Their Presidential Candidates - The Atlantic",
+        "content": "H o w   H o u s e   R e p u b l i c a n s   S a b o t a g e   T h e i r   P r e s i d e n t i a l   C a n d i d a t e s   -   T h e   . . .",
+        "caption": "(",
+        "domain": "www.theatlantic.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Obama's Executive Action on Immigration Looms",
+        "content": "O b a m a ' s   E x e c u t i v e   A c t i o n   o n   I m m i g r a t i o n   L o o m s",
+        "caption": "WASHINGTON, DC - JULY 17:  Immigration reform protesters gather in front of the White House on July 17, 2014 in Washington, DC. The protest was organized by Amnesty International to push the message \"Don't Send Unaccompanied Migrant Children Back.\"  Amnesty International and the protestors want to demand that President Obama protect the rights of unaccompanied migrant children, some as young as five years old, who are crossing the southwest border of the United States. Reportedly these children are fleeing organized crime, gang violence and insecurity from many Central American countries. Reports also state that many of these children are survivors of sexual violence and at higher risk of kidnapping, trafficking and other serious human rights abuses.  (Photo by Win McNamee/Getty Images)",
+        "domain": "www.nbcnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are all 0.0, indicating that none of the candidate images match the news image. Additionally, the caption similarity scores are all 0.0, indicating that the captions do not match. While candidate 3 mentions 'July 17, 2014' and refers to activities near the White House, it focuses on immigration reform protests, which does not align with the news caption about President Obama's return to the White House. There is no evidence supporting the claim that the news image shows President Obama returning to the White House on July 17, 2014. Therefore, the caption is likely out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (2), suggesting that the caption is likely out of context. The image analysis reveals a dark scene with a helicopter on a grassy field, and the Washington Monument is visible in the background. A man in a suit is walking towards the camera. While it could be argued that the image could potentially show President Obama returning to the White House, the image check provided no supporting evidence and, in fact, showed the opposite. The high confidence score from the image check, therefore, dictates the final verdict.",
+    "validation_summary": "The image check result strongly suggests that the caption is out of context, potentially misleading viewers by associating the image with a specific event (President Obama's return on July 17, 2014) without sufficient evidence to confirm it."
+  },
+  "inference_time": 6.008013963699341,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

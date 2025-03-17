@@ -1,0 +1,52 @@
+{
+  "caption": "May 5 Montreal Canadiens right wing Brandon Prust was fined 5000 for publicly criticizing referee Brad Watson after a Game 2 loss Hockey operations handed down the fine",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "",
+        "caption": "",
+        "domain": "aventa.agency",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9415583610534668,
+        "text_similarity_score": 0.036561958491802216
+      },
+      {
+        "title": "2014-15 NHL suspension tracker",
+        "content": "2 0 1 4 - 1 5   N H L   s u s p e n s i o n   t r a c k e r",
+        "caption": "May 5: Montreal Canadiens right wing Brandon Prust (8) was fined $5,000 for publicly criticizing referee Brad Watson after a Game 2 loss. Hockey operations handed down the fine.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9117239713668823,
+        "text_similarity_score": 0.9062042236328125
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Based on the strict decision rules, candidate 2 has an image similarity score of 0.9117239713668823 (≥ 0.85) and a text similarity score of 0.9062042236328125 (≥ 0.7). Therefore, the caption is in-context.",
+      "supporting_evidences": [
+        "Candidate 2: Image Similarity Score: 0.9117239713668823",
+        "Candidate 2: Caption Similarity Score: 0.9062042236328125"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a hockey fight between two players in different team jerseys. The news caption describes a player being fined for criticizing a referee, which does not match the visual content of a hockey fight. The image check result confirms that the caption is out of context because it is dissimilar to both the visual and textual elements present in the image.",
+    "validation_summary": "The caption describes disciplinary action against a player, while the image depicts a physical altercation on the ice, misleading viewers about the content of the image. Therefore, the image and caption do not align, and the caption is out of context."
+  },
+  "inference_time": 5.953610420227051,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "caption": "Los Angeles Kings right wing Justin Williams celebrates with teammates after scoring a goal during the first period",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Ice hockey",
+      "College ice hockey",
+      "Floor hockey",
+      "Ringette",
+      "Rink bandy",
+      "Bandy",
+      "Hockey",
+      "Inline hockey",
+      "Goalkeeper",
+      "Higher Education School"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Justin Williams helps Kings end slide with 4-2 win over Tampa Bay - Los Angeles Times",
+        "content": "J u s t i n   W i l l i a m s   h e l p s   K i n g s   e n d   s l i d e   w i t h   4 - 2   w i n   o v e r   T a m p a   B a y   . . .",
+        "caption": "Kings right wing Justin Williams celebrates with teammate Trevor Lewis, left, after scoring in the first period, the first of his two goals in the game Saturday at Tampa Bay.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.816944420337677,
+        "text_similarity_score": 0.8588582277297974
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.816944420337677, which is less than 0.85. The text similarity score is 0.8588582277297974, which is greater than 0.7. However, because the image similarity score is less than 0.85, I must mark the caption as out-of-context. The candidate caption mentions \"Kings right wing Justin Williams celebrates with teammate Trevor Lewis\", which aligns with the news caption's description of Justin Williams celebrating with teammates. However, without a high image similarity, I cannot confirm the context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image similarity score is 0.816944420337677, which is less than 0.85. The text similarity score is 0.8588582277297974, which is greater than 0.7. Because the image similarity score is less than 0.85, I must mark the caption as out-of-context. The candidate caption mentions \"Kings right wing Justin Williams celebrates with teammate Trevor Lewis\", which aligns with the news caption's description of Justin Williams celebrating with teammates. However, without a high image similarity, I cannot confirm the context.",
+    "validation_summary": "The image and caption have moderate similarity in terms of content, but due to the low image similarity score, the caption is considered out of context and may be misleading to viewers as it may not accurately represent the specific scene depicted in the image. Without a high image similarity, I cannot confirm the context."
+  },
+  "inference_time": 7.132503271102905,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

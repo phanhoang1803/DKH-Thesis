@@ -1,0 +1,36 @@
+{
+  "caption": "Barack Obama delivers a speech in Canton Ohio while on the US presidential campaign trail in 2008",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Fighting the BNP from the ground up  Obama-style | General election 2010 | The Guardian",
+        "content": "F i g h t i n g   t h e   B N P   f r o m   t h e   g r o u n d   u p      O b a m a - s t y l e   |   G e n e r a l   . . .",
+        "caption": "Barack Obama delivers a speech in Canton, Ohio, while on the US presidential campaign trail in 2008. Photograph: Jason Reed/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6500838994979858,
+        "text_similarity_score": 0.936237096786499
+      }
+    ],
+    "result": {
+      "confidence_score": 8,
+      "explanation": "The provided candidate has a high caption similarity score (0.936237096786499), suggesting the captions are very similar. However, the image similarity score (0.6500838994979858) is below the threshold of 0.85, indicating that the images are not a strong match. Even though the captions align well, the lower image similarity prevents a definitive 'True' verdict. The candidate caption confirms the news caption. Therefore, based on the evidences, I'd say that the caption is in context.",
+      "supporting_evidences": [
+        "Candidate 1: Caption and Text Similarity Score"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check indicates a high caption similarity score (0.936237096786499), which suggests that the provided and candidate captions are very similar. However, the image similarity score (0.6500838994979858) is below the 0.85 threshold, indicating that the images are not a strong match. Despite the captions being aligned, the low image similarity prevents a 'NOOC' verdict. Therefore, the caption is out of context.",
+    "validation_summary": "The image and caption have a mismatch, as indicated by the low image similarity score from the image check result, even though the captions' content is similar. Thus, the image doesn't represent the caption, and viewers would be misled."
+  },
+  "inference_time": 4.964932918548584,
+  "ablation_type": "no_image_evidences"
+}

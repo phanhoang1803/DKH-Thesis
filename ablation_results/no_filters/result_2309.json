@@ -1,0 +1,52 @@
+{
+  "caption": "NASCAR Sprint Cup Series driver Denny Hamlin with his girlfriend Jordan Fish and their daughter Taylor and Jimmie Johnson before the Aaron s 499 at Talladega Superspeedway",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Auto racing",
+      "BMW E9",
+      "Race of Champions",
+      "BMW New Six",
+      "Rallycross",
+      "Sports car racing",
+      "Racing",
+      "Drag racing",
+      "Endurance racing",
+      "Stock car racing"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Aaron's 499 at Talladega Superspeedway",
+        "content": "A a r o n ' s   4 9 9   a t   T a l l a d e g a   S u p e r s p e e d w a y",
+        "caption": "NASCAR Sprint Cup Series driver Denny Hamlin (11) with his girlfriend Jordan Fish and their daughter Taylor and Jimmie Johnson (48) before the Aaron's 499 at Talladega Superspeedway.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Aaron's 499 at Talladega Superspeedway",
+        "content": "A a r o n ' s   4 9 9   a t   T a l l a d e g a   S u p e r s p e e d w a y",
+        "caption": "NASCAR Sprint Cup Series driver Denny Hamlin (11) gets out of his car during the first caution at the Aaron's 499 at Talladega Superspeedway.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have low image similarity scores (< 0.85) and low text similarity scores (< 0.7). However, the first candidate has an identical caption to the news caption and mentions the key entities (Denny Hamlin, Jordan Fish, Taylor, and Jimmie Johnson) and the event (Aaron's 499 at Talladega Superspeedway). This strongly suggests the news caption is accurate, despite the low similarity scores potentially indicating different images or image crops. The second candidate is about Denny Hamlin getting out of his car which is irrelevant to the news caption.",
+      "supporting_evidences": [
+        "NASCAR Sprint Cup Series driver Denny Hamlin (11) with his girlfriend Jordan Fish and their daughter Taylor and Jimmie Johnson (48) before the Aaron's 499 at Talladega Superspeedway."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a group of race cars on a track, including cars with numbers like 48, 1, and 34, all participating in what appears to be a NASCAR race. The caption states that it shows \"NASCAR Sprint Cup Series driver Denny Hamlin with his girlfriend Jordan Fish and their daughter Taylor and Jimmie Johnson before the Aaron s 499 at Talladega Superspeedway\". However, the image does not clearly show Denny Hamlin, his girlfriend, their daughter, or Jimmie Johnson. It primarily focuses on the race cars on the track. The image does not show the people mentioned in the caption. Therefore, the caption is not a correct representative summary of the image content, because it is focused on people that are not obviously visible in the picture of the cars.",
+    "validation_summary": "The caption describes people not clearly visible in the image, which primarily depicts race cars on a track. This discrepancy would mislead viewers about the image's content."
+  },
+  "inference_time": 4.437979698181152,
+  "ablation_type": "no_filters"
+}

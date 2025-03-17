@@ -1,0 +1,37 @@
+{
+  "caption": "Amanda Knox in the backyard of her mother s house in Seattle on Friday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Amanda Knox acquittal greeted with cheers and fireworks in West Seattle | Amanda Knox | The Guardian",
+        "content": "A m a n d a   K n o x   a c q u i t t a l   g r e e t e d   w i t h   c h e e r s   a n d   f i r e w o r k s   i n   W e s t   . . .",
+        "caption": "Amanda Knox in the backyard of her mothers house in Seattle on Friday.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.07324250042438507,
+        "text_similarity_score": 0.9754598736763
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.073, which is less than 0.85, and the text similarity score is 0.975, which is greater than 0.7. Based on the instructions, the verdict should be 'False'.",
+      "supporting_evidences": [
+        "The image similarity score between the news image and the candidate image is low (0.073).",
+        "The text similarity score between the news caption and the candidate caption is high (0.975)."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 2,
+    "validation_summary": "The caption incorrectly states Amanda Knox was in her mother's backyard in Seattle, which is not supported by the image content.",
+    "explanation": "The caption claims that Amanda Knox is in the backyard of her mother's house in Seattle. However, the image does not depict Amanda Knox at any recognizable location, let alone her mother's backyard. In fact, the image closely resembles a scene that lacks identifiable features directly linked to Amanda Knox or her family's residence. The image similarity score is very low (0.073), suggesting a significant disconnect between the caption's claims and the actual content of the image. Therefore, viewers might be misled into thinking they are seeing Amanda Knox in the specifically mentioned location when in fact they are not."
+  },
+  "inference_time": 5.305687665939331,
+  "ablation_type": "no_image_evidences"
+}

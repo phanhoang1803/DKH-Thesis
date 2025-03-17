@@ -1,0 +1,70 @@
+{
+  "caption": "Bernie Sanders and Hillary Clinton take the stage before the Democratic debate at the University of WisconsinMilwaukee on Feb 11 2016",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Awards ceremony",
+      "Talent show",
+      "5hy",
+      "Convention",
+      "Ceremony",
+      "X",
+      "Award"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Sanders is blowing it by refusing to attack Clinton over her scandals  Chicago Tribune",
+        "content": "S a n d e r s   i s   b l o w i n g   i t   b y   r e f u s i n g   t o   a t t a c k   C l i n t o n   o v e r   h e r   . . .",
+        "caption": "Democratic presidential candidates Sen. Bernie Sanders, I-Vt, left, and Hillary Clinton take the stage before a Democratic presidential primary debate at the University of Wisconsin-Milwaukee, Thursday, Feb. 11, 2016, in Milwaukee.",
+        "domain": "www.chicagotribune.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.411712646484375,
+        "text_similarity_score": 0.8587990403175354
+      },
+      {
+        "title": "Presidential Hopefuls Rip Wasteful Bureaucracy--and Thats Just the Democrats - Government Executive",
+        "content": "P r e s i d e n t i a l   H o p e f u l s   R i p   W a s t e f u l   B u r e a u c r a c y - - a n d   T h a t ' s   J u s t   . . .",
+        "caption": "Democratic presidential candidates Bernie Sanders and Hillary Clinton during the Democratic presidential primary debate at the University of Wisconsin-Milwaukee on Feb. 11, 2016. ",
+        "domain": "www.govexec.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4439191222190857,
+        "text_similarity_score": 0.8564519882202148
+      },
+      {
+        "title": "Sanders, Clinton Clash In Last Debate Before 'Super Tuesday' | Here & Now",
+        "content": "S a n d e r s ,   C l i n t o n   C l a s h   I n   L a s t   D e b a t e   B e f o r e   ' S u p e r   T u e s d a y   . . .",
+        "caption": "Democratic presidential candidates Senator Bernie Sanders (left) and Hillary Clinton participate in the PBS NewsHour Democratic presidential candidate debate at the University of Wisconsin-Milwaukee on February 11, 2016 in Milwaukee, Wisconsin.The debate is the final debate before the Nevada caucuses scheduled for February 20.  (Win McNamee/Getty Images)",
+        "domain": "www.wbur.org",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.458584189414978,
+        "text_similarity_score": 0.8198938369750977
+      }
+    ],
+    "result": {
+      "confidence_score": 9,
+      "explanation": "Based on the provided candidates, the news caption appears to accurately represent the image's content. All three candidates feature captions that describe Bernie Sanders and Hillary Clinton together at the University of Wisconsin-Milwaukee on February 11, 2016, which aligns directly with the news caption. While the image similarity scores are below the 0.85 threshold, indicating the images are not exact matches, the consistently high text similarity scores (above 0.8) and the thematic alignment of the captions provide strong evidence that the news caption is contextually correct. The candidate captions specifically mention the Democratic presidential primary debate, which further supports the accuracy of the news caption in describing the event. Since the text similarity scores are high and the content aligns, the verdict is True.",
+      "supporting_evidences": [
+        "Candidate 1: Caption mentions Bernie Sanders and Hillary Clinton taking the stage before a Democratic presidential primary debate at the University of Wisconsin-Milwaukee on Feb. 11, 2016. (Caption Similarity Score: 0.8587990403175354)",
+        "Candidate 2: Caption describes Democratic presidential candidates Bernie Sanders and Hillary Clinton during the Democratic presidential primary debate at the University of Wisconsin-Milwaukee on Feb. 11, 2016. (Caption Similarity Score: 0.8564519882202148)",
+        "Candidate 3: Caption refers to Democratic presidential candidates Senator Bernie Sanders and Hillary Clinton participating in the PBS NewsHour Democratic presidential candidate debate at the University of Wisconsin-Milwaukee on February 11, 2016. (Caption Similarity Score: 0.8198938369750977)"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 9,
+    "explanation": "The image check result provides a strong indication that the news caption accurately represents the image content. The candidate captions consistently mention Bernie Sanders and Hillary Clinton in the context of a Democratic presidential primary debate at the University of Wisconsin-Milwaukee on February 11, 2016. Despite the image similarity scores being below the threshold, the text similarity scores are high, suggesting a contextual alignment between the image and the news caption. Therefore, the verdict is that the image is NOT out of context.",
+    "validation_summary": "The image accurately depicts Bernie Sanders and Hillary Clinton on stage at the Democratic debate as described in the caption, therefore viewers would not be misled. The image check provides a high confidence score in support of this assessment, based on text similarity to candidate captions that have a similar description of the image content."
+  },
+  "inference_time": 7.606274843215942,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

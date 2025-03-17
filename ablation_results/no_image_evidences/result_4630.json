@@ -1,0 +1,46 @@
+{
+  "caption": "Australia coach Darren Lehmann has long held a high opinion of Joe Burns",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Darren Lehmann",
+      "Queensland",
+      "create",
+      "Human",
+      "Boxing",
+      "Queenslander",
+      "Marsh",
+      "Groomsman",
+      "Injury"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Queenslander Joe Burns to make Test debut for Australia on Boxing Day | Australia cricket team | The Guardian",
+        "content": "Q u e e n s l a n d e r   J o e   B u r n s   t o   m a k e   T e s t   d e b u t   f o r   A u s t r a l i a   o n   B o x i n g   . . .",
+        "caption": "Australia coach Darren Lehmann has long held a high opinion of Joe Burns.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9802433252334595,
+        "text_similarity_score": 0.9758390784263611
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate has a high image similarity score (0.9802433252334595) and a high text similarity score (0.9758390784263611). According to the instructions, if both scores are high (Image Similarity Score ≥ 0.85 AND Text Similarity Score ≥ 0.7), the verdict should be immediately 'True'. The candidate caption exactly matches the news caption, further supporting this decision.",
+      "supporting_evidences": [
+        "Australia coach Darren Lehmann has long held a high opinion of Joe Burns."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score (10) with strong supporting evidence that the caption accurately represents the image content. The image similarity score is 0.9802433252334595 and the text similarity score is 0.9758390784263611. The caption \"Australia coach Darren Lehmann has long held a high opinion of Joe Burns\" is directly supported by the news content, and the image shows Darren Lehmann, the Australia coach. Therefore, the image is not out of context.",
+    "validation_summary": "The image accurately portrays Darren Lehmann, the Australia coach, and the caption correctly reflects his positive view of Joe Burns, as detailed in the news article, making it unlikely that viewers would be misled about the image's context or content. The high image and text similarity scores confirm that the caption is a correct representative summary of the image content, thus, the image is not out of context (NOOC). High confidence score from the image check result is prioritized in determining the final verdict as NOOC, indicating that the caption is an accurate and representative summary of the image content."
+  },
+  "inference_time": 5.0462987422943115,
+  "ablation_type": "no_image_evidences"
+}

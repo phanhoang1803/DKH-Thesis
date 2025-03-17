@@ -1,0 +1,44 @@
+{
+  "caption": "Daniel DayLewis wins the Oscar for best actor for his role in Lincoln",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Ben Affleck",
+      "85th Academy Awards",
+      "Argo",
+      "Academy Awards",
+      "Academy Award for Best Picture",
+      "Academy of Motion Picture Arts and Sciences",
+      "Academy Award for Best Actor in a Leading Role",
+      "Prize",
+      "Academy Award for Best Actress in a Leading Role"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Lincoln secures Daniel Day-Lewis a record third best actor Oscar | Film | The Guardian",
+        "content": "L i n c o l n   s e c u r e s   D a n i e l   D a y - L e w i s   a   r e c o r d   t h i r d   b e s t   a c t o r   O s c a r   . . .",
+        "caption": "Hat trick  Daniel Day-Lewis's portrayal of Lincoln wins him his third Oscar",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.49834054708480835,
+        "text_similarity_score": 0.7347850203514099
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.49834054708480835, which is less than 0.85. Also, the text similarity score is 0.7347850203514099 which is greater than 0.7. According to the instruction, the verdict should be false since the image similarity score is less than 0.85.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts Daniel Day-Lewis holding an Oscar statuette and wiping his eye, seemingly emotional. While the caption states he won the Oscar for Best Actor for his role in Lincoln, the accompanying news content primarily discusses Seth MacFarlane's performance as the host of the Oscars ceremony. The news article mentions various aspects of the ceremony but does not focus on Daniel Day-Lewis's win or his role in \"Lincoln.\" Therefore, the image is used out of context because the news content is not directly related to the image, leading to a disconnect between the visual and textual information. The image check result indicates that the image similarity score is low (0.49834054708480835, less than 0.85), further confirming that the image is out of context.",
+    "validation_summary": "The image of Daniel Day-Lewis is not related to the news content about Seth MacFarlane hosting the Oscars. This creates a misleading association, as the article doesn't primarily discuss Day-Lewis's win."
+  },
+  "inference_time": 4.769438743591309,
+  "ablation_type": "no_image_evidences"
+}

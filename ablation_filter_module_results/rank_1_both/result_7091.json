@@ -1,0 +1,40 @@
+{
+  "caption": "Dramatic thunderstorm clouds roll in from Lake Superior in Grand Marais Mich in July",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 1,
+      "confidence_score": 10,
+      "explanation": "The provided caption describes a thunderstorm over Lake Superior in Grand Marais, Michigan, while the image context describes a sunset view of a harbor with boats. These descriptions do not align at all. The caption mentions a thunderstorm and a specific location, while the image depicts a peaceful harbor scene at sunset. The caption fails to represent the scene accurately, resulting in a strong misalignment.",
+      "supporting_evidences": [
+        "The caption mentions a thunderstorm, while the image shows a sunset.",
+        "The caption refers to Lake Superior and Grand Marais, Michigan, but the image context does not.",
+        "The image context describes a harbor with boats, which is not mentioned in the caption."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Panoramic view of a harbor at sunset with boats and onlookers.",
+      "context": "The image captures a scenic view of a harbor at sunset. Numerous boats are docked or anchored in the calm water, reflecting the vibrant colors of the sky. On the right side of the image, two figures are observing the scene from an elevated position, partially obscured by greenery. Buildings are visible along the shoreline, adding to the charm of the coastal town. The sky transitions from a soft blue on the left to a warm pink and orange on the right, indicating either sunrise or sunset. The overall atmosphere is tranquil and picturesque, typical of a coastal landscape at twilight. The harbor is full of boats, suggesting a lively maritime community or tourist destination.",
+      "information": "The image shows a panoramic view of a harbor with many boats at sunset."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a harbor scene with numerous boats at sunset. The caption claims the image depicts dramatic thunderstorm clouds over Lake Superior in Grand Marais, Michigan. These two descriptions are completely contradictory. The image is a peaceful harbor, while the caption describes a thunderstorm. The location also differs; the image doesn't visually indicate Lake Superior or Grand Marais, Michigan. Therefore, the caption is completely out of context with the image's actual content.",
+    "validation_summary": "The caption misrepresents the image as showing a thunderstorm over Lake Superior, when it actually depicts a sunset harbor scene, leading viewers to believe the image content is different than it actually is. Given the strong confidence score, the image check result is honored and the caption is therefore out of context."
+  },
+  "inference_time": 4.633704900741577,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

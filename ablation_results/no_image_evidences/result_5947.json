@@ -1,0 +1,46 @@
+{
+  "caption": "From left Kadiza Sultana Shamima Begum and Amira Abase the three schoolgirls who have apparently been separated now for several weeks",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Fahma Mohamed",
+      "Female genital mutilation",
+      "United Kingdom",
+      "United Nations",
+      "International Day of Zero Tolerance for Female Genital Mutilation",
+      "The Global Media Campaign to End FGM",
+      "Mutilation",
+      "Genital modification and mutilation"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Two Bethnal Green schoolgirls 'now married to Isis men' in Syria | Islamic State | The Guardian",
+        "content": "T w o   B e t h n a l   G r e e n   s c h o o l g i r l s   ' n o w   m a r r i e d   t o   I s i s   m e n '   i n   S y r i a   . . .",
+        "caption": "From left: Kadiza Sultana, Shamima Begum and Amira Abase, the three schoolgirls who have apparently been separated now for several weeks.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.2864725887775421,
+        "text_similarity_score": 0.96043860912323
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is less than 0.85, but the text similarity score is high (0.96043860912323). According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is 'False'.",
+      "supporting_evidences": [
+        "Image Similarity Score: 0.2864725887775421",
+        "Text Similarity Score: 0.96043860912323"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image is out of context (OOC = True). The image similarity score is 0.2864725887775421, which is less than the threshold of 0.85. Although the text similarity score is high (0.96043860912323), the image check result specifies that if the image similarity score is below 0.85, the caption must be considered out of context. The image shows a young woman wearing a hijab, with text 'Girl Summit 2014' visible in the background. The caption names three individuals, Kadiza Sultana, Shamima Begum, and Amira Abase, and states they have been separated for several weeks. However, the image only shows one person, so it cannot represent the claim that all three are present, leading to the final determination that the image is out of context.",
+    "validation_summary": "The image does not accurately represent the news caption, as it depicts only one person while the caption refers to three individuals. Therefore, viewers would be misled about what they're seeing in relation to the caption's claim, making the image out of context (OOC=True). According to image check result, even the text is relevant, the image is still not representative of the story, which leads to an OOC case (True). Therefore, the final decision aligns with the image check result, so the image is out of context (OOC=True). This determination carries a high confidence score of 10, aligning with the instructions and indicating strong certainty in the decision. Based on the provided information, the image is deemed to be out of context (OOC=True). The high confidence score (10) reflects the certainty in this determination based on the comprehensive analysis conducted, as guided by the instructions, and prioritizing the result from the image check result."
+  },
+  "inference_time": 6.124773263931274,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,48 @@
+{
+  "caption": "Screenshot from a Xi Jinping fan site on Sina Weibo",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Jang Song-thaek",
+      "South Korea",
+      "Pyongyang",
+      "Supreme Leader of North Korea",
+      "United States",
+      "Korean People's Army",
+      "National Defence Commission",
+      "Korean Central News Agency",
+      "On-the-spot guidance"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Chinas most censored social media giant is fined for not censoring enough | CNN Business",
+        "content": "C h i n a ' s   m o s t   c e n s o r e d   s o c i a l   m e d i a   g i a n t   i s   f i n e d   f o r   n o t   . . .",
+        "caption": "Weibo, China's heavily censored version of Twitter, has been fined millions of dollars for not censoring enough.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The candidate does not provide any information related to a screenshot from a Xi Jinping fan site on Sina Weibo. The image similarity score is low (0.0) and the caption similarity score is also low (0.0). Therefore, the caption is not in-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low image similarity score (0.0) and a low caption similarity score (0.0), suggesting that the caption is not in context with the image. The image shows Kim Jong Un and other officials in what appears to be a factory setting, inspecting equipment. There is no visual evidence within the image that supports any connection to a \"Xi Jinping fan site on Sina Weibo.\" Given the lack of supporting visual or textual evidence, the image is considered out of context.",
+    "validation_summary": "The caption incorrectly associates the image with a Xi Jinping fan site, when the image shows Kim Jong Un inspecting equipment, misleading viewers about the image's content and origin; therefore, the image is out of context according to the image check result analysis and image analysis combined . "
+  },
+  "inference_time": 3.820726156234741,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

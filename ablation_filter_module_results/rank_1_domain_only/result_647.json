@@ -1,0 +1,38 @@
+{
+  "caption": "This aerial image shows flooded areas on the campus of Louisiana State University on Aug 13 2016 in Baton Rouge",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Thousands of people rescued from Louisiana flooding",
+        "content": "T h o u s a n d s   o f   p e o p l e   r e s c u e d   f r o m   L o u i s i a n a   f l o o d i n g",
+        "caption": "This aerial image shows flooded areas of North Baton Rouge, La., on Aug. 13, 2016.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 and text similarity score is 0.0. The evidence does mention an aerial image showing flooded areas in North Baton Rouge, La., on Aug. 13, 2016. However, the News Caption is about the campus of Louisiana State University in Baton Rouge, and the provided evidence does not mention anything about Louisiana State University. Since a key element is missing, I cannot verify the caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows an aerial view of a flooded river running through a city. There are buildings, roads, and cars visible alongside the river. The caption states that the image shows flooded areas on the campus of Louisiana State University. However, the image does not obviously depict a university campus. Given this and the low similarity scores from the image check result, the caption is likely inaccurate and therefore the image is out of context. The image check result confirms a low image similarity score and mentions that the key element of Louisiana State University is missing, leading to a verdict of false. Therefore, based on the image check result and a consideration of the visual evidence of the image, the caption is inaccurate.",
+    "validation_summary": "The caption incorrectly identifies the location in the image as the campus of Louisiana State University, while the image doesn't depict a readily identifiable campus, making it misleading. The image check confirms this analysis based on low similarity score and missing key elements."
+  },
+  "inference_time": 4.038542032241821,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

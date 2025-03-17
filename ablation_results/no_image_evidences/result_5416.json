@@ -1,0 +1,36 @@
+{
+  "caption": "Fatal meeting the Ambassador hotel on Wilshire Boulevard on 5 June 1998 30 years to the day after Bobby Kennedy was shot",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Early Warning by Jane Smiley review  the American Tolstoy? | Fiction | The Guardian",
+        "content": "E a r l y   W a r n i n g   b y   J a n e   S m i l e y   r e v i e w      t h e   A m e r i c a n   T o l s t o y   . . .",
+        "caption": "Fatal meeting ... the Ambassador hotel on Wilshire Boulevard on  5 June 1998, 30 years to the day after Bobby Kennedy was shot.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9965766072273254,
+        "text_similarity_score": 0.9772382974624634
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The candidate evidence has a high image similarity score (0.9965766072273254) and a high text similarity score (0.9772382974624634). This suggests that the candidate image is very similar to the news image, and the candidate caption is also very similar to the news caption. The candidate caption is identical to the news caption, and the domain is a reliable source (www.theguardian.com). Therefore, the caption is likely to be in context.",
+      "supporting_evidences": [
+        "Candidate 1: Caption is identical to the news caption, image similarity score is 0.9965766072273254, text similarity score is 0.9772382974624634, and domain is www.theguardian.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a street sign for Robert F. Kennedy Memorial Parkway with the Ambassador Hotel in the background. The caption mentions \"Fatal meeting the Ambassador hotel on Wilshire Boulevard on 5 June 1998 30 years to the day after Bobby Kennedy was shot\". While the image depicts the location associated with Bobby Kennedy's shooting, it does not directly illustrate the 'fatal meeting' or the event itself, only the geographical location. Because the image check result shows a high confidence score, I will go with the image check result and conclude that the caption is not representative of the image's content.",
+    "validation_summary": "The image shows the location, but not the event described in the caption, potentially misleading viewers. The image check result indicates a high confidence score, and the caption fails to accurately depict the image, thus it is out of context (OOC=True). The picture shows the sign for 'Robert F. Kennedy Memorial Parkway' in front of the building, not the shooting itself, which happened in 1968 inside the building. Therefore, the image is out of context of the text provided, as it could mislead readers to believe it depicts the actual assassination or surrounding events, rather than the location itself decades later. Because the image check result indicates that the caption is in context, this is likely an error, and the caption is not an accurate representation of the image, therefore OOC=TRUE and the image is out of context of the given text narrative. Note that the explanation provided below confirms this finding, though the Image Check incorrectly flagged it as 'NOOC'. The confidence score given is 10 because the image check has identified the image and caption to be in context, however the content of the image is not the same as the claim in the caption which is that the image is showing the event of Bobby Kennedy being shot, when it is showing the Robert F. Kennedy Memorial Parkway. This warrants a classification of OOC=TRUE, because the caption is not an accurate representation of what is in the image and it will mislead the viewers about what they're seeing in the image, in addition to this, the image check result is incorrect. Therefore the decision to classify the image as in context based solely on the image check result would be inaccurate and misleading to the user, thus it requires a more thorough investigation, which is provided in this analysis and explanation to support a OOC=TRUE classification. In this scenario, the image is being shown to mislead the user as the image does not show any evidence or a representation of Bobby Kennedy being shot or a fatal meeting, but the location which is decades later. This is misleading and does not accurately depict the content of the caption, and therefore does not provide a correct representation of the image. Therefore the final judegement is Out of Context (OOC=TRUE)."
+  },
+  "inference_time": 8.13960075378418,
+  "ablation_type": "no_image_evidences"
+}

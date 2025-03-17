@@ -1,0 +1,34 @@
+{
+  "caption": "President Barack Obama addresses a joint session of the United States Congress on the subject of job creation",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 1,
+      "confidence_score": 10,
+      "explanation": "The caption describes President Obama addressing Congress, while the image context clearly indicates it is Senator Rand Paul speaking on the Senate floor. These are completely different individuals and events, leading to a strong misalignment. The caption misrepresents the content of the image.",
+      "supporting_evidences": [
+        "The caption mentions President Barack Obama, but the image context describes Senator Rand Paul.",
+        "The caption describes a joint session of Congress, while the image context refers to the Senate floor.",
+        "The image context specifically details Senator Paul's attire and the Senate chamber's setting, none of which aligns with the caption."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Senator Rand Paul speaking on the Senate floor.",
+      "context": "The image features Senator Rand Paul speaking on the Senate floor. He is wearing a dark suit, a light-colored shirt, and a red tie. He is standing and gesturing with his right hand. The background shows the typical setting of the Senate chamber, with desks and chairs arranged in rows, and some other individuals seated in the background. The overall impression is one of a formal and serious political environment.",
+      "information": "The image shows Senator Rand Paul in a formal setting, likely the U.S. Senate chamber, addressing his colleagues or speaking on a particular issue. His attire suggests a professional and official capacity. The setting includes typical senatorial furniture and other people in the background. The angle and focus highlight Senator Paul as the primary subject."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a strong misalignment between the image and the caption. The image clearly shows Senator Rand Paul speaking on the Senate floor, while the caption describes President Barack Obama addressing a joint session of Congress. These are distinctly different people and events. The setting and attire of the person in the image also do not align with the caption's description. Therefore, the caption misrepresents the content of the image.",
+    "validation_summary": "The image is out of context as the caption incorrectly identifies the person and event depicted, misleading viewers about who is speaking and where the speech is taking place. The caption creates a false impression by attributing the image to President Obama when it actually shows Senator Rand Paul."
+  },
+  "inference_time": 6.813948154449463,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,47 @@
+{
+  "caption": "Golden State Warriors guard Klay Thompson dunks against Cleveland Cavaliers center Timofey Mozgov during the third quarter of game three of the NBA Finals at Quicken Loans Arena",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Matthew Dellavedova helps Cavaliers edge Warriors for 2-1 Finals ...",
+        "content": "6 3 5 6 9 4 8 9 7 4 1 6 9 4 7 3 7 5 - U S P - N B A -   . . .",
+        "caption": "Cleveland Cavaliers guard Matthew Dellavedova (8) shoots the ball against Golden State Warriors guard Stephen Curry (30) during the fourth quarter in game three of the NBA Finals at Quicken Loans Arena.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Warriors trying to rediscover 'hunger' and play with sense of 'urgency'",
+        "content": "6 3 5 6 9 5 6 0 8 5 2 2 4 8 8 6 9 7 - U S P - N B A -   . . .",
+        "caption": "Golden State Warriors guard Klay Thompson (11) dunks against Cleveland Cavaliers center Timofey Mozgov (20) during the third quarter of game three of the NBA Finals at Quicken Loans Arena.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity scores are both 0.0, which indicates that the images in the candidates do not match the image described by the news caption. However, Candidate 2 has almost the exact same caption as the news item. The only difference is the addition of '(11)' and '(20)' to the names of Klay Thompson and Timofey Mozgov, respectively. These numbers refer to the player's jersey numbers. Therefore, the information in the news caption is likely correct, despite the low image similarity scores.",
+      "supporting_evidences": [
+        "Golden State Warriors guard Klay Thompson (11) dunks against Cleveland Cavaliers center Timofey Mozgov (20) during the third quarter of game three of the NBA Finals at Quicken Loans Arena."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "Based on the image, a player in a yellow jersey is dunking a basketball. Opposing players wear orange jerseys. The news caption references Golden State Warriors guard Klay Thompson dunking against Cleveland Cavaliers center Timofey Mozgov. The Warriors' colors are blue and gold (yellow), while the Cavaliers' colors are wine and gold. Given this color discrepancy, the caption does not accurately describe what is happening in the image, which shows players in yellow and orange jerseys, and the image check result confirms the caption is likely correct based on image candidate. Therefore, the image is considered out of context (OOC).",
+    "validation_summary": "The caption does not match the image content as the jersey colors are incorrect, leading to a false impression of the players involved. Therefore, the image is out of context based on the information provided in the news caption about the jersey colors of the players in the image and the image check result which aligns with this assessment of inaccuracy in the provided caption about team names and colors in the image being analyzed. Thus, the image is out of context as the jersey colors are inaccurately described."
+  },
+  "inference_time": 4.502676486968994,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

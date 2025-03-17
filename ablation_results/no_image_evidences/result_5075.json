@@ -1,0 +1,34 @@
+{
+  "caption": "Anthony Stokes is alleged to have assaulted an Elvis impersonator in a Dublin nightclub",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [],
+    "result": {
+      "alignment_score": 7,
+      "confidence_score": 9,
+      "explanation": "The image shows an Elvis impersonator singing into a microphone. The caption mentions an Elvis impersonator but it does not say that the image is of the impersonator. Since the caption is about an alleged assault, it is not clear if the person in the image is related to that specific incident, but it does mention an Elvis impersonator which is what the image is of, so there is a minor connection and it 'almost' aligns.",
+      "supporting_evidences": [
+        "The image shows an individual dressed as an Elvis impersonator.",
+        "The caption mentions an Elvis impersonator.",
+        "The news content mentions an Elvis impersonator who was allegedly assaulted in a Dublin nightclub, but it is not possible to determine if the person in the image is related to that specific incident."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "caption": "A person dressed in a black sequined jacket, a large black wig, and an eye patch sings into a microphone.",
+      "context": "The image shows an individual dressed as an Elvis impersonator. He has a large, black wig, is wearing an eye patch, and is holding a microphone. He is wearing a black sequined jacket and seems to be performing on stage. The background is a dark blue color. The news content mentions an Elvis impersonator who was allegedly assaulted in a Dublin nightclub, but it is not possible to determine if the person in the image is related to that specific incident. Therefore, the context is solely based on the visual elements present in the image.",
+      "information": "The image features an individual in an Elvis impersonator costume with an eye patch, singing into a microphone."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a confidence score of 9, suggesting a strong alignment between the image and caption. The image depicts an Elvis impersonator singing into a microphone, while the caption refers to an Elvis impersonator allegedly assaulted in a Dublin nightclub. The 'alignment_score' is 7 and the explanation states that the caption mentions an Elvis impersonator but it does not say that the image is of the impersonator. Since the caption is about an alleged assault, it is not clear if the person in the image is related to that specific incident, but it does mention an Elvis impersonator which is what the image is of, so there is a minor connection and it 'almost' aligns. The verdict is True, as the image context is linked to the caption even if indirectly; therefore, the image is out of context.",
+    "validation_summary": "While the image does show an Elvis impersonator, the caption only mentions one in the context of an alleged assault; therefore, it is misleading to show this specific image since it does not depict the mentioned event. The image is used out of context."
+  },
+  "inference_time": 6.630919456481934,
+  "ablation_type": "no_image_evidences"
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "Nathalie Moellhausen of Brazil competes with Yana Shemyakina of Ukraine in the team epee competition",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "404 Not Found",
+        "content": "",
+        "caption": "",
+        "domain": "memoria.ebc.com.br",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9943358898162842,
+        "text_similarity_score": 0.04970636963844299
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.9943358898162842, and the text similarity score is 0.04970636963844299. According to the rules, if the image similarity score is greater than or equal to 0.85, and the text similarity score is less than 0.7, the verdict should be false. Therefore, the final verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates the image similarity score is 0.9943358898162842 and text similarity score is 0.04970636963844299. Since the image similarity score is greater than or equal to 0.85 and text similarity score is less than 0.7, the verdict is false, meaning the caption is out of context with the image. The image shows two fencers competing; one is wearing a mask decorated with the colors of Brazil, and the other is wearing a mask decorated with the colors of Ukraine. Therefore, based on the image check result, the caption is considered out of context.",
+    "validation_summary": "The image check result confirms the caption is out of context. The caption misrepresents the visual content of the image."
+  },
+  "inference_time": 6.79888391494751,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

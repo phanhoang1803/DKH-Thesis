@@ -1,0 +1,45 @@
+{
+  "caption": "Beauty and the beast from Kent District Library with this stunning bookface of Libba Bray s Beauty Queens",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Readers put themselves on the cover for #bookfacefriday  in pictures | Books | The Guardian",
+        "content": "A f t e r   t h e   N e w   Y o r k   P u b l i c   L i b r a r y   c a l l e d   f o r   r e a d e r s   t o   s h a r e   t h e i r   # b o o k f a c e f r i d a y   p i c t u r e s   t h e y  v e   b e e n   c o v e r i n g   t h e m s e l v e s   w i t h   g l o r y .   C h e c k   o u t   s o m e   o f   o u r   f a v o u r i t e   b o o k   c o v e r   s e l f i e s      c a n   y o u   b e a t   t h e m ?   J o i n   i n   b y   c l i c k i n g   o n   t h e   b l u e    C o n t r i b u t e    b u t t o n ,   o r   p o s t   t h e m   o n   s o c i a l   m e d i a   w i t h   t h e   h a s h t a g   # b o o k f a c e f r i d a y \n \n M a r t a   B a u s e l l s \n \n F r i   7   A u g   2 0 1 5   1 0 . 4 6  B S T \n \n \n                         L a s t   m o d i f i e d   o n   T h u   2 6   M a r   2 0 2 0   1 4 . 4 1  G M T",
+        "caption": "#bookfacefriday",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Readers put themselves on the cover for #bookfacefriday  in pictures | Books | The Guardian",
+        "content": "R e a d e r s   p u t   t h e m s e l v e s   o n   t h e   c o v e r   f o r   # b o o k f a c e f r i d a y      i n   . . .",
+        "caption": "Instagram",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity scores are 0.0 in both cases, and the text similarity scores are also 0.0. Therefore, the condition 'Image Similarity Score < 0.85 AND Text Similarity Score < 0.7' is met. The captions of the candidates do not confirm any elements of the news caption, and the domains are not particularly reliable for confirmation. Therefore, based on the available evidence, it's not possible to verify the accuracy of the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low similarity between the caption and the image content, leading to a 'False' verdict. The image shows a person holding a book titled \"Beauty Queens\" by Libba Bray in front of their face, creating a bookface. The caption mentions \"Beauty and the beast from Kent District Library with this stunning bookface of Libba Bray's Beauty Queens\". Since the image check result has a high confidence score of 10, the final decision must be based on the image check result, confirming the caption does not accurately represent the image. The reference to \"Beauty and the beast\" is not evident from the book cover shown, making the caption misleading.",
+    "validation_summary": "The caption incorrectly refers to 'Beauty and the beast', which is not related to the book cover displayed, misleading viewers about the image's content. The image check confirms a low similarity between the caption and image."
+  },
+  "inference_time": 4.041351318359375,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

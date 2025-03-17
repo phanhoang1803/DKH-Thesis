@@ -1,0 +1,49 @@
+{
+  "caption": "The England bowler Tim Bresnan right runs out Murali Vijay during the first day of the practice match in Mumbai",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Test cricket",
+      "Cricket",
+      "First-class cricket",
+      "One Day International"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Steven Finn gives England concern after limping out of India warm-up | England in India 2012-13 | The Guardian",
+        "content": "S t e v e n   F i n n   g i v e s   E n g l a n d   c o n c e r n   a f t e r   l i m p i n g   o u t   o f   I n d i a   w a r m   . . .",
+        "caption": "The England bowler Tim Bresnan, right, runs out Murali Vijay during the first day of the practice match in Mumbai. Photograph: Pal Pillai/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6004095077514648,
+        "text_similarity_score": 0.9272021055221558
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.6004095077514648 and the text similarity score is 0.9272021055221558. Although the text similarity is high, the image similarity is low (below 0.85). According to the rule, the verdict should be False.",
+      "supporting_evidences": [
+        "Caption: The England bowler Tim Bresnan, right, runs out Murali Vijay during the first day of the practice match in Mumbai.",
+        "Image Similarity Score: 0.6004095077514648",
+        "Text Similarity Score: 0.9272021055221558"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image features a cricket player in full gear, holding a bat, on a cricket field. The caption suggests the image depicts Tim Bresnan running out Murali Vijay. However, based on the visual evidence alone, it's impossible to confirm that the person in the image is Tim Bresnan, that he is running someone out, or that the other player is Murali Vijay. The image check result indicates a low image similarity score (0.6004095077514648) despite a high text similarity score (0.9272021055221558). Since the image check result has a high confidence score of 10, the verdict must be based on it, and because the image similarity is low, the image is considered out of context.",
+    "validation_summary": "The caption inaccurately describes the action and individuals in the image, potentially misleading viewers about the event being depicted. The low image similarity score confirms that the image does not directly support the caption's claim."
+  },
+  "inference_time": 6.921785354614258,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

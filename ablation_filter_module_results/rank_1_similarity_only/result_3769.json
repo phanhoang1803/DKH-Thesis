@@ -1,0 +1,40 @@
+{
+  "caption": "Chiefs K Ryan Succop signs autographs July 24 2014 in St Joseph Mo",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Iowa State Fair: Republicans, deep-fried food and a butter cow  in pictures | US news | The Guardian",
+        "content": "T h e   a n n u a l   e v e n t ,   h e l d   f o r   1 1   d a y s   e v e r y   A u g u s t ,   i s   o n e   o f   t h e   l a r g e s t   s t a t e   f a i r s   i n   t h e   U S .   F a i r g o e r s   c a n   i n d u l g e   i n   c l a s s i c   f r i e d   f a r e ,   g o   o n   a m u s e m e n t   r i d e s ,   h e a r   p r e s i d e n t i a l   c a n d i d a t e s   s p e a k ,   a n d   o f   c o u r s e ,   p a y   a   v i s i t   t o   t h e   f a i r  s   m a i n   a t t r a c t i o n ,   a   c o w   s c u l p t u r e   m a d e   e n t i r e l y   o f   b u t t e r .   T h e   f a i r   e n d s   2 3   A u g u s t \n \n M a r y   W i l l i e   i n   D e s   M o i n e s ,   I o w a \n \n F r i   1 4   A u g   2 0 1 5   1 6 . 4 4  B S T \n \n \n                         L a s t   m o d i f i e d   o n   T h u   2   A u g   2 0 1 8   1 9 . 4 0  B S T \n \n P h o t o g r a p h :   A l l   P h o t o g r a p h s :   M a r y   W i l l i e   f o r   t h e   G u a r d i a n",
+        "caption": "iowa fair",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9820351004600525,
+        "text_similarity_score": 0.18205390870571136
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.9820351004600525, which is greater than 0.85, indicating a strong match between the images. However, the text similarity score is 0.18205390870571136, which is less than 0.7, indicating that the captions do not match. According to the instructions, if the image similarity score is greater than or equal to 0.85 AND the text similarity score is less than 0.7, the verdict should immediately be False. Furthermore, the candidate caption 'iowa fair' does not align with the news caption 'Chiefs K Ryan Succop signs autographs July 24 2014 in St Joseph Mo'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result shows a high image similarity score of 0.9820351004600525 and a low text similarity score of 0.18205390870571136. Since the image similarity is above 0.85 and text similarity is below 0.7, the image is out of context. The image features a man in a red shirt speaking to a crowd, with photographers and onlookers present. The caption refers to 'Chiefs K Ryan Succop signs autographs July 24 2014 in St Joseph Mo', which does not align with the image content. The candidate caption further reinforces this by suggesting 'iowa fair', which is unrelated to the given caption.",
+    "validation_summary": "The image and caption do not match, and the viewer would be misled about the image's content. The image shows a speaker addressing a crowd, while the caption refers to a football player signing autographs at a specific event."
+  },
+  "inference_time": 7.714134931564331,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

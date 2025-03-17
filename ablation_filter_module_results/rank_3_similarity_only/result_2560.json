@@ -1,0 +1,65 @@
+{
+  "caption": "Vice President Joe Biden talks about the future of photonics during his visit to Canal Ponds in Greece Monday July 27 2015",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "official",
+      "Speech",
+      "Meter"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Biden, Cuomo announce photonics investment",
+        "content": "B i d e n ,   C u o m o   a n n o u n c e   p h o t o n i c s   i n v e s t m e n t",
+        "caption": "Vice President Joe Biden talks photonics during the official announcement Monday in Greece.",
+        "domain": "www.democratandchronicle.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8831223249435425,
+        "text_similarity_score": 0.8215814828872681
+      },
+      {
+        "title": "Biden, Cuomo announce photonics investment",
+        "content": "B i d e n ,   C u o m o   a n n o u n c e   p h o t o n i c s   i n v e s t m e n t",
+        "caption": "The media took their place on risers at Canal Ponds in Greece for the formal photonics announcement by Gov. Andrew Cuomo and Vice President Joe Biden Monday, July 27, 2015.",
+        "domain": "www.democratandchronicle.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1976802498102188,
+        "text_similarity_score": 0.7528082728385925
+      },
+      {
+        "title": "Biden, Cuomo announce photonics investment",
+        "content": "B i d e n ,   C u o m o   a n n o u n c e   p h o t o n i c s   i n v e s t m e n t",
+        "caption": "People are seated at Canal Ponds in Greece as they wait for Vice President Joe Biden and Governor Andrew Cuomo to announce details about a photonics hub.",
+        "domain": "www.democratandchronicle.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.21237586438655853,
+        "text_similarity_score": 0.7228174805641174
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1 has an image similarity score of 0.8831223249435425, which is greater than 0.85, and a text similarity score of 0.8215814828872681, which is greater than 0.7. Therefore, the caption is in-context.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.8831223249435425",
+        "Candidate 1: Caption Similarity Score: 0.8215814828872681"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high image similarity score (0.8831223249435425) and a high caption similarity score (0.8215814828872681). The scores are above the required thresholds of 0.85 and 0.7, respectively, suggesting the caption is relevant to the image. The image shows Vice President Joe Biden speaking at a podium, consistent with the caption's description of him talking about photonics during his visit to Canal Ponds in Greece on July 27, 2015. Therefore, the caption provides a correct representative summary of the image content.",
+    "validation_summary": "The image and caption are closely aligned, showing Vice President Joe Biden at an event related to photonics, so viewers would not be misled by the caption's summary of the image content. The high similarity scores between the image and caption confirm the accuracy of the caption's representation."
+  },
+  "inference_time": 7.464444160461426,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

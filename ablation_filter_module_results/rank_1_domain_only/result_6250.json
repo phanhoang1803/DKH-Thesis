@@ -1,0 +1,41 @@
+{
+  "caption": "Obama pointed to the success in California as a positive signal during a trip to San Francisco",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "official",
+      "Event"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "What Happened to San Francisco, Really? | The New Yorker",
+        "content": "W h a t   H a p p e n e d   t o   S a n   F r a n c i s c o ,   R e a l l y ?   |   T h e   N e w   Y o r k e r",
+        "caption": "People walk through a San Francisco street.",
+        "domain": "www.newyorker.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. The candidate caption only mentions people walking in San Francisco, but does not mention Obama's visit or the success in California, so it does not support the news caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts Barack Obama speaking at a podium, with an audience in the background. The caption states, \"Obama pointed to the success in California as a positive signal during a trip to San Francisco.\" While the image shows Obama speaking, it does not specifically confirm or deny that he is discussing California's success or that it is in San Francisco. However, given that the image check result is based on very low similarity scores for both image and text, and that the image doesn't inherently suggest something other than what the caption describes, it is considered out of context because there is no clear indication within the image itself to confirm the caption's claim. The primary information that Obama is referencing a specific success and location cannot be verified by looking at the image.",
+    "validation_summary": "The image shows Obama speaking, but lacks specific details to verify the accuracy of the caption's claim about California's success in San Francisco, making it potentially misleading without additional context. Therefore, the image is out of context."
+  },
+  "inference_time": 4.439494848251343,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

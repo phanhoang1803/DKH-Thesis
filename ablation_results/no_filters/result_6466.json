@@ -1,0 +1,44 @@
+{
+  "caption": "Diego Costa has been in excellent form for Chelsea but has not trained regularly due to hamstring problems",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Athlete"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Spains Vicente del Bosque selects Diego Costa despite hamstring fears | Spain | The Guardian",
+        "content": "S p a i n ' s   V i c e n t e   d e l   B o s q u e   s e l e c t s   D i e g o   C o s t a   d e s p i t e   h a m s t r i n g   . . .",
+        "caption": "Diego Costa has been in excellent form for Chelsea but has not trained regularly due to hamstring problems. Photograph: Carlos Costa/NurPhoto/Corbis",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Spains Vicente del Bosque selects Diego Costa despite hamstring fears | Spain | The Guardian",
+        "content": "S p a i n ' s   V i c e n t e   d e l   B o s q u e   s e l e c t s   D i e g o   C o s t a   d e s p i t e   h a m s t r i n g   . . .",
+        "caption": "Diego Costa has been in excellent form for Chelsea but has not trained regularly due to hamstring problems. Photograph: Carlos Costa/NurPhoto/Corbis",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both candidates have a low image similarity score (< 0.85), but a high text similarity score (>= 0.7). According to the instruction, this should immediately return False. Since both the captions are verbatim matches of the news caption and are from a reliable source (theguardian.com), it confirms that the news caption accurately represents what the image shows and what the image is about.",
+      "supporting_evidences": [
+        "Diego Costa has been in excellent form for Chelsea but has not trained regularly due to hamstring problems. Photograph: Carlos Costa/NurPhoto/Corbis",
+        "Diego Costa has been in excellent form for Chelsea but has not trained regularly due to hamstring problems. Photograph: Carlos Costa/NurPhoto/Corbis"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The Image Check Result indicates a high confidence (score of 10) that the news caption accurately represents the image, based on both image and text similarity. The supporting evidences confirm that captions are verbatim matches of the news caption and are from a reliable source, which supports the conclusion that the image is NOT Out of Context (NOOC). Therefore, the analysis defers to the Image Check Result, concluding that the caption correctly represents the image content.",
+    "validation_summary": "The image check result confirms that the news caption is a correct representative summary of the image content. Viewers would not be misled about the image's content in relation to the news caption provided, as it accurately reflects the image."
+  },
+  "inference_time": 3.987377643585205,
+  "ablation_type": "no_filters"
+}

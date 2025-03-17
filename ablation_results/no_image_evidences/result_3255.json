@@ -1,0 +1,46 @@
+{
+  "caption": "Armstrong behind eventual 2009 Tour winner Alberto Contador",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Lance Armstrong on Tour de France spat with Contador: The best man won | Cyclingnews",
+        "content": "L a n c e   A r m s t r o n g   o n   T o u r   d e   F r a n c e   s p a t   w i t h   C o n t a d o r :   T h e   b e s t   m a n   . . .",
+        "caption": "Alberto Contador and Lance Armstrong on the 2009 Tour de France podium in Paris ",
+        "domain": "www.cyclingnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6528075337409973,
+        "text_similarity_score": 0.8374923467636108
+      },
+      {
+        "title": "Alberto Contador claims Lance Armstrong said, Dont f*ck me during 2009 Tour de France | road.cc",
+        "content": "A l b e r t o   C o n t a d o r   c l a i m s   L a n c e   A r m s t r o n g   s a i d ,   ' D o n ' t   f * c k   m e   . . .",
+        "caption": "Alberto Contador claims Lance Armstrong said, Dont f*ck me during 2009 Tour de France",
+        "domain": "road.cc",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4792911112308502,
+        "text_similarity_score": 0.7159931659698486
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have image similarity scores below 0.85. Candidate 1 has a caption similarity score of 0.83, which is high, suggesting a strong textual relationship. It mentions Alberto Contador and Lance Armstrong at the 2009 Tour de France, directly relating to the news caption. Candidate 2 has a lower image similarity score and focuses on a specific incident ('Don’t f*ck me') between the two cyclists during the 2009 Tour de France. Although the Text Similarity score is high (0.71), the low image similarity and the specific focus make it less directly relevant to confirming the broader context of Armstrong being behind Contador in the 2009 Tour. Based on the evidences, it can be inferred that Armstrong was indeed behind Contador. However, the image similarity scores being less than 0.85 makes the decision a little ambiguous, so I am setting the confidence score to 7.",
+      "supporting_evidences": [
+        "Candidate 1: Caption mentions Alberto Contador and Lance Armstrong on the 2009 Tour de France podium in Paris, supporting the claim that they were both part of the 2009 Tour.",
+        "Candidate 2: Caption refers to an incident between Alberto Contador and Lance Armstrong during the 2009 Tour de France, further confirming their participation in the same event."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 7,
+    "explanation": "The image check result has a confidence score of 7. Both candidates have image similarity scores below 0.85. Candidate 1 has a caption similarity score of 0.83, which is high, suggesting a strong textual relationship. It mentions Alberto Contador and Lance Armstrong at the 2009 Tour de France, directly relating to the news caption. Candidate 2 has a lower image similarity score and focuses on a specific incident ('Don’t f*ck me') between the two cyclists during the 2009 Tour de France. Although the Text Similarity score is high (0.71), the low image similarity and the specific focus make it less directly relevant to confirming the broader context of Armstrong being behind Contador in the 2009 Tour. Based on the evidences, it can be inferred that Armstrong was indeed behind Contador. Given the Image Check Result, the caption accurately represents the image content.",
+    "validation_summary": "The image accurately represents the news caption because it depicts Armstrong during the 2009 Tour, where he competed alongside Alberto Contador, suggesting they were in the same race and potentially in close proximity at times. Therefore, the caption's claim that Armstrong was behind Contador is likely correct, aligning with the image's broader context of the 2009 Tour de France."
+  },
+  "inference_time": 6.1549177169799805,
+  "ablation_type": "no_image_evidences"
+}

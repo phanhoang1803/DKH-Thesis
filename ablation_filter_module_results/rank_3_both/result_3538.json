@@ -1,0 +1,62 @@
+{
+  "caption": "Presidential candidate Donald Trump speaks on foreign policy at the Mayflower Hotel in Washington on April 27",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "United States",
+      "Foreign policy",
+      "General election",
+      "Memorial Day",
+      "Foreign policy of the first Donald Trump administration",
+      "Veterans Day",
+      "International affairs",
+      "Policy",
+      "Flag"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Donald Trump's foreign policy: 'America first' | CNN Politics",
+        "content": "D o n a l d   T r u m p ' s   f o r e i g n   p o l i c y :   ' A m e r i c a   f i r s t '   |   C N N   P o l i t i c s",
+        "caption": "Republican presidential candidate Donald Trump delivers a foreign policy speech at the Mayflower Hotel April 27, 2016 in Washington, DC.",
+        "domain": "www.cnn.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7228583693504333,
+        "text_similarity_score": 0.9043867588043213
+      },
+      {
+        "title": "It's Official: Men Don't Listen - Roll Call",
+        "content": "I t ' s   O f f i c i a l :   M e n   D o n ' t   L i s t e n   -   R o l l   C a l l",
+        "caption": "Republican presidential candidate Donald Trump speaks about his foreign policy positions during an event sponsored by The Center for the National Interest, at The Mayflower Hotel, in Washington, Wednesday, April 27, 2016. (Photo By Al Drago/CQ Roll Call)",
+        "domain": "rollcall.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7034209966659546,
+        "text_similarity_score": 0.8803496956825256
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both candidate captions confirm that Donald Trump delivered a foreign policy speech at the Mayflower Hotel on April 27, 2016, in Washington, D.C. The image similarity scores, while not above 0.85, are relatively high (0.72 and 0.70), suggesting the images are related. The text similarity scores are also high (0.90 and 0.88), indicating strong agreement between the candidate captions and the news caption. Therefore, the news caption accurately represents what the image shows.",
+      "supporting_evidences": [
+        "Candidate 1: Caption - Republican presidential candidate Donald Trump delivers a foreign policy speech at the Mayflower Hotel April 27, 2016 in Washington, DC.",
+        "Candidate 2: Caption - Republican presidential candidate Donald Trump speaks about his foreign policy positions during an event sponsored by The Center for the National Interest, at The Mayflower Hotel, in Washington, Wednesday, April 27, 2016."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high level of confidence (confidence score of 10) that the news caption accurately represents the image content. The supporting evidence from the candidate captions confirms that Donald Trump delivered a foreign policy speech at the Mayflower Hotel in Washington, D.C., on April 27, 2016. Although the image similarity scores are not extremely high, they are still relatively strong, suggesting a visual connection between the images. The text similarity scores are high, demonstrating agreement between the candidate captions and the news caption. Therefore, based on the image check result and the supporting evidence, the news caption correctly represents what the image shows.",
+    "validation_summary": "The news caption accurately describes the image content, showing Donald Trump speaking on foreign policy at the Mayflower Hotel, so viewers would not be misled. The image check result confirms the accuracy of the caption."
+  },
+  "inference_time": 5.287974834442139,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

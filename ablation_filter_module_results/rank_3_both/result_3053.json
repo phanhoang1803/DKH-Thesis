@@ -1,0 +1,53 @@
+{
+  "caption": "Marin Cilic reacts after beating Kei Nishikori in the men s singles final of the 2014 US Open tennis tournament at USTA Billie Jean King National Tennis Center",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Emilio Solfrizzi",
+      "Computer",
+      "Molfetta",
+      "Soft tennis",
+      "Tennis",
+      "Racket",
+      "Tennis Racket",
+      "Racketlon",
+      "settled",
+      "Personal computer"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Marin Cilic routs Kei Nishikori for U.S. Open title",
+        "content": "M a r i n   C i l i c   r o u t s   K e i   N i s h i k o r i   f o r   U . S .   O p e n   t i t l e",
+        "caption": "Marin Cilic reacts after beating Kei Nishikori in the men's singles final of the 2014 U.S. Open tennis tournament at USTA Billie Jean King National Tennis Center.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5653233528137207,
+        "text_similarity_score": 0.9887994527816772
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is less than 0.85, and the text similarity score is greater than 0.7. According to the instructions, the verdict should be 'False'. The high text similarity (0.9887994527816772) between the candidate caption and the news caption suggests a strong match in content. However, the image similarity is only 0.5653233528137207, indicating that the images may not be the same or very similar. The candidate caption is 'Marin Cilic reacts after beating Kei Nishikori in the men's singles final of the 2014 U.S. Open tennis tournament at USTA Billie Jean King National Tennis Center.' which is almost exactly same as the news caption. Since the image similarity is low, I cannot be confident that the candidate image truly represents the same event as the news image, even though the captions are highly similar.",
+      "supporting_evidences": [
+        "Candidate 1: Caption mentions Marin Cilic reacting after beating Kei Nishikori in the 2014 U.S. Open final."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the images may not be the same or very similar despite the captions being highly similar. The image similarity score is only 0.5653233528137207. Therefore, I cannot be confident that the candidate image truly represents the same event as the news image, even though the captions are highly similar. Based on this analysis and the instructions that for confidence scores of 7-10, final determination must be based on the image check result. Therefore the caption is OOC.",
+    "validation_summary": "The image does not match the caption, as the image similarity is low, indicating that the image likely does not show the event described in the caption, which could mislead viewers about the context of the image and the event being described. Given the caption describes the final match, but the image is not sufficiently similar to another image with the same caption, it is likely to be out of context of the match and the caption itself is misleading given the content of the image alone, leading to the OOC classification with a score of 7 as it relies on the image check result score of 7."
+  },
+  "inference_time": 6.17224907875061,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

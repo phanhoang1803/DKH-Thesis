@@ -1,0 +1,43 @@
+{
+  "caption": "Amanda Seyfried after the Les Miserables musical number",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Musician",
+      "Performance M"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Photos: Backstage and behind the scenes at the Oscars",
+        "content": "P h o t o s :   B a c k s t a g e   a n d   b e h i n d   t h e   s c e n e s   a t   t h e   O s c a r s",
+        "caption": "Amanda Seyfried after the 'Les Miserables' musical number.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3264607787132263,
+        "text_similarity_score": 0.9697455763816833
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is less than 0.85, and the text similarity score is greater than 0.7. Based on the instructions, the verdict should be 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 2, which is less than 7. However, per instructions, for confidence scores 7-10, the final determination must be based on the image check result. The image check result states the image similarity score is less than 0.85, and the text similarity score is greater than 0.7, and the verdict should be 'False'. Therefore, based on the image check result, I must choose 'False'. The image depicts a fair-skinned woman holding a key, but the caption does not accurately describe the image.",
+    "validation_summary": "The image does not depict Amanda Seyfried in Les Miserables, misleading viewers about the image's actual content and context, which is determined based on the image check result that stated the image similarity is less than 0.85 and text similarity is greater than 0.7, yielding a 'False' result. Despite the low confidence score in the image check, the caption is not representative of the image content."
+  },
+  "inference_time": 5.144476413726807,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "both"
+  }
+}

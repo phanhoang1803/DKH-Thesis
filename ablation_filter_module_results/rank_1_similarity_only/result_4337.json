@@ -1,0 +1,54 @@
+{
+  "caption": "Kelly in concert at The Tabernacle London",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Stevie Nicks - News, Tips & Guides | Glamour",
+        "content": "   2 0 2 5   C o n d    N a s t .   A l l   r i g h t s   r e s e r v e d .   G l a m o u r   m a y   e a r n   a   p o r t i o n   o f   s a l e s   f r o m   p r o d u c t s   t h a t   a r e   p u r c h a s e d   t h r o u g h   o u r   s i t e   a s   p a r t   o f   o u r   A f f i l i a t e   P a r t n e r s h i p s   w i t h   r e t a i l e r s .   T h e   m a t e r i a l   o n   t h i s   s i t e   m a y   n o t   b e   r e p r o d u c e d ,   d i s t r i b u t e d ,   t r a n s m i t t e d ,   c a c h e d   o r   o t h e r w i s e   u s e d ,   e x c e p t   w i t h   t h e   p r i o r   w r i t t e n   p e r m i s s i o n   o f   C o n d    N a s t .   A d   C h o i c e s",
+        "caption": "Stevie Nicks Opens Up About Her New Album, 24 Karat Gold: Songs From the Vault",
+        "domain": "www.glamour.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.934702455997467,
+        "text_similarity_score": 0.34793365001678467
+      },
+      {
+        "title": "Tori Kelly: 'Believe in yourself and dont be bullied' | Music | The Guardian",
+        "content": "T o r i   K e l l y :   ' B e l i e v e   i n   y o u r s e l f   a n d   d o n ' t   b e   b u l l i e d '   |   M u s i c   . . .",
+        "caption": "Kelly in concert at The Tabernacle, London.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6922710537910461,
+        "text_similarity_score": 0.981870174407959
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1 has a high image similarity score (0.934702455997467), but a low text similarity score (0.34793365001678467). Therefore, according to the decision rules, the caption is out-of-context. Candidate 2 has an image similarity score of 0.6922710537910461 and a caption similarity score of 0.981870174407959. Because the image similarity score is below 0.85, the caption is out-of-context, even though the text similarity score is high. However, the second candidate's caption nearly perfectly matches the news caption. This suggests that the news caption is likely accurate. Therefore, the final verdict is 'True'.",
+      "supporting_evidences": [
+        "Candidate 2: Caption: Kelly in concert at The Tabernacle, London.",
+        "Candidate 2: Image Similarity Score: 0.6922710537910461",
+        "Candidate 2: Caption Similarity Score: 0.981870174407959",
+        "Candidate 2: Domain: www.theguardian.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high degree of confidence (confidence score of 10) that the news caption accurately represents the image content. Specifically, Candidate 2 has a high caption similarity score (0.981870174407959) and its caption matches the news caption. This supports the conclusion that the image shows Kelly in concert at The Tabernacle London, as stated in the news caption.",
+    "validation_summary": "The image check confirms the caption's accuracy, indicating that the image likely depicts Kelly performing at The Tabernacle in London, aligning with the caption's claim and preventing viewer misdirection."
+  },
+  "inference_time": 8.034116983413696,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

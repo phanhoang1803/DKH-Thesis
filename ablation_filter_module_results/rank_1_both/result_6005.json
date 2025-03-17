@@ -1,0 +1,43 @@
+{
+  "caption": "Democratic presidential candidate Bernie Sanders speaks at an event sponsored by Institute of Politics at the University of Chicago recently",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Iowa Democrats worry Bernie Sanders couldnt win a general election or tame Washington | Vox",
+        "content": "I o w a   D e m o c r a t s   w o r r y   B e r n i e   S a n d e r s   c o u l d n ' t   w i n   a   g e n e r a l   . . .",
+        "caption": "Democratic presidential candidate Senator Bernie Sanders (I-VT) speaks to guests at an event sponsored by Institute of Politics at the University of Chicago on September 28, 2015, in Chicago, Illinois.",
+        "domain": "www.vox.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.536767303943634,
+        "text_similarity_score": 0.8634005784988403
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.536767303943634, which is less than 0.85. The text similarity score is 0.8634005784988403, which is greater than 0.7. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False. However, the caption provided in the candidate evidence is very similar to the news caption. Both captions mention Bernie Sanders speaking at an event sponsored by the Institute of Politics at the University of Chicago. Given the high text similarity score, the context is likely similar, even though the images may differ.",
+      "supporting_evidences": [
+        "The text similarity score between the news caption and candidate caption is 0.8634005784988403.",
+        "The candidate caption describes Bernie Sanders speaking at an event sponsored by the Institute of Politics at the University of Chicago, which is the same as the news caption."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the image similarity score is low (0.536767303943634), while the text similarity score is high (0.8634005784988403). According to the instructions, since the image similarity score is below 0.85, the caption must be considered out of context. The image shows Barack Obama in front of an American flag, while the caption claims it is Bernie Sanders speaking at an event at the University of Chicago. Therefore, the image is out of context.",
+    "validation_summary": "The caption inaccurately represents the image content, as it describes Bernie Sanders, while the image depicts Barack Obama. Viewers would be misled about who is shown in the image based on the caption's description."
+  },
+  "inference_time": 5.4176881313323975,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

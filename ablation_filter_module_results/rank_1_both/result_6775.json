@@ -1,0 +1,45 @@
+{
+  "caption": "Angus Campbell addresses mourners last year at a memorial service in Western Australia for Sergeant Blaine Diddams who was killed in action in Afghanistan",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Soldier"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Army deputy chief Angus Campbell to lead Operation Sovereign Borders | Australian immigration and asylum | The Guardian",
+        "content": "A r m y   d e p u t y   c h i e f   A n g u s   C a m p b e l l   t o   l e a d   O p e r a t i o n   S o v e r e i g n   . . .",
+        "caption": "Angus Campbell addresses mourners last year at a memorial service in Western Australia for Sergeant Blaine Diddams, who was killed in action in Afghanistan. Photograph: Chris Moore/ADF",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.572621762752533,
+        "text_similarity_score": 0.9665442705154419
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.572621762752533, which is less than 0.85. Therefore, according to the instructions, the caption is out-of-context, and the verdict should be \"False\". The text similarity score is 0.9665442705154419, which is greater than 0.7, but the image similarity score is not high enough to confirm the caption accurately represents the image. The candidate caption from www.theguardian.com includes the same information as the news caption, indicating the event and people involved are the same. However, the low image similarity score suggests the image itself does not match the news image.",
+      "supporting_evidences": [
+        "The image similarity score is 0.572621762752533, which is less than 0.85.",
+        "The text similarity score is 0.9665442705154419, which is greater than 0.7."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image similarity score is low (0.572621762752533) while the text similarity score is high (0.9665442705154419). The low image similarity score implies that the image content does not match the event described in the caption, even though the entities (Angus Campbell, Sergeant Blaine Diddams) are the same. The image shows an elderly man with medals, a poppy, and the word \"LEGION\" visible on a blanket, which suggests a memorial or Remembrance Day event. This does not align with the caption's description of Angus Campbell addressing mourners at a memorial service in Western Australia for Sergeant Blaine Diddams. Therefore, the caption is out of context.",
+    "validation_summary": "The caption is misleading because the image does not depict the specific event it describes, potentially leading viewers to believe it does. Despite the caption mentioning a memorial service involving Angus Campbell and Sergeant Blaine Diddams, the image portrays a generic scene with an elderly man wearing medals, unrelated to the specifics of the caption's claim."
+  },
+  "inference_time": 5.4098570346832275,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

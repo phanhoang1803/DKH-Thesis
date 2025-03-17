@@ -1,0 +1,43 @@
+{
+  "caption": "A Terry Pratchett mural in east London by artists Jim Vision Dr Zadok",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Terry Pratchett Mural by Dr Zadok, Jim Vision, Street Art, Brick Lane, London 2014108 - Daniel Pomfret Photography",
+        "content": "T e r r y   P r a t c h e t t   M u r a l   b y   D r   Z a d o k ,   J i m   V i s i o n ,   S t r e e t   A r t ,   B r i c k   . . .",
+        "caption": "Terry Pratchett Mural by Dr Zadok and Jim Vision, Street Art, Brick Lane, London, graffiti",
+        "domain": "www.danielpomfret.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.28051966428756714,
+        "text_similarity_score": 0.8916420340538025
+      },
+      {
+        "title": "Terry Pratchett Mural by Dr Zadok, Jim Vision, Street Art, Brick Lane, London 2014103 - Daniel Pomfret Photography",
+        "content": "T e r r y   P r a t c h e t t   M u r a l   b y   D r   Z a d o k ,   J i m   V i s i o n ,   S t r e e t   A r t ,   B r i c k   . . .",
+        "caption": "Terry Pratchett Mural by Dr Zadok and Jim Vision, Street Art, Brick Lane, London, graffiti",
+        "domain": "www.danielpomfret.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.27606186270713806,
+        "text_similarity_score": 0.8916420340538025
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidate captions describe a Terry Pratchett mural in London by artists Dr Zadok and Jim Vision. However, the image similarity scores are low (below 0.85), indicating that the candidate images might not be the same as the news image. Since the image similarity is low, the caption is deemed out of context even if the text similarity is high. Therefore, the caption's accuracy cannot be confirmed.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 6,
+    "explanation": "The image check result indicates a low similarity between the provided image and the candidate images associated with the caption \"A Terry Pratchett mural in east London by artists Jim Vision Dr Zadok\", with a confidence score of 6. Even though the caption mentions a mural and the image depicts a mural on a brick wall, the low image similarity scores suggest that the specific mural described in the caption might not be what is shown in the image. Thus, the caption's accuracy cannot be confirmed, making it potentially misleading.",
+    "validation_summary": "The caption mentions a specific Terry Pratchett mural, but the image similarity is low, raising doubts about whether the mural in the image is the one described in the caption. Viewers might be misled into thinking the image accurately represents the mural discussed in the caption when this cannot be confirmed."
+  },
+  "inference_time": 5.190986156463623,
+  "ablation_type": "no_image_evidences"
+}

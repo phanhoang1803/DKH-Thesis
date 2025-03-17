@@ -1,0 +1,59 @@
+{
+  "caption": "Secretary of State Hillary Clinton speaks at a campaign rally at the Florida State Fairgrounds in Tampa on Friday July 22 2016",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Florida State Fairgrounds",
+      "Tampa",
+      "past",
+      "United States Secretary of State",
+      "Speech",
+      "Friday",
+      "USA Today",
+      "Political campaign"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Hillary Clinton rallies in Tampa - USA Today",
+        "content": "",
+        "caption": "Democratic presidential candidate Hillary Clinton states her case on Friday.",
+        "domain": "www.usatoday.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Hillary Clinton to make her case for the presidency - 6abc Philadelphia",
+        "content": "H i l l a r y   C l i n t o n   t o   m a k e   h e r   c a s e   f o r   t h e   p r e s i d e n c y   -   6 a b c   . . .",
+        "caption": " In this Friday, July 22, 2016 file photo, Democratic presidential candidate Hillary Clinton speaks at a rally in Entertainment Hall at the Florida State Fairgrounds in Tampa. ",
+        "domain": "6abc.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Photos: Hillary Clinton rally in Tampa",
+        "content": "P h o t o s :   H i l l a r y   C l i n t o n   r a l l y   i n   T a m p a",
+        "caption": "Secretary of State Hillary Clinton speaks at a campaign rally at the Florida State Fairgrounds in Tampa on Friday, July, 22, 2016. Clinton made the stop in Tampa during a two-day swing through Florida, where she is expected to announce her vice presidential running mate.",
+        "domain": "www.naplesnews.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 2 and 3 provides almost the same caption as the news. Candidate 2 states: \"In this Friday, July 22, 2016 file photo, Democratic presidential candidate Hillary Clinton speaks at a rally in Entertainment Hall at the Florida State Fairgrounds in Tampa.\" Candidate 3 states: \"Secretary of State Hillary Clinton speaks at a campaign rally at the Florida State Fairgrounds in Tampa on Friday, July, 22, 2016.\" Therefore, the news caption is deemed as true.",
+      "supporting_evidences": [
+        "Democratic presidential candidate Hillary Clinton states her case on Friday.",
+        "In this Friday, July 22, 2016 file photo, Democratic presidential candidate Hillary Clinton speaks at a rally in Entertainment Hall at the Florida State Fairgrounds in Tampa.",
+        "Secretary of State Hillary Clinton speaks at a campaign rally at the Florida State Fairgrounds in Tampa on Friday, July, 22, 2016. Clinton made the stop in Tampa during a two-day swing through Florida, where she is expected to announce her vice presidential running mate."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "Based on the provided image check result, the news caption is deemed as true. The image check shows the news caption matches the image. The caption is \"Secretary of State Hillary Clinton speaks at a campaign rally at the Florida State Fairgrounds in Tampa on Friday July 22 2016.\" The supporting evidences are: [\"Democratic presidential candidate Hillary Clinton states her case on Friday.\", \"In this Friday, July 22, 2016 file photo, Democratic presidential candidate Hillary Clinton speaks at a rally in Entertainment Hall at the Florida State Fairgrounds in Tampa.\", \"Secretary of State Hillary Clinton speaks at a campaign rally at the Florida State Fairgrounds in Tampa on Friday, July, 22, 2016. Clinton made the stop in Tampa during a two-day swing through Florida, where she is expected to announce her vice presidential running mate.\"]",
+    "validation_summary": "The image check results confirm that the news caption accurately describes the image content, showing Hillary Clinton speaking at a campaign rally in Tampa, Florida, on July 22, 2016. Viewers are not likely to be misled."
+  },
+  "inference_time": 4.526158332824707,
+  "ablation_type": "no_filters"
+}

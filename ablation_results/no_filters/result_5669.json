@@ -1,0 +1,45 @@
+{
+  "caption": "Donald Trump supporters cheer as he takes the stage at Germain Arena on Monday",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "light-hearted",
+      "Concert",
+      "Choir",
+      "Orchestra",
+      "CREW M"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Photos: Donald Trump rallies in Florida",
+        "content": "P h o t o s :   D o n a l d   T r u m p   r a l l i e s   i n   F l o r i d a",
+        "caption": "Supporters take photos as Donald Trump arrives on stage during a Trump rally on Wednesday, October 31, 2018, at Hertz Arena in Estero.",
+        "domain": "www.floridatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Photos: Donald Trump rallies in Florida",
+        "content": "P h o t o s :   D o n a l d   T r u m p   r a l l i e s   i n   F l o r i d a",
+        "caption": "Supporter cheer for Republican presidential nominee Donald Trump as he speaks at a campaign rally at the Florida State Fairgrounds on Wednesday, Aug. 24, 2016, in Tampa. Trump spoke about a variety of issues including jobs, immigration, national security, trade and Hillary Clinton at the event.",
+        "domain": "www.floridatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "Both candidate captions refer to Donald Trump rallies with supporters cheering. However, they do not confirm the specific location (Germain Arena), the specific action (taking the stage), or the specific date (Monday). Since the image similarity scores are low, and the text similarity scores are low, there's not enough evidence to support the caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a crowd of people cheering behind a barrier, some holding up phones. While it could be a rally for Donald Trump, there's nothing specific in the image to confirm this. There are no explicit indicators identifying Donald Trump, Germain Arena, or the event taking place on a Monday. The image check result indicates a low similarity score between the image and caption, suggesting that the caption is not accurately reflecting the image content. Therefore, without more specific information present in the image, it would be misleading to definitively label this as Donald Trump supporters cheering as he takes the stage at Germain Arena on Monday.",
+    "validation_summary": "The caption makes specific claims about the event, location, and date that are not visually supported by the image, misleading viewers about the context of the image. The image could be from any rally or event with cheering supporters; there's nothing specific to verify the news caption."
+  },
+  "inference_time": 3.9337096214294434,
+  "ablation_type": "no_filters"
+}

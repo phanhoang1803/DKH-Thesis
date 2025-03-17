@@ -1,0 +1,56 @@
+{
+  "caption": "Mitt Romney and President Obama meet during a town hallstyle debate at Hofstra University",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "United States",
+      "Politics",
+      "Political campaign",
+      "Mitt Romney 2012 presidential campaign",
+      "Campaign advertising",
+      "Getty Images",
+      "Political science",
+      "Stephen M. Caliendo"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Live: Obama, Romney clash in town hall debate",
+        "content": "L i v e :   O b a m a ,   R o m n e y   c l a s h   i n   t o w n   h a l l   d e b a t e",
+        "caption": "Mitt Romney and President Obama meet during a town hall-style debate at Hofstra University.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "5 things to watch for in Obama vs. Romney sequel",
+        "content": "5   t h i n g s   t o   w a t c h   f o r   i n   O b a m a   v s .   R o m n e y   s e q u e l",
+        "caption": "Mitt Romney and President Obama will answer questions posed by uncommitted voters during a town hall meeting.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have low image similarity scores (<0.85) and low text similarity scores (<0.7). However, Candidate 1's caption matches the news caption verbatim, suggesting the event described in the news caption did occur. The candidate comes from a reputable source (www.usatoday.com). Thus, I will mark the caption as verified, but only with a moderate confidence since there is no image match.",
+      "supporting_evidences": [
+        "Candidate 1: Caption matches the news caption."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates that the caption is not verifiable through image analysis. The image shows Mitt Romney at a podium with a sign that says \"OBAMA ISN'T WORKING\". The caption states that Mitt Romney and President Obama meet during a town hall-style debate at Hofstra University, but the image does not show President Obama. The setting and the text in the image directly contradict the caption's claim about a debate between the two. Therefore, the caption is not a correct representative summary of the image content.",
+    "validation_summary": "The caption falsely claims that the image depicts a town hall debate between Mitt Romney and Barack Obama, when it only shows Romney at a podium with a sign criticizing Obama, misleading viewers about the context of the image. This discrepancy indicates that the image is out of context."
+  },
+  "inference_time": 3.4964284896850586,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

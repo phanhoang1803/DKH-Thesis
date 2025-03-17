@@ -72,8 +72,8 @@ for item in result_json_list:
             # candidates.append(result_json['external_check']['text_evidences'])
             # entities.append(result_json['internal_check']['visual_entities'])
             
-            if result_json['final_result']['OOC'] == result_json['check_result']['result']['verdict'] and result_json['ground_truth'] != result_json['final_result']['OOC']:
-                unmatch_result_idx.append(int(index))
+            # if result_json['final_result']['OOC'] == result_json['check_result']['result']['verdict'] and result_json['ground_truth'] != result_json['final_result']['OOC']:
+            #     unmatch_result_idx.append(int(index))
             
             if result_json['ground_truth'] != result_json['final_result']['OOC']:
                 # print(result_json_dir)
@@ -96,23 +96,23 @@ with open('src/incorrect_index.txt', 'w') as f:
     for index in incorrect_index:
             f.write(str(index) + '\n')
 
-correct_index.sort()
-print(correct_index)
-with open('src/correct_index.txt', 'w') as f:
-    for index in correct_index:
-        f.write(str(index) + '\n')
+# correct_index.sort()
+# # print(correct_index)
+# with open('src/correct_index.txt', 'w') as f:
+#     for index in correct_index:
+#         f.write(str(index) + '\n')
 
 unmatch_result_idx.sort()
-print(unmatch_result_idx)
+# print(unmatch_result_idx)
 with open('src/unmatch_result_idx.txt', 'w') as f:
     for index in unmatch_result_idx:
         f.write(str(index) + '\n')
 
-non_evidence_idx.sort()
-print(non_evidence_idx)
-with open('src/non_evidence_idx.txt', 'w') as f:
-    for index in non_evidence_idx:
-        f.write(str(index) + '\n')
+# non_evidence_idx.sort()
+# # print(non_evidence_idx)
+# with open('src/non_evidence_idx.txt', 'w') as f:
+#     for index in non_evidence_idx:
+#         f.write(str(index) + '\n')
 
 print(f"Empty evidence count: {empty_evidence_count}")
 print(len(captions))
@@ -160,16 +160,16 @@ average_time = sum(inference_time_list) / len(inference_time_list)
 print(f"Average Inference Time: {average_time:.6f} seconds")
 
 
-# Generate Classification Report
-report = classification_report(ground_truth, adjusted_predicted, target_names=class_names)
-print("\nClassification Report:")
-print(report)
-print("################################")
+# # Generate Classification Report
+# report = classification_report(ground_truth, adjusted_predicted, target_names=class_names)
+# print("\nClassification Report:")
+# print(report)
+# print("################################")
 
-# calculate per-class accuracy
-cm = confusion_matrix(ground_truth, adjusted_predicted)
-class_accuracies = cm.diagonal() / cm.sum(axis=1)
-print("Per-Class Accuracy:")
-for class_name, acc in zip(class_names, class_accuracies):
-    print(f"{class_name}: {acc:.4f}")
-print("################################")
+# # calculate per-class accuracy
+# cm = confusion_matrix(ground_truth, adjusted_predicted)
+# class_accuracies = cm.diagonal() / cm.sum(axis=1)
+# print("Per-Class Accuracy:")
+# for class_name, acc in zip(class_names, class_accuracies):
+#     print(f"{class_name}: {acc:.4f}")
+# print("################################")

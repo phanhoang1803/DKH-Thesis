@@ -1,0 +1,45 @@
+{
+  "caption": "Ted Cruz speaks at the Republican presidential debate in Boulder Colo",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speech",
+      "Public speaking",
+      "Meter",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Minute-by-minute breakdown of GOP presidential debate in Colorado | PBS News",
+        "content": "M i n u t e - b y - m i n u t e   b r e a k d o w n   o f   G O P   p r e s i d e n t i a l   d e b a t e   i n   C o l o r a d o   . . .",
+        "caption": "Republican U.S. presidential candidate former HP CEO Carly Fiorina speaks as Dr. Ben Carson, left, and U.S. Senator Ted Cruz listen at the 2016 U.S. Republican presidential candidates debate held by CNBC in Boulder, Colorado, Wednesday. Photo by Rick Wilking/Reuters",
+        "domain": "www.pbs.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The news caption states \"Ted Cruz speaks at the Republican presidential debate in Boulder Colo.\" Candidate 1 mentions \"Republican U.S. presidential candidate former HP CEO Carly Fiorina speaks as Dr. Ben Carson, left, and U.S. Senator Ted Cruz listen at the 2016 U.S. Republican presidential candidates debate held by CNBC in Boulder, Colorado, Wednesday.\" This evidence confirms the presence of Ted Cruz at a Republican presidential debate in Boulder, Colorado. However, the candidate mentions Ted Cruz is listening, not speaking. The image similarity score is very low, indicating the image in the candidate does not match the image in the news. Therefore, the information provided is not a full match. The caption is only partially verified.",
+      "supporting_evidences": [
+        "Republican U.S. presidential candidate former HP CEO Carly Fiorina speaks as Dr. Ben Carson, left, and U.S. Senator Ted Cruz listen at the 2016 U.S. Republican presidential candidates debate held by CNBC in Boulder, Colorado, Wednesday."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a partial match with the news caption, mentioning Ted Cruz's presence at a Republican debate in Boulder, Colorado. However, it also notes that the candidate mentions Ted Cruz is listening, not speaking, which contradicts the caption. The image clearly shows Ted Cruz speaking into a microphone. Based on the image check result, and the image showing Ted Cruz speaking, the caption is misleading. Therefore, it is out of context.",
+    "validation_summary": "The caption suggests Ted Cruz is speaking at the Republican presidential debate, which the image confirms, but the image check information states the candidate indicates he is listening. This contradiction makes the image caption misleading."
+  },
+  "inference_time": 4.15183687210083,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

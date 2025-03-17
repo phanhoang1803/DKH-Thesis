@@ -1,0 +1,38 @@
+{
+  "caption": "Malala Yousafzai at the United Nations General Assembly in New York City",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "World leaders confront COVIDs impact on education ahead of U.N. General Assembly | PBS News",
+        "content": "W o r l d   l e a d e r s   c o n f r o n t   C O V I D ' s   i m p a c t   o n   e d u c a t i o n   a h e a d   o f   U . N .   . . .",
+        "caption": "Malala Yousafzai speaks during the Transforming Education Summit on the sidelines of the United Nations General Assembly a...",
+        "domain": "www.pbs.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is 0.0 which means the image in the candidate and the image in the news do not match. Also, the text similarity score is 0.0 which means the caption in the candidate and the caption in the news do not match. Therefore, the evidence does not support the claim that the caption accurately represents the image. The candidate caption refers to Malala Yousafzai speaking during the Transforming Education Summit on the sidelines of the United Nations General Assembly. The news caption states Malala Yousafzai at the United Nations General Assembly in New York City. They both share the location and people, but the events are different.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image and the caption do not match. The image similarity score is 0.0, indicating a mismatch between the image in the candidate and the news image. Similarly, the text similarity score is 0.0, suggesting a mismatch between the candidate and news captions. The candidate caption specifies Malala Yousafzai speaking during the Transforming Education Summit, while the news caption mentions Malala Yousafzai at the United Nations General Assembly in New York City. While both refer to the same location and person, they describe different events. The image shows Malala holding a microphone and raising two fingers in a 'peace' sign. Therefore, the caption does not accurately represent the image.",
+    "validation_summary": "The caption places Malala Yousafzai at the United Nations General Assembly, but the image content and image check suggest she was at a different event, leading to a mismatch between the caption and the visual evidence. This discrepancy would mislead viewers about the specific context of the image and the event it depicts."
+  },
+  "inference_time": 5.35479474067688,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

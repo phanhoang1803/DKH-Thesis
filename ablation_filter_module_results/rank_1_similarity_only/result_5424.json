@@ -1,0 +1,45 @@
+{
+  "caption": "Brooks Headley James Beard winner and former pastry chef at Del Posto picks up some cucumbers from the basement of Superiority Burger This is not about health food Headley said",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Bus",
+      "Bus stop"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "",
+        "content": "   ",
+        "caption": " Brooks Headley, James Beard winner and former pastry chef at Del Posto, picks up some cucumbers from the basement of Superiority Burger. This is not about health food, Headley said. ",
+        "domain": "www.iusm.co.kr",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9344379901885986,
+        "text_similarity_score": 0.9335240125656128
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.9344379901885986 and the text similarity score is 0.9335240125656128. According to the instructions, if the Image Similarity Score is greater than or equal to 0.85 AND the Text Similarity Score is greater than or equal to 0.7, the verdict should be True.",
+      "supporting_evidences": [
+        "Caption: ▲ Brooks Headley, James Beard winner and former pastry chef at Del Posto, picks up some cucumbers from the basement of Superiority Burger. “This is not about health food,” Headley said. 워싱턴포스트"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result shows an image similarity score of 0.9344379901885986 and a text similarity score of 0.9335240125656128. According to the instructions, if the Image Similarity Score is greater than or equal to 0.85 AND the Text Similarity Score is greater than or equal to 0.7, the verdict should be True, meaning the image is not out of context.",
+    "validation_summary": "The image check indicates that the caption accurately represents the image content, and viewers would not be misled about what they're seeing in the image relative to the caption's description of Brooks Headley picking up cucumbers at Superiority Burger. Therefore, the image is not out of context with the provided caption from the news article, based on a high image and text similarity score between the image and the caption description, as it shows a man (identified as Brooks Headley in the caption) reaching into what appears to be a basement entrance with cucumbers present. The text on the building is clearly visible spelling out Superiority Burger. All elements match the claim in the provided caption perfectly."
+  },
+  "inference_time": 5.600674152374268,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

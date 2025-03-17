@@ -1,0 +1,40 @@
+{
+  "caption": "The least expensive apartments in Lavasa now sell for between 17000 and 36000 out of reach for most middleclass Indians",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "John Brown's Public Diplomacy Press and Blog Review: February 14",
+        "content": "",
+        "caption": "",
+        "domain": "publicdiplomacypressandblogreview.blogspot.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9928366541862488,
+        "text_similarity_score": 0.005882438272237778
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is very high (0.9928366541862488), suggesting the images are nearly identical. However, the text similarity score is extremely low (0.005882438272237778), indicating the captions are dissimilar. Without any actual caption content provided in the candidate, I cannot assess any relevance or context. Therefore, based on the available data, I cannot confirm if the candidate supports or contradicts the news caption. Due to the lack of supporting information and low text similarity, the verdict is false.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a very high image similarity score (0.9928366541862488) but an extremely low text similarity score (0.005882438272237778). This signifies that the image provided in the news content and the given image are highly similar, but the news caption is dissimilar from the candidate's caption (which is empty). The news caption discusses apartment costs in Lavasa being out of reach for most middle-class Indians. However, the image shows an exterior view of buildings that appear to be apartments in Lavasa. Without more context in the candidate, it is impossible to correlate the visuals of the apartment complex with the claim about apartment prices. Given the discrepancy and lack of supporting details, the news caption is considered misleading in its context. Therefore, the image is out of context.",
+    "validation_summary": "The caption is misleading because it mentions apartment costs, while the image depicts the exterior of buildings without confirming or denying the price range; the lack of context and detail would likely mislead viewers. Based on the image check result, the caption is out of context because the image does not illustrate or validate the price points mentioned in the news caption."
+  },
+  "inference_time": 6.8994300365448,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

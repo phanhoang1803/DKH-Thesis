@@ -1,0 +1,38 @@
+{
+  "caption": "Rob Brydon plays inspirational teacher Mr Crane",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Future Conditional review  Rob Brydon delivers a seriously funny school lesson | Theatre | The Guardian",
+        "content": "F u t u r e   C o n d i t i o n a l   r e v i e w      R o b   B r y d o n   d e l i v e r s   a   s e r i o u s l y   f u n n y   . . .",
+        "caption": "Bright-eyed fervour  Rob Brydon as Mr Crane in Future Conditional at the Old Vic, London.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.5608623623847961,
+        "text_similarity_score": 0.7023741006851196
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.5608623623847961, which is less than 0.85. Therefore, according to the instructions, the caption is out-of-context. The caption of the news image is \"Rob Brydon plays inspirational teacher Mr Crane\", while the caption of the candidate image is \"Bright-eyed fervour … Rob Brydon as Mr Crane in Future Conditional at the Old Vic, London.\" The candidate caption mentions \"Future Conditional at the Old Vic, London\", which provides additional context not present in the original news caption. The text similarity score is 0.7023741006851196, which is greater than 0.7. However, because the image similarity score is below 0.85, we cannot confirm that the candidate image aligns with the original news image.",
+      "supporting_evidences": [
+        "The image similarity score is 0.5608623623847961, which is less than 0.85",
+        "The caption of the candidate image is \"Bright-eyed fervour … Rob Brydon as Mr Crane in Future Conditional at the Old Vic, London.\"",
+        "The text similarity score is 0.7023741006851196, which is greater than 0.7"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates the caption is out-of-context with a confidence score of 7. The image similarity score is 0.5608623623847961, which is less than 0.85. The caption of the news image is \"Rob Brydon plays inspirational teacher Mr Crane\", while the caption of the candidate image is \"Bright-eyed fervour … Rob Brydon as Mr Crane in Future Conditional at the Old Vic, London.\" The candidate caption mentions \"Future Conditional at the Old Vic, London\", which provides additional context not present in the original news caption. The text similarity score is 0.7023741006851196, which is greater than 0.7. However, because the image similarity score is below 0.85, we cannot confirm that the candidate image aligns with the original news image.",
+    "validation_summary": "Based on the image check, the caption lacks sufficient context about the play and its location, potentially misleading viewers about the specific event depicted in the image. The image context indicates that the image is from \"Future Conditional at the Old Vic, London.\", a fact not conveyed by the caption alone and not strongly supported by the image itself considering the similarity score being less than 0.85. Thus the image is out of context OOC=True and confidence score = 7 because the Image Check result is to be used in the final verdict when confidence scores are 7-10, as this score is 7."
+  },
+  "inference_time": 7.0090250968933105,
+  "ablation_type": "no_image_evidences"
+}

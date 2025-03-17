@@ -1,0 +1,53 @@
+{
+  "caption": "No 12 Washington DullesAbu Dhabi United Arab Emirates Etihad Airways Block time of 13 hours 10 minutes",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "The world's 20 longest Dreamliner routes",
+        "content": "T h e   w o r l d ' s   2 0   l o n g e s t   D r e a m l i n e r   r o u t e s",
+        "caption": "No. 12: Washington Dulles-Abu Dhabi, United Arab Emirates; Etihad Airways. Block time of 13 hours, 10 minutes.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.7755371928215027,
+        "text_similarity_score": 0.8755808472633362
+      },
+      {
+        "title": "These are the world's 20 longest Boeing 787 Dreamliner flights - 2017",
+        "content": "T h e s e   a r e   t h e   w o r l d ' s   2 0   l o n g e s t   B o e i n g   7 8 7   D r e a m l i n e r   f l i g h t s   -   2 0 1 7",
+        "caption": "No. 19: Washington Dulles-Abu Dhabi, United Arab Emirates (7,073 miles); Etihad Airways); Block time of 14 hours, 10 minutes.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8005609512329102,
+        "text_similarity_score": 0.8339219689369202
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity scores for both candidates are below 0.85, indicating that the images may not perfectly match. However, the text similarity scores are relatively high (0.8755808472633362 and 0.8339219689369202), suggesting a strong similarity between the captions. Considering the information presented in both candidates, the news caption seems to accurately reflect the details provided, specifically mentioning the flight route (Washington Dulles-Abu Dhabi), the airline (Etihad Airways), and the block time (approximately 13 hours). Therefore, despite the lower image similarity scores, the textual evidence supports the caption's accuracy.",
+      "supporting_evidences": [
+        "Candidate 1: Caption similarity score of 0.8755808472633362, indicating high similarity with the news caption.",
+        "Candidate 1: Mentions 'Washington Dulles-Abu Dhabi, United Arab Emirates; Etihad Airways. Block time of 13 hours, 10 minutes.'",
+        "Candidate 2: Mentions 'Washington Dulles-Abu Dhabi, United Arab Emirates; Etihad Airways); Block time of 14 hours, 10 minutes.'"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows a Boeing 737-MAX taking off. The caption references a flight route between Washington Dulles and Abu Dhabi on Etihad Airways with a block time of approximately 13 hours. While the news article discusses Boeing and airshows, the image does not depict Etihad Airways or provide any visual confirmation of the specific flight route mentioned in the caption. The image check provides support based on textual evidence from candidate captions, however, the image in the news article does not support the caption and is therefore out of context.",
+    "validation_summary": "The caption mentions a specific flight route and airline that are not visually represented in the image of a Boeing 737-MAX taking off, potentially misleading viewers about the image's content. Given the mismatch between the visual content and the caption's specific details, the image is considered out of context."
+  },
+  "inference_time": 6.266649961471558,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

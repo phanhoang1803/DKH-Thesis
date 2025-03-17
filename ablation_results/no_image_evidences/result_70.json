@@ -1,0 +1,45 @@
+{
+  "caption": "A Russian air force helicopter is seen on the tarmac of Hmeimim air base near the Syrian port town of Latakia",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Should there be a no-fly zone over Syria? - BBC News",
+        "content": "S h o u l d   t h e r e   b e   a   n o - f l y   z o n e   o v e r   S y r i a ?   -   B B C   N e w s",
+        "caption": "A Russian air force helicopter is seen on the tarmac of Hmeimim air base near the Syrian port town of Latakia",
+        "domain": "www.bbc.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9967872500419617,
+        "text_similarity_score": 1.0
+      },
+      {
+        "title": "Russian presence in Syria remains. But it's unclear for how long | AP News",
+        "content": "R u s s i a n   p r e s e n c e   i n   S y r i a   r e m a i n s .   B u t   i t ' s   u n c l e a r   f o r   h o w   l o n g   . . .",
+        "caption": "Russian army armoured vehicles drive near the Hmeimim Air Base, a Syrian airbase currently operated by Russia, located southeast of the city of Latakia in the town of Hmeimim, Syria, Monday Dec. 16, 2024.(AP Photo/Leo Correa)",
+        "domain": "apnews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3511617183685303,
+        "text_similarity_score": 0.736312210559845
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "We have two candidate evidences. Candidate 1 has an image similarity score of 0.9967872500419617 and a text similarity score of 1.0. Since both scores meet the thresholds (image similarity >= 0.85 and text similarity >= 0.7), the caption is considered in-context. Candidate 2 has an image similarity score of 0.3511617183685303 and a text similarity score of 0.736312210559845. The image similarity is below the threshold (0.85) so this candidate will not be taken into consideration. Based on the analysis of Candidate 1, the provided caption accurately represents the image content, depicting a Russian air force helicopter at Hmeimim air base near Latakia.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.9967872500419617, Text Similarity Score: 1.0"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "validation_summary": "The caption accurately describes the image as showing a Russian air force helicopter at Hmeimim air base near Latakia.",
+    "explanation": "The image check result indicates a high confidence score of 10, confirming that the caption 'A Russian air force helicopter is seen on the tarmac of Hmeimim air base near the Syrian port town of Latakia' is an accurate representation of the visual content. The image indeed displays a Russian military helicopter situated on the tarmac of Hmeimim air base, consistent with the given location and context in the caption."
+  },
+  "inference_time": 8.882898569107056,
+  "ablation_type": "no_image_evidences"
+}

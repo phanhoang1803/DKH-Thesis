@@ -1,0 +1,40 @@
+{
+  "caption": "In this production Polunin plays the hero Franz a simple country boy who falls in love with the dancing doll",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Sergei Polunin and the Stanislavsky Ballet backstage in Copplia  in pictures | Stage | The Guardian",
+        "content": "S e r g e i   P o l u n i n   a n d   t h e   S t a n i s l a v s k y   B a l l e t   b a c k s t a g e   i n   C o p p  l i a   . . .",
+        "caption": "Coppelia: Sergei Polunin (Franz) and Kristina Shapran (Swanhilda) ",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The news caption states that \"In this production Polunin plays the hero Franz a simple country boy who falls in love with the dancing doll\". The candidate caption \"Coppelia: Sergei Polunin (Franz) and Kristina Shapran (Swanhilda)\" confirms that Sergei Polunin plays the role of Franz in the Coppelia production. It also identifies Kristina Shapran as Swanhilda. However, it does not confirm that Franz is 'a simple country boy who falls in love with the dancing doll'. The Image Similarity Score is 0.0 and the Text Similarity Score is 0.0. Due to the low similarity scores and lack of complete confirmation, the caption is not fully verified.",
+      "supporting_evidences": [
+        "Candidate 1 confirms Sergei Polunin plays the role of Franz in Coppelia."
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image shows a person in a dress looking at a painting. The caption mentions \"Polunin plays the hero Franz a simple country boy who falls in love with the dancing doll\", but the image does not show Franz in a country setting or interacting with a doll. The image does show someone (presumably Polunin) in a dress, which doesn't match the description of \"a simple country boy\". The image check result has a verdict of False, which confirms that the caption does not accurately represent what the image shows. Therefore, the image is out of context.",
+    "validation_summary": "The image shows a person in a dress, while the caption describes the character as 'a simple country boy,' misleading viewers about the portrayal of the character in the image. Therefore, the caption is not accurately representing the image, and is out of context.. Given the image check scored high, the verdict aligns with the automated tools analysis and the image evidence, confirming the initial assessment of being out of context . For these reasons the image is deemed to be out of context, and the rating in the image check result will be followed given the high confidence score in the image check verdict of False. The viewer is mislead by seeing the person in a dress in the image. As it does not accurately represent what the image shows, it is out of context because it does not show the country or interaction with the doll."
+  },
+  "inference_time": 6.704554796218872,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

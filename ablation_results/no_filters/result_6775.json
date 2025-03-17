@@ -1,0 +1,41 @@
+{
+  "caption": "Angus Campbell addresses mourners last year at a memorial service in Western Australia for Sergeant Blaine Diddams who was killed in action in Afghanistan",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Soldier"
+    ],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Army deputy chief Angus Campbell to lead Operation Sovereign Borders | Australian immigration and asylum | The Guardian",
+        "content": "C a m p b e l l - 0 1 0 . j p g ? w i d t h = 1 2 0 0 &   . . .",
+        "caption": "Angus Campbell addresses mourners last year at a memorial service in Western Australia for Sergeant Blaine Diddams, who was killed in action in Afghanistan. Photograph: Chris Moore/ADF",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Army deputy chief Angus Campbell to lead Operation Sovereign Borders | Australian immigration and asylum | The Guardian",
+        "content": "A r m y   d e p u t y   c h i e f   A n g u s   C a m p b e l l   t o   l e a d   O p e r a t i o n   S o v e r e i g n   . . .",
+        "caption": "Angus Campbell addresses mourners last year at a memorial service in Western Australia for Sergeant Blaine Diddams, who was killed in action in Afghanistan. Photograph: Chris Moore/ADF",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 5,
+      "explanation": "The Image Similarity Score is 0.0 and the Text Similarity Score is 0.0. Both candidates have the exact same caption as the news item, suggesting the caption is accurate. However, since the image similarity is low, I cannot confirm if the image matches the caption. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows an elderly man, likely a veteran, wearing a beret and military attire adorned with medals. He is seated and covered with a blanket displaying the word 'LEGION'. This scene contrasts sharply with the caption's description of 'Angus Campbell addressing mourners last year at a memorial service in Western Australia for Sergeant Blaine Diddams who was killed in action in Afghanistan.' The image doesn't depict Angus Campbell addressing anyone, nor does it provide any visual indication of a memorial service or the location mentioned in the caption. The image check result also indicates a low image similarity score, further supporting the conclusion that the image and caption are mismatched. The image check result has high confidence.",
+    "validation_summary": "The image shows an elderly veteran with medals, whereas the caption describes Angus Campbell addressing mourners at a memorial service, which is not visually represented in the image. This discrepancy would mislead viewers about the image's content, as the image doesn't align with the caption's description of an address at a memorial service for a soldier killed in Afghanistan. Therefore, the image is out of context because the caption does not reflect the content of the image at all. The image check result also indicated the caption and the image are mismatched. Since the image check result shows high confidence, the final decision is based on the image check result. Therefore, the image is out of context since the caption does not reflect the image content."
+  },
+  "inference_time": 4.1372151374816895,
+  "ablation_type": "no_filters"
+}

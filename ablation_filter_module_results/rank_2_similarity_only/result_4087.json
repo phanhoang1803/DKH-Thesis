@@ -1,0 +1,62 @@
+{
+  "caption": "Devyani Khobragade India s deputy consul general in New York",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Second Lady Usha Vance to head U.S. delegation at Special Olympics Winter Games in Italy",
+        "content": "I t   l o o k s   l i k e   n o t h i n g   w a s   f o u n d   a t   t h i s   l o c a t i o n .   M a y b e   t r y   a   s e a r c h ?",
+        "caption": "",
+        "domain": "diyatvusa.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9113435745239258,
+        "text_similarity_score": 0.15084105730056763
+      },
+      {
+        "title": "India: US Diplomat Underpaid Filipina Maid and School Teachers Evaded Taxes | IBTimes UK",
+        "content": "I n d i a :   U S   D i p l o m a t   U n d e r p a i d   F i l i p i n a   M a i d   a n d   S c h o o l   T e a c h e r s   . . .",
+        "caption": "India's Deputy Consul General in New York, Devyani Khobragade,",
+        "domain": "www.ibtimes.co.uk",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.25703874230384827,
+        "text_similarity_score": 0.9793429374694824
+      },
+      {
+        "title": "India Vows to Protect Diplomat After US Arrest",
+        "content": "I n d i a   V o w s   t o   P r o t e c t   D i p l o m a t   A f t e r   U S   A r r e s t",
+        "caption": "FILE - Devyani Khobragade, India's deputy consul general, attends a fundraiser event in Long Island, New York, Dec. 8, 2013.",
+        "domain": "www.voanews.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.35324063897132874,
+        "text_similarity_score": 0.8114440441131592
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Based on the provided evidence, the highest image similarity score is 0.9113435745239258, but the corresponding caption similarity score is only 0.15084105730056763. The second candidate has a caption similarity score of 0.9793429374694824, but the image similarity score is low (0.25703874230384827). The third candidate also has a low image similarity score of 0.35324063897132874 even if the caption similarity score is 0.8114440441131592. Since the image similarity score is below 0.85 for the second and third candidate, even with high text similarity score, the caption is considered out-of-context. Based on the analysis, the first candidate has the highest image similarity score, but the caption similarity score is low, indicating that the captions do not match well. While the captions of the other candidates are similar to the news caption, their image similarity scores are low, suggesting that the images are not similar. Therefore, without a strong match in both image and caption similarity, it is difficult to confidently confirm that the news caption accurately represents the image.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.9113435745239258, Caption Similarity Score: 0.15084105730056763",
+        "Candidate 2: Image Similarity Score: 0.25703874230384827, Caption Similarity Score: 0.9793429374694824",
+        "Candidate 3: Image Similarity Score: 0.35324063897132874, Caption Similarity Score: 0.8114440441131592"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a high image similarity score for Candidate 1 (0.9113435745239258) but a low caption similarity score (0.15084105730056763). This discrepancy suggests that while the image might share some visual similarities with other images of the person mentioned in the caption, the caption itself doesn't accurately represent the specific content of the given image. The other candidates have lower image similarity scores, reinforcing the idea that the caption is not an accurate descriptor of the image in question. Therefore, it is determined that the caption is out of context.",
+    "validation_summary": "The caption mentions Devyani Khobragade, but the low caption similarity score in the image check result, despite a high image similarity, suggests that the caption does not accurately represent the specific content of this particular image, therefore misleading viewers about what is being shown. The high image similarity suggests that other images may show similar content and people, but the low caption similarity score indicates that they are not representing the same thing."
+  },
+  "inference_time": 8.84366774559021,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

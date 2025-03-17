@@ -1,0 +1,58 @@
+{
+  "caption": "Prince Harry on a visit to Oman last November",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "140 The Royal Threesome ideas | duchess of cambridge, kate and harry, princess kate",
+        "content": "",
+        "caption": "",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8994818329811096,
+        "text_similarity_score": 0.041938092559576035
+      },
+      {
+        "title": "59 10/26/15  BAFTA ideas | duchess of cambridge, duchess, prince william and harry",
+        "content": "",
+        "caption": "",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.8095589876174927,
+        "text_similarity_score": 0.041938092559576035
+      },
+      {
+        "title": "Prince Harry to leave armed forces | Prince Harry | The Guardian",
+        "content": "P r i n c e   H a r r y   t o   l e a v e   a r m e d   f o r c e s   |   P r i n c e   H a r r y   |   T h e   G u a r d i a n",
+        "caption": "Prince Harry on a visit to Oman last November.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1788347214460373,
+        "text_similarity_score": 0.9740144610404968
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Candidate 1 and 2 have high image similarity scores (0.899 and 0.809) but low caption similarity scores (0.041). This suggests the images may be related to Prince Harry, but the captions do not strongly align with the news caption about his visit to Oman. Candidate 3 has a low image similarity score (0.178) but a very high caption similarity score (0.974). Because the image similarity score for candidate 3 is low, it cannot be used to confirm the news caption. Because the image similarity scores for candidates 1 and 2 are greater than candidate 3, but less than 0.85, the caption must be marked as out-of-context. The lack of sufficiently similar image content prevents definitive confirmation. Therefore, based on the available evidence, I cannot definitively confirm that the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates a confidence score of 7, signifying a moderate level of certainty. The image check result indicates that candidate images related to Prince Harry did not align well with the caption about a visit to Oman. The image features Prince Harry along with other individuals, including Prince William and Kate Middleton, in what appears to be a public event or gathering. The caption claims Prince Harry was on a visit to Oman last November. Given the image check result's moderate confidence score, the caption does not match the image content, as the image does not provide evidence supporting the specific claim of a visit to Oman.",
+    "validation_summary": "The caption does not accurately represent the image content, as the image shows Prince Harry at an event that is not clearly related to a visit to Oman. The image is therefore out of context with the provided caption."
+  },
+  "inference_time": 6.842634677886963,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

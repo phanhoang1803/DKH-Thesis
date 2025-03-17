@@ -1,0 +1,40 @@
+{
+  "caption": "China has maintained tight security in Xinjiang amid fears of Uighur separatism",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Boston police comb Watertown for bombing suspect  in pictures | US news | The Guardian",
+        "content": "F r i   1 9   A p r   2 0 1 3   1 2 . 3 9  B S T \n \n \n                         F i r s t   p u b l i s h e d   o n   F r i   1 9   A p r   2 0 1 3   1 2 . 3 9  B S T \n \n P h o t o g r a p h :   M a r i o   T a m a / G e t t y   I m a g e s \n \n P h o t o g r a p h :   L u c a s   J a c k s o n / R e u t e r s \n \n P h o t o g r a p h :   M a r i o   T a m a / G e t t y   I m a g e s \n \n P h o t o g r a p h :   X i n h u a   / L a n d o v   /   B a r c r o f t   M e d i a / B a r c r o f t   M e d i a \n \n P h o t o g r a p h :   K a y a n a   S z y m c z a k / G e t t y   I m a g e s \n \n P h o t o g r a p h :   K a y a n a   S z y m c z a k / G e t t y   I m a g e s \n \n P h o t o g r a p h :   J o h n   M o t t e r n / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   M a t t   C a m p b e l l / E P A \n \n P h o t o g r a p h :   A l l i s o n   S h e l l e y / G e t t y   I m a g e s \n \n P h o t o g r a p h :   C J   G u n t h e r / E P A \n \n P h o t o g r a p h :   R e x   F e a t u r e s / Z u m a \n \n P h o t o g r a p h :   C h a r l e s   K r u p a / A P \n \n P h o t o g r a p h :   D a r r e n   M c C o l l e s t e r / G e t t y   I m a g e s \n \n P h o t o g r a p h :   M a t t   C a m p b e l l / E P A \n \n P h o t o g r a p h :   M a t t   C a m p b e l l / E P A \n \n P h o t o g r a p h :   B a r c r o f t   M e d i a \n \n P h o t o g r a p h :   B a r c r o f t   M e d i a \n \n P h o t o g r a p h :   D a r r e n   M c C o l l e s t e r / G e t t y   I m a g e s \n \n P h o t o g r a p h :   S t a n   H o n d a / A F P / G e t t y   I m a g e s \n \n P h o t o g r a p h :   D a r r e n   M c C o l l e s t e r / G e t t y   I m a g e s",
+        "caption": "Watertown crime scene: Metro SWAT members hang off the back of a truck",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9791747331619263,
+        "text_similarity_score": 0.1013345718383789
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.9791747331619263 and the text similarity score is 0.1013345718383789. Since the image similarity score is greater than 0.85 and the text similarity score is less than 0.7, the caption is out-of-context based on the instructions.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a group of armed police officers, possibly SWAT team members. They are wearing helmets, body armor, and camouflage uniforms. The caption talks about China maintaining tight security in Xinjiang amid fears of Uighur separatism. While the image could potentially depict a scene related to security measures, there is no explicit information in the image to confirm that these officers are specifically in Xinjiang or that their presence is directly related to Uighur separatism. Based on the image check result, the image similarity score is high (0.9791747331619263), but the text similarity score is low (0.1013345718383789). The image check result indicates that the caption is out-of-context.",
+    "validation_summary": "The image of armed officers doesn't provide direct evidence supporting the caption's claim about security measures in Xinjiang related to Uighur separatism, potentially misleading viewers about the context of the image. Thus, the caption is out of context, as confirmed by the image check result."
+  },
+  "inference_time": 6.589933395385742,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

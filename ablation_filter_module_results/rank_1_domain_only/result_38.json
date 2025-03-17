@@ -1,0 +1,40 @@
+{
+  "caption": "The MyNameIs coalition will demonstrate Sunday at 11am across the street from Facebook s Menlo Park headquarters in California",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Facebook users plan protest against site's 'real name' policy at headquarters | Facebook | The Guardian",
+        "content": "F a c e b o o k   u s e r s   p l a n   p r o t e s t   a g a i n s t   s i t e ' s   ' r e a l   n a m e '   p o l i c y   a t   . . .",
+        "caption": "The #MyNameIs coalition will demonstrate Sunday at 11am across the street from Facebooks Menlo Park headquarters in California.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. This indicates that the image in the candidate is not similar to the image in the news and the caption in the candidate is not similar to the caption in the news. However, the candidate caption is verbatim with the news caption, and the domain is from a reliable source (www.theguardian.com). Therefore, the evidence partially supports the caption. Considering the evidence, the verdict is true.",
+      "supporting_evidences": [
+        "The #MyNameIs coalition will demonstrate Sunday at 11am across the street from Facebook’s Menlo Park headquarters in California."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 6. Therefore, image analysis is needed. The image shows a woman using a laptop displaying a Facebook page. A mobile phone is also visible. The caption states that a demonstration will occur at Facebook's Menlo Park headquarters. The image does not show any demonstration or any element related to the caption's claim. Thus, the caption is unrelated to the image content. Therefore, the image is out of context.",
+    "validation_summary": "The image depicts a woman on a laptop, which is unrelated to the caption about a demonstration. Viewers would be misled into thinking the image relates to a protest against Facebook, which is not depicted."
+  },
+  "inference_time": 5.201392412185669,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

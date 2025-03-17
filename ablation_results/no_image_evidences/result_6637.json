@@ -1,0 +1,46 @@
+{
+  "caption": "New York City mayor Bill de Blasio is trying to reduce the number of traffic fatalities",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Mayor de Blasio Signs New Law Lowering New York City's Default Speed Limit to 25 MPH | City of New York",
+        "content": "M a y o r   d e   B l a s i o   S i g n s   N e w   L a w   L o w e r i n g   N e w   Y o r k   C i t y ' s   D e f a u l t   . . .",
+        "caption": "Mayor de Blasio Signs New Law Lowering New York City's Default Speed Limit to 25 MPH",
+        "domain": "www.nyc.gov",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.1408938616514206,
+        "text_similarity_score": 0.7272002696990967
+      },
+      {
+        "title": "Vision Zero: Mayor de Blasio Announces Pedestrian Fatalities Dropped 32% Last Year | City of New York",
+        "content": "V i s i o n   Z e r o :   M a y o r   d e   B l a s i o   A n n o u n c e s   P e d e s t r i a n   F a t a l i t i e s   . . .",
+        "caption": "Vision Zero: Mayor de Blasio Announces Pedestrian Fatalities Dropped 32% Last Year",
+        "domain": "www.nyc.gov",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3627685606479645,
+        "text_similarity_score": 0.7171309590339661
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption states that \"New York City mayor Bill de Blasio is trying to reduce the number of traffic fatalities.\" Candidate 1 has a text similarity score of 0.7272002696990967 and the caption states \"Mayor de Blasio Signs New Law Lowering New York City's Default Speed Limit to 25 MPH\" which supports the news caption. Candidate 2 has a text similarity score of 0.7171309590339661 and the caption states \"Vision Zero: Mayor de Blasio Announces Pedestrian Fatalities Dropped 32% Last Year\" which also supports the news caption. Both candidates have a low Image Similarity Score, so according to the instructions, the caption must be marked as out-of-context, even if the text similarity score is high. Thus, the final verdict is 'False'.",
+      "supporting_evidences": [
+        "Candidate 1: Caption - Mayor de Blasio Signs New Law Lowering New York City's Default Speed Limit to 25 MPH; Text Similarity Score: 0.7272002696990967",
+        "Candidate 2: Caption - Vision Zero: Mayor de Blasio Announces Pedestrian Fatalities Dropped 32% Last Year; Text Similarity Score: 0.7171309590339661"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates that the caption is out of context, even though the text similarity scores for the candidate captions are relatively high. The primary reason is the low Image Similarity Score, which suggests that the image does not align with the context of the provided captions related to Mayor Bill de Blasio's initiatives in New York City. The image shows a man in front of a flag, and without external information, it is impossible to confirm that this is Mayor Bill de Blasio or that the context relates to New York City's traffic policies. As per the instructions, with a confidence score of 7, the final decision is based on the image check result, marking the caption as Out of Context (OOC = True).",
+    "validation_summary": "The image shows a man who is not Bill de Blasio, therefore viewers would be misled by the caption. The image does not align with the claim that Bill de Blasio is trying to reduce traffic fatalities in New York City, making the caption misleading in this context and out of context for this image.. Because the provided confidence score is high, this result is accepted and a more detailed manual analysis will not be performed. The image check result states that the image is OOC because the Image Similarity Score is low."
+  },
+  "inference_time": 6.4177470207214355,
+  "ablation_type": "no_image_evidences"
+}

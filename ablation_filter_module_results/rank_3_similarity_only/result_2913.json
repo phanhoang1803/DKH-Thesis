@@ -1,0 +1,49 @@
+{
+  "caption": "US House Speaker John Boehner a Republican from Ohio speaks during a news conference at the Capitol in Washington DC US on Thursday Feb 6 2014 Photographer Pete MarovichBloomberg",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Latino Voters Will Blame Republicans If Immigration Reform Fails, Poll Says | HuffPost Voices",
+        "content": "L a t i n o   V o t e r s   W i l l   B l a m e   R e p u b l i c a n s   I f   I m m i g r a t i o n   R e f o r m   F a i l s   . . .",
+        "caption": "U.S. House Speaker John Boehner, a Republican from Ohio, speaks during a news conference at the Capitol in Washington, D.C., U.S., on Thursday, Feb. 6, 2014. Boehner said it would be difficult to pass an immigration bill because fellow Republicans dont trust President Barack Obama to implement the law, a position that shrinks chances for House action this year. Photographer: Pete Marovich/Bloomberg via Getty Images ",
+        "domain": "www.huffpost.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6495617628097534,
+        "text_similarity_score": 0.7937690019607544
+      },
+      {
+        "title": "House GOP Passes Immigration-Related Bill That Goes After Dreamers | HuffPost Latest News",
+        "content": "H o u s e   G O P   P a s s e s   I m m i g r a t i o n - R e l a t e d   B i l l   T h a t   G o e s   A f t e r   D r e a m e r s   . . .",
+        "caption": "U.S. House Speaker John Boehner, a Republican from Ohio, speaks during a news conference at the Capitol in Washington, D.C., U.S., on Thursday, Feb. 6, 2014. Boehner said it would be difficult to pass an immigration bill because fellow Republicans dont trust President Barack Obama to implement the law, a position that shrinks chances for House action this year. Photographer: Pete Marovich/Bloomberg via Getty Images ",
+        "domain": "www.huffpost.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.6249799728393555,
+        "text_similarity_score": 0.7937690019607544
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "Both candidates have an image similarity score below 0.85. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Both candidates have a text similarity score greater than 0.7, but it does not matter in this case. Therefore, the final verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates an image similarity score below 0.85. Therefore, the caption is deemed out of context, irrespective of the text similarity score. The image shows John Boehner speaking at a news conference, as described in the caption. However, the low image similarity score means the image does not adequately represent the caption's claim about the specific event or context.",
+    "validation_summary": "The image check result indicates a low image similarity score, suggesting that the image does not properly represent the context of the news caption, and thus the caption is misleading about the image's content and the specific event it pertains to. Therefore, the image is out of context (OOC = True). This suggests that viewers could be misled about what they're seeing in the image and its relation to the news caption's description of a news conference at the Capitol in Washington D.C. on February 6, 2014, with Photographer Pete Marovich/Bloomberg."
+  },
+  "inference_time": 3.7868402004241943,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

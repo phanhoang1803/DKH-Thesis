@@ -1,0 +1,42 @@
+{
+  "caption": "Ricky Gervais presents the 2011 Golden Globes",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Golden Globes 2011: who'd be an awards show presenter? | Golden Globes | The Guardian",
+        "content": "G o l d e n   G l o b e s   2 0 1 1 :   w h o ' d   b e   a n   a w a r d s   s h o w   p r e s e n t e r ?   |   G o l d e n   . . .",
+        "caption": "Ricky Gervais presents the 2011 Golden Globes. Photograph: NBCUPHOTOBANK/Rex Features",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.992769181728363,
+        "text_similarity_score": 0.8796053528785706
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.992769181728363 and the text similarity score is 0.8796053528785706. Both scores are above the thresholds (0.85 and 0.7 respectively). Therefore, the caption is considered in-context. The candidate caption is identical to the news caption, and the domain is a reliable source, providing strong supporting evidence that the caption accurately represents the image.",
+      "supporting_evidences": [
+        "Ricky Gervais presents the 2011 Golden Globes. Photograph: NBCUPHOTOBANK/Rex Features"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a high confidence score of 10, based on the image and text similarity scores exceeding the defined thresholds (0.85 and 0.7 respectively). The caption \"Ricky Gervais presents the 2011 Golden Globes\" is therefore deemed in-context, and is supported by the provided supporting evidence.",
+    "validation_summary": "The caption correctly identifies Ricky Gervais at the 2011 Golden Globes, accurately representing the image's content and therefore not misleading to viewers about what the image depicts. The automated image check confirms this assessment with high confidence, supported by both image and text similarity metrics."
+  },
+  "inference_time": 5.776924133300781,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "caption": "Iain Duncan Smith speaks during an interview at Sky News headquarters in London",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Conservative party leader david cameron left and iain duncan smith hi-res stock photography and images - Alamy",
+        "content": "B u i l d   y o u r   s e a r c h   w i t h   w o r d s   a n d   p h r a s e s .   U s e   a n y   c o m b i n a t i o n   t o   r e f i n e   y o u r   s e a r c h . \n \n A l a m y   a n d   i t s   l o g o   a r e   t r a d e m a r k s   o f   A l a m y   L t d .   a n d   a r e   r e g i s t e r e d   i n   c e r t a i n   c o u n t r i e s .   C o p y r i g h t      0 7 / 0 3 / 2 0 2 5   A l a m y   L t d .   A l l   r i g h t s   r e s e r v e d .",
+        "caption": "",
+        "domain": "www.alamy.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7825914025306702,
+        "text_similarity_score": 0.12294229865074158
+      }
+    ],
+    "result": {
+      "confidence_score": 3,
+      "explanation": "The image similarity score is low (0.7825914025306702), and the caption similarity score is also low (0.12294229865074158). Therefore, based on the rule, I will do analysis based on the captions and candidate to give the final decision. The candidate does not contain enough information to verify the caption. The candidate doesn't state Iain Duncan Smith's presence or an interview at Sky News headquarters. Without confirmation of these key details, a definitive 'True' or 'False' cannot be determined.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result has a confidence score of 3, but I am overriding that because I can analyze the image and see that the caption is false. The image shows three individuals, including Iain Duncan Smith. However, it does not depict him speaking during an interview at Sky News headquarters. The presence of other individuals and the lack of visual confirmation of the setting contradict the caption's claim, making it misleading. The primary basis for evaluation is image analysis, which contradicts the caption.",
+    "validation_summary": "The caption falsely claims Iain Duncan Smith is speaking during an interview at Sky News headquarters, which is not verifiable from the image and is likely misleading to viewers about the context of the image and the article it accompanies. The image shows him walking outside with other people, not in a studio for an interview at Sky News headquarters, and makes the claim false and out of context. Based on the image check result, I will provide the final decision with an override of the image check result."
+  },
+  "inference_time": 7.898566722869873,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

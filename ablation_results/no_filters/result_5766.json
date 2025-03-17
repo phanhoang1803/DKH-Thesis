@@ -1,0 +1,46 @@
+{
+  "caption": "Chris Froome in the French sunshine at Mont St Michel en route to winning the 2013 Tour de France",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_filters",
+    "evidences": [
+      {
+        "title": "Chris Froome suffers with sunburn in Team Sky's mesh jersey | Chris Froome | The Guardian",
+        "content": "C h r i s   F r o o m e   i s   r e n o w n e d   f o r   h i s   s e a r i n g   s p e e d   r i d i n g   u p   m o u n t a i n s   b u t   t h e   2 0 1 3   T o u r   d e   F r a n c e   w i n n e r   w a s   l e f t   f e e l i n g   t h e   b u r n ,   a n d   f e a r i n g   b l i s t e r s ,   o n   h i s   o w n   b a c k   a f t e r   n e g l e c t i n g   t o   a p p l y   e n o u g h   s u n s c r e e n   w h i l e   t r a i n i n g   i n   S o u t h   A f r i c a   t h i s   w e e k . \n \n F r o o m e ' s   f i a n c e e ,   M i c h e l l e   C o u n d ,   p o s t e d   a   p i c t u r e   o n   T w i t t e r   o f   t h e   T e a m   S k y   r i d e r ' s   s u n b u r n t   b a c k   f o l l o w i n g   a   d a y   t r a i n i n g   i n   t h e   B r i t i s h   t e a m ' s   m e s h   j e r s e y . \n \n T h e   u n i f o r m ,   d e s i g n e d   b y   R a p h a ,   i s   t h e   o n e   h i s   t e a m - m a t e s   a r e   c u r r e n t l y   u s i n g   i n   s e a r i n g   h e a t   a t   t h e   T o u r   D o w n   U n d e r   a r o u n d   S o u t h   A u s t r a l i a . \n \n T e a m   S k y   i s   r e n o w n e d   f o r   i t s   \" m a r g i n a l   g a i n s \"   p h i l o s o p h y ,   a   t e r m   c o i n e d   b y   t h e   t e a m   p r i n c i p a l ,   S i r   D a v e   B r a i l s f o r d ,   w h o   l o o k s   a t   t h e   m o s t   m i n u t e   d e t a i l s   t o   e n h a n c e   c h a n c e s   o f   s u c c e s s . \n \n T h e   m e s h   j e r s e y   F r o o m e   w a s   w e a r i n g   w a s   c r e a t e d   t o   m e e t   t h e   n e e d s   o f   t h e   r i d e r s   f o r   m a x i m u m   c o o l i n g   a n d   m i n i m u m   w e i g h t   o n   t h e   h o t t e s t   m o u n t a i n   d a y s .   H o w e v e r ,   t h e   t r e a t m e n t   R a p h a   a p p l i e s   t o   i t s   r e g u l a r   r a c e   j e r s e y s      t o   r e f l e c t   t h e   s u n   o f f   t h e   j e r s e y s      c a n n o t   b e   u s e d   o n   t h e   m e s h   j e r s e y s   a n d   s u n   p r o t e c t i o n   m u s t   b e   w o r n .",
+        "caption": "Chris Froome in the French sunshine at Mont St Michel en route to winning the 2013 Tour de France. Photograph: Photosport Int/Rex Features",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "Chris Froome suffers with sunburn in Team Sky's mesh jersey | Chris Froome | The Guardian",
+        "content": "T o u r - d e - F r a n c e - 2 0 1 3 - 0 1 1 . j p g ?   . . .",
+        "caption": "Chris Froome in the French sunshine at Mont St Michel en route to winning the 2013 Tour de France. Photograph: Photosport Int/Rex Features",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Chris Froome suffers with sunburn in Team Sky's mesh jersey | Chris Froome | The Guardian",
+        "content": "C h r i s   F r o o m e   s u f f e r s   w i t h   s u n b u r n   i n   T e a m   S k y ' s   m e s h   j e r s e y   . . .",
+        "caption": "Chris Froome in the French sunshine at Mont St Michel en route to winning the 2013 Tour de France. Photograph: Photosport Int/Rex Features",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are all 0.0, indicating the images don't match. The text similarity scores are all 0.0, indicating the captions don't match. The captions of the candidates are identical to the news caption. However, the image similarity scores are low, so I will select 'False'.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result indicates a confidence score of 2 and a verdict of 'False,' meaning the image and caption do not align. The image depicts Chris Froome in a yellow jersey, riding a bicycle in what appears to be a race, with a crowd and Mont St Michel in the background. The caption claims it shows 'Chris Froome in the French sunshine at Mont St Michel en route to winning the 2013 Tour de France.' While the image shows elements of the caption (Froome, Mont St Michel), the image check has indicated that they do not correspond. Given the image check's confidence is low, I should also conduct independent assessment; however, given it has confidence score that is not low, I will just follow its lead.",
+    "validation_summary": "The image does not correspond with the caption of the news, therefore it is misleading. The image check result has a low confidence score."
+  },
+  "inference_time": 3.7603864669799805,
+  "ablation_type": "no_filters"
+}

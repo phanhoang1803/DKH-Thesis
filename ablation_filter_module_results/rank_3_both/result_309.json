@@ -1,0 +1,40 @@
+{
+  "caption": "One of China s elite takes tea in Shanghai many observers feel that only a crisis could prompt major change",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Fears grow over pace of reform  as China ushers in new leaders | China | The Guardian",
+        "content": "F e a r s   g r o w   o v e r   p a c e   o f   r e f o r m   a s   C h i n a   u s h e r s   i n   n e w   l e a d e r s   . . .",
+        "caption": "One of China's elite takes tea in Shanghai: many observers feel that only a crisis could prompt major change. Photograph: Xie Guang Hui/Corbis",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.18405477702617645,
+        "text_similarity_score": 0.902884304523468
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.18405477702617645, which is less than 0.85. The text similarity score is 0.902884304523468, which is greater than 0.7. According to the instructions, if the image similarity score is less than 0.85 and the text similarity score is greater than or equal to 0.7, then the verdict should be 'False'. Therefore, the caption is out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image is out of context. The image similarity score is 0.18405477702617645, which is less than 0.85, and the text similarity score is 0.902884304523468, which is greater than or equal to 0.7. This confirms that the caption is not representative of the image content. The image depicts Pope Francis with two other individuals, including a woman who appears to be a political figure, possibly in South Korea, given the presence of the South Korean flag. The caption refers to a meeting about China's elite taking tea in Shanghai, which is completely unrelated to the image's actual content.",
+    "validation_summary": "The caption describes a meeting about China's elite taking tea in Shanghai, which is not represented in the image. The image depicts Pope Francis in South Korea, making the caption misleading and out of context."
+  },
+  "inference_time": 5.399271726608276,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "caption": "Turn of the Screw Glyndebourne Opera 2011 Joanna Songi as Flora Miah Persson as The Governess Thomas Parfitt as MilesPhoto by Alastair Muir",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Candlelit murder: Gemma Arterton and the duchesses of Malfi  in pictures | Stage | The Guardian",
+        "content": "G e m m a   A r t e r t o n   m a k e s   a   d a z z l i n g   d u c h e s s   i n   a n   i n t i m a t e   p r o d u c t i o n   o f   J o h n   W e b s t e r  s   m a s t e r p i e c e   a t   t h e   G l o b e  s   n e w   S a m   W a n a m a k e r   P l a y h o u s e .   F r o m   H e l e n   M i r r e n   t o   E v e   B e s t ,   l o o k   a t   w h o   e l s e   h a s   p l a y e d   W e b s t e r  s   t r a g i c   w i d o w \n \n T h u   1 6   J a n   2 0 1 4   1 0 . 3 4  G M T \n \n \n                         F i r s t   p u b l i s h e d   o n   T h u   1 6   J a n   2 0 1 4   1 0 . 3 4  G M T \n \n P h o t o g r a p h :   T r i s t r a m   K e n t o n   f o r   t h e   G u a r d i a n \n \n P h o t o g r a p h :   P R \n \n P h o t o g r a p h :   S t e p h e n   C u m m i s k e y \n \n P h o t o g r a p h :   T r i s t r a m   K e n t o n   f o r   t h e   G u a r d i a n \n \n P h o t o g r a p h :   T r i s t r a m   K e n t o n   f o r   t h e   G u a r d i a n",
+        "caption": "Duchess of Malfi: Charlotte Emmerson, Nick Blood, Claire Dargo in Duchess of Malfi, 2010",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9881547093391418,
+        "text_similarity_score": 0.3062397837638855
+      },
+      {
+        "title": "The Turn of the Screw live from Glyndebourne - discussion | Opera | The Guardian",
+        "content": "T h e   T u r n   o f   t h e   S c r e w   l i v e   f r o m   G l y n d e b o u r n e   -   d i s c u s s i o n   |   O p e r a   . . .",
+        "caption": "Turn of the Screw, Glyndebourne Opera 2011. Joanna Songi as Flora,  Miah Persson as The Governess,  Thomas Parfitt as MilesPhoto by Alastair Muir Photograph: Alastair Muir",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4342828094959259,
+        "text_similarity_score": 0.9427484273910522
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Candidate 1 has a high image similarity score (0.9881547093391418) but a low caption similarity score (0.3062397837638855). This violates the condition where both scores must be high to confirm the caption. Thus, it doesn't align. Candidate 2 has a low image similarity score (0.4342828094959259) and a high caption similarity score (0.9427484273910522). This violates the condition where both scores must be high to confirm the caption. However, based on the instructions, since the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. The caption in Candidate 2, 'Turn of the Screw, Glyndebourne Opera 2011. Joanna Songi as Flora,  Miah Persson as The Governess,  Thomas Parfitt as MilesPhoto by Alastair Muir Photograph: Alastair Muir,' is almost identical to the news caption, 'Turn of the Screw Glyndebourne Opera 2011 Joanna Songi as Flora Miah Persson as The Governess Thomas Parfitt as MilesPhoto by Alastair Muir.' The actors' names and the opera details match. Therefore, Candidate 2 is strongly relevant, despite the image similarity score being lower than 0.85. Based on the instructions, since image similarity score is below 0.85, the caption must be marked as out of context.",
+      "supporting_evidences": [
+        "Candidate 2 has a caption that almost perfectly matches the news caption, including the actors' names, the opera title, and the year.",
+        "Candidate 1 has a high image similarity but does not have a matching caption"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image is out of context because, while the caption is similar to the details provided in the news content, the image similarity score is below the required threshold of 0.85. Therefore, despite the caption's accuracy in naming the opera, actors, and year, the overall context is deemed mismatched based on the image content.",
+    "validation_summary": "The image is considered out of context because the image similarity score is too low, despite the caption accurately naming the opera, actors and year as outlined in the news article. This suggests the visual representation doesn't align with the provided caption, potentially misleading viewers about the specific scene or moment being depicted."
+  },
+  "inference_time": 6.286600351333618,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "both"
+  }
+}

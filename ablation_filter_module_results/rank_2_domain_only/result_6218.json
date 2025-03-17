@@ -1,0 +1,58 @@
+{
+  "caption": "Agnes Zawadzki skates during the senior ladies short program Zawadzki finished second in the competition",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Agnes Zawadzki",
+      "Figure skating",
+      "U.S. Figure Skating Championships",
+      "Figure skating jumps",
+      "Ice Skate",
+      "Figure skating spins",
+      "U.S. Figure Skating",
+      "Ice dance Mixed",
+      "Axel jump",
+      "Short program"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "U.S. Figure Skating Nationals",
+        "content": "U . S .   F i g u r e   S k a t i n g   N a t i o n a l s",
+        "caption": "Agnes Zawadzki skates during the senior ladies short program. Zawadzki finished second in the competition.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "Surprise! Zawadzki steals show, wins short program  San Diego Union-Tribune",
+        "content": "S u r p r i s e !   Z a w a d z k i   s t e a l s   s h o w ,   w i n s   s h o r t   p r o g r a m      S a n   D i e g o   . . .",
+        "caption": "Agnes Zawadzki reacts after finishing her routine in the ladies short program at the U.S. Figure Skating Championships in San Jose, Calif., Thursday, Jan. 26, 2012. (AP Photo/Marcio Jose Sanchez)",
+        "domain": "www.sandiegouniontribune.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both candidates have low image similarity scores (<0.85) and low text similarity scores (<0.7). However, Candidate 1 has an identical caption to the news caption and is from a reputable source (www.usatoday.com). This suggests the caption is likely accurate, although the lack of image similarity prevents a higher confidence level. While the domain is present, the specific content to verify the claim is not present.",
+      "supporting_evidences": [
+        "Candidate 1 has an identical caption to the news caption."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 8,
+    "explanation": "The image check result shows a confidence score of 6, and indicates the caption matches the image according to its supporting evidences: \"Candidate 1 has an identical caption to the news caption.\" Although there is low image and text similarity, the fact that the caption is identical to one on a reputable site, it is more probable that it is accurate. The image shows a female figure skater on the ice, in a blue costume, matching the description of Agnes Zawadzki. Therefore the caption correctly represents the image.",
+    "validation_summary": "The image check result indicates the caption is likely accurate due to its presence on a reputable site, and the image shows a figure skater matching the description, meaning the caption does correctly represent what is shown in the image. Viewers would not be misled."
+  },
+  "inference_time": 3.959988832473755,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

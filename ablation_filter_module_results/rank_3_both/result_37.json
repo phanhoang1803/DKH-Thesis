@@ -1,0 +1,60 @@
+{
+  "caption": "Gambling tables at Venetian Macau Queensland wants some Asian highrollers too",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Pachinko",
+      "Gambling",
+      "Pinball",
+      "Japan",
+      "Maruhan",
+      "Casino",
+      "Arcade video game",
+      "Pachi-Slo",
+      "Amusement arcade",
+      "Koreans in Japan"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "both"
+    },
+    "evidences": [
+      {
+        "title": "Japanese pachinko  in pictures | Travel | The Guardian",
+        "content": "P a c h i n k o ,   a   g a m e   s i m i l a r   t o   p i n b a l l ,   i s   a   f a d i n g   n a t i o n a l   o b s e s s i o n   i n   J a p a n .   T h e   o n c e - b o o m i n g   i n d u s t r y   i s   a d o p t i n g   a   s o f t e r   t o u c h   a n d   s m o k e - f r e e   z o n e s   t o   l u r e   a   n e w   g e n e r a t i o n   o f   p l a y e r s \n \n I s s e i   K a t o   /   R e u t e r s \n \n W e d   2 0   A u g   2 0 1 4   0 8 . 0 6  B S T",
+        "caption": "People are seen through windows at a Dynam pachinko parlour in Honjo, north of Tokyo",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.7995409369468689,
+        "text_similarity_score": 0.1812354028224945
+      },
+      {
+        "title": "Campbell Newman plans three new casinos in Queensland | Gambling | The Guardian",
+        "content": "V e n e t i a n - M a c a u - c a s i n o - 0 1 0 . j p g ?   . . .",
+        "caption": "Gambling tables at Venetian Macau: Queensland wants some Asian high-rollers too. Photograph: Kin Cheung/AP",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.13989350199699402,
+        "text_similarity_score": 0.8656691908836365
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The news caption is \"Gambling tables at Venetian Macau Queensland wants some Asian highrollers too\".\n\nCandidate 1 has an image similarity score of 0.7995409369468689 and a caption similarity score of 0.1812354028224945. The image similarity is low, and the caption is \"People are seen through windows at a Dynam pachinko parlour in Honjo, north of Tokyo\".\n\nCandidate 2 has an image similarity score of 0.13989350199699402 and a caption similarity score of 0.8656691908836365. The image similarity is low, and the caption is \"Gambling tables at Venetian Macau: Queensland wants some Asian high-rollers too. Photograph: Kin Cheung/AP\". Even though the caption similarity is high, the image similarity is very low. This candidate does not confirm that the caption accurately represents the image.\n\nSince the image similarity scores are less than 0.85 for both candidates, and the text similarity score is less than 0.7 for candidate 1, the overall verdict is false, as there's no strong evidence to support the caption's accuracy based on image content.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image check result indicates the caption is inaccurate. The image depicts a view through a window into a room with rows of gambling machines, similar to slot machines or pachinko machines, with people playing. The caption mentions \"Gambling tables at Venetian Macau Queensland wants some Asian highrollers too\". The image check confirms low image similarity and, while caption similarity might be high in one candidate, the lack of strong visual evidence to support the caption leads to the conclusion that the caption does not accurately represent the image content. Therefore, the image is out of context.",
+    "validation_summary": "The image does not show gambling tables specifically at the Venetian Macau, making the caption misleading as it suggests a direct connection that isn't visually supported. Viewers would likely be misled about the location and context of the gambling scene depicted in the image."
+  },
+  "inference_time": 5.66393780708313,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "both"
+  }
+}

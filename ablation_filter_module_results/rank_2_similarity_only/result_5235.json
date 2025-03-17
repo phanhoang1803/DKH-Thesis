@@ -1,0 +1,40 @@
+{
+  "caption": "Coles and Maxwell listen to Kayne Gillaspie describe his design",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Behind-the-scenes with USA TODAY and 'Project Runway'",
+        "content": "B e h i n d - t h e - s c e n e s   w i t h   U S A   T O D A Y   a n d   ' P r o j e c t   R u n w a y '",
+        "caption": "Coles and Maxwell listen to Kayne Gillaspie describe his design.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.10372363030910492,
+        "text_similarity_score": 0.9874953627586365
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score (0.10372363030910492) is below the threshold of 0.85. The text similarity score (0.9874953627586365) is above the threshold of 0.7. According to the instructions, when the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates that the image similarity score is below the threshold, while the text similarity score is above the threshold. According to the instructions, when the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. The image shows a baseball player sitting in a dugout with a helmet in his hand, while the caption describes Coles and Maxwell listening to Kayne Gillaspie describe his design, which relates to a fashion design show. The image content and the caption content are unrelated, therefore the image is out of context.",
+    "validation_summary": "The image shows a baseball player, while the caption refers to fashion design; viewers would be misled about the content related to the news article if they saw this image with the caption. The low image similarity confirms the image does not match the caption's description."
+  },
+  "inference_time": 5.997486352920532,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

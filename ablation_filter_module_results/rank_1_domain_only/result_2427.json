@@ -1,0 +1,40 @@
+{
+  "caption": "Real Madrid s Cristiano Ronaldo the fastest man to 100 goals in La Liga scores his 101st his second against Real Sociedad",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Cristiano Ronaldo breaks scoring record as Real Madrid cruise to win | Cristiano Ronaldo | The Guardian",
+        "content": "C r i s t i a n o   R o n a l d o   b r e a k s   s c o r i n g   r e c o r d   a s   R e a l   M a d r i d   c r u i s e   t o   . . .",
+        "caption": "Real Madrid's Cristiano Ronaldo, the fastest man to 100 goals in La Liga, scores his 101st, his second against Real Sociedad. Photograph: Denis Doyle/Getty Images",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The candidate provides an exact match for the news caption, including specific details about Cristiano Ronaldo scoring his 101st goal against Real Sociedad. Although the image similarity is low (0.0) and text similarity is also low (0.0), the presence of an identical caption from a reliable domain (www.theguardian.com) increases the likelihood that the caption accurately represents the image content. Given that the candidate fully corroborates the news caption, it's likely that the caption is accurate. However, without a high image similarity score, I cannot be completely confident.",
+      "supporting_evidences": [
+        "Real Madrid's Cristiano Ronaldo, the fastest man to 100 goals in La Liga, scores his 101st, his second against Real Sociedad. Photograph: Denis Doyle/Getty Images"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows Cristiano Ronaldo in a red Portugal jersey with his eyes closed. The caption states that the image is of Ronaldo scoring his 101st goal in La Liga (for Real Madrid) against Real Sociedad. The image shows Ronaldo wearing a Portugal jersey. Thus, the image does not match the caption and is out of context. The image check result also supports this conclusion with a high confidence score.",
+    "validation_summary": "The image depicts Cristiano Ronaldo in a Portugal jersey, which is inconsistent with the caption that describes him scoring a goal for Real Madrid. The image context doesn't align with the caption's information."
+  },
+  "inference_time": 4.078229188919067,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "caption": "Maria Sharapova plays a shot during her women s singles semifinal match against Russia s Ekaterina Makarova",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Racketlon",
+      "Soft tennis",
+      "Tennis",
+      "Racket",
+      "Tennis player"
+    ],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Russians Sharapova, Makarova prepare for semifinals showdown",
+        "content": "6 3 5 5 7 9 1 0 4 8 6 9 7 4 5 3 5 0 - A F P -   . . .",
+        "caption": "Russia's Maria Sharapova plays a shot during her women's singles match against Canada's Eugenie Bouchard on day nine of the 2015 Australian Open.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8608433604240417,
+        "text_similarity_score": 0.835066020488739
+      },
+      {
+        "title": "Second-seeded Maria Sharapova is a shaky survivor at Australian Open - Los Angeles Times",
+        "content": "S e c o n d - s e e d e d   M a r i a   S h a r a p o v a   i s   a   s h a k y   s u r v i v o r   a t   A u s t r a l i a n   . . .",
+        "caption": "Maria Sharapova of Russia plays a shot during her women's singles match against Alexandra Panova of Russia at the Australian Open. Sharapova defeated Panova, 6-1, 4-6, 7-5.",
+        "domain": "www.latimes.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.8484303951263428,
+        "text_similarity_score": 0.8462924361228943
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "Both Candidate 1 and Candidate 2 have image similarity scores greater than 0.85 and text similarity scores greater than 0.7. Candidate 1 has an image similarity score of 0.8608433604240417 and a text similarity score of 0.835066020488739. Candidate 2 has an image similarity score of 0.8484303951263428 and a text similarity score of 0.8462924361228943. These high scores indicate that the caption accurately represents what the news image shows and what the image is about. Therefore, the verdict is True.",
+      "supporting_evidences": [
+        "Candidate 1: Image Similarity Score: 0.8608433604240417, Text Similarity Score: 0.835066020488739",
+        "Candidate 2: Image Similarity Score: 0.8484303951263428, Text Similarity Score: 0.8462924361228943"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "validation_summary": "The caption accurately represents the image content, depicting Maria Sharapova playing during her semifinal match against Ekaterina Makarova.",
+    "explanation": "The image check result demonstrates a high similarity between the caption and the image content, confirming that both correctly identify the context of Maria Sharapova in action during a match. The image shows Sharapova in a competitive stance with a tennis racket, aligning with the caption's assertion regarding her participation in the women's singles semifinal against Ekaterina Makarova. There are no conflicting elements between the image and the caption."
+  },
+  "inference_time": 5.710287094116211,
+  "ablation_type": "no_image_evidences"
+}

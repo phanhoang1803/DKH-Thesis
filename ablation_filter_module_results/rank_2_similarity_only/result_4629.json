@@ -1,0 +1,49 @@
+{
+  "caption": "Stephen Hester the former RBS boss is devising a resuce strategy for insurer RSA which owns the More Than brand",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Proms 2011 | The Guardian",
+        "content": "",
+        "caption": "Tim Walker",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9811883568763733,
+        "text_similarity_score": 0.20149953663349152
+      },
+      {
+        "title": "Israel Philharmonic Orchestra Proms concert disrupted by protest - video | Israel | The Guardian",
+        "content": "",
+        "caption": "",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.9811883568763733,
+        "text_similarity_score": 0.0768149271607399
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores are high (>= 0.85) for both candidates, suggesting that the images are visually similar to the news image. However, the text similarity scores are low (< 0.7) for both candidates, indicating that the captions are not similar to the news caption, \"Stephen Hester the former RBS boss is devising a resuce strategy for insurer RSA which owns the More Than brand\". Candidate 1 caption is \"Tim Walker\", while candidate 2 caption is empty. Because the text similarity scores are low, the captions are out-of-context.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image check result has a confidence score of 2. Because the image check result suggests a mismatch between the image and caption, I am giving higher priority to the image check result. The image check result indicates the caption is out of context. The caption talks about Stephen Hester devising a rescue strategy for insurer RSA. The image shows a man in a suit. While it is possible the man is Stephen Hester, there is no way to verify this from the image alone. The image check result also has low text similarity scores, indicating the captions of the image candidates are not similar to the news caption. Therefore, the caption is out of context.",
+    "validation_summary": "The caption is about Stephen Hester's rescue strategy, but the image shows a man in a suit without any context relating to the news story, making it misleading to viewers who expect a direct visual representation of the news event. The image check result confirms that the caption is out of context."
+  },
+  "inference_time": 6.377393484115601,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "similarity_only"
+  }
+}

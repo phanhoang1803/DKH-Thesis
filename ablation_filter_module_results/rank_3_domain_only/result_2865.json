@@ -1,0 +1,47 @@
+{
+  "caption": "David Bowie performs as Ziggy Stardust in Los Angeles in 1973",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "David Bowie at 65: a life in pictures | Music | The Guardian",
+        "content": "S u n   8   J a n   2 0 1 2   1 5 . 3 0  C E T \n \n \n                         F i r s t   p u b l i s h e d   o n   S u n   8   J a n   2 0 1 2   1 5 . 3 0  C E T \n \n P h o t o g r a p h :   C A / G e t t y   I m a g e s / R e d f e r n s \n \n P h o t o g r a p h :   R a y   S t e v e n s o n / R e x   F e a t u r e s \n \n P h o t o g r a p h :   R o g e r   B a m b e r / R e x   F e a t u r e s \n \n P h o t o g r a p h :   M i c h a e l   P u t l a n d / G e t t y   I m a g e s \n \n P h o t o g r a p h :   M a s a y o s h i   S u k i t a / B u r e a u   L . A .   C o l l e c t i o n / C o r b i s \n \n P h o t o g r a p h :   I l p o   M u s t o / R e x   F e a t u r e s \n \n P h o t o g r a p h :   B i l l   O r c h a r d / R e x   F e a t u r e s \n \n P h o t o g r a p h :   G i j s b e r t   H a n e k r o o t / R e d f e r n s \n \n P h o t o g r a p h :   S i p a   P r e s s / R e x   F e a t u r e s \n \n P h o t o g r a p h :   M i c h a e l   O c h s / G e t t y   I m a g e s \n \n P h o t o g r a p h :   S t e v e   S c h a p i r o / C o r b i s \n \n P h o t o g r a p h :   E v e r e t t   C o l l e c t i o n / R e x   F e a t u r e \n \n P h o t o g r a p h :   C h r i s t i a n   S i m o n p i e t r i / C o r b i s \n \n P h o t o g r a p h :   D e n i s   O ' R e g a n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   D e n i s   O ' R e g a n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   D e n i s   O ' R e g a n / G e t t y   I m a g e s \n \n P h o t o g r a p h :   L i v e   P r e s s / R e x   F e a t u r e s \n \n P h o t o g r a p h :   P e t e r   B r o o k e r / R e x   F e a t u r e s \n \n P h o t o g r a p h :   K   M a z u r / W i r e I m a g e \n \n P h o t o g r a p h :   E d   C h a p m a n / P A",
+        "caption": "David Bowie 65th Birthday: 1974: Bowie with eyepatch recording Rebel Rebel",
+        "domain": "www.theguardian.com",
+        "source": "ImageEvidencesModule"
+      },
+      {
+        "title": "PHOTOS: How David Bowie transformed into a cultural icon | PBS News",
+        "content": "P H O T O S :   H o w   D a v i d   B o w i e   t r a n s f o r m e d   i n t o   a   c u l t u r a l   i c o n   |   P B S   N e w s",
+        "caption": "Musician David Bowie performs onstage during his \"Ziggy Stardust\" era in 1973 in Los Angeles. The legendary music man died after an 18-month battle with cancer. He was 69. Photo by: Michael Ochs Archives/Getty Images",
+        "domain": "www.pbs.org",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 6,
+      "explanation": "Both Image Similarity Scores are 0.0, and both Text Similarity Scores are 0.0, so the strict decision rules do not apply. Analyzing the captions, candidate 2 mentions \"Musician David Bowie performs onstage during his \\\"Ziggy Stardust\\\" era in 1973 in Los Angeles.\", which confirms the news caption. However, since the Image Similarity Score is 0.0, this confirmation is weak. Candidate 1 is irrelevant.",
+      "supporting_evidences": [
+        "Candidate 2: Musician David Bowie performs onstage during his \"Ziggy Stardust\" era in 1973 in Los Angeles."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 8,
+    "explanation": "The image check result has a confidence score of 6, indicating moderate confidence. The image features David Bowie in his Ziggy Stardust persona, wearing red pants, an eye patch, and holding a red guitar. The caption states, \"David Bowie performs as Ziggy Stardust in Los Angeles in 1973\", which aligns with the image content. The supporting evidence from the image check confirms that David Bowie is performing onstage as Ziggy Stardust in 1973 in Los Angeles. Therefore, the caption is a correct representative summary of the image content.",
+    "validation_summary": "The caption accurately describes David Bowie in his Ziggy Stardust persona, which matches the image content and does not mislead viewers. The image check supports this assessment, confirming the depiction."
+  },
+  "inference_time": 4.113810062408447,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

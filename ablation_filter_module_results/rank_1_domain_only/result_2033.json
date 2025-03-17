@@ -1,0 +1,49 @@
+{
+  "caption": "Adam Lallana prepares to kick off with Philippe Coutinho",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Goalkeeper stops shot",
+      "Ball",
+      "Ball",
+      "Stadium",
+      "International rules football",
+      "Footballer",
+      "Goalkeeper",
+      "Kick"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Premier League: Liverpool v Arsenal  in pictures | Football | The Guardian",
+        "content": "P r e m i e r   L e a g u e :   L i v e r p o o l   v   A r s e n a l      i n   p i c t u r e s   |   F o o t b a l l   |   T h e   . . .",
+        "caption": "Adam Lallana prepares to kick off with Philippe Coutinho",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The image similarity score is 0.0, which is less than 0.85, and the text similarity score is 0.0, which is less than 0.7. Therefore, I need to do an analysis based on the captions and candidates to give the final decision. The caption from www.theguardian.com matches the news caption exactly. Because the source is reliable and the caption is verbatim, it increases the confidence in the match. However, the image similarity is very low, and there are no other candidates to confirm the claim.",
+      "supporting_evidences": [
+        "Adam Lallana prepares to kick off with Philippe Coutinho"
+      ],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 7,
+    "explanation": "The image shows Adam Lallana on his knees, celebrating a goal. The caption states \"Adam Lallana prepares to kick off with Philippe Coutinho\". This implies Lallana is about to start a game alongside Coutinho. The image does not show Coutinho or any preparation for a kick-off. Therefore, the caption is out of context. The image check result also indicates the caption is inaccurate.",
+    "validation_summary": "The caption is misleading as it suggests Lallana is preparing to kick off with Coutinho, whereas the image shows him celebrating a goal alone. Viewers would be misled about the image's content."
+  },
+  "inference_time": 4.8461620807647705,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

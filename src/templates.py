@@ -84,7 +84,53 @@ INPUT:
    - If the above rules already provided a decision, return it.  
    - If explicit confirmation is missing, **DO NOT assume correctness**.  
 
-**NOTE:** If the image similarity score is below 0.9, the caption **must be marked as out-of-context, even if the text similarity score is high**.  
+**NOTE:** If the image similarity score is below 0.85, the caption **must be marked as out-of-context, even if the text similarity score is high**.  
+"""
+
+VISUAL_CHECKING_PROMPT_PRED_CHECK_WITH_EVIDENCE_WITH_ANALYSIS = """TASK: Determine if the related candidates of the image provide evidence that prove the caption accurately represents what the news image shows and what the image is about (Not candidate image).
+
+Candidate Schema:
+- Caption: Caption of the candidate image
+- Image Similarity Score: Similarity score between the image in the candidate and the image in the news
+- Text Similarity Score: Similarity score between the caption in the candidate and the caption in the news
+- Title: Title of the candidate evidence
+- Content: Content of the candidate evidence
+- Domain: Domain of the candidate evidence
+
+INPUT:
+- **News Caption:** {caption}
+- **Candidate Evidences (of the image):**
+{textual_descriptions}
+
+### **INSTRUCTIONS**  
+1. **Analyze Image Similarity Score:**  
+   - **High (≥ 0.85):** Strong indication that the images match.  
+   - **Low (< 0.85):** The images do **not** match.  
+
+2. **Analyze Caption Matching (Text Similarity Score):**  
+   - **High (≥ 0.7):** Captions are highly similar.  
+   - **Low (< 0.7):** Captions do **not** match.  
+
+3. **Strict Decision Rules:**  
+   - **If Image Similarity Score ≥ 0.85 AND Text Similarity Score ≥ 0.7**, **IMMEDIATELY return "True"** (caption is in-context).  
+   - **If Image Similarity Score ≥ 0.85 AND Text Similarity Score < 0.7**, **IMMEDIATELY return "False"** (caption is out-of-context).  
+   - **If Image Similarity Score < 0.85 AND Text Similarity Score ≥ 0.7**, **IMMEDIATELY return "False"** (caption is out-of-context).  
+   - **Otherwise, if Image Similarity Score < 0.85 AND Text Similarity Score < 0.7**, do analysis based on the captions and candidate to give the final decision.  
+
+4. **Final Decision:**  
+   - If the above rules already provided a decision, return it.  
+   - If explicit confirmation is missing, **DO NOT assume correctness**.  
+
+### **ANALYSIS (If not decided by the rules above)**
+1. **Caption Matching:** Check if the caption being verified appears verbatim in any of the textual candidates, especially from reliable domains. Identical captions from reputable sources provide supporting evidence.
+2. **Evidence Matching:** Check if the candidates confirm both the elements (e.g., people, event, location, date) **AND** the specific claims in the caption. Identifying matching elements alone is insufficient—the caption must accurately reflect the actions, context, and relationships in the image.  
+3. **Authenticity Check:** Identify any signs of image alteration or misrepresentation.  
+4. **Source Assessment:** Give higher weight to descriptions from established news organizations, official institutions, and verified sources.  
+5. **Time and Setting Alignment:** Verify whether candidates confirm the date and location in the caption.  
+6. **People and Object Confirmation:** Ensure the people, objects, and activities in the caption align with the image.  
+7. **Evidence Requirement:** Key details **must be identified** by the candidates, not inferred.  
+8. **Handling Missing Information:** If candidates **do not state** crucial details like date or location, mark the caption as “Not Fully Verified” rather than assuming correctness.  
+9. **Inconsistency Identification:** If the evidence only partially supports the caption, classify the result as "Partially Verified."
 """
 
 VISUAL_CHECKING_PROMPT_WITHOUT_EVIDENCE = """TASK: Check if the entities found in the image and the provided content together support what the caption claims.
@@ -192,7 +238,6 @@ def get_visual_prompt(caption: str, content: str, visual_entities: str, visual_c
                     have_false_case = True
                     break
         
-        if have_false_case:
             results_str = ""
             for i, result in enumerate(visual_candidates, 1):
                 results_str += f"\n**Candidate** {i}:\n"
@@ -201,11 +246,18 @@ def get_visual_prompt(caption: str, content: str, visual_entities: str, visual_c
                 results_str += f"Caption Similarity Score: {result.text_similarity_score}\n"
                 results_str += f"Domain: {result.domain}\n"
                 results_str += "-" * 50 + "\n"
-            visual_prompt = VISUAL_CHECKING_PROMPT_PRED_CHECK_WITH_EVIDENCE.format(
-                caption=caption,
-                textual_descriptions=results_str
-            )
-            visual_prompt += VISUAL_CHECKING_OUTPUT
+            if have_false_case:
+                visual_prompt = VISUAL_CHECKING_PROMPT_PRED_CHECK_WITH_EVIDENCE.format(
+                    caption=caption,
+                    textual_descriptions=results_str
+                )
+                visual_prompt += VISUAL_CHECKING_OUTPUT
+            else:
+                visual_prompt = VISUAL_CHECKING_PROMPT_PRED_CHECK_WITH_EVIDENCE_WITH_ANALYSIS.format(
+                    caption=caption,
+                    textual_descriptions=results_str
+                )
+                visual_prompt += VISUAL_CHECKING_OUTPUT
         else:
             results_str = ""
             for i, result in enumerate(visual_candidates, 1):

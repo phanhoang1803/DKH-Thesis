@@ -1,0 +1,63 @@
+{
+  "caption": "Presidential hopeful Bernie Sanders on stage for a commercial break during the Democratic Presidential Town Hall forum in Sheslow Auditorium on the Drake University campus Monday evening Jan 25 2016",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Speech",
+      "Public speaking",
+      "Convention",
+      "Audience"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "26 photos: CNN Democratic Presidential Town Hall forum",
+        "content": "2 6   p h o t o s :   C N N   D e m o c r a t i c   P r e s i d e n t i a l   T o w n   H a l l   f o r u m",
+        "caption": "Presidential hopeful, Bernie Sanders on stage for a commercial break during the Democratic Presidential Town Hall forum in Sheslow Auditorium on the Drake University campus Monday evening, Jan. 25, 2016.",
+        "domain": "www.desmoinesregister.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.540762722492218,
+        "text_similarity_score": 0.9891876578330994
+      },
+      {
+        "title": "26 photos: CNN Democratic Presidential Town Hall forum",
+        "content": "2 6   p h o t o s :   C N N   D e m o c r a t i c   P r e s i d e n t i a l   T o w n   H a l l   f o r u m",
+        "caption": "Presidential hopeful, Bernie Sanders on stage for a commercial break during the Democratic Presidential Town Hall forum in Sheslow Auditorium on the Drake University campus Monday evening, Jan. 25, 2016.",
+        "domain": "www.desmoinesregister.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.4002361297607422,
+        "text_similarity_score": 0.9891876578330994
+      },
+      {
+        "title": "26 photos: CNN Democratic Presidential Town Hall forum",
+        "content": "2 6   p h o t o s :   C N N   D e m o c r a t i c   P r e s i d e n t i a l   T o w n   H a l l   f o r u m",
+        "caption": "Presidential hopeful, Bernie Sanders on stage for a commercial break during the Democratic Presidential Town Hall forum in Sheslow Auditorium on the Drake University campus Monday evening, Jan. 25, 2016.",
+        "domain": "www.desmoinesregister.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.3670370578765869,
+        "text_similarity_score": 0.9891876578330994
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity scores for all candidates are below 0.85. According to the instructions, if the image similarity score is below 0.85, the caption must be marked as out-of-context, even if the text similarity score is high. Therefore, the verdict is False.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result indicates a low similarity score, making the caption out-of-context. The image shows Bernie Sanders on stage at what appears to be a CNN event, speaking and gesturing with his left hand. The background displays several CNN logos. The caption states that Bernie Sanders was on stage for a commercial break during a Democratic Presidential Town Hall forum in Sheslow Auditorium on the Drake University campus. While the image could be from a town hall, the CNN logos are prominently displayed which does not directly imply this. Per the instruction the Image Check Result (confidence score 7-10) determines the final judgement, therefore the low similarity score determines the verdict, it is out of context.",
+    "validation_summary": "Because the image similarity score is below the threshold, the caption is misleading as it does not accurately reflect the visual content of the image, potentially leading viewers to believe Sanders was in a specific setting not visually supported."
+  },
+  "inference_time": 8.930493831634521,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

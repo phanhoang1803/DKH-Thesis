@@ -1,0 +1,38 @@
+{
+  "caption": "Athletes of South Korea walk into the Maracana Stadium",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "The Olympic Opening Ceremony in Rio: Let the Games Begin | The New Yorker",
+        "content": "T h e   O l y m p i c   O p e n i n g   C e r e m o n y   i n   R i o :   L e t   t h e   G a m e s   B e g i n   |   T h e   N e w   . . .",
+        "caption": "The Brazilian delegation forms the Olympic rings in Rio de Janeiros Maracan Stadium on Friday night during the Opening...",
+        "domain": "www.newyorker.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The Image Similarity Score is 0.0 and the Text Similarity Score is 0.0. The caption of the news is about 'Athletes of South Korea walk into the Maracana Stadium'. The caption of the candidate is about 'The Brazilian delegation forms the Olympic rings in Rio de Janeiros Maracanã Stadium on Friday night during the Opening...'. It is not possible to verify that the caption accurately represents the image.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image shows a group of athletes, likely from South Korea, entering a stadium. They are wearing hats and jackets, waving flags of South Korea, and taking selfies. The news caption states, 'Athletes of South Korea walk into the Maracana Stadium.' However, the image check result has a very low confidence score. While it's plausible the image depicts South Korean athletes at Maracana Stadium, there's no explicit visual confirmation. The general information provided by the caption is aligned with what the image shows, but crucial details about the location can not be verified with the image alone, leading to determining the image is Out of Context. The image check result shows 'Image Similarity Score is 0.0 and the Text Similarity Score is 0.0.'",
+    "validation_summary": "Without external verification, it is impossible to confirm if the stadium in the image is Maracana Stadium or not. Therefore, the caption's accuracy cannot be guaranteed from the image alone."
+  },
+  "inference_time": 5.398994207382202,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

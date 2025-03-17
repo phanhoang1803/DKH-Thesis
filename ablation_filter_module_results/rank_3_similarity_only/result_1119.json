@@ -1,0 +1,40 @@
+{
+  "caption": "Mars will make its nearest approach to Earth in 11 years about 468 million miles away from our planet according to NASA",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Health",
+        "content": "",
+        "caption": "",
+        "domain": "www.pinterest.com",
+        "source": "ImageEvidencesModule",
+        "image_similarity_score": 0.917233407497406,
+        "text_similarity_score": 0.04187881201505661
+      }
+    ],
+    "result": {
+      "confidence_score": 2,
+      "explanation": "The image similarity score is 0.917233407497406 and the text similarity score is 0.04187881201505661. According to the instructions, if the image similarity score is greater than or equal to 0.85 and the text similarity score is less than 0.7, the verdict is immediately false. Because of the low text similarity, it is hard to confirm that the image represents the caption.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image depicts a person's arm covered in mosquitoes. The caption discusses Mars making its nearest approach to Earth. These two topics are completely unrelated. The image has nothing to do with space, planets, or astronomy. Therefore, the caption is out of context with the image, as the image does not represent the content described in the caption. The image check also supports this.",
+    "validation_summary": "The image of a mosquito-covered arm is entirely unrelated to the caption about Mars's proximity to Earth, misleading viewers about the content of the article by showing a completely unrelated image. The image check also resulted in a verdict of false."
+  },
+  "inference_time": 5.010035276412964,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "similarity_only"
+  }
+}

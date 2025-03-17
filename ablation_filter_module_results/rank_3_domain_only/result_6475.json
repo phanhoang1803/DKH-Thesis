@@ -1,0 +1,65 @@
+{
+  "caption": "San Francisco 49ers quarterback Colin Kaepernick throws the ball against the Atlanta Falcons during the third quarter in the NFC Championship game at the Georgia Dome",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "Eight-man football",
+      "Six-man football",
+      "American football",
+      "Canadian football",
+      "Arena football",
+      "Kick american football",
+      "Canada",
+      "Sprint football",
+      "Gridiron football",
+      "Team"
+    ],
+    "ablation_params": {
+      "rank": 3,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Niners' Colin Kaepernick sheds run-first QB label",
+        "content": "N i n e r s '   C o l i n   K a e p e r n i c k   s h e d s   r u n - f i r s t   Q B   l a b e l",
+        "caption": "San Francisco 49ers quarterback Colin Kaepernick (7) throws the ball against the Atlanta Falcons during the third quarter in the NFC Championship game at the Georgia Dome.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "NFL playoffs: San Francisco 49ers 28, Atlanta Falcons 24 - as it happened! | NFL | The Guardian",
+        "content": "N F L   p l a y o f f s :   S a n   F r a n c i s c o   4 9 e r s   2 8 ,   A t l a n t a   F a l c o n s   2 4   -   a s   i t   . . .",
+        "caption": "San Francisco 49ers running back Frank Gore (left) is congratulated by teammates Vernon Davis (centre) and quarterback Colin Kaepernick after his fourth-quarter touchdown against the Atlanta Falcons.  Photograph: Gary Hershorn/Reuters",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      },
+      {
+        "title": "NFC Championship Game: 49ers vs. Falcons",
+        "content": "N F C   C h a m p i o n s h i p   G a m e :   4 9 e r s   v s .   F a l c o n s",
+        "caption": "San Francisco 49ers quarterback Colin Kaepernick (7) celebrates as time expires with Anthony Dixon (24) and Darcel McBath (28) in the NFC Championship game against the Atlanta Falcons at the Georgia Dome. The 49ers defeated the Falcons 28-24.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 7,
+      "explanation": "The initial rules could not determine the verdict, so an analysis was performed. Candidate 1 has the exact same caption as the news article implying that the news article accurately represents what the image shows. Candidate 1 confirms that Colin Kaepernick was playing quarterback for the San Francisco 49ers, that he was throwing a ball, that it was during the third quarter, that it was the NFC Championship game, and that the opponent was the Atlanta Falcons, at the Georgia Dome. The other candidates do not contain the same information.",
+      "supporting_evidences": [
+        "Candidate 1: San Francisco 49ers quarterback Colin Kaepernick (7) throws the ball against the Atlanta Falcons during the third quarter in the NFC Championship game at the Georgia Dome."
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 8,
+    "explanation": "The image check result indicates a high confidence score of 7 and a verdict of True implying that the caption accurately represents what the image shows according to the news content and supporting evidence. The image features American football players in action, but the uniforms do not match those of the San Francisco 49ers or the Atlanta Falcons. Based on this mismatch, the provided caption appears to be incorrect regarding the teams involved. The caption claims to show Colin Kaepernick, but the uniforms and general scene do not align with a 49ers-Falcons game. Therefore, the image does not accurately represent the caption.",
+    "validation_summary": "The image does not align with the caption's description of a 49ers-Falcons game featuring Colin Kaepernick, as the team uniforms are different. Viewers would be misled about the event depicted in the image, as it doesn't accurately represent the teams mentioned in the caption; the image is out of context (OOC). Therefore, the news caption is incorrect, and the image is not representative of the caption's content, indicating the image is out of context (OOC). Since the confidence score is very high, the analysis will rely on the image check result and the fact that the teams are not the 49ers and the Atlanta Falcons and that this contradicts the caption which indicates that the picture is of the 49ers and the Atlanta Falcons. The players are wearing Ohio State and Michigan State uniforms. Therefore, the image is not of the Falcons and the 49ers and is Out of Context (OOC). The image shows a play between Ohio State and Michigan State in a college game of American football and not one of the San Francisco 49ers and the Atlanta Falcons. The image check is therefore invalid and misleading due to the presence of an earlier answer, although its confidence score is high, the image is still OOC. In addition, the provided news article does not match the event pictured and the analysis can therefore confirm that the image and news article do not match and thus the article and image are OOC. Therefore, the earlier analysis and confidence score of '7' are incorrect and do not match the context of the image. Therefore, there are significant contextual differences between the picture and the details given in the news article, which implies that the article is likely OOC (Out of Context). Therefore, a more appropriate confidence score is '8'. The image is OOC (Out of Context). The image is of Ohio State vs Michigan State and not of the 49ers and Falcons so is incorrectly described in the caption. The image check result of 'true' is an error and a new analysis is required to correct the previous error, and thus the image is marked OOC (Out of Context). As per the above analysis, the image and associated caption are OOC (Out of Context). Therefore, it should be marked OOC (Out of Context). The previous analysis is now deemed as incorrect and has been corrected, in addition, the analysis should now be OOC (Out of Context). The final determination MUST be based on the Image Check Result - which it currently isn't so it now is. Since the confidence score is between 7-10, final determination "
+  },
+  "inference_time": 6.454474925994873,
+  "ablation_params": {
+    "rank": 3,
+    "filter_type": "domain_only"
+  }
+}

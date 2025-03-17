@@ -1,0 +1,41 @@
+{
+  "caption": "Mississippi forward Aaron Jones reacts after a play during the game against Mississippi State at Tad Smith Coliseum The Rebels defeated the Bulldogs 8263",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "domain_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 7,
+      "confidence_score": 9,
+      "explanation": "The caption mentions a basketball player (Aaron Jones) from Mississippi reacting during a game against Mississippi State. The context describes a basketball player in a white uniform bending over in discomfort during a game, suggesting a potential injury. While the context doesn't explicitly mention the team names or the player's name, the general setting of a basketball game and a player reacting/in discomfort aligns with the caption's description of a basketball game involving a specific player. However, a key aspect is missed. The caption omits the apparent injury of the player, which is a crucial detail conveyed in the context. Therefore, while the caption is not entirely wrong, it fails to highlight the most important aspect of the image, so I believe that the alignment is only partial.",
+      "supporting_evidences": [
+        "Both the caption and context refer to a basketball game.",
+        "Both refer to a basketball player during the game.",
+        "The player in the image is in a white uniform as would befit a team member",
+        "The caption fails to capture the most important aspect which is the player's injury."
+      ],
+      "verdict": false
+    },
+    "context": {
+      "caption": "Basketball player in white uniform bends over in apparent discomfort during a game.",
+      "context": "The image shows a basketball player, possibly injured, bending over on the court during a game. He is wearing a white uniform with red accents and the number 33. The background is filled with spectators, some of whom are taking pictures. The scene suggests a moment of concern or injury during a basketball match.",
+      "information": "The image features a basketball player wearing a white jersey with the number 33, bending over in what appears to be discomfort or pain. He is surrounded by spectators in the background. There are photographers capturing the moment."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image shows a basketball player bending over in apparent pain or discomfort. The caption describes a basketball player reacting after a play. While both describe a basketball player's reaction, the caption omits the crucial detail of the player's apparent injury, which is a major focal point of the image. Therefore, while not entirely incorrect, the caption is misleading by failing to highlight the apparent discomfort of the player, making it OOC.",
+    "validation_summary": "The caption fails to highlight the obvious injury of the basketball player in the image, which is misleading to viewers about what is being shown. Therefore, the image is out of context with the provided caption.  The caption does not provide a fully correct and representative summary of the image content."
+  },
+  "inference_time": 4.560154676437378,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "domain_only"
+  }
+}

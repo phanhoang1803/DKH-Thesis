@@ -1,0 +1,51 @@
+{
+  "caption": "Martin Shkreli former CEO of Turing Pharmaceuticals shown leaving federal court in Brooklyn NY following his arraignment on securities fraud charges",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [
+      "LCD television",
+      "TV",
+      "Television",
+      "LED-backlit LCD",
+      "Cable television",
+      "Y3W",
+      "Liquid-crystal display",
+      "light-hearted",
+      "Light-emitting diode",
+      "Backlight"
+    ],
+    "ablation_params": {
+      "rank": 1,
+      "filter_type": "similarity_only"
+    },
+    "evidences": [
+      {
+        "title": "Shkreli resigns as Turing Pharma CEO",
+        "content": "S h k r e l i   r e s i g n s   a s   T u r i n g   P h a r m a   C E O",
+        "caption": "Martin Shkreli, former CEO of Turing Pharmaceuticals, shown leaving federal court in Brooklyn, N.Y. following his arraignment on securities fraud charges.",
+        "domain": "www.usatoday.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.10042386502027512,
+        "text_similarity_score": 0.9582123756408691
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The Image Similarity Score is 0.10042386502027512 and Text Similarity Score is 0.9582123756408691. Since the Image Similarity Score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result dictates the final decision because the confidence score is 10. The Image Similarity Score is 0.10042386502027512 and Text Similarity Score is 0.9582123756408691. Since the Image Similarity Score is less than 0.85, the caption must be marked as out-of-context, even if the text similarity score is high.",
+    "validation_summary": "The image check result indicates the caption is out of context due to the low Image Similarity Score despite the high Text Similarity Score, therefore users would be misled about the content of the image in relation to the caption's claims, as the caption describes events not visually represented."
+  },
+  "inference_time": 5.239652633666992,
+  "ablation_params": {
+    "rank": 1,
+    "filter_type": "similarity_only"
+  }
+}

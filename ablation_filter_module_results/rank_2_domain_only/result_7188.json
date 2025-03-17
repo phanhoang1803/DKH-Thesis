@@ -1,0 +1,49 @@
+{
+  "caption": "This twofooted tackle on Morgan Schneiderlin meant that Mathieu Flamini was heading for an early bath Final score Cardiff City v Arsenal",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [
+      "Morgan Schneiderlin",
+      "St Mary's Stadium",
+      "Southampton F.C.",
+      "Premier League",
+      "Arsenal F.C.",
+      "Manchester United F.C.",
+      "UEFA Europa League",
+      "Fulham F.C.",
+      "Liverpool F.C.",
+      "Mathieu Flamini"
+    ],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [
+      {
+        "title": "Premier League: Tuesday night's matches - in pictures | Football | The Guardian",
+        "content": "P r e m i e r   L e a g u e :   T u e s d a y   n i g h t ' s   m a t c h e s   -   i n   p i c t u r e s   |   F o o t b a l l   . . .",
+        "caption": "Tuesday's games: Juan Mata",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule"
+      }
+    ],
+    "result": {
+      "confidence_score": 1,
+      "explanation": "The image similarity score is 0.0 and the text similarity score is 0.0. Therefore, the rule that states 'If Image Similarity Score < 0.85 AND Text Similarity Score < 0.7, do analysis based on the captions and candidate to give the final decision' is applied. However, there is no mention of Mathieu Flamini, Morgan Schneiderlin, or the final score of a Cardiff City vs Arsenal game in the provided evidence. Therefore, the caption is not supported by the evidence.",
+      "supporting_evidences": [],
+      "verdict": false
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 10,
+    "explanation": "The image check result has a confidence score of 1, indicating a low level of certainty. However, the image check result states that the caption is not supported by the evidence because there is no mention of Mathieu Flamini, Morgan Schneiderlin, or the final score of a Cardiff City vs Arsenal game in the provided evidence. Therefore, the caption is not representative of the image content, which shows two soccer players in red and yellow/blue uniforms challenging a player on the ground in a yellow/blue uniform. The players and the specific game details mentioned in the caption are not evident from the image itself.",
+    "validation_summary": "The caption describes a specific game and players that are not identifiable in the image, misleading viewers about the image's content. The image check result supports this conclusion, confirming that the caption is not representative of the image."
+  },
+  "inference_time": 4.9294328689575195,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}

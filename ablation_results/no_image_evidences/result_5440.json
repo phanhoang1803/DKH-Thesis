@@ -1,0 +1,39 @@
+{
+  "caption": "An oil painting of a female guerilla by Yang Yifei at the Hubei Museum of Art",
+  "ground_truth": false,
+  "check_result": {
+    "entities": [],
+    "ablation_type": "no_image_evidences",
+    "evidences": [
+      {
+        "title": "Welcome to Wuhan  a photographic tour of a historic Chinese city | Cities | The Guardian",
+        "content": "W e l c o m e   t o   W u h a n      a   p h o t o g r a p h i c   t o u r   o f   a   h i s t o r i c   C h i n e s e   c i t y   . . .",
+        "caption": "Oil painting of a female guerilla by Yang Yifei at the Hubei Museum of Art, Wuchang.",
+        "domain": "www.theguardian.com",
+        "source": "TextEvidencesModule",
+        "image_similarity_score": 0.9715953469276428,
+        "text_similarity_score": 0.9625441431999207
+      }
+    ],
+    "result": {
+      "confidence_score": 10,
+      "explanation": "The image similarity score is 0.9715953469276428, and the text similarity score is 0.9625441431999207. Both scores are above the thresholds of 0.85 and 0.7, respectively. This indicates that the candidate image is very similar to the news image, and the candidate caption is very similar to the news caption. The candidate caption also includes information about the location (Hubei Museum of Art, Wuchang) and the artist (Yang Yifei), which is consistent with the news caption. The domain of the candidate evidence is www.theguardian.com, which is a reputable news source.",
+      "supporting_evidences": [
+        "Caption: Oil painting of a female guerilla by Yang Yifei at the Hubei Museum of Art, Wuchang.",
+        "Image Similarity Score: 0.9715953469276428",
+        "Caption Similarity Score: 0.9625441431999207",
+        "Domain: www.theguardian.com"
+      ],
+      "verdict": true
+    },
+    "check_type": "high quality evidences"
+  },
+  "final_result": {
+    "OOC": false,
+    "confidence_score": 10,
+    "explanation": "The image check result provides a confidence score of 10, with strong evidence that the caption accurately represents the image. The image similarity score is 0.9715953469276428, and the text similarity score is 0.9625441431999207, both above the set thresholds. These scores strongly suggest that the image and caption align well with the provided news context. Additionally, the supporting evidence indicates that the candidate caption and image are sourced from a reputable news source (www.theguardian.com), further reinforcing the reliability of the information.",
+    "validation_summary": "The high image and text similarity scores, along with the reputable source, confirm that the caption accurately represents the oil painting depicted in the image. Viewers would not be misled about the content of the image based on the caption provided."
+  },
+  "inference_time": 4.83770227432251,
+  "ablation_type": "no_image_evidences"
+}

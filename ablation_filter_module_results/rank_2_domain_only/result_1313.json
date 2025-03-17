@@ -1,0 +1,40 @@
+{
+  "caption": "The 2013 Beetle TDI is part of the Volkswagen line affected",
+  "ground_truth": true,
+  "check_result": {
+    "entities": [],
+    "ablation_params": {
+      "rank": 2,
+      "filter_type": "domain_only"
+    },
+    "evidences": [],
+    "result": {
+      "alignment_score": 8,
+      "confidence_score": 9,
+      "explanation": "The caption states that the 2013 Beetle TDI is part of the Volkswagen line affected by something (presumably the emissions scandal, given the broader context). This aligns with the image context, which identifies the car as a 2013 Beetle TDI and connects it to the Volkswagen emissions scandal. The caption does not provide a complete description of the situation, but it correctly places the car within the context of the scandal.",
+      "supporting_evidences": [
+        "The caption accurately identifies the car model (2013 Beetle TDI).",
+        "The caption correctly links the car to the broader context of the Volkswagen line affected by the emissions scandal.",
+        "The image context confirms that the car is indeed a 2013 Beetle TDI and is related to the emissions scandal."
+      ],
+      "verdict": true
+    },
+    "context": {
+      "information": "The image appears to be a close-up photo of a Volkswagen car, likely a Beetle TDI from 2013, highlighting its exterior features. It captures the car's design, such as its curves, headlights, and possibly its logo, which is a significant aspect given the current context related to the emissions scandal.",
+      "caption": "Close-up view of a 2013 Volkswagen Beetle TDI.",
+      "context": "In the context of recent news, this image of the 2013 Beetle TDI serves as a representation of the models involved in the Volkswagen emissions scandal, where the company faced allegations of having deliberately manipulated emissions tests. The scandal initially came to public attention when it was found that Volkswagen had installed defeat devices in their vehicles to pass emissions tests, affecting millions of cars worldwide. The EPA has expanded the scrutiny to include additional models and has indicated that Volkswagen could face extensive penalties related to these violations. This backdrop highlights the significance of the vehicle in question and the implications for Volkswagen as it faces public and regulatory backlash over its practices."
+    },
+    "check_type": "context"
+  },
+  "final_result": {
+    "OOC": true,
+    "confidence_score": 9,
+    "explanation": "The image depicts a Chevrolet Camaro convertible, not a Volkswagen Beetle TDI. The caption refers to the \"2013 Beetle TDI\" and its involvement in the Volkswagen emissions scandal, which is entirely unrelated to the car shown in the image. The image check result correctly identifies the discrepancy. Therefore, the caption is misleading and out of context.",
+    "validation_summary": "The caption is out of context because it describes a Volkswagen Beetle TDI, while the image shows a Chevrolet Camaro convertible, misleading viewers about the article's content. The caption provides information about a car different from the one in the image, and the image context does not contain any reference to Volkswagen or its emissions scandal."
+  },
+  "inference_time": 4.3825578689575195,
+  "ablation_params": {
+    "rank": 2,
+    "filter_type": "domain_only"
+  }
+}
