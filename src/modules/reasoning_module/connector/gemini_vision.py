@@ -51,6 +51,7 @@ class GeminiVisionConnector:
             schema: Any,
             image_base64: Optional[str] = None,
             ref_images_base64: Optional[List[str]] = None,
+            system_prompt: Optional[str] = None
         ) -> Dict[str, Any]:
         """Call Gemini Vision with structured output using the provided schema.
         
@@ -63,7 +64,13 @@ class GeminiVisionConnector:
         Returns:
             Dict[str, Any]: Structured response following the provided schema
         """
-        json_schema = self.typeddict_to_json_schema(schema)
+        if system_prompt:
+            self.model = genai.GenerativeModel(model_name=self.model_name, system_instruction=system_prompt)
+            
+        if isinstance(schema, dict):
+            json_schema = schema
+        else:
+            json_schema = self.typeddict_to_json_schema(schema)
         
         # Prepare the content parts list
         content_parts = []
@@ -77,6 +84,8 @@ class GeminiVisionConnector:
             
         # Add reference images if provided
         if ref_images_base64:
+            if isinstance(ref_images_base64, str):
+                ref_images_base64 = [ref_images_base64]
             for ref_image in ref_images_base64:
                 content_parts.append({
                     'mime_type': 'image/jpeg',

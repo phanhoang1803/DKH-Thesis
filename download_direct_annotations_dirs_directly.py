@@ -25,24 +25,35 @@ import urllib.parse
 import logging
 from typing import List, Dict, Any, Tuple, Optional
 from filelock import FileLock
+from datetime import datetime
+
+# Selenium imports
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, WebDriverException
+from webdriver_manager.chrome import ChromeDriverManager
+
+# Import NewsPleaseScraper
+from src.modules.evidence_retrieval_module.scraper.news_scraper.news_scraper import NewsPleaseScraper
 
 # Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler("google_search.log"),
-        logging.StreamHandler()
-    ]
-)
-logger = logging.getLogger(__name__)
-
-# Import utils functions from original code
-from utils import get_captions_from_page, save_html, download_and_save_image
+# logging.basicConfig(
+#     level=logging.INFO,
+#     format='%(asctime)s - %(levelname)s - %(message)s',
+#     handlers=[
+#         logging.FileHandler("google_search.log"),
+#         logging.StreamHandler()
+#     ]
+# )
+# logger = logging.getLogger(__name__)
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Download dataset for direct search queries')
-    parser.add_argument('--save_folder_path', type=str, default='queries_datasett',
+    parser.add_argument('--save_folder_path', type=str, default='queries_dataset',
                         help='location where to download data')
     parser.add_argument('--google_cred_json', type=str, default='credentials.json',
                         help='json file for credentials')
@@ -70,13 +81,24 @@ def parse_arguments():
                         help='threshold used in hashing')
     parser.add_argument('--skip_existing', action="store_true")
     
-    # New arguments for proxy settings
-    parser.add_argument('--use_proxies', action="store_true",
-                        help='Use rotating proxies for requests')
-    parser.add_argument('--proxy_list_path', type=str, default=None,
-                        help='Path to a file containing proxy list (one per line)')
-    parser.add_argument('--max_retries', type=int, default=5,
-                        help='Maximum number of retries for failed requests')
+    # Selenium specific arguments
+    parser.add_argument('--selenium_type', type=str, default='selenium')
+    parser.add_argument('--headless', action="store_true", 
+                        help='Run Chrome in headless mode')
+    parser.add_argument('--chrome_path', type=str, default=None,
+                        help='Path to Chrome binary')
+    parser.add_argument('--driver_path', type=str, default=None,
+                        help='Path to Chrome driver')
+    parser.add_argument('--proxy', type=str, default=None,
+                        help='Proxy to use for Selenium (format: host:port)')
+    parser.add_argument('--max_wait_time', type=int, default=30,
+                        help='Maximum time to wait for elements to load in seconds')
+    
+    # NewsPleaseScraper specific arguments
+    parser.add_argument('--timeout_per_url', type=int, default=6,
+                        help='Timeout for each URL when scraping')
+    parser.add_argument('--max_workers', type=int, default=2,
+                        help='Max number of workers for parallel scraping')
     
     args = parser.parse_args()
     return args
@@ -97,6 +119,21 @@ NEWS_DOMAINS = [
     "magazine.atavist.com", "newyorker.com", "theatlantic.com", "vanityfair.com",
     "economist.com", "ffxnow.com", "laist.com", "hudson.org", "rollcall.com",
     "nps.gov", "reuters.com"
+]
+
+# NEWS_DOMAINS = [
+#     # Major News Organizations
+#     "theguardian.com", "usatoday.com", "washingtontimes.com", "bbc.com", "bbc.co.uk", "cnn.com",
+    
+#     "pbs.org", "nbcnews.com", "latimes.com"
+# ]
+
+EXCLUDED_DOMAINS = [
+    "mdpi", "yumpu", "scmp", "pinterest", "imdb",
+    "movieweb", "shutterstock", "reddit", "alamy",
+    "alamy.it", "alamyimages", "planetcricket",
+    "cnnbrasil", "infomoney", "gettyimages",
+    "washingtonpost", "youtube", "facebook", "researchgate", 
 ]
 
 EXCLUDE_KEYWORDS = [
@@ -120,6 +157,14 @@ def _normalize_domain(domain: str) -> str:
         domain = domain[4:]
     return domain
 
+def _normalize_domain_for_excluding(domain: str) -> str:
+    """Normalize domain string by removing www. prefix and lowercasing."""
+    domain = domain.lower().strip()
+    if domain.startswith("www."):
+        domain = domain[4:]
+    domain = domain.split(".")[0]
+    return domain
+
 def filter_evidence_by_domain(urls: List[str], allowed_domains: List[str]) -> List[str]:
     """Filter evidence list by allowed domains."""
     # Normalize allowed domains
@@ -133,70 +178,9 @@ def filter_evidence_by_domain(urls: List[str], allowed_domains: List[str]) -> Li
             if domain in normalized_domains:
                 filtered_urls.append(url)
         except Exception as e:
-            logger.error(f"Error parsing URL {url}: {e}")
+            print(f"Error parsing URL {url}: {e}")
     
     return filtered_urls
-
-def get_proxies(proxy_list_path: Optional[str] = None) -> List[str]:
-    """Get a list of proxies either from file or from Geonode API"""
-    if proxy_list_path and os.path.exists(proxy_list_path):
-        try:
-            with open(proxy_list_path, 'r') as f:
-                proxies = [line.strip() for line in f if line.strip()]
-            logger.info(f"Loaded {len(proxies)} proxies from file")
-            return proxies
-        except Exception as e:
-            logger.error(f"Error loading proxies from file: {e}")
-    
-    # Fallback to Geonode API
-    try:
-        url = "https://proxylist.geonode.com/api/proxy-list?limit=50&page=1&sort_by=lastChecked&sort_type=desc&filterUpTime=90&protocols=http,https"
-        response = requests.get(url, timeout=10)
-        data = response.json()
-        proxies = []
-        
-        for proxy in data.get('data', []):
-            protocol = proxy.get('protocols')[0].lower()
-            ip = proxy.get('ip')
-            port = proxy.get('port')
-            proxy_str = f"{protocol}://{ip}:{port}"
-            proxies.append(proxy_str)
-            
-        logger.info(f"Fetched {len(proxies)} proxies from Geonode")
-        return proxies
-    except Exception as e:
-        logger.error(f"Error fetching proxies: {e}")
-        return []
-
-def validate_proxy(proxy: str) -> bool:
-    """Check if proxy is working"""
-    try:
-        test_url = "https://www.google.com"
-        response = requests.get(
-            test_url, 
-            proxies={"http": proxy, "https": proxy},
-            timeout=5
-        )
-        return response.status_code == 200
-    except:
-        return False
-
-def get_working_proxies(proxy_list_path: Optional[str] = None, max_proxies: int = 10) -> List[str]:
-    """Get a list of working proxies"""
-    all_proxies = get_proxies(proxy_list_path)
-    working_proxies = []
-    
-    with cf.ThreadPoolExecutor(max_workers=10) as executor:
-        results = executor.map(validate_proxy, all_proxies)
-        
-        for proxy, is_valid in zip(all_proxies, results):
-            if is_valid:
-                working_proxies.append(proxy)
-                if len(working_proxies) >= max_proxies:
-                    break
-                
-    logger.info(f"Found {len(working_proxies)} working proxies")
-    return working_proxies
 
 def get_random_user_agent() -> str:
     """Generate a random user agent"""
@@ -205,7 +189,7 @@ def get_random_user_agent() -> str:
         from fake_useragent import UserAgent
         ua = UserAgent()
         return ua.random
-    except:
+    except ImportError:
         # Fallback user agents
         user_agents = [
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
@@ -216,236 +200,173 @@ def get_random_user_agent() -> str:
         ]
         return random.choice(user_agents)
 
-def get_cookies() -> Dict:
-    """Try to load cookies from a file or return empty dict"""
+def setup_selenium_driver(args):
+    """Set up and configure Selenium WebDriver"""
+    chrome_options = Options()
+    
+    # Set user agent
+    chrome_options.add_argument(f"user-agent={get_random_user_agent()}")
+    
+    # Headless mode if specified
+    if args.headless:
+        chrome_options.add_argument("--headless")
+    
+    # Additional options to avoid detection
+    chrome_options.add_argument("--disable-blink-features=AutomationControlled")
+    chrome_options.add_argument("--disable-extensions")
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--window-size=1920,1080")
+    
+    # Load cookies from file if they exist
+    chrome_options.add_argument("--disable-web-security")
+    chrome_options.add_argument("--allow-running-insecure-content")
+    
+    # Set proxy if specified
+    if args.proxy:
+        chrome_options.add_argument(f"--proxy-server={args.proxy}")
+    
+    # Set Chrome binary path if specified
+    if args.chrome_path:
+        chrome_options.binary_location = args.chrome_path
+    
+    # Create driver
+    try:
+        if args.driver_path:
+            service = Service(executable_path=args.driver_path)
+            driver = webdriver.Chrome(service=service, options=chrome_options)
+        else:
+            service = Service(ChromeDriverManager().install())
+            driver = webdriver.Chrome(service=service, options=chrome_options)
+            
+        # Set page load timeout
+        driver.set_page_load_timeout(args.max_wait_time)
+        
+        # Add CDP commands to make detection harder
+        driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
+            "source": """
+                Object.defineProperty(navigator, 'webdriver', {
+                    get: () => undefined
+                })
+                """
+        })
+        
+        return driver
+    except Exception as e:
+        print(f"Error setting up Selenium driver: {e}")
+        raise
+
+def load_cookies(driver):
+    """Load cookies from file if they exist"""
     try:
         if os.path.exists('google_cookies.json'):
+            driver.get("https://www.google.com")
             with open('google_cookies.json', 'r') as f:
-                return json.load(f)
+                cookies = json.load(f)
+                for cookie in cookies:
+                    # Some cookies cannot be added directly, handle exceptions
+                    try:
+                        driver.add_cookie(cookie)
+                    except Exception:
+                        pass
+            # Refresh to apply cookies
+            driver.refresh()
     except Exception as e:
-        logger.error(f"Error loading cookies: {e}")
-    return {}
+        print(f"Error loading cookies: {e}")
 
-def save_cookies(cookies) -> None:
+def save_cookies(driver):
     """Save cookies to a file"""
     try:
+        cookies = driver.get_cookies()
         with open('google_cookies.json', 'w') as f:
-            json.dump(dict(cookies), f)
+            json.dump(cookies, f)
     except Exception as e:
-        logger.error(f"Error saving cookies: {e}")
+        print(f"Error saving cookies: {e}")
 
-def google_search_with_requests(query: str, how_many_queries: int = 1, 
-                                use_proxies: bool = False, proxy_list_path: Optional[str] = None, 
-                                max_retries: int = 5) -> List[Dict]:
-    """Search Google Images with rotating proxies and anti-detection techniques"""
-    
-    working_proxies = []
-    if use_proxies:
-        working_proxies = get_working_proxies(proxy_list_path)
-        if not working_proxies:
-            logger.warning("No working proxies found. Will try without proxy.")
-            working_proxies = [None]  # Try without proxy as fallback
-    else:
-        working_proxies = [None]  # Don't use proxies
-    
-    cookies = get_cookies()
-    results_list = []
-    
-    for i in range(how_many_queries):
-        start = i * 10 + 1
-        retries = 0
-        search_results = {'items': []}
+def bypass_consent_page(driver):
+    """Attempt to bypass Google's consent page if it appears"""
+    try:
+        # Look for the consent button and click it
+        consent_buttons = [
+            "//button[contains(., 'Accept all')]",
+            "//button[contains(., 'I agree')]",
+            "//button[contains(., 'Agree')]",
+            "//div[contains(@role, 'dialog')]//button[1]"  # Usually the first button is Accept/Agree
+        ]
         
-        while retries < max_retries and len(search_results['items']) < 10:
-            # Select random proxy
-            proxy = random.choice(working_proxies)
-            proxies = {"http": proxy, "https": proxy} if proxy else None
-            
-            # Random delay to mimic human behavior
-            time.sleep(random.uniform(1, 3))
-            
-            headers = {
-                'User-Agent': get_random_user_agent(),
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-                'Accept-Language': 'en-US,en;q=0.5',
-                'Referer': 'https://www.google.com/',
-                'DNT': '1',
-                'Connection': 'keep-alive',
-                'Upgrade-Insecure-Requests': '1',
-                'Sec-Fetch-Dest': 'document',
-                'Sec-Fetch-Mode': 'navigate',
-                'Sec-Fetch-Site': 'same-origin',
-                'Sec-Fetch-User': '?1',
-                'Cache-Control': 'max-age=0'
-            }
-            
-            # Try both exact match (with quotes) and broad match
-            for search_type in ["exact", "broad"]:
-                search_query = f'"{query}"' if search_type == "exact" else query
+        for button_xpath in consent_buttons:
+            try:
+                button = WebDriverWait(driver, 5).until(
+                    EC.element_to_be_clickable((By.XPATH, button_xpath))
+                )
+                button.click()
+                print("Clicked consent button")
+                time.sleep(1)  # Wait for page to update
+                return True
+            except (TimeoutException, NoSuchElementException):
+                continue
                 
-                # Additional parameters for broad search
-                additional_params = {}
-                if search_type == "broad":
-                    additional_params = {
-                        'sort': 'date:r:20100101:20161231'
-                    }
-                
-                # Randomize search parameters slightly
-                search_params = {
-                    'q': search_query,
-                    'tbm': 'isch',  # For image search
-                    'hl': 'en',
-                    'gl': random.choice(['us', 'uk', 'ca']),  # Random region
-                    'start': start,
-                    **additional_params
-                }
-                
-                try:
-                    logger.info(f"Sending {search_type} request with proxy: {proxy}")
-                    response = requests.get(
-                        'https://www.google.com/search', 
-                        headers=headers,
-                        params=search_params,
-                        proxies=proxies,
-                        cookies=cookies,
-                        timeout=15  # Increased timeout for proxy requests
-                    )
-                    
-                    # Save cookies for potential future use
-                    save_cookies(response.cookies)
-                    
-                    if response.status_code == 200:
-                        soup = BeautifulSoup(response.text, 'html.parser')
-                        
-                        # Look for indications of blocking
-                        if 'unusual traffic' in response.text.lower() or 'captcha' in response.text.lower():
-                            logger.warning(f"Google detected automated traffic for {search_type}. Proxy may be blocked.")
-                            if proxy in working_proxies and proxy is not None:
-                                working_proxies.remove(proxy)
-                            continue
-                        
-                        # Extract all elements with data-lpage attribute (original URLs)
-                        elements = soup.find_all(attrs={"data-lpage": True})
-                        logger.info(f"Found {len(elements)} raw results for {search_type}")
-                        
-                        # Extract other attributes for each item
-                        for element in elements:
-                            try:
-                                # Try to find parent element that contains the image
-                                parent = element.find_parent('div', class_='isv-r')
-                                
-                                # Find the image element
-                                img_element = None
-                                if parent:
-                                    img_element = parent.find('img')
-                                else:
-                                    img_element = element.find('img')
-                                
-                                # Extract image source
-                                img_src = None
-                                img_page_url = None
-                                
-                                h3 = element.find('h3').find('a')
-                                print(h3)
-                                
-                                if img_page_url and not img_src and img_page_url.startswith('/imgres'):
-                                    try:
-                                        # Add the Google domain if it's a relative URL
-                                        if img_page_url.startswith('/'):
-                                            img_page_url = f"https://www.google.com{img_page_url}"
-                                        
-                                        logger.info(f"Following redirect to extract image URL: {img_page_url}")
-                                        
-                                        # Use a different user agent to avoid detection
-                                        redirect_headers = {
-                                            'User-Agent': get_random_user_agent(),
-                                            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-                                            'Referer': 'https://www.google.com/',
-                                        }
-                                        
-                                        # Make a request to the Google image page
-                                        redirect_response = requests.get(img_page_url, headers=redirect_headers, allow_redirects=False)
-                                        
-                                        # Check if we got a redirect
-                                        if redirect_response.status_code in (301, 302, 303, 307, 308) and 'Location' in redirect_response.headers:
-                                            # The real image URL is in the Location header
-                                            img_src = redirect_response.headers['Location']
-                                            logger.info(f"Extracted image URL from redirect: {img_src}")
-                                        else:
-                                            # Try to parse the imgurl parameter from the URL
-                                            if 'imgurl=' in img_page_url:
-                                                img_src = img_page_url.split('imgurl=')[1].split('&')[0]
-                                                img_src = urllib.parse.unquote(img_src)
-                                                logger.info(f"Extracted image URL from URL parameter: {img_src}")
-                                    except Exception as e:
-                                        logger.error(f"Error following redirect: {e}")
-                                
-                                # Extract title
-                                title_element = element.find('h3') or element.find('div', class_='iKjWAf')
-                                title = title_element.get_text() if title_element else ""
-                                
-                                # Extract the domain/display link
-                                domain_element = element.find('div', class_='ptes9b') or element.find('div', class_='Xxy7Vb')
-                                domain = ""
-                                if domain_element:
-                                    domain_span = domain_element.find('span')
-                                    domain = domain_span.get_text() if domain_span else ""
-                                
-                                # Build an item similar to Google API response format
-                                item = {
-                                    'link': img_src,
-                                    'title': title,
-                                    'displayLink': domain,
-                                    'image': {
-                                        'contextLink': element["data-lpage"]
-                                    }
-                                }
-                                
-                                # print(item)
-                                
-                                # Add to search results if not already present
-                                if img_src:  # Only add if we found an image source
-                                    # Check if this image URL is already in our results
-                                    if not any(i['link'] == img_src for i in search_results['items']):
-                                        search_results['items'].append(item)
-                            except Exception as e:
-                                logger.error(f"Error processing element: {e}")
-                                continue
-                    else:
-                        logger.warning(f"Request failed with status code: {response.status_code}")
-                        
-                except Exception as e:
-                    logger.error(f"Error during request: {e}")
-                    # Remove failing proxy
-                    if proxy in working_proxies and proxy is not None:
-                        working_proxies.remove(proxy)
-                
-                # If we've run out of proxies, try without one
-                if not working_proxies:
-                    working_proxies = [None]
-            
-            # Check if we got enough results or need to retry
-            if len(search_results['items']) >= 10:
-                break
-                
-            retries += 1
-            logger.info(f"Retry {retries}/{max_retries} - Got {len(search_results['items'])} items so far")
-        
-        # Add searchInformation to match Google API format
-        search_results['searchInformation'] = {
-            'totalResults': str(len(search_results['items']))
-        }
-        
-        results_list.append(search_results)
-        
-        # Log what we found
-        logger.info(f"Query {i+1}/{how_many_queries} complete. Found {len(search_results['items'])} items.")
+        return False
+    except Exception as e:
+        print(f"Error bypassing consent page: {e}")
+        return False
+
+def scroll_to_load_more_images(driver, scrolls=3):
+    """Scroll down to load more images"""
+    try:
+        for i in range(scrolls):
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(2)  # Wait for images to load
+    except Exception as e:
+        print(f"Error scrolling page: {e}")
+
+def google_search_with_selenium(query: str, driver, how_many_queries: int = 1, max_wait_time: int = 30) -> List[str]:
+    """Search Google Images using Selenium"""
+    all_links = []
     
-    return results_list
+    try:
+        for i in range(how_many_queries):
+            start = i * 10
+            
+            # Construct search URL
+            search_url = f"https://www.google.com/search?q={urllib.parse.quote(query)}&tbm=isch&hl=en&start={start}"
+            
+            try:
+                # Navigate to the search URL
+                driver.get(search_url)
+                
+                # Check for and bypass consent page
+                # bypass_consent_page(driver)
+                print("bypassed")
+                
+                time.sleep(2)
+                
+                # Check if Google detected automated traffic
+                if "unusual traffic" in driver.page_source.lower() or "captcha" in driver.page_source.lower():
+                    print(f"Google detected automated traffic for search")
+                    continue
+                
+                # Save cookies for future use
+                # save_cookies(driver)
+                
+                # Get page source and parse with BeautifulSoup for more robust parsing
+                soup = BeautifulSoup(driver.page_source, 'html.parser')
+                
+                links = [item['data-lpage'] for item in soup.find_all(attrs={"data-lpage": True})]
+                all_links.extend(links)
+            except WebDriverException as e:
+                print(f"Selenium error during search: {e}")
+                continue
+            
+    except Exception as e:
+        print(f"Error in Google search with Selenium: {e}")
+        
+    return list(set(all_links))
 
 def init_files_and_paths(args):
     """Initialize files and paths needed for the script"""
-    full_save_path = os.path.join(args.save_folder_path, args.split_type, 'direct_search', args.sub_split)
+    full_save_path = os.path.join(args.save_folder_path, args.split_type, 'direct_search', args.sub_split, args.selenium_type)
     os.makedirs(full_save_path, exist_ok=True)
     
     # Initialize files
@@ -469,90 +390,117 @@ def init_files_and_paths(args):
     
     return full_save_path, json_download_file_name, all_direct_annotations_idx
 
-def process_single_item(item_data):
-    """Process a single search result item"""
-    item, counter, save_folder_path = item_data
+def download_and_save_image(url, save_dir, image_name):
+    """Download and save an image"""
+    try:
+        response = requests.get(url, stream=True, timeout=10)
+        if response.status_code == 200:
+            img_path = os.path.join(save_dir, f"{image_name}.jpg")
+            with open(img_path, 'wb') as f:
+                shutil.copyfileobj(response.raw, f)
+            return True
+        return False
+    except Exception as e:
+        print(f"Error downloading image {url}: {e}")
+        return False
+
+def save_html(content, path):
+    """Save HTML content to a file"""
+    try:
+        with open(path, 'w', encoding='utf-8') as f:
+            f.write(content)
+        return True
+    except Exception as e:
+        print(f"Error saving HTML to {path}: {e}")
+        return False
+
+def process_single_item(url_data, scraper):
+    """Process a single URL using NewsPleaseScraper"""
+    url, counter, save_folder_path = url_data
     image = {}
     
-    # Basic information extraction
-    for key, target in [('link', 'img_link'), ('displayLink', 'domain')]:
-        if key in item:
-            image[target] = item[key]
-    
-    if 'image' in item and 'contextLink' in item['image']:
-        image['page_link'] = item['image']['contextLink']
-    if 'snippet' in item:
-        image['snippet'] = item['snippet']
-
-    # Download image
-    if not download_and_save_image(item['link'], save_folder_path, str(counter)):
-        return None
-
-    image['image_path'] = os.path.join(save_folder_path, f"{counter}.jpg")
-
+    # Basic URL parsing for domain and other info
     try:
-        caption, title, code, req = get_captions_from_page(
-            item['link'], 
-            item['image']['contextLink']
-        )
+        parsed_url = urllib.parse.urlparse(url)
+        domain = _normalize_domain(parsed_url.netloc)
+        
+        # Extract some basic info
+        image['img_link'] = url
+        image['domain'] = domain
+        image['page_link'] = url
     except Exception as e:
-        print(f'Error in getting captions for item {counter}: {str(e)}')
+        print(f"Error parsing URL {url}: {e}")
         return None
+    
+    # Scrape article with NewsPleaseScraper
+    try:
+        scraped_articles = scraper.scrape([url], max_workers=1)
+        
+        if not scraped_articles:
+            return ('no_captions', image)
+        
+        article = scraped_articles[0]
+        
+        image['img_link'] = article.get("image_url", "")
+        
+        if not download_and_save_image(image['img_link'], save_folder_path, str(counter)):
+            return None
 
-    # Save HTML
-    if save_html(req, os.path.join(save_folder_path, f"{counter}.txt")):
-        image['html_path'] = os.path.join(save_folder_path, f"{counter}.txt")
-
-    if code and code[0] in ['4', '5']:
-        image['is_request_error'] = True
-
-    # Process title
-    item_title = item.get('title', '') or ''
-    title = title if title is not None else ''
-    image['page_title'] = title if len(title) > len(item_title.strip()) else item_title
-
-    # Process caption
-    if caption:
-        image['caption'] = caption
+        image['image_path'] = os.path.join(save_folder_path, f"{counter}.jpg")
+        image['domain'] = article.get("source_domain", "")
+        image['page_link'] = article.get("url", "")
+        
+        # Save HTML content if available
+        if 'html' in article:
+            html_content = article['html']
+            if save_html(html_content, os.path.join(save_folder_path, f"{counter}.txt")):
+                image['html_path'] = os.path.join(save_folder_path, f"{counter}.txt")
+        
+        image['page_title'] = article.get("title", "")
+        image['caption'] = article.get("description", "")
+        image['snippet'] = article.get("content", "")
+        
+        if image['caption'] == "":
+            return ('no_captions', {})
+        
         return ('with_captions', image)
     
-    try:
-        caption, title, code, req = get_captions_from_page(
-            item['link'],
-            item['image']['contextLink'],
-            req,
-            # args.hashing_cutoff
-        )
     except Exception as e:
-        print(f'Error in getting captions for item {counter} (second attempt): {str(e)}')
-        return None
-
-    if caption:
-        image['caption'] = caption
-        return ('matched_tags', image)
+        print(f"Error scraping article {url}: {e}")
     
+    # If scraping failed or no content was found
     return ('no_captions', image)
 
-def get_direct_search_annotation(search_results_lists, save_folder_path):
+def get_direct_search_annotation(urls, save_folder_path, scraper):
     """Process search results in parallel"""
     items_to_process = []
     counter = 0
     
-    for result_list in search_results_lists:
-        if 'items' in result_list:
-            for item in result_list['items']:
-                items_to_process.append((item, counter, save_folder_path))
+    for url in urls:
+        # Filter by news domains
+        try:
+            domain = _normalize_domain(urllib.parse.urlparse(url).netloc)
+            if domain in NEWS_DOMAINS and "gallery" not in url and "video" not in url and ".pdf" not in url:
+                items_to_process.append((url, counter, save_folder_path))
                 counter += 1
-
+                
+                # Scrape only top 5 items
+                if counter == 10:
+                    break
+        except Exception as e:
+            print(f"Error parsing URL {url}: {e}")
+    
     if not items_to_process:
         return {}
 
+    print(items_to_process)
+
     results = defaultdict(list)
     
-    # Use a context manager for ProcessPoolExecutor
-    with cf.ProcessPoolExecutor() as executor:
+    # Process items in parallel
+    with cf.ThreadPoolExecutor() as executor:
         futures = {
-            executor.submit(process_single_item, item_data): item_data
+            executor.submit(process_single_item, item_data, scraper): item_data
             for item_data in items_to_process
         }
         
@@ -569,12 +517,12 @@ def get_direct_search_annotation(search_results_lists, save_folder_path):
         
         except KeyboardInterrupt:
             print("🛑 User interrupted! Shutting down all processes...")
-            executor.shutdown(wait=False, cancel_futures=True)  # 🚀 Force stop all workers
+            executor.shutdown(wait=False, cancel_futures=True)
             raise  # Re-raise KeyboardInterrupt
         
         except Exception as e:
             print(f"🔥 Critical error: {str(e)}. Forcing shutdown.")
-            executor.shutdown(wait=False, cancel_futures=True)  # 🚀 Force stop all workers
+            executor.shutdown(wait=False, cancel_futures=True)
 
     if not results:
         return {}
@@ -628,66 +576,185 @@ def main():
             
     # Remove duplicate indices
     indices = list(set(indices))
+    indices = [int(x) for x in indices]  # Convert all elements to integers
     indices.sort()
     print(f"Processing items from {indices[0]} to {indices[-1]}")
     
-    # Main processing loop
+    # Create a temporary storage for search links
+    search_links_path = os.path.join(full_save_path, "search_links.json")
+    
+    # Check if we have cached search links
+    search_links_by_index = {}
+    if os.path.exists(search_links_path) and args.continue_download:
+        try:
+            # Use file locking when loading to prevent race conditions
+            lock_file = f"{search_links_path}.lock"
+            with FileLock(lock_file):
+                with open(search_links_path, 'r') as f:
+                    search_links_by_index = json.load(f)
+            print(f"Loaded {len(search_links_by_index)} cached search results")
+        except Exception as e:
+            print(f"Error loading cached search links: {str(e)}")
+            search_links_by_index = {}
+    
+    # PHASE 1: Collect all search links
+    indices_to_search = [i for i in indices if str(i) not in search_links_by_index]
+    
+    if indices_to_search:
+        print(f"Phase 1: Collecting search links for {len(indices_to_search)} indices...")
+        
+        # Initialize Selenium WebDriver for search phase only
+        driver = setup_selenium_driver(args)
+        
+        try:
+            # Load cookies if available
+            load_cookies(driver)
+            
+            # Main search loop
+            for i in tqdm.tqdm(indices_to_search):
+                start_time = time.time()
+                
+                try:
+                    ann = clip_data_annotations[i]
+                    text_query = visual_news_data_mapping[str(ann["id"])]["caption"]
+                    
+                    # Process single query using our Selenium Google Search function
+                    links = google_search_with_selenium(
+                        query=text_query,
+                        driver=driver,
+                        how_many_queries=args.how_many_queries,
+                        max_wait_time=args.max_wait_time
+                    )
+                    
+                    # Store the search links
+                    if links:
+                        search_links_by_index[str(i)] = {
+                            "query": text_query,
+                            "links": links,
+                            "timestamp": datetime.now().isoformat()
+                        }
+                        
+                        # Use file locking to prevent race conditions when saving
+                        lock_file = f"{search_links_path}.lock"
+                        with FileLock(lock_file):
+                            # Read the latest version first in case other processes have updated it
+                            if os.path.exists(search_links_path):
+                                with open(search_links_path, 'r') as f:
+                                    current_links = json.load(f)
+                                # Update with our new link
+                                current_links[str(i)] = search_links_by_index[str(i)]
+                            else:
+                                current_links = {str(i): search_links_by_index[str(i)]}
+                                
+                            # Write back the updated data
+                            with open(search_links_path, 'w') as f:
+                                json.dump(current_links, f)
+                            
+                            # Update our local copy with the complete dataset
+                            search_links_by_index = current_links
+                
+                except Exception as e:
+                    print(f"Error searching for item {i}: {str(e)}")
+                
+                print(f"Search for item {i} completed in {time.time() - start_time:.2f} seconds")
+                
+                # Random delay to avoid detection
+                time.sleep(random.uniform(2, 5))
+                
+                # Refresh the driver every 10 searches to prevent stale sessions
+                if len(search_links_by_index) % 20 == 0:
+                    try:
+                        driver.quit()
+                        time.sleep(2)
+                        driver = setup_selenium_driver(args)
+                        load_cookies(driver)
+                    except Exception as e:
+                        print(f"Error refreshing driver: {str(e)}")
+                        driver = setup_selenium_driver(args)
+                        load_cookies(driver)
+        
+        finally:
+            # Always close the driver to release resources
+            try:
+                driver.quit()
+            except:
+                pass
+    
+    # PHASE 2: Process the search links to get direct annotations
+    print(f"Phase 2: Processing {len(search_links_by_index)} search results...")
+    
+    # Initialize NewsPleaseScraper
+    scraper = NewsPleaseScraper(timeout_per_url=args.timeout_per_url)
+    
     for i in tqdm.tqdm(indices):
         if args.skip_existing:
             if os.path.exists(os.path.join(full_save_path, str(i))):
                 # If the folder exists, and the direct_annotation.json file exists, skip the item
                 if os.path.exists(os.path.join(full_save_path, str(i), 'direct_annotation.json')):
-                    continue
+                    with open(os.path.join(full_save_path, str(i), 'direct_annotation.json'), "r") as f:
+                        data = json.load(f)
+                    
+                    scrape = False
+                    for item in data["images_with_captions"]:
+                        if item["caption"] == None:
+                            scrape = True
+                            
+                    if not scrape:
+                        continue
+        
+        # Skip if we don't have search links for this index
+        if str(i) not in search_links_by_index:
+            print(f"No search links found for index {i}, skipping")
+            continue
         
         start_time = time.time()
         
-        try:
-            ann = clip_data_annotations[i]
-            text_query = visual_news_data_mapping[str(ann["id"])]["caption"]
-        except Exception as e:
-            print(f"Skipping item {i} due to error: {str(e)}")
-            continue
-            
+        print(f"Processeing item {i}")
+        
+        # Get the search links for this index
+        search_result = search_links_by_index[str(i)]
+        links = search_result["links"]
+        
         new_folder_path = os.path.join(full_save_path, str(i))
         os.makedirs(new_folder_path, exist_ok=True)
         
-        # Process single query using our new Google Search function
-        result = google_search_with_requests(
-            query=text_query,
-            how_many_queries=args.how_many_queries,
-            use_proxies=args.use_proxies,
-            proxy_list_path=args.proxy_list_path,
-            max_retries=args.max_retries
-        )
-        
-        direct_search_results = get_direct_search_annotation(result, new_folder_path)
+        # Process the links using NewsPleaseScraper
+        direct_search_results = get_direct_search_annotation(links, new_folder_path, scraper)
         
         # Save results
         if direct_search_results:
-            new_entry = {
-                str(i): {
-                    'image_id_in_visualNews': ann["image_id"],
-                    'text_id_in_visualNews': ann["id"],
-                    'folder_path': new_folder_path
-                }
-            }
-            
             try:
-                # Use file locking to prevent race conditions
-                lock_file = f"{json_download_file_name}.lock"
-                with FileLock(lock_file):
-                    with open(json_download_file_name, 'r') as f:
-                        current_data = json.load(f)
-                    current_data.update(new_entry)
-                    with open(json_download_file_name, 'w') as f:
-                        json.dump(current_data, f)
+                ann = clip_data_annotations[i]
+                new_entry = {
+                    str(i): {
+                        'image_id_in_visualNews': ann["image_id"],
+                        'text_id_in_visualNews': ann["id"],
+                        'folder_path': new_folder_path,
+                        'query': search_result["query"]
+                    }
+                }
                 
-                with open(os.path.join(new_folder_path, 'direct_annotation.json'), 'w') as f:
-                    json.dump(direct_search_results, f)
+                try:
+                    # Use file locking to prevent race conditions
+                    lock_file = f"{json_download_file_name}.lock"
+                    with FileLock(lock_file):
+                        with open(json_download_file_name, 'r') as f:
+                            current_data = json.load(f)
+                        current_data.update(new_entry)
+                        with open(json_download_file_name, 'w') as f:
+                            json.dump(current_data, f)
+                    
+                    with open(os.path.join(new_folder_path, 'direct_annotation.json'), 'w') as f:
+                        json.dump(direct_search_results, f)
+                except Exception as e:
+                    print(f"Error saving results for item {i}: {str(e)}")
             except Exception as e:
-                print(f"Error saving results for item {i}: {str(e)}")
+                print(f"Error processing results for item {i}: {str(e)}")
         
         print(f"Processed item {i} in {time.time() - start_time:.2f} seconds")
-
+        
+        # Smaller delay between content processing
+        time.sleep(random.uniform(0.5, 1.5))
+        
 if __name__ == '__main__':
     main()

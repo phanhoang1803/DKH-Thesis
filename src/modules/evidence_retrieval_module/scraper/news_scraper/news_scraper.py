@@ -463,10 +463,12 @@ class NewsPleaseScraper:
                         
             except cf._base.TimeoutError:
                 print(f"Scraping timed out after {total_timeout} seconds")
+                executor.shutdown(wait=False, cancel_futures=True)
                 self.kill_child_processes()
             except Exception as e:
                 print(f"Unexpected error during scraping: {e}")
             finally:
+                executor.shutdown(wait=False, cancel_futures=True)
                 # Cancel all pending futures
                 for future in future_to_url:
                     if not future.done():

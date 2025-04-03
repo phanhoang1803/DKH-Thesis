@@ -16,7 +16,7 @@ import time
 from googleapiclient.discovery import build
 import io
 import json
-from utils import get_captions_from_page, save_html
+from utils import extract_page_content, get_captions_from_page, save_html
 import concurrent.futures as cf
 from functools import partial
 import tqdm
@@ -172,6 +172,14 @@ def process_single_item(item_data):
             item['link'], 
             item['image']['contextLink']
         )
+        
+        # page_content = ""
+        # if req and req.content:
+        #     try:
+        #         soup = BeautifulSoup(req.content.decode('utf-8'), "html.parser")
+        #         page_content = extract_page_content(soup)
+        #     except Exception as content_error:
+        #         print(f"Error extracting content: {str(content_error)}")
     except Exception as e:
         print(f'Error in getting captions for item {counter}: {str(e)}')
         return None
@@ -331,6 +339,7 @@ def main():
         # Process single query
         result = google_search(text_query, args.google_api_key, args.google_cse_id, 
                              how_many_queries=args.how_many_queries)
+        print(result)
         direct_search_results = get_direct_search_annotation(result, new_folder_path)
         
         # Save results

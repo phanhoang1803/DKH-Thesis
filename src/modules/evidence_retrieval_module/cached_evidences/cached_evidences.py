@@ -12,11 +12,9 @@ import torch
 from urllib.parse import urlparse
 
 import numpy as np
-from skimage.metrics import structural_similarity as ssim
 from PIL import Image
 import io
 
-import io
 from transformers import AutoImageProcessor, AutoModel
 import concurrent.futures
 from langdetect import detect, LangDetectException
@@ -41,6 +39,7 @@ class Evidence:
         self.source = source
         self.image_similarity_score = 0.0
         self.text_similarity_score = 0.0
+        self.combined_score = 0.0
     
     def _clean_text(self, text: str):
         """Clean text by removing/replacing problematic characters."""
@@ -76,6 +75,8 @@ class Evidence:
                 result["image_similarity_score"] = self.image_similarity_score
             if self.text_similarity_score:
                 result["text_similarity_score"] = self.text_similarity_score
+            if self.combined_score:
+                result["combined_score"] = self.combined_score
             return result
         except Exception as e:
             return {
@@ -177,155 +178,8 @@ class BaseEvidencesModule:
             print(f"Error loading image {image_path}: {str(e)}")
             return ""
     
-    def filter_evidence_by_image_similarity(self, evidence_list: List[Evidence], 
-                                          reference_image: str, 
-                                          threshold: float = 0.6,
-                                          is_base64: bool = False):
-        """Filter evidence by semantic image similarity to a reference image using ViT.
-        
-        Args:
-            evidence_list: List of Evidence objects to filter
-            reference_image: Either a path to the reference image or a base64-encoded image string
-            threshold: Minimum similarity threshold (0.0 to 1.0)
-            is_base64: Whether the reference_image is a base64-encoded string
-            
-        Returns:
-            Filtered list of Evidence objects
-        """
-        if not evidence_list or not reference_image:
-            return evidence_list
-            
-        # Check if ViT model was initialized successfully
-        if not hasattr(self, 'vit_initialized') or not self.vit_initialized:
-            print("ViT model not initialized. Falling back to basic similarity.")
-            # Fallback to the original implementation
-            return self._filter_evidence_by_image_similarity_basic(
-                evidence_list, reference_image, threshold, is_base64
-            )
-        
-        # Extract embeddings from reference image
-        if is_base64:
-            reference_embeddings = self._extract_embeddings_from_base64(reference_image)
-        else:
-            reference_embeddings = self._extract_embeddings(reference_image)
-            
-        if reference_embeddings is None:
-            print(f"Failed to extract embeddings from reference image")
-            return evidence_list
-        
-        similar_evidence = []
-        
-        for evidence in evidence_list:
-            # Extract embeddings from evidence image
-            evidence_embeddings = self._extract_embeddings_from_base64(evidence.image_data)
-            if evidence_embeddings is None:
-                continue
-            
-            # Calculate semantic similarity score
-            similarity = self._calculate_image_similarity(reference_embeddings, evidence_embeddings)
-            
-            # print(f"Semantic Similarity: {similarity}")
-            
-            # Add evidence if similarity is above threshold
-            if similarity >= threshold:
-                # Add similarity score to evidence for debugging/sorting
-                evidence.similarity_score = similarity
-                similar_evidence.append(evidence)
-        
-        # Sort by similarity score (highest first)
-        similar_evidence.sort(key=lambda x: x.similarity_score, reverse=True)
-        return similar_evidence
-    
-    def filter_evidence_by_image_similarity_parallel(self, evidence_list: List[Evidence], 
-                                       reference_image: str, 
-                                       threshold: float = 0.6,
-                                       is_base64: bool = False,
-                                       max_workers: int = None,
-                                       min_results: int = 0):
-        """Filter evidence by semantic image similarity to a reference image using ViT with parallel processing.
-        
-        Args:
-            evidence_list: List of Evidence objects to filter
-            reference_image: Either a path to the reference image or a base64-encoded image string
-            threshold: Minimum similarity threshold (0.0 to 1.0)
-            is_base64: Whether the reference_image is a base64-encoded string
-            max_workers: Maximum number of worker threads (defaults to CPU count)
-            
-        Returns:
-            Filtered list of Evidence objects sorted by similarity (highest first)
-        """
-        if not evidence_list or not reference_image:
-            return evidence_list
-            
-        # Check if ViT model was initialized successfully
-        if not hasattr(self, 'vit_initialized') or not self.vit_initialized:
-            print("ViT model not initialized. Falling back to basic similarity.")
-            # Fallback to the original implementation
-            return self._filter_evidence_by_image_similarity_basic(
-                evidence_list, reference_image, threshold, is_base64
-            )
-        
-        # Extract embeddings from reference image
-        if is_base64:
-            reference_embeddings = self._extract_embeddings_from_base64(reference_image)
-        else:
-            reference_embeddings = self._extract_embeddings(reference_image)
-            
-        if reference_embeddings is None:
-            print(f"Failed to extract embeddings from reference image")
-            return evidence_list
-        
-        # Define a worker function to process each evidence item
-        def process_evidence(evidence):
-            # Extract embeddings from evidence image
-            evidence_embeddings = self._extract_embeddings_from_base64(evidence.image_data)
-            if evidence_embeddings is None:
-                return None
-            
-            # Calculate semantic similarity score
-            similarity = self._calculate_image_similarity(reference_embeddings, evidence_embeddings)
-            
-            # print(f"Semantic Similarity: {similarity}")
-            
-            # Attach similarity score to evidence
-            evidence.image_similarity_score = similarity
-            return evidence
-        
-        # Use ThreadPoolExecutor for parallel processing
-        evidences = []
-        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-            # Submit all evidence items for processing
-            future_to_evidence = {executor.submit(process_evidence, evidence): evidence 
-                                for evidence in evidence_list}
-            
-            # Collect results as they complete
-            for future in concurrent.futures.as_completed(future_to_evidence):
-                result = future.result()
-                if result is not None:
-                    evidences.append(result)
-        
-        # Sort by similarity score (highest first)
-        evidences.sort(key=lambda x: x.image_similarity_score, reverse=True)
-        
-        # Apply image threshold to similarity score
-        similar_evidences = [ev for ev in evidences if ev.image_similarity_score >= threshold]
-        
-        # Apply min_results
-        if len(similar_evidences) < min_results:
-            similar_evidences = evidences[:min_results]
-        
-        return similar_evidences
-    
     def _calculate_image_similarity(self, embeddings1, embeddings2):
-        """Calculate cosine similarity between two embedding vectors.
-        
-        Args:
-            embeddings1: First embedding vector
-            embeddings2: Second embedding vector
-            
-        Returns:
-            Similarity score (0.0 to 1.0)
-        """
+        """Calculate cosine similarity between two embedding vectors."""
         # Compute cosine similarity between the embeddings
         dot_product = np.dot(embeddings1, embeddings2)
         norm1 = np.linalg.norm(embeddings1)
@@ -340,14 +194,7 @@ class BaseEvidencesModule:
         return max(0.0, min(1.0, similarity))
 
     def _extract_embeddings(self, image_path):
-        """Extract semantic embeddings from an image file using ViT.
-        
-        Args:
-            image_path: Path to the image file
-            
-        Returns:
-            Image embeddings or None if extraction failed
-        """
+        """Extract semantic embeddings from an image file using ViT."""
         try:
             # Load image
             image = Image.open(image_path).convert('RGB')
@@ -367,14 +214,7 @@ class BaseEvidencesModule:
             return None
         
     def _extract_embeddings_from_base64(self, base64_string):
-        """Extract semantic embeddings from a base64-encoded image string using ViT.
-        
-        Args:
-            base64_string: Base64-encoded image string
-            
-        Returns:
-            Image embeddings or None if extraction failed
-        """
+        """Extract semantic embeddings from a base64-encoded image string using ViT."""
         try:
             # Handle data URI format if present
             if isinstance(base64_string, str) and base64_string.startswith('data:image/'):
@@ -400,101 +240,6 @@ class BaseEvidencesModule:
             print(f"Error extracting embeddings from base64 image: {str(e)}")
             return None
     
-    # Keeping the original methods as fallback
-    def _filter_evidence_by_image_similarity_basic(self, evidence_list, reference_image, threshold=0.6, is_base64=False):
-        """Original pixel-based image similarity as fallback."""
-        if not evidence_list or not reference_image:
-            return evidence_list
-        
-        # Load reference image features
-        if is_base64:
-            reference_features = self._extract_image_features_from_base64(reference_image)
-        else:
-            reference_features = self._extract_image_features(reference_image)
-            
-        if reference_features is None:
-            print(f"Failed to extract features from reference image")
-            return evidence_list
-        
-        similar_evidence = []
-        for evidence in evidence_list:
-            # Extract features from evidence image
-            evidence_features = self._extract_image_features_from_base64(evidence.image_data)
-            if evidence_features is None:
-                continue
-            
-            # Calculate similarity score
-            similarity = self._calculate_basic_similarity(reference_features, evidence_features)
-            
-            print(f"Basic Similarity: {similarity}")
-            
-            # Add evidence if similarity is above threshold
-            if similarity >= threshold:
-                # Add similarity score to evidence for debugging/sorting
-                evidence.similarity_score = similarity
-                similar_evidence.append(evidence)
-        
-        return similar_evidence
-        
-    def _calculate_basic_similarity(self, features1, features2):
-        """Calculate similarity using cosine similarity (fallback method)."""
-        try:
-            # Use cosine similarity
-            dot_product = np.dot(features1, features2)
-            norm1 = np.linalg.norm(features1)
-            norm2 = np.linalg.norm(features2)
-            
-            if norm1 == 0 or norm2 == 0:
-                return 0.0
-            
-            similarity = dot_product / (norm1 * norm2)
-        except Exception as e:
-            print(f"Error calculating basic similarity: {e}")
-            similarity = 0.0
-        
-        # Ensure similarity is between 0 and 1
-        return max(0.0, min(1.0, similarity))
-
-    def _extract_image_features(self, image_path: str):
-        """Extract basic features from an image file (fallback method)."""
-        try:
-            # Load image
-            img = Image.open(image_path)
-            
-            # Resize to standard size for comparison
-            img = img.resize((224, 224))
-            
-            # Convert to numpy array and normalize
-            features = np.array(img).flatten() / 255.0
-            
-            return features
-        except Exception as e:
-            print(f"Error extracting features from image {image_path}: {str(e)}")
-            return None
-        
-    def _extract_image_features_from_base64(self, base64_string):
-        """Extract basic features from a base64-encoded image string (fallback method)."""
-        try:
-            if isinstance(base64_string, str) and base64_string.startswith('data:image/'):
-                base64_string = base64_string.split(';base64,', 1)[1]
-                    
-            # Decode base64 string to bytes
-            image_data = base64.b64decode(base64_string)
-            
-            # Load image from bytes
-            img = Image.open(io.BytesIO(image_data))
-            
-            # Resize to standard size for comparison
-            img = img.resize((224, 224))
-            
-            # Convert to numpy array and normalize
-            features = np.array(img).flatten() / 255.0
-            
-            return features
-        except Exception as e:
-            print(f"Error extracting features from base64 image: {str(e)}")
-            return None
-            
     def batch_similarity(self, query_text: str, texts: List[str]) -> torch.Tensor:
         """Calculate similarities for multiple texts at once."""
         if not texts:
@@ -509,36 +254,7 @@ class BaseEvidencesModule:
             query_embedding.unsqueeze(0), 
             text_embeddings
         )
-
-    def filter_by_similarity(self, query: str, evidence_list: List[Evidence], 
-                             threshold: float = 0.7) -> List[Tuple[Evidence, float]]:
-        """Filter evidence based on similarity with query."""
-        if not evidence_list:
-            return []
-
-        # Prepare lists of titles and captions
-        titles = [ev.title for ev in evidence_list]
-        captions = [ev.caption if ev.caption else "" for ev in evidence_list]
-        
-        # Calculate similarities in batch
-        title_similarities = self.batch_similarity(query, titles)
-        caption_similarities = self.batch_similarity(query, captions)
-        
-        # Combine similarities and evidence
-        evidence_scores = []
-        for i, evidence in enumerate(evidence_list):
-            title_sim = float(title_similarities[i]) if i < len(title_similarities) else 0.0
-            caption_sim = float(caption_similarities[i]) if i < len(caption_similarities) else 0.0
-            # similarity = max(title_sim, caption_sim)
-            similarity = caption_sim
-            evidence.text_similarity_score = similarity
-            if similarity >= threshold:
-                evidence_scores.append((evidence, similarity))
             
-        # Sort by similarity score
-        evidence_scores.sort(key=lambda x: x[1], reverse=True)
-        return evidence_scores
-    
     def _normalize_domain(self, domain: str) -> str:
         """Normalize domain string by removing www. prefix and lowercasing."""
         domain = domain.lower().strip()
@@ -554,70 +270,12 @@ class BaseEvidencesModule:
         domain = domain.split(".")[0]
         return domain
     
-    def filter_evidence_by_domain(self, evidence_list: List[Evidence], 
-                                allowed_domains: List[str]) -> List[Evidence]:
-        """Filter evidence list by allowed domains."""
-        # Normalize allowed domains
-        normalized_domains = {self._normalize_domain(domain) for domain in allowed_domains}
-        
-        # Filter evidence list
-        return [ev for ev in evidence_list 
-                if self._normalize_domain(ev.domain) in normalized_domains]
-    
     def filter_evidence_by_excluding_domains(self, evidence_list: List[Evidence], 
                                            excluded_domains: List[str]) -> List[Evidence]:
         """Filter evidence list by excluding domains."""
         
         return [ev for ev in evidence_list 
                 if self._normalize_domain_for_excluding(ev.domain) not in excluded_domains]
-    
-    def filter_evidences(self, max_evidences: int, evidence_list: List[Evidence]) -> List[Evidence]:
-        """Filter evidence list to maximum size while preserving uniqueness by title."""
-        filtered_evidence = []
-        seen_titles = set()
-        
-        # First pass: include unique titles
-        for evidence in evidence_list:
-            title = evidence.title.strip()
-            if title not in seen_titles and len(filtered_evidence) < max_evidences:
-                filtered_evidence.append(evidence)
-                seen_titles.add(title)
-        
-        # Second pass: if we still need more evidence, include duplicates
-        if len(filtered_evidence) < max_evidences:
-            for evidence in evidence_list:
-                if evidence not in filtered_evidence and len(filtered_evidence) < max_evidences:
-                    filtered_evidence.append(evidence)
-                    
-        return filtered_evidence
-        
-    def filter_unique_by_domain_title(self, evidences: List[Evidence]) -> List[Evidence]:
-        """Filter a list of evidence to keep only unique domain+title combinations."""
-        seen = set()
-        unique_evidences = []
-        
-        for evidence in evidences:
-            # Skip bot verification pages
-            if evidence.title == 'Bot Verification':
-                continue
-            
-            if (evidence.title == "" or evidence.caption == "") and evidence.content == "":
-                print(f"Skipping evidence: {evidence.title} {evidence.caption}")
-                continue
-            
-            if evidence.title == "" or evidence.caption == "" or evidence.content == "":
-                print(f"Skipping evidence: {evidence.title} {evidence.caption}")
-                continue
-            
-            # Create a key from domain and title
-            key = (evidence.domain, evidence.title)
-            
-            # Only add if we haven't seen this combination before
-            if key not in seen:
-                seen.add(key)
-                unique_evidences.append(evidence)
-        
-        return unique_evidences
     
     def filter_non_english_evidence(self, evidences: List[Evidence]):
         """Filter out non-English evidence."""
@@ -643,9 +301,6 @@ class BaseEvidencesModule:
         # Convert index to int if it's a string
         idx = int(index) if isinstance(index, str) else index
         
-        # For odd indices, use the preceding even index (TextEvidencesModule specific)
-        # Removed from base class as it's specific to TextEvidencesModule
-        
         item = self.data.get(str(idx))
         if not item:
             return None
@@ -653,13 +308,28 @@ class BaseEvidencesModule:
         return item.get("folder_path")
 
     def get_evidence_by_index(self, index: Union[int, str], query: str = "",
-                            max_results: int = 5, threshold: float = 0.7,
-                            min_results: int = 1) -> List[Evidence]:
+                            max_results: int = 5, reference_image: str = None,
+                            a: float = 1.0, b: float = 1.0, c: float = 0.5,
+                            use_filter_by_excluding_domains: bool = True):
         """
-        Get evidence for a specific index, filtered by similarity to query.
-        Base implementation to be overridden by subclasses.
+        Get evidence for a specific index with combined scoring method.
+        
+        Args:
+            index: The index to retrieve evidence for
+            query: Optional text query for text similarity scoring
+            max_results: Maximum number of results to return
+            reference_image: Optional reference image for image similarity scoring
+            a: Weight for visual similarity score
+            b: Weight for text similarity score
+            c: Weight for the interaction term (vs*ts)
+            use_filter_by_excluding_domains: Whether to filter out excluded domains
+            
+        Returns:
+            List of Evidence objects with combined scores
         """
+        # This is a base implementation to be overridden by subclasses
         raise NotImplementedError("Subclasses must implement get_evidence_by_index")
+
 
 class TextEvidencesModule(BaseEvidencesModule):
     """Evidences retrieved by using text search on Google"""
@@ -686,6 +356,16 @@ class TextEvidencesModule(BaseEvidencesModule):
         evidence_list = []
         try:
             annotation_file = os.path.join(folder_path, "direct_annotation.json")
+            
+            parent_folder_path = os.path.dirname(folder_path)
+            selenium_annotation_file = os.path.join(parent_folder_path, "selenium", str(index), "direct_annotation.json")
+            
+            selenium_data = None
+            if os.path.exists(selenium_annotation_file):
+                print(f"Found {selenium_annotation_file}")
+                with open(selenium_annotation_file, 'r') as file:
+                    selenium_data = json.load(file)
+            
             with open(annotation_file, 'r') as file:
                 annotation_data = json.load(file)
             
@@ -697,15 +377,22 @@ class TextEvidencesModule(BaseEvidencesModule):
                 if isinstance(caption_data, dict):
                     caption_node = caption_data.get('caption_node', '')
                     alt_node = caption_data.get('alt_node', '')
-                    
+
                     if caption_node and alt_node:
-                        # Return the one that longer
-                        if len(caption_node) > len(alt_node):
-                            return caption_node
-                        else:
-                            return alt_node
-                    return caption_node or alt_node
-            
+                        # Return the longer one
+                        caption = caption_node if len(caption_node) > len(alt_node) else alt_node
+                    else:
+                        caption = caption_node or alt_node
+
+                else:
+                    caption = caption_data  # If caption_data is a string, use it directly
+
+                # Extract text before "Photograph"
+                for marker in ["Photograph:", "Photo:"]:
+                    caption = caption.split(marker)[0].strip()
+
+                return caption
+                
             # Process all image categories
             image_categories = [
                 'images_with_captions', 
@@ -714,7 +401,11 @@ class TextEvidencesModule(BaseEvidencesModule):
             ]
             
             for category in image_categories:
-                for item in annotation_data.get(category, []):
+                items = annotation_data.get(category, [])
+                if selenium_data:
+                    items = items + selenium_data.get(category, [])
+                    
+                for item in items:
                     image_path = item.get('image_path', '')
                     image_data = self._load_and_encode_image(image_path)
                     if not image_data:
@@ -722,14 +413,17 @@ class TextEvidencesModule(BaseEvidencesModule):
                     
                     caption = extract_caption(item.get('caption', ''))
                     
+                    if caption == "" and item.get('title', '') == "":
+                            continue
+                    
                     evidence_list.append(Evidence(
                         domain=item.get('domain', ''),
                         image_path=image_path,
                         image_data=image_data,
                         title=item.get('page_title', ''),
                         caption=caption,
-                        # Reduce content to 30000 words to reduce 128000 tokens error
-                        content=' '.join(item.get('snippet', '')[:30000]),
+                        # Reduce content to 30000 words to reduce maximum tokens error
+                        content=item.get('snippet', ''),
                         source="TextEvidencesModule"
                     ))
              
@@ -740,60 +434,95 @@ class TextEvidencesModule(BaseEvidencesModule):
         return evidence_list
     
     def get_evidence_by_index(self, index: Union[int, str], query: str = "",
-                            max_results: int = 5, threshold: float = 0.7,
-                            min_results: int = 0, reference_image: str = None,
-                            image_similarity_threshold: float = 0.7,
-                            use_filter_by_domain: bool = False,
-                            use_filter_by_excluding_domains: bool = True,
-                            use_filter_by_unique_domain_title: bool = True,
-                            sort_by_text_score = True
-                            ):
-        """Get evidence for a specific index, filtered by similarity to query."""
+                            max_results: int = 5, reference_image: str = None,
+                            a: float = 1.0, b: float = 1.0, c: float = 0.5,
+                            use_filter_by_excluding_domains: bool = True):
+        """
+        Get evidence for a specific index with combined scoring method.
+        
+        Args:
+            index: The index to retrieve evidence for
+            query: Optional text query for text similarity scoring
+            max_results: Maximum number of results to return
+            reference_image: Optional reference image for image similarity scoring
+            a: Weight for visual similarity score
+            b: Weight for text similarity score
+            c: Weight for the interaction term (vs*ts)
+            use_filter_by_excluding_domains: Whether to filter out excluded domains
+            
+        Returns:
+            List of Evidence objects with combined scores
+        """
+        # Get all raw evidence
         evidence_list = self.get_raw_evidence_by_index(index)
         
+        # Filter non-English evidence
         evidence_list = self.filter_non_english_evidence(evidence_list)
         
-        filtered_evidence = evidence_list
-        if use_filter_by_domain:
-            filtered_evidence = self.filter_evidence_by_domain(evidence_list, self.NEWS_DOMAINS)
-        
+        # Only apply excluding domains filter if requested
         if use_filter_by_excluding_domains:
-            filtered_evidence = self.filter_evidence_by_excluding_domains(filtered_evidence, self.EXCLUDED_DOMAINS)
-                
-        # Filter by image similarity if reference image is provided
+            evidence_list = self.filter_evidence_by_excluding_domains(evidence_list, self.EXCLUDED_DOMAINS)
+        
+        # Calculate image similarity scores if reference image is provided
         if reference_image:
-            # print(f"Filtering by image similarity in TextEvidencesModule for {len(filtered_evidence)} evidences")
-            filtered_evidence = self.filter_evidence_by_image_similarity_parallel(
-                filtered_evidence, 
-                reference_image, 
-                image_similarity_threshold, 
-                is_base64=True,
-                min_results=min_results
-            )
+            for evidence in evidence_list:
+                # Extract embeddings from evidence image
+                evidence_embeddings = self._extract_embeddings_from_base64(evidence.image_data)
+                reference_embeddings = self._extract_embeddings_from_base64(reference_image) if reference_image else None
+                
+                if evidence_embeddings is not None and reference_embeddings is not None:
+                    # Calculate image similarity score
+                    evidence.image_similarity_score = self._calculate_image_similarity(reference_embeddings, evidence_embeddings)
+                else:
+                    evidence.image_similarity_score = 0.0
+        else:
+            # Set default image similarity score to 0 if no reference image
+            for evidence in evidence_list:
+                evidence.image_similarity_score = 0.0
         
-        # Filter by similarity to query
+        # Calculate text similarity scores if query is provided
         if query and query != "":
-            evidence_scores = self.filter_by_similarity(query, filtered_evidence, threshold)
+            # Prepare lists of texts to compare
+            captions = [ev.caption for ev in evidence_list]
+            titles = [ev.title for ev in evidence_list]
             
-            # If we don't have enough results meeting the threshold, include top results
-            if len(evidence_scores) < min_results:
-                evidence_scores = self.filter_by_similarity(query, filtered_evidence, threshold=0.0)[:min_results]
+            # Calculate similarities in batch
+            caption_similarities  = self.batch_similarity(query, captions)
+            title_similarities  = self.batch_similarity(query, titles)
             
-            # Get just the evidence objects, scores no longer needed
-            filtered_evidence = [ev for ev, _ in evidence_scores]
+            # Assign text similarity scores to evidence objects
+            for i, evidence in enumerate(evidence_list):
+                evidence.text_similarity_score = max(float(caption_similarities[i]), float(title_similarities[i]))
+            
+            # texts = [ev.caption for ev in evidence_list]
+            
+            # # Calculate similarities in batch
+            # similarities = self.batch_similarity(query, texts)
+            
+            # # Assign text similarity scores to evidence objects
+            # for i, evidence in enumerate(evidence_list):
+            #     evidence.text_similarity_score = float(similarities[i]) if i < len(similarities) else 0.0
+        else:
+            # Set default text similarity score to 0 if no query
+            for evidence in evidence_list:
+                evidence.text_similarity_score = 0.0
         
-        if sort_by_text_score:
-            filtered_evidence.sort(key=lambda x: x.text_similarity_score, reverse=True)
-                    
-        # Filter by unique domain+title combinations
-        if use_filter_by_unique_domain_title:
-            filtered_evidence = self.filter_unique_by_domain_title(filtered_evidence)
+        # Calculate combined scores
+        for evidence in evidence_list:
+            vs = evidence.image_similarity_score
+            ts = evidence.text_similarity_score
+            # Combined score = a*VS + b*TS + c*VS*TS
+            evidence.combined_score = a * vs + b * ts + c * vs * ts
         
-        # Filter to max_evidences based on unique titles
-        # final_evidence = self.filter_evidences(max_results, filtered_evidence)
-        final_evidence = filtered_evidence
+        # Sort by combined score (highest first)
+        evidence_list.sort(key=lambda x: x.combined_score, reverse=True)
+        
+        # for ev in evidence_list:
+        #     print(f"Evidence: {ev.title}: {ev.text_similarity_score} | {ev.image_similarity_score} | {ev.combined_score}")
+        
+        # Return top max_results
+        return evidence_list[:max_results]
 
-        return final_evidence[:max_results]
 
 class ImageEvidencesModule(BaseEvidencesModule):
     """Evidences for image search without loading actual images"""
@@ -805,7 +534,6 @@ class ImageEvidencesModule(BaseEvidencesModule):
     def get_entities_by_index(self, index: Union[int, str], threshold: float = 0.0, min_results: int = 0, return_scores: bool = False) -> List[str]:
         """Retrieve entities for a specific image index."""
         folder_path = self.get_item_folder_path(index)
-        # print(f"Folder path: {folder_path}")
         if not folder_path:
             return []
         
@@ -836,18 +564,8 @@ class ImageEvidencesModule(BaseEvidencesModule):
             print(f"Error loading inverse annotation file for index {index}: {str(e)}")
             return []
     
-    def get_evidence_by_index(self, index: Union[int, str], query: str = "",
-                            max_results: int = 5, threshold: float = 0.7,
-                            min_results: int = 0, reference_image: str = None,
-                            image_similarity_threshold: float = 0.95,
-                            use_filter_by_domain: bool = False,
-                            use_filter_by_excluding_domains: bool = True,
-                            use_filter_by_unique_domain_title: bool = True,
-                            ) -> List[Evidence]:
-        """
-        Get evidence for a specific index.
-        This version doesn't load actual image data.
-        """
+    def get_raw_evidence_by_index(self, index: Union[int, str]):
+        """Get raw evidence for a specific index."""
         folder_path = self.get_item_folder_path(index)
         if not folder_path:
             return []
@@ -862,18 +580,24 @@ class ImageEvidencesModule(BaseEvidencesModule):
             def extract_caption(caption_data):
                 if not caption_data:
                     return ''
+                
                 if isinstance(caption_data, dict):
                     caption_node = caption_data.get('caption_node', '')
                     alt_node = caption_data.get('alt_node', '')
-                    
+
                     if caption_node and alt_node:
-                        # Return the one that longer
-                        if len(caption_node) > len(alt_node):
-                            return caption_node
-                        else:
-                            return alt_node
-                    return caption_node or alt_node
-                return caption_data
+                        # Return the longer one
+                        caption = caption_node if len(caption_node) > len(alt_node) else alt_node
+                    else:
+                        caption = caption_node or alt_node
+
+                else:
+                    caption = caption_data  # If caption_data is a string, use it directly
+
+                for marker in ["Photograph:", "Photo:"]:
+                    caption = caption.split(marker)[0].strip()
+
+                return caption
                 
             # Helper function to extract domain from page_link
             def extract_domain(page_link):
@@ -902,10 +626,13 @@ class ImageEvidencesModule(BaseEvidencesModule):
                     if not image_data:
                         continue
                     
+                    if extract_caption(item.get('caption')) == "" and item.get('title', '') == "":
+                        continue
+                    
                     evidence_list.append(Evidence(
                         domain=extract_domain(item.get('page_link', '')),
                         image_path=item.get('image_link', ''),
-                        image_data=image_data,  # Empty image data
+                        image_data=image_data,
                         title=item.get('title', ''),
                         caption=extract_caption(item.get('caption')),
                         content=' '.join(get_content(item)[:30000]),
@@ -916,41 +643,81 @@ class ImageEvidencesModule(BaseEvidencesModule):
             print(f"Error loading inverse annotation file for index {index}: {str(e)}")
             return []
         
+        return evidence_list
+    
+    def get_evidence_by_index(self, index: Union[int, str], query: str = "",
+                            max_results: int = 5, reference_image: str = None,
+                            a: float = 1.0, b: float = 1.0, c: float = 0.5,
+                            use_filter_by_excluding_domains: bool = True):
+        """
+        Get evidence for a specific index with combined scoring method.
+        
+        Args:
+            index: The index to retrieve evidence for
+            query: Optional text query for text similarity scoring
+            max_results: Maximum number of results to return
+            reference_image: Optional reference image for image similarity scoring
+            a: Weight for visual similarity score
+            b: Weight for text similarity score
+            c: Weight for the interaction term (vs*ts)
+            use_filter_by_excluding_domains: Whether to filter out excluded domains
+            
+        Returns:
+            List of Evidence objects with combined scores
+        """
+        # Get all raw evidence
+        evidence_list = self.get_raw_evidence_by_index(index)
+        
+        # Filter non-English evidence
         evidence_list = self.filter_non_english_evidence(evidence_list)
         
-        filtered_evidence = evidence_list
-        if use_filter_by_domain:
-            filtered_evidence = self.filter_evidence_by_domain(evidence_list, self.NEWS_DOMAINS)
-        
-        # Filter by excluding domains
+        # Only apply excluding domains filter if requested
         if use_filter_by_excluding_domains:
-            filtered_evidence = self.filter_evidence_by_excluding_domains(filtered_evidence, self.EXCLUDED_DOMAINS)
+            evidence_list = self.filter_evidence_by_excluding_domains(evidence_list, self.EXCLUDED_DOMAINS)
         
+        # Calculate image similarity scores if reference image is provided
         if reference_image:
-            # print(f"Filtering by image similarity in ImageEvidencesModule for {len(filtered_evidence)} evidences")
-            filtered_evidence = self.filter_evidence_by_image_similarity_parallel(
-                filtered_evidence, 
-                reference_image, 
-                image_similarity_threshold, 
-                is_base64=True,
-                min_results=min_results
-            )
-        
-        if query and query != "":
-            evidence_scores = self.filter_by_similarity(query, filtered_evidence, threshold)
-            
-            # If we don't have enough results meeting the threshold, include top results
-            if len(evidence_scores) < min_results:
-                evidence_scores = self.filter_by_similarity(query, filtered_evidence, threshold=0.0)[:min_results]
+            for evidence in evidence_list:
+                # Extract embeddings from evidence image
+                evidence_embeddings = self._extract_embeddings_from_base64(evidence.image_data)
+                reference_embeddings = self._extract_embeddings_from_base64(reference_image) if reference_image else None
                 
-            # Get just the evidence objects, scores no longer needed
-            filtered_evidence = [ev for ev, _ in evidence_scores]
+                if evidence_embeddings is not None and reference_embeddings is not None:
+                    # Calculate image similarity score
+                    evidence.image_similarity_score = self._calculate_image_similarity(reference_embeddings, evidence_embeddings)
+                else:
+                    evidence.image_similarity_score = 0.0
+        else:
+            # Set default image similarity score to 0 if no reference image
+            for evidence in evidence_list:
+                evidence.image_similarity_score = 0.0
         
-        if use_filter_by_unique_domain_title:
-            filtered_evidence = self.filter_unique_by_domain_title(filtered_evidence)
-
-        # Filter to max_evidences based on unique titles
-        # final_evidence = self.filter_evidences(max_results, filtered_evidence)
-        final_evidence = filtered_evidence
+        # Calculate text similarity scores if query is provided
+        if query and query != "":
+            # Prepare lists of texts to compare
+            # if ev.caption else ev.title 
+            texts = [ev.caption for ev in evidence_list]
+            
+            # Calculate similarities in batch
+            similarities = self.batch_similarity(query, texts)
+            
+            # Assign text similarity scores to evidence objects
+            for i, evidence in enumerate(evidence_list):
+                evidence.text_similarity_score = float(similarities[i]) if i < len(similarities) else 0.0
+        else:
+            # Set default text similarity score to 0 if no query
+            for evidence in evidence_list:
+                evidence.text_similarity_score = 0.0
         
-        return final_evidence[:max_results]
+        # Calculate combined scores
+        for evidence in evidence_list:
+            vs = evidence.image_similarity_score
+            ts = evidence.text_similarity_score
+            # Combined score = a*VS + b*TS + c*VS*TS
+            evidence.combined_score = a * vs + b * ts + c * vs * ts
+        
+        # Sort by combined score (highest first)
+        evidence_list.sort(key=lambda x: x.combined_score, reverse=True)
+        
+        # Return top max_results
+        return evidence_list[:max_results]
