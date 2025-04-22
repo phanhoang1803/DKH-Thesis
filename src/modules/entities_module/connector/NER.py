@@ -4,11 +4,8 @@ from transformers import AutoTokenizer, AutoModelForTokenClassification
 from transformers import pipeline
 import sys
 import os
-sys.path.append('/media02/taduy03/khanhhoang/DKH-Thesis/')
 from src.utils.logger import Logger
 
-import torch
-import time
 import numpy as np
 
 class NERConnector:

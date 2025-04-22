@@ -16,8 +16,10 @@ from PIL import Image
 import io
 
 from transformers import AutoImageProcessor, AutoModel
-import concurrent.futures
 from langdetect import detect, LangDetectException
+
+from newspaper import Article
+import trafilatura
 
 @dataclass
 class Evidence:
@@ -29,13 +31,14 @@ class Evidence:
     content: str
     source: Optional[str] = None
     
-    def __init__(self, domain="", image_path="", image_data="", title="", caption="", content="", source=""):
+    def __init__(self, domain="", image_path="", image_data="", title="", caption="", content="", html_content="", source=""):
         self.domain = domain
         self.image_path = image_path
         self.image_data = image_data
         self.title = title
         self.caption = caption
         self.content = content
+        self.html_content = html_content
         self.source = source
         self.image_similarity_score = 0.0
         self.text_similarity_score = 0.0
@@ -67,6 +70,7 @@ class Evidence:
             result = {
                 "title": self._clean_text(self.title),
                 "content": self._clean_text(self.content),
+                "html_content": self._clean_text(self.html_content),
                 "caption": self._clean_text(self.caption),
                 "domain": self._clean_text(self.domain),
                 "source": self.source 
@@ -178,6 +182,19 @@ class BaseEvidencesModule:
             print(f"Error loading image {image_path}: {str(e)}")
             return ""
     
+    def _load_html_content(self, html_path: str) -> str:
+        """Load HTML content from a file."""
+        try:
+            raw_html = ""
+            with open(html_path, 'r', encoding='utf-8') as file:
+                raw_html = file.read()
+            
+            return trafilatura.extract(raw_html)
+        
+        except Exception as e:
+            print(f"Error loading HTML content from {html_path}: {str(e)}")
+            return ""
+    
     def _calculate_image_similarity(self, embeddings1, embeddings2):
         """Calculate cosine similarity between two embedding vectors."""
         # Compute cosine similarity between the embeddings
@@ -270,10 +287,13 @@ class BaseEvidencesModule:
         domain = domain.split(".")[0]
         return domain
     
+    def filter_evidennce_by_domains(self, evidence_list: list[Evidence],
+                                    domains: List[str]) -> List[Evidence]:
+        return [ev for ev in evidence_list
+                if self._normalize_domain(ev.domain) in domains]
+    
     def filter_evidence_by_excluding_domains(self, evidence_list: List[Evidence], 
                                            excluded_domains: List[str]) -> List[Evidence]:
-        """Filter evidence list by excluding domains."""
-        
         return [ev for ev in evidence_list 
                 if self._normalize_domain_for_excluding(ev.domain) not in excluded_domains]
     
@@ -411,6 +431,9 @@ class TextEvidencesModule(BaseEvidencesModule):
                     if not image_data:
                         continue
                     
+                    html_path = item.get('html_path', '')
+                    html_content = self._load_html_content(html_path)
+                    
                     caption = extract_caption(item.get('caption', ''))
                     
                     if caption == "" and item.get('title', '') == "":
@@ -424,6 +447,7 @@ class TextEvidencesModule(BaseEvidencesModule):
                         caption=caption,
                         # Reduce content to 30000 words to reduce maximum tokens error
                         content=item.get('snippet', ''),
+                        html_content=html_content,
                         source="TextEvidencesModule"
                     ))
              
@@ -626,6 +650,9 @@ class ImageEvidencesModule(BaseEvidencesModule):
                     if not image_data:
                         continue
                     
+                    html_path = item.get('html_path', '')
+                    html_content = self._load_html_content(html_path)
+                    
                     if extract_caption(item.get('caption')) == "" and item.get('title', '') == "":
                         continue
                     
@@ -636,6 +663,7 @@ class ImageEvidencesModule(BaseEvidencesModule):
                         title=item.get('title', ''),
                         caption=extract_caption(item.get('caption')),
                         content=' '.join(get_content(item)[:30000]),
+                        html_content=html_content,
                         source="ImageEvidencesModule"
                     ))
             
@@ -648,7 +676,10 @@ class ImageEvidencesModule(BaseEvidencesModule):
     def get_evidence_by_index(self, index: Union[int, str], query: str = "",
                             max_results: int = 5, reference_image: str = None,
                             a: float = 1.0, b: float = 1.0, c: float = 0.5,
-                            use_filter_by_excluding_domains: bool = True):
+                            use_filter_by_domains: bool = False,
+                            use_filter_by_excluding_domains: bool = True,
+                            use_filter_non_captions: bool = False
+                            ):
         """
         Get evidence for a specific index with combined scoring method.
         
@@ -674,6 +705,12 @@ class ImageEvidencesModule(BaseEvidencesModule):
         # Only apply excluding domains filter if requested
         if use_filter_by_excluding_domains:
             evidence_list = self.filter_evidence_by_excluding_domains(evidence_list, self.EXCLUDED_DOMAINS)
+        
+        if use_filter_by_domains:
+            evidence_list = self.filter_evidennce_by_domains(evidence_list, self.NEWS_DOMAINS)
+        
+        if use_filter_non_captions:
+            evidence_list = [ev for ev in evidence_list if ev.caption != ""]
         
         # Calculate image similarity scores if reference image is provided
         if reference_image:

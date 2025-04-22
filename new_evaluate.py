@@ -103,7 +103,8 @@ class ResultEvaluator:
         # Try new format first
         if 'verification_result' in result:
             # In the new format, this might be in the contextual_accuracy or in other fields
-            contextual_accuracy = result['verification_result'].get('contextual_accuracy', {})
+            # contextual_accuracy = result['verification_result'].get('contextual_accuracy', {})
+            contextual_accuracy = result['verification_result'].get('contextual_validity', {})
             if 'in_context' in contextual_accuracy:
                 # Invert because in_context=True means not out of context (NOOC)
                 return 0 if contextual_accuracy['in_context'] else 1
@@ -189,7 +190,8 @@ class ResultEvaluator:
                     self.incorrect_indices.append(index)
                 
             except Exception as e:
-                print(f"Error processing {filename}: {e}")
+                # print(f"Error processing {filename}: {e}")
+                pass
     
     def create_dataframe(self):
         """Create a pandas DataFrame from the processed results."""
@@ -547,19 +549,19 @@ class ResultEvaluator:
         df = self.create_dataframe()
         
         # Generate basic statistics
-        self.generate_basic_statistics(df)
+        # self.generate_basic_statistics(df)
         
         # Generate classification report
         report, cm = self.generate_classification_report(df)
         
         # Plot confusion matrix
-        self.plot_confusion_matrix(cm)
+        # self.plot_confusion_matrix(cm)
         
         # If confidence threshold is provided, also evaluate adjusted predictions
-        if self.confidence_threshold is not None:
-            print(f"\n=== Adjusted Predictions (Threshold: {self.confidence_threshold}) ===")
-            adjusted_report, adjusted_cm = self.generate_classification_report(df, adjusted=True)
-            self.plot_confusion_matrix(adjusted_cm, adjusted=True)
+        # if self.confidence_threshold is not None:
+        #     print(f"\n=== Adjusted Predictions (Threshold: {self.confidence_threshold}) ===")
+        #     adjusted_report, adjusted_cm = self.generate_classification_report(df, adjusted=True)
+        #     self.plot_confusion_matrix(adjusted_cm, adjusted=True)
         
         # Analyze impact of evidence on accuracy
         # self.analyze_evidence_impact(df)
@@ -574,7 +576,7 @@ class ResultEvaluator:
         self.save_indices()
         
         # Save dataframe
-        df.to_csv(os.path.join(self.output_dir, 'evaluation_data.csv'), index=False)
+        # df.to_csv(os.path.join(self.output_dir, 'evaluation_data.csv'), index=False)
         
         print(f"\nEvaluation complete. Results saved to {self.output_dir}")
         return df

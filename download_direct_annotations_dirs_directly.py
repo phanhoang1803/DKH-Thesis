@@ -321,48 +321,121 @@ def scroll_to_load_more_images(driver, scrolls=3):
     except Exception as e:
         print(f"Error scrolling page: {e}")
 
-def google_search_with_selenium(query: str, driver, how_many_queries: int = 1, max_wait_time: int = 30) -> List[str]:
-    """Search Google Images using Selenium"""
+def google_search_with_selenium(
+    query: str, 
+    driver, 
+    how_many_queries: int = 1, 
+    max_wait_time: int = 30
+) -> List[str]:
+    """
+    Search both Google regular and image results using Selenium and return combined links
+    
+    Parameters:
+    -----------
+    query : str
+        The search query
+    driver : WebDriver
+        Selenium WebDriver instance
+    how_many_queries : int
+        Number of result pages to scrape (10 results per page)
+    max_wait_time : int
+        Maximum time to wait for page loads
+        
+    Returns:
+    --------
+    List[str]
+        Combined list of unique URLs from both regular and image searches
+    """
     all_links = []
     
     try:
         for i in range(how_many_queries):
             start = i * 10
             
-            # Construct search URL
-            search_url = f"https://www.google.com/search?q={urllib.parse.quote(query)}&tbm=isch&hl=en&start={start}"
+            # Regular search
+            regular_search_url = f"https://www.google.com/search?q={urllib.parse.quote(query)}&hl=en&start={start}"
+            all_links.extend(_process_search(driver, regular_search_url, "regular", max_wait_time))
             
-            try:
-                # Navigate to the search URL
-                driver.get(search_url)
+            # Image search
+            image_search_url = f"https://www.google.com/search?q={urllib.parse.quote(query)}&tbm=isch&hl=en&start={start}"
+            all_links.extend(_process_search(driver, image_search_url, "image", max_wait_time))
                 
-                # Check for and bypass consent page
-                # bypass_consent_page(driver)
-                print("bypassed")
-                
-                time.sleep(2)
-                
-                # Check if Google detected automated traffic
-                if "unusual traffic" in driver.page_source.lower() or "captcha" in driver.page_source.lower():
-                    print(f"Google detected automated traffic for search")
-                    continue
-                
-                # Save cookies for future use
-                # save_cookies(driver)
-                
-                # Get page source and parse with BeautifulSoup for more robust parsing
-                soup = BeautifulSoup(driver.page_source, 'html.parser')
-                
-                links = [item['data-lpage'] for item in soup.find_all(attrs={"data-lpage": True})]
-                all_links.extend(links)
-            except WebDriverException as e:
-                print(f"Selenium error during search: {e}")
-                continue
-            
     except Exception as e:
         print(f"Error in Google search with Selenium: {e}")
-        
+    
+    # Remove duplicates and return
     return list(set(all_links))
+
+
+def _process_search(driver, search_url: str, search_type: str, max_wait_time: int) -> List[str]:
+    """
+    Process a single search page and extract links
+    
+    Parameters:
+    -----------
+    driver : WebDriver
+        Selenium WebDriver instance
+    search_url : str
+        URL to navigate to
+    search_type : str
+        Type of search ("regular" or "image")
+    max_wait_time : int
+        Maximum time to wait for page loads
+        
+    Returns:
+    --------
+    List[str]
+        List of extracted URLs
+    """
+    links = []
+    
+    try:
+        # Navigate to the search URL
+        driver.get(search_url)
+        
+        # Wait for page to load
+        time.sleep(2)
+        
+        # Check if Google detected automated traffic
+        if "unusual traffic" in driver.page_source.lower() or "captcha" in driver.page_source.lower():
+            print(f"Google detected automated traffic for {search_type} search")
+            return links
+        
+        # Get page source and parse with BeautifulSoup
+        soup = BeautifulSoup(driver.page_source, 'html.parser')
+        
+        if search_type == "image":
+            # Extract image links (data-lpage contains the source page URL)
+            links = [item['data-lpage'] for item in soup.find_all(attrs={"data-lpage": True})]
+            
+            # If no links found with data-lpage, try another approach for images
+            if not links:
+                divs = soup.find_all('div', {'class': 'isv-r'})
+                for div in divs:
+                    a_tags = div.find_all('a')
+                    for a in a_tags:
+                        if 'href' in a.attrs and a['href'].startswith('/url?'):
+                            url = a['href'].split('?q=')[1].split('&')[0]
+                            links.append(urllib.parse.unquote(url))
+        else:
+            # Regular search results extraction
+            # Look for search result links with href attributes starting with '/url?'
+            for a_tag in soup.find_all('a'):
+                if 'href' in a_tag.attrs and a_tag['href'].startswith('/url?'):
+                    # Extract the URL parameter
+                    url = a_tag['href'].split('?q=')[1].split('&')[0]
+                    links.append(urllib.parse.unquote(url))
+                    
+            # Filter out Google's own domains if needed
+            links = [link for link in links if not any(g_domain in link for g_domain in 
+                    ['google.com/search', 'google.com/imgres', 'accounts.google', 'support.google'])]
+                    
+    except WebDriverException as e:
+        print(f"Selenium error during {search_type} search: {e}")
+    except Exception as e:
+        print(f"Unexpected error during {search_type} search: {e}")
+        
+    return links
 
 def init_files_and_paths(args):
     """Initialize files and paths needed for the script"""
@@ -578,7 +651,8 @@ def main():
     indices = list(set(indices))
     indices = [int(x) for x in indices]  # Convert all elements to integers
     indices.sort()
-    print(f"Processing items from {indices[0]} to {indices[-1]}")
+    if len(indices) > 0:
+        print(f"Processing items from {indices[0]} to {indices[-1]}")
     
     # Create a temporary storage for search links
     search_links_path = os.path.join(full_save_path, "search_links.json")
@@ -598,8 +672,11 @@ def main():
             search_links_by_index = {}
     
     # PHASE 1: Collect all search links
-    indices_to_search = [i for i in indices if str(i) not in search_links_by_index]
-    
+    if args.skip_existing:
+        indices_to_search = [i for i in indices if str(i) not in search_links_by_index]
+    else:
+        indices_to_search = indices
+            
     if indices_to_search:
         print(f"Phase 1: Collecting search links for {len(indices_to_search)} indices...")
         

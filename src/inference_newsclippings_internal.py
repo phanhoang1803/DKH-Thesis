@@ -3,27 +3,19 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
-from datetime import datetime
 from typing import Optional, Union
-import numpy as np
 import openai
-from modules import EntitiesModule, GPTConnector, GeminiConnector, ExternalRetrievalModule, TextEvidencesModule, Evidence, ImageEvidencesModule, GeminiVisionConnector
+from modules import EntitiesModule, GPTConnector, GeminiConnector, TextEvidencesModule, ImageEvidencesModule, GeminiVisionConnector
 from dataloaders import cosmos_dataloader
 from mdatasets.newsclipping_datasets import MergedBalancedNewsClippingDataset
-from src.modules.evidence_retrieval_module.scraper.scraper import Article
-from templates import get_visual_prompt, get_final_prompt
-from templates_for_generating_context import CAPTION_CONTEXT_CHECKING_RESPONSE_SCHEMA, CONTEXT_RESPONSE_SCHEMA, get_context_prompt, get_caption_context_checking_prompt, SYSTEM_PROMPT_FOR_VLM_GENERATED_CONTEXT, SYSTEM_PROMPT_FOR_CAPTION_CONTEXT_CHECKING
 from dotenv import load_dotenv
 import argparse
 from huggingface_hub import login
-from torchvision import transforms
-from typing_extensions import TypedDict
 import torch
 import json
+
 import time
-from src.config import NEWS_SITES, FACT_CHECKING_SITES
-from src.utils.utils import process_results, NumpyJSONEncoder, EvidenceCache
-from src.modules.reasoning_module.connector.gpt import VISUAL_RESPONSE_SCHEMA, FINAL_RESPONSE_SCHEMA
+from src.utils.utils import process_results, NumpyJSONEncoder
 import google
 
 def arg_parser():
@@ -36,7 +28,7 @@ def arg_parser():
     parser.add_argument("--text_evidences_path", type=str, default="queries_dataset/merged_balanced/direct_search/test/test.json", 
                         help="")
     parser.add_argument("--context_dir_path", type=str, default="queries_dataset/merged_balanced/context/test")
-    parser.add_argument("--img_des_dir_path", type=str, default="queries_dataset/merged_balanced/image_description/test")
+    parser.add_argument("--img_des_dir_path", type=str, default="queries_dataset/merged_balanced/consistency_check/test")
     parser.add_argument("--random_index_path", type=str, default=None)
     
     parser.add_argument("--gemini_api_key", type=str, default=None)
@@ -46,8 +38,8 @@ def arg_parser():
     parser.add_argument("--start_idx", type=int, default=-1)
     parser.add_argument("--end_idx", type=int, default=-1)
     parser.add_argument("--skip_existing", action="store_true")
-    parser.add_argument("--output_dir_path", type=str, default="./result_ranking_img_des/")
-    parser.add_argument("--errors_dir_path", type=str, default="./errors_ranking_img_des/")
+    parser.add_argument("--output_dir_path", type=str, default="./result_ranking_contextual_validity_15/")
+    parser.add_argument("--errors_dir_path", type=str, default="./errors_ranking_consistency_check/")
     
     # Integrated similarity weights
     parser.add_argument("--alpha", type=float, default=0.5, help="Weight for visual similarity (S_visual)")
@@ -159,11 +151,12 @@ def inference(entities_module: EntitiesModule,
     }
     
     if not evidence:
-        return process_results(result)
+        return None
     
     # STEP 1: Rewriting evidence
     # Use Q-former to get image descriptions, and use the evidence text to get the final content
     print("STEP 1: Rewriting evidence...")
+    
     rewritten_evidence = rewrite_evidence(
         llm_connector=llm_connector,
         image_base64=image_base64,
@@ -226,26 +219,32 @@ def rewrite_evidence(llm_connector, image_base64, evidence, visual_entities):
     else:
         evidence_content = ""
     
-    # if evidence.source == "ImageEvidencesModule":
     evidence_text = f"Title: {evidence.title} \n\n Image Caption: {evidence_caption}" + f"\n\nContext: {evidence_content}"
-    # else:
-        
-    # if evidence.content and evidence_text == "":
-    #     evidence_text += "\n\n" + evidence.content[:2000]  # Limit content length
-    
+
     # System prompt for evidence rewriting
     system_prompt = """
-    You are an expert assistant that specializes in organizing and rewriting evidence for news verification. 
+    You are an expert assistant that specializes in organizing and rewriting evidence for news (image-caption) verification.
     """
     
     # Prompt to rewrite the evidence text into a coherent form
     rewrite_prompt = f"""
-    Now I give you the evidence content.
+    Please analyze the following evidence content related to a news item.
     
     EVIDENCE CONTENT:
     {evidence_text}
     
-    Please help me generate a coherent and contextually attuned content without change the core information of the textual evidence.
+    Please help me generate a coherent and contextually organized summary of this evidence.
+    
+    Also identify the key factors that are important for verifying the news, such as:
+    - People/entities mentioned
+    - Locations
+    - Dates and times
+    - Events described
+    - Claims made
+    - Statistical information
+    - Source credibility indicators
+    
+    NOTE: Focus on extracting factual information that can be verified against the image and caption. Do not include speculative content or make assumptions beyond what is explicitly stated in the evidence.
     """
     
     # Get rewritten evidence
@@ -257,9 +256,14 @@ def rewrite_evidence(llm_connector, image_base64, evidence, visual_entities):
                 "content": {
                     "type": "string",
                     "description": "A coherent and contextually attuned content"
+                },
+                "key_factors": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                    "description": "Key factors extracted from the evidence that are important for news verification"
                 }
             },
-            "required": ["content"]
+            "required": ["content", "key_factors"]
         },
         system_prompt=system_prompt
     )
@@ -288,25 +292,22 @@ def generate_explanation(vlm_connector, llm_connector, image_base64, evidence,
     Returns:
         Verification result with detailed analysis
     """
-    # First, analyze the news image itself
-    # System prompt for image analysis
     image_analysis_system_prompt = """
-    You are an expert visual analyst specializing in news image verification. 
-    Analyze thoroughly but maintain objectivity. Your goal is to create a factual foundation for verification.
+    You are an expert in analyzing news images for consistency with their captions. Your task is to provide a detailed analysis of the relationship between the image and its caption.
     """
     
-    image_analysis_prompt = f"""
-    Analyze this news image in detail. Consider the following queries to guild your analysis:
-    - What is happening in this image?
-    - Who are the main subjects visible?
-    - What is the setting or location?
-    - What actions are being performed?
-    - What emotions are displayed?
-    - What visual cues suggest this is a news event?
-    - How are the subjects positioned or arranged?
-    - What contextual details provide information about when this occurred?
-    - What notable objects or symbols are present?
-    - How does this image relate to current events?
+    image_analysis_prompt = f"""Some misinformation uses images from other events as illustrations of current news to create misleading content. Given a news caption and image, analyze their consistency and potential discrepancies.
+
+    Please analyze the relationship between this image and caption, considering elements such as:
+    - People/entities visible in the image
+    - Location indicators
+    - Time period indicators
+    - Events/activities depicted
+    
+    The news caption is: '{caption}' 
+    The detected visual entities include: {', '.join(visual_entities[:15] if len(visual_entities) > 15 else visual_entities)}
+
+    Provide a thorough analysis of the consistency between the image and caption, highlighting both supporting and contradicting elements.
     """
     
     image_analysis = None
@@ -322,21 +323,17 @@ def generate_explanation(vlm_connector, llm_connector, image_base64, evidence,
             schema={
                 "type": "object",
                 "properties": {
-                    "detailed_description": {
+                    "consistency_assessment": {
                         "type": "string",
-                        "description": "A comprehensive description of the image contents"
+                        "description": "Overall assessment of consistency between image and caption with supporting/contradicting elements"
                     },
-                    "key_elements": {
-                        "type": "array",
-                        "items": {"type": "string"},
-                        "description": "List of important elements in the image"
-                    },
-                    "possible_context": {
+                    "confidence": {
                         "type": "string",
-                        "description": "Possible context or situation depicted in the image"
+                        "enum": ["High", "Medium", "Low"],
+                        "description": "Confidence level in the analysis"
                     }
                 },
-                "required": ["detailed_description", "key_elements"]
+                "required": ["consistency_assessment", "confidence"]
             },
             image_base64=image_base64,
             system_prompt=image_analysis_system_prompt
@@ -345,71 +342,62 @@ def generate_explanation(vlm_connector, llm_connector, image_base64, evidence,
         os.makedirs(img_des_dir_path, exist_ok=True)
         with open(file_path, "w") as f:
             json.dump(image_analysis, f, indent=2, ensure_ascii=False)
-    
+            
     # Now create a verification prompt that compares the news image with the evidence
     # System prompt for verification reporting
     verification_system_prompt = """
     You are a forensic image verification expert specializing in news content authentication. 
     Your verification reports should be comprehensive, balanced, and clearly articulate your reasoning process and confidence level. Avoid making assumptions.
     """
-    
+    # # 
+    # VISUAL SIMILARITY SCORE (0-1): {evidence.image_similarity_score}
+    # IMPORTANT: The visual similarity score indicates how closely the evidence image matches the news image.
     verification_prompt = f"""
-    I need a comprehensive verification report comparing a news image with evidence. You'll receive both images directly.
-    
+    Provide a detailed verification report on whether this news image is being used in its correct context by the accompanying caption.
+
     The FIRST image is the NEWS IMAGE being verified.
     The SECOND image is the EVIDENCE IMAGE for comparison.
 
-    [NEWS IMAGE] - The FIRST image
-        Additional information about the news image:
-        
-        NEWS IMAGE ANALYSIS:
-        {image_analysis['detailed_description']}
-        
-        KEY ELEMENTS IN NEWS IMAGE:
-        {', '.join(image_analysis['key_elements'])}
-        
-        DETECTED ENTITIES IN NEWS IMAGE:
-        {', '.join(visual_entities[:15] if len(visual_entities) > 15 else visual_entities)}
-        
-    [CLAIM/CAPTION]
+    FIRST image: NEWS IMAGE being verified
+    - Internal image-caption consistency asssessment: {image_analysis['consistency_assessment']} (Note: This is only a basic image captioning check between the image and caption, not verification of factual accuracy so it may not correct)
+    - Internal asssessment confidence: {image_analysis['confidence']}
+    - Detected entities in news image: {', '.join(visual_entities[:15] if len(visual_entities) > 15 else visual_entities)}
+
+    CLAIM/CAPTION:
     {caption}
-    
-    
-    [EVIDENCE CONTENT]
-    {rewritten_evidence['content']}
-    
-    [EVIDENCE IMAGE] - The SECOND image
-    
-    
-    VISUAL SIMILARITY SCORE (0-1): {evidence.image_similarity_score}
-    IMPORTANT: The visual similarity score indicates how closely the evidence image matches the news image.
-    
-    DIRECT COMPARISON INSTRUCTION:
-    Carefully examine both images and directly compare what you see in them. Identify:
-    - Specific visual elements that appear in both images
-    - Notable differences between the news image and evidence image
-    - Visual elements that either support or contradict the caption/claim
-    - Any signs of manipulation, editing, or AI generation visible in either image
-    
-    CONTEXTUAL ANALYSIS INSTRUCTION:
-    Even when the same person or object appears in both images, thoroughly analyze the context:
-    - EVENT CONTEXT: Identify the specific event, occasion, or circumstance in each image
-    - TEMPORAL CONTEXT: Determine when each image was taken if possible
-    - SPATIAL CONTEXT: Identify where each image was taken if possible
-    - SURROUNDING ELEMENTS: Who else is present, what activities are occurring, and how these relate to the claimed context
+
+    ---
+    SECOND image: Evidence image from claim-relevant web source with accompanying content
+    - Content: {rewritten_evidence['content']}
+    - Key factors: {rewritten_evidence['key_factors']}
+
+    COMPARISON ANALYSIS:
+    1. Event-specific elements: Same moment/incident? (people, positions, background, lighting)
+    2. Distinguishing features: Unique identifiers confirming/disproving same event
+    3. Content correspondence: Identical key action, subjects, context?
+    4. Image integrity: Signs of manipulation/editing?
+    5. Temporal/geographic markers: Same time/place indicators?
+    WARNING: Similar-looking images from different events are a common misinformation tactic - visual similarity alone DOES NOT indicate same context
 
     Based on the comparison between the news image-caption pair and the evidence, as well as the provided information above, provide a detailed verification report.
     Focus on:
-    1. Whether the image is rightly used by the claim/caption
+    1. Whether the image is correctly used by the claim/caption
     2. The authenticity of the image (real, altered, AI-generated)
     3. Source verification (where and when the image originated)
-    4. Contextual accuracy, including:
-    - Consider whether the claim completely describes a different image or event instead of the news image based on the evidence and the visual similarity score.
-    - If the evidence is fully unrelated to both the news image and the claim (means the evidence has absolutely no connection to the news image or claim), base verification primarily on the image analysis and clearly state that the provided evidence doesn't address this specific news item.
-    - Incorporate findings from your direct visual comparison and contextual analysis of both images to determine if the news image is being used correctly in its original context.
-    - CRITICAL ANALYSIS CHECK: Since the detailed_description is AI-generated from image, critically compare it against the raw image elements (key_elements and detected_entities). When conflicts arise, prioritize concrete visual evidence over the generated description.
-
-    Remember to separate facts from speculation and clearly indicate your confidence level in different aspects of your analysis. Do not make assumptions or inferences beyond what is directly observable in the images and provided information.
+    4. Contextual Validity Analysis:
+    - Caption-Evidence Alignment: Does the evidence content support or align with both the CAPTION TEXT AND IMAGE?
+    - Image-Event Relationship: Based on the direct comparison analysis, what is the relationship between the news image and the specific event described?
+    - Determination Criteria (IMPORTANT: Even if the claim is factually supported by evidence, using images from different events is misleading (mean evidence image and news image are not similar and come from the same event) - classify as FALSE misinformation):
+        a) Direct Context: The image shows the EXACT SPECIFIC event described in the caption AND evidence confirms this specific relationship
+        b) Representative Context (EVALUATE CAREFULLY - It can be TRUE or FALSE): Image used illustratively and labeled/understood as representational. 
+        c) Misleading Context: The image is out_of_context if it:
+            - Shows a different event than claimed, even if visually similar
+            - Creates a false impression about what occurred
+            - Is from a different time period than implied
+            - Shows different people/locations than claimed
+            - Combines caption text from one event with an image from another event
+            
+    Remember to separate facts from speculation and clearly indicate your confidence level in different aspects of your analysis and dont make assumptions.
     """
     
     # Define a comprehensive schema for verification reporting
@@ -444,13 +432,24 @@ def generate_explanation(vlm_connector, llm_connector, image_base64, evidence,
                     "noted_artifacts": {"type": "array", "items": {"type": "string"}, "description": "Any detected anomalies"}
                 }
             },
-            "contextual_accuracy": {
+            "contextual_validity": {
                 "type": "object",
                 "properties": {
-                    "in_context": {"type": "boolean", "description": "Does the news image is rightly used by the news claim (caption) based on the contextual accuracy analysis?"},
-                    "explanation": {"type": "string", "description": "Explain the conclusion"},
+                    "context_classification": {
+                        "type": "string",
+                        "enum": ["direct_context", "representative_context", "misleading_context"],
+                        "description": "How the image relates to the caption context"
+                    },
+                    "in_context": {
+                        "type": "boolean", 
+                        "description": "Whether the image is used in an appropriate and valid context relative to the caption"
+                    },
+                    "explanation": {
+                        "type": "string",
+                        "description": "Detailed explanation of the contextual validity determination"
+                    }
                 },
-                "required": ["in_context", "explanation"]
+                "required": ["context_classification", "in_context", "explanation"]
             },
             "supporting_evidence": {
                 "type": "array",
@@ -469,9 +468,9 @@ def generate_explanation(vlm_connector, llm_connector, image_base64, evidence,
             }
         },
         "required": ["summary", "content_classification", "source_details", 
-                    "authenticity_assessment", "contextual_accuracy", "confidence_level"]
+                    "authenticity_assessment", "contextual_validity", "confidence_level"]
     }
-    
+
     # Get the verification result
     verification_result = vlm_connector.call_with_structured_output(
         prompt=verification_prompt,
@@ -480,11 +479,11 @@ def generate_explanation(vlm_connector, llm_connector, image_base64, evidence,
         system_prompt=verification_system_prompt,
         ref_images_base64=evidence.image_data
     )
-    
+
     # Include image analysis in the result for transparency
     verification_result["image_analysis"] = {
-        "description": image_analysis["detailed_description"],
-        "key_elements": image_analysis["key_elements"]
+        "internal_image_caption_consistency_assessment": image_analysis["consistency_assessment"],
+        "confidence": image_analysis['confidence'],
     }
     
     return verification_result
@@ -497,6 +496,7 @@ def main():
     
     # Setup environment
     load_dotenv()
+    login(token=os.environ["HF_TOKEN"])
     
     # Make results and error folders
     if not os.path.exists(args.output_dir_path):
@@ -531,6 +531,8 @@ def main():
         vlm_connector = GeminiVisionConnector(
             api_key=args.gemini_api_key if args.gemini_api_key else os.environ["GEMINI_API_KEY"],
             model_name="gemini-2.0-flash-001"
+            # model_name="gemini-1.5-flash"
+            # model_name="gemini-2.5-pro-exp-03-25"
         )
     else:
         raise ValueError(f"Invalid VLM model: {args.vlm_model}")

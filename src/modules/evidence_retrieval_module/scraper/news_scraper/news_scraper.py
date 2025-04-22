@@ -388,8 +388,9 @@ class NewsPleaseScraper:
             
             articles = NewsPlease.from_urls(
                 urls=[url],
-                timeout=self.timeout_per_url,
-                user_agent=self.get_random_user_agent()
+                request_args={"timeout": self.timeout_per_url}
+                # timeout=self.timeout_per_url,
+                # user_agent=self.get_random_user_agent()
             )
             
             if not articles or url not in articles or articles[url] is None:

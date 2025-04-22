@@ -99,6 +99,9 @@ class GeminiVisionConnector:
         response = self.model.generate_content(
             content_parts,
             generation_config=genai.GenerationConfig(
+                temperature=0.2,
+                top_p=0.2,
+                top_k=5,
                 response_mime_type="application/json",
                 response_schema=json_schema
             )

@@ -53,8 +53,9 @@ class GeminiConnector:
     def call_with_structured_output(
             self,
             prompt: str,
-            schema,
+            schema: Any,
             image_base64: Optional[str] = None,
+            ref_images_base64: Optional[List[str]] = None,
             system_prompt: Optional[str] = None
         ) -> Dict[str, Any]:
             """
@@ -68,14 +69,27 @@ class GeminiConnector:
             else:
                 json_schema = self.typeddict_to_json_schema(schema)
             
+            input = []
             if image_base64:
-                input = [{'mime_type':'image/jpeg', 'data': image_base64}, prompt]
-            else:
-                input = prompt
+                input.append({'mime_type':'image/jpeg', 'data': image_base64})
+            
+            if ref_images_base64:
+                if isinstance(ref_images_base64, str):
+                    ref_images_base64 = [ref_images_base64]
+                for ref_image in ref_images_base64:
+                    input.append({
+                        'mime_type': 'image/jpeg',
+                        'data': ref_image
+                    })
+                
+            input.append(prompt)
 
             res = self.model.generate_content(
                 input,
                 generation_config=genai.GenerationConfig(
+                    temperature=0.2,
+                    top_p=0.2,
+                    top_k=5,
                     response_mime_type="application/json", 
                     response_schema=json_schema,
                 )
