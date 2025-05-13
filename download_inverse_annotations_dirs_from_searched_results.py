@@ -41,6 +41,8 @@ def parse_arguments():
                         help='where to start processing')
     parser.add_argument('--end_idx', type=int, default=-1,
                         help='where to end processing')
+    parser.add_argument('--random_index_path', type=str, default=None,
+                        help='path to the file containing the random indices')
     
     return parser.parse_args()
 
@@ -84,7 +86,6 @@ def process_url_pair(args):
         # Let's try to get the title using newspaper if code is '5' and req is None
         if code == '5' and req is None:
             try:
-                print("Using newspaper for url: ", "page_url: ", page_url, "img_url: ", img_url)
                 article = Article(page_url)
                 article.download()
                 article.parse()
@@ -93,9 +94,7 @@ def process_url_pair(args):
                 except:
                     title = ""
                 
-                print("Getting html")
                 html = article.html
-                print("Done getting html")
                 
                 # Save the html
                 html_path = os.path.join(save_folder_path, f"{counter}.txt")
@@ -104,7 +103,6 @@ def process_url_pair(args):
                 
                 # Download and save the image
                 image_path = ""
-                print("Downloading and saving image")
                 if download_and_save_image(img_url, save_folder_path, str(counter)):
                     image_path = os.path.join(save_folder_path, f"{counter}.jpg")
                 
@@ -128,8 +126,6 @@ def process_url_pair(args):
                     new_entry['caption'] = caption
                     new_entry['matched_image'] = 1
                     
-                print("new_entry: ", new_entry['title'])
-                print("new_entry: ", new_entry.get('caption', ''))
                 return new_entry
             except Exception as e:
                 print(f"Error getting title using newspaper: {str(e)}")
@@ -275,10 +271,24 @@ def main():
                   else (start_counter + args.how_many if args.how_many > 0 
                         else len(existing_results)))
     
-    print(f"Processing items from {start_counter} to {end_counter}")
+    if args.random_index_path:
+        try:
+            with open(args.random_index_path, 'r') as f:
+                random_indices = [int(line.strip()) for line in f.readlines()]
+        except Exception as e:
+            print(f"Error in reading random indices file: {str(e)}")
+    else:
+        random_indices = list(range(start_counter, end_counter))
+
+    indices = []
+    for idx in random_indices:
+        if start_counter <= idx <= end_counter:
+            indices.append(idx)
+    
+    # print(f"Processing items from {indices[0]} to {indices[-1]}")
     
     # Main processing loop
-    for item_id in tqdm.tqdm(range(start_counter, end_counter)):
+    for item_id in tqdm.tqdm(indices):
         if str(item_id) not in existing_results:
             continue
         
