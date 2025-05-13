@@ -4,23 +4,26 @@
 # In[ ]:
 
 
-from bs4 import NavigableString
+import base64
+import subprocess
+import time
 import requests
-import PIL
 import shutil
 from PIL import Image
 import imghdr
 from bs4 import BeautifulSoup
-import bs4
-import time
-import io
-import os
-from bs4 import NavigableString
-import numpy as np
 import imagehash
 import ast
+import numpy as np
+import os
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
 
 def get_img_content_req(img_url):
+    if "washingtonpost.com" in img_url:
+        return 0,0
+    
     try:
         headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
         r = requests.get(img_url, headers=headers, stream=True,timeout=(60,60))
@@ -70,6 +73,10 @@ def compare_images(img1,img1_pil, img2, img2_pil, cutoff):
     
 def get_html(url,method,browser=None):
     if method=='request':
+        # Pass washingtonpost.com
+        if "washingtonpost.com" in url:
+            raise Exception("Washingtonpost.com")
+        
         headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
         r = requests.get(url,timeout=(60,60))
         html = r.text
@@ -459,3 +466,362 @@ def get_captions_from_page(src_img_link, url, req_res=None, cutoff=20):
             break
     title = process_titles_or_captions(title)
     return caption, title, code, r
+
+def get_captions_from_html(src_img_link, url, html, cutoff=20):
+    # Parse the HTML
+    soup = BeautifulSoup(html, "html.parser")
+    
+    # Find images matching the source link
+    images = find_tags_by_matching(src_img_link, url, soup, cutoff)
+
+    caption = {}
+    
+    for img in images:  
+        next_imgs = img.find_next('figcaption')
+        if next_imgs:
+            for node in list(next_imgs):
+                #https://news.sky.com/video/fall-out-over-scottish-referendum-10386472
+                #sky news                     
+                if '<span class="sdc-site-video__caption-text"' in str(node):
+                    caption['caption_node'] = str(node.string)
+                    break 
+                #https://www.justapinch.com/recipes/dessert/cake/inside-out-german-chocolate-bundt-cake.html?utm_source=CNHI&utm_medium=curatorcrowd&utm_campaign=TRX&utm_content=www.gloucestertimes.com
+                if '<span class="caption-text"' in str(node):
+                    if '<p>' in str(node):
+                        caption['caption_node'] = str(node).split('<p>')[-1].split('</p>')[0]
+                        break
+                #https://www.telegraph.co.uk/news/worldnews/middleeast/syria/11150024/Air-strikes-might-not-be-enough-to-save-Kobane-from-Isil-US-warns.html
+                #telegraph
+                if '<span' in str(node) and 'data-test="caption"' in str(node):
+                    caption['caption_node'] = str(node.string)
+                    break                   
+                #Example: https://www.independent.ie/style/celebrity/celebrity-news/meet-the-new-prince-kate-middleton-and-prince-william-introduce-baby-son-to-the-world-36834554.html
+                if len(node)>0 and not '<span' in str(node) and node.string:
+                    if node.string:
+                        caption['caption_node'] = str(node.string.strip()).strip()
+                        break
+                #NYtimes
+                #Example: https://www.nytimes.com/2020/04/10/world/americas/venezuela-pregnancy-birth-death.html
+                if '<span aria-hidden' in str(node):
+                    if node.string:  
+                        caption['caption_node'] = str(node.string.strip())
+                        break 
+                #Example: https://www.nytimes.com/2014/11/09/world/europe/where-berlin-wall-once-stood-lights-now-illuminate.html
+                if '<span class="css-16f3y1r e13ogyst0"' in str(node):
+                    if node.string:  
+                        caption['caption_node'] = str(node.string.strip())
+                        break 
+                #Example: https://www.mirror.co.uk/money/breaking-ikea-set-re-open-21981857     
+                #Example: https://nationalpost.com/news/the-berlin-wall-has-almost-been-down-as-long-as-it-was-up
+                if 'span class="caption"' in str(node):  
+                    if node.string: 
+                        caption['caption_node'] = str(node.string.strip())
+                        break                     
+                #statnews 
+                #Example: https://www.statnews.com/2017/02/08/cuba-doctors-meager-pay/
+                if '<span class="media-caption"' in str(node):
+                    if node.string:
+                        caption['caption_node'] = str(node.string)
+                        break 
+                #Example: https://www.hollywoodreporter.com/lifestyle/shopping/scott-foley-ellens-next-great-designer-best-furniture-1234955069/
+                if 'span class="a-font-secondary-s lrv-u-margin-r-025"' in str(node):
+                    if node.string:
+                        caption['caption_node'] = str(node.string) 
+                        break 
+                    #Example: https://www.hollywoodreporter.com/news/general-news/sochi-paralympic-winter-games-begin-686837/
+                    elif '<p>' in str(node):
+                        caption['caption_node'] = str(node).split('<p>')[-1].split('</p>')[0]
+                        break
+                if '<span class' in str(node):
+                    #Example: https://www.newyorker.com/magazine/2016/01/18/the-front-lines
+                    if 'sc-pNWdM sc-jrsJWt sc-ezzafa lfZoIg fPQsnI eidwJs caption__text' in str(node):
+                        if node.string:
+                            caption['caption_node'] = str(node.string).strip()
+                            break 
+                    #NBC: https://www.nbcnews.com/news/world/kids-revel-large-mud-pit-during-michigan-ritual-flna874580
+                    if 'caption__container' in str(node):
+                        caption['caption_node'] = str(node.string.strip())
+                        break
+                    #Gaurdian
+                    #Example: https://www.theguardian.com/world/2021/may/10/dozens-injured-in-clashes-over-israeli-settlements-ahead-of-jerusalem-day-march
+                    if node.nextSibling and '<span class' in str(node.nextSibling):
+                        if node.nextSibling.string:
+                            caption['caption_node'] = str(node.nextSibling.string.strip())
+                            break
+                    #BBC
+                    #Example: https://www.bbc.com/news/world-africa-57055014
+                    elif node.nextSibling and not '<span class' in str(node.nextSibling):
+                        if str(node.nextSibling).strip():
+                            caption['caption_node'] = str(node.nextSibling.string)
+                            break 
+            
+        #for usa today 
+        if img.has_attr('image-alt') and len(img['image-alt'])>0:
+            caption['media_image_image_alt'] = str(img['image-alt'])
+            
+        if img.has_attr('caption') and len(img['caption'])>0:
+            caption['media_image_caption'] = str(img['caption'])
+        
+        if img.has_attr('alt') and len( img['alt'])>0 :
+            caption['alt_node'] = str(img['alt'])   
+
+        if img.has_attr('title') and len( img['title'])>0 :
+            caption['title_node'] = str(img['title'])   
+            
+        if img.has_attr('data-caption') and len(img['data-caption'])>0:
+            caption['img_data_caption_attr'] = str(img['data-caption']) 
+            
+        #Example: http://edition.cnn.com/2009/TECH/space/10/28/nasa.ares.rocket/index.html 
+        next_nodes = img.find_next('div',{'class':'cnn_strycaptiontxt'})
+        if next_nodes:
+            for node in list(next_nodes):
+                if node.string:
+                    caption['div_cnn_strycaptiontxt'] = str(node.string)
+                    break
+            
+        #Example:https://www.reuters.com/business/green-thumb-revenue-zooms-surging-demand-weed-based-products-2021-05-12/  
+        next_nodes = img.find_next('p',{'id':'primary-image-caption'})
+        if next_nodes:
+            for node in list(next_nodes):
+                if node.string:
+                    caption['p_primary-image-caption'] = str(node.string)
+                    break
+            
+        #Example: url = 'https://www.washingtonpost.com/politics/flow-of-illegal-immigration-slows-as-us-mexico-border-dynamics-evolve/2015/05/27/c5caf02c-006b-11e5-833c-a2de05b6b2a4_story.html'
+        next_nodes = img.find_next('span',{'class':'pb-caption'})
+        if next_nodes:
+            for node in list(next_nodes):
+                if node.string:
+                    caption['pb-caption'] = str(node.string)
+                    break 
+        #Example: https://www.ibtimes.co.in/al-shabaab-militants-briefly-take-over-garissa-mosques-deliver-sermons-worshippers-633320
+        next_nodes = img.find_next('span',{'class':'cap'})
+        if next_nodes:
+            for node in list(next_nodes):
+                if node.string:
+                    caption['class_cap'] = str(node.string)
+                    break 
+        #Example: https://www.foxnews.com/science/nasas-ares-1-x-vs-the-worlds-tallest-rockets
+        next_nodes = img.find_next('p',{'class':'speakable'})
+        if next_nodes:
+            for node in list(next_nodes):
+                if node.string:
+                    caption['p_class_speakable'] = str(node.string).strip()
+                    
+        #Example: https://www.timesofisrael.com/idf-strikes-gaza-targets-in-response-to-earlier-rocket-fire/
+        next_nodes = img.find_next('div',{'class':'caption'})
+        if next_nodes:
+            for node in list(next_nodes):
+                if node.string:
+                    caption['div_caption'] = str(node.string).strip()
+                    #Example: https://www.staradvertiser.com/2012/10/15/breaking-news/pakistani-girl-shot-by-taliban-now-in-uk-for-care/
+                    if 'staradvertiser' in url and node.nextSibling.nextSibling.string:
+                        caption['div_caption'] = caption['div_caption'] + '. ' + str(node.nextSibling.nextSibling.string).strip()
+                    break 
+        #Example: https://www.wfdd.org/story/paris-security-checks-shoppers-%E2%80%94-and-children
+        next_nodes = img.find_next('div',{'class':'field-caption'})
+        if next_nodes:
+            for node in list(next_nodes):
+                if node.string:
+                    caption['div_field_caption'] = str(node.string).strip()
+                    break
+                    
+        next_nodes = img.find_next('span',{'class':'article-image-credit'})
+        if next_nodes:
+            for node in list(next_nodes):
+                if node.string:
+                    caption['span_img_credit'] = str(node.string)
+                    break 
+                
+        #EXAMPLE: https://www.thenation.com/article/world/cuba-doctors-covid-19/
+        next_nodes = img.find_next('p',{'class':'caption'})
+        if next_nodes:
+            for node in list(next_nodes):
+                if node.string:
+                    caption['p_class_caption'] = str(node.string)
+                    break 
+        #Example: https://somaliagenda.com/somalias-al-shabab-enters-kenyan-village/ 
+        next_nodes = img.find_next('p',{'class':'wp-caption-text'})
+        if next_nodes:
+            for node in list(next_nodes):
+                if node.string:
+                    caption['p_wp_caption_text'] = str(node.string)
+                    break 
+                    
+        #Example: https://www.csmonitor.com/World/Asia-South-Central/2012/1015/The-Malala-moment-6-Pakistani-views-on-the-girl-shot-by-the-Taliban/I-want-my-daughter-to-love-my-faith-so-she-will-not-visit-Pakistan
+        next_nodes = img.find_next('div',{'class':'eza-caption'})
+        if next_nodes:
+            for node in list(next_nodes):
+                if node.string:
+                    caption['div_eza_caption'] = str(node.string)
+                    break
+        #Example: https://www.tennessean.com/picture-gallery/news/2017/05/24/how-ikea-has-grown-over-the-years/102118034/
+        next_nodes = img.find_next('div',{'id':'imageCaption'})
+        if next_nodes:
+            for node in list(next_nodes):
+                if node.string:
+                    caption['div_id_img_caption'] = str(node.string)
+                    break
+        #Example: https://www.dailymail.co.uk/news/article-3340215/Mexican-authorities-confirm-burned-van-two-charred-bodies-inside-belonged-missing-Australian-surfers.html
+        next_nodes = img.find_next('p',{'class':'imageCaption'})
+        if next_nodes:
+            for node in list(next_nodes):
+                if node.string:
+                    caption['pclass_img_caption'] = str(node.string)
+                    break
+                    
+        #Example: https://www.news18.com/news/sports/speculation-over-tokyo-olympics-2021-2032-or-not-at-all-3328064.html 
+        next_nodes = img.find_next('p',{'class':'jsx-58535537 imageCaption'}) 
+        if next_nodes:
+            for node in list(next_nodes):
+                if node.string:
+                    caption['p_class_img_caption'] = str(node.string)
+                    break
+        #Example: https://www.stripes.com/news/middle-east/pentagon-more-us-fire-bases-could-open-in-iraq-1.403096 
+        next_nodes = img.find_next('div',{'class':'caption_for_main'}) 
+        if next_nodes:
+            for node in list(next_nodes):
+                if node.string:
+                    caption['div_class_caption_for_main'] = str(node.string)
+                    break 
+        #Example: https://www.nytimes.com/interactive/2020/12/23/magazine/breonna-taylor-meme.html 
+        next_nodes = img.find_next('span',{'class':'rad-caption-text'}) 
+        if next_nodes:
+            for node in list(next_nodes):
+                if node.string:
+                    caption['rad_caption_text'] = str(node.string)
+                    break   
+        #Example: https://www.latimes.com/nation/ct-mosul-iraq-islamic-state-20161018-story.html
+        next_nodes = img.find_next('div',{'class':'figure-caption'}) 
+        if next_nodes:
+            for node in list(next_nodes):
+                if node.string:
+                    if '<p>' in node.string:
+                        caption['div_class_fig-caption'] = str(node.string).split('<p>')[-1].split('</p>')[0]
+                        break
+                    else:
+                        caption['div_class_fig-caption'] = str(node.string)
+                        break
+                    
+        process_dict(caption)
+        if caption:
+            break
+        
+    return caption
+
+def extract_page_content(soup):
+    """Extract main content from a parsed web page"""
+    # Start with a basic content extraction approach
+    content = ""
+    
+    # Try to find the main content container
+    # Common content containers to check
+    content_selectors = [
+        "article", 
+        "main",
+        ".main-content", 
+        "#main-content",
+        ".article-content", 
+        "#article-content",
+        ".post-content",
+        ".entry-content",
+        ".body-content",
+        ".story-content",
+        ".content-body",
+        ".blog-post", 
+        ".news-article", 
+        "#content", 
+        ".post", 
+        ".text-content",
+        "section", 
+        "maincontent"
+        "article-body",
+        "ArticleBody"
+    ]
+    
+    # Try each selector to find content
+    for selector in content_selectors:
+        content_element = None
+        try:
+            if selector.startswith("."):
+                content_element = soup.find(class_=selector[1:])
+            elif selector.startswith("#"):
+                content_element = soup.find(id=selector[1:])
+            else:
+                content_element = soup.find(selector)
+        except:
+            continue
+            
+        if content_element:
+            # Extract text from paragraphs within the content element
+            paragraphs = content_element.find_all('p')
+            if paragraphs:
+                content = "\n\n".join([p.get_text().strip() for p in paragraphs if p.get_text().strip()])
+                if content:
+                    break
+
+    # Fallback: if no content found using selectors, try to get all paragraphs
+    if not content:
+        paragraphs = soup.find_all('p')
+        # Filter out short paragraphs that might be navigation/ads
+        meaningful_paragraphs = [p.get_text().strip() for p in paragraphs 
+                               if len(p.get_text().strip()) > 200]
+        if meaningful_paragraphs:
+            content = "\n\n".join(meaningful_paragraphs)
+    
+    return content
+
+def download_and_save_image(image_url, save_folder_path, file_name):
+    if "washingtonpost.com" in image_url:
+        return 0
+    
+    try:
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+            'Referer': 'https://www.washingtonpost.com/',
+            'Connection': 'keep-alive'
+        }
+        response = requests.get(image_url,stream = True,timeout=(20,20),headers=headers)
+        if response.status_code == 200:
+            response.raw.decode_content = True
+            image_path = os.path.join(save_folder_path,file_name+'.jpg')
+            with open(image_path,'wb') as f:
+                shutil.copyfileobj(response.raw, f)
+            if imghdr.what(image_path).lower() == 'png':
+                img_fix = Image.open(image_path)
+                img_fix.convert('RGB').save(image_path)
+            return 1 
+        else:
+            print("Failed to download image because of status code: ", response.status_code)
+            return 0
+    except Exception as e:
+        return 0
+    
+def merge_search_results(exact_res, broad_res):
+    # Start with a copy of the structure from the first response
+    merged = exact_res.copy()
+    
+    # Get existing image items
+    exact_items = exact_res.get('items', [])
+    broad_items = broad_res.get('items', [])
+    
+    # Create a set of URLs we've already seen to avoid duplicates
+    seen_urls = set(item.get('link') for item in exact_items)
+    
+    # Add unique items from the broad search
+    unique_broad_items = [item for item in broad_items if item.get('link') not in seen_urls]
+    
+    # Update the merged result's items
+    if 'items' in merged:
+        merged['items'].extend(unique_broad_items)
+    else:
+        merged['items'] = unique_broad_items
+    
+    # Update counts
+    if 'searchInformation' in merged:
+        # Update total results count (approximate)
+        exact_count = int(exact_res.get('searchInformation', {}).get('totalResults', 0))
+        broad_count = int(broad_res.get('searchInformation', {}).get('totalResults', 0))
+        merged['searchInformation']['totalResults'] = str(exact_count + broad_count)
+    
+    return merged

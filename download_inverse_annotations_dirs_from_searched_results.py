@@ -2,30 +2,37 @@
 # coding: utf-8
 
 import argparse
+import gc
 import os
 import json
-import io
-# import fasttext
-from utils import get_captions_from_page, save_html
+
+from bs4 import BeautifulSoup
+from newspaper import Article
+from utils import download_and_save_image, extract_page_content, get_captions_from_page, save_html, get_captions_from_html
 import concurrent.futures as cf
-from collections import defaultdict
 import tqdm
 import time
+
+from filelock import FileLock
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Process existing inverse search results')
     parser.add_argument('--save_folder_path', type=str, default='queries_dataset',
                         help='location where to save processed data')
+    
+    parser.add_argument('--existing_results_path', type=str, default="test_dataset/links_test.json",
+                        help='path to JSON file containing existing inverse search results')
+    
+    
     parser.add_argument('--split_type', type=str, default='merged_balanced',
                         help='which split to use in the NewsCLIP dataset')
     parser.add_argument('--sub_split', type=str, default='test',
                         help='which split to use from train,val,test splits')
-    parser.add_argument('--continue_download', type=int, default=0,
+    parser.add_argument('--continue_download', type=int, default=1,
                         help='whether to continue processing or start from 0')
     parser.add_argument('--how_many', type=int, default=-1,
                         help='how many items to process, -1 means process until the end')
-    parser.add_argument('--existing_results_path', type=str, required=True,
-                        help='path to JSON file containing existing inverse search results')
+
     parser.add_argument('--hashing_cutoff', type=int, default=15,
                         help='threshold used in hashing')
     parser.add_argument('--skip_existing', action="store_true",
@@ -51,9 +58,16 @@ def init_files_and_paths(args):
     
     # Initialize or load index file
     json_download_file_name = os.path.join(full_save_path, args.sub_split + '.json')
-    if os.path.isfile(json_download_file_name) and os.access(json_download_file_name, os.R_OK) and args.continue_download:
-        with open(json_download_file_name, 'r') as fp:
-            all_inverse_annotations_idx = json.load(fp)
+    if os.path.isfile(json_download_file_name) and args.continue_download:
+        if os.access(json_download_file_name, os.R_OK):
+            with open(json_download_file_name, 'r') as fp:
+                all_inverse_annotations_idx = json.load(fp)
+        else:
+            # wait until the file is not locked
+            while not os.access(json_download_file_name, os.R_OK):
+                time.sleep(1)
+            with open(json_download_file_name, 'r') as fp:
+                all_inverse_annotations_idx = json.load(fp)
     else:
         all_inverse_annotations_idx = {}
         with open(json_download_file_name, 'w') as db_file:
@@ -67,17 +81,85 @@ def process_url_pair(args):
     try:
         caption, title, code, req = get_captions_from_page(img_url, page_url)
         
+        # Let's try to get the title using newspaper if code is '5' and req is None
+        if code == '5' and req is None:
+            try:
+                print("Using newspaper for url: ", "page_url: ", page_url, "img_url: ", img_url)
+                article = Article(page_url)
+                article.download()
+                article.parse()
+                try:
+                    title = article.title
+                except:
+                    title = ""
+                
+                print("Getting html")
+                html = article.html
+                print("Done getting html")
+                
+                # Save the html
+                html_path = os.path.join(save_folder_path, f"{counter}.txt")
+                with open(html_path, 'w', encoding='utf-8') as f:
+                    f.write(html)
+                
+                # Download and save the image
+                image_path = ""
+                print("Downloading and saving image")
+                if download_and_save_image(img_url, save_folder_path, str(counter)):
+                    image_path = os.path.join(save_folder_path, f"{counter}.jpg")
+                
+                # Get the page content
+                page_content = article.text
+                
+                # Just set the caption to the title
+                caption = title
+                                
+                new_entry = {
+                    'page_link': page_url,
+                    'image_link': img_url,
+                    'html_path': html_path,
+                    'image_path': image_path,
+                    'title': title,
+                    'content': page_content
+                }
+                
+                caption = get_captions_from_html(img_url, page_url, html, hashing_cutoff)
+                if caption:
+                    new_entry['caption'] = caption
+                    new_entry['matched_image'] = 1
+                    
+                print("new_entry: ", new_entry['title'])
+                print("new_entry: ", new_entry.get('caption', ''))
+                return new_entry
+            except Exception as e:
+                print(f"Error getting title using newspaper: {str(e)}")
+        
         if title is None:
             title = ''
         
+        # Extract content from the page
+        page_content = ""
+        if req and req.content:
+            try:
+                soup = BeautifulSoup(req.content.decode('utf-8'), "html.parser")
+                page_content = extract_page_content(soup)
+            except Exception as content_error:
+                print(f"Error extracting content: {str(content_error)}")
+        
         saved_html_flag = save_html(req, os.path.join(save_folder_path, f"{counter}.txt"))
         html_path = os.path.join(save_folder_path, f"{counter}.txt") if saved_html_flag else ''
+        
+        image_path = ""
+        if download_and_save_image(img_url, save_folder_path, str(counter)):
+            image_path = os.path.join(save_folder_path, f"{counter}.jpg")
         
         new_entry = {
             'page_link': page_url,
             'image_link': img_url,
             'html_path': html_path,
-            'title': title
+            'image_path': image_path,
+            'title': title,
+            'content': page_content
         }
         
         if caption:
@@ -130,7 +212,7 @@ def process_one_item(item_id, result_data, save_folder_path, hashing_cutoff):
     # Process URL pairs in parallel
     results = []
     if url_pairs:
-        with cf.ProcessPoolExecutor() as executor:
+        with cf.ProcessPoolExecutor(max_workers=10) as executor:
             futures = {
                 executor.submit(process_url_pair, url_pair): url_pair
                 for url_pair in url_pairs
@@ -139,18 +221,20 @@ def process_one_item(item_id, result_data, save_folder_path, hashing_cutoff):
             try:
                 for future in cf.as_completed(futures, timeout=60):
                     try:
-                        result = future.result(timeout=30)
+                        result = future.result(timeout=50)
                         if result:
                             results.append(result)
                     except Exception as e:
                         print(f"Error processing future: {str(e)}")
-                        continue
             
-            except (KeyboardInterrupt, Exception) as e:
-                print(f"{'🛑 User interrupted!' if isinstance(e, KeyboardInterrupt) else '🔥 Critical error: ' + str(e)}")
-                executor.shutdown(wait=False, cancel_futures=True)
-                if isinstance(e, KeyboardInterrupt):
-                    raise
+            except KeyboardInterrupt:
+                print("🛑 User interrupted! Shutting down all processes...")
+                executor.shutdown(wait=False, cancel_futures=True)  # 🚀 Force stop all workers
+                raise  # Re-raise KeyboardInterrupt
+            
+            except Exception as e:
+                print(f"🔥 Critical error: {str(e)}. Forcing shutdown.")
+                executor.shutdown(wait=False, cancel_futures=True)  # 🚀 Force stop all workers
     
     return results
 
@@ -176,7 +260,6 @@ def main():
     args = parse_arguments()
     
     # Initialize model and load data
-    # lang_model = fasttext.load_model('lid.176.bin')
     with open(args.existing_results_path, 'r') as f:
         existing_results = json.load(f)
     
@@ -210,15 +293,13 @@ def main():
         
         # Process the item
         result_data = existing_results[str(item_id)]
+        
         results = process_one_item(
             item_id, result_data, new_folder_path, 
             args.hashing_cutoff
         )
         
-        if results:
-            # Filter non-English results
-            # filtered_results = filter_non_english(results, lang_model)
-            
+        if results or 1:
             # Organize results
             processed_results = {
                 'entities': result_data.get('entities', []),
@@ -236,23 +317,9 @@ def main():
             if processed_results['entities'] or processed_results['all_matched_captions']:
                 # Save to index file
                 new_entry = {str(item_id): {'folder_path': new_folder_path}}
-                # all_inverse_annotations_idx.update(new_entry)
-                # save_json_file(
-                #     json_download_file_name, 
-                #     all_inverse_annotations_idx, 
-                #     item_id, 
-                #     files_info['unsaved.txt'], 
-                #     all_inverse_annotations_idx
-                # )
                 
                 try:
-                    # with open(json_download_file_name, 'r') as f:
-                    #     current_data = json.load(f)
-                    # current_data.update(new_entry)
-                    # with open(json_download_file_name, 'w') as f:
-                    #     json.dump(current_data, f)
                     # WINDOWS
-                    from filelock import FileLock
                     lock_file = f"{json_download_file_name}.lock"
                     with FileLock(lock_file):
                         with open(json_download_file_name, 'r') as f:
@@ -271,11 +338,15 @@ def main():
                 files_info['no_annotations.txt'].write(f"{item_id}\n")
                 files_info['no_annotations.txt'].flush()
         else:
+            print("Writing to annotaion file")
+            print(results)
             files_info['no_annotations.txt'].write(f"{item_id}\n")
             files_info['no_annotations.txt'].flush()
         
         print(f"Processed item {item_id} in {time.time() - start_time:.2f} seconds")
-    
+
+        gc.collect()
+
     # Cleanup
     for file_handle in files_info.values():
         file_handle.close()

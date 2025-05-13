@@ -5,26 +5,23 @@ import time
 import argparse
 import os
 from bs4 import BeautifulSoup
+import time
 from google.cloud import vision
 import io
 import os
 import json
-
-from newspaper import Article
-from utils import download_and_save_image, get_captions_from_page, save_html, extract_page_content, get_captions_from_html
+from utils import get_captions_from_page, save_html, extract_page_content
 import concurrent.futures as cf
 import tqdm
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Download dataset for inverse search queries')
-    parser.add_argument('--save_folder_path', type=str, default='queries_dataset',
+    parser.add_argument('--save_folder_path', type=str, default='queries_dataset_cosmos',
                         help='location where to download data')
     
-    parser.add_argument('--visual_news_data_path', type=str, default='test_dataset/visual_news_test.json',
+    parser.add_argument('--cosmos_data_path', type=str, default='test_dataset_cosmos/public_test_acm.json',
                         help='path to the visual news data')
-    parser.add_argument('--news_clippings_data_path', type=str, default='test_dataset/news_clippings_test.json',
-                        help='path to the news clippings data')
-
+    
     parser.add_argument('--google_cred_json', type=str, default='application_default_credentials.json',
                         help='json file for credentials')
                         
@@ -54,8 +51,6 @@ def parse_arguments():
     
     parser.add_argument('--skip_existing', action="store_true",
                         help='skip processing if output files already exist')
-    parser.add_argument('--rerun_none_candidates', '-r', action="store_true",
-                        help='rerun the process for none candidates')
     
     return parser.parse_args()
 
@@ -72,72 +67,9 @@ def detect_web(path, how_many_queries):
 def process_page_task(task):
     """Process a single page task with error handling"""
     match_type, img_url, page_url, page, save_folder_path, file_save_counter, hashing_cutoff = task
-    
-    # Excluded domains
-    EXCLUDED_DOMAINS = [
-        "youtube.com",
-        "instagram.com",
-        "tiktok.com",
-        "twitter.com",
-        "facebook.com",
-    ]
-    
     try:
         # Get captions and process the page
         caption, title, code, req = get_captions_from_page(img_url, page_url)
-        
-        # Let's try to get the title using newspaper if code is '5' and req is None
-        if code == '5' and req is None:
-            try:
-                print("Using newspaper for url: ", "page_url: ", page_url, "img_url: ", img_url)
-                article = Article(page_url)
-                article.download()
-                article.parse()
-                try:
-                    title = article.title
-                except:
-                    title = ""
-                
-                print("Getting html")
-                html = article.html
-                print("Done getting html")
-                
-                # Save the html
-                html_path = os.path.join(save_folder_path, f"{file_save_counter}.txt")
-                with open(html_path, 'w', encoding='utf-8') as f:
-                    f.write(html)
-                
-                # Download and save the image
-                image_path = ""
-                print("Downloading and saving image")
-                if download_and_save_image(img_url, save_folder_path, str(file_save_counter)):
-                    image_path = os.path.join(save_folder_path, f"{file_save_counter}.jpg")
-                
-                # Get the page content
-                page_content = article.text
-                
-                # Just set the caption to the title
-                caption = title
-                                
-                new_entry = {
-                    'page_link': page_url,
-                    'image_link': img_url,
-                    'html_path': html_path,
-                    'image_path': image_path,
-                    'title': title,
-                    'content': page_content
-                }
-                
-                caption = get_captions_from_html(img_url, page_url, html, hashing_cutoff)
-                if caption:
-                    new_entry['caption'] = caption
-                    new_entry['matched_image'] = 1
-                    
-                print("new_entry: ", new_entry['title'])
-                print("new_entry: ", new_entry.get('caption', ''))
-                return (match_type, new_entry)
-            except Exception as e:
-                print(f"Error getting title using newspaper: {str(e)}")
                     
         if title is None: 
             title = ''   
@@ -160,11 +92,7 @@ def process_page_task(task):
             html_path = os.path.join(save_folder_path, str(file_save_counter) + '.txt')
         else:
             html_path = ''
-        
-        image_path = ""
-        if download_and_save_image(img_url, save_folder_path, str(file_save_counter)):
-            image_path = os.path.join(save_folder_path, f"{file_save_counter}.jpg")
-        
+            
         # Process entry based on caption availability
         if caption:
             new_entry = {'page_link': page_url, 
@@ -172,7 +100,6 @@ def process_page_task(task):
                          'title': title, 
                          'caption': caption, 
                          'html_path': html_path,
-                         'image_path': image_path,
                          'content': page_content}  
         else:
             # Try again with hashing if no caption found
@@ -183,13 +110,11 @@ def process_page_task(task):
                              'title': title, 
                              'caption': caption, 
                              'html_path': html_path,
-                             'image_path': image_path,
                              'content': page_content}
             else:            
                 new_entry = {'page_link': page_url, 
                              'image_link': img_url, 
                              'html_path': html_path,
-                             'image_path': image_path,
                              'content': page_content}  
         
         if title: 
@@ -322,7 +247,7 @@ def main():
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = args.google_cred_json
     
     # Initialize files and paths
-    full_save_path = os.path.join(args.save_folder_path, args.split_type, 'inverse_search', args.sub_split)
+    full_save_path = os.path.join(args.save_folder_path, 'inverse_search', args.sub_split)
     if not os.path.exists(full_save_path):
         os.makedirs(full_save_path)
 
@@ -342,16 +267,9 @@ def main():
     json_download_file_name = os.path.join(full_save_path, args.sub_split + '.json')
 
     # Continue using the current saved json file or start a new file
-    if os.path.isfile(json_download_file_name) and args.continue_download:
-        if os.access(json_download_file_name, os.R_OK):
-            with open(json_download_file_name, 'r') as fp:
-                all_inverse_annotations_idx = json.load(fp)
-        else:
-            # wait until the file is not locked
-            while not os.access(json_download_file_name, os.R_OK):
-                time.sleep(1)
-            with open(json_download_file_name, 'r') as fp:
-                all_inverse_annotations_idx = json.load(fp)
+    if os.path.isfile(json_download_file_name) and os.access(json_download_file_name, os.R_OK) and args.continue_download:
+        with open(json_download_file_name, 'r') as fp:
+            all_inverse_annotations_idx = json.load(fp)
     else:
         with io.open(json_download_file_name, 'w') as db_file:
             db_file.write(json.dumps({}))
@@ -359,9 +277,7 @@ def main():
             all_inverse_annotations_idx = json.load(db_file)
     
     # Load dataset
-    visual_news_data_mapping = json.load(open(args.visual_news_data_path))
-    clip_data = json.load(open(args.news_clippings_data_path))
-    clip_data_annotations = clip_data["annotations"]
+    cosmos_data = json.load(open(args.cosmos_data_path))
     
     # Determine processing range
     start_counter = (args.start_idx if args.start_idx != -1 
@@ -370,7 +286,7 @@ def main():
     
     end_counter = (args.end_idx if args.end_idx > 0 
                   else (start_counter + args.how_many if args.how_many > 0 
-                        else len(clip_data_annotations)))
+                        else len(cosmos_data)))
     
     print("==========")
     print(f"subset to download is: {args.sub_split}")
@@ -387,57 +303,31 @@ def main():
     for i in tqdm.tqdm(range(start_counter, end_counter), desc="Processing items"):
         print(f"Processing item {i}")
         
-        if i >= len(clip_data_annotations):
+        if i >= len(cosmos_data):
             break
         
         # Skip if already processed and skip_existing is set
         if args.skip_existing:
             result_path = os.path.join(full_save_path, str(i), 'inverse_annotation.json')
             if os.path.exists(result_path):
-                if not args.rerun_none_candidates:
-                    with open(result_path, 'r', encoding='utf-8') as f:
-                        result_json = json.load(f)
-                    
-                    ran_fields = [
-                        'partially_matched_no_text', 
-                        'fully_matched_no_text', 
-                        'all_fully_matched_captions', 
-                        'all_partially_matched_captions'
-                    ]
-                    # If json contain fields in ran_fields, then skip
-                    if any(field in result_json for field in ran_fields):
-                        print(f"Skipping item {i} because it already re-run")
-                        continue
-                    
-                    fields_to_check = [
-                        'all_matched_captions', 
-                        'matched_no_text', 
-                    ]   
-                        
-                    if all(result_json.get(field, []) == [] for field in fields_to_check):
-                        print(f"Re-running item {i} because it had no candidates")
-                    else:
-                        print(f"Skipping item {i} because it had candidates")
-                        continue
+                continue
         
         start_time = time.time()
         
         try:
             
             # Get item information
-            ann = clip_data_annotations[i]
+            ann = cosmos_data[i]
+
+            # Extract cosmos folder path from args.cosmos_data_path
+            cosmos_folder_path = os.path.dirname(args.cosmos_data_path)
             
-            # Extract visual news folder path from args.visual_news_data_path
-            visual_news_folder_path = os.path.dirname(args.visual_news_data_path)
-            
-            image_path = os.path.join(visual_news_folder_path, visual_news_data_mapping[str(ann["image_id"])]["image_path"])
+            image_path = os.path.join(cosmos_folder_path, ann["img_local_path"])
             new_folder_path = os.path.join(full_save_path, str(i))
             os.makedirs(new_folder_path, exist_ok=True)
             
             # Detect web annotations
             result = detect_web(image_path, how_many_queries=args.how_many_queries)
-            
-            print(result)
             
             # Process annotations in parallel
             inverse_search_results = get_inverse_search_annotation(

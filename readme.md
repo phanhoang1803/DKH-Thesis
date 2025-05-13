@@ -1,74 +1,187 @@
-# Dataset collection
+# News Multimodal Dataset Creation
 
-- This directory contains our code for the dataset collection pipeline.
+This repository contains tools for creating multimodal news datasets that pair images with their corresponding captions and context. The scripts facilitate downloading and processing news content from various sources using both direct search (text-to-image) and inverse search (image-to-text) approaches.
 
-- This might be helpful if you need to crawl the evidence dataset from scratch, or if you need to crawl evidence for a different subset of the [NewsCLIPpings Dataset](https://github.com/g-luo/news_clippings).
+## Overview
 
-## Main Requirments 
-You will need to have the [NewsCLIPpings Dataset](https://github.com/g-luo/news_clippings) and the [VisualNews Dataset](https://github.com/FuxiaoLiu/VisualNews-Repository).
-Your file structure should look like this: 
-```javascript
-news_clippings
-│
-└── data/
-└── embeddings/
+The dataset creation pipeline supports two main datasets:
+- **COSMOS**
+- **NewsCLIPPING**
 
-visual_news
-│
-└── origin/
-│    └── data.json
-│        ...
-└── ...
+The tools provide functionality for:
+1. **Direct annotation collection** - searching for images using text queries
+2. **Inverse annotation collection** - finding web pages for given images
+3. **Data extraction** - extracting and storing metadata, captions, and images
+
+## Prerequisites
+
+Before running the scripts, ensure you have the following:
+
+- Python 3.7+
+- Required Python packages (install via `pip install -r requirements.txt`):
+  - requests
+  - tqdm
+  - Pillow
+  - google-api-python-client
+  - filelock
+  - concurrent.futures
+
+You also need to structure your dataset in the following format:
+
+For NewsCLIPPING dataset (You can download the dataset from [here](https://huggingface.co/datasets/phanhoang1803/test_dataset/tree/main)):
+```
+test_dataset/
+├── visual_news_test/
+├── news_clippings_test.json
+├── visual_news_test.json
+├── links_test.json
 ```
 
-In addition, you need the following dependencies: 
-
-- beautifulsoup4=4.9.3
-- google-cloud-vision
-- google-api-python-client==2.3.0
-- fasttext (you will need the language [identification model](https://fasttext.cc/docs/en/language-identification.html))
-- pillow=7.1.2
-- requests
-- imagehash
-
-We use Google Cloud Platform: [Custom Search](https://developers.google.com/custom-search/v1/introduction) to search for images given captions, and [Google vision](https://cloud.google.com/vision/docs/detecting-web) to detect web entities and perform inverse image search. You will need to enable these two APIs and have a way of credential authentication. For the [Custom Search](https://developers.google.com/custom-search/v1/introduction) you need to provide an API key and a custom search engine id. 
-
-## Collection 
-Our crawlers to extract captions and snippets from pages can be found in 'utils'.
-
-### Direct search 
-- Search for images given captions. 
-- In our implementation, we also crawl the captions for these found images (however, we didn't use them in our model).
-- To perform the search for images, run:
-
-```javascript
-python download_direct_annotations_dirs.py --hashing_cutoff <cutoff> --sub_split <split> --start_idx <start> --how_many <samples_num> --save_folder_path <folder_path>
+For COSMOS dataset (You can download the dataset from [here](https://huggingface.co/datasets/phanhoang1803/test_dataset_cosmos/tree/main)):
 ```
-- where:
-  - *hashing_cutoff* is the cutoff of image hash when search with the content of the image to find the image tag in the html (if not found by the image url).
-  - *sub_split* is which subsplit of the newsclippings to collect (train, val, test)
-  - *start idx* the index from the newsclippings to start crawling from. 
-  - *how many* how many samples to collect, you can instead specify an end index via '--end_idx'
-  - *save_folder_path* save directory, this script will create sub-directories under it for each sample with the index name.
-  - Specifying *start_idx* and *end_idx* (or *how_many*) can be helpful if you want to parallelize the collection 
- 
-- In case you want to resume the download, you can specify *--continue_download 1*, this will read the last downloaded index and will continue from it. 
-- Output:
-  - the script will create a directory for each even index in the newsclippings dataset (odd indices are repeated captions). Your file structure should look like: ```<args.save_folder_path>/<args.split_type>/direct_search/<args.sub_split>```, where *split_type* is the split type from newsclippings, *merged_balanced* in our case. Under which, a ```<split>.json``` file would be created that contains the already finished indicies. You will also find a sub-directory for each index.
-  - Under each sub-directory, it saves the images, and a 'direct_annotation.json' file. It contains lists of: images with captions, images without captions, images with captions found by matching the content of images. Each sub-list contains: 'image link', 'page link', 'domain', 'snippet' (snippet from the html), 'image_path' (saved image path), 'page_title', 'captions' if found. 
-  - This script also saved the html files of the containing pages. 
-
-### Inverse search 
-- Inverse search an image.
-- Get the web entities. 
-- Get pages containing the images. 
-- Crawl captions from these pages.
-
-- To perform the inverse search for images, run:
-```javascript
-python download_inverse_annotations_dirs.py --hashing_cutoff <cutoff> --sub_split <split> --start_idx <start> --how_many <samples_num> --save_folder_path <folder_path>
+test_dataset_cosmos/
+├── test/
+├── public_test_acm.json
 ```
-- parameters are similar to the direct search. 
-- Output:
-  - the script will create a directory for each index in the newsclippings dataset. Your file structure should look like: ```<args.save_folder_path>/<args.split_type>/inverse_search/<args.sub_split>```. 
-  - For each sub-directory, you will find a *inverse_annotation.json*, that contains: *page_link*, *image_link*, *title*, *caption* if found.
+
+## Dataset Creation Workflows
+
+### I. Direct Annotation Collection
+
+Direct annotation involves searching for images using text queries from existing datasets.
+
+For Google Custom Search Engine (CSE) functionality:
+- Google API Key
+- Google Custom Search Engine ID
+
+To get the Google API Key and Google Custom Search Engine ID you can follow the instructions [here](https://developers.google.com/custom-search/v1/introduction)
+
+#### 1. COSMOS Dataset
+
+For the COSMOS dataset, use the following command:
+
+```bash
+python download_direct_annotations_dirs_cosmos.py \
+    --cosmos_data_path <path_to_public_test_acm.json> \
+    --save_folder_path <output_directory> \
+    --google_api_key <your_google_api_key> \
+    --google_cse_id <your_cse_id> \
+    --start_idx <start_idx> \
+    --end_idx <end_idx> \
+    --skip_existing
+```
+
+#### 2. NewsCLIPPING Dataset
+
+For the NewsCLIPPING dataset, use:
+
+```bash
+python download_direct_annotations_dirs.py \
+    --visual_news_data_path <path_to_visual_news_test.json> \
+    --news_clippings_data_path <path_to_news_clippings_test.json> \
+    --save_folder_path <output_directory> \
+    --google_api_key <your_google_api_key> \
+    --google_cse_id <your_cse_id> \
+    --start_idx <start_idx> \
+    --end_idx <end_idx> \
+    --skip_existing
+```
+
+### II. Inverse Annotation Collection
+
+Inverse annotation involves finding textual context for images using image search or existing search results.
+
+To run the Google Cloud Vision ([Detect Web](https://cloud.google.com/vision/docs/detecting-web)), you need to set up a service account and download the credentials file.
+
+You can use the `google_cred_json` argument to specify the path to the credentials file.
+
+#### 1. COSMOS Dataset (Using Google Image Search)
+
+```bash
+python download_inverse_annotations_dirs_cosmos.py \
+    --cosmos_data_path <path_to_public_test_acm.json> \
+    --save_folder_path <output_directory> \
+    --start_idx <start_idx> \
+    --end_idx <end_idx> \
+    --skip_existing
+```
+
+#### 2. NewsCLIPPING Dataset (Using Google Image Search)
+
+```bash
+python download_inverse_annotations_dirs.py \
+    --visual_news_data_path <path_to_visual_news_test.json> \
+    --news_clippings_data_path <path_to_news_clippings_test.json> \
+    --save_folder_path <output_directory> \
+    --start_idx <start_idx> \
+    --end_idx <end_idx> \
+    --skip_existing
+```
+
+#### 3. NewsCLIPPING Dataset (Using Existing Search Results)
+
+```bash
+python download_inverse_annotations_dirs_from_searched_results.py \
+    --existing_results_path <path_to_links_test.json> \
+    --save_folder_path <output_directory> \
+    --start_idx <start_idx> \
+    --end_idx <end_idx> \
+    --skip_existing
+```
+
+## Common Arguments
+
+| Argument | Description |
+|----------|-------------|
+| `--save_folder_path` | Directory to save downloaded content |
+| `--start_idx` | Starting index for items to process |
+| `--end_idx` | Ending index for items to process |
+| `--skip_existing` | Skip items that already exist in the output directory |
+
+## Parallelization
+
+For efficient processing of large datasets, you can run multiple instances of the scripts with different index ranges:
+
+```bash
+# Terminal 1
+python download_direct_annotations_dirs.py --start_idx 0 --end_idx 500 ...
+
+# Terminal 2
+python download_direct_annotations_dirs.py --start_idx 500 --end_idx 1000 ...
+```
+
+## Output Structure
+
+The scripts create a hierarchical directory structure:
+
+```
+save_folder_path/
+├── direct_search/
+│   └── test/
+│       ├── 0/
+│       │   ├── 0.jpg
+│       │   ├── 0.txt (HTML)
+│       │   ├── 1.jpg
+│       │   ├── 1.txt (HTML)
+│       │   └── direct_annotation.json
+│       ├── 1/
+│       └── test.json
+└── inverse_search/
+    └── test/
+        ├── 0/
+        ├── 1/
+        └── test.json
+```
+
+Each numbered directory contains:
+- Downloaded images
+- HTML content from source pages
+- A JSON file with metadata and captions
+
+## Error Handling and Resuming
+
+The scripts include mechanisms for:
+- Handling network errors
+- Resuming interrupted downloads
+- Skipping existing items with the `--skip_existing` flag
+- Logging progress and errors
