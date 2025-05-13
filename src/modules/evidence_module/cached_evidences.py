@@ -436,7 +436,7 @@ class TextEvidencesModule(BaseEvidencesModule):
                     
                     caption = extract_caption(item.get('caption', ''))
                     
-                    if caption == "" and item.get('title', '') == "":
+                    if (caption == "" and item.get('title', '') == "") or item.get('content', '') == "":
                             continue
                     
                     evidence_list.append(Evidence(
@@ -650,7 +650,7 @@ class ImageEvidencesModule(BaseEvidencesModule):
                     html_path = item.get('html_path', '')
                     html_content = self._load_html_content(html_path)
                     
-                    if extract_caption(item.get('caption')) == "" and item.get('title', '') == "":
+                    if (extract_caption(item.get('caption')) == "" and item.get('title', '') == "") or item.get('content', '') == "":
                         continue
                     
                     evidence_list.append(Evidence(
