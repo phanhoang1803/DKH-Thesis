@@ -4,7 +4,7 @@ from datetime import datetime
 from typing import Optional, Union
 import numpy as np
 import openai
-from modules import EntitiesModule, GPTConnector, GeminiConnector, ExternalRetrievalModule, TextEvidencesModule, Evidence, GPTVisionConnector, GeminiVisionConnector, ImageEvidencesModule
+from modules import VisualEntityExtractor, GPTConnector, GeminiConnector, ExternalRetrievalModule, TextEvidencesModule, Evidence, GPTVisionConnector, GeminiVisionConnector, ImageEvidencesModule
 from dataloaders import cosmos_dataloader
 from mdatasets.newsclipping_datasets import MergedBalancedNewsClippingDataset
 from mdatasets.cosmos_datasets import CosmosDataset
@@ -60,7 +60,7 @@ def arg_parser():
 
 non_cadidates_idx = []
 
-def inference(entities_module: EntitiesModule,
+def inference(entities_module: VisualEntityExtractor,
              image_evidences_module: ImageEvidencesModule, 
              text_evidences_module: TextEvidencesModule,
              llm_connector: GPTConnector,

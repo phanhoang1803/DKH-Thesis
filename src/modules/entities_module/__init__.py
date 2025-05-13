@@ -1,2 +1,5 @@
-from .connector.NER import NERConnector
-from .cached_entities.cached_entities import EntitiesModule
+from .textual_entity_extractor import TextualEntityExtractor
+from .visual_entity_extractor import VisualEntityExtractor
+from .entity_aligner import EntityAligner
+
+__all__ = ["TextualEntityExtractor", "VisualEntityExtractor", "EntityAligner"]

@@ -3,7 +3,6 @@ import json
 import os
 import numpy as np
 from datetime import datetime
-from src.modules.evidence_retrieval_module.scraper.scraper import Article
 from typing import Dict, List, Any
 from hashlib import sha256
 
@@ -15,8 +14,6 @@ class NumpyJSONEncoder(json.JSONEncoder):
             return float(obj)
         elif isinstance(obj, np.ndarray):
             return obj.tolist()
-        elif isinstance(obj, Article):
-            return obj.to_dict()
         elif isinstance(obj, datetime):
             return obj.isoformat()
         return super().default(obj)
@@ -34,15 +31,12 @@ def process_results(results_dict):
             return float(results_dict)
         elif isinstance(results_dict, np.ndarray):
             return results_dict.tolist()
-        elif isinstance(results_dict, Article):
-            return results_dict.to_dict()
         elif isinstance(results_dict, datetime):
             return results_dict.isoformat()
         return results_dict
     except Exception as e:
         print(f"Error processing value {type(results_dict)}: {str(e)}")
         return str(results_dict)
-    
     
 @dataclass
 class ExternalEvidence:

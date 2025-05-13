@@ -1,4 +1,4 @@
-# inference_use_retrieved_evidences.py
+# inference.py
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -7,24 +7,18 @@ from datetime import datetime
 from typing import Optional, Union
 import numpy as np
 import openai
-from modules import EntitiesModule, GPTConnector, GeminiConnector, ExternalRetrievalModule, TextEvidencesModule, Evidence, ImageEvidencesModule, GeminiVisionConnector
-from dataloaders import cosmos_dataloader
+from modules.entities_module import VisualEntityExtractor
+from modules.reasoning_module import GeminiConnector, GPTConnector, GeminiVisionConnector
 from mdatasets.newsclipping_datasets import MergedBalancedNewsClippingDataset
-from src.modules.evidence_retrieval_module.scraper.scraper import Article
-from templates import get_visual_prompt, get_final_prompt
-from templates_for_generating_context import CAPTION_CONTEXT_CHECKING_RESPONSE_SCHEMA, CONTEXT_RESPONSE_SCHEMA, get_context_prompt, get_caption_context_checking_prompt, SYSTEM_PROMPT_FOR_VLM_GENERATED_CONTEXT, SYSTEM_PROMPT_FOR_CAPTION_CONTEXT_CHECKING
 from dotenv import load_dotenv
 import argparse
-from huggingface_hub import login
-from torchvision import transforms
-from typing_extensions import TypedDict
 import torch
 import json
 import time
-from src.config import NEWS_SITES, FACT_CHECKING_SITES
-from src.utils.utils import process_results, NumpyJSONEncoder, EvidenceCache
-from src.modules.reasoning_module.connector.gpt import VISUAL_RESPONSE_SCHEMA, FINAL_RESPONSE_SCHEMA
+from src.utils.utils import process_results, NumpyJSONEncoder
 import google
+from modules.evidence_module.cached_evidences import ImageEvidencesModule, TextEvidencesModule
+from modules.reasoning_module.debate.async_debate import AsyncDebate
 
 def arg_parser():
     parser = argparse.ArgumentParser()
@@ -40,14 +34,21 @@ def arg_parser():
     parser.add_argument("--random_index_path", type=str, default=None)
     
     parser.add_argument("--gemini_api_key", type=str, default=None)
-    parser.add_argument("--llm_model", type=str, default="gemini", choices=["gpt", "gemini", "fireworks"])
-    parser.add_argument("--vlm_model", type=str, default="gemini", choices=["gpt", "gemini", "fireworks"])
+    parser.add_argument("--llm_model", type=str, default="gemini", choices=["gpt", "gemini"])
+    
+    parser.add_argument("--vlm_model1", type=str, default="gemini", choices=["gpt", "gemini"])
+    parser.add_argument("--vlm_model2", type=str, default="gemini", choices=["gpt", "gemini"])
+    parser.add_argument("--vlm_model1_name", type=str, default="gemini-2.0-flash-001")
+    parser.add_argument("--vlm_model2_name", type=str, default="gemini-2.0-flash-001")
+    parser.add_argument("--vlm_api_key1", type=str, default=None)
+    parser.add_argument("--vlm_api_key2", type=str, default=None)
+    
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--start_idx", type=int, default=-1)
     parser.add_argument("--end_idx", type=int, default=-1)
     parser.add_argument("--skip_existing", action="store_true")
-    parser.add_argument("--output_dir_path", type=str, default="./result_ranking_img_des/")
-    parser.add_argument("--errors_dir_path", type=str, default="./errors_ranking_img_des/")
+    parser.add_argument("--output_dir_path", type=str, default="./result_debate_retrieval_wo_image/")
+    parser.add_argument("--errors_dir_path", type=str, default="./errors_debate_retrieval_wo_image/")
     
     # Integrated similarity weights
     parser.add_argument("--alpha", type=float, default=0.5, help="Weight for visual similarity (S_visual)")
@@ -60,434 +61,48 @@ def arg_parser():
     parser.add_argument("--num_workers", type=int, default=os.cpu_count())
     
     # Model configs
-    parser.add_argument("--ner_model", type=str, default="dslim/bert-large-NER")
-    parser.add_argument("--blip_model", type=str, default="Salesforce/blip2-opt-2.7b")
+    parser.add_argument("--max_debate_rounds", type=int, default=3, help="Maximum number of debate rounds")
     
     return parser.parse_args()
 
-def inference(entities_module: EntitiesModule,
-             image_evidences_module: ImageEvidencesModule, 
-             text_evidences_module: TextEvidencesModule,
-             llm_connector: GPTConnector,
-             vlm_connector: Optional[Union[GPTConnector, GeminiConnector]],
+def inference(
+             async_debate: AsyncDebate,
              data: dict,
              idx: int,
              context_dir_path: str,
              img_des_dir_path: str,
              alpha: float = 0.5,
              beta: float = 0.5,
-             gamma: float = 0.2):
-    """
-    Inference function for verification of news images with integrated similarity scoring.
-    
-    The function implements a two-step process:
-    1. Rewriting evidence using Q-former for image descriptions and evidence text
-    2. Providing explanation using image, descriptions, claim, and evidence
-    
-    Args:
-        entities_module: Module for entity extraction
-        image_evidences_module: Module for image evidence retrieval
-        text_evidences_module: Module for text evidence retrieval
-        llm_connector: Connector for LLM API
-        vlm_connector: Connector for Vision Language Model API
-        data: Input data containing image and metadata
-        idx: Index for current item
-        context_dir_path: Path to save context information
-        alpha: Weight for visual similarity (S_visual)
-        beta: Weight for textual similarity (S_textual)
-        gamma: Weight for interaction term (S_visual * S_textual)
-        
-    Returns:
-        Processed verification results
-    """
+             gamma: float = 0.2,
+             ):
     start_time = time.time()
     
-    # Get base64 encoded image
+    # Get base64 encoded image and caption
     image_base64 = data["image_base64"]
+    caption = data["caption"]
     
-    # Get visual entities from the image
-    visual_entities = image_evidences_module.get_entities_by_index(idx)
+    # Run the debate
+    result = async_debate.run_debate(idx, image_base64, caption)
     
-    # Log the entities found
-    print(f"Found {len(visual_entities)} visual entities: {', '.join(visual_entities[:5])}...")
-    
-    # Get evidence using combined similarity scoring
-    image_evidence = image_evidences_module.get_evidence_by_index(
-        idx, 
-        query=data["caption"], 
-        reference_image=image_base64, 
-        max_results=1, 
-        a=alpha,    # Weight for visual similarity
-        b=beta,     # Weight for text similarity
-        c=gamma     # Weight for interaction term
-    )
-    
-    text_evidence = text_evidences_module.get_evidence_by_index(
-        idx, 
-        query=data["caption"], 
-        reference_image=image_base64, 
-        max_results=1, 
-        a=alpha,    # Weight for visual similarity
-        b=beta,     # Weight for text similarity  
-        c=gamma     # Weight for interaction term
-    )
-    
-    # Select the best evidence based on combined score
-    if image_evidence == [] and text_evidence == []:
-        evidence = None
-        print("No evidence found. Falling back to context-based analysis.")
-    elif image_evidence == []:
-        evidence = text_evidence[0]
-        print(f"Using text evidence with score {evidence.combined_score}: {evidence.title}")
-    elif text_evidence == []:
-        evidence = image_evidence[0]
-        print(f"Using image evidence with score {evidence.combined_score}: {evidence.title}")
-    else:
-        if image_evidence[0].combined_score > text_evidence[0].combined_score:
-            evidence = image_evidence[0]
-            print(f"Using image evidence with score {evidence.combined_score} (vs text: {text_evidence[0].combined_score}): {evidence.title}")
-        else:
-            evidence = text_evidence[0]
-            print(f"Using text evidence with score {evidence.combined_score} (vs image: {image_evidence[0].combined_score}): {evidence.title}")
-    
-    # Prepare result structure
-    result = {
-        "caption": data["caption"],
-        "ground_truth": data["label"],
-        "visual_entities": visual_entities,
-        "inference_time": 0.0
+    # Add metadata and timing information
+    result["metadata"] = {
+        "idx": idx,
+        "timestamp": datetime.now().isoformat(),
+        "processing_time": time.time() - start_time,
+        "parameters": {
+            "alpha": alpha,
+            "beta": beta,
+            "gamma": gamma,
+        }
     }
     
-    if not evidence:
-        return process_results(result)
-    
-    # STEP 1: Rewriting evidence
-    # Use Q-former to get image descriptions, and use the evidence text to get the final content
-    print("STEP 1: Rewriting evidence...")
-    rewritten_evidence = rewrite_evidence(
-        llm_connector=llm_connector,
-        image_base64=image_base64,
-        evidence=evidence,
-        visual_entities=visual_entities
-    )
-    
-    # STEP 2: Give explanation
-    # Use Q-former to get the news image descriptions and verify the content
-    print("STEP 2: Generating explanation...")
-    verification_result = generate_explanation(
-        vlm_connector=vlm_connector,
-        llm_connector=llm_connector,
-        image_base64=image_base64,
-        evidence=evidence,
-        rewritten_evidence=rewritten_evidence,
-        caption=data["caption"],
-        content=data["content"],
-        visual_entities=visual_entities,
-        img_des_dir_path=img_des_dir_path,
-        idx=idx
-    )
-    
-    # Calculate total inference time
-    inference_time = time.time() - start_time
-    print(f"Inference completed in {inference_time:.2f} seconds")
-    
-    # Prepare final result
-    result.update({
-        "evidence": evidence.to_dict(),
-        "rewritten_evidence": rewritten_evidence,
-        "verification_result": verification_result,
-        "inference_time": float(inference_time)
-    })
+    # Add ground truth information from data if available
+    if "label" in data:
+        result["ground_truth"] = {
+            "label": data["label"]
+        }
     
     return process_results(result)
-
-
-def rewrite_evidence(llm_connector, image_base64, evidence, visual_entities):
-    """
-    Rewrite evidence into a coherent, contextually attuned format.
-    
-    This function focuses on formatting the evidence text (caption, content) into a
-    coherent and structured form, not analyzing the news image.
-    
-    Args:
-        llm_connector: Large language model connector
-        image_base64: Base64 encoded image (the news image to verify)
-        evidence: Evidence object containing text from a scraped web source
-        visual_entities: List of detected visual entities from the news image
-        
-    Returns:
-        Dictionary containing rewritten evidence
-    """
-    # Extract evidence information
-    evidence_caption = evidence.caption if evidence.caption else ""
-    
-    if evidence.content != None:
-        evidence_content = evidence.content[:2000]
-    else:
-        evidence_content = ""
-    
-    # if evidence.source == "ImageEvidencesModule":
-    evidence_text = f"Title: {evidence.title} \n\n Image Caption: {evidence_caption}" + f"\n\nContext: {evidence_content}"
-    # else:
-        
-    # if evidence.content and evidence_text == "":
-    #     evidence_text += "\n\n" + evidence.content[:2000]  # Limit content length
-    
-    # System prompt for evidence rewriting
-    system_prompt = """
-    You are an expert assistant that specializes in organizing and rewriting evidence for news verification. 
-    """
-    
-    # Prompt to rewrite the evidence text into a coherent form
-    rewrite_prompt = f"""
-    Now I give you the evidence content.
-    
-    EVIDENCE CONTENT:
-    {evidence_text}
-    
-    Please help me generate a coherent and contextually attuned content without change the core information of the textual evidence.
-    """
-    
-    # Get rewritten evidence
-    rewritten_evidence = llm_connector.call_with_structured_output(
-        prompt=rewrite_prompt,
-        schema={
-            "type": "object",
-            "properties": {
-                "content": {
-                    "type": "string",
-                    "description": "A coherent and contextually attuned content"
-                }
-            },
-            "required": ["content"]
-        },
-        system_prompt=system_prompt
-    )
-    
-    rewritten_evidence["original"] = evidence_text
-    
-    return rewritten_evidence
-
-
-def generate_explanation(vlm_connector, llm_connector, image_base64, evidence, 
-                         rewritten_evidence, caption, content, visual_entities, img_des_dir_path, idx):
-    """
-    Generate a comprehensive explanation and verification report by comparing
-    the news image with the evidence.
-    
-    Args:
-        vlm_connector: Vision language model connector
-        llm_connector: Language model connector
-        image_base64: Base64 encoded image (the news image to verify)
-        evidence: Evidence object containing text from a scraped web source
-        rewritten_evidence: Rewritten evidence from step 1
-        caption: News image caption to verify
-        content: News content
-        visual_entities: List of detected visual entities from the news image
-        
-    Returns:
-        Verification result with detailed analysis
-    """
-    # First, analyze the news image itself
-    # System prompt for image analysis
-    image_analysis_system_prompt = """
-    You are an expert visual analyst specializing in news image verification. 
-    Analyze thoroughly but maintain objectivity. Your goal is to create a factual foundation for verification.
-    """
-    
-    image_analysis_prompt = f"""
-    Analyze this news image in detail. Consider the following queries to guild your analysis:
-    - What is happening in this image?
-    - Who are the main subjects visible?
-    - What is the setting or location?
-    - What actions are being performed?
-    - What emotions are displayed?
-    - What visual cues suggest this is a news event?
-    - How are the subjects positioned or arranged?
-    - What contextual details provide information about when this occurred?
-    - What notable objects or symbols are present?
-    - How does this image relate to current events?
-    """
-    
-    image_analysis = None
-    file_path = os.path.join(img_des_dir_path, f"{idx}.json")
-    
-    if os.path.exists(file_path):
-        print(f"Loading existing image description from {file_path}")
-        with open(file_path, "r") as f:
-            image_analysis = json.load(f)
-    else:
-        image_analysis = vlm_connector.call_with_structured_output(
-            prompt=image_analysis_prompt,
-            schema={
-                "type": "object",
-                "properties": {
-                    "detailed_description": {
-                        "type": "string",
-                        "description": "A comprehensive description of the image contents"
-                    },
-                    "key_elements": {
-                        "type": "array",
-                        "items": {"type": "string"},
-                        "description": "List of important elements in the image"
-                    },
-                    "possible_context": {
-                        "type": "string",
-                        "description": "Possible context or situation depicted in the image"
-                    }
-                },
-                "required": ["detailed_description", "key_elements"]
-            },
-            image_base64=image_base64,
-            system_prompt=image_analysis_system_prompt
-        )
-
-        os.makedirs(img_des_dir_path, exist_ok=True)
-        with open(file_path, "w") as f:
-            json.dump(image_analysis, f, indent=2, ensure_ascii=False)
-    
-    # Now create a verification prompt that compares the news image with the evidence
-    # System prompt for verification reporting
-    verification_system_prompt = """
-    You are a forensic image verification expert specializing in news content authentication. 
-    Your verification reports should be comprehensive, balanced, and clearly articulate your reasoning process and confidence level. Avoid making assumptions.
-    """
-    
-    verification_prompt = f"""
-    I need a comprehensive verification report comparing a news image with evidence. You'll receive both images directly.
-    
-    The FIRST image is the NEWS IMAGE being verified.
-    The SECOND image is the EVIDENCE IMAGE for comparison.
-
-    [NEWS IMAGE] - The FIRST image
-        Additional information about the news image:
-        
-        NEWS IMAGE ANALYSIS:
-        {image_analysis['detailed_description']}
-        
-        KEY ELEMENTS IN NEWS IMAGE:
-        {', '.join(image_analysis['key_elements'])}
-        
-        DETECTED ENTITIES IN NEWS IMAGE:
-        {', '.join(visual_entities[:15] if len(visual_entities) > 15 else visual_entities)}
-        
-    [CLAIM/CAPTION]
-    {caption}
-    
-    
-    [EVIDENCE CONTENT]
-    {rewritten_evidence['content']}
-    
-    [EVIDENCE IMAGE] - The SECOND image
-    
-    
-    VISUAL SIMILARITY SCORE (0-1): {evidence.image_similarity_score}
-    IMPORTANT: The visual similarity score indicates how closely the evidence image matches the news image.
-    
-    DIRECT COMPARISON INSTRUCTION:
-    Carefully examine both images and directly compare what you see in them. Identify:
-    - Specific visual elements that appear in both images
-    - Notable differences between the news image and evidence image
-    - Visual elements that either support or contradict the caption/claim
-    - Any signs of manipulation, editing, or AI generation visible in either image
-    
-    CONTEXTUAL ANALYSIS INSTRUCTION:
-    Even when the same person or object appears in both images, thoroughly analyze the context:
-    - EVENT CONTEXT: Identify the specific event, occasion, or circumstance in each image
-    - TEMPORAL CONTEXT: Determine when each image was taken if possible
-    - SPATIAL CONTEXT: Identify where each image was taken if possible
-    - SURROUNDING ELEMENTS: Who else is present, what activities are occurring, and how these relate to the claimed context
-
-    Based on the comparison between the news image-caption pair and the evidence, as well as the provided information above, provide a detailed verification report.
-    Focus on:
-    1. Whether the image is rightly used by the claim/caption
-    2. The authenticity of the image (real, altered, AI-generated)
-    3. Source verification (where and when the image originated)
-    4. Contextual accuracy, including:
-    - Consider whether the claim completely describes a different image or event instead of the news image based on the evidence and the visual similarity score.
-    - If the evidence is fully unrelated to both the news image and the claim (means the evidence has absolutely no connection to the news image or claim), base verification primarily on the image analysis and clearly state that the provided evidence doesn't address this specific news item.
-    - Incorporate findings from your direct visual comparison and contextual analysis of both images to determine if the news image is being used correctly in its original context.
-    - CRITICAL ANALYSIS CHECK: Since the detailed_description is AI-generated from image, critically compare it against the raw image elements (key_elements and detected_entities). When conflicts arise, prioritize concrete visual evidence over the generated description.
-
-    Remember to separate facts from speculation and clearly indicate your confidence level in different aspects of your analysis. Do not make assumptions or inferences beyond what is directly observable in the images and provided information.
-    """
-    
-    # Define a comprehensive schema for verification reporting
-    verification_schema = {
-        "type": "object",
-        "properties": {
-            "summary": {
-                "type": "string",
-                "description": "Executive summary of verification findings"
-            },
-            "content_classification": {
-                "type": "array",
-                "items": {"type": "string"},
-                "description": "Relevant tags (platforms, people, topics)"
-            },
-            "source_details": {
-                "type": "object",
-                "properties": {
-                    "origin": {"type": "string", "description": "Where content originated"},
-                    "location": {"type": "string", "description": "Geographical context"},
-                    "time_period": {"type": "string", "description": "When image was created"},
-                    "entities_involved": {"type": "array", "items": {"type": "string"}, "description": "Key people/organizations"},
-                    "possible_intent": {"type": "string", "description": "Likely purpose of content"}
-                }
-            },
-            "authenticity_assessment": {
-                "type": "object",
-                "properties": {
-                    "is_authentic": {"type": "boolean", "description": "Whether content (image) is authentic"},
-                    "modification_type": {"type": "string", "description": "Type of modification if not authentic"},
-                    "verification_methods": {"type": "array", "items": {"type": "string"}, "description": "Methods used"},
-                    "noted_artifacts": {"type": "array", "items": {"type": "string"}, "description": "Any detected anomalies"}
-                }
-            },
-            "contextual_accuracy": {
-                "type": "object",
-                "properties": {
-                    "in_context": {"type": "boolean", "description": "Does the news image is rightly used by the news claim (caption) based on the contextual accuracy analysis?"},
-                    "explanation": {"type": "string", "description": "Explain the conclusion"},
-                },
-                "required": ["in_context", "explanation"]
-            },
-            "supporting_evidence": {
-                "type": "array",
-                "items": {"type": "string"},
-                "description": "Additional evidence supporting conclusions"
-            },
-            "confidence_level": {
-                "type": "string",
-                "enum": ["High", "Medium", "Low"],
-                "description": "Overall confidence in verification results"
-            },
-            "recommendations": {
-                "type": "array",
-                "items": {"type": "string"},
-                "description": "Recommendations for readers/users"
-            }
-        },
-        "required": ["summary", "content_classification", "source_details", 
-                    "authenticity_assessment", "contextual_accuracy", "confidence_level"]
-    }
-    
-    # Get the verification result
-    verification_result = vlm_connector.call_with_structured_output(
-        prompt=verification_prompt,
-        schema=verification_schema,
-        image_base64=image_base64,
-        system_prompt=verification_system_prompt,
-        ref_images_base64=evidence.image_data
-    )
-    
-    # Include image analysis in the result for transparency
-    verification_result["image_analysis"] = {
-        "description": image_analysis["detailed_description"],
-        "key_elements": image_analysis["key_elements"]
-    }
-    
-    return verification_result
 
 def get_transform():
     return None
@@ -521,28 +136,51 @@ def main():
         raise ValueError(f"Invalid LLM model: {args.llm_model}")
     print("LLM Model Connected")
         
-    print("Connecting to VLM Model...")
-    if args.vlm_model == "gpt":
-        vlm_connector = GPTConnector(
+    print("Connecting to VLM Model 1...")
+    if args.vlm_model1 == "gpt":
+        vlm_connector1 = GPTConnector(
             api_key=os.environ["OPENAI_API_KEY"],
             model_name="gpt-4o-mini-2024-07-18"
         )
-    elif args.vlm_model == "gemini":
-        vlm_connector = GeminiVisionConnector(
-            api_key=args.gemini_api_key if args.gemini_api_key else os.environ["GEMINI_API_KEY"],
-            model_name="gemini-2.0-flash-001"
+    elif args.vlm_model1 == "gemini":
+        vlm_connector1 = GeminiConnector(
+            api_key=args.vlm_api_key1 if args.vlm_api_key1 else os.environ["GEMINI_API_KEY"],
+            model_name=args.vlm_model1_name
         )
     else:
-        raise ValueError(f"Invalid VLM model: {args.vlm_model}")
-    print("VLM Model Connected")
+        raise ValueError(f"Invalid VLM model: {args.vlm_model1  }")
+    print("VLM Model 1 Connected")
+        
+    print("Connecting to VLM Model 2...")
+    if args.vlm_model2 == "gpt":
+        vlm_connector2 = GPTConnector(
+            api_key=os.environ["OPENAI_API_KEY"],
+            model_name="gpt-4o-mini-2024-07-18"
+        )
+    elif args.vlm_model2 == "gemini":
+        vlm_connector2 = GeminiConnector(
+            api_key=args.vlm_api_key2 if args.vlm_api_key2 else os.environ["GEMINI_API_KEY"],
+            model_name=args.vlm_model2_name
+        )
+    else:
+        raise ValueError(f"Invalid VLM model: {args.vlm_model2}")
+    print("VLM Model 2 Connected")
         
     # Initialize modules
     print("Initializing modules...")
-    entities_module = EntitiesModule(args.entities_path)
+    entities_module = VisualEntityExtractor(args.entities_path)
     image_evidences_module = ImageEvidencesModule(args.image_evidences_path)
     text_evidences_module = TextEvidencesModule(args.text_evidences_path)
     print("Modules initialized")
     
+    # Initialize AsyncDebate
+    async_debate = AsyncDebate(
+        image_evidences_module=image_evidences_module,
+        text_evidences_module=text_evidences_module,
+        max_rounds=args.max_debate_rounds,
+        vlm_connector1=vlm_connector1,
+        vlm_connector2=vlm_connector2
+    )
     # Load dataset
     dataset = MergedBalancedNewsClippingDataset(args.data_path)
     
@@ -598,18 +236,14 @@ def main():
                 
                 # Run inference
                 result = inference(
-                    entities_module=entities_module,
-                    image_evidences_module=image_evidences_module,
-                    text_evidences_module=text_evidences_module,
-                    llm_connector=llm_connector,
-                    vlm_connector=vlm_connector,
+                    async_debate=async_debate,
                     data=item,
                     idx=idx,
                     context_dir_path=args.context_dir_path,
                     img_des_dir_path=args.img_des_dir_path,
                     alpha=args.alpha,
                     beta=args.beta,
-                    gamma=args.gamma
+                    gamma=args.gamma,
                 )
                 
                 # Save result
@@ -618,6 +252,16 @@ def main():
                 
                 results.append(result)
                 print(f"Saved result to {res_path}")
+                
+                # Print progress
+                progress = (i + 1) / len(indices) * 100
+                elapsed_time = time.time() - total_start_time
+                estimated_total = elapsed_time / (i + 1) * len(indices)
+                estimated_remaining = estimated_total - elapsed_time
+                
+                print(f"Progress: {progress:.2f}% ({i+1}/{len(indices)})")
+                print(f"Elapsed time: {elapsed_time:.2f}s, Estimated remaining: {estimated_remaining:.2f}s")
+                
                 break  # Success - exit the retry loop
                 
             except KeyError as e:
@@ -628,7 +272,8 @@ def main():
                 break  # Don't retry for these errors
             except json.decoder.JSONDecodeError as e:
                 print(f"JSONDecodeError processing item {idx}: {e}")
-                break  # Don't retry for these errors
+                # break  # Don't retry for these errors
+                raise e
             except UnicodeEncodeError as e:
                 print(f"UnicodeEncodeError processing item {idx}: {e}")
                 break  # Don't retry for these errors
@@ -642,18 +287,44 @@ def main():
                     time.sleep(wait_time)  # Wait before retry
                 else:
                     print(f"Max retries ({max_retries}) exceeded for item {idx}, moving to next item")
+                    error_item = {
+                        "idx": idx,
+                        "error": "Gemini quota exceeded after max retries",
+                        "timestamp": datetime.now().isoformat()
+                    }
+                    with open(os.path.join(args.errors_dir_path, f"error_{idx}.json"), "w") as f:
+                        json.dump(error_item, f, indent=2, ensure_ascii=False)
+                    error_items.append(error_item)
                     
             except Exception as e:
+                error_item = {
+                    "idx": idx,
+                    "error": str(e),
+                    "timestamp": datetime.now().isoformat()
+                }
                 with open(os.path.join(args.errors_dir_path, f"error_{idx}.json"), "w") as f:
-                    error_item = {
-                        "error": str(e),
-                    }
                     json.dump(error_item, f, indent=2, ensure_ascii=False)
                 error_items.append(error_item)
                 print(f"Error processing item {idx}: {e}")
                 # raise e
+                break  # Move to next item
                 
     total_time = time.time() - total_start_time
+    print(f"\nProcessing complete. Total time: {total_time:.2f}s")
+    print(f"Processed {len(indices)} items with {len(error_items)} errors")
     
+    # Save summary
+    summary = {
+        "total_items": len(indices),
+        "successful_items": len(indices) - len(error_items),
+        "error_items": len(error_items),
+        "total_time": total_time,
+        "average_time_per_item": total_time / len(indices) if len(indices) > 0 else 0,
+        "timestamp": datetime.now().isoformat()
+    }
+    
+    with open(os.path.join(args.output_dir_path, "summary.json"), "w") as f:
+        json.dump(summary, f, indent=2, ensure_ascii=False)
+        
 if __name__ == "__main__":
     main()
