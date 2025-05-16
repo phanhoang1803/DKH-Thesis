@@ -1,17 +1,17 @@
 from typing import Dict, List
-from modules.evidence_module.evidence_aggregator import EvidenceAggregator
+from modules.evidence_module import ImageEvidencesModule, TextEvidencesModule, EvidenceAggregator
 from modules.reasoning_module.debate.debate_agent import DebateAgent
-from modules.evidence_module.cached_evidences import ImageEvidencesModule, TextEvidencesModule
 from modules.reasoning_module.debate.retrieval_agent import RetrievalAgent
 
 class AsyncDebate:
     """Manages the asynchronous debate between agents"""
     
-    def __init__(self, image_evidences_module: ImageEvidencesModule, text_evidences_module: TextEvidencesModule, max_rounds: int = 3, vlm_connector1=None, vlm_connector2=None):
+    def __init__(self, image_evidences_module: ImageEvidencesModule, text_evidences_module: TextEvidencesModule, max_rounds: int = 3, vlm_connector1=None, vlm_connector2=None, vlm_connector3=None):
         self.max_rounds = max_rounds
         self.vlm_connector1 = vlm_connector1
         self.vlm_connector2 = vlm_connector2
-        self.evidence_aggregator = EvidenceAggregator(image_evidences_module, text_evidences_module, vlm_connector1)
+        self.vlm_connector3 = vlm_connector3
+        self.evidence_aggregator = EvidenceAggregator(image_evidences_module, text_evidences_module, vlm_connector3 if vlm_connector3 else vlm_connector1)
         
         agent1_system_prompt = """You are an analytical fact-checker for image-caption pairs.
         Determine if an image-caption pair is misinformation by examining evidence and visual content.
@@ -27,11 +27,18 @@ class AsyncDebate:
         Consider alternative interpretations while maintaining evidence-based analysis.
         """
 
-        self.agent1 = DebateAgent("Agent1", vlm_connector=self.vlm_connector1, system_prompt=agent1_system_prompt)
-        self.agent2 = DebateAgent("Agent2", vlm_connector=self.vlm_connector2, system_prompt=agent2_system_prompt)
-        self.retrieval_agent = RetrievalAgent(vlm_connector=self.vlm_connector1)
+        self.agent1 = DebateAgent("Agent1", vlm_connector=vlm_connector1, system_prompt=agent1_system_prompt)
+        self.agent2 = DebateAgent("Agent2", vlm_connector=vlm_connector2, system_prompt=agent2_system_prompt)
+        self.retrieval_agent = RetrievalAgent(vlm_connector=vlm_connector3 if vlm_connector3 else vlm_connector1)
         self.debate_history = []
-        
+    
+    def update_vlm_connector(self, vlm_connector1, vlm_connector2):
+        self.vlm_connector1 = vlm_connector1
+        self.vlm_connector2 = vlm_connector2
+        self.agent1.update_vlm_connector(vlm_connector1)
+        self.agent2.update_vlm_connector(vlm_connector2)
+        self.retrieval_agent.update_vlm_connector(vlm_connector1)
+    
     def run_debate(self, index: int, image_base64: str, caption: str):
         """Run the complete debate process"""
         
@@ -41,9 +48,19 @@ class AsyncDebate:
         self.debate_history = []
         
         # 1. Collect evidence
+        print("1. Collecting evidence")
         evidence_result = self.evidence_aggregator.get_aggregated_evidence(index, caption, image_base64)
         
+        if evidence_result["evidences"] == []:
+            return {
+                "debate_history": self.debate_history,
+                "retrieval_result": None,
+                "verdict": None,
+                "evidence": None
+            }
+        
         ## Summarize the evidence using VLM
+        print("2. Summarizing evidence")
         summary = self._summarize_evidence(evidence_result["evidences"], image_base64)
     
         ## To list for textual entities
@@ -86,11 +103,13 @@ class AsyncDebate:
             "evidences": evidences,
             "reranked_evidences": reranked_evidences
         }
-    
+        
         # 2. Retrieval Agent
+        print("3. Analyzing retrieval information")
         retrieval_result = self.retrieval_agent.analyze(caption, evidence)
     
         # 3. Both agents form initial opinions
+        print("4. Forming initial opinions")
         agent1_opinion = self.agent1.form_initial_opinion(caption, evidence, image_base64=image_base64, retrieval_result=retrieval_result)
         agent2_opinion = self.agent2.form_initial_opinion(caption, evidence, image_base64=image_base64, retrieval_result=retrieval_result)
         
@@ -101,8 +120,8 @@ class AsyncDebate:
         })
         
         # 3. Debate rounds
+        print("5. Debating")
         round_num = 1
-        
         while round_num <= self.max_rounds:
             # Get the last response of agents
             last_agent1_response = self.debate_history[-1]["agent1"]
@@ -135,6 +154,7 @@ class AsyncDebate:
             print(f"Reached maximum rounds ({self.max_rounds}) without convergence")
         
         # 4. Determine final verdict
+        print("6. Determining final verdict")
         final_verdict = self._determine_final_verdict()
         print(f"Final verdict: {final_verdict['verdict']} with confidence {final_verdict['confidence']:.2f}")
         
@@ -334,7 +354,9 @@ class AsyncDebate:
         
         try:
             # Call the VLM to act as judge
-            response = self.vlm_connector2.call_with_structured_output(
+            vlm_connector = self.vlm_connector3 if self.vlm_connector3 else self.vlm_connector2
+            
+            response = vlm_connector.call_with_structured_output(
                 prompt=judge_prompt,
                 schema=schema,
                 system_prompt=system_prompt
@@ -396,9 +418,11 @@ class AsyncDebate:
             evidence_text = f"Title: {evidence.title} \n\n Image Caption: {evidence_caption}" + f"\n\nContent: {evidence_content}"
             text += evidence_text + "\n\n"
         
+        text = text.strip()
+        
         # System prompt for evidence rewriting
         system_prompt = """
-        
+        You are a helpful assistant that rewrites the textual evidence into a coherent form.
         """
         
         # Prompt to rewrite the evidence text into a coherent form
@@ -408,15 +432,16 @@ class AsyncDebate:
         TEXTUAL EVIDENCE:
         {text}
         
+        REMEMBER: DO NOT describe the image, should be only the information from the textual evidence. Pay more attention to caption but don't forget the title and content.
         Please help me generate a coherent and contextually attuned content from the textual evidence. 
-        REMEMBER: DO NOT describe the image, should be only the information from the textual evidence. You should not only pay attention to the evidence content, but also the image caption.
-        The content should be a coherent and contextually attuned summary of the textual evidence.
         """
         
         # Get rewritten evidence
-        rewritten_evidence = self.vlm_connector1.call_with_structured_output(
-            prompt=rewrite_prompt,
-            schema={
+        vlm_connector = self.vlm_connector3 if self.vlm_connector3 else self.vlm_connector1
+        if vlm_connector:
+            rewritten_evidence = vlm_connector.call_with_structured_output(
+                prompt=rewrite_prompt,
+                schema={
                 "type": "object",
                 "properties": {
                     "content": {

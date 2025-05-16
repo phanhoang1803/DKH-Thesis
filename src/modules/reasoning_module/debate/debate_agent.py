@@ -13,6 +13,9 @@ class DebateAgent:
         """Reset the agent's state"""
         self.initial_belief = None
     
+    def update_vlm_connector(self, vlm_connector):
+        self.vlm_connector = vlm_connector
+    
     def form_initial_opinion(self, caption: str, evidence: Dict, image_base64: str = None, retrieval_result: Dict = None):
         """Form initial opinion about whether the caption is misinformation"""
         prompt = self._construct_initial_prompt(caption, evidence, retrieval_result)
@@ -101,11 +104,11 @@ class DebateAgent:
     def _construct_initial_prompt(self, caption: str, evidence: Dict, retrieval_result: Dict) -> str:
         """Construct the initial prompt for opinion formation"""
         prompt = f"""
-        This is a summary of news articles related to the image: {evidence['summary']}
+        This is a summary of news articles (scraped from the internet using the vision search) related to the image: {evidence['summary']}
         
         Visual entities identified in the image: {', '.join(evidence['visual_entities'])}
         Textual entities in the caption: {', '.join(evidence['textual_entities'])}
-        External information retrieval assessment (the comparison between the caption and the image related information): {retrieval_result["assessment"]}
+        **External information retrieval assessment (inconsistency check result between the caption and external information)**: {retrieval_result["assessment"]}
         
         Based on this, you need to decide if the caption given below represents the image 
         or if it is being used to spread false information to mislead people.
@@ -116,9 +119,10 @@ class DebateAgent:
         The absence of mentioning certain elements in the caption is NOT automatically misinformation. 
         Focus instead on whether what IS stated in the caption conflicts with or misrepresents what's in the image or known facts.
         
+        Consider the possibility that the image might be a scene from a TV show, film, advertisement, or other media production. In such cases, the caption might describe the broader narrative or context of the scene, which might extend beyond the specific visual elements captured in the frame.
+        
         Carefully examine the evidence for any known entities, people, watermarks, dates, landmarks, 
-        flags, text, logos and other details which could give you important information to better 
-        explain your answer.
+        flags, text, logos and other details which could give you important information to better explain your answer. 
         
         The goal is to correctly identify if this image caption pair is misinformation or not 
         and to explain your answer in detail. Be specific about what aspects make you believe it is 

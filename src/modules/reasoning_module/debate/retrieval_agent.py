@@ -9,6 +9,9 @@ class RetrievalAgent:
         You should identify potential mismatches without making final judgments about whether the content is misinformation.
         """
     
+    def update_vlm_connector(self, vlm_connector):
+        self.vlm_connector = vlm_connector
+    
     def analyze(self, caption: str, evidence: Dict, image_base64: str = None) -> Dict:
         # Construct the prompt for the Retrieval Agent
         prompt = self._construct_analysis_prompt(caption, evidence)
@@ -55,9 +58,9 @@ class RetrievalAgent:
         Focus on observable facts and objective comparisons rather than subjective interpretations.
     
         Provide your assessment in a detailed paragraph that begins with either:
-        "There is no inconsistency between the caption and evidence <reasoning for this conclusion>"
+        "There is no inconsistency between the caption and evidence <supporting details for this conclusion>"
         OR
-        "There is a potential inconsistency between the caption and evidence <reasoning for this conclusion>"
+        "There is an/are inconsistency(ies) between the caption and evidence <supporting details for this conclusion>"
         
         Follow this with specific details about any inconsistencies found and their nature.
         """ 

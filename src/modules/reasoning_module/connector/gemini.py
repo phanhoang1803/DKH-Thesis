@@ -78,13 +78,15 @@ from typing import Any, Dict, List, Optional
 import google.generativeai as genai
 import json
 import re
+from google.api_core import retry
 
 class GeminiConnector:
-    def __init__(self, api_key: str, model_name: str = "gemini-1.5-flash"):
+    def __init__(self, api_key: str, model_name: str = "gemini-1.5-flash", connector_name: str = None):
         self.api_key = api_key
         self.model_name = model_name
-        genai.configure(api_key=self.api_key)
+        genai.configure(api_key=self.api_key)   
         self.model = genai.GenerativeModel(model_name=self.model_name)
+        self.connector_name = connector_name
 
     def typeddict_to_json_schema(self, schema_class):
         properties = {}
@@ -119,6 +121,10 @@ class GeminiConnector:
         Includes simple JSON parsing to handle various response formats.
         """
         # Set up the model with system prompt if provided
+        
+        if self.connector_name:
+            print(f"Calling Gemini with connector name: {self.connector_name} and api key: {self.api_key}")
+        
         if system_prompt:
             self.model = genai.GenerativeModel(model_name=self.model_name, system_instruction=system_prompt)
         else:
@@ -149,7 +155,8 @@ class GeminiConnector:
                 response_schema=json_schema,
                 candidate_count=1,
                 max_output_tokens=2048,
-            )
+            ),
+            request_options={'retry': retry.Retry(initial=1, maximum=3, multiplier=1.5)}
         )
         
         # Get the response text

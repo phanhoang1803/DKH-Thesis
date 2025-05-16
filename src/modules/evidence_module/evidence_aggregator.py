@@ -1,7 +1,7 @@
-from modules.evidence_module.cached_evidences import ImageEvidencesModule, TextEvidencesModule
 from modules.entities_module import TextualEntityExtractor
 from modules.entities_module import EntityAligner
-from modules.evidence_module.evidence_reranker import EvidenceReranker  
+from modules.evidence_module import ImageEvidencesModule, TextEvidencesModule
+from .evidence_reranker import EvidenceReranker
 
 class EvidenceAggregator:
     def __init__(self, image_evidences_module: ImageEvidencesModule, text_evidences_module: TextEvidencesModule, vlm_connector):
@@ -23,7 +23,7 @@ class EvidenceAggregator:
         textual_entities = self.textual_entity_extractor.extract_textual_entities(caption)
 
         # Align the entities
-        aligned_visual_entities, aligned_textual_entities = self.entity_aligner.align_entities(visual_entities, textual_entities)
+        # aligned_visual_entities, aligned_textual_entities = self.entity_aligner.align_entities(visual_entities, textual_entities)
 
         # Get evidence using combined similarity scoring
         image_evidence = self.image_evidences_module.get_evidence_by_index(
@@ -64,8 +64,11 @@ class EvidenceAggregator:
             "visual_entities": visual_entities,
             "textual_entities": textual_entities,
             
-            "aligned_visual_entities": aligned_visual_entities,
-            "aligned_textual_entities": aligned_textual_entities,
+            # "aligned_visual_entities": aligned_visual_entities,
+            # "aligned_textual_entities": aligned_textual_entities,
+            
+            "aligned_visual_entities": None,
+            "aligned_textual_entities": None,
             
             "evidences": evidences,
             "reranked_evidences": reranked_evidences

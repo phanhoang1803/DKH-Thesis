@@ -48,8 +48,11 @@ def evaluate_results(result_dir, output_file):
             with open(file_path, 'r', encoding='utf-8') as f:
                 result = json.load(f)
             
-            if result['evidence']['evidences'] == []:
+            if result['evidence'] == None:
                 continue
+            
+            # if result['evidence']['evidences'] == []:
+            #     continue
             
             total_count += 1
             

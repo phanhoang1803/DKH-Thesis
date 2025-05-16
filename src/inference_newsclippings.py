@@ -17,7 +17,7 @@ import json
 import time
 from src.utils.utils import process_results, NumpyJSONEncoder
 import google
-from modules.evidence_module.cached_evidences import ImageEvidencesModule, TextEvidencesModule
+from modules.evidence_module import ImageEvidencesModule, TextEvidencesModule
 from modules.reasoning_module.debate.async_debate import AsyncDebate
 
 def arg_parser():
@@ -38,17 +38,20 @@ def arg_parser():
     
     parser.add_argument("--vlm_model1", type=str, default="gemini", choices=["gpt", "gemini"])
     parser.add_argument("--vlm_model2", type=str, default="gemini", choices=["gpt", "gemini"])
+    parser.add_argument("--vlm_model3", type=str, default="gemini", choices=["gpt", "gemini"])
     parser.add_argument("--vlm_model1_name", type=str, default="gemini-2.0-flash-001")
     parser.add_argument("--vlm_model2_name", type=str, default="gemini-2.0-flash-001")
+    parser.add_argument("--vlm_model3_name", type=str, default="gemini-2.0-flash-001")
     parser.add_argument("--vlm_api_key1", type=str, default=None)
     parser.add_argument("--vlm_api_key2", type=str, default=None)
-    
+    parser.add_argument("--vlm_api_key3", type=str, default=None)
+
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--start_idx", type=int, default=-1)
     parser.add_argument("--end_idx", type=int, default=-1)
     parser.add_argument("--skip_existing", action="store_true")
-    parser.add_argument("--output_dir_path", type=str, default="./result_debate_retrieval_wo_image/")
-    parser.add_argument("--errors_dir_path", type=str, default="./errors_debate_retrieval_wo_image/")
+    parser.add_argument("--output_dir_path", type=str, default="./result_debate_with_newspaper_2.0/")
+    parser.add_argument("--errors_dir_path", type=str, default="./errors_debate_with_newspaper_2.0/")
     
     # Integrated similarity weights
     parser.add_argument("--alpha", type=float, default=0.5, help="Weight for visual similarity (S_visual)")
@@ -145,7 +148,8 @@ def main():
     elif args.vlm_model1 == "gemini":
         vlm_connector1 = GeminiConnector(
             api_key=args.vlm_api_key1 if args.vlm_api_key1 else os.environ["GEMINI_API_KEY"],
-            model_name=args.vlm_model1_name
+            model_name=args.vlm_model1_name,
+            # connector_name="VLM 1"
         )
     else:
         raise ValueError(f"Invalid VLM model: {args.vlm_model1  }")
@@ -160,12 +164,29 @@ def main():
     elif args.vlm_model2 == "gemini":
         vlm_connector2 = GeminiConnector(
             api_key=args.vlm_api_key2 if args.vlm_api_key2 else os.environ["GEMINI_API_KEY"],
-            model_name=args.vlm_model2_name
+            model_name=args.vlm_model2_name,
+            # connector_name="VLM 2"
         )
     else:
         raise ValueError(f"Invalid VLM model: {args.vlm_model2}")
     print("VLM Model 2 Connected")
         
+    print("Connecting to VLM Model 3...")
+    if args.vlm_model3 == "gpt":
+        vlm_connector3 = GPTConnector(
+            api_key=os.environ["OPENAI_API_KEY"],
+            model_name="gpt-4o-mini-2024-07-18"
+        )
+    elif args.vlm_model3 == "gemini":
+        vlm_connector3 = GeminiConnector(
+            api_key=args.vlm_api_key3 if args.vlm_api_key3 else os.environ["GEMINI_API_KEY"],
+            model_name=args.vlm_model3_name,
+            # connector_name="VLM 3"
+        )
+    else:
+        raise ValueError(f"Invalid VLM model: {args.vlm_model3}")
+    print("VLM Model 3 Connected")
+
     # Initialize modules
     print("Initializing modules...")
     entities_module = VisualEntityExtractor(args.entities_path)
@@ -179,7 +200,8 @@ def main():
         text_evidences_module=text_evidences_module,
         max_rounds=args.max_debate_rounds,
         vlm_connector1=vlm_connector1,
-        vlm_connector2=vlm_connector2
+        vlm_connector2=vlm_connector2,
+        vlm_connector3=vlm_connector3
     )
     # Load dataset
     dataset = MergedBalancedNewsClippingDataset(args.data_path)
