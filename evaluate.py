@@ -61,8 +61,8 @@ for item in result_json_list:
                 # if result_json['ground_truth'] != result_json['final_result']['OOC']:
                 #     print(result_json_dir)
             
-            # if result_json['check_result']['check_type'] != 'context':
-            #     continue
+            if result_json['check_result']['check_type'] != 'context':
+                continue
             
             captions.append(result_json['caption'])
             ground_truth.append(result_json['ground_truth'])
