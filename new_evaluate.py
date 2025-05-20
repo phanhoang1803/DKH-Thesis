@@ -22,6 +22,7 @@ def evaluate_results(result_dir, output_file):
     indices = []
     correct_indices = []
     incorrect_indices = []
+    non_evidence_indices = []
     
     # Track counts
     total_count = 0
@@ -49,6 +50,7 @@ def evaluate_results(result_dir, output_file):
                 result = json.load(f)
             
             if result['evidence'] == None:
+                non_evidence_indices.append(index)
                 continue
             
             # if result['evidence']['evidences'] == []:
@@ -175,6 +177,13 @@ def evaluate_results(result_dir, output_file):
         for idx in correct_indices:
             f.write(f"{idx}\n")
     
+    # Save non evidence indices to file
+    non_evidence_indices.sort()
+    non_evidence_indices_file = os.path.join(os.path.dirname(output_file), 'non_evidence_indices.txt')
+    with open(non_evidence_indices_file, 'w') as f:
+        for idx in non_evidence_indices:
+            f.write(f"{idx}\n")
+            
     print(f"\nResults saved to {output_file}")
     print(f"Incorrect indices saved to {incorrect_indices_file}")
     print(f"Correct indices saved to {correct_indices_file}")

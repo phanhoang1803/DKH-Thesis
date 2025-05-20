@@ -48,7 +48,7 @@ class EvidenceAggregator:
         )
 
         # For text evidence, let's remove the evidence have low combined score
-        text_evidence = [ev for ev in text_evidence if ev.image_similarity_score > 0.85]
+        text_evidence = [ev for ev in text_evidence if ev.image_similarity_score > 0.80]
 
         evidences = image_evidence
         for ev in text_evidence:
