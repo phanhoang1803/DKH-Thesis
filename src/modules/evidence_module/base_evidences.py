@@ -123,6 +123,7 @@ class BaseEvidencesModule:
             "movieweb", "shutterstock", "reddit", "alamy",
             "alamy.it", "alamyimages", "planetcricket",
             "cnnbrasil", "infomoney", "gettyimages",
+            "pinterest", "quora", "fi.pinterest"
         ]
     
     def _initialize_vit_model(self, model_ckpt="google/vit-base-patch16-224"):
@@ -281,18 +282,40 @@ class BaseEvidencesModule:
         domain = domain.lower().strip()
         if domain.startswith("www."):
             domain = domain[4:]
-        domain = domain.split(".")[0]
+        parts = domain.split('.')
+        if len(parts) > 1:
+            domain = ".".join(parts[:-1])  # Remove only the last part (TLD)
         return domain
+    
+    def _is_included_domain(self, domain: str, domains: List[str]) -> bool:
+        """Check if the domain is included in the list of domains."""
+        return self._normalize_domain(domain) in domains
     
     def filter_evidennce_by_domains(self, evidence_list: list[Evidence],
                                     domains: List[str]) -> List[Evidence]:
         return [ev for ev in evidence_list
-                if self._normalize_domain(ev.domain) in domains]
+                if self._is_included_domain(ev.domain, domains)]
+    
+    def _is_excluded_domain(self, domain: str, excluded_domains: List[str]) -> bool:
+        """Check if the domain is excluded in the list of domains."""
+        return self._normalize_domain_for_excluding(domain) in excluded_domains
     
     def filter_evidence_by_excluding_domains(self, evidence_list: List[Evidence], 
                                            excluded_domains: List[str]) -> List[Evidence]:
         return [ev for ev in evidence_list 
-                if self._normalize_domain_for_excluding(ev.domain) not in excluded_domains]
+                if not self._is_excluded_domain(ev.domain, excluded_domains)]
+    
+    def _is_english(self, evidence: Evidence) -> bool:
+        """Check if the evidence is English."""
+        try:
+            # Check title language if it exists
+            if evidence.title and len(evidence.title.strip()) > 10:  # Need some minimal text for reliable detection
+                title_lang = detect(evidence.title)
+                if title_lang != 'en':
+                    return False
+            return True
+        except LangDetectException:
+            return False    
     
     def filter_non_english_evidence(self, evidences: List[Evidence]):
         """Filter out non-English evidence."""
@@ -300,13 +323,8 @@ class BaseEvidencesModule:
         english_evidences = []
         for evidence in evidences:
             try:
-                # Check title language if it exists
-                if evidence.title and len(evidence.title.strip()) > 10:  # Need some minimal text for reliable detection
-                    title_lang = detect(evidence.title)
-                    if title_lang != 'en':
-                        continue
-                
-                english_evidences.append(evidence)
+                if self._is_english(evidence):
+                    english_evidences.append(evidence)
             except LangDetectException:
                 # Skip evidence we can't classify
                 continue

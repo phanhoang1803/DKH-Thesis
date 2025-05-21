@@ -1,3 +1,5 @@
+import json
+import os
 from typing import Dict, List
 from modules.evidence_module import ImageEvidencesModule, TextEvidencesModule, EvidenceAggregator
 from modules.reasoning_module.debate.debate_agent import DebateAgent
@@ -6,11 +8,20 @@ from modules.reasoning_module.debate.retrieval_agent import RetrievalAgent
 class AsyncDebate:
     """Manages the asynchronous debate between agents"""
     
-    def __init__(self, image_evidences_module: ImageEvidencesModule, text_evidences_module: TextEvidencesModule, max_rounds: int = 3, vlm_connector1=None, vlm_connector2=None, vlm_connector3=None):
+    def __init__(self, 
+                 image_evidences_module: ImageEvidencesModule, 
+                 text_evidences_module: TextEvidencesModule, 
+                 max_rounds: int = 3, 
+                 vlm_connector1=None, 
+                 vlm_connector2=None, 
+                 vlm_connector3=None,
+                 image_information_save_dir: str = None):
         self.max_rounds = max_rounds
         self.vlm_connector1 = vlm_connector1
         self.vlm_connector2 = vlm_connector2
         self.vlm_connector3 = vlm_connector3
+        self.image_information_save_dir = image_information_save_dir
+        
         self.evidence_aggregator = EvidenceAggregator(image_evidences_module, text_evidences_module, vlm_connector3 if vlm_connector3 else vlm_connector1)
         
         agent1_system_prompt = """You are an analytical fact-checker for image-caption pairs.
@@ -39,7 +50,7 @@ class AsyncDebate:
         self.agent2.update_vlm_connector(vlm_connector2)
         self.retrieval_agent.update_vlm_connector(vlm_connector1)
     
-    def run_debate(self, index: int, image_base64: str, caption: str):
+    def run_debate(self, index: int, image_base64: str, caption: str, news_content: str):
         """Run the complete debate process"""
         
         # Clear the debate history
@@ -51,17 +62,27 @@ class AsyncDebate:
         print("1. Collecting evidence")
         evidence_result = self.evidence_aggregator.get_aggregated_evidence(index, caption, image_base64)
         
-        if evidence_result["evidences"] == []:
-            return {
-                "debate_history": self.debate_history,
-                "retrieval_result": None,
-                "verdict": None,
-                "evidence": None
-            }
-        
+        # If no evidence found, try to get evidence with VLM ranking
+        no_evidence = False
+        is_accurate_representation = True
+        if evidence_result["reranked_evidences"] == []:
+            no_evidence = True
+            evidence_result = self.evidence_aggregator.get_aggregated_evidence_with_vlm_ranking(index, caption, image_base64)
+            if evidence_result["reranked_evidences"] == []:
+                is_accurate_representation = False
+                # return {
+                #     "debate_history": self.debate_history,
+                #     "retrieval_result": None,
+                #     "verdict": None,
+                #     "evidence": None,
+                #     "no_evidence": no_evidence
+                # }
+            
+            is_accurate_representation = evidence_result["reranked_evidences"][0].is_accurate_representation
+
         ## Summarize the evidence using VLM
         print("2. Summarizing evidence")
-        summary = self._summarize_evidence(evidence_result["evidences"], image_base64)
+        summary = self._summarize_evidence(evidence_result["reranked_evidences"], image_base64, is_accurate_representation, evidence_result["visual_entities"], self.image_information_save_dir, index)
     
         ## To list for textual entities
         textual_entities = []
@@ -106,7 +127,7 @@ class AsyncDebate:
         
         # 2. Retrieval Agent
         print("3. Analyzing retrieval information")
-        retrieval_result = self.retrieval_agent.analyze(caption, evidence)
+        retrieval_result = self.retrieval_agent.analyze(caption=caption, news_content=news_content, evidence=evidence)
     
         # 3. Both agents form initial opinions
         print("4. Forming initial opinions")
@@ -162,7 +183,9 @@ class AsyncDebate:
             "debate_history": self.debate_history,
             "retrieval_result": retrieval_result,
             "verdict": final_verdict,
-            "evidence": evidence
+            "evidence": evidence,
+            "no_evidence": no_evidence,
+            "is_accurate_representation": is_accurate_representation
         }
     
     
@@ -404,9 +427,63 @@ class AsyncDebate:
                 "detailed_explanation": explanation
             }
 
-    def _summarize_evidence(self, evidences: List[Dict], image_base64: str) -> str:
+    def _summarize_evidence(self, evidences: List[Dict], image_base64: str, is_accurate_representation: bool, visual_entities: List[str], image_information_save_dir: str=None, index: int=None) -> str:
         """Summarize the evidence using VLM"""
+    
+        if not is_accurate_representation:
+            print(f"No accurate representation found for index {index}")
+            if os.path.exists(os.path.join(image_information_save_dir, f"{index}.json")):
+                print(f"Loading image information from {os.path.join(image_information_save_dir, f'{index}.json')}")
+                with open(os.path.join(image_information_save_dir, f"{index}.json"), "r") as f:
+                    image_information = json.load(f)
+                if "content" in image_information:
+                    return image_information["content"]
+                else:
+                    return image_information["detailed_description"]
+            
+            # Perform image information generation
+            system_prompt = """
+            You are a helpful assistant that generates a summary of the image information.
+            Focus on describing what is visually present in the image based on the detected entities.
+            """
+            
+            image_information_prompt = f"""
+            Now I give you the authentic image and its visual entities.
+            
+            VISUAL ENTITIES:
+            {', '.join(visual_entities) if visual_entities else "No specific entities detected"}
+            
+            Please generate a coherent summary of what is shown in the image based on these visual entities.
+            The summary should be factual and based only on what can be confidently observed in the image.
+            """
+            
+            schema = {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string",
+                        "description": "A summary of the image information based on visual content"
+                    }
+                },
+                "required": ["content"]
+            }
+            
+            vlm_connector = self.vlm_connector3 if self.vlm_connector3 else self.vlm_connector1
+            image_information_response = vlm_connector.call_with_structured_output(
+                prompt=image_information_prompt,
+                schema=schema,
+                images=[image_base64],  # Added image parameter
+                system_prompt=system_prompt
+            )
+            
+            os.makedirs(image_information_save_dir, exist_ok=True)
+            with open(os.path.join(image_information_save_dir, f"{index}.json"), "w") as f:
+                json.dump(image_information_response, f, indent=2, ensure_ascii=False)
+            
+            # Extract just the content from the response
+            return image_information_response["content"]
         
+        # The existing code for when there is relevant evidence
         text = ""
         for evidence in evidences:
             evidence_caption = evidence.caption if evidence.caption else ""
@@ -414,7 +491,7 @@ class AsyncDebate:
                 evidence_content = evidence.content[:2000]
             else:
                 evidence_content = ""
-    
+
             evidence_text = f"Title: {evidence.title} \n\n Image Caption: {evidence_caption}" + f"\n\nContent: {evidence_content}"
             text += evidence_text + "\n\n"
         
@@ -439,7 +516,7 @@ class AsyncDebate:
         # Get rewritten evidence
         vlm_connector = self.vlm_connector3 if self.vlm_connector3 else self.vlm_connector1
         if vlm_connector:
-            rewritten_evidence = vlm_connector.call_with_structured_output(
+            rewritten_evidence_response = vlm_connector.call_with_structured_output(
                 prompt=rewrite_prompt,
                 schema={
                 "type": "object",
@@ -455,4 +532,5 @@ class AsyncDebate:
             system_prompt=system_prompt
         )
         
-        return rewritten_evidence
+        # Extract just the content from the response
+        return rewritten_evidence_response["content"]

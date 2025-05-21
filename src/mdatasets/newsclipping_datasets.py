@@ -156,6 +156,8 @@ class MergedBalancedNewsClippingDataset(Dataset):
         try:
             image_path = os.path.join(self.data_path, 
                                     self.visualnews_data_mapping[str(item["image_id"])]["image_path"])
+            result["metadata"]["image_path"] = image_path
+            
             image = Image.open(image_path).convert('RGB')
             
             # with open(image_path, "rb") as image_file:

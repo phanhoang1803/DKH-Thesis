@@ -52,8 +52,17 @@ def evaluate_results(result_dir, output_file):
             if result['evidence'] == None:
                 non_evidence_indices.append(index)
                 continue
+
+            # if result.get('is_accurate_representation', True) == True:
+            #     continue
+
+            # if result.get('no_evidence', False):
+            #     non_evidence_indices.append(index)
+            #     continue
             
-            # if result['evidence']['evidences'] == []:
+            # if "is_accurate_representation" not in result:
+            #     if result.get('no_evidence', False) == True:
+            #         non_evidence_indices.append(index)
             #     continue
             
             total_count += 1

@@ -83,9 +83,10 @@ def inference(
     # Get base64 encoded image and caption
     image_base64 = data["image_base64"]
     caption = data["caption"]
+    news_content = data["content"]
     
     # Run the debate
-    result = async_debate.run_debate(idx, image_base64, caption)
+    result = async_debate.run_debate(idx, image_base64, caption, news_content)
     
     # Add metadata and timing information
     result["metadata"] = {
@@ -201,7 +202,8 @@ def main():
         max_rounds=args.max_debate_rounds,
         vlm_connector1=vlm_connector1,
         vlm_connector2=vlm_connector2,
-        vlm_connector3=vlm_connector3
+        vlm_connector3=vlm_connector3,
+        image_information_save_dir=args.img_des_dir_path
     )
     # Load dataset
     dataset = MergedBalancedNewsClippingDataset(args.data_path)

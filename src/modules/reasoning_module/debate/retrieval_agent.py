@@ -12,9 +12,9 @@ class RetrievalAgent:
     def update_vlm_connector(self, vlm_connector):
         self.vlm_connector = vlm_connector
     
-    def analyze(self, caption: str, evidence: Dict, image_base64: str = None) -> Dict:
+    def analyze(self, caption: str, news_content: str, evidence: Dict, image_base64: str = None) -> Dict:
         # Construct the prompt for the Retrieval Agent
-        prompt = self._construct_analysis_prompt(caption, evidence)
+        prompt = self._construct_analysis_prompt(caption, news_content, evidence)
         
         # Make the call to the VLM
         response = self.vlm_connector.call_with_structured_output(
@@ -38,11 +38,13 @@ class RetrievalAgent:
             "assessment": response["assessment"]
         }
     
-    def _construct_analysis_prompt(self, caption: str, evidence: Dict) -> str:
+    def _construct_analysis_prompt(self, caption: str, news_content: str, evidence: Dict) -> str:
+        # NEWS CONTENT: {news_content}
+        
         prompt = f"""
         As a Retrieval Agent, your task is to cross-reference the input news with the retrieved evidence and flag any inconsistencies.
         
-        CAPTION TO ANALYZE: {caption}
+        NEWS CAPTION: {caption}
         
         EVIDENCE INFORMATION:
         Visual entities identified in the image: {', '.join(evidence['visual_entities'])}

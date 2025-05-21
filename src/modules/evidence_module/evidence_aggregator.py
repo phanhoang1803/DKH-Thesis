@@ -75,4 +75,47 @@ class EvidenceAggregator:
         }
         
         return result
+    
+    def get_aggregated_evidence_with_vlm_ranking(self, index: int, caption: str, image_base64: str):
+        # Get visual entities from the image
+        visual_entities = self.image_evidences_module.get_entities_by_index(index)
+
+        # Get textual entities from the caption
+        textual_entities = self.textual_entity_extractor.extract_textual_entities(caption)
+
+        # Align the entities
+        # aligned_visual_entities, aligned_textual_entities = self.entity_aligner.align_entities(visual_entities, textual_entities)
+
+        evidences = self.text_evidences_module.get_evidence_by_index(
+            index,
+            query=caption,
+            reference_image=image_base64, 
+            max_results=3, 
+            a=0.6,    # Weight for visual similarity
+            b=0.2,     # Weight for text similarity
+            c=0.2     # Weight for interaction term
+        )
+
+        # Rerank evidences
+        if len(evidences) > 0:
+            reranked_evidences = self.reranker.rerank(evidences, reference_image=image_base64)
+            print(f"Is accurate representation: {reranked_evidences[0].is_accurate_representation}")
+        else:
+            reranked_evidences = []
+        
+        result = {
+            "visual_entities": visual_entities,
+            "textual_entities": textual_entities,
+            
+            # "aligned_visual_entities": aligned_visual_entities,
+            # "aligned_textual_entities": aligned_textual_entities,
+            
+            "aligned_visual_entities": None,
+            "aligned_textual_entities": None,
+            
+            "evidences": evidences,
+            "reranked_evidences": reranked_evidences
+        }
+        
+        return result
 

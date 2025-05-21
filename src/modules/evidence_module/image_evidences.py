@@ -130,6 +130,31 @@ class ImageEvidencesModule(BaseEvidencesModule):
                         source="ImageEvidencesModule"
                     ))
             
+            for item in annotation_data.get("newspaper", []):
+                image_data = self._load_and_encode_image(item.get("image_path", None))
+                
+                html_path = item.get('html_path', '')
+                html_content = self._load_html_content(html_path)
+                
+                content = get_content(item)
+                
+                if (extract_caption(item.get('caption')) == "" and item.get('title', '') == "") or content == "":
+                    continue
+                
+                evidence = Evidence(
+                    domain=extract_domain(item.get('page_link', '')),
+                    image_path=item.get('image_link', ''),
+                    image_data=image_data,
+                    title=item.get('title', ''),
+                    caption=extract_caption(item.get('caption')),
+                    content=content,
+                    html_content=html_content,
+                    source="ImageEvidencesModule"
+                )
+                
+                if self._is_included_domain(evidence.domain, self.NEWS_DOMAINS):
+                    evidence_list.append(evidence)
+            
         except (FileNotFoundError, json.JSONDecodeError) as e:
             print(f"Error loading inverse annotation file for index {index}: {str(e)}")
             return []
@@ -162,22 +187,34 @@ class ImageEvidencesModule(BaseEvidencesModule):
         # Get all raw evidence
         evidence_list = self.get_raw_evidence_by_index(index)
         
-        # Filter non-English evidence
-        evidence_list = self.filter_non_english_evidence(evidence_list)
-        
-        # Only apply excluding domains filter if requested
-        if use_filter_by_excluding_domains:
-            evidence_list = self.filter_evidence_by_excluding_domains(evidence_list, self.EXCLUDED_DOMAINS)
-        
-        if use_filter_by_domains:
-            evidence_list = self.filter_evidennce_by_domains(evidence_list, self.NEWS_DOMAINS)
-        
-        if use_filter_non_captions:
-            evidence_list = [ev for ev in evidence_list if ev.caption != ""]
+        # Apply all filtering steps in a single pass
+        filtered_evidence = []
+        for ev in evidence_list:
+            # Check if it's English
+            if not self._is_english(ev):
+                continue
+                
+            # Check domain filters
+            if use_filter_by_excluding_domains and self._is_excluded_domain(ev.domain, self.EXCLUDED_DOMAINS):
+                continue
+                
+            if use_filter_by_domains and not self._is_included_domain(ev.domain, self.NEWS_DOMAINS):
+                continue
+                
+            # Check caption filter
+            if use_filter_non_captions and ev.caption == "":
+                continue
+                
+            # Set default scores
+            ev.image_similarity_score = 0.0
+            ev.text_similarity_score = 0.0
+            
+            filtered_evidence.append(ev)
         
         # Calculate image similarity scores if reference image is provided
         if reference_image:
-            for evidence in evidence_list:
+            reference_embeddings = self._extract_embeddings_from_base64(reference_image)
+            for evidence in filtered_evidence:
                 if evidence.image_data is None or evidence.image_data == "":
                     # Because evidence from image evidence module used google image search, so image are similar to reference image, so in case evidence cant scrape image, set score to 0.8
                     evidence.image_similarity_score = 0.8
@@ -185,44 +222,33 @@ class ImageEvidencesModule(BaseEvidencesModule):
                 
                 # Extract embeddings from evidence image
                 evidence_embeddings = self._extract_embeddings_from_base64(evidence.image_data)
-                reference_embeddings = self._extract_embeddings_from_base64(reference_image) if reference_image else None
                 
                 if evidence_embeddings is not None and reference_embeddings is not None:
                     # Calculate image similarity score
                     evidence.image_similarity_score = self._calculate_image_similarity(reference_embeddings, evidence_embeddings)
-                else:
-                    evidence.image_similarity_score = 0.0
-        else:
-            # Set default image similarity score to 0 if no reference image
-            for evidence in evidence_list:
-                evidence.image_similarity_score = 0.0
         
         # Calculate text similarity scores if query is provided
         if query and query != "":
             # Prepare lists of texts to compare
             # if ev.caption else ev.title 
-            texts = [ev.caption for ev in evidence_list]
+            texts = [ev.caption for ev in filtered_evidence]
             
             # Calculate similarities in batch
             similarities = self.batch_similarity(query, texts)
             
             # Assign text similarity scores to evidence objects
-            for i, evidence in enumerate(evidence_list):
+            for i, evidence in enumerate(filtered_evidence):
                 evidence.text_similarity_score = float(similarities[i]) if i < len(similarities) else 0.0
-        else:
-            # Set default text similarity score to 0 if no query
-            for evidence in evidence_list:
-                evidence.text_similarity_score = 0.0
         
         # Calculate combined scores
-        for evidence in evidence_list:
+        for evidence in filtered_evidence:
             vs = evidence.image_similarity_score
             ts = evidence.text_similarity_score
             # Combined score = a*VS + b*TS + c*VS*TS
             evidence.combined_score = a * vs + b * ts + c * vs * ts
         
         # Sort by combined score (highest first)
-        evidence_list.sort(key=lambda x: x.combined_score, reverse=True)
+        filtered_evidence.sort(key=lambda x: x.combined_score, reverse=True)
         
         # Return top max_results
-        return evidence_list[:max_results]
+        return filtered_evidence[:max_results]
