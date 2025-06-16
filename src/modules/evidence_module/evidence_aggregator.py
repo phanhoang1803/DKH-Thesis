@@ -15,7 +15,7 @@ class EvidenceAggregator:
         self.entity_aligner = EntityAligner()
         self.reranker = EvidenceReranker(vlm_connector=vlm_connector)
         
-    def get_aggregated_evidence(self, index: int, caption: str, image_base64: str):
+    async def get_aggregated_evidence(self, index: int, caption: str, image_base64: str):
         # Get visual entities from the image
         visual_entities = self.image_evidences_module.get_entities_by_index(index)
 
@@ -31,6 +31,7 @@ class EvidenceAggregator:
             query=caption, 
             reference_image=image_base64, 
             max_results=1, 
+            use_filter_by_domains=True,
             a=0.4,    # Weight for visual similarity
             b=0.4,     # Weight for text similarity
             c=0.2     # Weight for interaction term
@@ -76,7 +77,7 @@ class EvidenceAggregator:
         
         return result
     
-    def get_aggregated_evidence_with_vlm_ranking(self, index: int, caption: str, image_base64: str):
+    async def get_aggregated_evidence_with_vlm_ranking(self, index: int, caption: str, image_base64: str):
         # Get visual entities from the image
         visual_entities = self.image_evidences_module.get_entities_by_index(index)
 
@@ -96,9 +97,11 @@ class EvidenceAggregator:
             c=0.2     # Weight for interaction term
         )
 
+        evidences = [ev for ev in evidences if ev.image_similarity_score > 0.5]
+
         # Rerank evidences
         if len(evidences) > 0:
-            reranked_evidences = self.reranker.rerank(evidences, reference_image=image_base64)
+            reranked_evidences = await self.reranker.rerank(evidences, reference_image=image_base64)
             print(f"Is accurate representation: {reranked_evidences[0].is_accurate_representation}")
         else:
             reranked_evidences = []

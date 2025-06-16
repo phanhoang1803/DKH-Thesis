@@ -1,4 +1,5 @@
 # inference.py
+import asyncio
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
@@ -8,7 +9,7 @@ from typing import Optional, Union
 import numpy as np
 import openai
 from modules.entities_module import VisualEntityExtractor
-from modules.reasoning_module import GeminiConnector, GPTConnector, GeminiVisionConnector
+from modules.reasoning_module import GeminiConnector, GPTConnector
 from mdatasets.newsclipping_datasets import MergedBalancedNewsClippingDataset
 from dotenv import load_dotenv
 import argparse
@@ -30,28 +31,33 @@ def arg_parser():
     parser.add_argument("--text_evidences_path", type=str, default="queries_dataset/merged_balanced/direct_search/test/test.json", 
                         help="")
     parser.add_argument("--context_dir_path", type=str, default="queries_dataset/merged_balanced/context/test")
-    parser.add_argument("--img_des_dir_path", type=str, default="queries_dataset/merged_balanced/image_description/test")
+    parser.add_argument("--img_des_dir_path", type=str, default="queries_dataset/merged_balanced/image_content/test")
     parser.add_argument("--random_index_path", type=str, default=None)
     
     parser.add_argument("--gemini_api_key", type=str, default=None)
     parser.add_argument("--llm_model", type=str, default="gemini", choices=["gpt", "gemini"])
     
-    parser.add_argument("--vlm_model1", type=str, default="gemini", choices=["gpt", "gemini"])
-    parser.add_argument("--vlm_model2", type=str, default="gemini", choices=["gpt", "gemini"])
-    parser.add_argument("--vlm_model3", type=str, default="gemini", choices=["gpt", "gemini"])
-    parser.add_argument("--vlm_model1_name", type=str, default="gemini-2.0-flash-001")
-    parser.add_argument("--vlm_model2_name", type=str, default="gemini-2.0-flash-001")
-    parser.add_argument("--vlm_model3_name", type=str, default="gemini-2.0-flash-001")
-    parser.add_argument("--vlm_api_key1", type=str, default=None)
-    parser.add_argument("--vlm_api_key2", type=str, default=None)
-    parser.add_argument("--vlm_api_key3", type=str, default=None)
+    # parser.add_argument("--vlm_model1", type=str, default="gemini", choices=["gpt", "gemini"])
+    # parser.add_argument("--vlm_model2", type=str, default="gemini", choices=["gpt", "gemini"])
+    # parser.add_argument("--vlm_model3", type=str, default="gemini", choices=["gpt", "gemini"])
+    # parser.add_argument("--vlm_model1_name", type=str, default="gemini-2.0-flash-001")
+    # parser.add_argument("--vlm_model2_name", type=str, default="gemini-2.0-flash-001")
+    # parser.add_argument("--vlm_model3_name", type=str, default="gemini-2.0-flash-001")
+    # parser.add_argument("--vlm_api_key1", type=str, default=None)
+    # parser.add_argument("--vlm_api_key2", type=str, default=None)
+    # parser.add_argument("--vlm_api_key3", type=str, nargs='+', default=None)
+    
+    parser.add_argument("--vlm_model", type=str, default="gemini", choices=["gpt", "gemini"])
+    parser.add_argument("--vlm_model_name", type=str, default="gemini-2.0-flash-001")
+    parser.add_argument("--vlm_primary_api_keys", type=str, nargs='+', default=None)
+    parser.add_argument("--vlm_fallback_api_key", type=str, default=None)
 
     parser.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--start_idx", type=int, default=-1)
     parser.add_argument("--end_idx", type=int, default=-1)
     parser.add_argument("--skip_existing", action="store_true")
-    parser.add_argument("--output_dir_path", type=str, default="./result_debate_with_newspaper_2.0/")
-    parser.add_argument("--errors_dir_path", type=str, default="./errors_debate_with_newspaper_2.0/")
+    parser.add_argument("--output_dir_path", type=str, default="./result_acmmm2025_stance_content_generated/")
+    parser.add_argument("--errors_dir_path", type=str, default="./errors_acmmm2025_stance_content_generated/")
     
     # Integrated similarity weights
     parser.add_argument("--alpha", type=float, default=0.5, help="Weight for visual similarity (S_visual)")
@@ -68,7 +74,7 @@ def arg_parser():
     
     return parser.parse_args()
 
-def inference(
+async def inference(
              async_debate: AsyncDebate,
              data: dict,
              idx: int,
@@ -86,7 +92,7 @@ def inference(
     news_content = data["content"]
     
     # Run the debate
-    result = async_debate.run_debate(idx, image_base64, caption, news_content)
+    result = await async_debate.run_debate(idx, image_base64, caption, news_content)
     
     # Add metadata and timing information
     result["metadata"] = {
@@ -111,7 +117,7 @@ def inference(
 def get_transform():
     return None
 
-def main():
+async def main():
     args = arg_parser()
     
     # Setup environment
@@ -140,53 +146,14 @@ def main():
         raise ValueError(f"Invalid LLM model: {args.llm_model}")
     print("LLM Model Connected")
         
-    print("Connecting to VLM Model 1...")
-    if args.vlm_model1 == "gpt":
-        vlm_connector1 = GPTConnector(
-            api_key=os.environ["OPENAI_API_KEY"],
-            model_name="gpt-4o-mini-2024-07-18"
-        )
-    elif args.vlm_model1 == "gemini":
-        vlm_connector1 = GeminiConnector(
-            api_key=args.vlm_api_key1 if args.vlm_api_key1 else os.environ["GEMINI_API_KEY"],
-            model_name=args.vlm_model1_name,
-            # connector_name="VLM 1"
-        )
-    else:
-        raise ValueError(f"Invalid VLM model: {args.vlm_model1  }")
-    print("VLM Model 1 Connected")
-        
-    print("Connecting to VLM Model 2...")
-    if args.vlm_model2 == "gpt":
-        vlm_connector2 = GPTConnector(
-            api_key=os.environ["OPENAI_API_KEY"],
-            model_name="gpt-4o-mini-2024-07-18"
-        )
-    elif args.vlm_model2 == "gemini":
-        vlm_connector2 = GeminiConnector(
-            api_key=args.vlm_api_key2 if args.vlm_api_key2 else os.environ["GEMINI_API_KEY"],
-            model_name=args.vlm_model2_name,
-            # connector_name="VLM 2"
-        )
-    else:
-        raise ValueError(f"Invalid VLM model: {args.vlm_model2}")
-    print("VLM Model 2 Connected")
-        
-    print("Connecting to VLM Model 3...")
-    if args.vlm_model3 == "gpt":
-        vlm_connector3 = GPTConnector(
-            api_key=os.environ["OPENAI_API_KEY"],
-            model_name="gpt-4o-mini-2024-07-18"
-        )
-    elif args.vlm_model3 == "gemini":
-        vlm_connector3 = GeminiConnector(
-            api_key=args.vlm_api_key3 if args.vlm_api_key3 else os.environ["GEMINI_API_KEY"],
-            model_name=args.vlm_model3_name,
-            # connector_name="VLM 3"
-        )
-    else:
-        raise ValueError(f"Invalid VLM model: {args.vlm_model3}")
-    print("VLM Model 3 Connected")
+    # Connect to primary VLMs
+    primary_vlm_connectors = [
+        GeminiConnector(api_key=api_key, model_name="gemini-2.0-flash-001")
+        for api_key in args.vlm_primary_api_keys
+    ]
+    
+    # Connect to fallback VLM
+    fallback_vlm_connector = GeminiConnector(api_key=args.vlm_fallback_api_key, model_name="gemini-2.0-flash-001") if args.vlm_fallback_api_key else None
 
     # Initialize modules
     print("Initializing modules...")
@@ -200,9 +167,8 @@ def main():
         image_evidences_module=image_evidences_module,
         text_evidences_module=text_evidences_module,
         max_rounds=args.max_debate_rounds,
-        vlm_connector1=vlm_connector1,
-        vlm_connector2=vlm_connector2,
-        vlm_connector3=vlm_connector3,
+        primary_vlm_connectors=primary_vlm_connectors,
+        fallback_vlm_connector=fallback_vlm_connector,
         image_information_save_dir=args.img_des_dir_path
     )
     # Load dataset
@@ -249,6 +215,7 @@ def main():
             try:
                 print(f"\n--- Processing item {idx} (Attempt {retry_count + 1}/{max_retries + 1}) ---")
                 res_path = os.path.join(args.output_dir_path, f"result_{idx}.json")
+                report_path = os.path.join(args.output_dir_path, f"report_{idx}.md")
                 
                 # Skip if result already exists and skip_existing is set
                 if args.skip_existing and os.path.exists(res_path):
@@ -259,7 +226,7 @@ def main():
                 item = dataset[idx]
                 
                 # Run inference
-                result = inference(
+                result = await inference(
                     async_debate=async_debate,
                     data=item,
                     idx=idx,
@@ -273,6 +240,10 @@ def main():
                 # Save result
                 with open(res_path, "w", encoding='utf-8') as f:
                     json.dump(result, f, indent=2, ensure_ascii=False, cls=NumpyJSONEncoder)
+                
+                # Save report
+                with open(report_path, "w", encoding='utf-8') as f:
+                    f.write(result["structured_report"])
                 
                 results.append(result)
                 print(f"Saved result to {res_path}")
@@ -330,7 +301,7 @@ def main():
                     json.dump(error_item, f, indent=2, ensure_ascii=False)
                 error_items.append(error_item)
                 print(f"Error processing item {idx}: {e}")
-                # raise e
+                raise e
                 break  # Move to next item
                 
     total_time = time.time() - total_start_time
@@ -351,4 +322,4 @@ def main():
         json.dump(summary, f, indent=2, ensure_ascii=False)
         
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

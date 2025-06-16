@@ -12,12 +12,12 @@ class RetrievalAgent:
     def update_vlm_connector(self, vlm_connector):
         self.vlm_connector = vlm_connector
     
-    def analyze(self, caption: str, news_content: str, evidence: Dict, image_base64: str = None) -> Dict:
+    async def analyze(self, caption: str, news_content: str, evidence: Dict, image_base64: str = None) -> Dict:
         # Construct the prompt for the Retrieval Agent
         prompt = self._construct_analysis_prompt(caption, news_content, evidence)
         
         # Make the call to the VLM
-        response = self.vlm_connector.call_with_structured_output(
+        response = await self.vlm_connector.call_with_structured_output(
             prompt=prompt,
             schema={
                 "type": "object",
@@ -42,7 +42,7 @@ class RetrievalAgent:
         # NEWS CONTENT: {news_content}
         
         prompt = f"""
-        As a Retrieval Agent, your task is to cross-reference the input news with the retrieved evidence and flag any inconsistencies.
+        As a Retrieval Agent, your task is to cross-reference the news caption with the retrieved evidence and flag any inconsistencies.
         
         NEWS CAPTION: {caption}
         
@@ -52,10 +52,11 @@ class RetrievalAgent:
         Summary of news articles related to the image: {evidence['summary']}
         
         YOUR TASK:
-        1. Compare the entities mentioned in the caption with those present in the image and evidence
+        1. Compare the entities mentioned in the caption with those present in the evidence summary
         2. Identify any discrepancies between events described in the caption and what the evidence shows
         3. Check for inconsistencies in context (time, location, situation) between the caption and evidence
-        4. Provide specific details for each inconsistency you find
+        4. The news caption is just a caption of an image, so it is not always consistent with everything in the evidence summary.
+        5. Provide specific details for each inconsistency you find
         
         Focus on observable facts and objective comparisons rather than subjective interpretations.
     

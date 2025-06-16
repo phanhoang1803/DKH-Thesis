@@ -1,84 +1,9 @@
-# from typing import Any, Dict, List, Optional
-# import google.generativeai as genai
-# import json
-
-# class GeminiConnector:
-#     def __init__(self, api_key: str, model_name: str = "gemini-1.5-flash"):
-#         self.api_key = api_key
-#         self.model_name = model_name
-#         genai.configure(api_key=self.api_key)
-#         self.model = genai.GenerativeModel(model_name=self.model_name)
-
-#     def typeddict_to_json_schema(self, schema_class):
-#         properties = {}
-#         for field_name, field_type in schema_class.__annotations__.items():
-#             if field_type == bool:
-#                 field_schema = {"type": "boolean"}
-#             elif field_type == str:
-#                 field_schema = {"type": "string"}
-#             elif field_type == int:
-#                 field_schema = {"type": "integer"}
-#             elif field_type == list:
-#                 field_schema = {"type": "array", "items": {"type": "string"}}
-#             else:
-#                 raise ValueError(f"Unsupported type: {field_type}")
-#             properties[field_name] = field_schema
-
-#         return {
-#             "type": "object",
-#             "required": list(properties.keys()),
-#             "properties": properties
-#         }
-
-#     def call_with_structured_output(
-#         self,
-#         prompt: str,
-#         schema: Any,
-#         images: Optional[List[str]] = None,
-#         system_prompt: Optional[str] = None
-#     ) -> Dict[str, Any]:
-#         """
-#         Call Gemini with function calling capabilities, passing images as a list.
-#         """
-#         if system_prompt:
-#             self.model = genai.GenerativeModel(model_name=self.model_name, system_instruction=system_prompt)
-        
-#         # Convert schema class to JSON Schema if needed
-#         if isinstance(schema, dict):
-#             json_schema = schema
-#         else:
-#             json_schema = self.typeddict_to_json_schema(schema)
-        
-#         # Wrap base64 images in proper format
-#         model_input = []
-#         if images:
-#             image_payload = [{'mime_type': 'image/jpeg', 'data': img} for img in images]
-#             model_input.extend(image_payload)
-        
-#         model_input.append(prompt)
-
-#         # Generate structured content
-#         res = self.model.generate_content(
-#             model_input,
-#             generation_config=genai.GenerationConfig(
-#                 temperature=0.7,
-#                 top_p=0.9,
-#                 top_k=40,
-#                 response_mime_type="application/json", 
-#                 response_schema=json_schema,
-#                 candidate_count=1,
-#                 max_output_tokens=2048,
-#             )
-#         )
-#         print(res.candidates[0].content.parts[0].text)
-#         return json.loads(res.candidates[0].content.parts[0].text)
-
-
+import base64
 from typing import Any, Dict, List, Optional
 import google.generativeai as genai
 import json
 import re
-from google.api_core import retry
+from google.api_core.retry_async import AsyncRetry
 
 class GeminiConnector:
     def __init__(self, api_key: str, model_name: str = "gemini-1.5-flash", connector_name: str = None):
@@ -109,11 +34,12 @@ class GeminiConnector:
             "properties": properties
         }
 
-    def call_with_structured_output(
+    async def call_with_structured_output(
         self,
         prompt: str,
         schema: Any,
         images: Optional[List[str]] = None,
+        messages: Optional[List[Dict[str, str]]] = None, # For history
         system_prompt: Optional[str] = None
     ) -> Dict[str, Any]:
         """
@@ -136,17 +62,87 @@ class GeminiConnector:
         else:
             json_schema = self.typeddict_to_json_schema(schema)
         
-        # Wrap base64 images in proper format
-        model_input = []
-        if images:
-            image_payload = [{'mime_type': 'image/jpeg', 'data': img} for img in images]
-            model_input.extend(image_payload)
+        # # Handle different input scenarios
+        # if messages:
+        #     # If we have message history, we need to use it properly
+        #     # Convert the existing messages to the proper format and add the new prompt
+        #     model_input = []
+            
+        #     # Add historical messages (they should already be in the correct format)
+        #     for msg in messages:
+        #         if isinstance(msg, dict) and 'role' in msg and 'parts' in msg:
+        #             # This is already a properly formatted message
+        #             model_input.append(msg)
+        #         else:
+        #             # Handle other message formats if needed
+        #             print(f"Warning: Unexpected message format: {type(msg)}")
+            
+        #     # Add current prompt and images as a new user message
+        #     current_parts = []
+            
+        #     # Add images first if they exist
+        #     if images:
+        #         for img in images:
+        #             current_parts.append({
+        #                 "inline_data": {
+        #                     'mime_type': 'image/jpeg', 
+        #                     'data': img
+        #                 }
+        #             })
+            
+        #     # Add the text prompt
+        #     current_parts.append({"text": prompt})
+            
+        #     # Add the current message
+        #     model_input.append({
+        #         "role": "user",
+        #         "parts": current_parts
+        #     })
+            
+        # else:
+        #     # No message history - create a simple input
+        #     model_input = []
+            
+        #     # Add images if they exist
+        #     if images:
+        #         for img in images:
+        #             model_input.append({
+        #                 "inline_data": {
+        #                     'mime_type': 'image/jpeg', 
+        #                     'data': img
+        #                 }
+        #             })
+            
+        #     # Add the prompt
+        #     model_input.append(prompt)
+
+        gemini_conversation_history = []
+
+        # --- Convert historical messages to Gemini's format ---
+        if messages:
+            for msg in messages:
+                # Assuming 'messages' now comes in the generic {'role': 'user/assistant', 'content': '...'} format
+                parts = [{"text": msg["content"]}]
+                gemini_role = "user" if msg["role"] == "user" else "model" # Gemini uses 'model' for assistant
+                gemini_conversation_history.append({"role": gemini_role, "parts": parts})
         
-        model_input.append(prompt)
+        # --- Add the current turn's prompt and images as a new user message ---
+        current_turn_parts = []
+        
+        # Add the text prompt for the current turn
+        current_turn_parts.append({"text": prompt})
+
+        # Add images if they exist for the current turn
+        if images:
+            for img_b64 in images:
+                current_turn_parts.append({"mime_type": "image/jpeg", "data": img_b64})
+
+        # Append the current turn's content as a new user message
+        gemini_conversation_history.append({"role": "user", "parts": current_turn_parts})
 
         # Generate structured content
-        res = self.model.generate_content(
-            model_input,
+        res = await self.model.generate_content_async(
+            gemini_conversation_history,
             generation_config=genai.GenerationConfig(
                 temperature=0.7,
                 top_p=0.9,
@@ -156,9 +152,9 @@ class GeminiConnector:
                 candidate_count=1,
                 max_output_tokens=2048,
             ),
-            request_options={'retry': retry.Retry(initial=1, maximum=3, multiplier=1.5)}
+            request_options={'retry': AsyncRetry(initial=1, maximum=3, multiplier=1.5)}
         )
-        
+
         # Get the response text
         response_text = res.candidates[0].content.parts[0].text
         

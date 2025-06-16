@@ -2,12 +2,12 @@ class EvidenceReranker:
     def __init__(self, vlm_connector):
         self.vlm_connector = vlm_connector
         
-    def rerank(self, evidences, reference_image=None):
+    async def rerank(self, evidences, reference_image=None):
         if not evidences:
             return []
             
         # Create reranking prompt if template is provided
-        rerank_prompt = self._create_rerank_prompt(evidences)
+        rerank_prompt = await self._create_rerank_prompt(evidences)
         
         system_prompt = """
         You are an expert evidence selector and fact checker. 
@@ -19,7 +19,7 @@ class EvidenceReranker:
         incorrect context, or inaccurate descriptions of what's actually shown in the image.
         """
         
-        response = self.vlm_connector.call_with_structured_output(
+        response = await self.vlm_connector.call_with_structured_output(
             prompt=rerank_prompt,
             schema={
                 "type": "object",
@@ -45,7 +45,7 @@ class EvidenceReranker:
         
         return reranked_evidences
     
-    def _create_rerank_prompt(self, evidences):
+    async def _create_rerank_prompt(self, evidences):
         evidence_texts = []
         for i, evidence in enumerate(evidences):
             evidence_caption = evidence.caption if evidence.caption else ""

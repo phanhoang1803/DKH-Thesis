@@ -116,7 +116,8 @@ class ImageEvidencesModule(BaseEvidencesModule):
                     
                     content = get_content(item)
                     
-                    if (extract_caption(item.get('caption')) == "" and item.get('title', '') == "") or content == "":
+                    # if (extract_caption(item.get('caption')) == "" and item.get('title', '') == "") or content == "":
+                    if extract_caption(item.get('caption')) == "" or item.get('title', '') == "" or content == "":
                         continue
                     
                     evidence_list.append(Evidence(
